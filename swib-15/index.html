@@ -1,411 +1,925 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+<title>LOD for applications - Using the Lobid API</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+<meta charset="utf-8">
+<meta name="description"
+	content="LOD for applications - Using the Lobid API">
+<meta name="author" content="Pascal Christoph, Fabian Steeg">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<script>
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+	document.getElementsByTagName('head')[0].appendChild(link);
+</script>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-
-		<!--[if lt IE 9]>
+<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+<![endif]-->
+</head>
 
-	<body>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>LOD for applications</h1>
+				<h3>Using the Lobid API</h3>
+				<p>
+					<small><a href="http://www.dr0i.de/">Pascal Christoph</a> /
+						<a href="https://twitter.com/dr0ide">@dr0ide</a> &amp; <a
+						href="http://www.fsteeg.com/">Fabian Steeg</a> / <a
+						href="https://twitter.com/fsteeg">@fsteeg</a> <br /> <a
+						href="https://www.hbz-nrw.de/angebote/linked_open_data/index_engl_html">Linked
+							Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
+						src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+						<br/><small>SWIB15, Hamburg, 2015-11-24</small>
+				</p>
+				<p>
+					This presentation: <br /> <a
+						href="http://hbz.github.io/slides/swib-15">http://hbz.github.io/slides/swib-15</a>
+				</p>
+			</section>
 
-		<div class="reveal">
+			<section>
+				<img src="img/ala-flyer.png" width=700 />
+				<p>
+					ALA Archives, ca. 1925<br /> <small><a
+						href="http://imagesearchnew.library.illinois.edu/cdm/singleitem/collection/alaposters/id/23/rec/2">
+							http://imagesearchnew.library.illinois.edu/cdm/singleitem/collection/alaposters/id/23/rec/2</a></small>
+				</p>
+			</section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+			<section>
+				<h1>Software</h1>
+				<h3>The thing on which all professions and occupations depend</h3>
+				<span class="fragment">
+					<p>Including library work</p>
+				</span>
+			</section>
+
+			<section>
+				<h1>
+					<blockquote>Libraries are Software</blockquote>
+				</h1>
+				<blockquote class="twitter-tweet" data-cards="hidden" lang="en"
+					width="550">
+					<p lang="en" dir="ltr">
+						&quot;Libraries are Software&quot; by <a
+							href="https://twitter.com/codyh">@codyh</a> — Good short essay
+						for dev and non-dev librarians <a href="http://t.co/Y9YLmTaZj0">http://t.co/Y9YLmTaZj0</a>
+						<a href="http://t.co/iVGKFaBql8">pic.twitter.com/iVGKFaBql8</a>
 					</p>
+					&mdash; Tim Spalding (@librarythingtim) <a
+						href="https://twitter.com/librarythingtim/status/644509561076981760">September
+						17, 2015</a>
+				</blockquote>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>LOD for applications</h1>
+				</blockquote>
+				<blockquote>
+					<h1>Using the Lobid API</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h1>Application Programming Interface</h1>
+				<span class="fragment"><h3>Why use an API?</h3></span>
+			</section>
+
+			<section>
+				<blockquote><h1>LOD for applications</h1></blockquote>
+				<span class="fragment"><h1>= building software</h1></span>
+			</section>
+
+			<section>
+				<h2>APIs make software development manageable</h2>
+				<span class="fragment"><h3>modular software</h3></span> <span
+					class="fragment"><h3>stable applications</h3></span> <span
+					class="fragment"><h3>flexible data sources</h3></span>
+			</section>
+
+			<section>
+				<h3>Lobid API data sources and formats</h3>
+				<img src="img/data.png" style="border: none; box-shadow: none;" /> <span
+					class="fragment"><h3>API decouples applications from
+						specific data sources, formats, and systems</h3></span>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Using the Lobid API</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h1>Using APIs?</h1>
+				<p>What does that even mean?</p>
+				<span class="fragment">
+					<p>For Web APIs:</p>
+					<h1>opening URLs!</h1>
+				</span>
+			</section>
+
+			<section>
+				<h2>Just like opening a web site</h2>
+				<span class="fragment"><h2>but we want structured data</h2> </span>
+			</section>
+			<section>
+
+				<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/search?q=hbz"
+							target="_blank">How-to</a>
+					</h1>
+					<small>Click the center of screenshots to switch to live
+						demo<br /> (You should have a JSON viewer plugin installed in your
+						Browser for readable output)
+					</small>
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+				<section data-background="img/demo1-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=hbz"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo1-2.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=zbw"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
 				</section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+			</section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+			<section>
+				<p>We can edit and re-open the URL in the browser bar</p>
+				<h2>We're using the API</h2>
+			</section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+			<section>
+				<h2>Same URL, other usage:</h2>
+				<h2>Call URL from command line</h2>
+			</section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+			<section>
+				<h3>Bulk downloads</h3>
+				<pre><code contenteditable class="bash">curl -H "Accept: application/ld+json" -H "Accept-Encoding: gzip"</code></pre>
+				<span class="fragment"><h3>For or arbitrary queries</h3></span>
+				<span class="fragment"> <pre><code contenteditable class="bash"># All holdings of owner with ISIL DE-6:
+"http://lobid.org/resource?owner=DE-6&scroll=true"</code></pre></span>
+				<span class="fragment"> <pre><code contenteditable class="bash"># Or new titles with GND subject 4055382-6 since 2015-10-23:
+"http://lobid.org/resource?subject=4055382-6&scroll=20151023"</code></pre></span>
+				<span class="fragment"><pre><code contenteditable class="bash"># And redirect data into a file:
+> "resources-4055382-20151023.gz"</code></pre>
+					<p> <small>(this should all be in a single line, using one URL only)</small> </p>
+				</span> 
+				<span class="fragment"><h3>Local data, offline usage, still API</h3></span>
+			</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+			<section>
+				<h2>
+					Application: <br />answer a single question
+				</h2>
+				<h2>
+					<span class="fragment"><blockquote>How many
+							libraries are there in Germany?</blockquote></span>
+				</h2>
+			</section>
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+			<section>
+				<h1>10.000?</h1>
+				<small>
+					<blockquote class="twitter-tweet" lang="en">
+						<p lang="de" dir="ltr">
+							.<a href="https://twitter.com/fsteeg">@fsteeg</a> &quot;10.200
+							[Bibliotheken] gibt es insgesamt&quot;. Sind eher doppelt so
+							viel, wenn man die Pfarrbibliotheken dazu zählt.
 						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
+						&mdash; Adrian Pohl (@acka47) <a
+							href="https://twitter.com/acka47/status/604286119950176258">May
+							29, 2015</a>
+					</blockquote>
+				</small> <span class="fragment">
+					<p />
+					<h1>20.000?</h1> <small><blockquote class="twitter-tweet"
+							lang="en">
+							<p lang="de" dir="ltr">
+								In Deutschland gibt es 19.347 Bibliotheken <a
+									href="http://t.co/qPcY3Kh7o7">http://t.co/qPcY3Kh7o7</a> .
+								Datenquelle: dbs und ZDB-Sigeldatei /via <a
+									href="https://twitter.com/lobidOrg">@lobidOrg</a> API
+							</p>
+							&mdash; dr0ide (@dr0ide) <a
+								href="https://twitter.com/dr0ide/status/608588848243818496">June
+								10, 2015</a>
+						</blockquote> </small>
+				</span>
+			</section>
+
+			<section>
+				<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/DE-206H"
+							target="_blank">How-to</a>
+					</h1>
 				</section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
+				<section data-background="img/demo2-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="http://beta.lobid.org/organisations/DE-206H"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo2-2.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="http://beta.lobid.org/organisations/DE-206H"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo2-3.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="http://beta.lobid.org/organisations/DE-206H"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo2-4.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo2-5.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+			</section>
+			<section>
+				<p>(summary)</p>
+				<blockquote>How many libraries are there in Germany?</blockquote>
+				<h1>13.279</h1>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td>Look at a sample organisation</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/DE-206H">http://beta.lobid.org/organisations/DE-206H</a></small></td>
+							</tr>
+							<tr>
+								<td>Find fields to query</td>
+								<td><code>type AND location.address.addressCountry</code></td>
+							</tr>
+							<tr>
+								<td>Create query</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany">http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany</a></small></td>
+							</tr>
+							<tr>
+								<td>Find answer in response</td>
+								<td><code>hits.total: 13.279</code> (19.11.15)</td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+			</section>
+
+			<section>
+				<h2>19.347 vs. 13.279</h2>
+				<span class="fragment"><h4>
+						<blockquote>
+							LOD for applications<br />Using the Lobid API
+						</blockquote>
+					</h4></span> <span class="fragment"> <small>
+						<h2>Improved queries</h2>
+						<blockquote class="twitter-tweet" lang="en">
+							<p lang="de" dir="ltr">
+								<a href="https://twitter.com/lobidOrg">@lobidOrg</a> <a
+									href="https://twitter.com/InspektorHicks">@InspektorHicks</a>
+								Um genau zu sein: da sind auch Goethe Institute im Ausland mit
+								dabei usw. Siehe <a href="http://t.co/wbpiGZl8OC">http://t.co/wbpiGZl8OC</a>
+							</p>
+							&mdash; dr0ide (@dr0ide) <a
+								href="https://twitter.com/dr0ide/status/608629102652833792">June
+								10, 2015</a>
+						</blockquote>
+				</small>
+				</span> <span class="fragment"> <small>
+						<h2>Improved data</h2>
+						<blockquote class="twitter-tweet" lang="en">
+							Take into account status of DBS entries
+							<p>
+								&mdash; <a
+									href="https://github.com/hbz/lobid-organisations/issues/79">https://github.com/hbz/lobid-organisations/issues/79</a>
+							</p>
+						</blockquote>
+				</small>
+				</span> <span class="fragment"><h2>Usage &rarr; Improvement</h2></span>
+			</section>
+
+			<section>
+				<h2>
+					Application: <br />visualize data on a map
+				</h2>
+				<h1>
+					<span class="fragment">Libraries in Hamburg</span>
+				</h1>
+			</section>
+
+			<section>
+				<section data-transition="slide">
+					<h1>
+						<a
+							href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Hamburg"
+							target="_blank">How-to</a>
+					</h1>
+				</section>
+				<section data-background="img/demo3-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Hamburg"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo3-2.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Hamburg"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo3-3.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="view-source:demo.html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo3-4.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="view-source:demo.html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo3-5.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo"
+						href="view-source:demo.html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo3-6.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch to Live Demo" href="demo.html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+			</section>
+
+			<section>
+				<p>(summary)</p>
+				<h2>Build an interactive map</h2>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td>Look at a sample organisation</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/DE-206H">http://beta.lobid.org/organisations/DE-206H</a></small></td>
+							</tr>
+							<tr>
+								<td>Find field to query</td>
+								<td><code>type</code> AND <code>location.address.addressLocality</code></td>
+							</tr>
+							<tr>
+								<td>Create query</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Hamburg">
+											http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Hamburg</a></small></td>
+							</tr>
+							<tr>
+								<td>Embed some Leaflet.js Javascript code in an HTML file
+									which calls query above and uses response fields</td>
+								<td><code>location.geo.lat</code> and <code>location.geo.lon</code></td>
+							</tr>
+							<tr>
+								<td>Open HTML file in browser</td>
+								<td><a href="demo.html" target="_blank">demo.html</a>, <a
+									href="view-source:demo.html" target="_blank">source</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+			</section>
+
+			<section>
+				<h1>
+					Application: <br />NWBib
+				</h1>
+			</section>
+
+			<section>
+				<h3>NWBib: regional bibliography for German state North
+					Rhine-Westfalia (NRW)</h3>
+				<span class="fragment"><h4>Catalogued by the 3
+						NRW-Landesbibliotheken</h4></span> <span class="fragment"><h4>Presentation
+						by hbz, based on Lobid API</h4></span>
+			</section>
+
+			<section>
+				<section data-transition="slide">
+					<h1>
+						<a href="http://lobid.org/nwbib/HT016558942" target="_blank">NWBib</a>
+					</h1>
+				</section>
+				<section data-background="img/demo4-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://lobid.org/nwbib/HT016558942"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo4-2.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://lobid.org/nwbib/HT016558942"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo4-3.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://lobid.org/nwbib"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo4-4.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://lobid.org/nwbib/search?q=braunkohle"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo4-5.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://lobid.org/nwbib/search?location=42%20Orte%20aus%20Kartenauswahl|50.56743281656585,6.649398284703092+50.56741595187408,6.64950316743691+50.56740572145051,6.649610153165785+50.567402224513614,6.649718204347387+50.567405494978,6.649826273106689+50.56741550112544,6.6499333113982395+50.641116467728445,7.236683297212334+50.64118708557393,7.236992605139604+50.64131257624125,7.2372551206201585+50.641481703243954,7.237447338709884+50.64167932301831,7.237552048707636+50.64188774097007,7.2375598751562045+50.801476364247456,7.205534299518387+50.80157283163572,7.205503792531571+50.80166560578553,7.205452020474131+50.801752824431304,7.205380022587438+50.80183273683382,7.205289244114099+50.801903738920494,7.2051815072870795+50.942735593157785,6.9585148374414985+50.94274854294329,6.958491464498557+50.942761070357065,6.9584675187647616+50.94277316534544,6.958443019457937+50.942784818201865,6.95841798624016+50.94279601957456,6.958392439201995+51.135571375275546,6.504224715546294+51.135650777880265,6.503972479208997+51.13568724310365,6.503696329117643+51.1356783651139,6.503414485342045+51.1356247296453,6.503145543614917+51.1355298753587,6.502907248406391+51.08023056826382,6.397077338962536+51.08017993458187,6.396990484497076+51.08012371901032,6.39691281501431+51.080062575422055,6.396845233955322+51.0799972150132,6.396788527413979+51.07992839803107,6.396743354993214+50.662372032334225,6.1647798844150214+50.66215210326194,6.1647181447645485+50.661931096376996,6.16476943007207+50.66173175109583,6.164928463620679+50.66157457833666,6.165178882536564+50.66147575000503,6.1654949213560375&q=braunkohle&person=&name=&subject=&publisher=&issued=&medium=&nwbibspatial=&nwbibsubject=&owner=&t=&sort=newest&set=&word=&corporation=&raw="><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+			</section>
+
+			<section>
+				<p>(summary)</p>
+				<h2>Complex application with map visualization and browsing</h2>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td><i>Landesbibliotheken</i> catalog subject locations,
+									e.g. <i>Köln</i></td>
+								<td><a href="http://lobid.org/nwbib/HT016558942">http://lobid.org/nwbib/HT016558942</a></td>
+							</tr>
+							<tr>
+								<td>We get geo coordinates for these labels from Wikidata
+									(so we can search by geo location)</td>
+								<td><a href="http://lobid.org/nwbib">http://lobid.org/nwbib</a></td>
+							</tr>
+							<tr>
+								<td>We get labels for these geo coordinates from Wikidata <br />(so
+									we can show a label if we search by geo location)
+								</td>
+								<td><a
+									href="http://lobid.org/nwbib/search?location=50.942222,6.957778">http://lobid.org/nwbib/search?location=50.942222,6.957778</a></td>
+							</tr>
+							<tr>
+								<td>Display them on a searchable map, basically as in
+									previous demo, with clusters as visualization</td>
+								<td><a href="http://lobid.org/nwbib/search?q=braunkohle">http://lobid.org/nwbib/search?q=braunkohle</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+			</section>
+
+			<section>
+				<h1>
+					Application: <br />OpenRefine
+				</h1>
+				<span class="fragment"><blockquote>
+						A free, open source, power tool <br />for working with messy data.
+					</blockquote></span>
+			</section>
+
+			<section>
+				<h1>Spreadsheet</h1>
+				<span class="fragment"><h2>Cleanup</h2></span> <span
+					class="fragment"><h2>Transformation</h2></span> <span
+					class="fragment">
+					<h2>
+						Reconciliation
+						<p>
+							<small>(with external APIs)</small>
+						</p>
+					</h2>
+				</span>
+			</section>
+
+			<section>
+				<h2>Use case: user request</h2>
+				<a href="https://github.com/hbz/lobid-organisations/issues/55">https://github.com/hbz/lobid-organisations/issues/55</a>
+				<span class="fragment">
 					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
 					<table>
 						<thead>
 							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
+								<th>dbs-id</th>
+								<th>bibliothek</th>
+								<th>plz</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
+								<td></td>
+								<td>Stadtbücherei Wernau</td>
+								<td>73249</td>
 							</tr>
 							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
+								<td>WG548</td>
+								<td>Stadtbibliothek Stavenhagen</td>
+								<td>17153</td>
 							</tr>
 							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
+								<td></td>
+								<td>Stadt- und Schulbücherei Gunzenhausen</td>
+								<td>91710</td>
+							</tr>
+							<tr>
+								<td>WH759</td>
+								<td>Gemeindebibliothek Hohenleipisch</td>
+								<td>4934</td>
 							</tr>
 						</tbody>
 					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
 					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+				</span> <span class="fragment">
+					<h2>Wanted: uniform identifiers</h2>
+				</span>
+			</section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
+			<section>
+				<section data-transition="slide">
+					<h1>
+						<a
+							href="https://github.com/hbz/lobid-organisations/issues/55\#issuecomment-129771979"
+							target="_blank">How-to</a>
+					</h1>
+				</section>
+				<section data-background="img/demo5-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://localhost:3333"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				<section data-background="img/demo5-2.png"
+					data-background-size="contain">
+				</section>
+				<section data-background="img/demo5-3.png"
+					data-background-size="contain">
+				</section>
+				<section data-background="img/demo5-4.png"
+					data-background-size="contain">
+				</section>
+				<section data-background="img/demo5-5.png"
+					data-background-size="contain">
+				</section>
+				<section data-background="img/demo5-6.png"
+					data-background-size="contain">
+				</section>
+				<section data-background="img/demo5-7.png"
+					data-background-size="contain">
+				</section>
+			</section>
+
+			<section>
+				<p>(summary)</p>
+				<h2>OpenRefine reconciliation</h2>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td>Get OpenRefine</td>
+								<td><a
+									href="https://github.com/OpenRefine/OpenRefine/releases">https://github.com/OpenRefine/OpenRefine/releases</a></td>
+							</tr>
+							<tr>
+								<td>Follow instructions</td>
+								<td><a
+									href="https://github.com/hbz/lobid-organisations/issues/55#issuecomment-129771979">https://github.com/hbz/lobid-organisations/issues/55\#issuecomment-129771979</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+			</section>
+
+			<section>
+				<h1>Lessons learned</h1>
+				<span class="fragment"><p>Don't lose useful data for
+						applications in LOD transformation</p></span> <span class="fragment"><p>Structure
+						data to make it useful, like for queries and processing</p></span> <span
+					class="fragment"><p>Integrate into existing workflows
+						and open tools, like OpenRefine</p></span>
+			</section>
+
+			<section>
+				<h1>Let applications drive API and data design</h1>
+				<span class="fragment"><p>avoid premature abstraction</p></span> <span
+					class="fragment"><p>support actual use cases before
+						generalizing</p></span>
+			</section>
+
+			<section>
+				<h1>
+					<blockquote>Do usable before reusable.</blockquote>
+				</h1>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">Do usable before reusable.</p>
+					&mdash; Einar W. Høst (@einarwh) <a
+						href="https://twitter.com/einarwh/status/634702639410884609">August
+						21, 2015</a>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>
+					<blockquote>Having other folks use your stuff makes
+						your stuff better!</blockquote>
+				</h2>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">
+						<a href="https://twitter.com/edsu">@edsu</a> Guess what - it turns
+						out having other folks use your stuff makes your stuff better!
+						Software and collections too!
 					</p>
-				</section>
+					&mdash; Andy Jackson (@anjacks0n) <a
+						href="https://twitter.com/anjacks0n/status/626697087544074240">July
+						30, 2015</a>
+				</blockquote>
+			</section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+			<section>
+				<h1>Progress</h1>
+				<span class="fragment"><h2>Building</h2></span> <span
+					class="fragment"><h2>Using</h2></span> <span class="fragment"><h2>Improving</h2></span>
+			</section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
+			<section>
+				<h2>How did we built the API?</h2>
+				<span class="fragment"><p>
+						Metafacture<br /> <small>(a Java toolkit for stream-based
+							library metadata processing)</small>
+					</p></span> <span class="fragment"><p>
+						Elasticsearch<br /> <small>(a Lucene-based search server,
+							something like SOLR, we use it with Java)</small>
+					</p></span> <span class="fragment"><p>
+						Playframework<br /> <small>(a Web application framework,
+							something like Rails or Django, we use it with Java)</small>
+					</p></span> <span class="fragment">
 					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
+					<h2>
+						Java programming<br /> with open source tools!
+					</h2>
 					</p>
-				</section>
+				</span>
+			</section>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+			<section>
+				<h2>But what about</h2>
+				<h2>Linked Data</h2>
+				<span class="fragment"><h2>Semantic Web</h2></span> <span
+					class="fragment"><h2>in Libraries</h2></span> <span
+					class="fragment"><h2>SWIB</h2></span> <span class="fragment"><h2>?</h2></span>
+				<span class="fragment"><small><p>(our structured
+							data is JSON-LD, RDF-compatible)</p></small></span>
+			</section>
+
+			<section>
+				<h2>
+					<blockquote>a technological solution, one of many that
+						might fit the real goals</blockquote>
+				</h2>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">I&#39;m so over linked data/semantic web
+						as a goal. Its a technological solution, one of many that might
+						fit the real goals/outcomes</p>
+					&mdash; Euan Cochrane (@euanc) <a
+						href="https://twitter.com/euanc/status/605801349125541889">June
+						2, 2015</a>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>
+					<blockquote>to make the product better for our users</blockquote>
+				</h2>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">
+						&quot;No matter what our job titles, our jobs are all the same —
+						to make the product better for our users.&quot; <a
+							href="http://t.co/Rz8CnWvlbm">http://t.co/Rz8CnWvlbm</a>
 					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+					&mdash; F. Steeg (@fsteeg) <a
+						href="https://twitter.com/fsteeg/status/570614437016690689">February
+						25, 2015</a>
+				</blockquote>
+			</section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+			<section>
+				<h1>Software</h1>
+				<span class="fragment"><h1>in Libraries</h1></span> <span
+					class="fragment"><h1>SWIB</h1></span> <span class="fragment"><h1>!</h1></span>
+			</section>
+
+			<section>
+				<h1>So what?</h1>
+			</section>
+
+			<section>
+				<h1>Build APIs</h1>
+				<span class="fragment"><h2>provide infrastructure for
+						software in libraries</h2></span> <span class="fragment"><p>
+						make the great work of cataloguers available <br />for all kinds
+						of use cases
+					</p></span>
+			</section>
+
+			<section>
+				<h1>
+					<blockquote>Libraries need APIs</blockquote>
+				</h1>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">
+						.<a href="https://twitter.com/fsteeg">@fsteeg</a> Yep. Libraries
+						need APIs, not web portals.
 					</p>
-				</section>
+					&mdash; Ralf Claussnitzer (@claussni) <a
+						href="https://twitter.com/claussni/status/626338710213296128">July
+						29, 2015</a>
+				</blockquote>
+			</section>
 
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+			<section>
+				<h2>Empower yourself and others</h2>
+				<span class="fragment"><h3>to use your data</h3></span> <span
+					class="fragment"><h3>to build new applications</h3></span> <span
+					class="fragment"><h3>to improve existing applications</h3></span>
+			</section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
+			<section>
+				<h1>Not by itself</h1>
+			</section>
 
-			</div>
+			<section>
+				<h2>
+					<blockquote>An API and some large-but-finite amount of
+						labor</blockquote>
+				</h2>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="en" dir="ltr">Realizing that I say &quot;it
+						wouldn&#39;t be difficult to X&quot; when I mean &quot;there&#39;s
+						an API and some large-but-finite amount of labor could X.&quot;</p>
+					&mdash; Ted Underwood (@Ted_Underwood) <a
+						href="https://twitter.com/Ted_Underwood/status/639174204668121088">September
+						2, 2015</a>
+				</blockquote>
+			</section>
+
+			<section>
+				<h3>
+					Provide infrastructure for<br />software in libraries
+				</h3>
+				<span class="fragment"><h2>Empower yourself and others</h2></span>
+			</section>
+
+			<section>
+				<h1>(Openness)</h1>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td>Technically open: code is open source; organizationally
+									open: issues, continuous integration, code reviews, wiki on
+									GitHub</td>
+								<td><a href="http://github.com/hbz/lobid">http://github.com/hbz/lobid</a>,
+									<a href="http://github.com/hbz/nwbib">http://github.com/hbz/nwbib</a></td>
+							</tr>
+							<tr>
+								<td>API is open, use at your will</td>
+								<td><a href="http://lobid.org">http://lobid.org</a>,<br />
+									<a href="http://beta.lobid.org/organisations">http://beta.lobid.org/organisations</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+				<p>
+					<small>We're very happy about usage, feedback, and
+						contributions on all of these levels.</small>
+				</p>
+				<img
+					src="img/maker-faire-own-it.jpg"
+					width=250px /><br /> <small><a
+					href="http://www.treehugger.com/gadgets/how-diy-electronics-trend-empowering-people-communities-businesses.html">
+						© Jaymi Heimbuch</a></small>
+				<p>
+					<small>Original content by the authors of these slides
+						licensed under <a
+						href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>
+					</small>
+				</p>
+			</section>
 
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls : true,
+			progress : true,
+			history : true,
+			center : true,
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+			transition : 'none', // none/fade/slide/convex/concave/zoom
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+			backgroundTransition : 'none', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+			// Optional reveal.js plugins
+			dependencies : [ {
+				src : 'lib/js/classList.js',
+				condition : function() {
+					return !document.body.classList;
+				}
+			}, {
+				src : 'plugin/markdown/marked.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/markdown/markdown.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/highlight/highlight.js',
+				async : true,
+				condition : function() {
+					return !!document.querySelector('pre code');
+				},
+				callback : function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src : 'plugin/zoom-js/zoom.js',
+				async : true
+			}, {
+				src : 'plugin/notes/notes.js',
+				async : true
+			} ]
+		});
+	</script>
 
-		</script>
-
-	</body>
+</body>
 </html>
