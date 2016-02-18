@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://slides.com/acka47/20151027-nwbib-dini#/ -->
+<html class="sl-root decks show mz-applicationcache mz-history mz-localstorage mz-svg mz-opacity mz-rgba mz-backgroundsize mz-cssanimations mz-csstransforms mz-csstransforms3d mz-csstransitions mz-flexbox mz-flexboxlegacy mz-fullscreen loaded ua-linux ua-chrome has-visible-scrollbars reveal-is-ready wf-montserrat-n4-active wf-active fonts-are-ready" data-account="free"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script src="http://js-agent.newrelic.com/nr-852.min.js"></script><script type="text/javascript" async="" src="http://widget.uservoice.com/f7sH7NavrjjvuGxByaw.js"></script><script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"4fd2e9786b","applicationID":"1563900","transactionName":"cApZREQKWl9XFxZQVlAORB9FDVlE","queueTime":0,"applicationTime":43,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function c(n,r,o){t&&t(n,r,o);for(var i=e(o),a=f(n),c=a.length,u=0;c>u;u++)a[u].apply(i,r);return i}function u(t,e){p[t]=f(t).concat(e)}function f(t){return p[t]||[]}function s(){return r(c)}var p={};return{on:u,emit:c,create:s,listeners:f,context:e,_events:p}}function o(){return new n}var i="nr@context",a=t("gos");e.exports=r()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!v++){var t=l.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(p,function(e,n){t[e]||(t[e]=n)});var n="https"===s.split(":")[0]||t.sslForHttp;l.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=l.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),c=t(1),u=window,f=u.document;t(2);var s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-852.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),l=e.exports={offset:i(),origin:s,features:{},xhrWrappable:d};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",n)),a("mark",["firstbyte",i()]);var v=0},{1:12,2:3,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],12:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],13:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}]},{},["G9z0Bl"]);</script>
+
+    <title>Zurück in die Zukunft – die NWBib und das Web by acka47</title>
+    <meta name="description" content="Vortrag von Adrian Pohl (hbz) bei der 16. DINI-Jahrestagung">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="Zurück in die Zukunft – die NWBib und das Web by acka47">
+    <meta property="og:description" content="Vortrag von Adrian Pohl (hbz) bei der 16. DINI-Jahrestagung">
+    <meta property="og:site_name" content="Slides">
+    <meta property="og:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/secure/3e4158/decks.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://slides.com/acka47/20151027-nwbib-dini">
+    <meta property="fb:app_id" content="146002942236376">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="manifest" href="http://slides.com/manifest.json">
+
+    <link href="./20151027_nwbib@dini_files/css" rel="stylesheet" type="text/css" data-application-font="opensans">
+
+    <link href="http://assets.slid.es/assets/slides/slides-1df814f963530a8557bab503c81c1049.css" media="all" rel="stylesheet">
+    <link href="http://assets.slid.es/assets/application-a450f4d12874ea93102c41704c380e05.css" media="all" rel="stylesheet">
+    	<link href="http://assets.slid.es/assets/deck-v2-df3848b455a4a84f0b5dd323b4939351.css" media="all" rel="stylesheet">
+
+
+
+<style id="user-css-output" type="text/css"></style>
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="HKCJSQyyKoeptfPHMBxn7gJyS92LPETlBZhIl9B6GVM=" name="csrf-token">
+    <script type="text/javascript">
+  if( !/dnt=1/.test( window.location.search ) ) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39670045-1', { 'userId': '385733' });
+    ga('send', 'pageview');
+
+  }
+</script>
+    <!--[if lt IE 9]>
+    <script src="//assets.slid.es/assets/html5shiv-b51d49ab0e89834a02ffce4a59905afb.js"></script>
+<![endif]-->
+    	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Slides">
+	<meta name="twitter:title" content="Zurück in die Zukunft – die NWBib und das Web">
+	<meta name="twitter:description" content="Vortrag von Adrian Pohl (hbz) bei der 16. DINI-Jahrestagung">
+	<meta name="twitter:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/secure/3e4158/decks.jpg">
+
+  <link rel="stylesheet" href="https://s3.amazonaws.com/static.slid.es/fonts/montserrat/montserrat.css"><style type="text/css"></style><style>a, button, .sl-select, .sl-checkbox label, .radio label { outline: none !important; }</style><style>@-webkit-keyframes popuqptutoiuowegiipuiejyvivegbtnwdsnhfr {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popuqptutoiuowegiipuiejyvivegbtnwdsnhfr {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.uqptutoiuowegiipuiejyvivegbtnwdsnhfr-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#uqptutoiuowegiipuiejyvivegbtnwdsnhfr-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;position:static;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#uqptutoiuowegiipuiejyvivegbtnwdsnhfr-gear:hover{-webkit-animation-name:popuqptutoiuowegiipuiejyvivegbtnwdsnhfr !important;animation-name:popuqptutoiuowegiipuiejyvivegbtnwdsnhfr !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#uqptutoiuowegiipuiejyvivegbtnwdsnhfr:hover #uqptutoiuowegiipuiejyvivegbtnwdsnhfr-gear{text-decoration:none !important;display:inline-block !important;}@media print{#uqptutoiuowegiipuiejyvivegbtnwdsnhfr{display:none !important;}}</style></head>
+  <body>
+    
+    <div id="container" class="container">
+      <header class="global-header show-on-scroll extra-wide">
+  <div class="wrapper">
+    <h1 class="logo-animation open">
+      <a class="symbol" href="http://slides.com/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="http://slides.com/"></a>
+    </h1>
+    <ul class="nav ">
+        <li class="nav-item nav-item-changelog" data-unread-count="2"></li>
+        <li class="nav-item" data-page-id="home/explore">
+          <a class="nav-item-anchor" href="http://slides.com/explore"><span class="nav-item-label">Explore</span></a>
+        </li>
+        <li class="nav-item profile-button">
+          <a class="nav-item-anchor" href="http://slides.com/acka47">
+            <span class="nav-item-label">acka47</span>
+            <span class="nav-item-burger">
+              <span class="nav-item-burger-1"></span>
+              <span class="nav-item-burger-2"></span>
+              <span class="nav-item-burger-3"></span>
+            <span class="changelog-indicator"></span></span>
+          </a>
+        </li>
+    </ul>
+  </div>
+</header>
+
+      
+      <div id="main" class="main" role="main">
+        
+
+
+
+
+<div class="marquee">
+
+	<div class="reveal-frame">
+		<div class="reveal-viewport theme-font-montserrat theme-color-black-orange">
+			<div class="reveal slide" role="application" data-transition-speed="default" data-background-transition="slide">
+				<div class="slides" style="width: 960px; height: 700px;">
+					<section data-id="3ee6db7ccb85b0d5a0012c221947a9c2" class="present" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 706px; left: 128px; top: 296px; height: auto;" data-block-id="04dd5a57d825808dfe7d89526680783e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="border-width: 1px; z-index: 11;" dir="ui">
+<h1>Die NWBib und das Web</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="892a5e37593539c869cecbe5d0cbd00c" style="height: auto; min-width: 30px; min-height: 30px; width: 286px; left: 594px; top: 51px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Adrian Pohl, hbz</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="8df3fc6766ea2a9144dad5ec846bdd9a" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 512px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 88%;" dir="ui">
+<p>16. DINI Jahrestagung, 27.10.2015, Frankfurt/Main</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="9c5558244f54c64c55fd39eb612ed75f" style="min-width: 30px; min-height: 30px; width: 162px; height: 57.8571px; left: 80px; top: 588px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="140" data-natural-height="50" src="./20151027_nwbib@dini_files/hbz_logo_klein.gif"></div></div>
+
+<div class="sl-block" data-block-type="image" data-block-id="4577e3712c4d42ad4fdb124bd03e3e4d" style="min-width: 30px; min-height: 30px; width: 100px; height: 100px; left: 780px; top: 567px;"><div class="sl-block-content" style="z-index: 15;"><img style="" data-natural-width="120" data-natural-height="120" src="./20151027_nwbib@dini_files/dini-logo.gif"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="64345211c156684f8b4c8d68e61f4d13" style="min-width: 30px; min-height: 30px; width: 370.983606557377px; height: 155px; left: 295px; top: 110px;"><div class="sl-block-content" style="z-index: 16;"><img data-natural-width="292" data-natural-height="122" style="" src="./20151027_nwbib@dini_files/zidz-logo_grau.png"></div></div></section><section data-id="6d12723cc0274a2d4c0846861b4c6ef4" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="code" data-block-id="acdd76f086a533a34382fdfa38e72a09" style="min-width: 30px; min-height: 30px; width: 960px; height: 560px; left: 0px; top: 70px;"><div class="sl-block-content" style="z-index: 11; font-size: 111%; border-style: solid; border-width: 1px;"><pre class="diff"><code class="hljs">@prefix bibo: &lt;http://purl.org/ontology/bibo/&gt; .
+@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+@prefix lo: &lt;http://lobid.org/organisation/&gt; .
+@prefix lv: &lt;http://purl.org/lobid/lv#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+@prefix schema: &lt;http://schema.org/&gt; .
+
+
+&lt;http://lobid.org/resource/NWBib&gt;
+      a lv:Bibliography , bibo:Collection ;
+      rdfs:label "Nordrhein-Westfälische Bibliographie"@de ,
+      "North Rhine-Westphalian Bibliography"@en  ;
+      skos:altLabel "NWBib" ;
+      dct:creator lo:DE-6 , lo:DE-61 ;
+      dct:contributor lo:DE-605 ;
+      dct:description "Die Nordrhein-Westfälische Bibliographie verzeichnet die
+      Literatur über das Land Nordrhein-Westfalen, seine Landesteile und Orte 
+      sowie über Personen, die im Land wirken oder gewirkt haben. Sie umfasst 
+      alle Lebensbereiche und Sachgebiete in Geschichte und Gegenwart. Die
+      Nordrhein-Westfälische Bibliographie ist eine der umfangreichsten 
+      Regionalbibliographien Deutschlands, die mehr als 320.000 Titel (Stand: 
+      Oktober 2012) nachweist. Seit 1983 wird sie von den Universitäts- und 
+      Landesbibliotheken Düsseldorf und Münster in Zusammenarbeit mit dem 
+      Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (hbz) erstellt."@de ;
+      rdfs:seeAlso &lt;http://www.landesbibliothek-nrw.de/aufgaben/nrw_bibliographie/&gt; .</code></pre></div></div></section><section data-id="290a40b211ec8a8fd26c533d91032507" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="972d44e7b09b96207c03ee20357a358e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">
+<h2><span style="font-size:1.2em">Die NWBib</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 819px; left: 71px; top: 172px; height: auto;" data-block-id="657ef7633d315fb45d30c70bb7074fa2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text">
+<ul>
+	<li><span style="font-size:1.2em">Nordrhein-Westfälische Bibliographie</span></li>
+	<li><span style="font-size:1.2em">Monographien, Aufsätze und mehr über Nordrhein-Westfalen</span></li>
+	<li><span style="font-size:1.2em">Erstes Berichtsjahr: 1983</span></li>
+	<li><span style="font-size:1.2em">Ca. 365.000 Einträge (Stand: Oktober 2015)</span></li>
+	<li><span style="font-size:1.2em">Redaktionen in ULBs Düsseldorf und Münster in Zusammenarbeit mit der ULB Bonn</span></li>
+	<li><span style="font-size:1.2em">Technische Umsetzung: hbz</span></li>
+</ul>
+</div></div></section><section data-id="9f93c86481f899b43c188efa02d3352e" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="image" data-block-id="f49ee652586cfb55d462a5cc8545154a" style="min-width: 30px; min-height: 30px; width: 960px; height: 258.24px; left: 0px; top: 221px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1000" data-natural-height="269" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1799272/1985.jpg"></div></div></section><section data-id="c45c9be65f7f9fd0f1ce746cd247c09a" data-notes="Maschinenschriftlich erfasst, von Datenerfassungskräften maschinenlesbar als EDT-Dateien erfaßt und schließlich mit GID-Programm verarbeitet. Das Endprodukt waren vier Magnetbänder für die jeweils vier Teile einer Druckausgabe. Bänder wurden mit spez. Lichtsetzanlage gedruckt. Vertrieb durch Verlag." hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 54px; height: auto;" data-block-id="aaebcfda6c3a4d250a5aa30259320bd0"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Druckwerk</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="d03c82d9b20af840d90f76759ebf3350" style="min-width: 30px; min-height: 30px; width: 960px; height: 511.2px; left: 0px; top: 140px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1600" data-natural-height="852" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1821921/nwbib-baende.jpg"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 162px; left: 798px; top: 651px;" data-block-id="9762531a44bef4284436ebfd7d25288c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><span style="font-size:15px">Foto: Adrian Pohl, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a>&nbsp;</span></p>
+</div></div></section><section data-id="426c6232f60d9a8c8e4f4634a42a4e1a" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="image" data-block-id="e0853ea14be1a3c71e7274d437d94afa" style="min-width: 30px; min-height: 30px; width: 960px; height: 258.24px; left: 0px; top: 221px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1000" data-natural-height="269" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1822005/1995.jpg"></div></div></section><section data-id="d0872dfb94c74821c5138c5993cf7ed1" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 56px; height: auto;" data-block-id="0363da09dd03e010e9eca3b39f4ceb0d"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:1.2em">NWBib im hbz-VK</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="19fe16992b5ca8be9842c566a3888b1f" style="height: auto; min-width: 30px; min-height: 30px; width: 518px; left: 221px; top: 177px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Seit Berichtsjahr 1993: „Online“-Katalogisierung</li>
+	<li>Vorrangiges Ziel: eine effizientere Druckproduktion</li>
+</ul>
+</div></div></section><section data-id="2ae4831fcc03826aa54d8de9b170bae6" data-notes="&quot;Unter dem Einsatz von einer Personenwoche konnte ein Probelauf erfolgreich abgeschlossen werden.&quot;" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 857px; left: 23px; top: 59px; height: auto;" data-block-id="f8adc30fa4bd709a10cdc4a6d5d15b39"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2>Mit Open Source in das Web I</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 456px; left: 252px; top: 178px; height: auto;" data-block-id="826a2732be5622eee2f9ffa0fcee6c56"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 12; text-align: left;">
+<blockquote>
+<p><span style="font-size:1.0em">Mit der Einführung dieses Herstellungsverfahrens [der Druckversion, AP]&nbsp;stand der NWB nun auch der Weg ins Internet offen. Dies wurde erreicht durch Ausnutzen von Public-Domain-Werkzeugen, sogenannten LaTeX-to-HTML-Tools.</span></p>
+</blockquote>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="956cfcaf095c7e84139e3a2b988ba6e0" style="height: auto; min-width: 30px; min-height: 30px; width: 306px; left: 240px; top: 502px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><a href="http://web.archive.org/web/20000310115644/http://www.weimar-klassik.de/kolloquien/e5i_224d.html" target="_blank"><span style="font-size:0.7em">Ronald Michael Schmidt, 1998</span></a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="b8f0961e0a574780346ec37f509474ab" style="min-width: 30px; min-height: 30px; width: 237.837837837838px; height: 99px; left: 634px; top: 560px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="800" data-natural-height="333" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1858750/latex_grau.png"></div></div></section><section data-id="3b351ccede174a72a0a011bb8f811361" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="image" data-block-id="9f58531d863345a9c5a9ca066fc89747" style="min-width: 30px; min-height: 30px; width: 763.794270833333px; height: 482px; left: 98px; top: 169px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="1217" data-natural-height="768" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1800181/nwbib-1998.png"></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 394px; left: 535px; top: 645px;" data-block-id="ea87437b3af8cba650a05353469344e7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><span style="font-size:0.5em">NWBib 1998,&nbsp;Quelle: <a href="http://web.archive.org/web/19980202152250/http://www.hbz-nrw.de/hbz/nwbib/nwbib_p.html" target="_blank">Internet Archive</a></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 54px; height: auto;" data-block-id="39554c7ac8ef72e0cbeffbec5b74a593"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 13;">
+<h2>HTML zum Browsen</h2>
+</div></div></section><section data-id="5d6dfc2ee02eb6c34e666d0bec50ac80" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 173px; height: auto;" data-block-id="f6186071e629d9a7926726267206de92"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<p><em><span style="font-size:1.2em"><span style="text-align:-webkit-left">"Um das Marketing dieses zusätzlichen Angebotes der Bibliographie auf dem Internet brauchten wir uns zudem auch nicht zu kümmern, das haben die Gesetze des World Wide Web sozusagen über nacht erledigt. Die NWB-Seiten wurden schon bald von den Suchmaschinen entdeckt, eingelesen und indiziert. So kann ein Benutzer auch über eine Recherche in einer Suchmaschine wie z.B. Alta Vista als Treffer auf eine NWB-Seite geführt werden"</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 394px; left: 551px; top: 650px;" data-block-id="0b6c0206bfbb4175be00a440865e3ab6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="http://web.archive.org/web/20000310115644/http://www.weimar-klassik.de/kolloquien/e5i_224d.html" target="_blank"><span style="font-size:0.7em">Ronald Michael Schmidt, 1998</span></a></p>
+</div></div></section><section data-id="a4664207a59111205977f5bc3c1b21f3" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 174px; height: auto;" data-block-id="04a454a008e31d002a63c73304eec5c1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<p><em><span style="font-size:1.2em"><span style="text-align:-webkit-left"><span style="color:#696969">"Um das Marketing dieses zusätzlichen Angebotes der Bibliographie auf dem Internet brauchten wir uns zudem auch nicht zu kümmern, das haben die Gesetze des World Wide Web sozusagen über nacht erledigt. </span>Die NWB-Seiten wurden schon bald von den Suchmaschinen entdeckt, eingelesen und indiziert. <span style="color:#696969">So kann ein Benutzer auch über eine Recherche in einer Suchmaschine wie z.B. Alta Vista als Treffer auf eine NWB-Seite geführt werden"</span></span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 55px; height: auto;" data-block-id="bc5ecbfce16e01adb61ef11dd2f34977"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:1.0em">URLs &amp;&nbsp;HMTL for the win!</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 394px; left: 551px; top: 650px;" data-block-id="afd36e41c928c65e91670ed715751e84"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p><a href="http://web.archive.org/web/20000310115644/http://www.weimar-klassik.de/kolloquien/e5i_224d.html" target="_blank"><span style="font-size:0.7em">Ronald Michael Schmidt, 1998</span></a></p>
+</div></div></section><section data-id="4df16ab84b5b9c4e1372cfd73a157245" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 394px; left: 534px; top: 638px;" data-block-id="7e8953784151e0330a57a25623029dbb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<p><span style="font-size:0.5em">NWBib 1996,&nbsp;Quelle: <a href="http://web.archive.org/web/19980202152241/http://www.hbz-nrw.de/hbz/nwbib/NW_Bib.html" target="_blank">Internet Archive</a></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="c156a5284329f361822d73fff000fa33" style="min-width: 30px; min-height: 30px; width: 799.183098591549px; height: 490px; left: 81px; top: 140px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1158" data-natural-height="710" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1822117/nwbib-1996.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 812px; left: 80px; top: 55px; height: auto;" data-block-id="985d2e104476de419de9a2dece5b4b2b"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 13;">
+<h2>Parallel: DB zum Suchen</h2>
+</div></div></section><section data-id="fd94f3f85722913ed380b62b9dbcd64d" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 56px; height: auto;" data-block-id="74ffbeef5f6e63e2695eb5d63f6fc9af"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>2005 verschwindet die NWBib vorerst vollständig im Deep&nbsp;Web:</h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="11935df7b7247ac5f3969c952b97f7fe" style="height: auto; min-width: 30px; min-height: 30px; width: 531px; left: 429px; top: 528px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui"><p><span style="font-size:0.5em">Quelle:&nbsp;<a href="https://www.google.de/search?q=site:okeanos-www.hbz-nrw.de" target="_blank">https://www.google.de/search?q=site:okeanos-www.hbz-nrw.de</a></span></p></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="77fd9489ae8a227dfc68d61351500058" style="min-width: 30px; min-height: 30px; width: 628.333333333333px; height: 185px; left: 166px; top: 313px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="754" data-natural-height="222" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1848379/nwbib-in-google_alt_kringel.png"></div></div></section><section data-id="d456457b436b7681cae48af7df350de3" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="image" data-block-id="31d6e15a8cc010f834dbb302b0f7d619" style="min-width: 30px; min-height: 30px; width: 960px; height: 255px; left: 0px; top: 223px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1600" data-natural-height="425" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1822093/2010.png"></div></div></section><section data-id="257a18d25871476382c09b4e299549d9" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="image" data-block-id="26bc683b59bb789b3243bea12c70ca2b" style="min-width: 30px; min-height: 30px; width: 960px; height: 351.891891891892px; left: 0px; top: 174px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1184" data-natural-height="434" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1836739/lobid-zukunft_ext2.png"></div></div></section><section hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 872px; left: 23px; top: 87px; height: auto;" data-block-id="e4187cfdd2237d9702c94a650d834d35"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2>Mit Open Source in das Web II</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 415.8px; height: 110px; left: 80px; top: 225px;" data-block-id="6b19fe8b14a8055bf336afe9f03c8c3c"><a class="sl-block-content" style="z-index: 12;" href="https://github.com/culturegraph/metafacture-core" target="_blank"><img style="" data-natural-width="378" data-natural-height="100" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1825649/metafacture_small.png"></a></div>
+<div class="sl-block" data-block-type="image" data-block-id="580b6a6f1330f841e049a19897452947" style="min-width: 30px; min-height: 30px; width: 268.421052631579px; height: 100px; left: 106px; top: 494px;"><a class="sl-block-content" style="z-index: 13;" href="https://www.elastic.co/products/elasticsearch" target="_blank"><img style="" data-natural-width="204" data-natural-height="76" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1836675/elastic-logo.png"></a></div>
+<div class="sl-block" data-block-type="image" data-block-id="f8a482d96e3a1d6e1e8ef92738310f07" style="min-width: 30px; min-height: 30px; width: 360px; height: 188.1px; left: 541px; top: 203px;"><a class="sl-block-content" style="z-index: 14;" href="https://www.playframework.com/" target="_blank"><img data-natural-width="1600" data-natural-height="836" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1836697/play_full_color.png"></a></div>
+<div class="sl-block" data-block-type="image" data-block-id="3e8593467db83c04066999ad3406eff9" style="min-width: 30px; min-height: 30px; width: 119px; height: 119px; left: 661px; top: 484px;"><a class="sl-block-content" style="z-index: 15;" href="http://getbootstrap.com/" target="_blank"><img style="" data-natural-width="612" data-natural-height="612" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1836758/bootstrap-solid.svg"></a></div></section><section data-id="a1678959d4373c4fe938124c15351601" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 54px; height: auto;" data-block-id="a3db683a00e15c3120d0b2705cb0a680"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">lobid</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 647px; left: 157px; top: 178px;" data-block-id="959b4d5afcda70d1b9897406935ec891"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Kerndienst LOD-API: Bereitstellung von Linked (Open) Data über eine Programmierschnittstelle (API)</li>
+	<li>Datenbasis
+	<ul>
+		<li>hbz-Verbunddaten: /resource</li>
+		<li>GND: /subject</li>
+		<li>Adressdaten aus dem Sigelverzeichnis (&amp; der DBS): /organisation(s)</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="77a1ba513346078cbf25b49c2973ca25" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="b3010ff434924bccea435e4ae7c8e02a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Vergangenheit</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 647px; left: 157px; top: 178px;" data-block-id="f24eb0496452741a16b2fb0970f6c34f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>2010: Erste Freigabe von Daten</li>
+	<li>2010-2013: Linked-Data-Forschung und -Entwicklung</li>
+	<li>Oktober 2013: lobid-API in Produktion</li>
+</ul>
+</div></div></section><section data-id="eea4941df2bcc6a11b1510b824718fd3" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 51px; height: auto;" data-block-id="ccb8d2b9a81bea10ebfd685b220222be"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">LOD-API: Was ist das?</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 647px; left: 157px; top: 178px;" data-block-id="7ef9f291e2287f5f379bdaceac99b6b3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Erweiterte Suche über URL
+	<ul>
+		<li>Antwort: strukturierte Daten (hier: JSON) &lt;- leicht und schnell zu verarbeiten</li>
+	</ul>
+	</li>
+	<li>Anstatt bloße Labels: Links auf weitere strukturierte Daten (Normdatenprinzip)&nbsp;</li>
+	<li>Schnell, weil basierend auf Suchmaschinentechnologie</li>
+</ul>
+</div></div></section><section data-id="2db1239e96e4492b18ceb13cb7752c75" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 70px; height: auto;" data-block-id="2e44b72a35342041b1650859380ec9d8"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Beispiel</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 954px; left: 3px; top: 280px;" data-block-id="43183cfa6e2b890bfc3769f8c3b62c5c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="http://lobid.org/resource?issued=1998&publisher=dumont&set=nwbib" target="_blank"><span style="font-size:0.9em">http://lobid.org/resource?issued=1998&amp;publisher=dumont&amp;set=nwbib</span></a></p>
+</div></div></section><section data-id="daaf2c2a41aaa22b054d798fa8f8488b" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 70px; height: auto;" data-block-id="21444d5ccdb6951db741ec919adf1633"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Beispiel</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 954px; left: 3px; top: 280px;" data-block-id="9433622af605aa69b0cfa2ff7e126845"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="http://lobid.org/resource?issued=1998&publisher=dumont&set=nwbib" target="_blank"><span style="font-size:0.9em">http://lobid.org/<span style="color:#FFF0F5">resource</span>?<span style="color:#FF0000">issued=1998</span>&amp;<span style="color:#FF8C00">publisher=dumont</span>&amp;<span style="color:#FFFF00">set=nwbib</span></span></a></p>
+</div></div></section><section data-id="fa68e670187d1e847eb17318028b7113" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 70px; height: auto;" data-block-id="4dc769f1adc9d4d34dbe636a566f9b4b"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Beispiel: Antwort</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="687371363b9feb40a3dd4366758b0db6" style="min-width: 30px; min-height: 30px; width: 852px; height: 535px; left: 54px; top: 165px;"><div class="sl-block-content" style="z-index: 12;"><pre><code class="hljs json">[
+   {
+      "<span class="hljs-attr">http://sindice.com/vocab/search#totalResults</span>" : <span class="hljs-number">16</span>,
+      "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://lobid.org/resource?issued=1998&amp;publisher=dumont&amp;set=nwbib"</span>
+   },
+   {
+      "<span class="hljs-attr">@graph</span>" : [
+         {
+            "<span class="hljs-attr">preferredNameForThePerson</span>" : <span class="hljs-string">"Mack, Heinz"</span>,
+            "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://d-nb.info/gnd/118729918"</span>,
+            "<span class="hljs-attr">preferredName</span>" : [
+               <span class="hljs-string">"Mack, Heinz"</span>,
+               <span class="hljs-string">"Mack, Heinz, 1931-"</span>
+            ]
+         },
+         {
+            "<span class="hljs-attr">preferredNameForThePerson</span>" : <span class="hljs-string">"Schmied, Wieland"</span>,
+            "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://d-nb.info/gnd/118795244"</span>,
+            "<span class="hljs-attr">preferredName</span>" : <span class="hljs-string">"Schmied, Wieland"</span>
+         },
+         {
+            "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://d-nb.info/gnd/120242885"</span>,
+            "<span class="hljs-attr">preferredNameForThePerson</span>" : <span class="hljs-string">"Agthe-Natter, Marion"</span>,
+            "<span class="hljs-attr">preferredName</span>" : <span class="hljs-string">"Agthe-Natter, Marion"</span>
+         },
+         {
+            "<span class="hljs-attr">preferredName</span>" : <span class="hljs-string">"Bildband"</span>,
+            "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://d-nb.info/gnd/4145395-5"</span>,
+            "<span class="hljs-attr">preferredNameForTheSubjectHeading</span>" : <span class="hljs-string">"Bildband"</span>
+         },
+         {
+            "<span class="hljs-attr">@type</span>" : [
+               <span class="hljs-string">"http://purl.org/dc/terms/BibliographicResource"</span>,
+               <span class="hljs-string">"http://purl.org/ontology/bibo/Book"</span>
+            ],
+            "<span class="hljs-attr">extent</span>" : <span class="hljs-string">"319 S. : zahlr. Ill."</span>,
+            "<span class="hljs-attr">medium</span>" : <span class="hljs-string">"http://rdvocab.info/termList/RDAproductionMethod/1010"</span>,
+            "<span class="hljs-attr">publisher</span>" : <span class="hljs-string">"DuMont"</span>,
+            "<span class="hljs-attr">contributor</span>" : <span class="hljs-string">"http://d-nb.info/gnd/120242885"</span>,
+            "<span class="hljs-attr">creator</span>" : <span class="hljs-string">"http://d-nb.info/gnd/118729918"</span>,
+            "<span class="hljs-attr">issued</span>" : <span class="hljs-string">"1998"</span>,
+            "<span class="hljs-attr">@id</span>" : <span class="hljs-string">"http://lobid.org/resource/BT000158992"</span>
+         }
+      ]
+   }
+]</code></pre></div></div></section><section data-id="53fe0d042f925a637560b4f832385ea0" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="c293405db1c3573d0441e31fa0a684d7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Vorteile</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 647px; left: 157px; top: 179px;" data-block-id="6d7ec4e2ef898633200947f7a798e48d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Adressierbarkeit:&nbsp;
+	<ul>
+		<li>jeder Titel, jede Normdatenressource, jede Organisation hat eine feste URL</li>
+		<li>auch: jede Suche hat eine URL</li>
+	</ul>
+	</li>
+	<li>Einfache Nutzung</li>
+	<li>Wertvolle Informationen in verlinkten Daten, z. B. Geodaten</li>
+</ul>
+</div></div></section><section data-id="f6844b3a206c326b070c3109b38715a7" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="e11d7d1bc2cc5da4c82e352445700fa8"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Von Aleph nach Elasticsearch</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 647px; left: 157px; top: 247px;" data-block-id="4c83820a1d047bbc9f2af4fc32b54add"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Export von Aleph-XML</li>
+	<li>Überführen der Daten von MAB/MARC-basiertem Format nach RDF
+	<ul>
+		<li>mit Metafacture</li>
+		<li>Konfiguration: <a href="https://github.com/lobid/lodmill/blob/master/lodmill-rd/src/main/resources/morph-hbz01-to-lobid.xml" target="_blank">1.500 Zeilen XML</a>
+</li>
+	</ul>
+	</li>
+	<li>Außerdem: Anreicherung mit Links zu externen Quellen (LOD-GND, Gutenberg lobid Organisations etc.)</li>
+</ul>
+</div></div></section><section data-id="6a5a485c8472bd92ee63b302c211e178" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="image" data-block-id="3d32beb43566b0fce4ab4d78e60182fa" style="min-width: 30px; min-height: 30px; width: 196.56px; height: 52px; left: 336.440002441406px; top: 200px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="378" data-natural-height="100" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1825649/metafacture_small.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="09da812c5527b8096d9fd63402b5acf8" style="min-width: 30px; min-height: 30px; width: 465.360531309298px; height: 385px; left: 493.639465332031px; top: 200px;"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="637" data-natural-height="527" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1878717/json-bsp_klein.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="7854e005373597f7557fef236278f148" style="min-width: 30px; min-height: 30px; width: 447.044776119403px; height: 360px; left: 0px; top: 200px;"><div class="sl-block-content" style="z-index: 0;"><img style="" data-natural-width="416" data-natural-height="335" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1878720/beispiel-aleph-xml_klein.png"></div></div></section><section data-id="75767e19b5de637549e803a606d5103b" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="image" style="width: 960px; height: 255px; left: 0px; top: 223px;" data-block-id="c9df4172a71b9de1d687f2d163e135aa"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1600" data-natural-height="425" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1804575/20151021.png"></div></div></section><section hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 531px; left: 429px; top: 451px;" data-block-id="179a0158976cbe1f564aed649d4bdf13"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<p><span style="font-size:0.5em">Quelle:&nbsp;<a href="https://www.google.de/search?q=site:okeanos-www.hbz-nrw.de" target="_blank">https://www.google.de/search?q=site:okeanos-www.hbz-nrw.de</a></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="cfb3006249d6b09321fc952b748904d7" style="min-width: 30px; min-height: 30px; width: 547.311688311688px; height: 201px; left: 207px; top: 210px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="629" data-natural-height="231" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1848204/nwbib-in-google_aktuell_kringel.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 55px; height: auto;" data-block-id="f79a27834f3a6e2614877164e96331d5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 14;">
+<h2><span style="font-size:1.0em">URLs &amp;&nbsp;HMTL for the win!</span></h2>
+</div></div></section><section hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 785px; left: 175px; top: 654px;" data-block-id="0076d85e77ee4a1e9f8cf5dfa3fb042f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<p><span style="font-size:0.5em">Quelle: <a href="https://www.google.de/webmasters/tools/mobile-friendly/?url=http%3A%2F%2Flobid.org%2Fnwbib" target="_blank">https://www.google.de/webmasters/tools/mobile-friendly/?url=http%3A%2F%2Flobid.org%2Fnwbib</a></span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="c5f9ac786ba84b5028a0d662dc83b225" style="min-width: 30px; min-height: 30px; width: 370.763190184049px; height: 596px; left: 295px; top: 34px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="507" data-natural-height="815" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1858544/mobile-nwbib.png"></div></div></section><section data-id="85874ea3f5f05f98b6a83acd6cb72a63" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="6a174e0ff80a9d9bfa8ef340a78eeb04"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px; line-height:88.9199981689453px">Der neue NWBib-Auftritt&nbsp;</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 248px;" data-block-id="5681752b8afa7c8ee5b779dfd4919265"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<ul>
+	<li>Noch im Entwicklungsstadium</li>
+	<li>Seit 2014: Entwicklung auf Basis der lobid-API</li>
+	<li>Basiert auf der&nbsp;lobid-API, d.h.:&nbsp;
+	<ul>
+		<li>NWBib-Anfragen gehen an lobid-API</li>
+		<li>Antwort-Daten in JSON werden mit Play &amp;&nbsp;Bootstrap&nbsp;in HTML-Sicht überführt</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="9adecba1d4c89665f93534e4284daca4"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">schema.org-Markup</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="c311e69754fcd210c41c592cfd06a406" style="min-width: 30px; min-height: 30px; width: 850px; height: 510px; left: 67px; top: 165px;"><div class="sl-block-content" style="z-index: 12;"><pre><code class="hljs vbscript-html"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="actionscript">
+{
+	<span class="hljs-string">"@context"</span>: <span class="hljs-string">"http://schema.org"</span>,
+	<span class="hljs-string">"@type"</span>: <span class="hljs-string">"CreativeWork"</span>,
+	<span class="hljs-string">"name"</span> : <span class="hljs-string">"Tempo 300"</span>,
+	<span class="hljs-string">"publisher"</span> : <span class="hljs-string">"Verl.-Gruppe Bahn"</span>,
+	<span class="hljs-string">"about"</span> : [<span class="hljs-string">"http://d-nb.info/gnd/4194341-7"</span>,<span class="hljs-string">"http://d-nb.info/gnd/4031483-2"</span>,<span class="hljs-string">"http://d-nb.info/gnd/4052370-6"</span>,<span class="hljs-string">"http://d-nb.info/gnd/4018118-2"</span>],
+	<span class="hljs-string">"contributor"</span> : <span class="hljs-string">"http://d-nb.info/gnd/1051383285"</span>,
+	<span class="hljs-string">"isPartOf"</span> : <span class="hljs-string">"http://lobid.org/resource/NWBib"</span>,
+	<span class="hljs-string">"offers"</span> : [<span class="hljs-string">"http://lobid.org/item/HT013641045:DE-290:EGM%2019579"</span>,<span class="hljs-string">"http://lobid.org/item/HT013641045:DE-929:C2003A%2F473"</span>],
+	<span class="hljs-string">"numberOfPages"</span> : <span class="hljs-string">"92 S."</span>,
+	<span class="hljs-string">"isPartOf"</span> : <span class="hljs-string">"http://lobid.org/resource/HT015323597"</span>,
+	<span class="hljs-string">"datePublished"</span> : <span class="hljs-string">"2002"</span>,
+	<span class="hljs-string">"inLanguage"</span> : <span class="hljs-string">"http://id.loc.gov/vocabulary/iso639-2/deu"</span>,
+	<span class="hljs-string">"about"</span> : <span class="hljs-string">"http://purl.org/lobid/nwbib#s555000"</span>,
+	<span class="hljs-string">"about"</span> : <span class="hljs-string">"http://purl.org/lobid/nwbib-spatial#n03"</span>
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre></div></div></section><section data-id="50e10cab7967f61d98849ef917116350" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="f63b43baaa905666ea70d53b770db75a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Demo</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="dfa7735dad86684565581eb5eba1081d" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 323px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="http://lobid.org/nwbib" target="_blank"><span style="font-size:1.4em">http://lobid.org/nwbib</span></a></p>
+</div></div></section><section data-id="c8fa58b113ffa83d8df32e48644ed8da" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 183px; height: auto;" data-block-id="3dada6b8827e1f93a82481d01409ff14"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Wir sehen uns in der Zukunft!</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 663px; left: 217px; top: 591px;" data-block-id="43c25035dd3b73a4e9ac404c1dd637a7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p style="text-align:left"><span style="font-size:0.5em">Diese Folien stehen – soweit nicht anders angegeben – unter der Creative Commons Public Domain Dedication (CC0): <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank">http://creativecommons.org/publicdomain/zero/1.0/</a>.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 61px; height: 61px; left: 146px; top: 608px;" data-block-id="2ec5dad6399eba386fdb5b05be27f326"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="384" data-natural-height="384" style="" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/385733/images/1863446/zero.large.png"></div></div></section><section hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 52px; height: auto;" data-block-id="8bd0bf11ca9bb619b1481b46b71f4418"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2><span style="font-size:68.4000015258789px">Referenz</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 940px; left: 20px; top: 179px;" data-block-id="f4c133c007fa33054cbd009a92e46697"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p style="text-align:left"><span style="font-size:0.5em">Schmidt, <span style="color:rgb(255, 255, 255); text-align:left">Ronald Michael&nbsp;</span>(1998): Die Nordrhein-Westfälische Bibliographie Online.&nbsp;In: Bibliographische Datenbanken im Internet [Elektronische Ressource] : DFG-Kolloquium vom 4. bis 5. Dezember 1997 an der Herzogin Anna Amalia Bibliothek. URL (Internet Archive): <a href="http://web.archive.org/web/20000310115644/http://www.weimar-klassik.de/kolloquien/e5i_224d.html" target="_blank">http://web.archive.org/web/20000310115644/http://www.weimar-klassik.de/kolloquien/e5i_224d.html</a></span></p>
+
+<p style="text-align:left">&nbsp;</p>
+</div></div>
+
+</section>
+				</div>
+			<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" style="display: block;"><div class="navigate-left"></div><div class="navigate-right enabled"></div><div class="navigate-up"></div><div class="navigate-down"></div></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe=""></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+Die NWBib und das Web
+
+
+Adrian Pohl, hbz
+
+
+16. DINI Jahrestagung, 27.10.2015, Frankfurt/Main
+
+
+
+
+</div></div>
+		</div>
+	</div>
+
+	<div class="deck-kudos" style="opacity: 1;">
+		<button class="kudos-button kudos-trigger" data-kudos-id="508566" data-kudoed-by-user="false">
+			<div class="kudos-heart">
+				<span class="kudos-icon icon i-heart-fill"></span>
+			</div>
+			<div class="kudos-count" data-kudos-value="0" data-kudos-id="508566"></div>
+		</button>
+	</div>
+
+	<div class="pill summary-pill" style="left: 731px;">
+		<div class="pill-picture" style="background-image: url(https://www.gravatar.com/avatar/1886373c79e90c5f78f1f4b8c4b48bf9?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+		<div class="pill-content">
+			<h4 class="pill-title">Zurück in die Zukunft – die NWBib und das Web</h4>
+			<p class="pill-description">By acka47</p>
+		</div>
+	</div>
+
+	<div class="pill instructions-pill" style="left: 884px;">
+		<div class="pill-picture"></div>
+		<div class="pill-content">
+			<h4 class="pill-title"></h4>
+			<p class="pill-description"></p>
+		</div>
+	</div>
+
+</div>
+
+<div class="column">
+	<header class="deck-info extra-wide">
+		<div class="deck-social">
+			<a href="http://slides.com/acka47/20151027-nwbib-dini#" class="deck-social-button facebook-share-button" data-tooltip="Share on Facebook">
+				<span class="icon i-facebook"></span>
+			</a>
+			<a href="http://slides.com/acka47/20151027-nwbib-dini#" class="deck-social-button twitter-share-button" data-tooltip="Share on Twitter">
+				<span class="icon i-twitter"></span>
+			</a>
+			<a href="http://slides.com/acka47/20151027-nwbib-dini#" class="deck-social-button google-share-button" data-tooltip="Share on Google+">
+			</a>
+		</div>
+
+
+		<div class="deck-promotion">
+			<a class="button cta" data-tooltip="Open the Present view" href="http://slides.com/acka47/20151027-nwbib-dini/live" target="_blank">Present</a>
+		</div>
+
+		<div class="deck-options">
+			<a class="fullscreen-button" data-tooltip="Fullscreen" href="http://slides.com/acka47/20151027-nwbib-dini#"><span class="icon i-fullscreen"></span></a>
+			<a class="comment-button" data-tooltip="Comments" data-scroll-to="" href="http://slides.com/acka47/20151027-nwbib-dini#comments" data-scroll-to-offset="-90"><span class="icon i-comment-stroke"></span></a>
+			<a class="fork-button" data-tooltip="Fork this deck" href="http://slides.com/acka47/20151027-nwbib-dini#"><span class="icon i-fork"></span></a>
+			<a class="share-button" data-tooltip="Share" href="http://slides.com/acka47/20151027-nwbib-dini#"><span class="icon i-share"></span></a>
+			<a class="edit-button" data-tooltip="Edit" href="http://slides.com/acka47/20151027-nwbib-dini/edit"><span class="icon i-pen-alt2"></span></a>
+		</div>
+
+		<div class="details">
+			<div class="deck-info">
+				<h3 class="title">Zurück in die Zukunft – die NWBib und das Web</h3>
+				<p class="description">Vortrag von Adrian Pohl (hbz) bei der 16. DINI-Jahrestagung</p>
+				<ul class="deck-meta">
+					<li data-tooltip="Published date" data-tooltip-delay="500">
+						<span class="icon i-clock"></span>
+						<time class="value ago" datetime="2015-10-06 08:30:06 UTC">5 months ago</time>
+					</li>
+					<li data-tooltip="Kudos" data-tooltip-delay="500">
+						<span class="icon i-heart-fill"></span>
+						<span class="value" data-kudos-value="0" data-kudos-id="508566"></span>
+					</li>
+					<li data-tooltip="Views" data-tooltip-delay="500">
+						<span class="icon i-eye"></span>
+						<span class="value">306</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="user-info">
+		<a class="icon i-cog edit" href="http://slides.com/users/edit" data-tooltip="Account settings"></a>
+	<div class="picture" style="background-image: url(https://www.gravatar.com/avatar/1886373c79e90c5f78f1f4b8c4b48bf9?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+	<div class="text">
+		<h3 class="title">
+			<a href="http://slides.com/acka47" class="username">acka47</a>
+		</h3>
+		<p class="description"></p>
+		<ul class="links">
+			
+			
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+			<div class="clear"></div>
+		</div>
+	</header>
+
+	<section class="comments" id="comments">
+		<div id="disqus_thread"><span class="placeholder">Loading comments...</span></div>
+	</section>
+
+
+</div>
+
+      </div>
+      <footer class="global-footer">
+    <div class="link-group">
+      <h5>Product</h5>
+      <a href="http://slides.com/">Home</a>
+      <a href="http://slides.com/explore">Explore</a>
+      <a href="http://slides.com/features">Features</a>
+      <a href="http://slides.com/pricing">Pricing</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Help</h5>
+      <a href="http://help.slides.com/" target="_blank">Forum</a>
+      <a href="http://help.slides.com/knowledgebase" target="_blank">Knowledge Base</a>
+      <a href="http://slides.com/acka47/20151027-nwbib-dini#" data-feedback-mode="smartvote">Leave Feedback</a>
+      <a href="http://slides.com/acka47/20151027-nwbib-dini#" data-feedback-mode="contact">Report an Issue</a>
+    </div>
+
+    <div class="link-group">
+      <h5>News</h5>
+      <a href="http://blog.slides.com/" target="_blank">Blog</a>
+      <a href="http://twitter.com/slides" target="_blank">Twitter</a>
+      <a href="http://facebook.com/slidesapp" target="_blank">Facebook</a>
+      <a href="http://plus.google.com/+slidesapp/" rel="publisher" target="_blank">Google+</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Company</h5>
+      <a href="http://slides.com/about">About Slides</a>
+      <a href="http://slides.com/changelog">What's New</a>
+      <a href="http://slides.com/terms">Terms of Service</a>
+      <a href="http://slides.com/privacy">Privacy Policy</a>
+    </div>
+
+    <div class="copyright"><span>© 2016 Slides, Inc.</span></div>
+</footer>
+
+    </div> <!--! end of #container -->
+    <script>
+UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+UserVoice.push(['set', {
+  accent_color: '#448dd6',
+  trigger_color: 'white',
+  trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+  position: 'automatic'
+}]);
+
+UserVoice.push(['identify', {
+  email:      "acka47@mailbox.org",
+  name:       "acka47",
+  id:         "385733",
+  type:       "default",
+  created_at: 1444120147
+
+}]);
+</script>
+    
+<script>
+	var SLConfig = {"current_user":{"id":385733,"username":"acka47","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/1886373c79e90c5f78f1f4b8c4b48bf9?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"settings":{"id":222397,"present_controls":false,"present_upsizing":true,"present_notes":true,"editor_grid":true,"editor_snap":true,"developer_mode":false},"registered":true,"email":"acka47@mailbox.org","notify_on_receipt":true,"billing_address":null,"editor_tutorial_completed":true,"manually_upgraded":false},"deck":{"id":508566,"slug":"20151027-nwbib-dini","title":"Zurück in die Zukunft – die NWBib und das Web","description":"Vortrag von Adrian Pohl (hbz) bei der 16. DINI-Jahrestagung","visibility":"all","published_at":"2015-10-06T08:30:06.152Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/secure/3e4158/decks.jpg","view_count":306,"user":{"id":385733,"username":"acka47","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/1886373c79e90c5f78f1f4b8c4b48bf9?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"enterprise_manager":false,"settings":{"id":222397,"present_controls":false,"present_upsizing":true,"present_notes":true},"registered":true},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"black-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"should_loop":false,"share_notes":false,"slide_number":null,"rtl":false,"version":2,"access_token":"mKxpqzsCh6ewZrUqADYMq5YAdfgr","notes":{"24ff541e5c9065bddc4a06737f536396":"Die NWBib verzeichnet die Literatur über das Land NRW, seine Regionen, Orte und Persönlichkeiten, Literatur aus allen Lebens- und Wissensbereichen in Geschichte und Gegenwart.\nMit mehr als 360.000 Einträgen ist sie eine der umfangreichsten Regionalbibliographien Deutschlands.\n2/3 Aufsätze","c45c9be65f7f9fd0f1ce746cd247c09a":"Maschinenschriftlich erfasst, von Datenerfassungskräften maschinenlesbar als EDT-Dateien erfaßt und schließlich mit GID-Programm verarbeitet. Das Endprodukt waren vier Magnetbänder für die jeweils vier Teile einer Druckausgabe. Bänder wurden mit spez. Lichtsetzanlage gedruckt. Vertrieb durch Verlag.","2ae4831fcc03826aa54d8de9b170bae6":"\"Unter dem Einsatz von einer Personenwoche konnte ein Probelauf erfolgreich abgeschlossen werden.\""}}};
+</script>
+    <script defer="defer" src="./20151027_nwbib@dini_files/application-5311caba6150b33c495c623c8e7f4f84.js"></script>
+    	<script defer="defer" src="./20151027_nwbib@dini_files/reveal.min-25b719b3b898da619ea3b535ce4f4dbd.js"></script>
+	
+
+
+  
+
+<script type="text/javascript" src="./20151027_nwbib@dini_files/highlight-9efb98b823ef2e51598faabaa51da5be.js"></script></body></html>
