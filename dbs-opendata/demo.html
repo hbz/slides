@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  </head>
+  <body style="color: white; background: #004678">
+    <h1>Bibliotheken in Köln</h1>
+    <div id="map" style="height: 500px; color: black;"></div>
+    <script>
+    // we create a map:
+    var map = L.map('map').setView([53.554, 10.001], 15);
+    var layer = L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png').addTo(map);
+    // we call the lobid API:
+    $.ajax({
+        url: 'http://beta.lobid.org/organisations/search?size=400&q=@type:Library+AND+location.address.addressLocality:K%C3%B6ln',
+        success: function(result){
+            // iterate over all hits...
+            $.each(result.hits.hits, function(index, hit) {
+                // iterate over all locations of each hit...
+                $.each(hit._source.location, function(index, location) {
+                    // if we have a geo location field...
+                    if(location.geo) {
+                        // we create a marker on our map:
+                        L.marker([location.geo.lat, location.geo.lon])
+                          .bindPopup(hit._source.name).addTo(map);
+                    }
+                });
+            });
+        }});
+    </script>
+  </body>
+</html>
