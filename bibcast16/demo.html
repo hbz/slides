@@ -16,7 +16,7 @@
     var layer = L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png').addTo(map);
     // we call the lobid API:
     $.ajax({
-        url: 'http://beta.lobid.org/organisations/search?size=400&q=@type:Library+AND+location.address.addressLocality:K%C3%B6ln',
+        url: 'http://beta.lobid.org/organisations/search?size=400&q=type:Library+AND+location.address.addressLocality:K%C3%B6ln',
         success: function(result){
             // iterate over all hits...
             $.each(result.hits.hits, function(index, hit) {

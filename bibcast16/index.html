@@ -50,7 +50,7 @@
 			</section>
 
 			<section>
-						<h2>Frage</h2>
+						<h2>Frage:</h2>
 						<span class="fragment"><h2>Wer hat schon lobid genutzt?</h2></span>
 			</section>
 
@@ -65,13 +65,9 @@
 				<ul>
 					<li>LOD-Dienst des hbz</li>
 					<li>2010 gestartet als experimenteller Service</li>
-					<li>Seit 2013 in Produktion</li>
+					<li>Seit 2013 in Produktion (Version 1.0)</li>
 					<li>Web-API: liefert JSON(-LD) über HTTP</li>
 				</ul>
-			</section>
-
-			<section>
-				<img src="img/bsp-ul+json-ergebnis.png" width=320 />
 			</section>
 
 			<section>
@@ -84,15 +80,6 @@
 			</section>
 
 			<section>
-				<h2>Erster lobid-Dienst</h2>
-				<span class="fragment">
-					<blockquote>
-						<p>"Zitat aus Blogpost"</p>
-					</blockquote>
-				</span>
-			</section>
-
-			<section>
 						<h2>Konkretere Frage</h2>
 						<span class="fragment"><h3>Wer hat schon lobid-Titeldaten genutzt?</h3></span>
 						<span class="fragment"><h3>lobid-Normdaten?</h3></span>
@@ -100,39 +87,97 @@
 			</section>
 
 			<section>
-						<h2>+++Hinweis+++</h2>
-						<span class="fragment"><h3>Alle Datenstrukturen werden derzeit überarbeitet (API 2.0)</h3></span>
+				<h2>lobid-organisations: Seit 2010</h2>
+				<span>
+					<blockquote>
+						<p>"As a side-effect of our efforts to convert bibliographic data to Linked Data, we realized that library institutions are not identified yet by Linked-Data-URIs... Since these institutions play a significant role in linked bibliographic data, we set out to provide such URIs as the first segment of lobid.org."</p>
+					</blockquote>
+					<small>Quelle: <a
+							href="http://blog.lobid.org/2010/07/building-linked-data-based-index-of.html">
+								http://blog.lobid.org/2010/07/building-linked-data-based-index-of.html</a></small>
+				</span>
 			</section>
 
 			<section>
-				<h2>Thema hier: lobid-organisations 2.0 (beta)</h2>
-				<span class="fragment"><h3><a href="https://beta.lobid.org/organisations">https://beta.lobid.org/organisations</a></h3></span>
+						<h2>+++ Hinweis +++</h2>
+						<ul>
+							<li>Die Datenstrukturen und Schnittstellen aller Angebote werden derzeit überarbeitet (API 2.0).</li>
+							<li>API 2.0 soll 2016 sukzessive für die drei Angebote produktiv gehen.</li>
+						</ul>
 			</section>
 
 			<section>
-						<h2>Vokabular</h2>
-						<span class="fragment"><h3><a href="http://schema.org">schema.org</a>, wo geht</h3></span>
+				<h2>Thema hier:</h2>
+				<blockquote>
+					<h2><a href="https://beta.lobid.org/organisations">lobid-organisations 2.0 (beta)</a></h2>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>JSON(-LD) über HTTP:</h2>
+				<h2 class="fragment">Was heißt das?</h2>
+			</section>
+
+			<section>
+						<h2>HTTP-Anfrage:</h2>
+						<span><h4><a href="http://beta.lobid.org/organisations/search?q=name:stadtbibliothek+köln">http://beta.lobid.org/organisations/search?q=name:stadtbibliothek+köln</a></h4></span>
+			</section>
+
+			<section>
+						<h2>JSON als Antwortformat:</h2>
+						<pre>
+							<code>
+"hits":{
+  "total":1141,
+  "hits":[
+    {
+      "@context":"http://beta.lobid.org/organisations/context.jsonld",
+      "id":"http://beta.lobid.org/organisations/DE-380#!",
+      "type":"http://schema.org/Library",
+      "dbsID":"AJ380",
+      "isil":"DE-380",
+      "name":"Stadtbibliothek Köln",
+      "rs":"053150000000",
+      "wikipedia":"http://de.wikipedia.org/wiki/Stadtbibliothek_Köln",
+      "url":"http://www.stbib-koeln.de/",
+      "email":"mailto:direktion@stbib-koeln.de",
+      ...
+							</code>
+						</pre>
+			</section>
+
+			<section>
+						<h2>Vokabulare:</h2>
+						<span>				
+							<ul>
+								<li>Basisvokabular <a href="http://schema.org">schema.org</a>: 18 properties </li>
+								<li><a href="http://purl.org/lobid/lv#">lobid vocab</a>: 6 properties</li>
+								<li>Außerdem einzelne properties von <a href="http://purl.org/ontology/daia/">DAIA</a>, <a href="https://www.w3.org/2000/01/rdf-schema">RDFS</a>, <a href="http://www.w3.org/ns/org">Organization Ontology</a> etc.</li>
+								<li>Siehe auch den <a href="http://beta.lobid.org/organisations/context.jsonld">JSON-LD context</a></li>
+							</ul>
+						</span>
 			</section>
 
 			<section>
 						<h2>Datenstruktur</h2>
-						<span class="fragment"><h3>[Nested] JSON mit einem Root-Element</h3></span>
+						<span><h3>Geschachteltes JSON mit einem Wurzelelement (<a href="http://beta.lobid.org/organisations/DE-14">Beispiel SLUB</a>)</h3></span>
 			</section>
 
 			<section>
-						<h2>Inhalt</h2>
-						<span class="fragment">				
+						<h2>Datenbasis</h2>
+						<span>				
 							<ul>
-								<li>Wie bisher: Sigeldaten (x Einträge)</li>
-								<li>Neu dabei: aktive DBS-Bibliotheken (x Einträge)</li>
-								<li>Macht dublettenbereinigt: x Einträge</li>
-							</ul></span>
+								<li>Wie bisher: Sigeldaten (16060 Einträge)</li>
+								<li>Neu dabei: aktive DBS-Bibliotheken (12295 Einträge)</li>
+								<li>Macht dublettenbereinigt: <b>23289 Einträge</b></li>
+							</ul>
+						</span>
 			</section>
 
 			<section>
-				<h2>EIn Wort zur Lizenz</h2>
-				<ul>
-					<li>Sigeldaten: bald open</li>
+				<h2>Und die Lizenz?</h2>
+				<ul class="fragment">
+					<li>Sigeldaten: bald offen</li>
 					<li>DBS-Daten: Entscheidung zur Freigabe im September</li>
 				</ul>
 			</section>
@@ -144,44 +189,43 @@
 			</section>
 
 			<section>
-				<h1>Daten visualisieren</h1>
-				<h2>
-					<span class="fragment">Bsp.: Bibliotheken in Köln</span>
-				</h2>
+				<h1>Use Case</h1>
+				<h2>Daten visualisieren</h2>
 			</section>
 
 			<section>
-				<h2>Eine interaktive Karte erstellen</h2>
-				<small>
-					<table>
-						<tbody>
-							<tr>
-								<td>Beispieldatensatz anschauen</td>
-								<td><small><a
-										href="http://beta.lobid.org/organisations/DE-206H">http://beta.lobid.org/organisations/DE-206H</a></small></td>
-							</tr>
-							<tr>
-								<td>Zu durchsuchende Felder identifizieren</td>
-								<td><code>@type</code> AND <code>location.address.addressLocality</code></td>
-							</tr>
-							<tr>
-								<td>API-Anfrage</td>
-								<td><small><a
-										href="http://beta.lobid.org/organisations/search?q=@type:Library+AND+location.address.addressLocality:Köln">
-											http://beta.lobid.org/organisations/search?q=@type:Library+AND+location.address.addressLocality:Köln</a></small></td>
-							</tr>
-							<tr>
-								<td>Ein wenigLeaflet.js Javascript code in einer HTML-datei einbauen, der
-									die Anfrage nutzt und Ergebnisse verwendet</td>
-								<td><code>location.geo.lat</code> und <code>location.geo.lon</code></td>
-							</tr>
-							<tr>
-								<td>HTML-Datei im Browser öffnen</td>
-								<td><a href="demo.html" target="_blank">demo.html</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</small>
+				<h2>Bsp.: Bibliotheken in Köln</h2>
+				<h3>Erstellung einer interaktiven Karte</h3>
+			</section>
+
+			<section>
+				<h2>Schritt 1:</h2>
+				<h3>Beispieldatensatz anschauen</h3>
+				<h4><a href="http://beta.lobid.org/organisations/DE-14">http://beta.lobid.org/organisations/DE-14</a></h4>
+			</section>
+
+			<section>
+				<h2>Schritt 2:</h2>
+				<h3>Relevante Felder identifizieren</h3>
+				<h4><code>@type</code> AND <code>location.address.addressLocality</code></h4>
+			</section>
+			
+			<section>
+				<h2>Schritt 3:</h2>
+				<h3>API-Anfrage schreiben</h3>
+				<h4><a href="	http://beta.lobid.org/organisations/search?q=@type:Library+AND+location.address.addressLocality:Köln">http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Köln</a></h4>
+			</section>
+
+			<section>
+				<h2>Schritt 4:</h2>
+				<h3>Javascript & HTML</h3>
+				<h4>Genutzte Felder: <code>location.geo.lat</code> und <code>location.geo.lon</code></h4>
+			</section>
+
+			<section>
+				<h2>Schritt 5:</h2>
+				<h3>HTML-Datei öffnen</h3>
+				<h4><a href="demo.html" target="_blank">demo.html</a></code></h4>
 			</section>
 
 			<section>
@@ -195,6 +239,10 @@
 				<span class="fragment">
 					<h3>...</h3>
 				</span>
+			</section>
+
+			<section>
+				<img src="img/bsp-ul+json-ergebnis.png" width=320 />
 			</section>
 
 		</div>
