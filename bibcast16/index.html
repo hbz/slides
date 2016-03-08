@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<title>lobid-organisations: Ein umfassender Index deutscher Informationseinrichtungen</title>
+
+<meta charset="utf-8">
+<meta name="description"
+	content="lobid-organisations: Ein umfassender Index deutscher Informationseinrichtungen">
+<meta name="author" content="Adrian Pohl">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<script>
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+	document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+			  <h2>lobid-organisations</h2>
+				<h3>Ein umfassender Index deutscher Informationseinrichtungen</h3>
+			  <p>
+			    <small>Adrian Pohl / <a
+			      href="https://twitter.com/acka47">@acka47</a> <br /> <a
+			      href="https://www.hbz-nrw.de/angebote/linked_open_data/">Linked
+			        Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
+			      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+			      <br/><small>Bibcast,  <a href="https://www.youtube.com/watch?v=Nzj06azE_Gw">World Wide Web</a>, 2016-03-09</small>
+			  </p>
+			</section>
+
+			<section>
+						<h2>Etherpad zur Präsentation</h2>
+						<h3><a href="http://etherpad.lobid.org/p/bibcast16-lobid">http://etherpad.lobid.org/p/bibcast16-lobid</a></h3>
+			</section>
+
+			<section>
+						<h2>Frage:</h2>
+						<span class="fragment"><h2>Wer hat schon lobid genutzt?</h2></span>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Hintergrund</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>lobid: linking open bibliographic data</h2>
+				<ul>
+					<li>LOD-Dienst des hbz</li>
+					<li>2010 gestartet als experimenteller Service</li>
+					<li>Seit 2013 in Produktion (Version 1.0)</li>
+					<li>Web-API: liefert JSON(-LD) über HTTP</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Start 2010 mit lobid-organisations</h2>
+				<span>
+					<blockquote>
+						<p>"As a side-effect of our efforts to convert bibliographic data to Linked Data, we realized that library institutions are not identified yet by Linked-Data-URIs... Since these institutions play a significant role in linked bibliographic data, we set out to provide such URIs as the first segment of lobid.org."</p>
+					</blockquote>
+					<small>Quelle: <a
+							href="http://blog.lobid.org/2010/07/building-linked-data-based-index-of.html">
+								http://blog.lobid.org/2010/07/building-linked-data-based-index-of.html</a></small>
+				</span>
+			</section>
+
+			<section>
+				<h2>Drei Angebote</h2>
+				<ul>
+					<li>Organisationsdaten aus Sigelverzeichnis und DBS: /organisation(s)</li>
+					<li>Titeldaten & Bestände des hbz-VK: /resource(s)</li>
+					<li>Gemeinsame Normdatei /GND): /subject</li>
+				</ul>
+			</section>
+
+			<section>
+						<h2>Konkretere Frage</h2>
+						<span class="fragment"><h3>Wer hat schon lobid-Organisationsdaten genutzt?</h3></span>
+						<span class="fragment"><h3>lobid-Titeldaten?</h3></span>
+						<span class="fragment"><h3>lobid-Normdaten?</h3></span>
+			</section>
+
+			<section>
+						<h2>+++ Hinweis +++</h2>
+						<ul>
+							<li>Die Datenstrukturen und Schnittstellen aller <br />Angebote werden derzeit überarbeitet (API 2.0).</li>
+							<li>API 2.0 soll 2016 sukzessive für die drei <br /> Angebote produktiv gehen.</li>
+						</ul>
+			</section>
+
+			<section>
+				<h2>Thema des Webcasts:</h2>
+				<blockquote>
+					<h2><a href="https://beta.lobid.org/organisations">lobid-organisations 2.0 (beta)</a></h2>
+				</blockquote>
+			</section>
+
+			<section>
+						<h2>Datenbasis</h2>
+						<span>				
+							<ul>
+								<li>Wie bisher: Sigeldaten (16060 Einträge)</li>
+								<li>Neu dabei: aktive DBS-Bibliotheken (12295 Einträge)</li>
+								<li>Macht dublettenbereinigt: <b>23289 Einträge</b></li>
+							</ul>
+						</span>
+			</section>
+
+			<section>
+						<h2>Datenbasis nach Typ</h2>
+						<span>				
+							<ul>
+								<li><a href="http://beta.lobid.org/organisations/search?q=type:Library">13428 Bibliotheken</a>, davon <a href="http://beta.lobid.org/organisations/search?q=classification.id:n33">8142 ÖBs</a></li>
+								<li><a href="http://beta.lobid.org/organisations/search?q=type:Museum">6776 Museen</a></li>
+								<li><a href="http://beta.lobid.org/organisations/search?q=classification.id:n89">1476 E-Ressourcen-Pakete</a></li>
+								<li><a href="http://beta.lobid.org/organisations/search?q=classification.id:n89">~ 200 Archive</a> (<a href="https://github.com/hbz/lobid-organisations/issues/116">GitHub Issue</a>)</li>
+								<li><a href="http://beta.lobid.org/organisations/search?q=classification.id:n91">61 Fachstellen für Bibliotheken</a></li>
+								<li><a href="http://beta.lobid.org/organisations/search?q=classification.id:n39">4 Fahrbibliotheken</a></li>
+								<li>...</li>
+							</ul>
+						</span>
+			</section>
+			
+			<section>
+				<h2>Und die Lizenz?</h2>
+				<ul class="fragment">
+					<li>Sigeldaten: bald CC0</li>
+					<li>DBS-Daten: Entscheidung zur Freigabe unter CC0 im September</li>
+				</ul>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Was kann man damit machen?</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>JSON(-LD) über HTTP</h2>
+				<span class="fragment">
+					<h2>= Anfragen mittels URL</h2>
+					<h2>& Antwort in JSON-LD</h2>
+				</span>
+			</section>
+
+		<section>			
+			<section data-transition="slide">
+				<h1>
+					<a href="http://beta.lobid.org/organisations/search?q=name:nationalbibliothek+leipzig"
+						target="_blank">So funktioniert's</a>
+				</h1>
+				<small>Für Live-Demo: Link oder Screenshot klicken</small>
+			</section>
+			
+			<section data-background="img/demo1-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Switch Live Demo"
+					href="http://beta.lobid.org/organisations/search?q=name:nationalbibliothek+leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo1-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=name:museum+leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+		</section>
+
+		<section>
+			<h1>Use Case</h1>
+			<h2>Fragen beantworten</h2>
+		</section>
+
+		<section>
+			<h1>Beispielfrage 1:</h1>
+			<span class="fragment">
+				<h3>Wieviele Bibliotheken gibt es in Deutschland?</h3>
+			</span>
+		</section>
+
+		<section>
+			<h1>10.000?</h1>
+			<small>
+				<blockquote class="twitter-tweet" lang="en">
+					<p lang="de" dir="ltr">
+						.<a href="https://twitter.com/fsteeg">@fsteeg</a> &quot;10.200
+						[Bibliotheken] gibt es insgesamt&quot;. Sind eher doppelt so
+						viel, wenn man die Pfarrbibliotheken dazu zählt.
+					</p>
+					&mdash; Adrian Pohl (@acka47) <a
+						href="https://twitter.com/acka47/status/604286119950176258">May
+						29, 2015</a>
+				</blockquote>
+			</small> <span class="fragment">
+				<p />
+				<h1>20.000?</h1> <small><blockquote class="twitter-tweet"
+						lang="en">
+						<p lang="de" dir="ltr">
+							In Deutschland gibt es 19.347 Bibliotheken <a
+								href="http://t.co/qPcY3Kh7o7">http://t.co/qPcY3Kh7o7</a> .
+							Datenquelle: dbs und ZDB-Sigeldatei /via <a
+								href="https://twitter.com/lobidOrg">@lobidOrg</a> API
+						</p>
+						&mdash; dr0ide (@dr0ide) <a
+							href="https://twitter.com/dr0ide/status/608588848243818496">June
+							10, 2015</a>
+					</blockquote> </small>
+			</span>
+		</section>
+
+	<section>			
+		<section data-transition="slide">
+				<h1>
+					<a href="http://beta.lobid.org/organisations/DE-101a"
+						target="_blank">So funktioniert's</a>
+				</h1>
+		</section>	
+			
+		<section data-background="img/demo2-1.png"
+			data-background-size="contain">
+			<a target="_blank" title="Zur Live-Demo"
+				href="http://beta.lobid.org/organisations/DE-101a"><h1>
+					&nbsp;<br />&nbsp;<br />&nbsp;
+				</h1></a>
+		</section>
+		
+		<section data-background="img/demo2-2.png"
+			data-background-size="contain">
+			<a target="_blank" title="Zur Live-Demo"
+				href="http://beta.lobid.org/organisations/DE-101a"><h1>
+					&nbsp;<br />&nbsp;<br />&nbsp;
+				</h1></a>
+		</section>
+		
+		<section data-background="img/demo2-3.png"
+			data-background-size="contain">
+			<a target="_blank" title="Zur Live-Demo"
+				href="http://beta.lobid.org/organisations/DE-101a"><h1>
+					&nbsp;<br />&nbsp;<br />&nbsp;
+				</h1></a>
+		</section>
+		
+		<section data-background="img/demo2-4.png"
+			data-background-size="contain">
+			<a target="_blank" title="Zur Live-Demo"
+				href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany"><h1>
+					&nbsp;<br />&nbsp;<br />&nbsp;
+				</h1></a>
+		</section>
+		
+		<section data-background="img/demo2-5.png"
+			data-background-size="contain">
+			<a target="_blank" title="Zur Live-Demo"
+				href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressCountry:Germany"><h1>
+					&nbsp;<br />&nbsp;<br />&nbsp;
+				</h1></a>
+		</section>	
+	</section>	
+	
+	<section>
+		<h2>Wieviele Bibliotheken gibt es in Deutschland?</h2>
+		<span class="fragment">
+			<h3>Antwort: 13.284</h3>
+		</span>
+	</section>	
+	
+		<section>
+			<h1>Beispielfrage 2:</h1>
+			<span class="fragment">
+				<h3>Wieviele Bibliotheken gibt es im Landkreis Peine?</h3>
+			</span>
+		</section>
+
+		<section>			
+			<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"
+							target="_blank">So funktioniert's</a>
+					</h1>
+			</section>	
+				
+			<section data-background="img/demo3-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo3-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section>
+				<h2>Vier Bibliotheken in Stadt Peine.</h2>
+				<span class="fragment">
+					<h3>Und im gesamten Landkreis?</h3>
+				</span>
+			</section>
+			
+			<section data-background="img/demo3-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section>
+				<h2><code>"rs"</code> = "Regionalschlüssel"</h2>
+			</section>
+			
+			<section data-background="img/demo3-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="https://de.wikipedia.org/wiki/Landkreis_Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo3-5.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:03157*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>	
+			
+			<section data-background="img/demo3-6.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:03157*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>	
+		</section>	
+
+			<section>
+				<h2>Wieviele Bibliotheken gibt es im Landkreis Peine?</h2>
+				<span class="fragment">
+					<h3>Antwort: Sieben (laut lobid)</h3>
+				</span>
+			</section>
+
+		<section>
+			<h1>Beispielfrage 3:</h1>
+			<span class="fragment">
+				<h3>Wieviele von der kath. Kirche finanzierte Bibliotheken gibt es in NRW?</h3>
+			</span>
+		</section>
+		
+		<section>			
+			<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/DE-101a"
+							target="_blank">So funktioniert's</a>
+					</h1>
+			</section>
+			
+			<section data-background="img/demo4-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/DE-101a"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://purl.org/lobid/libtype#n11"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:05*+AND+fundertype.value:kath*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:05*+AND+fundertype.value:kath*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+		</section>
+
+		<section>
+			<h2>Wieviele von der kath. Kirche finanzierte Bibliotheken gibt es in NRW?</h2>
+			<span class="fragment">
+				<h3>Antwort: 1299</h3>
+			</span>
+		</section>
+
+			<section>
+				<h1>Use Case</h1>
+				<h2>Daten visualisieren</h2>
+			</section>
+
+			<section>
+				<h2>Bsp.: Bibliotheken in Leipzig</h2>
+				<h3>Erstellung einer interaktiven Karte</h3>
+			</section>
+			
+		<section>
+			<section data-transition="slide">
+				<h1>
+					<a href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig"
+						target="_blank">So funktioniert's</a>
+				</h1>
+			</section>
+			
+			<section data-background="img/demo5-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo5-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo5-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Switch to Live Demo"
+					href="view-source:demo.html"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo5-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo" href="demo.html"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+		</section>
+
+			<section>
+				<h1>Use Case</h1>
+				<h2>Reconciliation mit Open Refine</h2>
+			</section>
+			
+			<section>
+				<h1>OpenRefine</h1>
+				<span class="fragment"><blockquote>
+						A free, open source, power tool <br />for working with messy data.
+					</blockquote></span>
+			</section>
+			
+			<section>
+				<h2>Open Refine</h2>
+				<ul>
+					<li>Vormals "Google Refine"</li>
+					<li>Browser-basiertes Tool zum Aufräumen, <br /> Transformieren und Verlinken von Daten</li>
+					<li>Spreadsheet-ähnlich</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Nutzeranfrage</h2>
+				<a href="https://github.com/hbz/lobid-organisations/issues/55">https://github.com/hbz/lobid-organisations/issues/55</a>
+				<span class="fragment">
+					<p>
+					<table>
+						<thead>
+							<tr>
+								<th>dbs-id</th>
+								<th>bibliothek</th>
+								<th>plz</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>Stadtbücherei Wernau</td>
+								<td>73249</td>
+							</tr>
+							<tr>
+								<td>WG548</td>
+								<td>Stadtbibliothek Stavenhagen</td>
+								<td>17153</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Stadt- und Schulbücherei Gunzenhausen</td>
+								<td>91710</td>
+							</tr>
+							<tr>
+								<td>WH759</td>
+								<td>Gemeindebibliothek Hohenleipisch</td>
+								<td>4934</td>
+							</tr>
+						</tbody>
+					</table>
+					</p>
+				</span> <span class="fragment">
+					<h2>Benötigt: ISILs oder DBS-IDs</h2>
+				</span>
+			</section>
+
+			<section>
+				
+				<section data-transition="slide">
+					<h1>
+						<a
+							href="https://gist.github.com/acka47/9bdc24359fe811e90026"
+							target="_blank">So funktioniert's</a>
+					</h1>
+				</section>
+				
+				<section data-background="img/demo6-1.png"
+					data-background-size="contain">
+					<a target="_blank" title="Switch Live Demo"
+						href="http://localhost:3333"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section data-background="img/demo6-2.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/demo6-3.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/demo6-4.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/demo6-5.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/demo6-6.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/demo6-7.png"
+					data-background-size="contain">
+				</section>
+				
+			</section>
+
+			<section>
+				<h1>Use Case</h1>
+				<h2>?</h2>
+			</section>
+
+			<section>
+				<h1>Wir freuen uns auf Fragen und Anregungen.</h1>
+			</section>
+
+			<section>
+				<h2>Spielen erwünscht</h2>
+				<h3><a href="http://beta.lobid.org/organisations">http://beta.lobid.org/organisations</a></h3>
+			</section>
+			
+			<section>
+				<h2>Datenkorrekturen/-ergänzungen erwünscht:</h2>
+				<ul class="fragment">
+					<li >Bei Sigeldaten <a href="http://sigel.staatsbibliothek-berlin.de/aenderungen-mitteilen/">hier entlang</a>
+						(Es fehlen <br />z.B. eine Menge Regionalschlüssel.)</li>
+					<li>Bei DBS-Daten hbz kontaktieren.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>lobid-Kontakt</h2>
+				<ul>
+					<li><a href="https://twitter.com/lobidOrg">@lobidOrg</a></li>
+					<li><a href="mailto:semweb@hbz-nrw.de">semweb@hbz-nrw.de</a></li>
+					<li><a href="https://github.com/hbz/lobid/issues">GitHub</a></li>
+					<li><a href="http://listen.hbz-nrw.de/mailman/listinfo/lobid">Mailingliste</a></li>					
+				</ul>
+				<br />
+				<br />
+				<p>
+					<small>Die Slides sind unter einer <a
+						href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>-Lizenz veröffentlicht.
+					</small>
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls : true,
+			progress : true,
+			history : true,
+			center : true,
+
+			transition : 'none', // none/fade/slide/convex/concave/zoom
+
+			backgroundTransition : 'none', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies : [ {
+				src : 'lib/js/classList.js',
+				condition : function() {
+					return !document.body.classList;
+				}
+			}, {
+				src : 'plugin/markdown/marked.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/markdown/markdown.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/highlight/highlight.js',
+				async : true,
+				condition : function() {
+					return !!document.querySelector('pre code');
+				},
+				callback : function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src : 'plugin/zoom-js/zoom.js',
+				async : true
+			}, {
+				src : 'plugin/notes/notes.js',
+				async : true
+			} ]
+		});
+	</script>
+
+</body>
+</html>

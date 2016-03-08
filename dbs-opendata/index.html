@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<title>LOD for applications - Using the Lobid API</title>
+
+<meta charset="utf-8">
+<meta name="description"
+	content="LOD for applications - Using the Lobid API">
+<meta name="author" content="Pascal Christoph, Fabian Steeg">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<script>
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+	document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+			  <h1>Freigabe von DBS-Daten</h1>
+			  <p>
+			    <small>Adrian Pohl / <a
+			      href="https://twitter.com/acka47">@acka47</a> <br /> <a
+			      href="https://www.hbz-nrw.de/angebote/linked_open_data/">Linked
+			        Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
+			      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+			      <br/><small>Treffen der ÖB-Steuerungsgruppe, Köln, 2016-02-23</small>
+			  </p>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Zur Nachfrage der Daten</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>Anfrage von Open Biblio Jobs</h2>
+				<span class="fragment">
+					<h3>Anwendungsfall: Nutzung der DBS-Stammdaten zur einfachen Verortung von Stellenausschreibungen</h3>
+				</span>
+			</section>
+
+			<section>
+				<h2>Unternehmensanfrage</h2>
+				<span class="fragment">
+					<blockquote>
+						<p>"[W]ir interessieren uns für die Adressdaten der Bibliotheken Ihrer DBS bzw. BibS-Suchmaschine. Wir möchten mit diesen Adressen eine Landkarte der Bibliotheken erstellen, d.h. Apps (iPhone, Android, Browser-App) auf denen man möglichst alle deutschen Bibliotheken sieht bzw. alle nahegelegenen Bibliotheken.</p>
+						<p>Wir werden dann auch die Navigation zu einer ausgewählten Bibliothek unterstützen.</p>
+						<p>Diese Landkarte ... werden wir kostenlos anbieten.""</p>
+					</blockquote>
+				</span>
+			</section>
+
+			<section>
+				<h2>Anfrage von Navi-Anbieter</h2>
+				<span class="fragment">
+					<h3>Anwendungsfall: Bibliotheken als "Points of Interest" in Navigationssoftware</h3>
+				</span>
+			</section>
+
+			<section>
+				<h2>Zukünftige Anfrage</h2>
+				<span class="fragment"><h3>(hypothetisch)</h3></span>
+				<span class="fragment">
+					<blockquote>
+						<p>"Hallo, ich hätte gerne Daten über die Schließung von Bibliotheken in Bundesland X für die Jahre 2016 bis 2020."</p>
+					</blockquote>
+				</span>
+			</section>
+
+			<section>
+				<h1>Die Daten sind interessant und nützlich!</h1>
+			</section>
+
+			<section>
+						<h2>Arbeit wird ohnehin hineingesteckt:</h2>
+						<span class="fragment"><h2>Wieso nicht den Nutzen maximieren?</h2></span>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>DBS-Daten als Open Data</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h1>Was heißt Open Data?</h1>
+			</section>
+
+			<section>
+				<h2>Open Definition</h2>
+				<span class="fragment">
+					<blockquote>
+						<p>"Open data and content can be freely used, modified, and shared by anyone for any purpose"</p>
+					</blockquote>
+				</span>
+			</section>
+
+			<section>
+				<h2>Drei Aspekte von Offenheit</h2>
+				<span class="fragment">
+					<h3>Offene Lizenz</h3>
+				</span>
+				<span class="fragment">
+					<h3>Offenes Format</h3>
+				</span>
+				<span class="fragment">
+					<h3>Offener Zugang</h3>
+				</span>
+			</section>
+
+			<section>
+				<img src="img/cc-licenses-by-openness.png" width=320 />
+			</section>
+
+			<section>
+				<h2>Offene Lizenz</h2>
+				<ul>
+					<li>De-Facto-Standard in deutschsprachiger Bibliothekswelt: CC0</li>
+					<li>Außerdem: CC-BY und CC-BY-SA</li>
+					<li>Non-Commercial-Lizenzen sind nicht offen gemäß der Open Definition</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Offenes Format</h2>
+				<ul>
+					<li>Z.B. CSV, JSON, RDF</li>
+					<li>Ermöglicht Nutzung und Modifikation der Daten ohne proprietäre Software</li>
+					<li>Je strukturierter desto besser</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Offener Zugang</h2>
+				<ul>
+					<li>lobid-liefert JSON-LD über eine Web-API</li>
+					<li>Für Web-Entwickler leicht zu verarbeiten + Linked-Data-kompatibel</li>
+					<li>Verlinkungen zu Wikidata u.a. teilweise umgesetzt</li>
+				</ul>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Vorteile von Open Data</h1>
+				</blockquote>
+			</section>
+
+			<section>
+				<h1>Daten visualisieren</h1>
+				<h2>
+					<span class="fragment">Bsp.: Bibliotheken in Köln</span>
+				</h2>
+			</section>
+
+			<section>
+				<h2>Eine interaktive Karte erstellen</h2>
+				<small>
+					<table>
+						<tbody>
+							<tr>
+								<td>Beispieldatensatz anschauen</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/DE-206H">http://beta.lobid.org/organisations/DE-206H</a></small></td>
+							</tr>
+							<tr>
+								<td>Zu durchsuchende Felder identifizieren</td>
+								<td><code>@type</code> AND <code>location.address.addressLocality</code></td>
+							</tr>
+							<tr>
+								<td>API-Anfrage</td>
+								<td><small><a
+										href="http://beta.lobid.org/organisations/search?q=@type:Library+AND+location.address.addressLocality:Köln">
+											http://beta.lobid.org/organisations/search?q=@type:Library+AND+location.address.addressLocality:Köln</a></small></td>
+							</tr>
+							<tr>
+								<td>Ein wenigLeaflet.js Javascript code in einer HTML-datei einbauen, der
+									die Anfrage nutzt und Ergebnisse verwendet</td>
+								<td><code>location.geo.lat</code> und <code>location.geo.lon</code></td>
+							</tr>
+							<tr>
+								<td>HTML-Datei im Browser öffnen</td>
+								<td><a href="demo.html" target="_blank">demo.html</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</small>
+			</section>
+
+			<section>
+				<h1>Fragen beantworten</h1>
+				<span class="fragment">
+					<h3>Wieviele Bibliotheken gibt es in Deutschland?</h3>
+				</span>
+				<span class="fragment">
+					<h3>Wieviele von der kath. Kirche finanzierte Bibliotheken gibt es in NRW?</h3>
+				</span>
+				<span class="fragment">
+					<h3>...</h3>
+				</span>
+			</section>
+
+			<section>
+				<h1>Datenqualität verbessern</h1>
+				<span class="fragment">
+					<h3>Offene Daten werden häufiger genutzt</h3>
+				</span>
+				<span class="fragment">
+					<h3>Fehler werden häufger und schneller entdeckt, gemeldet und verbessert</h3>
+				</span>
+			</section>
+
+			<section>
+				<blockquote>
+					<h1>Und nun zur Diskussion & Freigabe :-)</h1>
+				</blockquote>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls : true,
+			progress : true,
+			history : true,
+			center : true,
+
+			transition : 'none', // none/fade/slide/convex/concave/zoom
+
+			backgroundTransition : 'none', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies : [ {
+				src : 'lib/js/classList.js',
+				condition : function() {
+					return !document.body.classList;
+				}
+			}, {
+				src : 'plugin/markdown/marked.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/markdown/markdown.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/highlight/highlight.js',
+				async : true,
+				condition : function() {
+					return !!document.querySelector('pre code');
+				},
+				callback : function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src : 'plugin/zoom-js/zoom.js',
+				async : true
+			}, {
+				src : 'plugin/notes/notes.js',
+				async : true
+			} ]
+		});
+	</script>
+
+</body>
+</html>
