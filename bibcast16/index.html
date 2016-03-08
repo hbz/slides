@@ -69,25 +69,9 @@
 					<li>Web-API: liefert JSON(-LD) über HTTP</li>
 				</ul>
 			</section>
-
+			
 			<section>
-				<h2>Angebote</h2>
-				<ul>
-					<li>Titeldaten & Bestände des hbz-VK: /resource(s)</li>
-					<li>Gemeinsame Normdatei /GND): /subject</li>
-					<li>Organisationsdaten aus Sigelverzeichnis und DBS: /organisation(s)</li>
-				</ul>
-			</section>
-
-			<section>
-						<h2>Konkretere Frage</h2>
-						<span class="fragment"><h3>Wer hat schon lobid-Titeldaten genutzt?</h3></span>
-						<span class="fragment"><h3>lobid-Normdaten?</h3></span>
-					  <span class="fragment"><h3>lobid-Organisationsdaten?</h3></span>
-			</section>
-
-			<section>
-				<h2>lobid-organisations: Seit 2010</h2>
+				<h2>Start 2010 mit lobid-organisations</h2>
 				<span>
 					<blockquote>
 						<p>"As a side-effect of our efforts to convert bibliographic data to Linked Data, we realized that library institutions are not identified yet by Linked-Data-URIs... Since these institutions play a significant role in linked bibliographic data, we set out to provide such URIs as the first segment of lobid.org."</p>
@@ -99,6 +83,22 @@
 			</section>
 
 			<section>
+				<h2>Drei Angebote</h2>
+				<ul>
+					<li>Organisationsdaten aus Sigelverzeichnis und DBS: /organisation(s)</li>
+					<li>Titeldaten & Bestände des hbz-VK: /resource(s)</li>
+					<li>Gemeinsame Normdatei /GND): /subject</li>
+				</ul>
+			</section>
+
+			<section>
+						<h2>Konkretere Frage</h2>
+						<span class="fragment"><h3>lobid-Organisationsdaten?</h3></span>
+						<span class="fragment"><h3>Wer hat schon lobid-Titeldaten genutzt?</h3></span>
+						<span class="fragment"><h3>lobid-Normdaten?</h3></span>
+			</section>
+
+			<section>
 						<h2>+++ Hinweis +++</h2>
 						<ul>
 							<li>Die Datenstrukturen und Schnittstellen aller Angebote werden derzeit überarbeitet (API 2.0).</li>
@@ -107,7 +107,7 @@
 			</section>
 
 			<section>
-				<h2>Thema hier:</h2>
+				<h2>Thema des Webcasts:</h2>
 				<blockquote>
 					<h2><a href="https://beta.lobid.org/organisations">lobid-organisations 2.0 (beta)</a></h2>
 				</blockquote>
@@ -277,16 +277,135 @@
 			</span>
 		</section>
 
+		<section>			
+			<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"
+							target="_blank">Los geht's</a>
+					</h1>
+			</section>	
+				
+			<section data-background="img/demo3-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo3-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section>
+				<h2>Vier Bibliotheken in Stadt Peine.</h2>
+				<span class="fragment">
+					<h3>Und im gesamten Landkreis?</h3>
+				</span>
+			</section>
+			
+			<section data-background="img/demo3-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section>
+				<h2><code>"rs"</code> = "Regionalschlüssel"</h2>
+			</section>
+			
+			<section data-background="img/demo3-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="https://de.wikipedia.org/wiki/Landkreis_Peine"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo3-5.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:03157*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>	
+			
+			<section data-background="img/demo3-6.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:03157*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>	
+		</section>	
+
+			<section>
+				<h2>Wieviele Bibliotheken gibt es im Landkreis Peine?</h2>
+				<span class="fragment">
+					<h3>Antwort: Sieben</h3>
+				</span>
+			</section>
+
 		<section>
 			<h1>Beispielfrage 3:</h1>
 			<span class="fragment">
 				<h3>Wieviele von der kath. Kirche finanzierte Bibliotheken gibt es in NRW?</h3>
 			</span>
-			<span class="fragment">
-				<h4><a href="">http://beta.lobid.org/organisations/search?q=type:Library+AND+fundertype:+AND+rs:</a></h4>
-			</span>
+		</section>
+		
+		<section>			
+			<section data-transition="slide">
+					<h1>
+						<a href="http://beta.lobid.org/organisations/DE-101a"
+							target="_blank">Los geht's</a>
+					</h1>
+			</section>
+			
+			<section data-background="img/demo4-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/DE-101a"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://purl.org/lobid/libtype#n11"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:05*+AND+fundertype.value:kath*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+			
+			<section data-background="img/demo4-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+rs:05*+AND+fundertype.value:kath*"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
 		</section>
 
+		<section>
+			<h2>Wieviele von der kath. Kirche finanzierte Bibliotheken gibt es in NRW?</h2>
+			<span class="fragment">
+				<h3>Antwort: 1299</h3>
+			</span>
+		</section>
 
 			<section>
 				<h1>Use Case</h1>
@@ -306,40 +425,38 @@
 				</h1>
 			</section>
 			
-			<section>
-				<h2>Schritt 1:</h2>
-				<h3>Beispieldatensatz anschauen</h3>
-				<h4><a href="http://beta.lobid.org/organisations/DE-101a">http://beta.lobid.org/organisations/DE-101a</a></h4>
-			</section>
-
-			<section>
-				<h2>Schritt 2:</h2>
-				<h3>Relevante Felder identifizieren</h3>
-				<h4><code>type</code> AND <code>location.address.addressLocality</code></h4>
+			<section data-background="img/demo5-1.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
 			</section>
 			
-			<section>
-				<h2>Schritt 3:</h2>
-				<h3>API-Anfrage schreiben</h3>
-				<h4><a href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig">http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig</a></h4>
+			<section data-background="img/demo5-2.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo"
+					href="http://beta.lobid.org/organisations/search?q=type:Library+AND+location.address.addressLocality:Leipzig"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
 			</section>
-
-			<section>
-				<h2>Schritt 4:</h2>
-				<h3>Javascript & HTML</h3>
-				<h4>Genutzte Felder: <code>location.geo.lat</code> und <code>location.geo.lon</code></h4>
+			
+			<section data-background="img/demo5-3.png"
+				data-background-size="contain">
+				<a target="_blank" title="Switch to Live Demo"
+					href="view-source:demo.html"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
 			</section>
-
-			<section>
-				<h2>Schritt 5:</h2>
-				<h3>HTML-Datei öffnen</h3>
-				<h4><a href="demo.html" target="_blank">demo.html</a></code></h4>
+			
+			<section data-background="img/demo5-4.png"
+				data-background-size="contain">
+				<a target="_blank" title="Zur Live-Demo" href="demo.html"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
 			</section>
+			
 		</section>
-		
-			<section>
-				<img src="img/bsp-ul+json-ergebnis.png" width=320 />
-			</section>
 
 		</div>
 	</div>
