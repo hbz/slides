@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Der Lobid-Entwicklungsprozess</title>
+
+		<meta name="description" content="Der Lobid-Entwicklungsprozess">
+		<meta name="author" content="Fabian Steeg">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Der Lobid-Entwicklungsprozess</h2>
+					<p>
+					<small>
+						<a href="https://www.hbz-nrw.de/angebote/linked_open_data/"> Fabian Steeg, Linked Open Data, hbz NRW</a>
+					</small> <br />
+					<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+					<small>hbz, Köln, 2016-05-12</small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="https://hbz.github.io/slides/lobid-entwicklungsprozess">https://hbz.github.io/slides/lobid-entwicklungsprozess</a>
+				</p>
+				</section>
+				
+				<section>
+					<h2>Lobid</h2>
+					<p>Team: 1 Bibliothekar, 2-5 Entwickler; Aufgaben:</p>
+					<p>Linked-Data-Dienst des hbz: Web-APIs für Titel- und Normdaten</p>
+					<p>Nordrhein-Westfälische Bibliographie auf Basis der Lobid-APIs</p>
+					<p>Team z.T. auch in OER World Map involviert, ähnlicher Prozess</p>
+				</section>
+
+				<section>
+					<h2>GitHub</h2>
+					<p>Wir entwickeln Open-Source-Software auf GitHub</p>
+					<p>Nicht nur Ergebnisse veröffentlichen, sondern Prozess dort</p>
+					<p>d.h. Planen, Issue-Tracking, Code, Testen, Diskussion</p>
+					</p>
+					<span class="fragment"><h3 >GitHub = Eine Art Social Network für Softwareentwicklung</h3></span>
+				</section>
+				
+				<section data-background="img/github-hbz.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/"
+						href="https://github.com/hbz/"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section>
+					<h2>GitHub Issues</h2>
+					<p>GitHub hat einen integrierten Issue-Tracker</p>
+					<p>Primäres Organisationsmittel: beliebige Labels mit Farben</p>
+					<p>Integriert: Links zu Code, Commits, Usern, Markdown</p>
+				</section>
+				
+				<section data-background="img/github-issues.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/lobid-resources/issues"
+						href="https://github.com/hbz/lobid-resources/issues"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section> 
+				
+				<section data-background="img/github-issue.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/lobid-resources/issues/79"
+						href="https://github.com/hbz/lobid-resources/issues/79"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section>
+					<h2>Board</h2>
+					<p>GitHub-Issues immer mit 1 GitHub-Repo assoziiert</p>
+					<p>Für einheitlichen Blick auf alle vom Team bearbeiteten Issues: Kanban-Board zur Visualisierung des Workflows</p>
+					<p>Waffle: Kanban-Board mit GitHub-Integration:<br/> jedes Issue entspricht 1 Karte, Spalten entsprechen Labels</p>
+				</section>
+				
+				<section data-background="img/waffle.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://waffle.io/hbz/lobid"
+						href="https://waffle.io/hbz/lobid"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section>
+					<h2>Prozess</h2>
+					<p>Generell: Links &rarr; Rechts</p>
+					<small>
+					<table>
+						<thead>
+							<tr>
+								<th>Backlog</th>
+								<th>Ready</th>
+								<th>Working</th>
+								<th>Review</th>
+								<th>Deploy</th>
+								<th>Done</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Neue Issues ohne Label</td>
+								<td>Bereit, d.h. Anforderungen und Abhängigkeiten sind klar</td>
+								<td>In Bearbeitung</td>
+								<td>In Überprüfung</td>
+								<td>Bereit für Produktion</td>
+								<td>In Produktion</td>
+							</tr>
+						</tbody>
+					</table>
+					</small>
+					<p>Priorisierte Karten nach oben in der Spalte; Bugs generell priorisiert</p>
+				</section>
+				
+				<section>
+					<h2>Tägliche Treffen</h2>
+					<p>Priorisierung unter anderem in täglichen kurzen Besprechungen<br/>(vor dem Mittagessen, 12 Uhr, 5-15 Minuten)</p>
+					<p>Jeder: 1) Was zuletzt 2) Was aktuell, ev. Probleme 3) Als nächstes</p>
+					<p>Wenn alle im hbz sind: im Stehen; sonst Skype oder Google Hangout</p>
+				</section>
+				
+				<section>
+					<h2>Planungstreffen</h2>
+					<p>Nach Bedarf, alle paar Monate, längeres Planungstreffen (1-2 Std.)</p>
+					<p>Gemeinsam am Board Tickets durchgehen und priorisieren</p>
+				</section>
+				
+				<section>
+					<h2>GitHub Flow</h2>
+					<p>GitHub basiert auf dem Versionskontrollsystem Git</p>
+					<p>Git macht Branching und Merging einfach</p>
+					<p>Neue Features oder Bugfixes werden in eigenem Branch umgesetzt</p>
+					<span class="fragment"><h3>GitHub Flow = einfacher, Branch-basierter Workflow, den GitHub auch selbst verwendet, um GitHub zu entwickeln</h3></span>
+				</section>
+				
+				<section data-background="img/github-flow.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://guides.github.com/introduction/flow/"
+						href="https://guides.github.com/introduction/flow/"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section>
+					<h2>Working: Board</h2>
+					<p>Bei Beginn der Arbeit an einem Issue: in 'Working' ziehen</p>
+					<p>Ziel: Jedes Team-Mitglied nur 1 Karte in 'Working', so Visualisierung der tatsächlichen Situation</p>
+					<p>Nur eigene Karten in und aus 'Working' ziehen, nur selbst reassignen (zur Vermeidung von Doppelarbeiten etc.)</p>
+				</section>
+				
+				<section>
+					<h2>Working: Code</h2>
+					<p>Vor Beginn: neuen Branch vom Master-Branch abzweigen.</p>
+					<p>In Commit-Nachrichten eine Referenz zum korrespondierenden Issue einfügen, dadurch erscheinen automatisch Referenzen zu den Committs im Issue.</p>
+					<p>Wenn Issue abgearbeitet ist: Pull-Request aufmachen, in der Beschreibung auch hier Referenz zum Issue, dadurch in Waffle gruppiert. 
+					Der Entwickler weist sich den Pull-Request zunächst selbst zu und kann das Ergebnis des automatischen Builds (mit Travis CI) direkt im Pull-Request verfolgen.</p>
+				</section>
+				
+				<section data-background="img/github-issue-commits.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/nwbib/issues/315"
+						href="https://github.com/hbz/nwbib/issues/315"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+				
+				<section data-background="img/github-pull-request.png"
+					data-background-size="contain">
+				</section>
+				
+				<section data-background="img/waffle.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://waffle.io/hbz/lobid"
+						href="https://waffle.io/hbz/lobid"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h2>Functional Review</h2>
+					<p>Entwickler stellt neue oder reparierte Funktionalität auf Staging-System bereit, beschreibt im Issue, wie getestet werden kann 
+					(z.B. Links auf die betreffenden Seiten im  Staging-System) und weist das Issue einem Team-Mitglied zur Begutachtung zu (Functional Review).</p>
+					<p>Functional Reviewer testet, gibt Feedback (bei Bedarf aktualisiert der Entwickler den Pull-Request und die Version auf Staging mehrfach), 
+					und schließt die Begutachtung mit einem "+1" Kommentar ab, weist das Issue dem Entwickler zu, und verschiebt es in 'Deploy'.</p>
+				</section>
+				
+				<section>
+					<h2>Code Review</h2>
+					<p>Nach Abschluss des Functional Reviews weist der Entwickler den zum Issue gehörigen Pull-Request einem anderen Entwickler zur Begutachtung zu (Code Review).</p>
+					<p>Der Reviewer inspiziert je nach Fall nur den Diff im Pull-Request oder testet den Branch lokal. Die Ausführung des Builds und der Tests erfolgt automatisch im Pull Request (mit Travis CI).</p>
+					<p>Auch hier wird die Begutachtung mit einem "+1" Kommentar abgeschlossen, der Reviewer weist das Issue wieder dem Entwickler zu, und verschiebt es in 'Deploy'.</p>
+				</section>
+				
+				<section>
+					<h2>Deploy</h2>
+					<p>Nach dem Review schaltet der Entwickler seinen Code produktiv und merged den Code in den Master-Branch.</p>
+					<p>Dazu wird auf dem Produktivserver der Feature/Bugfix/Topic-Branch lokal in den Master-Branch gemerged und das Resultat getestet. 
+					Bei Erfolg wird vom Produktivserver in den Master auf GitHub gepushed und der Feature/Bugfix/Topic-Branch auf GitHub gelöscht. Der Pull-Request wird dabei automatisch geschlossen.</p>
+					<p>So ist der Master-Branch immer der aktuelle Produktivstand.</p>
+				</section>
+				
+				<section>
+					<h2>Done</h2>
+					<p>In 'Done' befinden sich die zuletzt geschlossenen Issues und Pull-Requests. Issues können über die GitHub-Oberfläche geschlossen werden oder in 'Done' geschoben werden.</p>
+					<p>Wir schließen Issues über eine Referenz im Merge-Commit, in dem wir auch auf die produktive Änderung verweisen, z.B. <br/>
+					<q cite="https://github.com/hbz/lobid-organisations/commit/8c3594686df91804efcfbd61a121b745e7533c83">Resolves #140; See: http://beta.lobid.org/organisations/search?q=name:Stadtbibliothek+Berlin</q></p>
+				</section>
+				
+				<section>
+					<h2>Infos &amp; Links</h2>
+					<p>Mehr Informationen und Links, u.a. zu GitHub-Doku, gibt es unter:</p>
+					<p><a href="https://hbz.github.io/#dev-process">https://hbz.github.io/#dev-process</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
