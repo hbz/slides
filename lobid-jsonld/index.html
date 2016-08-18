@@ -87,7 +87,7 @@
 				
 				<section>
 					<h2>JSON for Linking Data</h2>
-					<p>Attribute per Kontext mit eindeutigen URI assoziieren</p>
+					<p>Attribute per Kontext mit eindeutigen URIs assoziieren</p>
 					<pre><code>
 {	
   "@context": {
@@ -154,10 +154,10 @@
   "address": {...}
 }</code></pre>
 					<span class="fragment"><p>Jeweils <code>@id</code> holen, Wert prüfen, wenn <code>address</code>: weiterverarbeiten</p>
-					<pre><code>"@graph": [{
+					<pre><code>"@graph": [
   {"@id": "location", ... },
   {"@id": "address", ...}
-}]</code></pre></span>
+]</code></pre></span>
 					
 				</section>
 				
@@ -169,11 +169,10 @@
  "en": "Federal State"
 }</code></pre>
 					<span class="fragment"><p>So nicht möglich bei generierter Struktur</p>
-					<pre><code>prefLabel: [{
-  @language: "de", @value: "Land"
-},{
-  @language: "en", @value: "Federal State"
-}]</code></pre></span>
+					<pre><code>prefLabel: [
+  {@language: "de", @value: "Land"},
+  {@language: "en", @value: "Federal State"}
+]</code></pre></span>
 					
 				</section>
 				
