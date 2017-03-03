@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>LOD @ hbz</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>LOD @ hbz</h1>
+					<h3></h3>
+					<p>
+					<small>
+						<a
+						href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+							Open Data, Hochschulbibliothekszentrum NRW (hbz)</a>
+					</small> <br />
+					<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+					<small>hbz, Köln, 2017-03-09</small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="http://slides.lobid.org/lod-hbz/" target=blank>http://slides.lobid.org/lod-hbz/</a>
+				</p>
+				</section>
+
+				<section>
+					<h1>LOD @ hbz</h1>
+					<p><span class="fragment">Lobid (<i>linking open bibliographic data</i>), Linked-Data-Dienst des hbz, 
+					Web-APIs und Rechercheoberflächen für Titel- und Normdaten</span></p>
+					<p><span class="fragment">Auf Basis von Lobid: Nordrhein-Westfälische Bibliographie</span></p>
+					<p><span class="fragment">Transformieren der Ausgangsdaten mit Metafacture in JSON-LD</span></p>
+					<p><span class="fragment">Open-Source-Entwicklung auf GitHub (Produkte und Tools)</span></p>
+				</section>
+
+				<section>
+					<h1>Application Programming Interfaces</h1>
+					<span class="fragment"><h3>Warum?</h3></span>
+				</section>
+
+				<section>
+					<h1>
+						<blockquote>Libraries are Software</blockquote>
+					</h1>
+					<blockquote class="twitter-tweet" data-cards="hidden" lang="en"
+						width="550">
+						<p lang="en" dir="ltr">
+							&quot;Libraries are Software&quot; by <a
+								href="https://twitter.com/codyh">@codyh</a> — Good short essay
+							for dev and non-dev librarians <a href="http://t.co/Y9YLmTaZj0">http://t.co/Y9YLmTaZj0</a>
+							<a href="http://t.co/iVGKFaBql8">pic.twitter.com/iVGKFaBql8</a>
+						</p>
+						&mdash; Tim Spalding (@librarythingtim) <a
+							href="https://twitter.com/librarythingtim/status/644509561076981760">September
+							17, 2015</a>
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>APIs machen Softwareentwicklung handhabbar</h2>
+					<span class="fragment"><p>modulare Software</p></span> <span
+						class="fragment"><p>stabile Anwendungen</p></span> <span
+						class="fragment"><p>flexible Datenquellen</p></span>
+				</section>
+
+				<section>
+					<h3>Lobid API Datenquellen und -formate</h3>
+					<img src="img/data.png" style="border: none; box-shadow: none;" /> 
+					<span class="fragment"><p>Die API entkoppelt Anwendungen von spezifischen<br/> 
+						Datenquellen, Formaten und Systemen</p></span>
+				</section>
+
+				<section>
+					<h1>API-Nutzung</h1>
+					<p><span class="fragment">Bulk-Downloads z.B. Bestand von USB Köln</span></p>
+					<p><span class="fragment">Fragen z.B. Wie viele Bibliotheken gibt es in Deutschland?</span></p>
+					<p><span class="fragment">Widgets, z.B. Autosuggest für GND-Entitäten (Name -> ID)</span></p>
+					<p><span class="fragment">Nutzung in anderen Applikationen, z.B. OpenRefine Reconciliation</span></p>
+					<p><span class="fragment">Komplette Applikationen, z.B. NWBib</span></p>
+					<p><span class="fragment"><a href="http://slides.lobid.org/swib-15/">http://slides.lobid.org/swib-15/</a></span></p>
+				</section>
+
+				<section>
+					<h1>APIs</h1>
+					<span class="fragment"><h2>Bilden Infrastruktur für Bibliotheken</h2></span>
+					<span class="fragment"><p>Machen die bibliothekarische Arbeit für alle möglichen 
+					Anwendungsfälle zugänglich</p></span>
+				</section>
+
+				<section>
+					<h2>Datentransformation</h2>
+					<p>Metafacture</p>
+				</section>
+
+				<section>
+					<h1>Metafacture</h1>
+					<p><span class="fragment">Toolkit zur Metadaten-Transformation</span></p>
+					<p><span class="fragment">Transformation getrennt von Eingabe- und Ausgabeformat: 
+					Attribut-Wert-Paare werden zu Attribut-Wert-Paaren ('Morph-Datei', XML)</span></p>
+					<p><span class="fragment">Verschiedene Input-Formate unterstützt (MAB, MARC, METS, etc.) 
+					und um eigene erweiterbar (Framework und Module in Java)</span></p>
+					<p><span class="fragment">Das Gleiche gilt für Output-Formate</span></p>
+					<p><span class="fragment">Wir beteiligen uns an der Entwicklung verschiedener Module</span></p>
+				</section>
+
+				<section>
+					<h1>Workflows</h1>
+					<p><span class="fragment">Das Zusammenspiel von Eingabe, Transformationsregeln 
+					und Ausgabe bildet den Workflow der Transformation</span></p>
+					<p><span class="fragment">Der Workflow wird mit Flux, einer einfachen 
+					domänenspezifischen Sprache (DSL) deklariert</span></p>
+					<p><span class="fragment">Wir beteiligen uns an der Entwicklung von Tools zum einfachen 
+					Editieren und Ausführen der Workflows</span></p>
+				</section>
+
+				<section data-background="img/metafacture-ide.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/culturegraph/metafacture-ide/wiki/User-Guide"
+						href="https://github.com/culturegraph/metafacture-ide/wiki/User-Guide"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h1>Metafacture</h1>
+					<p><span class="fragment">Transformationsregeln von Eingabe- und Ausgabeformat getrennt</span></p>
+					<p><span class="fragment">Stream-basiert</span></p>
+					<p><span class="fragment">Flexibles, komplett erweiterbares Framework</span></p>
+					<p><span class="fragment">Deklarative Definition der Transformation in 
+					Morph- und Flux-Dateien (z.B. für Doku, Veröffentlichung, Austausch)</span></p>
+				</section>
+
+				<section>
+					<h1>Links</h1>
+					<p><a href="https://github.com/culturegraph/metafacture-core">https://github.com/culturegraph/metafacture-core</a></p>
+					<p><a href="https://github.com/hbz/metafacture-java-examples">https://github.com/hbz/metafacture-java-examples</a></p>
+				</section>
+
+				<section><h1>JSON-LD</h1></section>
+
+				<section>
+					<h2>JSON-LD in der Lobid-API</h2>
+					<img src="img/data.png" style="border: none; box-shadow: none;" />
+				</section>
+
+				<section>
+					<h2>JSON</h2>
+					<pre><code>
+{
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605",
+  "fundertype": {
+    "id": "http://purl.org/lobid/fundertype#n02",
+    "label": {
+      "de": "Land",
+      "en": "Federal State"
+    }
+  }
+}
+					</code></pre>
+					<p><span class="fragment">JSON-Objekte sind auf 
+					Attribut-Wert-Struktur abbildbar<br/>(je nach Sprache z.B. 
+					als Map, Dictionary, Hash)</span></p>
+				</section>
+
+				<section>
+					<h2>JSON-LD</h2>
+					<p>Attribute per Kontext mit eindeutigen URIs assoziieren</p>
+					<pre><code>
+{
+  "@context": {
+    "name": "http://schema.org/name",
+    "isil": "http://purl.org/lobid/lv#isil"
+  },
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605"
+}
+					</code></pre>
+					<span class="fragment">
+					<p>Kontext kann als externes Dokument referenziert werden:</p>
+					<pre><code>
+{
+  "@context": "http://lobid.org/organisations/context.jsonld",
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605"
+}
+					</code></pre>
+					</span>
+				</section>
+
+				<section>
+					<h2>Warum JSON-LD für die Lobid-API?</h2>
+					<p><span class="fragment">JSON für Web-Entwickler vertrautes Format</span></p>
+					<p><span class="fragment">JSON in Elasticsearch indexierbar</span></p>
+					<p><span class="fragment">JSON-LD RDF-kompatibel</span></p>
+				</section>
+
+				<section>
+					<h3>JSON-LD ist nicht gleich JSON-LD</h3>
+					<p><a href="http://slides.lobid.org/lobid-jsonld/">http://slides.lobid.org/lobid-jsonld/</a></p>
+				</section>
+
+				<section>
+					<h1>Indexierung</h1>
+					<p><span class="fragment">Elasticsearch z.T. Cluster (lobid-resources), z.T. embedded (kleine Datensets, z.B. lobid-organisations)</span></p>
+					<p><span class="fragment">Vorteil embedded: Indexänderungen einfach (Daten, Mappings)</span></p>
+					<p><span class="fragment">Kommunikation mit Elasticsearch primär über Java-API</span></p>
+					<p><span class="fragment">Administration der Cluster primär über 'head' Plugin</span></p>
+				</section>
+
+				<section>
+					<h1>Anwendungen</h1>
+					<p><span class="fragment">Play-Framework: ein Web-Framework für Java und Scala, 
+					vergleichbar mit Rails, Grails, oder Django</span></p>
+					<p><span class="fragment">Zur Implementierung der API (URL-Pfade, Parameter, 
+					Abfrage von Elasticsearch, Ausliefern der JSON-Antworten, Header etc.)</span></p>
+					<p><span class="fragment">Zur Implementierung der Rechercheobeflächen (gleiche URLs
+					wie API, aber HTML angefordert, mit Templates umgesetzt)</span></p>
+				</section>
+
+				<section data-background="img/ui-organisations-json.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/organisations/DE-605?format=json"
+						href="http://lobid.org/organisations/DE-605?format=json"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-organisations-html.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/organisations/DE-605?format=html"
+						href="http://lobid.org/organisations/DE-605?format=html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-organisations-search-json.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/organisations/search?q=museum&format=json"
+						href="http://lobid.org/organisations/search?q=museum&format=json"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-organisations-search-html.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/organisations/search?q=museum&format=html"
+						href="http://lobid.org/organisations/search?q=museum&format=html"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-organisations.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/organisations"
+						href="http://lobid.org/organisations"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-nwbib.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://nwbib.de"
+						href="http://nwbib.de"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-resources.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://lobid.org/resources"
+						href="http://lobid.org/resources"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section data-background="img/ui-digitalisiertedrucke.png"
+					data-background-size="contain">
+					<a target="_blank" title="http://digitalisiertedrucke.de"
+						href="http://digitalisiertedrucke.de"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h2>Entwicklungsprozess</h2>
+					<p>Open-Source-Entwicklung auf GitHub</p>
+				</section>
+
+				<section>
+				<h1>GitHub</h1>
+				<p><span class="fragment">Eine Art Social Network für Softwareentwicklung</span></p>
+				<p><span class="fragment">Wir entwickeln Open-Source-Software auf GitHub</span></p>
+				<p><span class="fragment">Nicht nur Ergebnisse veröffentlichen, sondern Prozess dort</span></p>
+				<p><span class="fragment">d.h. Planen, Issue-Tracking, Code, Testen, Diskussion</span></p>
+				</section>
+
+				<section data-background="img/github-hbz.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/"
+						href="https://github.com/hbz/"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h1>GitHub Issues</h1>
+					<p><span class="fragment">GitHub hat einen integrierten Issue-Tracker</span></p>
+					<p><span class="fragment">Primäres Organisationsmittel: beliebige Labels mit Farben</span></p>
+					<p><span class="fragment">Integriert: Links zu Code, Commits, Usern, Markdown</span></p>
+				</section>
+
+				<section data-background="img/github-issues.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/lobid-resources/issues"
+						href="https://github.com/hbz/lobid-resources/issues"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section> 
+
+				<section data-background="img/github-issue.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://github.com/hbz/lobid-resources/issues/79"
+						href="https://github.com/hbz/lobid-resources/issues/79"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h1>Mehrere Repos</h1>
+					<p><span class="fragment">GitHub-Issues immer mit 1 GitHub-Repo assoziiert</span></p>
+					<p><span class="fragment">Für einheitlichen Blick auf alle vom Team bearbeiteten Issues: Kanban-Board zur Visualisierung des Workflows</span></p>
+					<p><span class="fragment">Waffle: Kanban-Board mit GitHub-Integration:<br/> jedes Issue entspricht 1 Karte, Spalten entsprechen Labels</span></p>
+				</section>
+
+				<section data-background="img/waffle.png"
+					data-background-size="contain">
+					<a target="_blank" title="https://waffle.io/hbz/lobid"
+						href="https://waffle.io/hbz/lobid"><h1>
+							&nbsp;<br />&nbsp;<br />&nbsp;
+						</h1></a>
+				</section>
+
+				<section>
+					<h1>Prozess</h1>
+					<p>Generell: Links &rarr; Rechts</p>
+					<small>
+					<table>
+						<thead>
+							<tr>
+								<th>Backlog</th>
+								<th>Ready</th>
+								<th>Working</th>
+								<th>Review</th>
+								<th>Deploy</th>
+								<th>Done</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Neue Issues ohne Label</td>
+								<td>Bereit, d.h. Anforderungen und Abhängigkeiten sind klar</td>
+								<td>In Bearbeitung</td>
+								<td>In Überprüfung</td>
+								<td>Bereit für Produktion</td>
+								<td>In Produktion</td>
+							</tr>
+						</tbody>
+					</table>
+					</small>
+					<p>Priorisierte Karten nach oben in der Spalte; Bugs generell priorisiert</p>
+				</section>
+
+				<section>
+					<h2>Tägliche Treffen</h2>
+					<p><span class="fragment">Priorisierung unter anderem in täglichen kurzen Besprechungen<br/>(vor dem Mittagessen, 12 Uhr, 5-15 Minuten)</span></p>
+					<p><span class="fragment">Jeder: 1) Was zuletzt 2) Was aktuell, ev. Probleme 3) Als nächstes</span></p>
+					<p><span class="fragment">Wenn alle im hbz sind: im Stehen; sonst online (z.Zt.: Wire)</span></p>
+				</section>
+
+				<section>
+					<h2>Planungstreffen</h2>
+					<p><span class="fragment">Nach Bedarf, alle paar Monate, längeres Planungstreffen (1-2 Std.)</span></p>
+					<p><span class="fragment">Gemeinsam am Board Tickets durchgehen und priorisieren</span></p>
+				</section>
+
+				<section>
+					<h2>Weitere Infos &amp; Links</h2>
+					<p><a href="https://slides.lobid.org/lobid-entwicklungsprozess/">https://slides.lobid.org/lobid-entwicklungsprozess/</a></p>
+					<p><a href="https://hbz.github.io/#dev-process">https://hbz.github.io/#dev-process</a></p>
+				</section>
+
+				<section>
+					<a target="_blank" title="http://slides.lobid.org/lod-hbz/"
+							href="http://slides.lobid.org/lod-hbz/"><img src="img/lobid.png"/></a>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
