@@ -1,0 +1,13 @@
+digraph scs {
+	compound=true
+	node[shape=box color=white fontcolor=white fontname=helvetica]
+	graph [bgcolor="#004678" color=white fontcolor=white fontname=helvetica]
+	edge[color=white fontcolor=white fontname=helvetica]
+	edge[arrowhead=empty arrowtail=empty]
+	rankdir=TD
+	splines=false
+	label="\nAnwendungskomponenten und grundlegende Systemarchitektur"
+	scs1[shape=record label="{UI|{Daten-\ntrans-\nformation|Index|HTTP-\nKommu-\nnikation}|API}"]
+	scs2[shape=record label="{UI|{Daten-\ntrans-\nformation|Index|HTTP-\nKommu-\nnikation}|API}"]
+	scs3[shape=record label="{UI|{Daten-\ntrans-\nformation|Index|HTTP-\nKommu-\nnikation}|API}"]
+}
