@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JSON-LD in Lobid</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>JSON-LD in Lobid</h1>
+					<h3></h3>
+					<p>
+					<small>
+						<a href="https://www.hbz-nrw.de">Fabian Steeg, Linked Open Data, hbz NRW</a>
+					</small> <br />
+					<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+					<small>hbz, Köln, 2016-08-18</small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="http://hbz.github.io/slides/lobid-jsonld" target=blank>http://hbz.github.io/slides/lobid-jsonld</a>
+				</p>
+				</section>
+
+				<section>
+					<h2>Lobid</h2>
+					<p>Linked-Data-Dienst des hbz: Web-APIs für Titel- und Normdaten</p>
+					<p>Verschiedene Anwendungen nutzen die Lobid-APIs: <br/>
+					Nordrhein-Westfälische Bibliographie, Organisationsverzeichnis, Edoweb, Publisso</p>
+					<p>APIs liefern, Anwendungen nutzen: JSON-LD</p>
+				</section>
+				
+				<section>
+					<h2>JSON-LD in der Lobid-API</h2>
+					<img src="img/data.png" style="border: none; box-shadow: none;" />
+				</section>
+				
+				<section>
+					<h2>JSON</h2>
+					<pre><code>
+{
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605",
+  "fundertype": {
+    "id": "http://purl.org/lobid/fundertype#n02",
+    "label": "Land",
+    "label_en": "Federal State"
+  }
+}
+					</code></pre>
+					<p>JSON-Objekte sind auf Attribut-Wert-Paare abbildbar<br/>(je nach Sprache z.B. als Map, Dictionary, Hash)</p>
+				</section>
+				
+				<section>
+					<h2>JSON for Linking Data</h2>
+					<p>Attribute per Kontext mit eindeutigen URIs assoziieren</p>
+					<pre><code>
+{	
+  "@context": {
+    "name": "http://schema.org/name",
+    "isil": "http://purl.org/lobid/lv#isil"
+  },
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605"
+}
+					</code></pre>
+					<span class="fragment">
+					<p>Kontext kann als externes Dokument referenziert werden:</p>
+					<pre><code>
+{	
+  "@context": "http://beta.lobid.org/organisations/context.jsonld",
+  "name": "Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen",
+  "isil": "DE-605"
+}
+					</code></pre>
+					</span>
+				</section>
+				
+				<section>
+					<h2>Warum JSON-LD für die Lobid-API?</h2>
+					<p>JSON für Web-Entwickler vertrautes Format</p>
+					<p>JSON in Elasticsearch indexierbar</p>
+					<p>JSON-LD RDF-kompatibel</p>
+				</section>
+				
+				<section>
+					<h2>JSON-LD <br/>produzieren und konsumieren</h2>
+					<span class="fragment"><p>Zwei Sichtweisen auf JSON-LD:</p>
+					<p>JSON-LD als JSON mit erweitertem Anwendungsfall: Linking Data<br/></span>
+					&rarr; produzieren und konsumieren mit JSON-Tools</p>
+					<span class="fragment"><p>JSON-LD als eine von vielen RDF-Serialisierungen<br/>
+					&rarr; produzieren und konsumieren über RDF-Modell</p></span>
+				</section>
+				
+				<section>
+					<h2>Produzieren: RDF vs. JSON</h2>
+					<p>Sichtweisen haben Auswirkungen darauf, wie das JSON-LD aussieht</p>
+					<p>Transformation zu N-Triples, JSON-LD erzeugen über jsonld-java:<br/>
+					<a href="http://lobid.org/organisation?id=DE-605&format=full" target=blank>http://lobid.org/organisation?id=DE-605&format=full</a></p>
+					<span class="fragment"><p>Transformation zu JSON, JSON-LD entsteht allein durch Kontext:<br/>
+					<a href="http://beta.lobid.org/organisations/DE-605?format=json" target=blank>http://beta.lobid.org/organisations/DE-605?format=json</a></p></span>
+				</section>
+				
+				<section>
+					<h2>Produzieren: RDF &amp; JSON</h2>
+					<p>JSON &amp; RDF: keine diskreten Sichtweisen, sondern ein Kontinuum</p>
+					<p>Transformation zu N-Triples, JSON-LD erzeugen über jsonld-java:<br/>
+					<a href="http://lobid.org/resource?id=HT002189125&format=full" target=blank>http://lobid.org/resource?id=HT002189125&format=full</a></p>
+					<span class="fragment"><p>Transformation zu N-Triples, JSON aus RDF-Modell erzeugen:<br/>
+					<a href="http://lobid.org/resources/HT002189125" target=blank>http://lobid.org/resources/HT002189125</a></p></span>
+				</section>
+				
+				<section><h2>Warum nicht komplett aus RDF generiertes JSON?</h2></section>
+				
+				<section>
+					<h2>Einfachere Verarbeitung durch API-User</h2>
+					<p>Direkt <code>address</code> holen, weiterverarbeiten</p>
+					<pre><code>{
+  "location": {...},
+  "address": {...}
+}</code></pre>
+					<span class="fragment"><p>Jeweils <code>@id</code> holen, Wert prüfen, wenn <code>address</code>: weiterverarbeiten</p>
+					<pre><code>"@graph": [
+  {"@id": "location", ... },
+  {"@id": "address", ...}
+]</code></pre></span>
+					
+				</section>
+				
+				<section>
+					<h2>Direkte Nutzung der Struktur in Elasticsearch</h2>
+					<p>Query gegen <code>prefLabel.en</code> direkt in Elasticsearch query string<br/>(und API-Anfragen, dadurch Query-Möglichkeiten transparent)</p>
+					<pre><code>prefLabel: {
+ "de": "Land",
+ "en": "Federal State"
+}</code></pre>
+					<span class="fragment"><p>So nicht möglich bei generierter Struktur</p>
+					<pre><code>prefLabel: [
+  {@language: "de", @value: "Land"},
+  {@language: "en", @value: "Federal State"}
+]</code></pre></span>
+					
+				</section>
+				
+				<section>
+					<h3>JSON-LD ist nicht gleich JSON-LD</h3>
+				</section>
+	
+	
+				<section>
+					<h2>Links</h2>
+					<table>
+						<tbody>
+							<tr>
+								<td>Lobid API 1.x</td>
+								<td><a href="http://lobid.org/api">http://lobid.org/api</a></td>
+							</tr>
+							<tr>
+								<td>Lobid-Organisations 2.0 API</td>
+								<td><a href="http://beta.lobid.org/organisations/api">http://beta.lobid.org/organisations/api</a></td>
+							</tr>
+							<tr>
+								<td>Issue mit Beispielen für Lobid-Resources 2.0</td>
+								<td><a href="https://github.com/hbz/lobid-resources/issues/79">https://github.com/hbz/lobid-resources/issues/79</a></p></td>
+							</tr>
+							<tr>
+								<td>Blog-Post zu den Problemen mit generiertem JSON-LD</td>
+								<td><a href="http://fsteeg.com/notes/one-issue-with-json-ld-that-seems-not-so-pragmatic">http://fsteeg.com/notes/one-issue-with-json-ld-that-seems-not-so-pragmatic</a></p></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
