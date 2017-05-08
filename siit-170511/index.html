@@ -1,109 +1,240 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+<meta charset="utf-8">
 
-		<title>skos-lookup</title>
+<title>skos-lookup</title>
 
-		<meta name="description" content="skos-lookup supports jQuery autocomplete widgets with skos terms">
-		<meta name="author" content="Jan Schnasse">
+<meta name="description"
+	content="skos-lookup supports jQuery autocomplete widgets with skos terms">
+<meta name="author" content="Jan Schnasse">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+	content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- Code syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+<!-- Printing and PDF exports -->
+<script>
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.type = 'text/css';
+	link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+			: 'css/print/paper.css';
+	document.getElementsByTagName('head')[0].appendChild(link);
+</script>
 
-		<!--[if lt IE 9]>
+<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
-	</head>
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+	<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					Werkstattbericht – Eine Autocompletion-Lösung für Agrovoc-Schlagworte mit JSKOS und Elasticsearch
-					<h3></h3>
-					<p>
-					<small>
-						<a href="https://www.hbz-nrw.de">Jan Schnasse, Publikationssysteme, hbz NRW</a>
-					</small> <br />
-					<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
-					<small>SUB, Göttingen, 2017-05-11</small>
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				Werkstattbericht – Eine Autocompletion-Lösung für
+				Agrovoc-Schlagworte mit JSKOS und Elasticsearch
+				<h3></h3>
+				<p>
+					<small> <a href="https://www.hbz-nrw.de">Jan Schnasse,
+							Publikationssysteme, hbz NRW</a>
+					</small> <br /> <img src="img/hbz.png"
+						style="border: none; padding: 5px; background-color: white"
+						width="125px" /><br /> <small>SUB, Göttingen, 2017-05-11</small>
 				</p>
 				<p>
 					Diese Präsentation: <br /> <a
 						href="http://hbz.github.io/slides/siit-20170511" target=blank>http://hbz.github.io/slides/siit-20170511</a>
 				</p>
-				</section>
+			</section>
 
-				<section>
-					<h2>Kontext</h2>							
-					<img src="img/publisso.png" style="border: none; box-shadow: none;" />
-				</section>
-				
-				<section>
-					<h2>Anwendung</h2>
-					<img src="img/Agrovoc.png" style="border: none; box-shadow: none;" />
-					<ul>
-					<li>
-					</ul>
-				</section>
-				
-				<section>
-					
-				</section>
-			</div>
+			<section>
+				<h2>Kontext</h2>
+				<img src="img/publisso.png" style="border: none; box-shadow: none;" />
+			</section>
 
+			<section>
+				<h2>Anwendung</h2>
+				<img src="img/Agrovoc.png" style="border: none; box-shadow: none;" />
+				<small> &gt; 6.200.000 rdf statements. 32707 skos concepts</small>
+				<ul>
+				<li>Sacherschließung mit Agrovoc Termen</li>
+				<li>'Intelligentes' Feld mit Eingabeunterstützung</li>
+				</ul>
+			</section>
+			<section>
+			<h2>Aktueller Stand</h2>
+			<p>
+				<iframe src="https://api.ellinet-dev.hbz-nrw.de/tools/skos-lookup/example" height="2048px" width="100%" style="background-color:#FFFFFF">
+				</iframe>
+			</p>
+			</section>
+
+			<section>
+				<h2>Umsetzung</h2>
+				Als "Datenmodul" innerhalb der hbz Softwarearchitektur <a
+					href="http://hbz.github.io/#data-modules"> <img
+					src="img/data-module.png" style="border: none; box-shadow: none;" />
+				</a>
+
+			</section>
+			<section>
+				<h2>hbz Datenmodule</h2>
+
+				<img src="figures/hbz-architecture.svg"
+					style="border: none; box-shadow: none;" height="600px" />
+
+			</section>
+			<section>
+				<h2>Vorarbeiten</h2>
+				<p>
+					Orientiert an <a href="https://github.com/hbz/lobid-resources">Lobid</a>
+					und speziell an <a
+						href="https://github.com/hbz/lobid-organisations">lobid-organisations</a>
+					<br /> <br />Ansatz von Fabian Steeg (hbz) & Simon B. Ritter (hbz)
+				
+				<ul>
+					<li>Embedded Elasticsearch</li>
+					<li>HTTP Controller für Query & Import</li>
+					<li>json-ld als Indexformat</li>
+				</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Vorarbeiten</h2>
+				Datentransformation mit Hilfe von <a
+					href="https://gbv.github.io/jskos/jskos.html">JSKOS</a>. <br /> <small>
+					<a
+					href="https://github.com/gbv/jskos/commit/d8f7e1e46a5af1fb22e9c05d3bf2efea1e072afb">Version
+						13 Jun 2016</a> mit kleineren Änderungen
+				</small>
+				<pre>
+					<code>				
+-"uri": "@id",
++ "id": "@id",
+-  "type": {
+-		"@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+-		"@type": "@id",
+-		"@container": "@set"
+-		},
++ "type": "@type",
+				</code>
+				</pre>
+
+			</section>
+			<section>
+				<h2>Vorarbeiten</h2>
+				<p>
+					<a href="https://github.com/jprante/elasticsearch-plugin-bundle">Jörg
+						Prante's (hbz) Bundle Plugin</a>
+				</p>
+				<p>
+				<ul>
+					<li>elasticsearch-analysis-autophrase</li>
+					<li>elasticsearch-analysis-german</li>
+					<li>elasticsearch-analysis-hyphen</li>
+				</ul>
+				</p>
+			</section>
+
+			<section>
+				<h2>Implementation</h2>
+				<img src="figures/skos-lookup-flow.svg"
+					style="border: none; box-shadow: none;" height="600px" />
+
+			</section>
+			<section>
+				<h2>Documentation</h2>
+				<ul>
+					<li><a href="https://github.com/hbz/skos-lookup">README</a> on
+						Github</li>
+					<li><a
+						href="http://stackoverflow.com/questions/42910063/how-to-load-a-gzipped-rdf-file-to-rdf4j-repository">Load
+							gzipped file to rdf4j triple store</a>
+					<li><a
+						href="http://stackoverflow.com/questions/43638342/how-to-convert-rdf-to-pretty-nested-json-using-java-rdf4j">Create
+							pretty json from rdf</a>
+				</ul>
+			</section>
+			<section>
+				<h2>Kontakt</h2>
+
+				Twitter: <a href="https://twitter.com/InspektorHicks">@InspektorHicks</a><br />
+				Email: <a href="mailto:schnasse@hbz-nrw.de">schnasse@hbz-nrw.de</a><br />
+				Github: <a href="https://github.com/hbz/skos-lookup">GitHub</a><br />
+
+				<br /> <br />
+				<p>
+					<small>Die Slides sind unter einer <a
+						href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>-Lizenz
+						veröffentlicht.
+					</small>
+				</p>
+			</section>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	</div>
 
-		<script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls : true,
+			progress : true,
+			history : true,
+			center : true,
 
-				transition: 'none', // none/fade/slide/convex/concave/zoom
-				backgroundTransition: 'none',
+			transition : 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition : 'none',
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+			// Optional reveal.js plugins
+			dependencies : [ {
+				src : 'lib/js/classList.js',
+				condition : function() {
+					return !document.body.classList;
+				}
+			}, {
+				src : 'plugin/markdown/marked.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/markdown/markdown.js',
+				condition : function() {
+					return !!document.querySelector('[data-markdown]');
+				}
+			}, {
+				src : 'plugin/highlight/highlight.js',
+				async : true,
+				callback : function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}, {
+				src : 'plugin/zoom-js/zoom.js',
+				async : true
+			}, {
+				src : 'plugin/notes/notes.js',
+				async : true
+			} ]
+		});
+	</script>
 
-		</script>
-
-	</body>
+</body>
 </html>
