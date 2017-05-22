@@ -60,7 +60,7 @@
 
 					<section>
 					  <h2>lobid-organisations</h2>
-						<h3>Ein umfassendes Verzeichnis deutscher Informationseinrichtungen</h3>
+						<h4>Ein umfassendes Verzeichnis deutscher Informationseinrichtungen</h4>
 					  <p>
 					    <small>Adrian Pohl / <a
 					      href="https://twitter.com/acka47">@acka47</a> <br /> <a
@@ -69,11 +69,18 @@
 					      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
 					      <br/><small>Bibcast,  <a href="https://www.youtube.com/watch?v=iKYJtL0VjH0">World Wide Web</a>, 2017-05-23</small>
 					  </p>
+						<p>
+							Diese Präsentation: <br /> <a
+								href="http://slides.lobid.org/bibcast17/">http://slides.lobid.org/bibcast17/</a>
+							<br/>
+							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+						</p>
 					</section>
 
 					<section>
 								<h2>Etherpad zur Präsentation</h2>
-								<h3><a href="http://etherpad.lobid.org/p/bibcast17-lobid">http://etherpad.lobid.org/p/bibcast17-lobid</a></h3>
+								<h4><a href="https://etherpad.gwdg.de/p/bibcast17-pohl">https://etherpad.gwdg.de/p/bibcast17-pohl</a></h4>
+								<h4 class="fragment">(Gerne viele Fragen dort reinschreiben)</h4>
 					</section>
 
 					<section>
@@ -86,10 +93,11 @@
 						<p><span class="fragment">Linked-Data-basierte Dateninfrastruktur</span></p>
 						<p><span class="fragment">Version 2.0 seit diesem Jahr produktiv</span></p>
 						<p><span class="fragment">Rechercheoberflächen für Endanwender & <br />Web-APIs (read only) für Anwen­dungsentwickler</span></p>
-						<p><span class="fragment">Daten kommen aus verschiedenen Quellen</a></span></p>
+						<p><span class="fragment">Basiert auf Daten aus verschiedenen Quellen</a></span></p>
 		      </section>
 					
 					<section>
+						<h2>Datenquellen</h2>
 						<img src="img/lobid-data.png" width=800 />
 					</section>
 
@@ -106,12 +114,20 @@
 		      </section>
 
 					<section>
-						<h2><span>Inhalte und Links</span></h2>
-						<p><span class="fragment">22.000 Einträge</span></p>
-						<p><span class="fragment">Bibliotheken, Museen und Archive aus DACH</span></p>
+								<h2>Datenbasis</h2>
+								<span>				
+									<ul>
+										<li>Sigelverzeichnis: <a href="http://lobid.org/organisations/search?q=isil:*">14.779 Einträge</a></li>
+										<li>Deutsche Bibliotheksstatistik (DBS): <a href="http://lobid.org/organisations/search?q=dbsID:*">12.192 Einträge</a></li>
+										<li>Macht dublettenbereinigt: <b><a href="http://lobid.org/organisations/search?q=*">21.987 Einträge</a></b></li>
+									</ul>
+								</span>
+					</section>
+
+					<section>
+						<h2><span>Inhalte</span></h2>
+						<p><span class="fragment">Bibliotheken (63%), Museen (32%) und Archive (4%) aus DACH</span></p>
 						<p><span class="fragment">...davon <a href="https://lobid.org/organisations/search?q=location.address.addressCountry:de">95% aus Deutschland</a></span></p>
-						<p><span class="fragment">> 5000 mit Wikidata-Link</span></p>
-						<p><span class="fragment">GND-Links in Arbeit</span></p>
 					</section>
 
 					<section>
@@ -120,17 +136,11 @@
 		      </section>
 
 					<section>
-								<h2>Datenbasis nach Typ</h2>
-								<span>				
-									<ul>
-										<li><a href="http://lobid.org/organisations/search?q=type:Library">13385 Bibliotheken</a>, davon <a href="http://lobid.org/organisations/search?q=classification.id:http\:\/\/purl.org\/lobid\/libtype%23n33">8156 ÖBs</a> & <a href="http://lobid.org/organisations/search?q=classification.id:http\:\/\/purl.org\/lobid\/libtype%23n81">SBs</a></li>
-										<li><a href="http://lobid.org/organisations/search?q=type:Museum">6787 Museen</a></li>
-										<li><a href="http://lobid.org/organisations/search?q=type:Archive">768 Archive</a></li>
-										<li><a href="http://lobid.org/organisations/search?q=classification.id:http\:\/\/purl.org\/lobid\/libtype%23n91">61 Fachstellen für Bibliotheken</a></li>
-										<li><a href="http://lobid.org/organisations/search?q=classification.id:http\:\/\/purl.org\/lobid\/libtype%23n39">5 Fahrbibliotheken</a></li>
-										<li>...</li>
-									</ul>
-								</span>
+						<h2><span>Ist ihre Institution auf Wikidata?</span></h2>
+						<p><span class="fragment">Nachschauen und <a href"https://www.wikidata.org">https://www.wikidata.org</a></span></p>
+						<p><span class="fragment">Informationen ergänzen: image, ISIL, WiFi, Barrierefreiheit etc.</span></p>
+						<p><span class="fragment">Musterbeispiel: </span></p>
+						<p><span class="fragment">Provenienz</span></p>
 					</section>
 
 					<section>
@@ -207,6 +217,7 @@
 						<p><span class="fragment">GND-Links ergänzen (<a href="https://github.com/hbz/lobid-organisations/issues/361">#361</a>)</span></p>
 						<p><span class="fragment">Größere Landkarte für kartenbasierte Suche (<a href="https://github.com/hbz/lobid-organisations/issues/346">#346</a>)</span></p>
 						<p><span class="fragment">Vereinfachter Prozess zur Korrektur der DBS-Daten</span></p>
+						<p><span class="fragment">CC0 für DBS-Stammdaten</span></p>
 		      </section>
 					
 					<section>
