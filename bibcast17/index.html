@@ -31,7 +31,7 @@
 			"datePublished" : "2017-05-23",
 			"inLanguage" : "de-DE",
 			"audience": [ "web developers", "librarians" ],
-			"isBasedOn": "http:/slides.lobid.org/bibcast16/",
+			"isBasedOn": [ "http:/slides.lobid.org/bibcast16/", "http://slides.lobid.org/lod-hbz", "http://slides.lobid.org/kim-ws-2017/" ],
 			"license": "https://creativecommons.org/licenses/by/4.0/"
 		}
 		</script>
@@ -85,12 +85,16 @@
 
 					<section>
 		        <h1>lobid</h1>
+		      </section>
+
+					<section>
 						<a href="https://lobid.org"><img src="img/lobid.png" width=600 /></a>
 		      </section>
 
 					<section>
-						<h2><span>lobid</span></h2>
+						<h2><span>Was ist lobid?</span></h2>
 						<p><span class="fragment">Linked-Data-basierte Dateninfrastruktur</span></p>
+						<p><span class="fragment">Forschung & Entwicklung seit 2010</span></p>
 						<p><span class="fragment">Version 2.0 seit diesem Jahr produktiv</span></p>
 						<p><span class="fragment">Rechercheoberflächen für Endanwender & <br />Web-APIs (read only) für Anwen­dungsentwickler</span></p>
 						<p><span class="fragment">Basiert auf Daten aus verschiedenen Quellen</a></span></p>
@@ -115,13 +119,9 @@
 
 					<section>
 								<h2>Datenbasis</h2>
-								<span>				
-									<ul>
-										<li>Sigelverzeichnis: <a href="http://lobid.org/organisations/search?q=isil:*">14.779 Einträge</a></li>
-										<li>Deutsche Bibliotheksstatistik (DBS): <a href="http://lobid.org/organisations/search?q=dbsID:*">12.192 Einträge</a></li>
-										<li>Macht dublettenbereinigt: <b><a href="http://lobid.org/organisations/search?q=*">21.987 Einträge</a></b></li>
-									</ul>
-								</span>
+										<p><span class="fragment">Sigelverzeichnis: <a href="http://lobid.org/organisations/search?q=isil:*">14.779 Einträge</a></span></p>
+										<p><span class="fragment">Deutsche Bibliotheksstatistik (DBS): <a href="http://lobid.org/organisations/search?q=dbsID:*">12.192 Einträge</a></span></p>
+										<p><span class="fragment">Macht dublettenbereinigt: <b><a href="http://lobid.org/organisations/search?q=*">21.987 Einträge</a></b></span></p>
 					</section>
 
 					<section>
@@ -136,7 +136,46 @@
 		      </section>
 
 					<section>
-		        <h1><span>Dokumentation</span></h1>
+						<h1>lobid-API</h1>
+					</section>
+
+					<section>
+						<h2>Web-APIs</h2>
+						<h3><span class="fragment">Warum?</span></h3>
+					</section>
+					
+					<section>
+						<h2>
+							"Libraries are Software"
+						</h2>
+						<a href="https://twitter.com/librarythingtim/status/644509561076981760"><img src="img/libs-are-software-tweet.png" width=550 /></a>
+					</section>
+
+					<section>
+						<h2>APIs machen Softwareentwicklung handhabbar</h2>
+						<span class="fragment"><p>modulare Software</p></span> <span
+							class="fragment"><p>stabile Anwendungen</p></span> <span
+							class="fragment"><p>flexible Datenquellen</p></span>
+					</section>
+
+					<section>
+						<h2>API-Nutzung</h2>
+						<p><span class="fragment">Bulk-Downloads z.B. Bestand von USB Köln</span></p>
+						<p><span class="fragment">Fragen z.B. Wie viele Bibliotheken gibt es in Deutschland?</span></p>
+						<p><span class="fragment">Widgets, z.B. Autosuggest für GND-Entitäten (Name -> ID)</span></p>
+						<p><span class="fragment">Nutzung in anderen Applikationen, z.B. OpenRefine Reconciliation</span></p>
+						<p><span class="fragment">Komplette Applikationen, z.B. <a href="https://nwbib.de">NWBib</a></span></p>
+					</section>
+
+					<section>
+						<h2>APIs</h2>
+						<span class="fragment"><h3>Bilden Infrastruktur für Bibliotheken</h3></span>
+						<span class="fragment"><p>Machen die bibliothekarische Arbeit für alle möglichen 
+						Anwendungsfälle zugänglich</p></span>
+					</section>
+
+					<section>
+		        <h1><span>API-Dokumentation</span></h1>
 		      </section>
 					
 					<section>
@@ -204,7 +243,15 @@
 		      </section>
 
 					<section>
-		        <h2><span>Ausblick</span></h2>
+						<h3><a href="https://lobid.org/organisations/api/de">https://lobid.org/organisations/api/de</a></h3>
+					</section>
+
+					<section>
+		        <h1><span>Ausblick</span></h1>
+		      </section>
+
+					<section>
+		        <h2><span>Aus dem Backlog</span></h2>
 						<p><span class="fragment">Anreicherung mit Wikidata-Informationen (<a href="https://github.com/hbz/lobid-organisations/issues/348">#348</a>)</span></p>
 						<p><span class="fragment">GND-Links ergänzen (<a href="https://github.com/hbz/lobid-organisations/issues/361">#361</a>)</span></p>
 						<p><span class="fragment">Größere Landkarte für kartenbasierte Suche (<a href="https://github.com/hbz/lobid-organisations/issues/346">#346</a>)</span></p>
@@ -219,7 +266,7 @@
 
 					<section>
 		        <h2><span>lobid nutzen & verbessern</span></h2>
-						<p><span class="fragment">Pflegen Sie Ihre Einträge im Sigelverzeichnis und der DBS</span></p>
+						<p><span class="fragment">Pflegen Sie Ihre Einträge im Sigelverzeichnis (z.B. Barrierefreiheit-Info ergänzen) und der DBS</span></p>
 						<p><span class="fragment">Integrieren sie lobid oder die lobid-API in ihre Workflows und Anwendungen</span></p>
 						<p><span class="fragment">Melden Sie Probleme und Verbesserungsvorschläge im Anschluss an den Vortrag oder auf <a href="https://github.com/hbz/lobid-organisations/issues/new">GitHub</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, per Mail, Telefon etc.</span></p>
 		      </section>
@@ -228,7 +275,7 @@
 					<section>
 						<h2><span>Wikidata ergänzen</span></h2>
 						<p><span class="fragment"><a href="https://www.wikidata.org">https://www.wikidata.org</a></span></p>
-						<p><span class="fragment">Ergänzen: Bild, ISIL, WLAN, Rollstuhlzugänglichkeit etc.</span></p>
+						<p><span class="fragment">Ergänzen: Bild, ISIL, WLAN, etc.</span></p>
 						<p><span class="fragment">Einträge mit ISIL, ohne Bild: <a href="http://tinyurl.com/kdgjpc6">http://tinyurl.com/kdgjpc6</a></span></p>
 						<p><span class="fragment">Musterbeispiele: <a href="https://www.wikidata.org/wiki/Q15044361">Gustav-Landauer-Bibliothek Witten</a>, <a href="https://www.wikidata.org/wiki/Q636943">Archäologisches Museum Hamburg</a>, <a href="https://www.wikidata.org/wiki/Q256507">Bayerische Staatsbibliothek</a>, <a href="https://www.wikidata.org/wiki/Q8288">Wikimedia Deutschland</a></span></p>
 					</section>
