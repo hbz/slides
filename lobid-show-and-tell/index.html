@@ -79,13 +79,13 @@
 
 					<section>
 						<h2>Agenda</h2>
-						<ol>
+						<ul>
 							<li>lobid</li>
 							<li>lobid-resources / Demo</li>
 							<li>API Documentation</li>
 							<li>Lessons Learned</li>
 							<li>Q & A</li>
-						</ol>
+						</ul>
 					</section>
 
 					<section>
@@ -98,11 +98,11 @@
 
 					<section>
 						<h2><span>What is lobid?</span></h2>
-						<p><span class="fragment">Linked-Data-based data infrastructure</span></p>
+						<p><span class="fragment">LOD-based data infrastructure</span></p>
 						<p><span class="fragment">Research & Development since 2010</span></p>
-						<p><span class="fragment">Version 2.0 recently went into production</span></p>
 						<p><span class="fragment">Search UIs for end users & <br />web APIs (read only) for web developers</span></p>
-						<p><span class="fragment">Is based on data from different sources</a></span></p>
+						<p><span class="fragment">Version 2.0 recently went into production</span></p>
+						<p><span class="fragment">Based on data from different sources</a></span></p>
 		      </section>
 					
 					<section>
@@ -123,17 +123,17 @@
 		      </section>
 
 					<section>
-								<h2>The data</h2>
-										<p><span class="fragment">hbz union catalogue with > 1000 cataloging libraries</span></p>
-										<p><span class="fragment">> 20 Million records, > 45 Million holdings</a></span></p>
-										<p><span class="fragment">catalging environment: Aleph</a></b></span></p>
+								<h2>The data: hbz union catalogue</h2>
+										<p><span class="fragment">Cataloging libraries: 56 academic & special libraries, <br />1000 institute/departmental libraries</span></p>
+										<p><span class="fragment">20 Million records and 45 Million holdings</a></span></p>
+										<p><span class="fragment">Cataloging environment: Aleph</a></b></span></p>
 										<p><span class="fragment">Source format: MAB-based Aleph Sequentials</a></b></span></p>
 					</section>
 
 					<section>
 						<h2><span>ETL</span></h2>
-						<p><span class="fragment">Daily export from Aleph based on a local work around</span></p>
-						<p><span class="fragment">Transformation to N-Triples with <a hreaf="">Metafacture</a><br /> (<a href= "https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">configuration file</a>)</span></p>
+						<p><span class="fragment">Daily export of Aleph Sequentials based on a local work around</span></p>
+						<p><span class="fragment">Transformation to N-Triples with <a hreaf="">Metafacture</a></span></p>
 						<p><span class="fragment">Conversion to JSON-LD with addition of some concept labels with <a href="https://github.com/hbz/etikett">Etikett</a></span></p>
 						<p><span class="fragment">Result is indexed into Elasticsearch</span></p>
 					</section>
@@ -141,6 +141,7 @@
 					<section>
 						<h2>Let's take a look</h2>
 						<h3><a href="https://lobid.org/resources">https://lobid.org/resources</a></h3>
+						<p><span class="fragment"><small>Example resource: <a href="http://lobid.org/hbz01/HT019381428">Aleph export</a>, <a href="http://lobid.org/resources/HT019381428.json">JSON-LD</a></small></span></p>
 		      </section>
 
 					<section>
@@ -225,21 +226,43 @@
 		      </section>
 
 					<section>
-		        <h1>Lessons Learned</h1>
+						<h1>Lessons Learned</h1>
+		        <h3><span class="fragment">...over the last couple years</span></h3>
 		      </section>
 
 					<section>
-		        <h2><span>We learned a lot, e.g.</span></h2>
-						<p><span class="fragment">Anreicherung mit Wikidata-Informationen (<a href="https://github.com/hbz/lobid-organisations/issues/348">#348</a>)</span></p>
-						<p><span class="fragment">GND-Links ergänzen (<a href="https://github.com/hbz/lobid-organisations/issues/361">#361</a>)</span></p>
-						<p><span class="fragment">Größere Landkarte für kartenbasierte Suche (<a href="https://github.com/hbz/lobid-organisations/issues/346">#346</a>)</span></p>
-						<p><span class="fragment">Provenienzangaben auf Feldebene</span></p>
-						<p><span class="fragment">CC0 für DBS-Stammdaten</span></p>
-						<p><span class="fragment">...</span></p>
+		        <h2><span>APIs</span></h2>
+						<p><span class="fragment">SPARQL is nice for complex queries</span></p>
+						<p><span class="fragment">For lots of use cases a performant API more reliable and convenient</span></p>
+						<p><span class="fragment">Also, you can implement <a href="http://linkeddatafragments.org/">LDF</a> on top of that API</span></p>
+		      </section>
+
+					<section>
+		        <h2><span>Data Modeling</span></h2>
+						<p><span class="fragment">Reuse of existing vocabularies might be overrated</span></p>
+						<p><span class="fragment">Rather add one level of indirection than use subproperties (see also <a href="http://blog.lobid.org/2016/12/13/data-modeling-client-effects.html">this post</a>)</span></p>
+						<p><span class="fragment">Creating nice JSON-LD isn't straightforward yet (especially with more complex data & bnodes) & there are <a href="http://blog.lobid.org/2017/06/08/lobid-api-why-how.html#custom-json-ld-in-the-20-systems">different ways of doing it</a></span></p>
+		      </section>
+
+					<section>
+		        <h2><span>Development</span></h2>
+						<p><span class="fragment">When something's missing, contribute to existing libraries instead of rolling your own</span></p>
+		      </section>
+
+					<section>
+						<h2><span>Where can Alma improve over Aleph?</span></h2>
+						<p><span class="fragment">At best publish well-formed, consistent and correct JSON-LD</span></p>
+						<p><span class="fragment">More realistically: provide reliable and performant interfaces for getting data and updates (e.g. dumps + ResourceSync)</span></p>
 		      </section>
 
 					<section>
 						<h1><span>Q & A</span></h1>
+					</section>
+
+					<section>
+						<h1><span>Further resources</span></h1>
+						<p><a href="http://blog.lobid.org">lobid blog</a></p>
+						<p><a href= "https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Metafacture configuration file (morph)</a></p>
 					</section>
 
      </div>
