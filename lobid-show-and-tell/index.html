@@ -89,6 +89,14 @@
 					</section>
 
 					<section>
+						<h2><span>The hbz</span></h2>
+						<p><span class="fragment">North Rhine-Westphalian Library Service Centre, est. 1973</span></p>
+						<p><span class="fragment">Software and services for libraries in NRW and beyond</span></p>
+						<p><span class="fragment">E.g. union catalog, discovery portal DigiBib, ILL, Digitization & Digital Preservation, consortial acquisition</span></p>
+						<p><span class="fragment">See also <a href="https://www.hbz-nrw.de/service/mediathek/flyer/hbz-product-scope/at_download/file">hbz flyer in English</a> (PDF)</span></p>
+		      </section>
+
+					<section>
 		        <h1>lobid</h1>
 		      </section>
 
@@ -125,14 +133,14 @@
 					<section>
 								<h2>The data: hbz union catalogue</h2>
 										<p><span class="fragment">Cataloging libraries: 56 academic & special libraries, <br />1000 institute/departmental libraries</span></p>
-										<p><span class="fragment">20 Million records and 45 Million holdings</a></span></p>
+										<p><span class="fragment">20 million records and 45 million holdings</a></span></p>
 										<p><span class="fragment">Cataloging environment: Aleph</a></b></span></p>
-										<p><span class="fragment">Source format: MAB-based Aleph Sequentials</a></b></span></p>
+										<p><span class="fragment">Source format: Aleph MAB2 XML</a></b></span></p>
 					</section>
 
 					<section>
 						<h2><span>ETL</span></h2>
-						<p><span class="fragment">Daily export of Aleph Sequentials based on a local work around</span></p>
+						<p><span class="fragment">Daily export of Aleph MAB2 XML based on Aleph publishing mechanism</span></p>
 						<p><span class="fragment">Transformation to N-Triples with <a hreaf="">Metafacture</a></span></p>
 						<p><span class="fragment">Conversion to JSON-LD with addition of some concept labels with <a href="https://github.com/hbz/etikett">Etikett</a></span></p>
 						<p><span class="fragment">Result is indexed into Elasticsearch</span></p>
@@ -202,7 +210,7 @@
 					</section>
 
 					<section>
-		        <h2><span>Attached informationen</span></h2>
+		        <h2><span>Attached information</span></h2>
 						<p><span class="fragment">Name</span></p>
 						<p><span class="fragment">Description</span></p>
 						<p><span class="fragment">Coverage</span></p>
@@ -233,7 +241,7 @@
 					<section>
 		        <h2><span>APIs</span></h2>
 						<p><span class="fragment">SPARQL is nice for complex queries</span></p>
-						<p><span class="fragment">For lots of use cases a performant API more reliable and convenient</span></p>
+						<p><span class="fragment">For lots of use cases a performant API is more reliable and convenient</span></p>
 						<p><span class="fragment">Also, you can implement <a href="http://linkeddatafragments.org/">LDF</a> on top of that API</span></p>
 		      </section>
 
@@ -247,12 +255,14 @@
 					<section>
 		        <h2><span>Development</span></h2>
 						<p><span class="fragment">When something's missing, contribute to existing libraries instead of rolling your own</span></p>
+						<p><span class="fragment">Sometimes it's better to build a new house instead of fixing an old one</span></p>
 		      </section>
 
 					<section>
 						<h2><span>Where can Alma improve over Aleph?</span></h2>
 						<p><span class="fragment">At best publish well-formed, consistent and correct JSON-LD</span></p>
 						<p><span class="fragment">More realistically: provide reliable and performant interfaces for getting data and updates (e.g. dumps + ResourceSync)</span></p>
+						<p><span class="fragment">Write API (Bibframe- or MARC-based)</span></p>
 		      </section>
 
 					<section>
