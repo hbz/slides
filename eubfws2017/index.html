@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Bibframe at hbz</title>
+
+		<meta charset="utf-8">
+		<meta name="description"
+			content="Bibframe at hbz">
+		<meta name="author" content="Adrian Pohl">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Bibframe at hbz",
+			"creator" : {
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			},
+			"description": "These slides were created for a lightning talk at the European BIBFRAME Workshop 2017.",
+			"about" : [ "lobid", "libraries", "linked open data", "Bibframe" ],
+			"url" : "http://slides.lobid.org/eubfws2017/",
+			"datePublished" : "2017-09-26",
+			"inLanguage" : "en",
+			"audience": [ "librarians" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+					: 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!--[if lt IE 9]>
+				<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		</head>
+
+		<body>
+			<div class="reveal">
+				<div class="slides">
+
+					<section>
+					  <h2>Bibframe at hbz</h2>
+					  <p>
+					    <small>Adrian Pohl / <a
+					      href="https://twitter.com/acka47">@acka47</a> <br /> <a
+					      href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+					        Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
+					      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+					      <br/><small>European BIBFRAME Workshop 2017,  Frankfurt/Main, 2017-09-26</small>
+					  </p>
+						<p>
+							<small>This presentation: <br /> <a
+								href="http://slides.lobid.org/eubfws2017/">http://slides.lobid.org/eubfws2017/</a></small>
+							<br/>
+							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+						</p>
+					</section>
+
+					<section>
+						<h2><span>The hbz</span></h2>
+						<p><span class="fragment">North Rhine-Westphalian Library Service Centre, est. 1973</span></p>
+						<p><span class="fragment">Software services for libraries in NRW and beyond</span></p>
+						<p><span class="fragment">E.g. union catalog, discovery portal DigiBib, ILL, Digitization & Digital Preservation, consortial acquisition</span></p>
+						<p><span class="fragment">See also <a href="https://www.hbz-nrw.de/service/mediathek/flyer/hbz-product-scope/at_download/file">hbz flyer in English</a> (PDF)</span></p>
+		      </section>
+
+					<section>
+		        <h1>lobid</h1>
+		      </section>
+
+					<section>
+						<a href="https://lobid.org"><img src="img/lobid.png" width=1024 /></a>
+		      </section>
+
+					<section>
+						<h2><span>What is lobid?</span></h2>
+						<p><span class="fragment">LOD-based data infrastructure</span></p>
+						<p><span class="fragment">Research & Development since 2010</span></p>
+						<p><span class="fragment">Search UIs for end users & <br />web APIs (read only) for web developers</span></p>
+						<p><span class="fragment">Version 2.0 recently went into production</span></p>
+						<p><span class="fragment">Based on data from different sources</a></span></p>
+		      </section>
+					
+					<section>
+						<h2>Data sources</h2>
+						<img src="img/lobid-data.png" width=800 />
+					</section>
+					
+					<section>
+						<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=800 /></a>
+		      </section>
+
+					<section>
+		        <h1>lobid-resources</h1>
+		      </section>
+
+					<section>
+								<h2>The data: hbz union catalogue</h2>
+										<p><span class="fragment">Cataloging libraries: 56 academic & special libraries, <br />1000 institute/departmental libraries</span></p>
+										<p><span class="fragment">20 million records and 45 million holdings</a></span></p>
+										<p><span class="fragment">Cataloging environment: Aleph</a></b></span></p>
+										<p><span class="fragment">Source format: Aleph MAB2 XML</a></b></span></p>
+					</section>
+
+					<section>
+								<h2>The application profile</h2>
+										<p><span class="fragment">There will never be a vocabulary that covers all our use cases – except we create it ourselves</span></p>
+										<p><span class="fragment">Aproach: reuse existing vocabs & only create new properties/classes when necessary</a></span></p>
+										<p><span class="fragment">Cataloging environment: Aleph</a></b></span></p>
+										<p><span class="fragment">Source format: Aleph MAB2 XML</a></b></span></p>
+					</section>
+
+					<section>
+						<h2>The ingredients</h2>
+						<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Vocabulary</th>
+								<th>Properties</th>
+								<th>Classes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+									<td><a href="http://purl.org/lobid/lv">lobid-vocab</a></td>
+									<td>17</td>
+									<td>11</td>
+								</tr>
+								<tr>
+									<td><a href="http://purl.org/dc/terms/">DC Terms</a></td>
+									<td>15</td>
+									<td>1</td>
+								</tr>
+							<tr>
+								<td><a href="http://id.loc.gov/ontologies/bibframe/">Bibframe</a></td>
+								<td>12</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td><a href="http://rdaregistry.info/Elements/u/">RDA Unconstrained Properties</a></td>
+								<td>8</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td><a href="http://purl.org/ontology/bibo/">Bibo</a></td>
+								<td>6</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td><a href="https://schema.org">schema.org</a></td>
+								<td>5</td>
+							<td>2</td>
+							</tr>
+							<tr>
+								<td><a href="http://d-nb.info/standards/elementset/gnd">GND Ontology</a></td>
+								<td>3</td>
+								<td>8</td>
+							</tr>
+							<tr>
+								<td>Others</td>
+								<td>10</td>
+								<td>3</td>
+							</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h1><span>Q & A</span></h1>
+					</section>
+
+					<section>
+						<h1><span>Further resources</span></h1>
+						<p><a href="http://slides.lobid.org/lobid-show-and-tell/">Slides for a presentation about "lobid 2.0 – Building a LOD-based web API"</a></p>
+						<p><a href="http://blog.lobid.org">lobid blog</a></p>
+						<p><a href= "https://twitter.com/lobidOrg">lobid on Twitter</a></p>
+						<p><a href= "https://github.com/hbz/lobid-resources">lobid-resources code on GitHub</a></p>
+					</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
