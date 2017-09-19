@@ -65,7 +65,7 @@
 					      href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
 					        Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
 					      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
-					      <br/><small>European BIBFRAME Workshop 2017,  Frankfurt/Main, 2017-09-26</small>
+					      <br/><small>European BIBFRAME Workshop,<br />Frankfurt/Main, 2017-09-26</small>
 					  </p>
 						<p>
 							<small>This presentation: <br /> <a
@@ -80,6 +80,7 @@
 						<p><span class="fragment">North Rhine-Westphalian Library Service Centre, est. 1973</span></p>
 						<p><span class="fragment">Software services for libraries in NRW and beyond</span></p>
 						<p><span class="fragment">E.g. union catalog, discovery portal DigiBib, ILL, Digitization & Digital Preservation, consortial acquisition</span></p>
+						<p><span class="fragment">LOD Research & Development since 2010</span></p>
 						<p><span class="fragment">See also <a href="https://www.hbz-nrw.de/service/mediathek/flyer/hbz-product-scope/at_download/file">hbz flyer in English</a> (PDF)</span></p>
 		      </section>
 
@@ -92,25 +93,12 @@
 		      </section>
 
 					<section>
-						<h2><span>What is lobid?</span></h2>
-						<p><span class="fragment">LOD-based data infrastructure</span></p>
-						<p><span class="fragment">Research & Development since 2010</span></p>
-						<p><span class="fragment">Search UIs for end users & <br />web APIs (read only) for web developers</span></p>
-						<p><span class="fragment">Version 2.0 recently went into production</span></p>
-						<p><span class="fragment">Based on data from different sources</a></span></p>
-		      </section>
-					
-					<section>
-						<h2>Data sources</h2>
+						<h2>Data Sources</h2>
 						<img src="img/lobid-data.png" width=800 />
 					</section>
 					
 					<section>
 						<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=800 /></a>
-		      </section>
-
-					<section>
-		        <h1>lobid-resources</h1>
 		      </section>
 
 					<section>
@@ -130,7 +118,20 @@
 					</section>
 
 					<section>
-						<h2>The ingredients</h2>
+						<h2>Choosing vocabs</h2>
+						<ol>
+						  <li><a href="http://purl.org/dc/terms">DC Terms</a></li>
+						  <li><a href="http://id.loc.gov/ontologies/bibframe">Bibframe 2.0</a></li>
+						  <li><a href="http://bibliontology.com/">Bibliograpic Ontology (Bibo)</a></li>
+						  <li>Resource Description and Access (RDA) <a href="http://www.rdaregistry.info/Elements/u/">Unconstrained Properties</a></li>
+						  <li><a href="http://schema.org/">schema.org</a></li>
+						  <li>Other vocabularies (MADS, Music Ontology, DC Elements,…) for individual elements</li>
+						  <li><a href="http://purl.org/lobid/lv">Our own vocabulary</a></li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>The resulting ingredients</h2>
 						<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
@@ -142,8 +143,8 @@
 						<tbody>
 							<tr>
 									<td><a href="http://purl.org/lobid/lv">lobid-vocab</a></td>
-									<td>17</td>
-									<td>11</td>
+									<td>20</td>
+									<td>12</td>
 								</tr>
 								<tr>
 									<td><a href="http://purl.org/dc/terms/">DC Terms</a></td>
@@ -167,7 +168,7 @@
 							</tr>
 							<tr>
 								<td><a href="https://schema.org">schema.org</a></td>
-								<td>5</td>
+								<td>7</td>
 							<td>2</td>
 							</tr>
 							<tr>
@@ -177,11 +178,89 @@
 							</tr>
 							<tr>
 								<td>Others</td>
-								<td>10</td>
+								<td>11</td>
 								<td>3</td>
+							</tr>
+							<tr>
+								<td><b>Total</b></td>
+								<td><b>82</b></td>
+								<td><b>41</b></td>
 							</tr>
 							</tbody>
 						</table>
+					</section>
+
+					<section>
+								<h2>We ❤ bf:Contribution</h2>
+									<pre><code>
+										{
+   "id":"http://lobid.org/resources/TT002619836#!",
+   "contribution":[
+      {
+         "agent":{
+            "dateOfBirth":"1967",
+            "id":"http://d-nb.info/gnd/123652391",
+            "label":"Schmaus, Simone",
+            "type":[
+               "Person"
+            ]
+         },
+         "role":{
+            "id":"http://id.loc.gov/vocabulary/relators/ill",
+            "label":"Illustration"
+         },
+         "type":[
+            "Contribution"
+         ]
+      },
+      {
+         "agent":{
+            "id":"http://d-nb.info/gnd/128479086",
+            "label":"Kramatschek, Christopher",
+            "type":[
+               "Person"
+            ]
+         },
+         "role":{
+            "id":"http://id.loc.gov/vocabulary/relators/edt",
+            "label":"Herausgeber/in"
+         },
+         "type":[
+            "Contribution"
+         ]
+      },
+      {
+         "agent":{
+            "altLabel":[
+               "Galerie FOE 156",
+               "Ausstellungsforum FOE 156"
+            ],
+            "id":"http://d-nb.info/gnd/5508593-3",
+            "label":"FOE 156 (München)",
+            "type":[
+               "CorporateBody"
+            ]
+         },
+         "role":{
+            "id":"http://id.loc.gov/vocabulary/relators/ctb",
+            "label":"Mitwirkende"
+         },
+         "type":[
+            "Contribution"
+         ]
+      }
+   ]
+}
+									</pre></code>
+					</section>
+
+					<section>
+								<h2>Our relation to Bibframe</h2>
+								<p><span class="fragment">What is all the fuss about bf?</a></b></span></p>
+								<p><span class="fragment">One of many vocabularies to use</span></p>
+										<p><span class="fragment">It will never cover all our needs</a></span></p>
+										<p><span class="fragment">Has some benefits</a></b></span></p>
+										<p><span class="fragment">We will provide bf data if it becomes a standard way</a></b></span></p>
 					</section>
 
 					<section>
@@ -190,10 +269,13 @@
 
 					<section>
 						<h1><span>Further resources</span></h1>
-						<p><a href="http://slides.lobid.org/lobid-show-and-tell/">Slides for a presentation about "lobid 2.0 – Building a LOD-based web API"</a></p>
-						<p><a href="http://blog.lobid.org">lobid blog</a></p>
-						<p><a href= "https://twitter.com/lobidOrg">lobid on Twitter</a></p>
-						<p><a href= "https://github.com/hbz/lobid-resources">lobid-resources code on GitHub</a></p>
+						<ul>
+							<li><a href="http://slides.lobid.org/lobid-show-and-tell/">Slides for a presentation about "lobid 2.0 – Building a LOD-based web API"</a></li>
+							<li><a href="http://blog.lobid.org">lobid blog</a></li>
+							<li><a href="http://blog.lobid.org/2016/12/13/data-modeling-client-effects.html">Blog post describing the benefits of bf's Contribution model for web developers</a></li>
+							<li><a href= "https://twitter.com/lobidOrg">lobid on Twitter</a></li>
+							<li><a href= "https://github.com/hbz/lobid-resources">lobid-resources code on GitHub</a></li>
+						</ul>
 					</section>
 
      </div>
