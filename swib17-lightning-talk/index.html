@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Creating a spatial classification from Wikidata</title>
+
+		<meta charset="utf-8">
+		<meta name="description"
+			content="Creating a spatial classification from Wikidata">
+		<meta name="author" content="Adrian Pohl">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Creating a spatial classification from Wikidata",
+			"creator" : {
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			},
+			"description": "These slides are used for a lightning talk at SWIB17.",
+			"about" : [ "lobid", "libraries", "linked open data", "wikidata", "subject classification"],
+			"url" : "http://slides.lobid.org/swib17-lightning-talk/",
+			"datePublished" : "2017-12-05",
+			"inLanguage" : "en",
+			"audience": [ "web developers", "librarians" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+					: 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!--[if lt IE 9]>
+				<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		</head>
+
+		<body>
+			<div class="reveal">
+				<div class="slides">
+
+					<section>
+					  <h2>Creating a spatial classification from Wikidata</h2>
+					  <p>
+					    <small>Adrian Pohl / <a
+					      href="https://twitter.com/acka47">@acka47</a> <br /> <a
+					      href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+					        Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br /> <img
+					      src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+					      <br/><small>SWIB17, Hamburg, 2017-12-05</small>
+					  </p>
+						<p>
+							<small>This presentation: <br /> <a
+								href="http://slides.lobid.org/swib17-lightning-talk/">http://slides.lobid.org/swib17-lightning-talk/</a></small>
+							<br/>
+							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+						</p>
+					</section>
+
+					<section>
+						<h2>Initial situation</h2>
+						<p><span class="fragment"><a href="https://nwbib.de/">NWBib</a> – a regional bibliography with literature since 1984, web-version based on <a href="https://lobid.org/resources/api">lobid-resources API</a></span></p>
+						<p><span class="fragment">Besides an existing basic <a href="https://nwbib.de/classification?t=Raumsystematik">spatial classification</a>, there are lots of strings referring to spatial subjects</span></p>
+						<p><span class="fragment">~290,000 bibliographic resources with >300,000 occurrences of ~8,500 distinct "spatial strings"</span></p>
+					</section>
+
+					<section>
+						<span><code>
+							"Bielefeld"
+"Werther-Arrode"
+"Kreis Olpe"
+"Köln"
+"Düsseldorf"
+"Steele"
+"Gronau <Westfalen>"
+"Lohmar"
+"Kreis Olpe"
+"Duisburg"
+"Köln"
+"Münster <Westfalen>"
+"Münster (Westf)"
+"Düren"
+"Wuppertal"
+"Düsseldorf"
+"Xanten"
+"Ahlen <Kreis Warendorf>"
+"Grafschaft <Schmallenberg>"
+"Dortmund"
+"Unterbruch, Heinsberg"
+"Warendorf"
+"Aachen"
+"Sankt Hubert <Kempen, Viersen>"
+"Düsseldorf"
+"Jülich"
+"Bochum"
+"Hagen"
+"Jülich"
+"Krefeld"
+"Wuppertal-Sonnborn"
+"Oberhausen-Sterkrade"
+"Hagen"
+"Bochum"
+"Köln"
+"Fröndenberg"
+"Bad Honnef"
+"Essen"
+"Mülheim <Ruhr>"
+"Münster (Westf)"
+"Bielefeld"
+"Wesel <Kreis>"
+"Duisburg"
+"Kleve <Kleve, Kreis>"
+...
+						</code></span>
+						<p><small>(<a href="https://gist.github.com/acka47/76c1cfb333d1e8841c36578ff54f6324">see also</a>)</small></p>
+		      </section>
+
+					<section>
+		        <h2>Goal: things not strings</h2>
+						<p><span class="fragment">the spatial strings are matched to stable and non-ambigous concept URIs that are part of a hierarchical classification</span></p>
+						<p><span class="fragment">people can discover bibliographic resources by browsing the spatial classification</span></p>
+		      </section>
+
+					<section>
+						<h2><span>Options</span></h2>
+						<p><span class="fragment">Use German Integrated authority file -> problems with multiple entries for one entry (e.g. pre- and post-incoroporation by a larger administrative area) & missing hierarchy</span></p>
+						<p><span class="fragment">Create and maintain a SKOS classification ourselves -> too labour-intensive</span></p>
+						<p><span class="fragment">Use existing structured geo data & IDs</span></p>
+		      </section>
+
+					<section>
+		        <h2>Wikidata to the rescue</h2>
+						<p><span class="fragment">We not only get URIs, hierarchies & RDF descriptions</span></p>
+						<p><span class="fragment">but also an infrastructure to maintain the data</span></p>
+						<p><span class="fragment">along with some help from our friends (=Wikidata editors).</span></p>
+		      </section>
+
+					<section>
+						<h2><span>The general process</span></h2>
+						<ol>
+							<span class="fragment"><li>Semi-automativcally match strings to Wikidata entities</li></span>
+							<span class="fragment"><li>Create <a href="https://test.nwbib.de/classification?t=Wikidata">a hierarchical visual representation</a> of spatial entities from Wikidata (for now for debugging the data)</li></span>
+							<span class="fragment"><li>Replace strings by Wikidata IDs (QIDs) in the cataloging system</li></span>
+							<span class="fragment"><li>Continue cataloging by looking up & using QIDs for spatial subjects classification</li></span>
+						</ol>
+		      </section>
+					
+					<section>
+						<h2>Matching</h2>
+						<ol>
+							<span class="fragment"><li>Get administrative areas in NRW via <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.txt">SPARQL</a></li></span>
+							<span class="fragment"><li>Create Elasticsearch geo index with those entries</li></span>
+							<span class="fragment"><li>Query ES index to  enrich data with WD entitites that match strings with a certain score or more</li></span>
+							<span class="fragment"><li>Check results, add fields to index (aliases, and superordinate area), adjust boosting, improve Wikidata repeat</li></span>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Matching results</h2>
+						<p><span class="fragment">After a few adjustments we have pretty good results from the automatic matching</span></p>
+						<p><span class="fragment">More than 99% of the resources with a string now also have a WD link with 92% being a pretty reliable match</a></span></p>
+						<p><span class="fragment">The only problems we noticed are with disctrict that are named after a town they contain because the town itself is scored higher than the district</a></b></span></p>
+						<p><span class="fragment">A good overview over the results: <a href="https://test.nwbib.de/classification?t=Wikidata">https://test.nwbib.de/classification?t=Wikidata</a> </a></b></span></p>
+					</section>
+
+					<section>
+		        <h1>More in the Wikidata breakout session...</h1>
+		      </section>
+
+					<section>
+						<h1><span>Further resources</span></h1>
+						<p>A <a href="https://git.io/vFb0v">wiki page</a> describing the matching process and results (in German)</p>
+						<p>The hierarchival classification (beta) created from Wikidata: <a href="https://test.nwbib.de/classification?t=Wikidata">https://test.nwbib.de/classification?t=Wikidata</a></p>
+						<p><a href="http://blog.lobid.org">lobid blog</a></p>
+						<p><a href= "https://twitter.com/lobidOrg">lobid on Twitter</a></p>
+						<p><a href= "https://github.com/hbz/lobid-resources">lobid-resources code on GitHub</a></p>
+					</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
