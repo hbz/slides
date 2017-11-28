@@ -168,7 +168,7 @@
 						<ol>
 							<span class="fragment"><li>Get administrative areas in NRW via <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.txt">SPARQL</a></li></span>
 							<span class="fragment"><li>Create Elasticsearch geo index with those entries</li></span>
-							<span class="fragment"><li>Query ES index to  enrich data with WD entitites that match strings with a certain score or more</li></span>
+							<span class="fragment"><li>Query ES index to  enrich data with WD entitites that match strings with a certain score threshold</li></span>
 							<span class="fragment"><li>Check results, add fields to index (aliases, and superordinate area), adjust boosting, improve Wikidata repeat</li></span>
 						</ol>
 					</section>
