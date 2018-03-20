@@ -74,39 +74,35 @@
       </section>
 			
 			<section>
-        <h2>RDF ist unnatürlich</h2>
-        <p><blockquote>RDF isn't natural — and therefore is barely used — by the average Web developer or data wrangler. CSV [and JSON], by contrast, is. And you are going to need to win the hearts and minds of those folks for whatever approach is proposed. – Rufus Pollock, 2013 (Siehe <a href="https://www.w3.org/2013/04/odw/report">hier</a> & <a href="https://blog.okfn.org/2013/04/24/frictionless-data-making-it-radically-easier-to-get-stuff-done-with-data/">hier</a>)</blockquote></p>
+        <p><blockquote>RDF isn't natural — and therefore is barely used — by the average Web developer or data wrangler. CSV [and JSON], by contrast, is. And you are going to need to win the hearts and minds of those folks for whatever approach is proposed. <br />– Rufus Pollock, 2013 (siehe <a href="https://www.w3.org/2013/04/odw/report">hier</a> & <a href="https://blog.okfn.org/2013/04/24/frictionless-data-making-it-radically-easier-to-get-stuff-done-with-data/">hier</a>)</blockquote></p>
       </section>
 						
       <section>
 				<h3>Vom Semantic Web...</h3>
 				<p><span class="fragment">Stop mentioning RDF and the Semantic Web.</span></p>
 				<p><span class="fragment">Focus on tools for developers.</span></p>
-				<p><span class="fragment">Do more dogfooding</span></p>
-				<small><span class="fragment">Manu Sporny, 2012, beim Schreiben an der JSON-LD Spec (<a href="http://manu.sporny.org/2012/nuclear-rdf/">Quelle</a>)</span></small>
+				<p><span class="fragment">Do more dogfooding.</span></p>
+				<small><span class="fragment">– Manu Sporny, 2012, beim Schreiben an der JSON-LD Spec (<a href="http://manu.sporny.org/2012/nuclear-rdf/">Quelle</a>)</span></small>
       </section>
 
 			<section>
-        <h2>...zu Linked Data</h2>
+        <h2>...zu Linked Data...</h2>
         <p><blockquote>Ultimately, RDF and the Semantic Web are of no interest to Web developers. They also have a really negative public perception problem. We should stop talking about them. Let’s shift the focus to be on Linked Data, explaining the problems that Web developers face today, and concrete, demonstrable solutions to those problems.</blockquote></p>
 				<small>ebd.</small>
       </section>
 
 			<section>
-				<a href="https://trends.google.com/trends/explore?date=all&q=api%20json,api%20xml"><img src="img/api-trends.png" width=800 /></a>
-				<p><small style="color:#F74237">xml api</small>  <small style="color:#2095EA">json api</small>  <small style="color:#DCC47A">sparql endpoint</small></p>
-				<font size="3">Quelle: <a href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql%20endpoint">Google Trends</a></font>
-			</section>
-
-			<section>
-				<h3>JSON-LD erobert das Web</h3>
-				<p>10 % (nach <a href="http://webdatacommons.org/structureddata/2017-12/stats/stats.html">Web Data Commons</a>) bis 19 % (nach <a href="https://w3techs.com/technologies/details/da-jsonld/all/all">W3Techs</a>) aller Domains haben eingebettetes JSON-LD
-			</section>
-
-			<section>
-				<h3>Ziel: Linked Open Usable Data</h3>
+				<h3>...bis Linked Open Usable Data</h3>
 				<a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data/6"><img src="img/loud01.png" width=800 /></a>
 				<p><font size="3">Quelle: <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data">Rob Sanderson, "Publishing & Retrieving Linked Open Usable Data"</a>, CC-BY</font></p>
+			</section>
+
+			<section>
+				<h3>JSON(-LD) erobert das Web</h3>
+				<a href="https://trends.google.com/trends/explore?date=all&q=api%20json,api%20xml"><img src="img/api-trends.png" width=800 /></a>
+				<p><small style="color:#F74237">xml api</small>  <small style="color:#2095EA">json api</small>  <small style="color:#DCC47A">sparql endpoint</small></p>
+				<p>10 % bis 19 % aller Domains haben eingebettetes JSON-LD</p>
+				<font size="3">Quellen: <a href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql%20endpoint">Google Trends</a>, <a href="http://webdatacommons.org/structureddata/2017-12/stats/stats.html">Web Data Commons</a>, <a href="https://w3techs.com/technologies/details/da-jsonld/all/all">W3Techs</a></font>
 			</section>
 
 			<section>
@@ -125,12 +121,54 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
   "type": "User",
   "name": "Adrian",
   "company": "hbz",
-  "blog": "https://www.twitter.com/acka47",
   "location": "Cologne, Germany",
   "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
 }
 				</code></font>
       </section>
+
+			<section>
+				<h3>JSON + @context = JSON-LD</h3>
+				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "login": "schema:alternateName",
+    "id": "schema:identifier",
+    "avatar_url": "schema:image",
+    "url": "schema:url",
+    "type": "@type",
+    "User": "schema:Person",
+    "name": "schema:name",
+    "company": "schema:worksFor",
+    "location": "schema:homeLocation",
+    "bio": "schema:description"
+  },
+  "login": "acka47",
+  "id": "160292",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>Grundlegende JSON-LD-Konzepte</h3>
+				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes.</span></p>
+				<p><span class="fragment"><code>@type</code> legt die Klasse eines nodes (rdf:type) fest oder den Datentyp einea Literals.</span></p>
+				<p><span class="fragment"></span></p>
+      </section>
+
+			<section>
+				<h2>Aufgabe</h2>
+				<h3><a href="http://tinyurl.com/ybbx7dzr">http://tinyurl.com/ybbx7dzr</a></h3>
+      </section>
+
 
      </div>
 
