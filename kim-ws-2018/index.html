@@ -67,6 +67,7 @@
 
 			<section>
         <h1>Zur Entstehung</h1>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width=350 /></a>
       </section>
 
       <section>
@@ -157,8 +158,8 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			<section>
 				<h3>Grundlegende JSON-LD-Konzepte</h3>
 				<p><span class="fragment"><code>@context</code> mappt Strings für Properties und Klassen auf URIs</span></p>
-				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes (das Subjekt).</span></p>
-				<p><span class="fragment"><code>@type</code> legt die Klasse eines nodes (rdf:type) fest oder den Datentyp eines Literals.</span></p>
+				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes (das Subjekt)</span></p>
+				<p><span class="fragment"><code>@type</code> legt die Klasse eines nodes (<code>rdf:type</code>) fest oder den Datentyp eines Literals</span></p>
 				<p><span class="fragment"></span></p>
       </section>
 
@@ -224,6 +225,110 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<h3><a href="http://tinyurl.com/y75ywn9m">http://tinyurl.com/y75ywn9m</a></h3>
       </section>
 
+			<section>
+				<h3>lobid-Erfahrungen mit JSON-LD seit 2013</h3>
+				<p><span class="fragment">Konversion von RDF mit JSON-LD Java Library führt zu suboptimalem Ergebnis, vor allem:</span></p>
+				<p><span class="fragment">Flaches JSON, mit mehreren Nodes in <code>@graph</code>-Objekt liegen</span></p>
+      </section>
+
+			<section>
+				<h3>lobid 1.x</h3>
+				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@id" : "http://lobid.org/organisation/DE-180/about",
+  "primaryTopic" : "http://lobid.org/organisation/DE-180",
+  "@graph": [ {
+    "@context" : "http://lobid.org/context/lobid-organisations.json",
+    "@id" : "http://lobid.org/organisation/DE-180",
+    "@type" : "http://xmlns.com/foaf/0.1/Organization",
+    "name" : "Universitätsbibliothek Mannheim",
+    "fundertype" : "http://purl.org/lobid/fundertye#n02",
+    "stocksize" : "http://purl.org/lobid/stocksize#n10",
+    "address" : "_:t3"
+  }, {
+    "@id" : "_:t3",
+    "countryName" : "Germany",
+    "locality" : "Mannheim",
+    "postalCode" : "68131",
+    "streetAddress" : "Schloss Schneckenhof West"
+  }, {
+    "@id" : "http://purl.org/lobid/stocksize#n10",
+    "prefLabel" : [ {
+      "@language" : "de",
+      "@value" : "1.000.001 und mehr"
+    }, {
+      "@language" : "en",
+      "@value" : "1,000,001 and more"
+    } ]
+  } ]
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>Not very JSON-LD-y</h3>
+				<a href="https://hyp.is/xzfAXDmTEeiEDJMVbEESMg/manu.sporny.org/2014/json-ld-origins-2/"><img src="img/json-ldy.png" width=1024 /></a>
+				<p><font size="3">Quelle: <a href="http://manu.sporny.org/2014/json-ld-origins-2/#comment-4190">http://manu.sporny.org/2014/json-ld-origins-2/#comment-4190</a></font></p>
+			</section>
+
+			<section>
+				<h3>Weitere Probleme mit lobid-RDF zu JSON-LD Konversion</h3>
+				<p><span class="fragment">Wenn Node zweimal auftaucht werden zusätzliche Tripel nur einmal eingebettet</span></p>
+				<p><span class="fragment">Mängel bei der Erzeugung von Arrays mit gemischten Inhalten</span></p>
+				<p><span class="fragment">...plus ein paar Dinge, die ich vergessen habe</span></p>
+      </section>
+
+			<section>
+				<h3>Ansätze für lobid 2.x</h3>
+				<p><span class="fragment">Selbst geschriebenes Java-Tool zur Generierung von JSON-LD (<a href="https://github.com/hbz/lobid-resources/tree/master/src/main/java/de/hbz/lobid/helper">GitHub</a>)</span></p>
+				<p><span class="fragment">Labels für alle Nodes mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps<7a> für mehrsprachige labels</span></p>
+      </section>
+
+			<section>
+				<h3>lobid 2.x</h3>
+				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context" : "http://lobid.org/organisations/context.jsonld",
+  "type" : "Library",
+  "id" : "http://lobid.org/organisations/DE-180#!",
+  "name" : "Universitätsbibliothek Mannheim",
+  "location" : [ {
+    "type" : "Place",
+    "address" : {
+      "postalCode" : "68131",
+      "streetAddress" : "Schloss Schneckenhof West",
+      "addressLocality" : "Mannheim",
+      "addressCountry" : "DE",
+      "type" : "PostalAddress"
+    }
+	} ],
+  "collects" : {
+    "type" : "Collection",
+    "extent" : {
+      "id" : "http://purl.org/lobid/stocksize#n10",
+      "type" : "Concept",
+      "label" : {
+        "de" : "1.000.001 und mehr",
+        "en" : "1,000,001 and more"
+      }
+    }
+  }
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h2>Aufgabe</h2>
+				<h3>Schachtele das JSON und entferne das <code>@graph</code>-Objekt</h3>
+				<h3><a href="http://tinyurl.com/y9wnft4j">http://tinyurl.com/y9wnft4j</a></h3>
+      </section>
+
+			<section>
+				<h2>Credits & Dank an:</h2>
+				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
+				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, der mir auch einige Anregungen gegeben hat.</p>
+      </section>
 
      </div>
 
