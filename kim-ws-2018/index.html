@@ -48,7 +48,7 @@
             <a href="https://twitter.com/acka47">@acka47</a> <br /> <a
             href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
               Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
-          <img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /><br/>
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
           <small>Mannheim, 2018-04-10</small>
         </p>
         <p>
@@ -112,7 +112,7 @@
 
 			<section>
 				<h3>JSON</h3>
-				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
 $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 {
   "login": "acka47",
@@ -129,7 +129,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>JSON + @context = JSON-LD</h3>
-				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -165,7 +165,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>Keine @id?</h3>
-				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -193,7 +193,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>JSON + @context = JSON-LD</h3>
-				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
 {
   "@context": {
     "schema": "http://schema.org/",
@@ -281,8 +281,8 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			<section>
 				<h3>Ansätze für lobid 2.x</h3>
 				<p><span class="fragment">Selbst geschriebenes Java-Tool zur Generierung von JSON-LD (<a href="https://github.com/hbz/lobid-resources/tree/master/src/main/java/de/hbz/lobid/helper">GitHub</a>)</span></p>
-				<p><span class="fragment">Labels für alle Nodes mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps<7a> für mehrsprachige labels</span></p>
+				<p><span class="fragment">Labels für alle Nodes ergänzen mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps</a> für mehrsprachige labels</span></p>
       </section>
 
 			<section>
@@ -325,9 +325,17 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
       </section>
 
 			<section>
+				<h3>JSON Schema und JSON-LD</h3>
+				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierun an.<span></p>
+				<p><span class="fragment">Einsatz in der OER World Map zur Validierung der Eingabe (POST)<span></p>
+				<p><span class="fragment">Ideen, JSON Schema zur gemeinsamen Entwicklung von Application Profiles pls Metadateneditor zu beutzen.<span></p>
+				<p><span class="fragment">JSCON-Schema-basierter Metadateneditor: <a href="http://graphthinking.com/jpf/">http://graphthinking.com/jpf/</a><span></p>
+			</section>
+
+			<section>
 				<h2>Credits & Dank an:</h2>
 				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
-				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, der mir auch einige Anregungen gegeben hat.</p>
+				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, der mir auch einige Anregungen gegeben hat.</p>		
       </section>
 
      </div>
