@@ -44,7 +44,7 @@
         <h4>Session beim DINI-KIM-Workshop 2018</h4>
         <p>
           <small>
-            <a href="http://www.uebertext.org/">Adrian Pohl</a> /
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
             <a href="https://twitter.com/acka47">@acka47</a> <br /> <a
             href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
               Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
@@ -107,7 +107,16 @@
 			</section>
 
 			<section>
-        <h1>Zur Struktur</h1>
+        <h1>Das Format</h1>
+      </section>
+
+			<section>
+				<h3>JSON – JavaScript Object Notation</h3>
+				<p><span class="fragment">Ein einfaches, lesbares Key-Value-Format für strukturierte Daten</span></p>
+				<p><span class="fragment">Key = String in Anführungszeichen</span></p>
+				<p><span class="fragment">Values = object, array, number, string oder boolean (false, null, true)</span></p>
+				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
+				<small><span class="fragment">Quelle: <a href="https://www.ietf.org/rfc/rfc4627.txt">RFC 4627 </a></span></small>
       </section>
 
 			<section>
@@ -156,11 +165,18 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
       </section>
 
 			<section>
-				<h3>Grundlegende JSON-LD-Konzepte</h3>
+				<h3>Formen von JSON-LD</h3>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#expanded-document-form">Expanded Document Form</a>: Ohne <code>@context</code> (d. h.alle URIs immer ausgeschrieben) und Values immer in Array</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#compacted-document-form">Compacted Document Form</a>: Mit <code>@context</code></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#flattened-document-form">Flattened Document Form</a>: Mit <code>@context</code> und <code>@graph</code> und alle Objekte ungeschachtelt auf einer Ebene</span></p>
+      </section>
+
+			<section>
+				<h3>JSON-LD Keywords</h3>
 				<p><span class="fragment"><code>@context</code> mappt Strings für Properties und Klassen auf URIs</span></p>
 				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes (das Subjekt)</span></p>
-				<p><span class="fragment"><code>@type</code> legt die Klasse eines nodes (<code>rdf:type</code>) fest oder den Datentyp eines Literals</span></p>
-				<p><span class="fragment"></span></p>
+				<p><span class="fragment"><code>@type</code> ist multifunktional: legt 2.) die Klasse eines nodes (<code>rdf:type</code>) fest oder 2.) den Datentyp eines Literals oder kann 3. für type coercion genutzt werden</span></p>
+				<p><span class="fragment">Sonstige: <code>@value</code>, <code>@language</code>, <code>@container</code>, <code>@list</code>, <code>@set</code>, <code>@reverse</code>, <code>@index</code>, <code>@base</code>, <code>@vocab</code>, <code>@graph</code></span></p>
       </section>
 
 			<section>
@@ -221,8 +237,9 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
       </section>
 
 			<section>
-				<h2>Aufgabe</h2>
-				<h3><a href="http://tinyurl.com/y75ywn9m">http://tinyurl.com/y75ywn9m</a></h3>
+				<h2>Aufgabe (5 min):</h2>
+				<h3>Schreibe einen @context</h3>
+				<h3><a href="http://tinyurl.com/y7culyry">http://tinyurl.com/y7culyry</a></h3>
       </section>
 
 			<section>
@@ -240,9 +257,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
   "@graph": [ {
     "@context" : "http://lobid.org/context/lobid-organisations.json",
     "@id" : "http://lobid.org/organisation/DE-180",
-    "@type" : "http://xmlns.com/foaf/0.1/Organization",
     "name" : "Universitätsbibliothek Mannheim",
-    "fundertype" : "http://purl.org/lobid/fundertye#n02",
     "stocksize" : "http://purl.org/lobid/stocksize#n10",
     "address" : "_:t3"
   }, {
@@ -273,14 +288,15 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>Weitere Probleme mit lobid-RDF zu JSON-LD Konversion</h3>
-				<p><span class="fragment">Wenn Node zweimal auftaucht werden zusätzliche Tripel nur einmal eingebettet</span></p>
+				<p><span class="fragment">Wenn Node zweimal auftaucht wird Beschreibung nur einmal eingebettet</span></p>
 				<p><span class="fragment">Mängel bei der Erzeugung von Arrays mit gemischten Inhalten</span></p>
 				<p><span class="fragment">...plus ein paar Dinge, die ich vergessen habe</span></p>
       </section>
 
 			<section>
-				<h3>Ansätze für lobid 2.x</h3>
+				<h3>lobid 2.x-Neuerungen</h3>
 				<p><span class="fragment">Selbst geschriebenes Java-Tool zur Generierung von JSON-LD (<a href="https://github.com/hbz/lobid-resources/tree/master/src/main/java/de/hbz/lobid/helper">GitHub</a>)</span></p>
+				<p><span class="fragment">Aliasse für <code>@type</code> und <code>@id</code> (<a href="https://github.com/schemaorg/schemaorg/issues/854">best practice</a>)</span></p>
 				<p><span class="fragment">Labels für alle Nodes ergänzen mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
 				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps</a> für mehrsprachige labels</span></p>
       </section>
@@ -290,7 +306,6 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
 {
   "@context" : "http://lobid.org/organisations/context.jsonld",
-  "type" : "Library",
   "id" : "http://lobid.org/organisations/DE-180#!",
   "name" : "Universitätsbibliothek Mannheim",
   "location" : [ {
@@ -301,6 +316,10 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
       "addressLocality" : "Mannheim",
       "addressCountry" : "DE",
       "type" : "PostalAddress"
+    },
+    "geo": {
+      "lat": "49.48309",
+      "lon": "8.46362"
     }
 	} ],
   "collects" : {
@@ -319,23 +338,50 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
       </section>
 
 			<section>
-				<h2>Aufgabe</h2>
+				<h2>Aufgabe (5-10 min):</h2>
 				<h3>Schachtele das JSON und entferne das <code>@graph</code>-Objekt</h3>
 				<h3><a href="http://tinyurl.com/y9wnft4j">http://tinyurl.com/y9wnft4j</a></h3>
       </section>
 
 			<section>
+				<h3>JSON-LD 1.1</h3>
+				<p><span class="fragment">Ein Update der JSON-LD-Spezifikation ist in der Entwicklung.<span></p>
+			</section>
+
+			<section>
 				<h3>JSON Schema und JSON-LD</h3>
-				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierun an.<span></p>
+				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierung an.<span></p>
+				<p><span class="fragment">Ist näher an der Serialisierung, leichter verständlich und besser unterstützt als <a href"https://www.w3.org/TR/shacl/">SHACL</a> oder <a href="http://shex.io/">ShEx</a><span></p>
 				<p><span class="fragment">Einsatz in der OER World Map zur Validierung der Eingabe (POST)<span></p>
-				<p><span class="fragment">Ideen, JSON Schema zur gemeinsamen Entwicklung von Application Profiles pls Metadateneditor zu beutzen.<span></p>
-				<p><span class="fragment">JSCON-Schema-basierter Metadateneditor: <a href="http://graphthinking.com/jpf/">http://graphthinking.com/jpf/</a><span></p>
+				<p ><span class="fragment"><font size=5>(Noch einfacher les- und schreibbar ist <a href="https://graphql.org/learn/schema/">GraphQL Schema Language</a>, die für zukünftige Implementierungen in Betracht kommt.)</font><span></p>
+			</section>
+
+			<section>
+				<h3>Application Profiles mit JSON Schema entwickeln?</h3>
+				<p><span class="fragment">Mögliche Properties und Constraints finden -> in Schema schreiben -> in Editor testen -> Diskussion -> von vorne<span></p>
+				<p><span class="fragment">JSON-Schema-basierter Metadateneditor von Felix Ostrowski: <a href="http://graphthinking.com/jpf/">http://graphthinking.com/jpf/</a><span></p>
+				<p><span class="fragment">JSON-Schemas für OER-Metadaten: <a href="https://github.com/dini-ag-kim/oer-metadata-schemas">https://github.com/dini-ag-kim/oer-metadata-schemas</a><span></p>
+				<p><span class="fragment">Nachteil: anhängig von bestimmter Umsetzung einer bestimmten RDF-Serialisierung & damit nicht für andere Implementierungen als Referenz nutzbar<span></p>
+			</section>
+
+			<section>
+				<h3>Weitere Aufgaben</h3>
+				<ul>
+					<li>Sprach-Tagging von Strings I: <a href="http://tinyurl.com/yd6k6tz7">http://tinyurl.com/yd6k6tz7</a></li>
+					<li>Datentypen: <a href="http://tinyurl.com/y8x2xnld">http://tinyurl.com/y8x2xnld</a></li>
+					<li>Mehr Datentypen: <a href="http://tinyurl.com/ybws3s6n">http://tinyurl.com/ybws3s6n</a></li>
+					<li>Arrays erwzingen: <a href="http://tinyurl.com/y9smp5aw">http://tinyurl.com/y9smp5aw</a></li>
+					<li>Datenverschönerung: <a href="http://tinyurl.com/yafqgs3y">http://tinyurl.com/yafqgs3y</a></li>
+					<li>Aliasse: <a href="http://tinyurl.com/yapukz8k">http://tinyurl.com/yapukz8k</a></li>
+					<li>Language Maps: <a href="http://tinyurl.com/yc9xtzal">http://tinyurl.com/yc9xtzal</a></li>
+					<li>Framing: <a href="http://tinyurl.com/yatu7ht9">http://tinyurl.com/yatu7ht9</a></li>
+				</ul>
 			</section>
 
 			<section>
 				<h2>Credits & Dank an:</h2>
 				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
-				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, der mir auch einige Anregungen gegeben hat.</p>		
+				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, dessen Aufgaben ich als Vorlage genommen haben.</p>		
       </section>
 
      </div>
