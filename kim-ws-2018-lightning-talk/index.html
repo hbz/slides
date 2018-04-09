@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>lobid-GND [Arbeitstitel]</title>
+
+		<meta charset="utf-8">
+		<meta name="description"
+			content="Präsentation von lobid-GND">
+		<meta name="author" content="Christoph Ewertowski">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Präsentation von lobid-GND",
+			"creator" : {
+				"id": "http://lobid.org/team/ce#!",
+				"type": "Person",
+				"name": "Christoph Ewertowski"
+			},
+			"description": "These slides are used for a lightning talk at the DINI-KIM-Workshop 2018.",
+			"about" : [ "lobid", "Integrated Authority File", "linked open data"],
+			"url" : "http://slides.lobid.org/kim-ws-2018-lightning-talk/",
+			"datePublished" : "2018-04-10",
+			"inLanguage" : "de",
+			"audience": [ "web developers", "librarians" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css'
+					: 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
+		</script>
+
+		<!--[if lt IE 9]>
+				<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		</head>
+
+		<body>
+			<div class="reveal">
+				<div class="slides">
+
+					<section data-background-color="#004678">
+						<h2>lobid-gnd</h2>
+						<p>
+							<small>Christoph Ewertowski<br />
+								<a href="https://www.hbz-nrw.de/produkte/linked-open-data">
+									Linked Open Data, Hochschulbibliothekszentrum NRW (hbz)</a>
+							</small><br/>
+							<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px"/><br/>
+							<small>DINI-KIM-Workshop 2018, Mannheim, 2018-04-10/2018-04-11</small>
+						</p>
+						<p>
+							<small>Abrufbar unter: <br />
+								<a href="http://slides.lobid.org/kim-ws-2018-lightning-talk/">http://slides.lobid.org/kim-ws-2018-lightning-talk/</a>
+							</small><br/>
+							<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+								<img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+								title="Licensed under a Creative Commons Attribution 4.0 International License">
+							</a>
+						</p>
+					</section>
+
+					<section data-background-color="#004678">
+						<h2>Was ist lobid-gnd?</h2>
+							<p>Inhalt: >14,7 Mio. Normdatensätze der GND (Gemeinsame Normdatei)</p>
+							<p>Oberfläche zur Recherche</p>
+							<p>Web-API zur Abfrage von Daten im Format JSON-LD (auch n-triples, RDF, turtle)</p>
+							<span class="fragment"><p>URL: <a href="http://lobid.org/gnd">http://lobid.org/gnd</a></p>
+							<p>im Beta-Status, Feedback erwünscht! (semweb@hbz-nrw.de)</p></span>
+					</section>
+					
+					<section data-background-color="#004678">
+						<h2>Interaktionsmöglichkeiten I</h2>
+							<ul>
+								<li>Suche über Suchzeile</li>
+								<li>Einschränken über Facetten (Standard: Anzeige weniger Fälle, Unterklassen nicht angezeigt)
+									<span class="fragment"><ul>
+										<li>Entitätstyp: Person, Körperschaft, Konferenz oder Veranstaltung, Werk, Geografikum, Schlagwort, Familie</li>
+										<li>GND-Sachgruppen</li>
+										<li>Ländercodes</li>
+										<li>Beruf oder Beschäftigung</li>
+									</ul></span>
+							</ul>
+					</section>
+					
+					<section data-background-color="#004678">
+						<section>
+							<h2>Interaktionsmöglichkeiten II</h2>
+							<img src="img/Berners-Lee-detail.png" style="border: none; padding: 5px; background-color: white" width="800px"/><br/>
+						</section>
+						<section>
+							<p><h3>Detailansicht</h3>
+							<ul>
+								<li>Filtern in der Detailansicht (z.B. im Eintrag von <a href="http://lobid.org/gnd/121649091">Tim Berners-Lee</a> nach Informatikern)</li>
+								<li>Zu weitere Informationen extern gelangen
+									<ul>
+										<li>DBpedia, ORCid, VIAF etc.</li>
+										<li>Wikipedia</li>
+									</ul>
+								</li>
+								<li>Quellen für Tripel-Objekte (Kettensymbol)</li>
+							</ul></p>
+						</section>
+					</section>
+
+					<section data-background-color="#004678">
+						<h2>Anwendungsmöglichkeiten</h2>
+							<span class="fragment"><p>Zusammenführung von Personensätzen: Suche filtern nach individualisierten/nicht-individualisierten Personen.</br>
+								<a href="http://lobid.org/gnd/search?q=preferredNameEntityForThePerson.surname%3AMeier+AND+preferredNameEntityForThePerson.forename%3AFritz+">Suche nach Person mit Nachnamen "Meier" und Vornamen "Fritz" (21, 15 davon individualisiert)</a>
+							</p></span>
+							<span class="fragment"><p>Katalog mit aktuellen GND-Informationen anreichern (z.B. Beruf, Wikipedia-Links, Hierarchien von Körperschaften/Geografischen Einheiten)</p></span>
+							<span class="fragment"><p>Qualitätsverbesserung der GND: <span class="fragment">z.B. <a href="http://lobid.org/gnd/search?q=gender%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgender%23notKnown%22&filter=%2B%28geographicAreaCode%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-NW%22%29">
+								Personen ohne Geschlechtsangabe mit Ländercode XA-DE-NW (Nordrhein-Westfalen)</a> (~690)</p></span>
+							<!-- <p>Geschlecht von Schriftstellern in Deutschland (ohne Bundesländer)
+								<ul>
+									<li><span class="fragment"><a href="http://lobid.org/gnd/search?q=professionOrOccupation%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4053309-8%22+AND+gender%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgender%23male%22&filter=%2B%28geographicAreaCode%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE%22%29">männlich (~22.500)</a></span></li>
+									<li><span class="fragment"><a href="http://lobid.org/gnd/search?q=professionOrOccupation%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4053309-8%22+AND+gender%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgender%23female%22&filter=%2B%28geographicAreaCode%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE%22%29">weiblich (39)</a></span></li>
+									<li><span class="fragment"><a href="http://lobid.org/gnd/search?q=professionOrOccupation%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4053309-8%22+AND+gender%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgender%23notKnown%22&filter=%2B%28geographicAreaCode%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE%22%29">unbekannt (~4700)</a></span></li>
+								</ul>
+							<p>"Kuriositäten" : Facettensuche in Körperschaften enthält die Unterkategorie "Fiktive Körperschaft" <span class="fragment"><a href="http://lobid.org/gnd/4003385-5">Atlantis</a></span></p> -->
+					</section>
+
+					<section data-background-color="#004678">
+						<h2><span>Weitere Quellen</span></h2>
+						<p>Beschreibung der API-Abfragemöglichkeiten: <a href="http://lobid.org/gnd/api">http://lobid.org/gnd/api</a></p>
+						<p><a href="http://blog.lobid.org">lobid-Blog</a></p>
+						<p><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></p>
+						<p><a href= "https://github.com/hbz/lobid-gnd">lobid-gnd Code</a> auf GitHub</p>
+					</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+       keyboard: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
