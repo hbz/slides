@@ -68,11 +68,11 @@
 			<section>
         <h1>Agenda</h1>
 				<ol>
-					<li>1. Zur Entstehung</li>
-					<li>2. Das Format</li>
-					<li>3. Erfahrungen mit lobid & JSON-LD</li>
-					<li>4. JSON Schema & JSON-LD</li>
-					<li>5. Ausblick</li>
+					<li>Zur Entstehung</li>
+					<li>Das Format</li>
+					<li>Erfahrungen mit lobid & JSON-LD</li>
+					<li>JSON Schema & JSON-LD</li>
+					<li>Ausblick</li>
 				</ol>
       </section>
 
@@ -125,9 +125,9 @@
 				<h3>JSON – JavaScript Object Notation</h3>
 				<p><span class="fragment">Ein einfaches, lesbares Key-Value-Format für strukturierte Daten</span></p>
 				<p><span class="fragment">Key = String in Anführungszeichen</span></p>
-				<p><span class="fragment">Values = object, array, number, string oder boolean (false, null, true)</span></p>
+				<p><span class="fragment">Values = object, array, number, string oder boolean</span></p>
 				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
-				<small><span class="fragment">Quelle: <a href="https://www.ietf.org/rfc/rfc4627.txt">RFC 4627 </a></span></small>
+				<small><span class="fragment">Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259 </a></span></small>
       </section>
 
 			<section>
@@ -260,7 +260,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			<section>
 				<h3>lobid-Erfahrungen mit JSON-LD seit 2013</h3>
 				<p><span class="fragment">Konversion von RDF mit JSON-LD Java Library führt zu suboptimalem Ergebnis, vor allem:</span></p>
-				<p><span class="fragment">Flaches JSON, mit mehreren Nodes in <code>@graph</code>-Objekt liegen</span></p>
+				<p><span class="fragment">Flaches JSON, mit mehreren Nodes in <code>@graph</code>-Objekt</span></p>
       </section>
 
 			<section>
@@ -364,7 +364,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>JSON Schema & JSON-LD</h3>
-				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierung an.<span></p>
+				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierung an<span></p>
 				<p><span class="fragment">Ist näher an der Serialisierung, leichter verständlich und besser unterstützt als <a href"https://www.w3.org/TR/shacl/">SHACL</a> oder <a href="http://shex.io/">ShEx</a><span></p>
 				<p><span class="fragment">Einsatz in der OER World Map zur Validierung der Eingabe (POST)<span></p>
 				<p ><span class="fragment"><font size=5>(Noch einfacher les- und schreibbar ist <a href="https://graphql.org/learn/schema/">GraphQL Schema Language</a>, die für zukünftige Implementierungen in Betracht kommt.)</font><span></p>
@@ -375,7 +375,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<p><span class="fragment">Mögliche Properties und Constraints finden -> in Schema schreiben -> in Editor testen -> Diskussion -> von vorne<span></p>
 				<p><span class="fragment">JSON-Schema-basierter Metadateneditor von Felix Ostrowski: <a href="http://graphthinking.com/jpf/">http://graphthinking.com/jpf/</a><span></p>
 				<p><span class="fragment">JSON-Schemas für OER-Metadaten: <a href="https://github.com/dini-ag-kim/oer-metadata-schemas">https://github.com/dini-ag-kim/oer-metadata-schemas</a><span></p>
-				<p><span class="fragment">Nachteil: anhängig von bestimmter Umsetzung einer bestimmten RDF-Serialisierung & damit nicht für andere Implementierungen als Referenz nutzbar<span></p>
+				<p><span class="fragment">Nachteil: abhängig von bestimmter Umsetzung einer bestimmten RDF-Serialisierung & damit nicht für andere Implementierungen als Referenz nutzbar<span></p>
 			</section>
 
 			<section>
@@ -388,6 +388,11 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<p><span class="fragment">Motto: Keys not Arrays! Framing!<span></p>
 				<p><span class="fragment">Mehr Details: <a href="https://json-ld.org/presentations/JSON-LD-Update-TPAC-2017/assets/player/KeynoteDHTMLPlayer.html#0">Präsentationsfolien von Gregg Kellog & Rob Sanderson zu JSON-LD 1.1</a><span></p>
 			</section>
+
+			<section>
+        <h2>Das war's!</h2>
+				<h3>Zum Schluss noch ein paar mehr Aufgaben, für's Büro oder falls jetzt noch Zeit bleibt.</h3>
+      </section>
 
 			<section>
 				<h3>Weitere Aufgaben</h3>
@@ -404,7 +409,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section>
-				<h2>Credits & Dank an:</h2>
+				<h2>Dank an:</h2>
 				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
 				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, dessen Aufgaben ich als Vorlage genommen haben.</p>		
       </section>
