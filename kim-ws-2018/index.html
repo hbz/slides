@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JSON-LD – Einführung und Anwendungen</title>
+
+		<meta name="description" content="Session beim DINI-KIM-Workshop 2018 in Mannheim.">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>JSON-LD –  Einführung und Anwendungen</h2>
+        <h4>Session beim DINI-KIM-Workshop 2018</h4>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Mannheim, 2018-04-10</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/kim-ws-2018/">http://slides.lobid.org/kim-ws-2018/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>  
+
+			<section>
+        <h2>Etherpad</h2>
+				<h3><a href="http://etherpad.lobid.org/p/kim-ws-2018-dokumentation">http://etherpad.lobid.org/p/kim-ws-2018-dokumentation</a></h3>
+				<span class="fragment"><p>Jede.r ist herzlich eingeladen, <br /> zu dokumentieren, anzumerken, zu ergänzen, weiterzudiskutieren.</p></span>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>1. Zur Entstehung</li>
+					<li>2. Das Format</li>
+					<li>3. Erfahrungen mit lobid & JSON-LD</li>
+					<li>4. JSON Schema & JSON-LD</li>
+					<li>5. Ausblick</li>
+				</ol>
+      </section>
+
+			<section>
+        <h1>1. Zur Entstehung</h1>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width=350 /></a>
+      </section>
+
+      <section>
+        <h2>RDF, SPARQL, Semantic Web – <br />Not in my backyard!</h2>
+      </section>
+			
+			<section>
+        <p><blockquote>RDF isn't natural — and therefore is barely used — by the average Web developer or data wrangler. CSV [and JSON], by contrast, is. And you are going to need to win the hearts and minds of those folks for whatever approach is proposed. <br />– Rufus Pollock, 2013 (siehe <a href="https://www.w3.org/2013/04/odw/report">hier</a> & <a href="https://blog.okfn.org/2013/04/24/frictionless-data-making-it-radically-easier-to-get-stuff-done-with-data/">hier</a>)</blockquote></p>
+      </section>
+						
+      <section>
+				<h3>Vom Semantic Web...</h3>
+				<p><span class="fragment">Stop mentioning RDF and the Semantic Web.</span></p>
+				<p><span class="fragment">Focus on tools for developers.</span></p>
+				<p><span class="fragment">Do more dogfooding.</span></p>
+				<small><span class="fragment">– Manu Sporny, 2012, beim Schreiben an der JSON-LD Spec (<a href="http://manu.sporny.org/2012/nuclear-rdf/">Quelle</a>)</span></small>
+      </section>
+
+			<section>
+        <h2>...zu Linked Data...</h2>
+        <p><blockquote>Ultimately, RDF and the Semantic Web are of no interest to Web developers. They also have a really negative public perception problem. We should stop talking about them. Let’s shift the focus to be on Linked Data, explaining the problems that Web developers face today, and concrete, demonstrable solutions to those problems.</blockquote></p>
+				<small>ebd.</small>
+      </section>
+
+			<section>
+				<h3>...bis Linked Open Usable Data</h3>
+				<a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data/6"><img src="img/loud01.png" width=800 /></a>
+				<p><font size="3">Quelle: <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data">Rob Sanderson, "Publishing & Retrieving Linked Open Usable Data"</a>, CC-BY</font></p>
+			</section>
+
+			<section>
+				<h3>JSON(-LD) erobert das Web</h3>
+				<a href="https://trends.google.com/trends/explore?date=all&q=api%20json,api%20xml"><img src="img/api-trends.png" width=800 /></a>
+				<p><small style="color:#F74237">xml api</small>  <small style="color:#2095EA">json api</small>  <small style="color:#DCC47A">sparql endpoint</small></p>
+				<p>10 % bis 19 % aller Domains haben eingebettetes JSON-LD</p>
+				<font size="3">Quellen: <a href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql%20endpoint">Google Trends</a>, <a href="http://webdatacommons.org/structureddata/2017-12/stats/stats.html">Web Data Commons</a>, <a href="https://w3techs.com/technologies/details/da-jsonld/all/all">W3Techs</a></font>
+			</section>
+
+			<section>
+        <h1>2. Das Format</h1>
+      </section>
+
+			<section>
+				<h3>JSON – JavaScript Object Notation</h3>
+				<p><span class="fragment">Ein einfaches, lesbares Key-Value-Format für strukturierte Daten</span></p>
+				<p><span class="fragment">Key = String in Anführungszeichen</span></p>
+				<p><span class="fragment">Values = object, array, number, string oder boolean (false, null, true)</span></p>
+				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
+				<small><span class="fragment">Quelle: <a href="https://www.ietf.org/rfc/rfc4627.txt">RFC 4627 </a></span></small>
+      </section>
+
+			<section>
+				<h3>JSON</h3>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+$ curl -H "Accept: application/json" https://api.github.com/users/acka47
+{
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>JSON + @context = JSON-LD</h3>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "login": "schema:alternateName",
+    "avatar_url": "schema:image",
+    "url": "schema:url",
+    "type": "@type",
+    "User": "schema:Person",
+    "name": "schema:name",
+    "company": "schema:worksFor",
+    "location": "schema:homeLocation",
+    "bio": "schema:description"
+  },
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>Formen von JSON-LD</h3>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#expanded-document-form">Expanded Document Form</a>: Ohne <code>@context</code> (d. h.alle URIs immer ausgeschrieben) und Values immer in Array</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#compacted-document-form">Compacted Document Form</a>: Mit <code>@context</code></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#flattened-document-form">Flattened Document Form</a>: Mit <code>@context</code> und <code>@graph</code> und alle Objekte ungeschachtelt auf einer Ebene</span></p>
+      </section>
+
+			<section>
+				<h3>JSON-LD Keywords</h3>
+				<p><span class="fragment"><code>@context</code> mappt Strings für Properties & Klassen auf URIs</span></p>
+				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes (das Subjekt)</span></p>
+				<p><span class="fragment"><code>@type</code> ist multifunktional: legt 1.) die Klasse eines nodes (<code>rdf:type</code>) fest oder 2.) den Datentyp eines Literals oder kann 3. für type coercion genutzt werden</span></p>
+				<p><span class="fragment">Sonstige: <code>@value</code>, <code>@language</code>, <code>@container</code>, <code>@list</code>, <code>@set</code>, <code>@reverse</code>, <code>@index</code>, <code>@base</code>, <code>@vocab</code>, <code>@graph</code></span></p>
+      </section>
+
+			<section>
+				<h3>Keine @id?</h3>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "login": "schema:alternateName",
+    "avatar_url": "schema:image",
+    "url": "schema:url",
+    "type": "@type",
+    "User": "schema:Person",
+    "name": "schema:name",
+    "company": "schema:worksFor",
+    "location": "schema:homeLocation",
+    "bio": "schema:description"
+  },
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>JSON + @context = JSON-LD</h3>
+				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "login": "schema:alternateName",
+    "avatar_url": "schema:image",
+    "url": "schema:url",
+    "type": "@type",
+    "User": "schema:Person",
+    "name": "schema:name",
+    "company": "schema:worksFor",
+    "location": "schema:homeLocation",
+    "bio": "schema:description"
+  },
+  <span style="color:#F74237">"@id": "https://api.github.com/users/acka47#!",</span>
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h2>Aufgabe (5 min):</h2>
+				<h3>Schreibe einen @context</h3>
+				<h3><a href="http://tinyurl.com/y7culyry">http://tinyurl.com/y7culyry</a></h3>
+      </section>
+
+			<section>
+        <h1>3. Erfahrungen mit lobid & JSON-LD</h1>
+      </section>
+
+			<section>
+				<h3>lobid-Erfahrungen mit JSON-LD seit 2013</h3>
+				<p><span class="fragment">Konversion von RDF mit JSON-LD Java Library führt zu suboptimalem Ergebnis, vor allem:</span></p>
+				<p><span class="fragment">Flaches JSON, mit mehreren Nodes in <code>@graph</code>-Objekt liegen</span></p>
+      </section>
+
+			<section>
+				<h3>lobid 1.x</h3>
+				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@id" : "http://lobid.org/organisation/DE-180/about",
+  "primaryTopic" : "http://lobid.org/organisation/DE-180",
+  "@graph": [ {
+    "@context" : "http://lobid.org/context/lobid-organisations.json",
+    "@id" : "http://lobid.org/organisation/DE-180",
+    "name" : "Universitätsbibliothek Mannheim",
+    "stocksize" : "http://purl.org/lobid/stocksize#n10",
+    "address" : "_:t3"
+  }, {
+    "@id" : "_:t3",
+    "countryName" : "Germany",
+    "locality" : "Mannheim",
+    "postalCode" : "68131",
+    "streetAddress" : "Schloss Schneckenhof West"
+  }, {
+    "@id" : "http://purl.org/lobid/stocksize#n10",
+    "prefLabel" : [ {
+      "@language" : "de",
+      "@value" : "1.000.001 und mehr"
+    }, {
+      "@language" : "en",
+      "@value" : "1,000,001 and more"
+    } ]
+  } ]
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h3>Not very JSON-LD-y</h3>
+				<a href="https://hyp.is/xzfAXDmTEeiEDJMVbEESMg/manu.sporny.org/2014/json-ld-origins-2/"><img src="img/json-ldy.png" width=1024 /></a>
+				<p><font size="3">Quelle: <a href="http://manu.sporny.org/2014/json-ld-origins-2/#comment-4190">http://manu.sporny.org/2014/json-ld-origins-2/#comment-4190</a></font></p>
+			</section>
+
+			<section>
+				<h3>Weitere Probleme mit lobid-RDF zu JSON-LD Konversion</h3>
+				<p><span class="fragment">Wenn Node zweimal auftaucht wird Beschreibung nur einmal eingebettet</span></p>
+				<p><span class="fragment">Mängel bei der Erzeugung von Arrays mit gemischten Inhalten</span></p>
+				<p><span class="fragment">...plus ein paar Dinge, die ich vergessen habe</span></p>
+      </section>
+
+			<section>
+				<h3>lobid 2.x-Neuerungen</h3>
+				<p><span class="fragment">Selbst geschriebenes Java-Tool zur Generierung von JSON-LD (<a href="https://github.com/hbz/lobid-resources/tree/master/src/main/java/de/hbz/lobid/helper">GitHub</a>)</span></p>
+				<p><span class="fragment">Aliasse für <code>@type</code> und <code>@id</code> (<a href="https://github.com/schemaorg/schemaorg/issues/854">best practice</a>)</span></p>
+				<p><span class="fragment">Labels für alle Nodes ergänzen mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps</a> für mehrsprachige labels</span></p>
+      </section>
+
+			<section>
+				<h3>lobid 2.x</h3>
+				<font size=4><code style=display:block;white-space:pre-wrap;text-align:left>
+{
+  "@context" : "http://lobid.org/organisations/context.jsonld",
+  "id" : "http://lobid.org/organisations/DE-180#!",
+  "name" : "Universitätsbibliothek Mannheim",
+  "location" : [ {
+    "type" : "Place",
+    "address" : {
+      "postalCode" : "68131",
+      "streetAddress" : "Schloss Schneckenhof West",
+      "addressLocality" : "Mannheim",
+      "addressCountry" : "DE",
+      "type" : "PostalAddress"
+    },
+    "geo": {
+      "lat": "49.48309",
+      "lon": "8.46362"
+    }
+	} ],
+  "collects" : {
+    "type" : "Collection",
+    "extent" : {
+      "id" : "http://purl.org/lobid/stocksize#n10",
+      "type" : "Concept",
+      "label" : {
+        "de" : "1.000.001 und mehr",
+        "en" : "1,000,001 and more"
+      }
+    }
+  }
+}
+				</code></font>
+      </section>
+
+			<section>
+				<h2>Aufgabe (5-10 min):</h2>
+				<h3>Schachtele das JSON und entferne das <code>@graph</code>-Objekt</h3>
+				<h3><a href="http://tinyurl.com/y9wnft4j">http://tinyurl.com/y9wnft4j</a></h3>
+      </section>
+
+			<section>
+        <h1>4. JSON Schema & JSON-LD</h1>
+      </section>
+
+			<section>
+				<h3>JSON Schema & JSON-LD</h3>
+				<p><span class="fragment">Wenn man JSON-LD als zentrale RDF-Serialisierung benutzt, bietet sich JSON Schema zur Validierung an.<span></p>
+				<p><span class="fragment">Ist näher an der Serialisierung, leichter verständlich und besser unterstützt als <a href"https://www.w3.org/TR/shacl/">SHACL</a> oder <a href="http://shex.io/">ShEx</a><span></p>
+				<p><span class="fragment">Einsatz in der OER World Map zur Validierung der Eingabe (POST)<span></p>
+				<p ><span class="fragment"><font size=5>(Noch einfacher les- und schreibbar ist <a href="https://graphql.org/learn/schema/">GraphQL Schema Language</a>, die für zukünftige Implementierungen in Betracht kommt.)</font><span></p>
+			</section>
+
+			<section>
+				<h3>Application Profiles mit JSON Schema entwickeln?</h3>
+				<p><span class="fragment">Mögliche Properties und Constraints finden -> in Schema schreiben -> in Editor testen -> Diskussion -> von vorne<span></p>
+				<p><span class="fragment">JSON-Schema-basierter Metadateneditor von Felix Ostrowski: <a href="http://graphthinking.com/jpf/">http://graphthinking.com/jpf/</a><span></p>
+				<p><span class="fragment">JSON-Schemas für OER-Metadaten: <a href="https://github.com/dini-ag-kim/oer-metadata-schemas">https://github.com/dini-ag-kim/oer-metadata-schemas</a><span></p>
+				<p><span class="fragment">Nachteil: anhängig von bestimmter Umsetzung einer bestimmten RDF-Serialisierung & damit nicht für andere Implementierungen als Referenz nutzbar<span></p>
+			</section>
+
+			<section>
+        <h1>5. Ausblick</h1>
+      </section>
+
+			<section>
+				<h3>JSON-LD 1.1</h3>
+				<p><span class="fragment">Ein Update der JSON-LD-Spezifikation ist im Gange.<span></p>
+				<p><span class="fragment">Motto: Keys not Arrays! Framing!<span></p>
+				<p><span class="fragment">Mehr Details: <a href="https://json-ld.org/presentations/JSON-LD-Update-TPAC-2017/assets/player/KeynoteDHTMLPlayer.html#0">Präsentationsfolien von Gregg Kellog & Rob Sanderson zu JSON-LD 1.1</a><span></p>
+			</section>
+
+			<section>
+				<h3>Weitere Aufgaben</h3>
+				<ul>
+					<li>Sprach-Tagging von Strings I: <a href="http://tinyurl.com/yd6k6tz7">http://tinyurl.com/yd6k6tz7</a></li>
+					<li>Datentypen: <a href="http://tinyurl.com/y8x2xnld">http://tinyurl.com/y8x2xnld</a></li>
+					<li>Mehr Datentypen: <a href="http://tinyurl.com/ybws3s6n">http://tinyurl.com/ybws3s6n</a></li>
+					<li>Arrays erwzingen: <a href="http://tinyurl.com/y9smp5aw">http://tinyurl.com/y9smp5aw</a></li>
+					<li>Datenverschönerung: <a href="http://tinyurl.com/yafqgs3y">http://tinyurl.com/yafqgs3y</a></li>
+					<li>Aliasse: <a href="http://tinyurl.com/yapukz8k">http://tinyurl.com/yapukz8k</a></li>
+					<li>Language Maps: <a href="http://tinyurl.com/yc9xtzal">http://tinyurl.com/yc9xtzal</a></li>
+					<li>Framing: <a href="http://tinyurl.com/yatu7ht9">http://tinyurl.com/yatu7ht9</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Credits & Dank an:</h2>
+				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
+				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, dessen Aufgaben ich als Vorlage genommen haben.</p>		
+      </section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
