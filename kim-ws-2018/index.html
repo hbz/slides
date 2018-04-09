@@ -68,17 +68,17 @@
 			<section>
         <h1>Agenda</h1>
 				<ol>
-					<li>1. Zur Entstehung</li>
-					<li>2. Das Format</li>
-					<li>3. Erfahrungen mit lobid & JSON-LD</li>
-					<li>4. JSON Schema & JSON-LD</li>
-					<li>5. Ausblick</li>
+					<li>Zur Entstehung</li>
+					<li>Das Format</li>
+					<li>Erfahrungen mit lobid & JSON-LD</li>
+					<li>JSON Schema & JSON-LD</li>
+					<li>Ausblick</li>
 				</ol>
       </section>
 
 			<section>
         <h1>1. Zur Entstehung</h1>
-				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width=350 /></a>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
       </section>
 
       <section>
@@ -177,7 +177,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h3>Formen von JSON-LD</h3>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#expanded-document-form">Expanded Document Form</a>: Ohne <code>@context</code> (d. h.alle URIs immer ausgeschrieben) und Values immer in Array</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#expanded-document-form">Expanded Document Form</a>: Ohne <code>@context</code> (d.h. alle URIs immer ausgeschrieben) und Values immer in Array</span></p>
 				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#compacted-document-form">Compacted Document Form</a>: Mit <code>@context</code></span></p>
 				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#flattened-document-form">Flattened Document Form</a>: Mit <code>@context</code> und <code>@graph</code> und alle Objekte ungeschachtelt auf einer Ebene</span></p>
       </section>
@@ -302,7 +302,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section>
-				<h3>Weitere Probleme mit lobid-RDF zu JSON-LD Konversion</h3>
+				<h3>Weitere Probleme mit lobid-RDF zu </br>JSON-LD Konversion</h3>
 				<p><span class="fragment">Wenn Node zweimal auftaucht wird Beschreibung nur einmal eingebettet</span></p>
 				<p><span class="fragment">Mängel bei der Erzeugung von Arrays mit gemischten Inhalten</span></p>
 				<p><span class="fragment">...plus ein paar Dinge, die ich vergessen habe</span></p>
@@ -313,7 +313,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<p><span class="fragment">Selbst geschriebenes Java-Tool zur Generierung von JSON-LD (<a href="https://github.com/hbz/lobid-resources/tree/master/src/main/java/de/hbz/lobid/helper">GitHub</a>)</span></p>
 				<p><span class="fragment">Aliasse für <code>@type</code> und <code>@id</code> (<a href="https://github.com/schemaorg/schemaorg/issues/854">best practice</a>)</span></p>
 				<p><span class="fragment">Labels für alle Nodes ergänzen mit <a href="https://github.com/hbz/etikett">etikett</a></span></p>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps</a> für mehrsprachige labels</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/TR/json-ld/#language-maps">Language maps</a> für mehrsprachige Labels</span></p>
       </section>
 
 			<section>
@@ -395,7 +395,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 					<li>Sprach-Tagging von Strings I: <a href="http://tinyurl.com/yd6k6tz7">http://tinyurl.com/yd6k6tz7</a></li>
 					<li>Datentypen: <a href="http://tinyurl.com/y8x2xnld">http://tinyurl.com/y8x2xnld</a></li>
 					<li>Mehr Datentypen: <a href="http://tinyurl.com/ybws3s6n">http://tinyurl.com/ybws3s6n</a></li>
-					<li>Arrays erwzingen: <a href="http://tinyurl.com/y9smp5aw">http://tinyurl.com/y9smp5aw</a></li>
+					<li>Arrays erzwingen: <a href="http://tinyurl.com/y9smp5aw">http://tinyurl.com/y9smp5aw</a></li>
 					<li>Datenverschönerung: <a href="http://tinyurl.com/yafqgs3y">http://tinyurl.com/yafqgs3y</a></li>
 					<li>Aliasse: <a href="http://tinyurl.com/yapukz8k">http://tinyurl.com/yapukz8k</a></li>
 					<li>Language Maps: <a href="http://tinyurl.com/yc9xtzal">http://tinyurl.com/yc9xtzal</a></li>
@@ -406,7 +406,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			<section>
 				<h2>Credits & Dank an:</h2>
 				<p><a href="https://twitter.com/azaroth42">Rob Sanderson</a> für seine Vortragsfolien <a href="https://www.slideshare.net/azaroth42/publishing-linked-open-usable-data"></a>, die mir für einige Slides als Vorlage dienten.</p>
-				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, dessen Aufgaben ich als Vorlage genommen haben.</p>		
+				<p><a href="https://twitter.com/brinxmat">Rurik Greenall</a> für seinen JSON-LD-Kurs: <a href="https://github.com/brinxmat/json-ld-course">https://github.com/brinxmat/json-ld-course</a>, dessen Aufgaben ich als Vorlage genommen habe.</p>
       </section>
 
      </div>
