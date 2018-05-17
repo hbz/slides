@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>(Freie) Lernmaterialien im Web verfügbar machen</title>
+
+		<meta name="description" content="Vortrag bei der KMK-Veranstaltung \"Digitale Hochschullehre - Vom Best Practice zum Standard.
+Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>(Freie) Lernmaterialien im Web verfügbar machen</h2>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Hannover, 2018-05-29</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/kmk-oer/">http://slides.lobid.org/kmk-oer/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>Hintergrund & Perspektive</li>
+					<li>Vision</li>
+					<li>Nächste Schritte</li>
+				</ol>
+      </section>
+
+			<section>
+        <h1>1. Hintergrund & Perspektive</h1>
+      </section>
+
+			<section>
+        <h1>Hintergrund</h1>
+				<p><span class="fragment">Kommunikationswissenschaftler, Bibliothekar, seit 2008 beim hbz</span></p>
+				<p><span class="fragment">Langjährige Erfahrung mit (der Entwicklung von) Webstandards, Metadatenstandards und Software</span></p>
+				<p><span class="fragment">Arbeitsfokus: <a href="https://lobid.org">lobid.org</a>, offene Software und Schnittstellen für zentrale bibliothekarische Datensets</span></p>
+				<p><span class="fragment">Keine Kenntnisse im Bereich: Hochschullehre, LMS etc.</span></p>
+      </section>
+
+			<section>
+        <h1>Perspektive: Standards</h1>
+				<p><span class="fragment">Standards etablieren sich nicht von selbst</span></p>
+				<p><span class="fragment">Einmal etabliert, wird man sie so schnell nicht los*</span></p>
+				<p><span class="fragment">Die Web-OER, für die eine Infrastruktur aufgebaut werden muss, existieren größtenteils noch nicht</span></p>
+				<p><span class="fragment">Wir haben die Möglichkeit, eine innovative Infrastruktur aufzubauen</span></p>
+				<p><small class="fragment">*Von 2004-? ist deutsche Bibliothekswelt von einem deutschprachigen Austauschformat (MAB, *19xx) auf einen internationalen (MARC, *1969) umgestiegen<br />Seit acht Jahren wird der MARC-Nachfolger entwickelt & diskutiert</small></p>
+      </section>
+
+			<section>
+        <h1>Perspektive: OER-Standards</h1>
+				<p><span class="fragment">Es gibt noch keine brei genutzte OER-Infrastruktur</span></p>
+				<p><span class="fragment">Die Web-OER, für die eine Infrastruktur aufgebaut werden muss, existieren größtenteils noch nicht</span></p>
+				<p><span class="fragment">Mit den Standards, die in den nächsten Jahren geschaffen werden, müssen wir womöglich Jahrzehnte leben und arbeiten</span></p>
+				<p><span class="fragment">Wir haben die Möglichkeit (und Verpflichtung?) gut durchdachte Standards zu entwickeln</span></p>
+      </section>
+
+
+			<section>
+        <h1>2. Vision</h1>
+      </section>
+
+			<section>
+        <h2>Ziel</h2>
+				<p><blockquote>OER sind genuine Web-Ressourcen, einfach nach thematischen und fachlichen Gesichtspunkten auffindbar und können leicht zum Remix übernommen werden, wobei die rechtlichen Bedingungen (Attribution, Lizenzkompatibilität) eingehalten werden.</blockquote></p>
+      </section>
+
+			<section>
+				<img src="img/bob.png" width=800 />
+				<p>Bob ist Lehrender an einer deutschen Universität und bereitet eine Lehrveranstaltung im Bereich "Search & Retrieval" vor.</p>
+			</section>
+
+			<section>
+				<img src="img/bob2.png" width=800 />
+				<p>Bob browst die Informationswissenschaftliche-Themenystematik und schaut sich an, welche Lerninhalte zum Thema im Web verfügbar sind.</p>
+			</section>
+
+			<section>
+				<img src="img/bob3.png" width=800 />
+				<p>Bob stößt auf den Kurs, den Alice letztes Jahr an einer anderen Hochschule angeboten hat.</p>
+			</section>
+
+			<section>
+				<p><span class="fragment">Bob schaut sich die Kursmaterialien genauer an und schlägt Alice ein paar Typo-Korrekturen vor, weil es so einfach ist.</span></p>
+				<p><span class="fragment">Alice wird über die Vorschläge benachrichtigt und übernimmt sie.</span></p>
+				<p><span class="fragment">Bob entscheidet, Teile des Kurses als BAsis für von ihm angebotene Lerneinheiten zu nehmen und erstellt eine Kopie im von ihm genutzen Autorensystem.</span></p>
+				<p><span class="fragment">Bob ergänzt einige Folien, führt andere zusammen, aktualisiert Begrifflichkeiten. Alice wird darüber nachrichtigt, dass ihr Kurs von Bob wird.</span></p>
+			
+			</section>
+
+			<section>
+        <h2>Das war's!</h2>
+				<h3>Zum Schluss noch ein paar mehr Aufgaben, für's Büro oder falls jetzt noch Zeit bleibt.</h3>
+      </section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
