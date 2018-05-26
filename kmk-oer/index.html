@@ -64,6 +64,7 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 				<ol>
 					<li>Hintergrund & Perspektive</li>
 					<li>Vision</li>
+					<li>Ein Beispiel</li>
 					<li>Nächste Schritte</li>
 				</ol>
       </section>
@@ -78,6 +79,7 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 				<p><span class="fragment">(hbz: zentrale Dienstleistungs- und Entwicklungseinrichtung für Hochschulbibliotheken in NRW & Rheinland-Pfalz)</span></p>
 				<p><span class="fragment">Langjährige Erfahrung mit (der Entwicklung von) Webstandards, Metadatenstandards und freier Software</span></p>
 				<p><span class="fragment">Arbeitsfokus: <a href="https://lobid.org">lobid.org</a>, offene Software und Schnittstellen für zentrale bibliothekarische Datensets</span></p>
+				<p><span class="fragment">Seit 2014 Mitarbeit bei der Entwicklung der <a href="https://oerworldmap.org">OER World Map</a></span></p>
       </section>
 
 			<section>
@@ -118,9 +120,9 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 
 			<section>
         <h2>OER als Web-Ressourcen</h2>
-				<p><span class="fragment">Sie haben einen – möglichst stabile – URL, z. B. <code>http://example.org/oer</code></span></p>
+				<p><span class="fragment">Sie haben einen – möglichst stabile – URL, z. B. <code>https://example.org/lernressource</code></span></p>
 				<p><span class="fragment">Sie liegen als HTML/EPUB3-Dokument vor</span></p>
-				<p><span class="fragment">Die OER und Teile können verlinkt, annotiert, gebookmarkt werden und Links auf andere Web-Ressourcen enthalten</span></p>
+				<p><span class="fragment">D. h. die OER & ihre Bestandteile können verlinkt, annotiert, gebookmarkt werden</span></p>
 				<p><span class="fragment">Bestenfalls sind sie versioniert & jede Version hat einen URL</span></p>
       </section>
 
@@ -136,10 +138,24 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 
 			<section>
         <h2>Themenorientierung im Web</h2>
-				<p><span class="fragment">Gobee/Bellinga (2018) nennen Taxonomie/Domain Model als Schlüsselelement ("key ingredient")</span></p>
-				<p><span class="fragment">Fachliche Taxonomien im Web mittels Simple Knowledge Organization System (SKOS) publizieren ermöglicht Anknüpfung beliebiger OER-Anbieter</span></p>
-				<p><span class="fragment">Benachrichtigungen bestimmter Themen über neue Ressourcen ermöglichen thematische Sammlung dezentraler OER</span></p>
-				<p><span class="fragment">Abonnement bestimmter Themen ermöglicht es, mit Push-Diensten auf dem Laufenden zu bleiben</span></p>
+				<p><span class="fragment">Gobee/Bellinga (2018) nennen "Domain Model" als Schlüsselelement ("key ingredient")</span></p>
+				<p><span class="fragment">Status Quo: verschiedene Akteure pflegen unabhängig voneinander unterschiedliche aber ähnliche Modelle (als Excel-Datei, PDF etc.)</span></p>
+				<p><span class="fragment">Ziel: Fachliche Klassifikationen offen und maschinenlesbar im Web mittels Simple Knowledge Organization System (SKOS) publizieren</span></p>
+				<p><span class="fragment">Im Idealfall gemeinsame Pflege und Verknüpfung der Klassifikationen</span></p>
+      </section>
+
+			<section>
+        <h2>Beispiel: Gemeinsame Normdatei (GND)</h2>
+				<p><span class="fragment">Zentrale Normdatei für den deutschsprachigen Raum</span></p>
+				<p><span class="fragment">lobid-gnd (beta) stellt Web-API mit Auto Suggest etc. bereit</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">https://lobid.org/gnd</a></span></p>
+      </section>
+
+			<section>
+        <h2>Automatisch auf dem Laufenden</h2>
+				<p><span class="fragment">Neuere Webstandards ermöglichen automatisiertes Sammeln von Ressourcen zu bestimmten Themen</span></p>
+				<p><span class="fragment">Benachrichtigungen von Themen über neue Ressourcen mit <a href="https://www.w3.org/TR/ldn/">Linked Data Notifications (LDN)</a></span></p>
+				<p><span class="fragment">Abonnement bestimmter Themen mit <a href="https://www.w3.org/TR/websub/">Websub</a> ermöglicht es, per Push-Dienst auf dem Laufenden zu bleiben</span></p>
       </section>
 
 			<section>
@@ -151,8 +167,8 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
         <h2>Remix und Attribution</h2>
 				<p><span class="fragment">Text- (HTML) anstatt Binärdateien (ppt, odt...) ermöglichen Übernahme im FOSS-Bereich erprobter Konzepte</span></p>
 				<p><span class="fragment">Versionierung mit git + intuitive "git-light"-Oberfläche zur Übernahme für Remix</span></p>
-				<p><span class="fragment">Lizenzinformationen und sonstige Metadaten werden mittransportiert</span></p>
-				<p><span class="fragment">Jede Änderung wird automatisch einer Nutzerin zugewiesen</span></p>
+				<p><span class="fragment">Transport von Lizenzinformationen und sonstigen Metadaten</span></p>
+				<p><span class="fragment">Jede Änderung ist automatisch einer Nutzerin zugewiesen</span></p>
 				<p><span class="fragment">Ein solcher Ansatz erledigt eine Menge rechtlicher Probleme</span></p>
       </section>
 
@@ -166,13 +182,13 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 			</section>
 
 			<section>
-				<img src="img/mesh-suche.png" width=800 />
-				<small>Bob browst die Fachsystematik und schaut sich an, welche Lerninhalte zum Thema "Atmungsapparat" wurden.</small>
+				<img src="img/mesh-suche.png" width=600 />
+				<small>Bob browst die Fachsystematik und schaut sich an, welche Lerninhalte zum Thema "Atmungssystem" veröffentlicht wurden.</small>
 			</section>
 
 			<section>
 				<img src="img/bob3.png" width=800 />
-				<p>Er stößt auf einen vielversprechenden Kurs, den Alice letztes Jahr an einer anderen Hochschule angeboten hat.</p>
+				<p>Er stößt auf vielversprechende Materialien eines Kurses, den Alice letztes Jahr an einer anderen Hochschule angeboten hat.</p>
 			</section>
 
 			<section>
@@ -196,8 +212,8 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 
 			<section>
 				<h2>Organisation & Förderung</h2>
-				<p><span class="fragment">Standardentwicklung ist in Förderphasen von ein bis zwei Jahren nicht möglich</span></p>
-				<p><span class="fragment">Langfristige Zusammenhänge müssen geschaffen werden, in denen das Wissen gehalten wird, z.B. KIM-OER-Gruppe</span></p>
+				<p><span class="fragment">Standardentwicklung verträgt ich nicht gut mit Förderphasen von ein bis zwei Jahren</span></p>
+				<p><span class="fragment">Langfristige Zusammenhänge müssen geschaffen werden, in denen das Wissen gesammelt wird, z.B. KIM-OER-Gruppe</span></p>
 				<p><span class="fragment">Entwicklung und Testen von Standards in kleinen Projekten im Austausch mit den langfristigen Standardisierungszusammenhängen.</span></p>
 				<p><span class="fragment">Projekte sollten Ressourcen für Mitarbeit in längerfristigen, überregionalen Standardisierungszusammenhängen einplanen</span></p>
 				<p><span class="fragment">Standardentwicklung sollte in internationalen Kontext eingebettet sein, d. h. Mitwirkung an internationalen Standards im Rahmen des W3C oder der Dublin Core Metadata Initiative</span></p>
