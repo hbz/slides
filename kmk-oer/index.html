@@ -63,7 +63,7 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
         <h1>Agenda</h1>
 				<ol>
 					<li>Hintergrund & Perspektive</li>
-					<li>Vision</li>
+					<li>Die Vision</li>
 					<li>Ein Beispiel</li>
 					<li>Nächste Schritte</li>
 				</ol>
@@ -98,8 +98,8 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 
 			<section>
         <h2>Perspektive: OER-Standards</h2>
-				<p><span class="fragment">Wir sind erst am Anfang!<br />Es gibt noch keine breit genutzte OER-Infrastruktur</span></p>
-				<p><span class="fragment">Die Web-OER, für die eine Infrastruktur aufgebaut werden muss, existieren größtenteils noch nicht</span></p>
+				<p><span class="fragment">Ansonsten sind wir erst am Anfang!<br />Es gibt noch keine breit genutzte OER-Infrastruktur</span></p>
+				<p><span class="fragment">Für Metadatenfelder gibt es zwar bereits LOM und LRMI</span> <span class="fragment">aber: Die Web-OER, für die eine Infrastruktur aufgebaut werden muss, existieren größtenteils noch nicht.</span></p>
 				<p><span class="fragment">Mit der Infrastruktur, die in den nächsten Jahren geschaffen wird, müssen wir womöglich Jahrzehnte leben & arbeiten</span></p>
 				<p><span class="fragment">Wir haben die Möglichkeit (und Verpflichtung?) gut durchdachte, zukunftsfähige Standards zu entwickeln</span></p>
       </section>
@@ -124,6 +124,7 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 				<p><span class="fragment">Sie liegen als HTML/EPUB3-Dokument vor</span></p>
 				<p><span class="fragment">D. h. die OER & ihre Bestandteile können verlinkt, annotiert, gebookmarkt werden</span></p>
 				<p><span class="fragment">Bestenfalls sind sie versioniert & jede Version hat einen URL</span></p>
+				<p><span class="fragment">Auch Metadatenlemente, Urheber/innen etc. haben eine URL und sind somit eindeutig referenzierbar</span></p>
       </section>
 
 			<section>
@@ -139,14 +140,15 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 			<section>
         <h2>Themenorientierung im Web</h2>
 				<p><span class="fragment">Gobee/Bellinga (2018) nennen "Domain Model" als Schlüsselelement ("key ingredient")</span></p>
-				<p><span class="fragment">Status Quo: verschiedene Akteure pflegen unabhängig voneinander unterschiedliche aber ähnliche Modelle (als Excel-Datei, PDF etc.)</span></p>
+				<p><span class="fragment">Status Quo: verschiedene Akteure pflegen unabhängig voneinander unterschiedliche aber ähnliche Modelle (als Excel-Datei, PDF, JSON etc.)</span></p>
 				<p><span class="fragment">Ziel: Fachliche Klassifikationen offen und maschinenlesbar im Web mittels Simple Knowledge Organization System (SKOS) publizieren</span></p>
-				<p><span class="fragment">Im Idealfall gemeinsame Pflege und Verknüpfung der Klassifikationen</span></p>
+				<p><span class="fragment">Im Idealfall gemeinsame Pflege und Verknüpfung von Klassifikationen</span></p>
       </section>
 
 			<section>
         <h2>Beispiel: Gemeinsame Normdatei (GND)</h2>
 				<p><span class="fragment">Zentrale Normdatei für den deutschsprachigen Raum</span></p>
+				<p><span class="fragment">Gemeinsam gepflegt von hunderten bibliothekarischen Institutionen, Ausweitung auf Archive, Museen im Gange (GND4C-Projekt)</span></p>
 				<p><span class="fragment">lobid-gnd (beta) stellt Web-API mit Auto Suggest etc. bereit</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd">https://lobid.org/gnd</a></span></p>
       </section>
@@ -178,32 +180,43 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
 
 			<section>
 				<img src="img/bob.png" width=200 />
-				<p>Bob ist Lehrender an einer deutschen Universität und bereitet eine Anatomie-Lehrveranstaltung vor.</p>
+				<p>Alice ist Lehrende an einer deutschen Universität und bereitet eine Anatomie-Lehrveranstaltung vor.</p>
 			</section>
 
 			<section>
 				<img src="img/mesh-suche.png" width=600 />
-				<small>Bob browst die Fachsystematik und schaut sich an, welche Lerninhalte zum Thema "Atmungssystem" veröffentlicht wurden.</small>
+				<small>Alice browst die Fachsystematik und schaut sich an, welche Lerninhalte zum Thema "Atmungssystem" veröffentlicht wurden.</small>
 			</section>
 
 			<section>
-				<img src="img/bob3.png" width=800 />
-				<p>Er stößt auf vielversprechende Materialien eines Kurses, den Alice letztes Jahr an einer anderen Hochschule angeboten hat.</p>
+				<img src="img/bobs-kurs.png" width=550 />
+				<p>Alice stößt auf vielversprechende Materialien eines Kurses, den Bob auf seiner privaten Webseite veröffentlicht und mittels der Fachsystematik verschlagwortet hat.</p>
 			</section>
 
 			<section>
-				<p><span class="fragment">Bob schaut sich die Kursmaterialien genauer an und schlägt Alice ein paar Rechtschreib-Korrekturen vor, weil es so einfach ist.</span></p>
-				<p><span class="fragment">Alice wird über die Vorschläge benachrichtigt und übernimmt sie.</span></p>
-				<p><span class="fragment">Bob entscheidet, Teile des Kurses als Basis für von ihm angebotene Lerneinheiten zu nehmen und kopiert die aktuelle Version ins von ihm genutze Autorensystem.</span></p>
-				<p><span class="fragment">Bob ergänzt einige Folien, führt andere zusammen, aktualisiert Begrifflichkeiten.</span></p>
-				<p><span class="fragment">Auf der Informationsseite zu Alice' Kurs, wird angezeigt, dass eine angepasste Version in Bobs Autorensystem existiert.</span></p>				
+				<img src="img/korrekturen.png" width=550 />
+				<p><span class="fragment">Alice schaut sich die Kursmaterialien genauer an und schlägt Bob ein paar Rechtschreib-Korrekturen vor und ergänzt ein paar Anmerkungen, weil es so einfach ist.</span></p>
+				<p><span class="fragment">Bob wird über die Vorschläge benachrichtigt und übernimmt sie.</span></p>				
 			</section>
 
 			<section>
-				<h2>Fazit: OER im Web</h2>
-				<p><span class="fragment">Nutzung von Web-Standards, u.a. des World Wide Web Consortium (W3C)</span></p>
-				<p><span class="fragment">Standards: URLs, HTTP, HTML, RDFa, JSON-LD, SKOS, Linked Data Notificatons (LDN), Websub etc.</span></p>
-				<p><span class="fragment">Lerninhalte können in instutionellen/regionalen/fachlichen Repositorien liegen oder auf persönlichen Webseiten von LehrerInnen. Sie werden alle gleich behandelt.</span></p>
+				<h2>Kopie und Remix</h2>
+				<p><span class="fragment">Alice entscheidet, Teile des Kurses als Basis für von ihr angebotene Lerneinheiten zu nehmen und kopiert die aktuelle Version in das Autorensystem ihrer Hochschule</span></p>
+				<p><span class="fragment">Alice ergänzt einige Folien, führt andere zusammen, aktualisiert Begrifflichkeiten.</span></p>			
+			</section>
+
+			<section>
+				<h2>Transparente Bearbeitungsinformationen</h2>
+				<p><span class="fragment">Sämtliche Änderungsinformationen (Vorgängerversionen, Bearbeitende Person, Zeitstempel) werden erfasst</span></p>
+				<p><span class="fragment">Auf der Informationsseite zu Bobs Kurs wird angezeigt, dass eine angepasste Version in Bobs Autorensystem existiert.</span></p>				
+				<p><span class="fragment">So kann Bob die Anpassungen leicht nachvollziehen und – falls gewollt – ganz oder in Teilen übernehmen</span></p>				
+			</section>
+
+			<section>
+				<h2>Vorteile: OER im Web</h2>
+				<p><span class="fragment">Nutzung von offenen Web-Standards verhindert Lock-In-Effekt eines Anbieters/einer Plattform</span></p>
+				<p><span class="fragment">Gleichbehandlung dezentral punlizierter OER: Lerninhalte können in instutionellen/regionalen/fachlichen Repositorien liegen, auf persönlichen Webseiten von LehrerInnen etc.</span></p>
+				<p><span class="fragment">Auffindbarkeit auch über Web-Suchmaschinen</span></p>
 			</section>
 
 			<section>
@@ -223,6 +236,12 @@ Virtuelle Lehrangebote und technische Anforderungen\" am 29.5.2018 in Hannover">
         <h2>Das war's!</h2>
 				<h3>Fragen gerne jetzt oder<br />später an <a href=mailto:pohl@hbz-nrw.de>pohl@hbz-nrw.de</a></h3>
       </section>
+
+			<section>
+				<h2>Weiterführende Informationen</h2>
+				<p>Herbert van de Sompel (2017): Scholarly Communication: Deconstruct and Decentralize? Paul Evan Peters Lecture (<a href="https://www.slideshare.net/hvdsomp/paul-evan-peters-lecture">Slides</a>, <a href="https://youtu.be/o4nUe-6Ln-8?t=8m25s">Aufzeichnung</a>)</p>
+				<p>Felix Ostrowski (2018): skohub (simple knowledge organization hub). Vortrag beim KIM-Workshop 2018, Mannheim (<a href="https://wiki.dnb.de/download/attachments/132748423/2018-04-11_KIMWS18_Ostrowski_skohub.pdf?version=1&modificationDate=1524053505000&api=v2">Folien (pdf)</a>)</p>
+			</section>
 
      </div>
 
