@@ -61,103 +61,174 @@
 			<section>
         <h1>Agenda</h1>
 				<ol>
-					<li>was</li>
-					<li>kommt</li>
-					<li>wann</li>
-					<li>?</li>
+					<li>lobid</li>
+					<li>lobid-gnd
+						<ol style="list-style-type:lower-latin !important;">
+							<li>Oberfläche</li>
+							<li>Daten</li>
+							<li>API</li>
+						</ol>
+					</li>
+					<li>Anwendungsbeispiele</li>
 				</ol>
       </section>
 
 			<section>
-        <h1>1. Was?</h1>
+        <h1>1. lobid</h1>
       </section>
 
-      <section>
-        <h2>Überschrift</h2>
+			<section>
+				<h3>Linking open (bibliographic) data</h3>
+				<p align="left"><span class="fragment">Das hbz entwickelt seit 2009 Expertise und Software im Bereich Linked Open Data</span></p>
+				<p align="left"><span class="fragment">Leitlinien:</span></p>
+				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
+				<p align="left"><span class="fragment">3. Bereitstellung von Web-APIs plus Endnutzeroberflächen</span></p>
+      </section>
+
+			<section>
+				<h3>lobid-Dienste</h3>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des hbz-Verbundkatalogs</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
+				<p><span class="fragment">Mittlerweile in der zweiten Version</span></p>
+      </section>
+
+			<section>
+				<h3>Datenquellen und -formate</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" /> 
+				<span class="fragment"><p>Einheitlicher Zugriff bei unterschiedlichen Quellformaten und -systemen</p></span>
+			</section>
+
+			<section>
+        <h2>Schauen wir uns das doch mal genauer an</h2>
+			</section>
+
+			<section>
+        <h1>2. lobid-gnd</h1>
       </section>
 			
 			<section>
-        <p><blockquote>RDF isn't natural — and therefore is barely used — by the average Web developer or data wrangler. CSV [and JSON], by contrast, is. And you are going to need to win the hearts and minds of those folks for whatever approach is proposed. <br />– Rufus Pollock, 2013 (siehe <a href="https://www.w3.org/2013/04/odw/report">hier</a> & <a href="https://blog.okfn.org/2013/04/24/frictionless-data-making-it-radically-easier-to-get-stuff-done-with-data/">hier</a>)</blockquote></p>
-      </section>
-						
-      <section>
-				<h3>Vom Semantic Web...</h3>
-				<p><span class="fragment">Stop mentioning RDF and the Semantic Web.</span></p>
-				<p><span class="fragment">Focus on tools for developers.</span></p>
-				<p><span class="fragment">Do more dogfooding.</span></p>
-				<small><span class="fragment">– Manu Sporny, 2012, beim Schreiben an der JSON-LD Spec (<a href="http://manu.sporny.org/2012/nuclear-rdf/">Quelle</a>)</span></small>
+
+				<section>
+	        <h3>a. Die Oberfläche</h3>
+					<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" style="border: none; box-shadow: none;" /></a>
+	      </section>
+
+				<section>
+	        <h3>Auto Suggest</h3>
+					<img src="img/20180601_lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+	      </section>
+				
+				<section>
+					<h3>Ergebnisliste</h3>
+					<a href="http://lobid.org/gnd/search?q=hannah+arendt"><img src="img/20180605_lobid-gnd-result-list.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
+				
+				<section>
+					<h3>Einzeltreffer</h3>
+					<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
+				
+				<section>
+					<h3>Beziehungsgraph</h3>
+					<a href="http://lobid.org/gnd/11850391X#rels"><img src="img/20180606_lobid-gnd-graph.png" style="border: none; box-shadow: none;" /></a>
+				</section>
+
+			</section>
+			
+			<section>
+
+				<section>
+	        <h3>b. Die Daten</h3>
+						<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
+	      </section>
+
+				<section>
+					<h3>HTML</h3>
+					<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+				<section>
+					<h3>JSON</h3>
+					<a href="http://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+				<section>
+					<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="800px" /></a>
+	      </section>
+
+				<section>
+					<h3>ETL-Prozess</h3>
+					<p><span class="fragment">Tägl. Bezug der <a href="http://www.dnb.de/DE/Service/DigitaleDienste/LinkedData/linkeddata_node.html">GND-RDF-Daten von der DNB</a> via OAI-PMH</span></p>
+					<p><span class="fragment">Konversion nach JSON-LD mittels <a href="https://lobid.org/gnd/context.jsonld"><code>@context</code></a>, <a href="https://json-ld.org/spec/latest/json-ld-framing/">Framing</a> etc.</span></p>
+					<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
+					<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
+					<p><span class="fragment">Anreicherung mit EntityFacts-Links und -Bildern</span></p>
+	      </section>
+
+				<section>
+					<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=900 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+	        <h3>c. Web-API</h3>
+						<a href="http://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="800" /></a>
+	      </section>
+
+				<section>
+					<h3>Abfrage-Möglichkeiten</h3>
+					<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+					<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Elasticsearch query_string DSL</a> basierend auf <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene Query String DSL</a></span></p>
+					<p><span class="fragment"><a href="http://lobid.org/gnd/api#auto-complete">Parameter für Auto Suggest</a></p>
+					<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span></p>
+	      </section>
+				
+				<section>
+					<h3>Beispiel-Abfragen</h3>
+					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen, die während der NS-Zeit in Köln geboren wurden</a></span></p>
+					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22">Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</a></span></p>
+					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt angegeben wurde</a></p>
+					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit">“Kleinräumige Geografika” innerhalb von Berlin</a></p>
+				</section>
+
+			</section>
+
+			<section>
+        <h1>3. Anwendungs-<br />beispiele</h1>
       </section>
 
 			<section>
-				<h3>JSON + @context = JSON-LD</h3>
-				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "login": "schema:alternateName",
-    "avatar_url": "schema:image",
-    "url": "schema:url",
-    "type": "@type",
-    "User": "schema:Person",
-    "name": "schema:name",
-    "company": "schema:worksFor",
-    "location": "schema:homeLocation",
-    "bio": "schema:description"
-  },
-  "login": "acka47",
-  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
-  "url": "https://api.github.com/users/acka47",
-  "type": "User",
-  "name": "Adrian",
-  "company": "hbz",
-  "location": "Cologne, Germany",
-  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
-}
-				</code></font>
-      </section>
+				<h3>GND-Lookup im Erfassungsformular</h3>
+				<a href="https://frl.publisso.de/tools/zettel/forms?id=katalog:article"><img src="img/gnd-lookup.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
 
 			<section>
-				<h3>Formen von JSON-LD</h3>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#expanded-document-form">Expanded Document Form</a>: Ohne <code>@context</code> (d.h. alle URIs immer ausgeschrieben) und Values immer in Array</span></p>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#compacted-document-form">Compacted Document Form</a>: Mit <code>@context</code></span></p>
-				<p><span class="fragment"><a href="https://www.w3.org/TR/2014/REC-json-ld-20140116/#flattened-document-form">Flattened Document Form</a>: Mit <code>@context</code> und <code>@graph</code> und alle Objekte ungeschachtelt auf einer Ebene</span></p>
-      </section>
 
-			<section>
-				<h3>JSON-LD Keywords</h3>
-				<p><span class="fragment"><code>@context</code> mappt Strings für Properties & Klassen auf URIs</span></p>
-				<p><span class="fragment"><code>@id</code> identifiziert die URI eines Nodes (das Subjekt)</span></p>
-				<p><span class="fragment"><code>@type</code> ist multifunktional: legt 1.) die Klasse eines nodes (<code>rdf:type</code>) fest oder 2.) den Datentyp eines Literals oder kann 3. für type coercion genutzt werden</span></p>
-				<p><span class="fragment">Sonstige: <code>@value</code>, <code>@language</code>, <code>@container</code>, <code>@list</code>, <code>@set</code>, <code>@reverse</code>, <code>@index</code>, <code>@base</code>, <code>@vocab</code>, <code>@graph</code></span></p>
-      </section>
+				<section>
+					<h3>NWBib</h3>
+					<a href="https://nwbib.de"><img src="img/nwbib.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
 
-			<section>
-				<h3>Keine @id?</h3>
-				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "login": "schema:alternateName",
-    "avatar_url": "schema:image",
-    "url": "schema:url",
-    "type": "@type",
-    "User": "schema:Person",
-    "name": "schema:name",
-    "company": "schema:worksFor",
-    "location": "schema:homeLocation",
-    "bio": "schema:description"
-  },
-  "login": "acka47",
-  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
-  "url": "https://api.github.com/users/acka47",
-  "type": "User",
-  "name": "Adrian",
-  "company": "hbz",
-  "location": "Cologne, Germany",
-  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
-}
-				</code></font>
-      </section>
+				<section>
+					<h3>NWBib</h3>
+					<p><span class="fragment">Basiert vollständig auf lobid</span></p>
+					<p><span class="fragment">Nutzt das NWBib-Subset von lobid-resources</span></p>
+					<p><span class="fragment">Informationen zu besitzenden Bibliotheken von lobid-organisations</span></p>
+					<p><span class="fragment">Themenvorschläge auf Basis von lobid-gnd</p>
+	      </section>
+
+				<section>
+					<h3>Discovery-Index der UB Dortmund</h3>
+					<p><span class="fragment">...</span></p>
+	      </section>
+
+			</section>
+
 
      </div>
 
