@@ -40,7 +40,8 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
       <section>
-        <h2>lobid – offene, webbasierte Infrastruktur <br />für zentrale bibliothekarische Daten</h2>
+        <h2>lobid –</h2> 
+				<h3>offene, webbasierte Infrastruktur für zentrale bibliothekarische Daten</h3>
         <p>
           <small>
             <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
@@ -88,10 +89,10 @@
 
 			<section>
 				<h3>lobid-Dienste</h3>
+				<p><span class="fragment">Mittlerweile allesamt in der zweiten Version</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des hbz-Verbundkatalogs</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
-				<p><span class="fragment">Mittlerweile in der zweiten Version</span></p>
       </section>
 
 			<section>
@@ -106,6 +107,7 @@
 
 			<section>
         <h1>2. lobid-gnd</h1>
+				<p><span class="fragment">(Für Details siehe auch <a ref="http://blog.lobid.org/2018/06/07/lobid-gnd.html"> diesen aktuellen Blogbeitrag</a>.)</span></p>
       </section>
 			
 			<section>
@@ -194,9 +196,16 @@
 					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22">Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</a></span></p>
 					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt angegeben wurde</a></p>
 					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit">“Kleinräumige Geografika” innerhalb von Berlin</a></p>
-				</section>
+				</section>			
 
 			</section>
+
+			<section>
+				<h3>Was fehlt noch in lobid-gnd?</h3>
+				<p><span class="fragment">Dokumentation durch Annotation eines Beispiels (wie <a href="http://lobid.org/organisations/api/de#jsonld">hier</a>)</span></p>
+				<p><span class="fragment">Weiterleitungen aler URIs nach Zusammenführungen (siehe <a href="https://github.com/hbz/lobid-gnd/issues/117">#117</a>)</span></p>
+				<p><span class="fragment">Nutzer*innen-Feedback: Was vermissen Sie?</span></p>
+			</section>	
 
 			<section>
         <h1>3. Anwendungs-<br />beispiele</h1>
@@ -208,7 +217,7 @@
 			</section>
 
 			<section>
-
+				
 				<section>
 					<h3>NWBib</h3>
 					<a href="https://nwbib.de"><img src="img/nwbib.png" width=800 style="border: none; box-shadow: none;" /></a>
@@ -216,17 +225,37 @@
 
 				<section>
 					<h3>NWBib</h3>
-					<p><span class="fragment">Basiert vollständig auf lobid</span></p>
+					<p><span class="fragment">Basiert vollständig auf der lobid-API</span></p>
 					<p><span class="fragment">Nutzt das NWBib-Subset von lobid-resources</span></p>
 					<p><span class="fragment">Informationen zu besitzenden Bibliotheken von lobid-organisations</span></p>
 					<p><span class="fragment">Themenvorschläge auf Basis von lobid-gnd</p>
 	      </section>
 
 				<section>
-					<h3>Discovery-Index der UB Dortmund</h3>
-					<p><span class="fragment">...</span></p>
-	      </section>
+					<h3>NWBib-Suchergebnisliste</h3>
+					<a href="https://nwbib.de/search?q=bildband+k%C3%B6ln"><img src="img/nwbib-suchergebnis.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
 
+				<section>
+					<a href="https://nwbib.de/HT018791597"><img src="img/nwbib-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+					<p><span class="fragment">Informationen zu besitzenden Bibliotheken (Name, URL, Standort) werden aus lobid-organisations geladen</span></p>
+				</section>
+
+				<section>
+					<a href="https://nwbib.de/topics?q=gentrification"><img src="img/nwbib-suchvorschlag.png" width=700 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+			</section>
+
+			<section>
+				<h3>Discovery-Index der UB Dortmund</h3>
+				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Daten zu den Beständen der UB & einiger umliegender Bibliotheken werden täglich von lobid geholt, transformiert und in den Index geladen</span></p>
+			</section>
+
+			<section>
+				<h2>Wünsche? Fragen?</h2>
+				<h3>Gerne jetzt oder später<br />via <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="mailto:semweb@hbz-nrw.de">E-Mail</a> etc..
 			</section>
 
 
