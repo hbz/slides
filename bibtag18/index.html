@@ -79,8 +79,8 @@
       </section>
 
 			<section>
-				<h3>Linking open (bibliographic) data</h3>
-				<p align="left"><span class="fragment">Das hbz entwickelt seit 2009 Expertise und Software im Bereich Linked Open Data</span></p>
+				<h3><span style="color:#FFFF00">L</span>inking <span style="color:#FFFF00">o</span>pen (<span style="color:#FFFF00">bi</span>bliographic) <span style="color:#FFFF00">d</span>ata</h3>
+				<p><span class="fragment">Das hbz entwickelt seit 2009 Expertise und Software im Bereich Linked Open Data</span></p>
 				<p align="left"><span class="fragment">Leitlinien:</span></p>
 				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
 				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
@@ -89,7 +89,7 @@
 
 			<section>
 				<h3>lobid-Dienste</h3>
-				<p><span class="fragment">Mittlerweile allesamt in der zweiten Version</span></p>
+				<p><span class="fragment">Mittlerweile sind alle Dienste in der zweiten Version</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des hbz-Verbundkatalogs</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
@@ -147,8 +147,11 @@
 	      </section>
 
 				<section>
-					<h3>HTML</h3>
 					<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+				<section>
+					<a href="http://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png" width=800 style="border: none; box-shadow: none;" /></a>
 				</section>
 
 				<section>
@@ -157,16 +160,20 @@
 				</section>
 
 				<section>
-					<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="800px" /></a>
+					<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="1024" /></a>
 	      </section>
 
 				<section>
-					<h3>ETL-Prozess</h3>
+					<h3>Datenherkunft & -generierung</h3>
 					<p><span class="fragment">Tägl. Bezug der <a href="http://www.dnb.de/DE/Service/DigitaleDienste/LinkedData/linkeddata_node.html">GND-RDF-Daten von der DNB</a> via OAI-PMH</span></p>
 					<p><span class="fragment">Konversion nach JSON-LD mittels <a href="https://lobid.org/gnd/context.jsonld"><code>@context</code></a>, <a href="https://json-ld.org/spec/latest/json-ld-framing/">Framing</a> etc.</span></p>
 					<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
 					<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
 					<p><span class="fragment">Anreicherung mit EntityFacts-Links und -Bildern</span></p>
+	      </section>
+
+				<section>
+					<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="1024" /></a>
 	      </section>
 
 				<section>
@@ -203,7 +210,8 @@
 			<section>
 				<h3>Was fehlt noch in lobid-gnd?</h3>
 				<p><span class="fragment">Dokumentation durch Annotation eines Beispiels (wie <a href="http://lobid.org/organisations/api/de#jsonld">hier</a>)</span></p>
-				<p><span class="fragment">Weiterleitungen aler URIs nach Zusammenführungen (siehe <a href="https://github.com/hbz/lobid-gnd/issues/117">#117</a>)</span></p>
+				<p><span class="fragment">Weiterleitungen von GND-URIs nach Zusammenführungen (<a href="https://github.com/hbz/lobid-gnd/issues/117">#117</a>)</span></p>
+				<p><span class="fragment">Usability Tests</span></p>
 				<p><span class="fragment">Nutzer*innen-Feedback: Was vermissen Sie?</span></p>
 			</section>	
 
@@ -214,6 +222,7 @@
 			<section>
 				<h3>GND-Lookup im Erfassungsformular</h3>
 				<a href="https://frl.publisso.de/tools/zettel/forms?id=katalog:article"><img src="img/gnd-lookup.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf Auto-Suggest-Funktion der lobid-gnd-API</span></p>
 			</section>
 
 			<section>
@@ -233,7 +242,8 @@
 
 				<section>
 					<h3>NWBib-Suchergebnisliste</h3>
-					<a href="https://nwbib.de/search?q=bildband+k%C3%B6ln"><img src="img/nwbib-suchergebnis.png" width=800 style="border: none; box-shadow: none;" /></a>
+					<a href="https://nwbib.de/search?q=bildband+k%C3%B6ln"><img src="img/nwbib-suchergebnis.png" width=700 style="border: none; box-shadow: none;" /></a>
+					<p><span class="fragment">Anfrage gegen das <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23!%22">NWBib-Subset in lobid-resources</a></span></p>
 				</section>
 
 				<section>
@@ -243,6 +253,7 @@
 
 				<section>
 					<a href="https://nwbib.de/topics?q=gentrification"><img src="img/nwbib-suchvorschlag.png" width=700 style="border: none; box-shadow: none;" /></a>
+					<p><span class="fragment"><a href="https://lobid.org/gnd/search?q=variantName:Gentrification&filter=type:(NOT%20(ConferenceOrEvent%20Work))&size=500">Suche in den Verweisungsformen der GND</a> und Anzeige von bis zu drei Vorschlägen, die am meisten Treffer in der NWBib bringen</span></p>
 				</section>
 
 			</section>
