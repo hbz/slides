@@ -173,7 +173,7 @@
 				</section>
 
 				<section>
-					<h3>JSON</h3>
+					<h3>JSON(-LD)</h3>
 					<a href="http://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=800 style="border: none; box-shadow: none;" /></a>
 				</section>
 
@@ -213,15 +213,27 @@
 					<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
 					<p><span class="fragment"><a href="http://lobid.org/gnd/api#auto-complete">Parameter für Auto Suggest</a></p>
 					<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span></p>
+	      </section>			
+
+				<section>
+	        <h3>Personen, die während der NS-Zeit in Köln geboren wurden</h3>
+						<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img src="img/koelsche-ns-geburten.png" width="800" /></a>
+	      </section>
+
+				<section>
+	        <h3>Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</h3>
+						<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img src="img/wikidata-ddb-links.png" width="800" /></a>
+	      </section>
+
+				<section>
+	        <h3>Alle Entitäten, zu denen ein Architekt angegeben wurde</h3>
+						<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png" width="800" /></a>
 	      </section>
 				
 				<section>
-					<h3>Beispiel-Abfragen</h3>
-					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen, die während der NS-Zeit in Köln geboren wurden</a></span></p>
-					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22">Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</a></span></p>
-					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt angegeben wurde</a></p>
-					<p><span class="fragment"><a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit">“Kleinräumige Geografika” innerhalb von Berlin</a></p>
-				</section>			
+					<h3>"Kleinräumige Geografika" innerhalb von Berlin</h3>
+						<a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit"><img src="img/geografika.png" width="800" /></a>
+				</section>
 
 			</section>
 
