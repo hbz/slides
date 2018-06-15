@@ -189,7 +189,7 @@
 					<p>Vor Beginn: neuen Branch vom Master-Branch abzweigen.</p>
 					<p>In Commit-Nachrichten eine Referenz zum korrespondierenden Issue einfügen, dadurch erscheinen automatisch Referenzen zu den Committs im Issue.</p>
 					<p>Wenn Issue abgearbeitet ist: Pull-Request aufmachen, in der Beschreibung auch hier Referenz zum Issue, dadurch in Waffle gruppiert. 
-					Der Entwickler weist sich den Pull-Request zunächst selbst zu und kann das Ergebnis des automatischen Builds (mit Travis CI) direkt im Pull-Request verfolgen.</p>
+					Entwickler/in weist sich den Pull-Request zunächst selbst zu und kann das Ergebnis des automatischen Builds (mit Travis CI) direkt im Pull-Request verfolgen.</p>
 				</section>
 				
 				<section data-background="img/github-issue-commits.png"
@@ -214,22 +214,22 @@
 
 				<section>
 					<h2>Functional Review</h2>
-					<p>Entwickler stellt neue oder reparierte Funktionalität auf Staging-System bereit, beschreibt im Issue, wie getestet werden kann 
+					<p>Entwickler/in stellt neue oder reparierte Funktionalität auf Staging-System bereit, beschreibt im Issue, wie getestet werden kann 
 					(z.B. Links auf die betreffenden Seiten im  Staging-System) und weist das Issue einem Team-Mitglied zur Begutachtung zu (Functional Review).</p>
-					<p>Functional Reviewer testet, gibt Feedback (bei Bedarf aktualisiert der Entwickler den Pull-Request und die Version auf Staging mehrfach), 
-					und schließt die Begutachtung mit einem "+1" Kommentar ab, weist das Issue dem Entwickler zu, und verschiebt es in 'Deploy'.</p>
+					<p>Functional Reviewer/in testet, gibt Feedback (bei Bedarf aktualisiert Entwickler/in Pull-Request und die Version auf Staging mehrfach), 
+					und schließt die Begutachtung mit einem "+1" Kommentar ab, weist das Issue Entwickler/in zu, und verschiebt es in 'Deploy'.</p>
 				</section>
 				
 				<section>
 					<h2>Code Review</h2>
-					<p>Nach Abschluss des Functional Reviews weist der Entwickler den zum Issue gehörigen Pull-Request einem anderen Entwickler zur Begutachtung zu (Code Review).</p>
-					<p>Der Reviewer inspiziert je nach Fall nur den Diff im Pull-Request oder testet den Branch lokal. Die Ausführung des Builds und der Tests erfolgt automatisch im Pull Request (mit Travis CI).</p>
-					<p>Auch hier wird die Begutachtung mit einem "+1" Kommentar abgeschlossen, der Reviewer weist das Issue wieder dem Entwickler zu, und verschiebt es in 'Deploy'.</p>
+					<p>Nach Abschluss des Functional Reviews weist Entwickler/in den zum Issue gehörigen Pull-Request 2. Entwickler/in zur Begutachtung zu (Code Review).</p>
+					<p>Reviewer/in inspiziert je nach Fall nur den Diff im Pull-Request oder testet den Branch lokal. Die Ausführung des Builds und der Tests erfolgt automatisch im Pull Request (mit Travis CI).</p>
+					<p>Auch hier wird die Begutachtung mit einem "+1" Kommentar abgeschlossen, Reviewer/in weist das Issue wieder Entwickler/in zu, und verschiebt es in 'Deploy'.</p>
 				</section>
 				
 				<section>
 					<h2>Deploy</h2>
-					<p>Nach dem Review schaltet der Entwickler seinen Code produktiv und merged den Code in den Master-Branch.</p>
+					<p>Nach dem Review schaltet Entwickler/in Code produktiv und merged den Code in den Master-Branch.</p>
 					<p>Dazu wird auf dem Produktivserver der Feature/Bugfix/Topic-Branch lokal in den Master-Branch gemerged und das Resultat getestet. 
 					Bei Erfolg wird vom Produktivserver in den Master auf GitHub gepushed und der Feature/Bugfix/Topic-Branch auf GitHub gelöscht. Der Pull-Request wird dabei automatisch geschlossen.</p>
 					<p>So ist der Master-Branch immer der aktuelle Produktivstand.</p>
