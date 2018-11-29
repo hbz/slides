@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>lobid-gnd – Rechercheoberfläche & LOD-API für die GND</title>
+
+		<meta name="description" content="Impulsvortrag für die Session \"Tools zur Visualisierung und Qualitätssicherung\" bei der GNDCon in Frankfurt, gehalten am 4. November 2018">
+
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "lobid-gnd – Rechercheoberfläche & LOD-API für die GND",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			},
+			{
+				"id": "http://lobid.org/team/fs#!",
+				"type": "Person",
+				"name": "Fabian Steeg"
+			}
+		],
+			"description": "Impulsvortrag für die Session \"Tools zur Visualisierung und Qualitätssicherung\" bei der GNDCon in Frankfurt, gehalten am 4. November 2018",
+			"about" : [ "lobid", "GND", "visualization"],
+			"url" : "https://hbz.github.io/swib18-workshop/#/",
+			"datePublished" : "2018-11-26",
+			"inLanguage" : "en",
+			"audience": [ "librarians", "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<div id="footer-left"></div>
+	<body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>lobid-gnd –</h2>
+				<h3>Rechercheoberfläche & LOD-API für die GND</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a>  &amp;
+						<a href="http://fsteeg.com/">Fabian Steeg</a> /
+						<a href="https://twitter.com/fsteeg">@fsteeg</a> <br />
+						<a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Frankfurt am Main, 2018-12-04</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/gndcon18/">http://slides.lobid.org/gndcon18/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>lobid</li>
+					<li>lobid-gnd
+						<ol style="list-style-type:lower-latin !important;">
+							<li>Oberfläche</li>
+							<li>Daten</li>
+							<li>API</li>
+						</ol>
+					</li>
+					<li>Anwendungsbeispiele</li>
+					<li>Kibana-Visualisierungen</li>
+				</ol>
+      </section>
+
+			<section>
+        <h1>1. lobid</h1>
+      </section>
+
+			<section>
+				<h3><span style="color:#FFFF00">L</span>inking <span style="color:#FFFF00">o</span>pen (<span style="color:#FFFF00">bi</span>bliographic) <span style="color:#FFFF00">d</span>ata</h3>
+				<p><span class="fragment">Dateninfrastruktur für Bibliotheken, Archive, Museen</span></p>
+				<p><span class="fragment">Das hbz entwickelt seit 2009 Software im Bereich Linked Open Data</span></p>
+				<p align="left"><span class="fragment">Leitlinien:</span></p>
+				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
+				<p align="left"><span class="fragment">3. Bereitstellung von Web-APIs plus Endnutzeroberflächen</span></p>
+      </section>
+
+			<section>
+				<a href="http://lobid.org/team"><img src="img/lobid-team.png" style="border: none; box-shadow: none;" /></a>
+      </section>
+
+			<section>
+				<h3>lobid-Dienste</h3>
+				<p><span class="fragment">Mittlerweile sind alle Dienste in der zweiten Version</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des hbz-Verbundkatalogs</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
+      </section>
+
+			<section>
+				<h3>Datenquellen und -formate</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<span class="fragment"><p>Einheitlicher Zugriff bei unterschiedlichen Quellformaten und -systemen</p></span>
+			</section>
+
+			<section>
+        <h1>2. lobid-gnd</h1>
+      </section>
+
+			<section>
+        <h3>a. Die Oberfläche</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" style="border: none; box-shadow: none;" /></a>
+      </section>
+
+			<section>
+        <h3>Auto Suggest</h3>
+				<img src="img/20180601_lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+      </section>
+
+			<section>
+				<h3>Ergebnisliste</h3>
+				<a href="http://lobid.org/gnd/search?q=hannah+arendt"><img src="img/20180605_lobid-gnd-result-list.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>Einzeltreffer</h3>
+				<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>Beziehungsgraph</h3>
+				<a href="http://lobid.org/gnd/11850391X#rels"><img src="img/20180606_lobid-gnd-graph.png" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+        <h3>b. Die Daten</h3>
+					<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
+      </section>
+
+			<section>
+				<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="http://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>JSON(-LD)</h3>
+				<a href="http://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="1024" /></a>
+      </section>
+
+			<section>
+				<h3>Datenherkunft & -generierung</h3>
+				<p><span class="fragment">Tägl. Bezug der <a href="http://www.dnb.de/DE/Service/DigitaleDienste/LinkedData/linkeddata_node.html">GND-RDF-Daten von der DNB</a> via OAI-PMH</span></p>
+				<p><span class="fragment">Konversion nach JSON-LD mittels <a href="https://lobid.org/gnd/context.jsonld"><code>@context</code></a>, <a href="https://json-ld.org/spec/latest/json-ld-framing/">Framing</a> etc.</span></p>
+				<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
+				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
+				<p><span class="fragment">Anreicherung mit EntityFacts-Links und -Bildern</span></p>
+				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD) <small>-> siehe Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</small></span></p>
+      </section>
+
+			<section>
+        <h3>c. Web-API</h3>
+					<a href="http://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="800" /></a>
+      </section>
+
+			<section>
+				<h3>Abfrage-Möglichkeiten</h3>
+				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
+				<p><span class="fragment"><a href="http://lobid.org/gnd/api#auto-complete">Parameter für Auto Suggest</a></p>
+				<p><span class="fragment"><a href="http://lobid.org/gnd/api#openrefine">OpenRefine Reconciliation Endpoint</a></p>
+				<p><span class="fragment"><a href="http://lobid.org/gnd/api#bulk_downloads">Parameter für Bulk Downloads</a></p>
+				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span></p>
+      </section>
+
+			<section>
+				<h2>Beispiel-Abfragen</h2>
+      </section>
+
+			<section>
+        <h3><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen, die während der NS-Zeit in Köln geboren wurden</a></h3>
+					<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img src="img/koelsche-ns-geburten.png" width="800" /></a>
+      </section>
+
+			<section>
+        <h3><a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22">Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</a></h3>
+					<a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22"><img src="img/wikidata-ddb-links.png" width="800" /></a>
+      </section>
+
+			<section>
+        <h3><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt angegeben wurde</a></h3>
+					<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png" width="800" /></a>
+      </section>
+
+			<section>
+				<h3><a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit">"Kleinräumige Geografika" innerhalb von Berlin</a></h3>
+					<a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit"><img src="img/geografika.png" width="800" /></a>
+			</section>
+
+			<section>
+        <h1>3. Anwendungs-<br />beispiele</h1>
+      </section>
+
+			<section>
+				<h3>GND-Lookup in PUBLISSO</h3>
+				<a href="https://frl.publisso.de/tools/zettel/forms?id=katalog:article"><img src="img/gnd-lookup.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf Auto-Suggest-Funktion der lobid-gnd-API</span></p>
+			</section>
+
+			<section>
+				<h3>GND-Lookup im CMIF Creator 2</h3>
+				<blockquote>Der <a href="https://correspsearch.net/creator/index.xql?l=de">CMIF Creator</a> ermöglicht das bequeme, formularbasierte Erstellen von digitalen Briefverzeichnissen gedruckter Editionen im <a href="https://github.com/TEI-Correspondence-SIG/CMIF">"Corresponence Metadata Interchange Format"</a> (CMIF) – auch ohne technische Kenntnisse. (...)
+					[Es ist] nun möglich, direkt im Formular die zu einer Person oder Körperschaft passende ID aus der Gemeinsamen Normdatei auszuwählen.
+					Hierbei greift der CMIF Creator 2 auf die von <a href="https://lobid.org/">lobid.org</a> bereitgestellte <a href="http://lobid.org/gnd/api">GND-API</a> zurück.</blockquote>
+				<p><font size="3">Quelle: <a href="https://dhd-blog.org/?p=10632">Stefan Dumont, "correspSearch: Neue Tools, neue Daten – und eine Auszeichnung"</a></font></p>
+			</section>
+
+			<section>
+				<h3>"Semantische Suchanfragen"</h3>
+				<p>Siehe den Blgobeitrag <a href="https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren">Semantische Suchabfragen mit der Linked Open Data Cloud generieren</a>
+					 von  Christian Erlinger-Schiedlbauer et al.</p>
+			</section>
+
+			<section>
+				<h3>Themenvorschläge auf Basis von lobid-gnd</h3>
+				<a href="https://nwbib.de/topics?q=gentrification"><img src="img/nwbib-suchvorschlag.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/search?q=variantName:Gentrification&filter=type:(NOT%20(ConferenceOrEvent%20Work))&size=500">Suche in den Verweisungsformen der GND</a> und Anzeige von bis zu drei Vorschlägen, die am meisten Treffer in der NWBib bringen</span></p>
+			</section>
+
+			<section>
+				<h3>Reconciliation mit OpenRefine</h3>
+				<p><span class="fragment">Matchen auf GND-Ressourcen in OpenRefine</p>
+				<p><span class="fragment">Übernahme von Daten aus spezifischen Feldern mittels <a href="https://github.com/OpenRefine/OpenRefine/wiki/Data-Extension-API">Data Extension API</a></p>
+				<p><span class="fragment">lobid-gnd ist der zweite Dienst nach Wikidata, der die Data Extension API unterstützt</p>
+			</section>
+
+			<section>
+				<h3>Reconciliation nach Type</h3>
+				<a href="http://blog.lobid.org/2018/08/27/openrefine.html"><img src="img/openrefine-type.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Einschränkung des Matchings auf bestimmten Typ</span></p>
+			</section>
+
+			<section>
+				<h3>Ergänzen beliebiger Felder in OpenRefine</h3>
+				<a href="http://blog.lobid.org/2018/08/27/openrefine.html"><img src="img/openrefine-field.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Auswahl zu ergänzender Felder</span></p>
+			</section>
+
+			<section>
+        <h1>4. Kibana-Visualisierungen</h1>
+      </section>
+
+			<section>
+				<h3>Kibana</h3>
+				<p><span class="fragment">Tool zur Visualisierung von Elasticsearch-Daten</p>
+				<p><span class="fragment">Sehr vielseitig</a></p>
+				<p><span class="fragment">Open Source</p>
+			</section>
+
+			<section>
+				<h3>10 meistvergebene Sachgruppen</h3>
+				<img src="img/top10-sachgruppen.png" width="800" />
+			</section>
+
+			<section>
+				<h3>Gender-Verteilung</h3>
+				<img src="img/gnd-gender-verteilung.png" width="700" />
+			</section>
+
+			<section>
+				<h3>Top 20: Beruf oder Beschäftigung</h3>
+				<img src="img/top20-occupations.png" width="800" />
+			</section>
+
+			<section>
+				<h2>Wünsche? Fragen?</h2>
+				<h3>Gerne jetzt oder später<br />via <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="mailto:semweb@hbz-nrw.de">E-Mail</a> etc..
+			</section>
+
+			<section>
+				<h1><span>Weiterführende Informationen</span></h1>
+				<p><a href="https://lobid.org/organisations/api">Dokumentation der lobid-gnd-API</a></p>
+				<p><a href="http://blog.lobid.org">lobid-gnd-Beiträge im lobid-Blog</a></p>
+				<p><a href= "https://twitter.com/lobidOrg">lobid on Twitter</a></p>
+				<p><a href= "https://github.com/hbz/lobid-gnd">lobid-gnd code on GitHub</a></p>
+			</section>
+
+     </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.addEventListener('fabian', function() { document.querySelector('#footer-left').innerHTML = 'F'; } );
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } );
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+				slideNumber: 'c', // 'c/t'
+				hashOneBasedIndex: true,
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
