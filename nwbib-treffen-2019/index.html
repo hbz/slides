@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Auf der Zielgeraden – Erweiterung der NWBib-Raumsystematik mit Wikidata</title>
+
+		<meta name="description" content="Impulse für das Treffen zur Erweiterung der NWBib-Raumsystematik am 2019-01-26.">
+
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<div id="footer-left"></div>
+	<body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Auf der Zielgeraden –</h2>
+				<h3>Erweiterung der NWBib-Raumsystematik mit Wikidata</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a>  &amp;
+						<a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Köln, 2019-101-26</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/nwbib-treffen-2019/">http://slides.lobid.org/nwbib-treffen-2019//</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>Technischer Hintergrund</li>
+					<li>Struktur & Darstellung</li>
+					<li>Wikidata, die Gemeinschaft und Erfassungsregeln</li>
+					<li>Schutz vor ungewollten Wikidata-Änderungen</li>
+					<li>Migration</li>
+				</ol>
+      </section>
+
+			<section>
+        <h1>1. Technischer Hintergrund</h1>
+      </section>
+
+			<section>
+        <h2>nwbib.de ist eine Webanwendung auf Basis der lobid-resources-API</h2>
+      </section>
+
+			<section>
+				<h3>lobid</h3>
+				<p><span class="fragment">Dateninfrastruktur für Bibliotheken, Archive, Museen</span></p>
+				<p><span class="fragment">Das hbz entwickelt seit 2009 Software im Bereich Linked Open Data</span></p>
+				<p align="left"><span class="fragment">Leitlinien:</span></p>
+				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
+				<p align="left"><span class="fragment">3. Bereitstellung von Web-APIs plus Endnutzeroberflächen</span></p>
+      </section>
+
+			<section>
+				<h3>Datenquellen und -formate</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<span class="fragment"><p>Einheitlicher Zugriff bei unterschiedlichen Quellformaten und -systemen</p></span>
+			</section>
+
+			<section>
+				<h3>ETL-Prozess</h3>
+				<img src="img/etl.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Dokumentation</h3>
+				<p><span class="fragment">API-Dokumentation</span></p>
+				<p><span class="fragment">MAB nach RDF: https://github.com/hbz/lobid-resources/blob/master/src/main/resources/documentationMAB2ToRDF.md</span></p>
+				<p><span class="fragment">Morph-Datei</span></p>
+      </section>
+
+     </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.addEventListener('fabian', function() { document.querySelector('#footer-left').innerHTML = 'F'; } );
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } );
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+				slideNumber: 'c', // 'c/t'
+				hashOneBasedIndex: true,
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
