@@ -61,7 +61,7 @@
             href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
               Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
           <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
-          <small>Köln, 2019-101-26</small>
+          <small>Köln, 2019-01-24</small>
         </p>
         <p>
           Diese Präsentation: <br /> <a
@@ -74,7 +74,7 @@
 			<section>
         <h1>Agenda</h1>
 				<ol>
-					<li>Technischer Hintergrund</li>
+					<li>Technische Basis: lobid-resources</li>
 					<li>Struktur & Darstellung</li>
 					<li>Wikidata als Infrastruktur</li>
 					<li>Status: Übergangsphase</li>
@@ -85,11 +85,11 @@
       </section>
 
 			<section>
-        <h1>1. Technischer Hintergrund</h1>
+        <h1>1. Technische Basis: lobid-resources</h1>
       </section>
 
 			<section>
-        <h2>nwbib.de: <br />eine Webanwendung basierend auf der lobid-resources-API</h2>
+        <h2><a href="https://nwbib.de/">nwbib.de</a>: <br />eine Webanwendung basierend auf der lobid-resources-API</h2>
       </section>
 
 			<section>
@@ -109,7 +109,7 @@
 			</section>
 
 			<section>
-				<h3>ETL-Prozess</h3>
+				<h3>lobid-resources: ETL-Prozess</h3>
 				<img src="img/etl.png" style="border: none; box-shadow: none;" />
 			</section>
 
@@ -121,7 +121,7 @@
       </section>
 
 			<section>
-        <h1>2. Struktur und Darstellung</h1>
+        <h1>2. Struktur & Darstellung</h1>
       </section>
 
 			<section>
@@ -197,30 +197,38 @@
 
 			<section>
 				<h3>From strings to things</h3>
-				<p><span class="fragment">Zunächst Matching existierender Text-Stringsauf Wikidata.</span></p>
-				<p><span class="fragment">Dann: Erweiterung der Systematik mit den gewonnenen kontrollierten Werten</span></p>
-				<p><span class="fragment">Schließlich: Erfassung von Systematik-IDs in der täglichen Katalogisierung.</span></p>
+				<p><span class="fragment">Zunächst Matching existierender Text-Strings auf Wikidata</span></p>
+				<p><span class="fragment">Dann: Erweiterung der Systematik mit den gewonnenen kontrollierten Werten & hbz01-Update</span></p>
+				<p><span class="fragment">Schließlich: Erfassung von Systematik-IDs in der täglichen Katalogisierung</span></p>
 			</section>
 
 			<section>
-				<h3>Stand des Matchings</h3>
-				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+_exists_%3Aspatial" rel="nofollow">300.535</a> von <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29" rel="nofollow">301.697 Einträgen mit den Notationen 99, 97, 96,36, 35 und einem GSW</a> sind gematcht. Das sind 99,6%.</span></p>
-				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+NOT+_exists_%3Aspatial" rel="nofollow">1162 Titel ohne Wikidata-Match</a>, <a href="https://gist.github.com/acka47/94227c2a13c7e284a9c2d07700e364d3">Liste der nicht gematchten 23 GSW</a></span></p>
-				<p><span class="fragment">Mit ein paar Wikidata-Anpassungen kommen wir leicht auf >50 nicht-gematchte Strings/Titel</span></p>
+				<h3>Matching-Verfahren</h3>
+				<p><span class="fragment">Extraktion der relevanten Wikidata-Einträge (Orte in NRW verschiedenen Typs) mittels <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql">SPARQL</a>)</span></p>
+				<p><span class="fragment">Indexierung der Einträge mit Ansetzungs-, Verweisungsformen, Name der übergeordneten Einheit und Typ</span></p>
+				<p><span class="fragment">Matching der GSW aus 700n gegen den Index</span></p>
+				<p><span class="fragment">Außerdem: <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/string2wikidata.tsv">Liste manuell gematchter GSW</a></span></p>
 			</section>
 
 			<section>
-				<h3>Stand der Systematikanzeige</h3>
+				<h3>Stand des Matchings (23.01.2019)</h3>
+				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+_exists_%3Aspatial">300.535</a> von <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29">301.697 Einträgen mit den Notationen 99, 97, 96,36, 35 und einem GSW</a> sind gematcht. Das sind 99,6%.</span></p>
+				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+NOT+_exists_%3Aspatial">1162 Titel ohne Wikidata-Match</a>, <a href="https://gist.github.com/acka47/94227c2a13c7e284a9c2d07700e364d3">Liste der nicht gematchten 23 GSW</a></span></p>
+				<p><span class="fragment">Mit ein paar Wikidata-Anpassungen kommen wir leicht auf &lt;50 nicht-gematchte Strings/Titel</span></p>
+			</section>
+
+			<section>
+				<h3>Stand der Systematikdarstellung</h3>
 				<p><span class="fragment">Siehe den Prototyp unter <a href"https://test.nwbib.de/classification?t=Raumsystematik">https://test.nwbib.de/classification?t=Raumsystematik</a></span></p>
-				<p><span class="fragment">Wird generiert aus den lobid-Daten.</span></p>
-				<p><span class="fragment">Trefferzahlen sind jeweils aktuell.</span></p>
-				<p><span class="fragment">Aktualisierung der Labels ist in der Übergangsphase umständlich und nicht aktuell.</span></p>
-				<p><span class="fragment">Ansonsten sieht es schon ganz gut aus, ist aber instabil.</span></p>
-				<p><span class="fragment">Maßnahmen zum Änderungsschutz (s.u.) werden die Probleme beheben</span></p>
+				<p><span class="fragment">Wird generiert aus den lobid-Daten</span></p>
+				<p><span class="fragment">Trefferzahlen sind jeweils aktuell</span></p>
+				<p><span class="fragment">Aktualisierung der Labels ist in der Übergangsphase umständlich und derzeit nicht aktuell</span></p>
+				<p><span class="fragment">Ansonsten sieht es schon gut aus, ist aber instabil</span></p>
+				<p><span class="fragment">Maßnahmen zum Änderungsschutz (s.u.) werden existierende Probleme beheben</span></p>
 			</section>
 
 			<section>
-				<h3>Raus aus der Übergangsphase, hin zu einem stabilen System</h3>
+				<h3>Ziel: Raus aus der Übergangsphase, hin zu einem stabilen System!</h3>
 			</section>
 
 			<section>
@@ -230,14 +238,49 @@
 			<section>
 				<h3>Verfahren und Dauer</h3>
 				<p><span class="fragment">Dauer der Batch-Anpassung im Verbundsystem etwa zwei bis drei Monate inklusive Vorbereitung</span></p>
-				<p><span class="fragment">lobid-Team spezifiziert Anpassungsbedarf, Verbundgruppe aktualisiert die Titel</span></p>
 				<p><span class="fragment">Frage: Müssen auch die Lokalssysteme aktualisiert werden? (Dann dauert es deutlich länger.)</span></p>
+				<p><span class="fragment">lobid-Team spezifiziert Anpassungsbedarf, Verbundgruppe aktualisiert die Titel</span></p>
 			</section>
 
 			<section>
 				<h3>Fragen zur Umsetzung</h3>
 				<p><span class="fragment">Gibt es irgendeinen Grund, die alten GSW in Aleph anstatt in einer externen Datei aufzuheben?</span></p>
 				<p><span class="fragment">Was wird konkret in Aleph erfasst? – Vorschlag: IDs + Ortsansetzung</span></p>
+			</section>
+
+			<section>
+				<h3>Beispiel: Vorher</h3>
+				<p><pre><code>&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;20&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;99&#x3C;/subfield&#x3E;
+  &#x3C;subfield code=&#x22;b&#x22;&#x3E;Duisburg&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;99&#x3C;/subfield&#x3E;
+  &#x3C;subfield code=&#x22;b&#x22;&#x3E;Essen&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;768010&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;</code></pre></p>
+			</section>
+
+			<section>
+				<h3>Nachher?</h3>
+				<p><pre><code>&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;20 | Ruhrgebiet&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;9Q2100 | Duisburg&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;9Q2066 | Essen&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;
+&#x3C;datafield tag=&#x22;700&#x22; ind1=&#x22;n&#x22; ind2=&#x22;1&#x22;&#x3E;
+  &#x3C;subfield code=&#x22;a&#x22;&#x3E;768010 | Einzelne Autoren (Prim&#xE4;rliteratur)&#x3C;/subfield&#x3E;
+&#x3C;/datafield&#x3E;</code></pre></p>
+				<p><span class="fragment">(Eventuell sollten wir die Sachnotationen erst einmal außen vor lassen...)</span></p>
 			</section>
 
 			<section>
@@ -251,7 +294,7 @@
 			</section>
 
 			<section>
-				<h3>Eine eigene, unabhängige, versionierte Version der Systematik ist sinnvoll.</h3>
+				<h3>Eine eigene, unabhängige, versionierte Version der Systematik ist sinnvoll</h3>
 			</section>
 
 			<section>
@@ -268,15 +311,61 @@
 			</section>
 
 			<section>
+				<h3>Beispiel</h3>
+				<p><pre><code>&#x3C;http://purl.org/lobid/nwbib-spatial#n9Q7924&#x3E;
+  a skos:Concept ;
+  skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
+  skos:prefLabel &#x22;Regierungsbezirk Arnsberg&#x22;@de ;
+  skos:broader &#x3C;http://purl.org/lobid/nwbib-spatial#n9&#x3E; ;
+  skos:narrower &#x3C;http://purl.org/lobid/nwbib-spatial#9Q1295&#x3E; ;
+  skos:notation &#x22;9Q7924&#x22; .
+  
+&#x3C;http://purl.org/lobid/nwbib-spatial#9Q1295&#x3E;
+  a skos:Concept ;
+  skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
+  skos:prefLabel &#x22;Dortmund&#x22;@de ;
+  skos:broader &#x3C;http://purl.org/lobid/nwbib-spatial#n9Q7924&#x3E; ;
+  skos:narrower .... ;
+  skos:notation &#x22;9Q7924&#x22; . 
+  
+&#x3C;http://purl.org/lobid/nwbib-spatial#n9&#x3E;
+  a skos:Concept ;
+  skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
+  skos:prefLabel &#x22;Regierungsbezirke, Kreise, Orte. Euregio&#x22;@de ;
+  skos:narrower &#x3C;http://purl.org/lobid/nwbib-spatial#n9Q7924;
+  skos:notation &#x22;9&#x22; .</pre></code></p>
+			</section>
+
+			<section>
 				<h1>Katalogisierung nach der Erweiterung</h1>
 			</section>
 
 			<section>
 				<h3>Prozess</h3>
 				<p><span class="fragment">Erfassung im Aleph-Client</span></p>
-				<p><span class="fragment">Werte für 700n werden in administrativer Sicht auf bestehende Systematik gesucht und per Klick übernommen</span></p>
-				<p><span class="fragment">Falls nötige Systematikstelle vorhanden: Ergänzung durch Anlage einer neuen Wikidata-Aussage</span></p>
-				<p><span class="fragment">Automatische Aktualisierung der SKOS-Systematik inklusive Begutachtung der Änderungen</span></p>
+				<p><span class="fragment">Werte für 700n werden in administrativer Sicht im Browser gesucht</span></p>
+				<p><span class="fragment">Kopieren per Mausklick und Einfügen in 700n im Aleph Client</span></p>
+			</section>
+
+			<section>
+				<h3>Neuanlage</h3>
+				<p><span class="fragment">Falls keine passende Systematikstelle in SKOS-Systematik vorhanden</span></p>
+				<p><span class="fragment">Ergänzung durch Anlage einer neuen Wikidata-Aussage mit NWBib-Eigenschaft</span></p>
+				<p><span class="fragment">Festlegen der Notation in Wikidata?</span></p>
+			</section>
+			
+			<section>
+				<h3>Wikidata-Monitoring und Synchronisation</h3>
+				<p><span class="fragment">Stetige Überwachung der NWBib-Eigenschaft (Löschung, Neuvergabe)</span></p>
+				<p><span class="fragment">Regelmäßige Generierung der SKOS-Systematik aus Wikidata und Kontrolle der Diffs</span></p>
+				<p><span class="fragment">Ggf. Anpassung in Wikidata</span></p>
+				<p><span class="fragment">Aktualisierung der SKOS-Datei</span></p>
+			</section>			
+
+			<section>
+				<h3>Raus aus der Übergangsphase, hin zu einem stabilen System!</h3>
+				<span class="fragment"><p>In diesem Sinne:</p>
+				<h3>Auf eine konstruktive Diskussion!</h3></span>
 			</section>
 
      </div>
