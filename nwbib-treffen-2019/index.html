@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Auf der Zielgeraden – Erweiterung der NWBib-Raumsystematik mit Wikidata</title>
+
+		<meta name="description" content="Impulse für das Treffen zur Erweiterung der NWBib-Raumsystematik am 2019-01-26.">
+
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+	<div id="footer-left"></div>
+	<body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Auf der Zielgeraden –</h2>
+				<h3>Erweiterung der NWBib-Raumsystematik mit Wikidata</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a>  &amp;
+						<a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Köln, 2019-101-26</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/nwbib-treffen-2019/">http://slides.lobid.org/nwbib-treffen-2019//</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>Technischer Hintergrund</li>
+					<li>Struktur & Darstellung</li>
+					<li>Wikidata als Infrastruktur</li>
+					<li>Status: Übergangsphase</li>
+					<li>Aktualisierung der Aleph-Daten</li>
+					<li>Maßnahmen zum Änderungsschutz</li>
+					<li>Katalogisierung nach der Erweiterung</li>
+				</ol>
+      </section>
+
+			<section>
+        <h1>1. Technischer Hintergrund</h1>
+      </section>
+
+			<section>
+        <h2>nwbib.de: <br />eine Webanwendung basierend auf der lobid-resources-API</h2>
+      </section>
+
+			<section>
+				<h3>lobid</h3>
+				<p><span class="fragment">Dateninfrastruktur für Bibliotheken, Archive, Museen</span></p>
+				<p><span class="fragment">Das hbz entwickelt seit 2009 Software im Bereich Linked Open Data</span></p>
+				<p align="left"><span class="fragment">Leitlinien:</span></p>
+				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
+				<p align="left"><span class="fragment">3. Bereitstellung von Web-APIs plus Endnutzeroberflächen</span></p>
+      </section>
+
+			<section>
+				<h3>Datenquellen und -formate</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<span class="fragment"><p>Einheitlicher Zugriff bei unterschiedlichen Quellformaten und -systemen</p></span>
+			</section>
+
+			<section>
+				<h3>ETL-Prozess</h3>
+				<img src="img/etl.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Dokumentation</h3>
+				<p><span class="fragment"><a href="http://lobid.org/resources/api#jsonld">API-Dokumentation</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/documentationMAB2ToRDF.md">MAB nach RDF</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph-Datei</a></span></p>
+      </section>
+
+			<section>
+        <h1>2. Struktur und Darstellung</h1>
+      </section>
+
+			<section>
+        <h3>Wie sollen die neuen Systemstellen in die bestehende Raumsystematik eingegliedert werden?</h3>
+      </section>
+
+			<section>
+				<h3>Fragen</h3>
+				<p><span class="fragment">Sollen Stadtbezirke angezeigt werden?</span></p>
+				<p><span class="fragment">Soll die jeweilige Treffermenge angezeigt werden?</span></p>
+				<p><span class="fragment">Sollen die kirchlichen Gebieten hierarchisiert werden?</span></p>
+				<p><span class="fragment">Was ist mit der Euregio?</span></p>
+				<p><span class="fragment">Gibt es weitere zu klärende Fragen?</span></p>
+      </section>
+
+			<section>
+        <h3>Diskussion am Beispiel des <a href="https://test.nwbib.de/classification?t=Raumsystematik">Prototyps</a></h3>
+      </section>
+
+
+			<section>
+				<h1>Wikidata als Infrastruktur</h1>
+				<a href="https://www.wikidata.org"><img src="img/wikidata.png" width="350px" style="border: none" /></a>
+			</section>
+
+			<section>
+				<h3>Wikidata</h3>
+				<p><span class="fragment">Eine Knowledge Base</span></p>
+				<p><span class="fragment">Ein Wikimedia-Projekt</span></p>
+				<p><span class="fragment">Strukturierte Daten</span></p>
+				<p><span class="fragment">Multilingual</span></p>
+				<p><span class="fragment">Kollaborativ</span></p>
+				<p><span class="fragment">CC0</span></p>
+				<p><span class="fragment">Basierend auf Aussagen und Referenzen</span></p>
+				<p><span class="fragment">Für Menschenn und Maschinen</span></p>
+      </section>
+
+			<section>
+				<h3>Wikidata-Statistiken</h3>
+				<p><span class="fragment">Über 54 Millionen Einträge (<a href="https://stats.wikimedia.org/v2/#/wikidata.org/content/pages-to-date/normal|line|All|~total">Entwicklung</a>)</span></p>
+				<p><span class="fragment">30-40.000 aktive Editoren pro Monat (2018, <a href="https://stats.wikimedia.org/v2/#/wikidata.org/contributing/editors/normal|line|1-Year|~total">Quelle</a>)</span></p>
+				<p><span class="fragment">Ungefähr 3,5 Millionen SPARQL-Anfragen pro Tag (2018, <a href="https://discovery.wmflabs.org/wdqs/#endpoint_usage">Quelle</a>)</span></p>
+				<p><span class="fragment">Mehr Informationen und Links: <a href="https://www.wikidata.org/wiki/Wikidata:Statistics">Wikidata-Statistik-Seite</a></span></p>
+			</section>
+
+			<section>
+				<h3>Wikidata-Datenmodell I</h3>
+				<img src="img/wikidata-model.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Wikidata-Datenmodell II</h3>
+				<p><span class="fragment"><a href="https://tools.wmflabs.org/sqid/#/browse?type=properties">Eigenschaften</a> und <a href="https://tools.wmflabs.org/sqid/#/browse?type=classes">Klassen</a> sind editierbar wie alle anderen Einträge auch</span></p>
+				<p><span class="fragment"><a href="https://www.wikidata.org/wiki/Wikidata:Property_proposal/de">Vorschlagen neuer Eigenschaften</a> und Abstimmungsprozess</span></p>
+			</section>
+
+			<section>
+				<h3>Eigenschaftseinschränkungen</h3>
+				<p><span class="fragment">"Einschränkungen sind Hinweise, keine harten Einschränkungen, und sie sind als Hilfe oder Führung für den Bearbeiter gedacht."</p>
+					<p><span class="fragment">Siehe <a href="https://www.wikidata.org/wiki/Help:Property_constraints_portal/de">https://www.wikidata.org/wiki/Help:Property_constraints_portal/de</a></span></p>
+				<p><span class="fragment">Beispiel: Beschränkungen der <a href="http://www.wikidata.org/entity/P227">Eigenschaft "GND"</a></span></p>
+			</section>
+
+			<section>
+				<h3>Identifikatoren</h3>
+				<p><span class="fragment">Momentan <a href="https://www.wikidata.org/wiki/Wikidata:Identifiers"> mehr als 3.500 externe Identifikatoren</a> enthalten</span></p>
+				<p><span class="fragment"><a href="https://www.wikidata.org/wiki/Wikidata:Property_proposal/Authority_control">Vorschläge für Normdaten-Properties</a></span></p>
+			</section>
+
+			<section>
+				<h1>Status: Übergangsphase</h1>
+			</section>
+
+			<section>
+				<h3>From strings to things</h3>
+				<p><span class="fragment">Zunächst Matching existierender Text-Stringsauf Wikidata.</span></p>
+				<p><span class="fragment">Dann: Erweiterung der Systematik mit den gewonnenen kontrollierten Werten</span></p>
+				<p><span class="fragment">Schließlich: Erfassung von Systematik-IDs in der täglichen Katalogisierung.</span></p>
+			</section>
+
+			<section>
+				<h3>Stand des Matchings</h3>
+				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+_exists_%3Aspatial" rel="nofollow">300.535</a> von <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29" rel="nofollow">301.697 Einträgen mit den Notationen 99, 97, 96,36, 35 und einem GSW</a> sind gematcht. Das sind 99,6%.</span></p>
+				<p><span class="fragment"><a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+coverage%3A%2899+OR+97+OR+96+OR+36+OR+35%29+AND+NOT+_exists_%3Aspatial" rel="nofollow">1162 Titel ohne Wikidata-Match</a>, <a href="https://gist.github.com/acka47/94227c2a13c7e284a9c2d07700e364d3">Liste der nicht gematchten 23 GSW</a></span></p>
+				<p><span class="fragment">Mit ein paar Wikidata-Anpassungen kommen wir leicht auf >50 nicht-gematchte Strings/Titel</span></p>
+			</section>
+
+			<section>
+				<h3>Stand der Systematikanzeige</h3>
+				<p><span class="fragment">Siehe den Prototyp unter <a href"https://test.nwbib.de/classification?t=Raumsystematik">https://test.nwbib.de/classification?t=Raumsystematik</a></span></p>
+				<p><span class="fragment">Wird generiert aus den lobid-Daten.</span></p>
+				<p><span class="fragment">Trefferzahlen sind jeweils aktuell.</span></p>
+				<p><span class="fragment">Aktualisierung der Labels ist in der Übergangsphase umständlich und nicht aktuell.</span></p>
+				<p><span class="fragment">Ansonsten sieht es schon ganz gut aus, ist aber instabil.</span></p>
+				<p><span class="fragment">Maßnahmen zum Änderungsschutz (s.u.) werden die Probleme beheben</span></p>
+			</section>
+
+			<section>
+				<h3>Raus aus der Übergangsphase, hin zu einem stabilen System</h3>
+			</section>
+
+			<section>
+				<h1>Aktualisierung der Aleph-Daten</h1>
+			</section>
+
+			<section>
+				<h3>Verfahren und Dauer</h3>
+				<p><span class="fragment">Dauer der Batch-Anpassung im Verbundsystem etwa zwei bis drei Monate inklusive Vorbereitung</span></p>
+				<p><span class="fragment">lobid-Team spezifiziert Anpassungsbedarf, Verbundgruppe aktualisiert die Titel</span></p>
+				<p><span class="fragment">Frage: Müssen auch die Lokalssysteme aktualisiert werden? (Dann dauert es deutlich länger.)</span></p>
+			</section>
+
+			<section>
+				<h3>Fragen zur Umsetzung</h3>
+				<p><span class="fragment">Gibt es irgendeinen Grund, die alten GSW in Aleph anstatt in einer externen Datei aufzuheben?</span></p>
+				<p><span class="fragment">Was wird konkret in Aleph erfasst? – Vorschlag: IDs + Ortsansetzung</span></p>
+			</section>
+
+			<section>
+				<h1>Maßnahmen zum Änderungsschutz</h1>
+			</section>
+
+			<section>
+				<h3>Mögliche Probleme der Wikidata-Nutzung</h3>
+				<p><span class="fragment">Vandalismus, inkorrekte Anpassungen (bei der Typisierung, Ortshierarchien etc.)</span></p>
+				<p><span class="fragment">Downtime</span></p>
+			</section>
+
+			<section>
+				<h3>Eine eigene, unabhängige, versionierte Version der Systematik ist sinnvoll.</h3>
+			</section>
+
+			<section>
+				<h3>Wie setzen wir das am besten um?</h3>
+			</section>
+
+			<section>
+				<h3>Vorschlag</h3>
+				<p><span class="fragment">Erweiterung der <a href="http://purl.org/lobid/nwbib-spatial">existierenden Raumsystematik in SKOS</a> um die neuen Systematikstellen aus Wikidata</span></p>
+				<p><span class="fragment">Einrichtung einer NWBib-Eigenschaft in Wikidata (zum Verlinken auf Systematikstelle und Suchergebnisse)</span></p>
+				<p><span class="fragment">Monitoring von Wikidata bzw. regelmäßiger Abgleich (und womöglich Wikidata-Korrekturen)</span></p>
+				<p><span class="fragment">Sämtliche raumklassifikatorischen Funktionen in nwbib.de basieren auf der SKOS-Datei</span></p>
+				<p><span class="fragment">Wikidata sollte primäres System der Systematikpflege bleiben!</span></p>
+			</section>
+
+			<section>
+				<h1>Katalogisierung nach der Erweiterung</h1>
+			</section>
+
+			<section>
+				<h3>Prozess</h3>
+				<p><span class="fragment">Erfassung im Aleph-Client</span></p>
+				<p><span class="fragment">Werte für 700n werden in administrativer Sicht auf bestehende Systematik gesucht und per Klick übernommen</span></p>
+				<p><span class="fragment">Falls nötige Systematikstelle vorhanden: Ergänzung durch Anlage einer neuen Wikidata-Aussage</span></p>
+				<p><span class="fragment">Automatische Aktualisierung der SKOS-Systematik inklusive Begutachtung der Änderungen</span></p>
+			</section>
+
+     </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.addEventListener('fabian', function() { document.querySelector('#footer-left').innerHTML = 'F'; } );
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } );
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'none', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'none',
+				slideNumber: 'c', // 'c/t'
+				hashOneBasedIndex: true,
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>

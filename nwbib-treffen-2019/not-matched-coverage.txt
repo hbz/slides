@@ -1,0 +1,43 @@
+      1 Aachen-Schmithof | 99
+      1 Aachen-Sief | 99
+      1 Aachen-Vaalserquartier | 99
+      1 ArnsbergNeheim | 99
+      1 Bad Salzuflen- Knetterheide | 99
+      1 Bielefeld-Hoberge | 99
+      1 Bonnenbroich-Geneicken | 99
+      1 Bonn-Geislar | 99
+      1 Duisburg-Essenberg | 99
+      1 Duisburg-Vierlinden | 99
+      1 Frielinghausen <Hamm, Westfalen> | 99
+      1 Grotenrath | 99
+      1 Hagedorn <Steinheim, Kreis Höxter> | 99
+      1 Hagen am Teutoburger Wald | 99
+      1 Heinsberg-Kirchoven | 99
+      1 Hörstgen | 99
+      1 Krauthausen <Aachen> | 99
+      1 Langern <Werne> | 99
+      1 Lengerich-Wechte | 99
+      1 Lüdinghausen <Region> | 99
+      1 Merbusch-Büderich | 99
+      1 Salchendorf <Neunkirchen, Siegen-Wittgenstein> | 99
+      1 Stadtlohn-Büren | 99
+      1 Wollseifen | 99
+      2 Dortmund-Mitte | 99
+      2 Duisburg-Kaldenhausen | 99
+      3 Aachen-Soers | 99
+      4 Bonn-Limperich | 99
+      4 Bonn-Schweinheim | 99
+      4 Mark <Hamm, Westfalen> | 99
+      4 Venne <Senden, Kreis Coesfeld> | 99
+      5 Buir <Kerpen, Rhein-Erft-Kreis> | 99
+      5 Eilendorf, Aachen | 99
+      7 Diözese Minden (Westf) | 36
+     12 Erzdiözese Köln | 36
+     13 Aachen-Eilendorf | 99
+     49 Köln (Erzdiözese) | 36
+     66 Eilendorf <Aachen> | 99
+     71 Münster (Diözese) | 36
+     72 Diözese Münster (Westf) | 36
+    133 Diözese Köln | 36
+    256 Köln <Diözese> | 36
+    433 Münster <Westfalen, Diözese> | 36
