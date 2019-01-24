@@ -56,7 +56,7 @@
         <p>
           <small>
             <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
-            <a href="https://twitter.com/acka47">@acka47</a>  &amp;
+            <a href="https://twitter.com/acka47">@acka47</a>
 						<a
             href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
               Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
@@ -143,7 +143,7 @@
 
 
 			<section>
-				<h1>Wikidata als Infrastruktur</h1>
+				<h1>3. Wikidata als Infrastruktur</h1>
 				<a href="https://www.wikidata.org"><img src="img/wikidata.png" width="350px" style="border: none" /></a>
 			</section>
 
@@ -156,7 +156,7 @@
 				<p><span class="fragment">Kollaborativ</span></p>
 				<p><span class="fragment">CC0</span></p>
 				<p><span class="fragment">Basierend auf Aussagen und Referenzen</span></p>
-				<p><span class="fragment">Für Menschenn und Maschinen</span></p>
+				<p><span class="fragment">Für Menschen und Maschinen</span></p>
       </section>
 
 			<section>
@@ -169,7 +169,7 @@
 
 			<section>
 				<h3>Wikidata-Datenmodell I</h3>
-				<img src="img/wikidata-model.png" style="border: none; box-shadow: none;" />
+				<a href="https://www.wikidata.org/wiki/Q42"><img src="img/wikidata-model.png" style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
@@ -180,8 +180,7 @@
 
 			<section>
 				<h3>Eigenschaftseinschränkungen</h3>
-				<p><span class="fragment">"Einschränkungen sind Hinweise, keine harten Einschränkungen, und sie sind als Hilfe oder Führung für den Bearbeiter gedacht."</p>
-					<p><span class="fragment">Siehe <a href="https://www.wikidata.org/wiki/Help:Property_constraints_portal/de">https://www.wikidata.org/wiki/Help:Property_constraints_portal/de</a></span></p>
+				<p><span class="fragment">"Einschränkungen sind Hinweise, keine harten Einschränkungen, und sie sind als Hilfe oder Führung für den Bearbeiter gedacht." (<a href="https://www.wikidata.org/wiki/Help:Property_constraints_portal/de">Quelle</a>)</p>
 				<p><span class="fragment">Beispiel: Beschränkungen der <a href="http://www.wikidata.org/entity/P227">Eigenschaft "GND"</a></span></p>
 			</section>
 
@@ -192,19 +191,19 @@
 			</section>
 
 			<section>
-				<h1>Status: Übergangsphase</h1>
+				<h1>4. Status: Übergangsphase</h1>
 			</section>
 
 			<section>
 				<h3>From strings to things</h3>
 				<p><span class="fragment">Zunächst Matching existierender Text-Strings auf Wikidata</span></p>
 				<p><span class="fragment">Dann: Erweiterung der Systematik mit den gewonnenen kontrollierten Werten & hbz01-Update</span></p>
-				<p><span class="fragment">Schließlich: Erfassung von Systematik-IDs in der täglichen Katalogisierung</span></p>
+				<p><span class="fragment">Ziel: Erfassung von Systematik-IDs in der täglichen Katalogisierung</span></p>
 			</section>
 
 			<section>
 				<h3>Matching-Verfahren</h3>
-				<p><span class="fragment">Extraktion der relevanten Wikidata-Einträge (Orte in NRW verschiedenen Typs) mittels <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql">SPARQL</a>)</span></p>
+				<p><span class="fragment">Extraktion der relevanten Wikidata-Einträge (Orte in NRW verschiedenen Typs) mittels <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql">SPARQL</a></span></p>
 				<p><span class="fragment">Indexierung der Einträge mit Ansetzungs-, Verweisungsformen, Name der übergeordneten Einheit und Typ</span></p>
 				<p><span class="fragment">Matching der GSW aus 700n gegen den Index</span></p>
 				<p><span class="fragment">Außerdem: <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/string2wikidata.tsv">Liste manuell gematchter GSW</a></span></p>
@@ -232,7 +231,7 @@
 			</section>
 
 			<section>
-				<h1>Aktualisierung der Aleph-Daten</h1>
+				<h1>5. Aktualisierung der Aleph-Daten</h1>
 			</section>
 
 			<section>
@@ -284,7 +283,7 @@
 			</section>
 
 			<section>
-				<h1>Maßnahmen zum Änderungsschutz</h1>
+				<h1>6. Maßnahmen zum Änderungsschutz</h1>
 			</section>
 
 			<section>
@@ -316,18 +315,20 @@
   a skos:Concept ;
   skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
   skos:prefLabel &#x22;Regierungsbezirk Arnsberg&#x22;@de ;
+  foaf:focus &#x3C;http://www.wikidata.org/entity/Q7924&#x3E; ;
   skos:broader &#x3C;http://purl.org/lobid/nwbib-spatial#n9&#x3E; ;
   skos:narrower &#x3C;http://purl.org/lobid/nwbib-spatial#9Q1295&#x3E; ;
   skos:notation &#x22;9Q7924&#x22; .
-  
+
 &#x3C;http://purl.org/lobid/nwbib-spatial#9Q1295&#x3E;
   a skos:Concept ;
   skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
   skos:prefLabel &#x22;Dortmund&#x22;@de ;
+  foaf:focus &#x3C;http://www.wikidata.org/entity/Q1295&#x3E; ;
   skos:broader &#x3C;http://purl.org/lobid/nwbib-spatial#n9Q7924&#x3E; ;
   skos:narrower .... ;
-  skos:notation &#x22;9Q7924&#x22; . 
-  
+  skos:notation &#x22;9Q7924&#x22; .
+
 &#x3C;http://purl.org/lobid/nwbib-spatial#n9&#x3E;
   a skos:Concept ;
   skos:inScheme &#x3C;http://purl.org/lobid/nwbib-spatial&#x3E; ;
@@ -337,7 +338,7 @@
 			</section>
 
 			<section>
-				<h1>Katalogisierung nach der Erweiterung</h1>
+				<h1>7. Katalogisierung nach der Erweiterung</h1>
 			</section>
 
 			<section>
@@ -353,14 +354,14 @@
 				<p><span class="fragment">Ergänzung durch Anlage einer neuen Wikidata-Aussage mit NWBib-Eigenschaft</span></p>
 				<p><span class="fragment">Festlegen der Notation in Wikidata?</span></p>
 			</section>
-			
+
 			<section>
 				<h3>Wikidata-Monitoring und Synchronisation</h3>
 				<p><span class="fragment">Stetige Überwachung der NWBib-Eigenschaft (Löschung, Neuvergabe)</span></p>
 				<p><span class="fragment">Regelmäßige Generierung der SKOS-Systematik aus Wikidata und Kontrolle der Diffs</span></p>
 				<p><span class="fragment">Ggf. Anpassung in Wikidata</span></p>
 				<p><span class="fragment">Aktualisierung der SKOS-Datei</span></p>
-			</section>			
+			</section>
 
 			<section>
 				<h3>Raus aus der Übergangsphase, hin zu einem stabilen System!</h3>
