@@ -40,7 +40,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
       <section>
-        <h2>lobid –</h2> 
+        <h2>lobid –</h2>
 				<h3>offene, webbasierte Infrastruktur für zentrale bibliothekarische Daten</h3>
         <p>
           <small>
@@ -108,7 +108,7 @@
 
 			<section>
 				<h3>Datenquellen und -formate</h3>
-				<img src="img/lobid-data.png" width=800 style="border: none; box-shadow: none;" /> 
+				<img src="img/lobid-data.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
@@ -136,9 +136,9 @@
 			<section>
         <h1>2. lobid-resources</h1>
       </section>
-	
+
 		<section>
-		
+
 				<section>
 	        <h3>a. Die Oberfläche</h3>
 					<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" style="border: none; box-shadow: none;" /></a>
@@ -148,10 +148,10 @@
 	        <h3>Demo</h3>
 					<a href="https://lobid.org/resources">https://lobid.org/resources</a>
 	      </section>
-			
+
 
 			</section>
-			
+
 			<section>
 
 				<section>
@@ -160,12 +160,15 @@
 	      </section>
 
 				<section>
-					<a href="http://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png" width=800 style="border: none; box-shadow: none;" /></a>
+					<a href="http://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=900 style="border: none; box-shadow: none;" /></a>
 				</section>
 
 				<section>
-					<h3>JSON(-LD)</h3>
-					<a href="http://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=800 style="border: none; box-shadow: none;" /></a>
+					<a href="http://lobid.org/resources/HT019788651"><img src="img/focus-json-ld.png" width=1024 style="border: none; box-shadow: none;" /></a>
+				</section>
+
+				<section>
+					<a href="http://lobid.org/resources/HT019788651.json"><img src="img/browser-json.png" width=900 style="border: none; box-shadow: none;" /></a>
 				</section>
 
 				<section>
@@ -174,21 +177,26 @@
 
 				<section>
 					<h3>Datenherkunft & -generierung</h3>
-					<p><span class="fragment">Tägl. Bezug der <a href="http://www.dnb.de/DE/Service/DigitaleDienste/LinkedData/linkeddata_node.html">GND-RDF-Daten von der DNB</a> via OAI-PMH</span></p>
-					<p><span class="fragment">Konversion nach JSON-LD mittels <a href="https://lobid.org/gnd/context.jsonld"><code>@context</code></a>, <a href="https://json-ld.org/spec/latest/json-ld-framing/">Framing</a> etc.</span></p>
-					<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
+					<p><span class="fragment">Tägl. Bezug der XML-Daten über den Aleph-Publishing-Mechanismus</span></p>
+					<p><span class="fragment">Konversion nach N-Triples mittels mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>)</span></p>
+					<p><span class="fragment">Dabei finden verschiedene Normalisierungsarbeiten statt</p>
 					<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
-					<p><span class="fragment">Anreicherung mit EntityFacts-Links und -Bildern</span></p>
 					<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD) <small>-> siehe Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</small></span></p>
 	      </section>
 
 				<section>
-					<img src="img/get-json.png" width="1024" />
+					<h3>Verbesserung der Daten: Generelles</h3>
+					<p><span class="fragment">Von relativ unstrukturiertem und flachem XML zu wohlstrukturiertem und geschachtelten JSON-LD</span></p>
+					<p><span class="fragment">Explikation bisher impliziter Informationen bei der Transformation von Key-Value zu Graph</span></p>
+					<p><span class="fragment">From strings to things: URIs statt IDs oder Strings</span></p>
 	      </section>
 
 				<section>
-					<a href="http://lobid.org/gnd/11850391X"><img src="img/20180605_lobid-gnd-einzeltreffer.png" width=900 style="border: none; box-shadow: none;" /></a>
-				</section>
+					<h3>Verbesserung der Daten: Spezielles</h3>
+					<p><span class="fragment">MARC-Relator-Codes werden aus RAK-Nebeneintragungen generiert (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L800-L972">Morph für Personennebeneintragungen</a>)</span></p>
+					<p><span class="fragment">Normalisierung von Jahresangaben</span></p>
+					<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>)</span></p>
+	      </section>
 
 			</section>
 
@@ -196,7 +204,7 @@
 
 				<section>
 	        <h3>c. Web-API</h3>
-						<a href="http://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="800" /></a>
+						<a href="http://lobid.org/resources/api"><img src="img/lobid-resources-api.png" width="800" /></a>
 	      </section>
 
 				<section>
@@ -212,41 +220,19 @@
 	      </section>
 
 				<section>
-	        <h3><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen, die während der NS-Zeit in Köln geboren wurden</a></h3>
-						<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22http%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img src="img/koelsche-ns-geburten.png" width="800" /></a>
+	        <h3><a href="http://lobid.org/resources/search?q=subject.source.id%3A%28%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib%22+OR+%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib-spatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22">Titel, die mit der NWBib-Sach- oder Ortssystematik erfasst sind, aus der ZDB kommen aber nicht der NWBib zugerechnet werden</a></h3>
 	      </section>
 
 				<section>
-	        <h3><a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22">Einträge, die einen DDB-Link aber keinen Wikidata-Link haben</a></h3>
-						<a href="http://lobid.org/gnd/search?q=sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ423048%22+AND+NOT+sameAs.collection.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ2013%22""><img src="img/wikidata-ddb-links.png" width="800" /></a>
+	        <h3><a href="http://lobid.org/resources/search?q=rda&owner=http%3A%2F%2Flobid.org%2Forganisations%2FDE-605%23%21&aggregations=owner">RDA-Titel in der hbz-Dienstbibliothek</a></h3>
 	      </section>
 
 				<section>
-	        <h3><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt angegeben wurde</a></h3>
-						<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png" width="800" /></a>
+	        <h3>To Do</h3>
 	      </section>
-				
-				<section>
-					<h3><a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit">"Kleinräumige Geografika" innerhalb von Berlin</a></h3>
-						<a href="http://lobid.org/gnd/search?q=geographicAreaCode.id%3A%22http%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE-BE%22+AND+type%3ANameOfSmallGeographicUnitLyingWithinAnotherGeographicUnit"><img src="img/geografika.png" width="800" /></a>
-				</section>
 
 			</section>
 
-			<section>
-				<h3>Was fehlt noch in lobid-gnd?</h3>
-				<p><span class="fragment">Dokumentation durch Annotation eines Beispiels (wie <a href="http://lobid.org/organisations/api/de#jsonld">hier</a>)</span></p>
-				<p><span class="fragment">OpenRefine Reconciliation Endpoint (<a href="https://github.com/hbz/lobid-gnd/issues/65">#65</a>)</span></p>
-				<p><span class="fragment">Bulk Downloads (<a href="https://github.com/hbz/lobid-gnd/issues/91">#91</a>)</span></p>
-				<p><span class="fragment">Weiterleitungen von GND-URIs nach Zusammenführungen (<a href="https://github.com/hbz/lobid-gnd/issues/117">#117</a>)</span></p>
-				<p><span class="fragment">Usability Tests</span></p>
-				<p><span class="fragment">Nutzer*innen-Feedback: Was vermissen Sie?</span></p>
-			</section>	
-
-			<section>
-				<h3>Lob it</h3>
-				<a href="https://twitter.com/stefandumont/status/1006480443611467776"><img src="img/lobit.png" width="800" /></a>
-			</section>
 
 			<section>
         <h1>3. Anwendungs-<br />beispiele</h1>
@@ -259,7 +245,7 @@
 			</section>
 
 			<section>
-				
+
 				<section>
 					<h3>NWBib</h3>
 					<a href="https://nwbib.de"><img src="img/nwbib.png" width=800 style="border: none; box-shadow: none;" /></a>
