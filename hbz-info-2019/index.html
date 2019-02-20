@@ -85,15 +85,19 @@
         <h1>1. lobid</h1>
       </section>
 
-			<section>
-				<h3><span style="color:#FFFF00">L</span>inking <span style="color:#FFFF00">o</span>pen (<span style="color:#FFFF00">bi</span>bliographic) <span style="color:#FFFF00">d</span>ata</h3>
+		<section>
+				<h3><span style="color:#FA820A">L</span>inking <span style="color:#FA820A">o</span>pen (<span style="color:#FA820A">bi</span>bliographic) <span style="color:#FA820A">d</span>ata</h3>
+				<p><a href="https://lobid.org">lobid.org</a></p>
 				<p><span class="fragment">Das Zentrum der im LOD-Programmbereich bereitgestellten Dienste</span></p>
 				<p><span class="fragment">Dateninfrastruktur für Bibliotheken, Archive, Museen</span></p>
-				<p><span class="fragment">Das hbz entwickelt seit 2009 Software im Bereich Linked Open Data</span></p>
-				<p align="left"><span class="fragment">Leitlinien:</span></p>
-				<p align="left"><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
-				<p align="left"><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
-				<p align="left"><span class="fragment">3. Bereitstellung von Web-APIs plus Endnutzeroberflächen</span></p>
+				<p><span class="fragment">Das hbz entwickelt seit 2009 Software im Bereich Linked Open Data (LOD)</span></p>
+      </section>
+
+      <section>
+				<h3>Leitlinien</h3>
+				<p><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
+				<p><span class="fragment">3. Bereitstellung von Web-APIs plus Rechercheoberflächen</span></p>
       </section>
 
 			<section>
@@ -115,19 +119,19 @@
 
 			<section>
 				<h3>lobid-organisations</h3>
-				<a href="https://lobid.org/organisations"><img src="img/lobid-organisations.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/organisations"><img src="img/lobid-organisations.png" width=700 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Dokumentation der lobid-organisations-API: <a href="https://lobid.org/organisations/api">https://lobid.org/organisations/api</a></span></p>
 			</section>
 
 			<section>
 				<h3>lobid-gnd</h3>
-				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" width=700 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Dokumentation der lobid-gnd-API: <a href="https://lobid.org/organisations/api">https://lobid.org/gnd/api</a></span></p>
 			</section>
 
 			<section>
 				<h3>lobid-resources</h3>
-				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=700 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Dokumentation der lobid-resources-API: <a href="https://lobid.org/resources/api">https://lobid.org/resources/api</a></span></p>
 			</section>
 
@@ -155,7 +159,7 @@
       </section>
 
 			<section>
-				<a href="http://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=900 style="border: none; box-shadow: none;" /></a>
+				<a href="http://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=1024 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
@@ -163,7 +167,7 @@
 			</section>
 
 			<section>
-				<a href="http://lobid.org/resources/HT019788651.json"><img src="img/browser-json.png" width=900 style="border: none; box-shadow: none;" /></a>
+				<a href="http://lobid.org/resources/HT019788651.json"><img src="img/browser-json.png" width=800 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
@@ -218,17 +222,38 @@
 
 			<section>
         <h3>RDA-Titel in der hbz-Dienstbibliothek</h3>
-				<a href="https://lobid.org/resources/search?q=title%3ARDA+AND+hasItem.heldBy.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-605%23%21%22"><code>title:RDA AND hasItem.heldBy.id:"http://lobid.org/organisations/DE-605#!"</code></a>
+				<a href="https://lobid.org/resources/search?q=title%3ARDA+AND+hasItem.heldBy.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-605%23%21%22">
+				<pre><code class="json" data-trim>
+title:RDA 
+AND hasItem.heldBy.id:
+"http://lobid.org/organisations/DE-605#!"
+				</code></pre></a>
       </section>
 
 			<section>
         <h3>Online-Medien mit Bestand</h3>
-				<a href="https://lobid.org/resources/search?q=medium.id%3A%22http%3A%2F%2Frdaregistry.info%2FtermList%2FRDACarrierType%2F1018%22+AND+_exists_%3AhasItem"><code>medium.id:"http://rdaregistry.info/termList/ RDACarrierType/1018" AND _exists_:hasItem</code></a>
+				<a href="https://lobid.org/resources/search?q=medium.id%3A%22http%3A%2F%2Frdaregistry.info%2FtermList%2FRDACarrierType%2F1018%22+AND+_exists_%3AhasItem">
+				<pre><code class="json" data-trim>
+medium.id:
+"http://rdaregistry.info/termList/ RDACarrierType/1018"
+AND _exists_:hasItem
+				</code></pre></a>
       </section>
 
 			<section>
         <h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
-				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib%22+OR+%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib-spatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22"><code>subject.source.id:("http://purl.org/lobid/nwbib" OR "http://purl.org/lobid/nwbib-spatial") AND inCollection.id:"http://lobid.org/resources/HT014846970#!" AND NOT inCollection.id:"http://lobid.org/resources/HT014176012#!"AND describedBy.sourceOrganization.id: "http://lobid.org/organisations/DE-5#!"</code></a>
+				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib%22+OR+%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib-spatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22">
+				<pre><code class="json" data-trim>
+subject.source.id:
+  ("http://purl.org/lobid/nwbib" OR
+   "http://purl.org/lobid/nwbib-spatial") 
+AND inCollection.id:
+  "http://lobid.org/resources/HT014846970#!" 
+AND NOT inCollection.id:
+  "http://lobid.org/resources/HT014176012#!"
+AND describedBy.sourceOrganization.id: 
+  "http://lobid.org/organisations/DE-5#!"
+				</code></pre></a>
       </section>
 
 			<section>
@@ -238,7 +263,7 @@
 			<section>
 				<h3>Unterschiede zu lobid-resources-API</h3>
 				<p><span class="fragment">Normdaten statt Titeldaten</span></p>
-				<p><span class="fragment">Ausgangsdaten: bei lobid-gnd N-Triples, bei lobid-organisations Pica Plus XML und csv</span></p>
+				<p><span class="fragment">Ausgangsdaten: bei lobid-gnd RDF/XML, bei lobid-organisations Pica-Plus-XML und CSV</span></p>
 				<p><span class="fragment">Bereitstellung einer OpenRefine Reconciliation API, siehe z.B. <a href="http://lobid.org/gnd/api#openrefine">http://lobid.org/gnd/api#openrefine</a></span></p>
       </section>
 
@@ -247,7 +272,7 @@
       </section>
 
 			<section>
-				<h3>Verbundbibliotheken-Karte auf der hbz-Website</h3>
+				<h3>Verbundbibliotheken auf hbz-Website</h3>
 				<a href="https://www.hbz-nrw.de/produkte/verbunddienstleistungen/verbundbibliotheken"><img src="img/hbz-verbundbibliotheken.png" width=800 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Basiert auf lobid-organisations</span></p>
 			</section>
@@ -299,7 +324,7 @@
 
 			<section>
 				<h3>Virtuelle Deutsche Landesbibliographie</h3>
-				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=900 style="border: none; box-shadow: none;" /></a>
+				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Seit April 2018 ist nwbib.de in die VDL integriert.</span></p>
 			</section>
 
@@ -312,20 +337,20 @@
 			</section>
 
 			<section>
-				<img src="img/openrefine-type.png" width=1024 style="border: none; box-shadow: none;" />
+				<img src="img/openrefine-type.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<img src="img/openrefine-preview.png" width=1024 style="border: none; box-shadow: none;" />
+				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<img src="img/openrefine-field.png" width=1024 style="border: none; box-shadow: none;" />
+				<img src="img/openrefine-field.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
 				<h3>Kalliope</h3>
-				<a href="http://kalliope.staatsbibliothek-berlin.de/de/index.html"><img src="img/kalliope.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="http://kalliope.staatsbibliothek-berlin.de/de/index.html"><img src="img/kalliope.png" width=750 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Anzeige von externen Links (z.B. Wikipedia) aus lobid-gnd auf Personenseiten</span></p>
 			</section>
 
@@ -337,7 +362,7 @@
 
 			<section>
 				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
-				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=700 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Bulk Download der Daten mit Bestand in DE-5-34</span></p>
 			</section>
 
@@ -356,7 +381,7 @@
 				<p><span class="fragment">lobid-gnd: Mitarbeit des hbz an der Entwicklung der GND, z.B. eines zentralen Angebots als Einstieg in das GND-Netzwerk</span></p>
 				<p><span class="fragment">lobid-resources-API für hbz01-Abfrage im KVK</span></p>
 				<p><span class="fragment">Ersetzung von Ortsstrings in hbz01 mit kontrollierten Werten aus Wikidata</span></p>
-				<p><span class="fragment">Metafacture-Workshop (Wer hat hier Interesse?)</span></p>
+				<p><span class="fragment">Metafacture-Workshop (wer hat hier Interesse?)</span></p>
 				<p><span class="fragment">Ein Folgetreffen für konkrete lobid-Nutzungsszenarien im Haus?</span></p>
       </section>
 
@@ -369,7 +394,6 @@
 				<ul style=font-size:25px;>
 					<li><a href="http://blog.lobid.org/">lobid-Blog</a></li>
 					<li><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></li>
-					<li><a href= "https://github.com/hbz/lobid-gnd">lobid-gnd code auf GitHub</a></li>
 					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für Bibliotheken. In: Informationspraxis 4(1). <a href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a></li>
 					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2018): lobid-gnd – Eine Schnittstelle zur Gemeinsamen Normdatei für Mensch und Maschine. Erscheint in: Informationspraxis 5(1). Pre"print": <a href="https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md">https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md</a></li>
 				</ul>
