@@ -41,7 +41,7 @@
     <div class="slides">
       <section>
         <h2>lobid –</h2>
-				<h3>offene, webbasierte Infrastruktur für zentrale bibliothekarische Daten</h3>
+				<h3>offene, webbasierte Infrastruktur für Titel- und Normdaten</h3>
         <p>
           <small>
             <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
@@ -206,8 +206,9 @@
 				<h3>Abfrage-Möglichkeiten</h3>
 				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
 				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
+				<p><span class="fragment"><a href="http://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln (ab 2018-04-04)</a></p>
 				<p><span class="fragment"><a href="http://lobid.org/resources/api#auto-complete">Parameter für Auto Suggest</a></p>
-					<p><span class="fragment"><a href="http://lobid.org/resources/api#content_types">Parameter für Bulk Downloads</a></p>
+				<p><span class="fragment"><a href="http://lobid.org/resources/api#content_types">Parameter für Bulk Downloads</a></p>
 				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span></p>
       </section>
 
@@ -224,7 +225,7 @@
         <h3>RDA-Titel in der hbz-Dienstbibliothek</h3>
 				<a href="https://lobid.org/resources/search?q=title%3ARDA+AND+hasItem.heldBy.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-605%23%21%22">
 				<pre><code class="json" data-trim>
-title:RDA 
+title:RDA
 AND hasItem.heldBy.id:
 "http://lobid.org/organisations/DE-605#!"
 				</code></pre></a>
@@ -246,14 +247,44 @@ AND _exists_:hasItem
 				<pre><code class="json" data-trim>
 subject.source.id:
   ("http://purl.org/lobid/nwbib" OR
-   "http://purl.org/lobid/nwbib-spatial") 
+   "http://purl.org/lobid/nwbib-spatial")
 AND inCollection.id:
-  "http://lobid.org/resources/HT014846970#!" 
+  "http://lobid.org/resources/HT014846970#!"
 AND NOT inCollection.id:
   "http://lobid.org/resources/HT014176012#!"
-AND describedBy.sourceOrganization.id: 
+AND describedBy.sourceOrganization.id:
   "http://lobid.org/organisations/DE-5#!"
 				</code></pre></a>
+      </section>
+
+			<section>
+        <h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
+				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib%22+OR+%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib-spatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22">
+				<pre><code class="json" data-trim>
+subject.source.id:
+  ("http://purl.org/lobid/nwbib" OR
+   "http://purl.org/lobid/nwbib-spatial")
+AND inCollection.id:
+  "http://lobid.org/resources/HT014846970#!"
+AND NOT inCollection.id:
+  "http://lobid.org/resources/HT014176012#!"
+AND describedBy.sourceOrganization.id:
+  "http://lobid.org/organisations/DE-5#!"
+				</code></pre></a>
+      </section>
+
+			<section>
+        <h3>Deletions Endpoint: Vom bis 14. bis 20.2. gelöschte Titel</h3>
+				<a href="http://lobid.org/resources/deletions/search?q=describedBy.deleted%3A%5B20190214+TO+20190220%5D">
+				<pre><code class="json" data-trim>
+describedBy.deleted:[20190214 TO 2019022]
+				</code></pre></a>
+      </section>
+
+			<section>
+        <h3>Kibana-Visualisierungen</h3>
+				<a href="http://kibana.lobid.org/app/kibana#/visualize">
+				http://kibana.lobid.org/app/kibana#/visualize</a>
       </section>
 
 			<section>
