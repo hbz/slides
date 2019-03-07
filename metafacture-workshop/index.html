@@ -103,10 +103,22 @@
 				</section>
 
 				<section>
+					<h1>Workflow</h1>
+					<img src="img/flow.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
 					<h1>Metamorph</h1>
 					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
 					<p><span class="fragment">Within the morph stream module: mapping separated from input or output format: 
 					attribute-value-pair &rarr; attribute-value-pair (rules externalized in morph file, XML)</span></p>
+				</section>
+
+				<section>
+					<h1>Metamorph</h1>
+					<img src="img/morph.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
@@ -130,7 +142,298 @@
 				</section>
 
 				<section>
+					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
+				</section>
+
+				<section>
+					<p><a href="https://github.com/culturegraph/metafacture-ide">https://github.com/culturegraph/metafacture-ide</a></p>
+				</section>
+
+				<section>
 					<h1>Exercises</h1>
+				</section>
+
+				<section>
+					<h2>Exercise 1: Printing data</h2>
+					<p>Output the content of <code>bib-data.pica.gz</code> as Formeta</p>
+					<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "bib-data.pica.gz";
+default out = FLUX_DIR + "sample1-out.txt";
+
+in
+|open-file
+|as-lines
+|decode-pica
+|encode-formeta(style="multiline")
+|write(out);
+					</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Logging</h2>
+					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code></p>
+					<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "input.foma.gz";
+default out = FLUX_DIR + "sample2-out.txt";
+in
+|open-file
+|as-lines
+|log-object("Filtering: ")
+|filter-strings("geburts", passMatches="false")
+|log-object("Decoding: ")
+|decode-formeta
+|log-stream("Morphing 1: ")
+|morph(FLUX_DIR + "mystery-morph-1.xml")
+|log-stream("Morphing 2: ")
+|morph(FLUX_DIR + "mystery-morph-2.xml")
+|log-stream("Encoding: ")
+|encode-literals
+|log-object("Writing: ")
+|write(out);
+					</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 3: Transforming data</h2>
+					<p>Edit <code>simple-transformation.xml</code> to get the title, publisher, location and year information from input fields 021A.a, 033A.n, 033A.p, 011@.n. 
+					Combine publisher and location into one field. Use human-readable output fields.</p>
+					<span class="fragment">
+						<pre><code class="xml" data-trim>
+&lt;rules&gt;
+	&lt;data source="021A.a" name="Title"&gt;&lt;/data&gt;
+	&lt;data source="011@.n" name="Year"&gt;
+		&lt;regexp match="\[(\d+)\]" format="${1}"/&gt;
+	&lt;/data&gt;
+	&lt;combine name="Publisher" value="${Publisher}: ${Place}" 
+			reset="true"&gt;
+		&lt;data source="033A.n" name="Publisher"&gt;&lt;/data&gt;
+		&lt;data source="033A.p" name="Place"&gt;&lt;/data&gt;
+	&lt;/combine&gt;
+&lt;/rules&gt;
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h1>stream-to-triples</h1>
+					<img src="img/stream-to-triples.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h1>count-triples</h1>
+					<img src="img/count-triples.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h1>template</h1>
+					<img src="img/template.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 4: Counting distinct values</h2>
+					<p>Count the number of distinct values for the edition (032@.a) in bib-data.pica.gz</p>
+					<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "bib-data.pica.gz";
+default out = FLUX_DIR + "sample4-out.txt";
+
+in
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "count.xml")
+|stream-to-triples
+|count-triples(countBy="object")
+|template("${o} | ${s}")
+|write(out);
+						</code></pre>
+						<pre><code class="xml" data-trim>
+<rules>
+	<data source="032@.a" name="Edition"></data>
+</rules>
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample4">https://github.com/hbz/metafacture-flux-examples/tree/master/sample4</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 5: Counting data patterns</h2>
+					<p>Count the number of birth (060R.a) and death (060R.b) dates that match the patterns yyyy or dd.mm.yyyy. Additionally, output the number of values that don't match these patterns.</p>
+					<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "authority-data.pica.gz";
+default out = FLUX_DIR + "sample5-out.txt";
+
+in
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "count.xml")
+|stream-to-triples
+|count-triples(countBy="predicate")
+|template("${s}:\t ${o}")
+|write(out);
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 5: Counting data patterns</h2>
+					<pre><code class="xml" data-trim>
+<rules>
+	<choose>
+		<data source="060R.a" name="birth (full)">
+			<regexp match="^\d{2}\.\d{2}.\d{4}" />
+		</data>
+		<data source="060R.a" name="birth (year)">
+			<regexp match="^\d{2,4}" />
+		</data>
+		<data source="060R.a" name="invalid birth">
+			<constant value="other" />
+		</data>
+	</choose>
+	<choose>
+		<data source="060R.b" name="death (full)">
+			<regexp match="^\d{2}\.\d{2}.\d{4}" />
+		</data>
+		<data source="060R.b" name="death (year)">
+			<regexp match="^\d{2,4}" />
+		</data>
+		<data source="060R.b" name="invalid death">
+			<constant value="other" />
+		</data>
+	</choose>
+</rules>
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 5: Counting distinct </h2>
+					<pre><code class="nohighlight" data-trim>
+birth (full):	 873
+birth (year):	 4874
+death (full):	 460
+death (year):	 1587
+invalid birth:	 9
+invalid death:	 5
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
+				</section>
+
+				<section>
+					<h2>collect-triples</h2>
+					<img src="img/collect-triples.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>sort-triples</h2>
+					<img src="img/sort-triples.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>wormhole</h2>
+					<img src="img/wormhole.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>stream-to-triples-redirect</h2>
+					<img src="img/stream-to-triples-redirect.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 6: Enriching</h2>
+					<p>Combine Wikipedia data in wiki-persons.foma.gz (contains GND IDs) and GND data in authority-persons.pica.gz into Formeta output.</p>
+					<span class="fragment">
+						<pre><code class="xml" data-trim>
+<rules>
+	<data source="gnd" name="_id"></data>
+	<data source="_else"></data>
+</rules>
+</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 6: Enriching</h2>
+					<p>Combine Wikipedia data in wiki-persons.foma.gz (contains GND IDs) and GND data in authority-persons.pica.gz into Formeta output.</p>
+					<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+default authoritydata = FLUX_DIR + "authority-persons.pica.gz";
+default wikidata = FLUX_DIR + "wiki-persons.foma.gz";
+default out = FLUX_DIR + "sample6-out.txt";
+
+authoritydata
+|open-file
+|as-lines
+|decode-pica
+|stream-to-triples
+|@X;
+
+wikidata
+|open-file
+|as-lines
+|decode-formeta
+|morph(FLUX_DIR + "enrich-wiki.xml")
+|stream-to-triples(redirect="true")
+|@X;
+
+@X
+|wait-for-inputs("2")
+|sort-triples(by="subject")
+|collect-triples
+|encode-formeta(style="multiline")
+|write(out);
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>{to:ID}-redirection</h2>
+					<img src="img/stream-to-triples-to-id.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 7: Counting references</h2>
+					<p>For each authority in authority-persons.pica.gz, output how often it is refernced from bib-data.pica.gz in 028A.9</p>
+					<span class="fragment">
+						<pre><code class="xml" data-trim>
+<rules>
+	<combine name="{to:${author-id}}authorOf" value="${book-id}">
+		<data source="_id" name="book-id" />
+		<data source="028A.9" name="author-id" />
+	</combine>
+</rules>
+						</code></pre>
+						<pre><code class="nohighlight" data-trim>
+118514768{ name: 'Bertolt Brecht', count: 2234 }
+11852884X{ name: 'Umberto Eco', count: 221 }
+118541579{ name: 'Günter Grass', count: 987 }
+118559230{ name: 'Franz Kafka', count: 2046 }
+11860564X{ name: 'Jean-Paul Sartre' }
+11862444X{ name: 'Kurt Tucholsky', count: 690 }
+118628852{ name: 'Martin Walser' }
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
+					</span>
 				</section>
 
 				<section>
