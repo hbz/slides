@@ -63,8 +63,8 @@
 					<li>Introduction</li>
 					<li>Metafacture concepts</li>
 					<li>Metafacture usage</li>
-					<li>Exercises</li>
-					<li>Specific issues</li>
+					<li>Exercises: workflows, transforming,<br> analysing, and combining data</li>
+					<li>Specific issues / discussion</li>
 					<li>Outlook</li>
 					</ul>
 				</section>
@@ -96,45 +96,23 @@
 
 				<section>
 					<h1>Metafacture</h1>
-					<p><span class="fragment">Toolkit for metadata analysis and transformation</span></p>
 					<p><span class="fragment">Basic idea: data streams through multiple modules (read, decode, transform, encode, write)</span></p>
-					<p><span class="fragment">Each module reads data of a specific type, writes data of a specific type</span></p>
-					<p><span class="fragment">Various formats supported (MAB, MARC, METS, etc.), extensible framework (Java)</span></p>
-				</section>
-
-				<section>
-					<h1>Workflow</h1>
-					<img src="img/flow.png"/>
-					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
-				</section>
-
-				<section>
-					<h1>Metamorph</h1>
-					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
-					<p><span class="fragment">Within the morph stream module: mapping separated from input or output format: 
-					attribute-value-pair &rarr; attribute-value-pair (rules externalized in morph file, XML)</span></p>
-				</section>
-
-				<section>
-					<h1>Metamorph</h1>
-					<img src="img/morph.png"/>
-					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+					<p><span class="fragment">Each module reads data of a specific type and writes data of a specific type</span></p>
+					<p><span class="fragment">Various formats supported (MAB, MARC, METS, etc.), extensible framework</span></p>
 				</section>
 
 				<section>
 					<h1>Workflows</h1>
-					<p><span class="fragment">Individual stream modules comprise the overall workflow</span></p>
+					<p><span class="fragment">Individual stream modules build the overall workflow</span></p>
 					<p><span class="fragment">Workflow can be expressed with Flux, a simple DSL, or with Java</span></p>
 					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line</span></p>
 					<p><span class="fragment">We provide an Eclipse-based IDE to edit and run workflows</span></p>
 				</section>
 
-				<section data-background="img/metafacture-ide.png"
-					data-background-size="contain">
-					<a target="_blank" title="https://github.com/culturegraph/metafacture-ide/wiki/User-Guide"
-						href="https://github.com/culturegraph/metafacture-ide/wiki/User-Guide"><h1>
-							&nbsp;<br />&nbsp;<br />&nbsp;
-						</h1></a>
+				<section>
+					<h2>Sample workflow</h2>
+					<img src="img/flow.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
@@ -142,11 +120,19 @@
 				</section>
 
 				<section>
-					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
+					<h1>Workshop data</h1>
+					<p>Download and unpack the 'workshop' branch of the 'metafacture-flux-examples' GitHub repo</p> 
+					<p><a href="https://github.com/hbz/metafacture-flux-examples/archive/workshop.zip">https://github.com/hbz/metafacture-flux-examples/archive/workshop.zip</a></p>
+					<p>(or: <code>git clone -b workshop https://github.com/hbz/metafacture-flux-examples.git</code>)</p>
 				</section>
 
 				<section>
-					<p><a href="https://github.com/culturegraph/metafacture-ide">https://github.com/culturegraph/metafacture-ide</a></p>
+					<h2>Set up Metafacture CLI app</h2>
+					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
+					<pre><code class="bash" data-trim>
+$ cd ~/metafacture
+$ ./flux.sh # or flux.bat on Windows
+					</code></pre>
 				</section>
 
 				<section>
@@ -156,26 +142,515 @@
 				<section>
 					<h2>Exercise 1: Printing data</h2>
 					<p>Output the content of <code>bib-data.pica.gz</code> as Formeta</p>
-					<span class="fragment">
+						<pre><code class="bash" data-trim>
+$ cd metafacture-flux-examples/sample1
+$ gedit sample1.flux
+						</code></pre>
 						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "bib-data.pica.gz";
-default out = FLUX_DIR + "sample1-out.txt";
-
-in
+"bib-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
 |encode-formeta(style="multiline")
-|write(out);
-					</code></pre>
+|write("stdout");
+						</code></pre>
+						<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh sample1.flux
+						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
-					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 1: Printing data</h2>
+						<pre><code class="nohighlight" data-trim>
+'482147350' {
+	'001@' {
+		'a': '5',
+		'0': '1-2'
+	},
+	'001A' {
+		'0': '1100:15-10-94'
+	},
+	'001B' {
+		'0': '9999:12-06-06',
+		't': '16:10:17.000'
+	},
+	'001D' {
+		'0': '9999:99-99-99'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Aag'
+	},
+	'003@' {
+		'0': '482147350'
+	},
+	'006U' {
+		'0': '94,P05'
+	},
+	'007E' {
+		'0': 'U 70.16407'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '74057548'
+	},
+	'011@' {
+		'a': '1970'
+	},
+	'017A' {
+		'a': 'rh'
+	},
+	'021A' {
+		'a': 'Die @Berufsfreiheit der Arbeitnehmer und ihre Ausgestaltung in völkerrechtlichen Verträgen',
+		'd': 'Eine Grundrechtsbetrachtg'
+	},
+	'028A' {
+		'9': '106884905',
+		'7': 'Tn3',
+		'A': 'gnd',
+		'0': '106884905',
+		'a': 'Projahn',
+		'd': 'Horst D.'
+	},
+	'033A' {
+		'p': 'Würzburg'
+	},
+	'034D' {
+		'a': 'XXXVIII, 165 S.'
+	},
+	'034I' {
+		'a': '8'
+	},
+	'037C' {
+		'a': 'Würzburg, Jur. F., Diss. v. 7. Aug. 1970'
+	}
+}
+'958090564' {
+	'001@' {
+		'0': '1',
+		'a': '5'
+	},
+	'001A' {
+		'0': '1140:08-12-99'
+	},
+	'001B' {
+		'0': '9999:05-01-08',
+		't': '22:57:29.000'
+	},
+	'001D' {
+		'0': '9999:99-99-99'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Aa'
+	},
+	'003@' {
+		'0': '958090564'
+	},
+	'004A' {
+		'f': 'kart. : DM 9.70, EUR 4.94, sfr 8.00, S 68.00'
+	},
+	'006U' {
+		'0': '00,B05,0285'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '76088278'
+	},
+	'011@' {
+		'a': '1999'
+	},
+	'017A' {
+		'a': 'rb',
+		'a': 'si'
+	},
+	'019@' {
+		'a': 'XA-AT'
+	},
+	'021A' {
+		'a': 'Zukunft Bildung',
+		'h': 'Politische Akademie. [Hrsg. von Günther R. Burkert-Dottolo und Bernhard Moser]'
+	},
+	'028C' {
+		'9': '130681849',
+		'7': 'Tp1',
+		'V': 'piz',
+		'A': 'gnd',
+		'0': '130681849',
+		'E': '1952',
+		'a': 'Burkert',
+		'd': 'Günther R.',
+		'B': 'Hrsg.'
+	},
+	'033A' {
+		'p': 'Wien',
+		'n': 'Polit. Akad.'
+	},
+	'034D' {
+		'a': '79 S.'
+	},
+	'034I' {
+		'a': '24 cm'
+	},
+	'036F' {
+		'x': '299 12',
+		'9': '551720077',
+		'g': 'Adn',
+		'7': 'Tb1',
+		'A': 'gnd',
+		'0': '1040469-7',
+		'a': 'Politische Akademie',
+		'g': 'Wien',
+		'Y': 'PA-Information',
+		'h': 'Politische Akademie, WB',
+		'p': 'Wien',
+		'J': 'Politische Akad., WB',
+		'l': '99,2'
+	},
+	'036F/01' {
+		'x': '12',
+		'9': '025841467',
+		'g': 'Advz',
+		'i': '2142105-5',
+		'Y': 'Aktuelle Fragen der Politik',
+		'h': 'Politische Akademie',
+		'p': 'Wien',
+		'J': 'Politische Akad. der ÖVP',
+		'l': 'Bd. 2'
+	},
+	'045E' {
+		'a': '22',
+		'd': '18',
+		'm': '370'
+	},
+	'047A' {
+		'S': 'FE',
+		'a': 'ta'
+	}
+}
+'361809549' {
+	'001@' {
+		'a': '5',
+		'0': '1'
+	},
+	'001A' {
+		'0': '1140:19-02-03'
+	},
+	'001B' {
+		'0': '9999:19-06-11',
+		't': '01:20:13.000'
+	},
+	'001D' {
+		'0': '9999:26-04-03'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Aal'
+	},
+	'003@' {
+		'0': '361809549'
+	},
+	'004A' {
+		'f': 'Hlw.'
+	},
+	'006U' {
+		'0': '00,L01'
+	},
+	'006U' {
+		'0': '04,P01-s-41'
+	},
+	'006U' {
+		'0': '04,P01-f-21'
+	},
+	'007G' {
+		'a': 'DNB',
+		'0': '361809549'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '72658383'
+	},
+	'007M' {
+		'0': '4413/0275'
+	},
+	'011@' {
+		'a': '1925'
+	},
+	'019@' {
+		'a': 'XA-DXDE',
+		'a': 'XA-DE'
+	},
+	'021A' {
+		'a': 'Hundert Jahre Buchdrucker-Innung Hamburg',
+		'd': 'Wesen u. Werden d. Vereinigungen Hamburger Buchdruckereibesitzer 1825-1925 ; Gedenkschrift zur 100. Wiederkehr d. Gründungstages, verf. im Auftr. d. Vorstandes d. Buchdrucker-Innung (Freie Innung) zu Hamburg',
+		'h': 'Friedrich Voeltzer'
+	},
+	'028A' {
+		'9': '101386281',
+		'7': 'Tp1',
+		'V': 'piz',
+		'A': 'gnd',
+		'0': '101386281',
+		'E': '1895',
+		'a': 'Völtzer',
+		'd': 'Friedrich'
+	},
+	'033A' {
+		'p': 'Hamburg',
+		'n': 'Buchdrucker-Innung (Freie Innung)'
+	},
+	'033A' {
+		'p': 'Hamburg',
+		'n': '[Verlagsbuchh. Broschek & Co.]'
+	},
+	'034D' {
+		'a': '44 S.'
+	},
+	'034I' {
+		'a': '4'
+	}
+}
+'945184085' {
+	'001@' {
+		'a': '5',
+		'0': '1-3'
+	},
+	'001A' {
+		'0': '1240:01-08-95'
+	},
+	'001B' {
+		'0': '9999:24-09-10',
+		't': '17:42:20.000'
+	},
+	'001D' {
+		'0': '9999:99-99-99'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Af'
+	},
+	'003@' {
+		'0': '945184085'
+	},
+	'004A' {
+		'0': '3-89007-044-2',
+		'f': 'Gewebe : DM 198.00, sfr 198.00, S 1386.00'
+	},
+	'006T' {
+		'0': '95,N35,0856'
+	},
+	'006U' {
+		'0': '95,A48,1186'
+	},
+	'006U' {
+		'0': '10,P01'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '61975997'
+	},
+	'011@' {
+		'a': '1995'
+	},
+	'017A' {
+		'a': 'ra'
+	},
+	'021A' {
+		'x': '213',
+		'9': '550711899',
+		'Y': 'Neues Handbuch der Musikwissenschaft',
+		'h': 'hrsg. von Carl Dahlhaus. Fortgef. von Hermann Danuser',
+		'p': 'Laaber',
+		'J': 'Laaber-Verl.',
+		'S': '48',
+		'0': '3-89007-030-2',
+		'g': 'Ac'
+	},
+	'021B' {
+		'l': 'Bd. 13.',
+		'a': 'Register',
+		'h': 'zsgest. von Hans-Joachim Hinrichsen'
+	},
+	'028C' {
+		'9': '121445453',
+		'7': 'Tp3',
+		'V': 'piz',
+		'A': 'gnd',
+		'0': '121445453',
+		'E': '1952',
+		'a': 'Hinrichsen',
+		'd': 'Hans-Joachim'
+	},
+	'034D' {
+		'a': 'VIII, 408 S.'
+	},
+	'045V' {
+		'9': '090001001'
+	},
+	'047A' {
+		'S': 'FE',
+		'a': 'gb/fm'
+	}
+}
+'1014417392' {
+	'001@' {
+		'0': '1-2',
+		'a': '5'
+	},
+	'001A' {
+		'0': '1239:18-08-11'
+	},
+	'001B' {
+		'0': '9999:05-09-11',
+		't': '23:31:44.000'
+	},
+	'001D' {
+		'0': '1240:30-08-11'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Af'
+	},
+	'003@' {
+		'0': '1014417392'
+	},
+	'004A' {
+		'f': 'kart.'
+	},
+	'006U' {
+		'0': '11,A37'
+	},
+	'007G' {
+		'a': 'DNB',
+		'0': '1014417392'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '752937239'
+	},
+	'010@' {
+		'a': 'ger'
+	},
+	'011@' {
+		'a': '2011'
+	},
+	'017A' {
+		'a': 'ra',
+		'a': 'sf'
+	},
+	'021A' {
+		'x': 'tr',
+		'9': '1014809657',
+		'7': 'Tp3',
+		'V': 'piz',
+		'A': 'gnd',
+		'0': '1034622773',
+		'E': '1958',
+		'a': 'Lübeck',
+		'd': 'Monika',
+		'Y': 'Personalwirtschaft mit DATEV',
+		'h': 'Monika Lübeck ; Helmut Lübeck',
+		'p': 'Bodenheim',
+		'p': 'Wien',
+		'J': 'Herdt',
+		'R': 'XA-DE',
+		'S': '650',
+		'g': 'Ac'
+	},
+	'021B' {
+		'l': 'Trainerbd.'
+	},
+	'032@' {
+		'g': '11',
+		'a': '1. Ausg.'
+	},
+	'034D' {
+		'a': '129 S.'
+	},
+	'034M' {
+		'a': 'Ill.'
+	},
+	'047A' {
+		'S': 'FE',
+		'a': 'mar'
+	},
+	'047A' {
+		'S': 'ERW',
+		'a': 'sal'
+	},
+	'047I' {
+		'u': '$',
+		'c': '04',
+		'd': 'DNB',
+		'e': '1'
+	}
+}
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+				</section>
+
+				<section>
+					<h1>Metamorph</h1>
+					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
+					<p><span class="fragment">Within the morph stream module: mapping separated from input or output format: 
+					key-value-pair &rarr; key-value-pair (rules externalized in morph file, XML)</span></p>
+				</section>
+
+				<section>
+					<h1>Metamorph</h1>
+					<img src="img/morph.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
 					<h2>Exercise 2: Logging</h2>
-					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code></p>
-					<span class="fragment">
+					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "input.foma.gz";
+default out = FLUX_DIR + "output.txt.gz";
+
+in
+|open-file
+|as-lines
+|filter-strings("geburts", passMatches="false")
+|decode-formeta
+|morph(FLUX_DIR + "mystery-morph-1.xml")
+|morph(FLUX_DIR + "mystery-morph-2.xml")
+|encode-literals
+|write(out);
+					</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2">https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 2: Logging</h2>
+					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
 						<pre><code class="nohighlight" data-trim>
 default in = FLUX_DIR + "input.foma.gz";
 default out = FLUX_DIR + "sample2-out.txt";
@@ -196,14 +671,139 @@ in
 |write(out);
 					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
-					</span>
+				</section>
+
+<section>
+					<h2>Exercise 2: Logging</h2>
+						<pre><code class="nohighlight" data-trim>
+Filtering: 1 { name: Franz Kafka, birthplace: Prague, birthdate: 1883-07-03 }
+Decoding: 1 { name: Franz Kafka, birthplace: Prague, birthdate: 1883-07-03 }
+Morphing 1: start record 1
+Morphing 2: start record 1
+Encoding: start record 1
+Morphing 1: literal name=Franz Kafka
+Morphing 2: literal Firstname=Franz
+Morphing 2: literal Lastname=Kafka
+Morphing 1: literal birthplace=Prague
+Morphing 2: literal Birthplace=Prague
+Morphing 1: literal birthdate=1883-07-03
+Morphing 2: literal Birthdate=03. July 1883
+Morphing 1: end record
+Morphing 2: end record
+Encoding: literal =1, Kafka, Franz, 03. July 1883, Prague
+Writing: 1, Kafka, Franz, 03. July 1883, Prague
+Encoding: end record
+Filtering: 2 { name: Václav Havel, birthplace: Prague, birthdate: 1939-10-05 }
+Decoding: 2 { name: Václav Havel, birthplace: Prague, birthdate: 1939-10-05 }
+Morphing 1: start record 2
+Morphing 2: start record 2
+Encoding: start record 2
+Morphing 1: literal name=Václav Havel
+Morphing 2: literal Firstname=Václav
+Morphing 2: literal Lastname=Havel
+Morphing 1: literal birthplace=Prague
+Morphing 2: literal Birthplace=Prague
+Morphing 1: literal birthdate=1939-10-05
+Morphing 2: literal Birthdate=05. October 1939
+Morphing 1: end record
+Morphing 2: end record
+Encoding: literal =2, Havel, Václav, 05. October 1939, Prague
+Writing: 2, Havel, Václav, 05. October 1939, Prague
+Encoding: end record
+Filtering: 3 { name: Leoš Janáček, birthplace: Hukvaldy, birthdate: 1854-07-03 }
+Decoding: 3 { name: Leoš Janáček, birthplace: Hukvaldy, birthdate: 1854-07-03 }
+Morphing 1: start record 3
+Morphing 2: start record 3
+Encoding: start record 3
+Morphing 1: literal name=Leoš Janáček
+Morphing 2: literal Firstname=Leoš
+Morphing 2: literal Lastname=Janáček
+Morphing 1: literal birthplace=Hukvaldy
+Morphing 2: literal Birthplace=Hukvaldy
+Morphing 1: literal birthdate=1854-07-03
+Morphing 2: literal Birthdate=03. July 1854
+Morphing 1: end record
+Morphing 2: end record
+Encoding: literal =3, Janáček, Leoš, 03. July 1854, Hukvaldy
+Writing: 3, Janáček, Leoš, 03. July 1854, Hukvaldy
+Encoding: end record
+Filtering: 4 { name: Franz Viktor Werfel, geburtsort: Prague, geburtsdatum: 1890-09-10 }
+Filtering: 5 { name: Max Brod, birthplace: Prague, birthdate: 1884-05-27 }
+Decoding: 5 { name: Max Brod, birthplace: Prague, birthdate: 1884-05-27 }
+Morphing 1: start record 5
+Morphing 2: start record 5
+Encoding: start record 5
+Morphing 1: literal name=Max Brod
+Morphing 2: literal Firstname=Max
+Morphing 2: literal Lastname=Brod
+Morphing 1: literal birthplace=Prague
+Morphing 2: literal Birthplace=Prague
+Morphing 1: literal birthdate=1884-05-27
+Morphing 2: literal Birthdate=27. May 1884
+Morphing 1: end record
+Morphing 2: end record
+Encoding: literal =5, Brod, Max, 27. May 1884, Prague
+Writing: 5, Brod, Max, 27. May 1884, Prague
+Encoding: end record
+Filtering: closeStream
+Decoding: closeStream
+Morphing 1: closeStream
+Morphing 2: closeStream
+Encoding: closeStream
+Writing: closeStream
+					</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
+				</section>
+
+				<section>
+					<h2>Set up Metafacture IDE</h2>
+					<img src="img/metafacture-ide.png"/>
+					<p><a href="https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation">https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation</a></p>
+				</section>
+
+				<section>
+					<h2>Run sample workflow</h2>
+					<img src="img/metafacture-ide-run.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample0">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample0</a></small></p>
+				</section>
+
+				<section>
+					<h2>Checkout workshop branch</h2>
+					<p>Right-click metafacture-flux-examples > Team > Switch To > Other > *See image below* > Checkout as New Local Branch > Finish</p>
+					<img src="img/metafacture-ide-checkout.png"/>
+				</section> 
+
+				<section>
+					<h1>Transform data</h1>
+				</section>
+
+				<section>
+					<h1>Morph: data</h1>
+					<img src="img/morph-data.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h1>Morph: modify</h1>
+					<img src="img/morph-modify.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h1>Morph: combine</h1>
+					<img src="img/morph-combine.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
 					<h2>Exercise 3: Transforming data</h2>
-					<p>Edit <code>simple-transformation.xml</code> to get the title, publisher, location and year information from input fields 021A.a, 033A.n, 033A.p, 011@.n. 
-					Combine publisher and location into one field. Use human-readable output fields.</p>
-					<span class="fragment">
+					<p>Edit <code>simple-transformation.xml</code> to get the title, publisher, location and year information from input fields 021A.a, 033A.n, 033A.p, 011@.n</p>
+					<p>Combine publisher and location into one field.</p>
+					<p>Use human-readable output fields.</p>
+				</section>
+
+				<section>
+					<h2>Exercise 3: Transforming data</h2>
 						<pre><code class="xml" data-trim>
 &lt;rules&gt;
 	&lt;data source="021A.a" name="Title"&gt;&lt;/data&gt;
@@ -217,8 +817,99 @@ in
 	&lt;/combine&gt;
 &lt;/rules&gt;
 						</code></pre>
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "bib-data.pica.gz";
+default out = FLUX_DIR + "sample3-out.txt";
+
+in
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "simple-transformation.xml")
+|encode-formeta(style="multiline")
+|write(out);
+						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
-					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 3: Transforming data</h2>
+						<pre><code class="nohighlight" data-trim>
+'958090564' {
+	'Title': 'Zukunft Bildung',
+	'Publisher': 'Polit. Akad.: Wien'
+}
+'361809549' {
+	'Title': 'Hundert Jahre Buchdrucker-Innung Hamburg',
+	'Publisher': 'Buchdrucker-Innung (Freie Innung): Hamburg',
+	'Publisher': '[Verlagsbuchh. Broschek & Co.]: Hamburg'
+}
+'780510143' {
+	'Title': 'Christa Dichgans, "Unsere Welt"',
+	'Publisher': 'Galerie Springer: Berlin'
+}
+'956745954' {
+	'Title': 'Arbeit, Ausbildung und Qualifikation für Drogengebraucher in Substitutionsbehandlung',
+	'Publisher': 'Dt. AIDS-Hilfe: Berlin'
+}
+'576121444' {
+	'Year': '1939',
+	'Title': 'Die @Nathanaelfrage unserer Tage',
+	'Publisher': 'Schwarzmann: Köln'
+}
+'364457708' {
+	'Title': 'Passau und der Bayerische Wald',
+	'Publisher': 'Hoffmann u. Campe: Hamburg'
+}
+'963517473' {
+	'Title': 'Fußball-Fan',
+	'Publisher': 'Tomus: München'
+}
+'578515415' {
+	'Title': 'Der @Galeerensklave',
+	'Publisher': 'Gauverl. Bayreuth: Bayreuth'
+}
+'573885400' {
+	'Year': '1919',
+	'Title': 'In den Tagen des Antichristen',
+	'Publisher': 'Verl. d. "Bücherboten": Düsseldorf'
+}
+'942958748' {
+	'Title': 'Anleitung zur Erstellung eines Handbuches für die Materialwirtschaft in Versorgungsunternehmen',
+	'Publisher': 'VDEW: Frankfurt am Main'
+}
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
+				</section>
+
+				<section>
+					<h1>Test transformations</h1>
+				</section>
+
+				<section>
+					<h2>Java workflows</h2>
+					<img src="img/java-workflow.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
+				</section>
+
+				<section>
+					<h2>Metamorph tests</h2>
+					<img src="img/metamorph-test.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
+				</section>
+
+				<section>
+					<h2>Running Metamorph tests</h2>
+					<img src="img/metamorph-test-run.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java</a></small></p>
+				</section>
+
+				<section data-background="img/metamorph-test-fail.png"
+					data-background-size="contain">
+				</section>
+
+				<section>
+					<h1>Analyzing data</h1>
 				</section>
 
 				<section>
@@ -240,8 +931,15 @@ in
 				</section>
 
 				<section>
-					<h2>Exercise 4: Counting distinct values</h2>
+					<h2>Exercise 4: Counting values</h2>
 					<p>Count the number of distinct values for the edition (032@.a) in bib-data.pica.gz</p>
+					<span class="fragment">
+					<pre><code class="xml" data-trim>
+<rules>
+	<data source="032@.a" name="Edition"></data>
+</rules>
+						</code></pre>
+						</span>
 					<span class="fragment">
 						<pre><code class="nohighlight" data-trim>
 default in = FLUX_DIR + "bib-data.pica.gz";
@@ -257,13 +955,50 @@ in
 |template("${o} | ${s}")
 |write(out);
 						</code></pre>
-						<pre><code class="xml" data-trim>
-<rules>
-	<data source="032@.a" name="Edition"></data>
-</rules>
-						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample4">https://github.com/hbz/metafacture-flux-examples/tree/master/sample4</a></small></p>
 					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 4: Counting values</h2>
+						<pre><code class="nohighlight" data-trim>
+1 | (1. Aufl.)
+1 | (16.-20. Taus.)
+2 | (2. Aufl.)
+1 | (2. Aufl.) - 1:10 000
+1 | (2. ed.)
+1 | (3. rev. ed.)
+1 | (Ausg. 1971/72)
+1 | (Ausg. für die Volkswirtschaft), 1. Ausg., Stand der Unterlagen: 1977
+1 | (Ausg. für die Volkswirtschaft), 1. Ausg., Stand der Unterlagen: 1986
+1 | (Ausg. für die Volkswirtschaft), 1. Ausg., Stand der Unterlagen: 1987
+1 | (Ausg. für die Volkswirtschaft), 3. Ausg., Stand der Unterlagen: 1980
+2 | (Ausg. für die Volkswirtschaft), 3. Ausg., Stand der Unterlagen: 1981
+3 | (Ausg. für die Volkswirtschaft), 3. Ausg., Stand der Unterlagen: 1982
+1 | (Rechtsstand: 1. Nov. 1963)
+1 | (Stand: 1. Sept. 1965)
+1 | (Stand: Januar 1990)
+1 | (Versión rev.), 4. ed.
+1 | 05/1974
+2 | 1. - 10. Tsd.
+1 | 1. - 3. Tsd.
+1 | 1. - 5. Tsd.
+1 | 1. - 9. Tsd.
+494 | 1. Aufl.
+1 | 1. Aufl. d. Neubearb.
+1 | 1. Aufl. d. Neuübers.
+3 | 1. Aufl. dieser Ausg.
+1 | 1. Aufl., 1. - 50. Tsd.
+14 | 1. Aufl., 1. Dr.
+...
+22 | Dt. Erstausg.
+4 | Dt. Erstausg., 1. Aufl.
+...
+26 | Orig.-Ausg.
+8 | Orig.-Ausg., 1. Aufl.
+...
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample4">https://github.com/hbz/metafacture-flux-examples/tree/master/sample4</a></small></p>
 				</section>
 
 				<section>
@@ -285,7 +1020,6 @@ in
 |write(out);
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
-					</span>
 				</section>
 
 				<section>
@@ -333,6 +1067,10 @@ invalid death:	 5
 				</section>
 
 				<section>
+					<h1>Combining data</h1>
+				</section>
+
+				<section>
 					<h2>collect-triples</h2>
 					<img src="img/collect-triples.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
@@ -351,7 +1089,7 @@ invalid death:	 5
 				</section>
 
 				<section>
-					<h2>stream-to-triples-redirect</h2>
+					<h2>redirect="true"</h2>
 					<img src="img/stream-to-triples-redirect.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
@@ -406,6 +1144,138 @@ wikidata
 				</section>
 
 				<section>
+					<h2>Exercise 6: Enriching</h2>
+						<pre><code class="nohighlight" data-trim>
+'118514768' {
+	'001A' {
+		'0': '1250:01-07-88'
+	},
+	'001B' {
+		'0': '1140:26-07-13',
+		't': '08:58:08.000'
+	},
+	'001D' {
+		'0': '1220:16-06-08'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Tp1'
+	},
+	'003@' {
+		'0': '118514768'
+	},
+	'003U' {
+		'a': 'http://d-nb.info/gnd/118514768',
+		'z': 'http://d-nb.info/gnd/1022091077'
+	},
+	...
+	'lccn': 'n/79/18801',
+	'ndl': '00434255',
+	'viaf': '2467372',
+	'imdb': '0106517',
+	'category': 'Bertolt Brecht',
+	'category': 'Autor',
+	'category': 'Literatur (20. Jahrhundert)',
+	'category': 'Literatur (Deutsch)',
+	'category': 'Literatur (Berlin)',
+	'category': 'Lyrik',
+	'category': 'Drama',
+	'category': 'Novelle',
+	'category': 'Essay',
+	'category': 'Politische Literatur',
+	'category': 'Theaterregisseur',
+	'category': 'Liedtexter',
+	'category': 'Drehbuchautor',
+	'category': 'Filmregisseur',
+	'category': 'Hanns Eisler',
+	'category': 'Helene Weigel',
+	'category': 'NS-Opfer',
+	'category': 'Emigrant aus dem Deutschen Reich zur Zeit des Nationalsozialismus',
+	'category': 'Träger des Nationalpreises der DDR I. Klasse für Kunst und Literatur',
+	'category': 'Mitglied der Akademie der Künste (DDR)',
+	'category': 'Deutscher',
+	'category': 'Österreicher',
+	'category': 'DDR-Bürger',
+	'category': 'Künstler (DDR)',
+	'category': 'Künstler (Augsburg)',
+	'category': 'Schriftsteller (Berlin)',
+	'category': 'Geboren 1898',
+	'category': 'Gestorben 1956',
+	'category': 'Mann',
+	'category': 'Deutscher Widerstand gegen den Nationalsozialismus in den USA'
+}
+'11852884X' {
+	'001A' {
+		'0': '1250:01-07-88'
+	},
+	'001B' {
+		'0': '1510:27-05-08',
+		't': '09:39:52.000'
+	},
+	'001D' {
+		'0': '9999:06-04-08'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Tp1'
+	},
+	'003@' {
+		'0': '11852884X'
+	},
+	'003U' {
+		'a': 'http://d-nb.info/gnd/11852884X'
+	},
+	...
+	'lccn': 'n/79/21285',
+	'ndl': '00438594',
+	'viaf': '108299403',
+	'imdb': '0248767',
+	'category': 'Umberto Eco',
+	'category': 'Philosoph (20. Jahrhundert)',
+	'category': 'Philosoph (21. Jahrhundert)',
+	'category': 'Autor',
+	'category': 'Literatur (20. Jahrhundert)',
+	'category': 'Literatur (21. Jahrhundert)',
+	'category': 'Literatur (Italienisch)',
+	'category': 'Semiotiker',
+	'category': 'Roman, Epik',
+	'category': 'Erzählung',
+	'category': 'Essay',
+	'category': 'Medienwissenschaftler',
+	'category': 'Kulturwissenschaftler',
+	'category': 'Herausgeber',
+	'category': 'Hochschullehrer (Bologna)',
+	'category': 'Pataphysik',
+	'category': 'Träger des Großen Bundesverdienstkreuzes mit Stern',
+	'category': 'Träger des Verdienstordens der Italienischen Republik (Großkreuz)',
+	'category': 'Träger des Ordre des Arts et des Lettres (Komtur)',
+	'category': 'Träger des Pour le Mérite (Friedensklasse)',
+	'category': 'Träger des Österreichischen Staatspreises für Europäische Literatur',
+	'category': 'Mitglied der Ehrenlegion (Offizier)',
+	'category': 'Ehrendoktor einer Universität',
+	'category': 'Ehrendoktor der Freien Universität Berlin',
+	'category': 'Ehrendoktor der Hebräischen Universität Jerusalem',
+	'category': 'Ehrendoktor der Universität Tartu',
+	'category': 'Ehrendoktor der Universität Tel Aviv',
+	'category': 'Italiener',
+	'category': 'Geboren 1932',
+	'category': 'Mann'
+}
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
+				</section>
+
+				<section>
 					<h2>{to:ID}-redirection</h2>
 					<img src="img/stream-to-triples-to-id.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
@@ -413,7 +1283,7 @@ wikidata
 
 				<section>
 					<h2>Exercise 7: Counting references</h2>
-					<p>For each authority in authority-persons.pica.gz, output how often it is refernced from bib-data.pica.gz in 028A.9</p>
+					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
 					<span class="fragment">
 						<pre><code class="xml" data-trim>
 <rules>
@@ -423,6 +1293,24 @@ wikidata
 	</combine>
 </rules>
 						</code></pre>
+						</span>
+						<span class="fragment">
+						<pre><code class="nohighlight" data-trim>
+bibdata
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "morph-bib.xml")
+|stream-to-triples(redirect="true")
+|count-triples(countBy="subject")
+|@X;
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 7: Counting references</h2>
 						<pre><code class="nohighlight" data-trim>
 118514768{ name: 'Bertolt Brecht', count: 2234 }
 11852884X{ name: 'Umberto Eco', count: 221 }
@@ -433,11 +1321,10 @@ wikidata
 118628852{ name: 'Martin Walser' }
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
-					</span>
 				</section>
 
 				<section>
-					<h1>Specific issues</h1>
+					<h1>Specific issues / discussion</h1>
 				</section>
 
 				<section>
@@ -447,14 +1334,16 @@ wikidata
 				<section>
 					<h1>What we like</h1>
 					<p><span class="fragment">Small modules</span></p>
+					<p><span class="fragment">Many modules</span></p>
 					<p><span class="fragment">Extensible framework</span></p>
 					<p><span class="fragment">Stable toolkit</span></p>
 				</section>
 
 				<section>
-					<h1>What we don't like</h1>
+					<h1>What we don't like so much</h1>
 					<p><span class="fragment">Fiddling with Metamorph (flush, reset, ...)</span></p>
 					<p><span class="fragment">Cumbersome XML morph files</span></p>
+					<p><span class="fragment">Relatively high barrier for entry</span></p>
 				</section>
 
 				<section>
@@ -467,7 +1356,7 @@ wikidata
 				</section>
 
 				<section>
-					<h1>What we could do</h1>
+					<h1>Ideas</h1>
 					<p><span class="fragment">Provide a record mode with a simplified morph DSL (think Catmandu::Fix)</span></p>
 					<p><span class="fragment">Provide a web based playground for simple input-morph-output experiments (think JSON-LD playground)</span></p>
 				</section>
