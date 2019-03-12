@@ -70,7 +70,7 @@
 					</ul>
 				</section>
 
-				<section>
+					<section>
 					<h1>Introduction</h1>
 				</section>
 
@@ -92,22 +92,10 @@
 				</section>
 
 				<section>
-					<h1>Metafacture concepts</h1>
-				</section>
-
-				<section>
 					<h1>Metafacture</h1>
 					<p><span class="fragment">Basic idea: data streams through multiple modules (read, decode, transform, encode, write)</span></p>
 					<p><span class="fragment">Each module reads data of a specific type and writes data of a specific type</span></p>
 					<p><span class="fragment">Various formats supported (MAB, MARC, METS, etc.), extensible framework</span></p>
-				</section>
-
-				<section>
-					<h1>Workflows</h1>
-					<p><span class="fragment">Individual stream modules build the overall workflow</span></p>
-					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java</span></p>
-					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line</span></p>
-					<p><span class="fragment">We provide an Eclipse-based IDE to edit and run workflows</span></p>
 				</section>
 
 				<section>
@@ -117,7 +105,11 @@
 				</section>
 
 				<section>
-					<h1>Metafacture usage</h1>
+					<h1>Workflows</h1>
+					<p><span class="fragment">Individual stream modules build the overall workflow</span></p>
+					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java</span></p>
+					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line</span></p>
+					<p><span class="fragment">We provide an Eclipse-based IDE to edit and run workflows</span></p>
 				</section>
 
 				<section>
@@ -130,6 +122,7 @@
 				<section>
 					<h2>Set up Metafacture CLI app</h2>
 					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
+					<p>The code below assumes you moved the resulting folder to your home directory and renamed it to 'metafacture'</p>
 					<pre><code class="bash" data-trim>
 $ cd ~/metafacture
 $ ./flux.sh # or flux.bat on Windows
@@ -145,14 +138,31 @@ $ ./flux.sh # or flux.bat on Windows
 					<p>Output the content of <code>bib-data.pica.gz</code> as Formeta</p>
 						<pre><code class="bash" data-trim>
 $ cd metafacture-flux-examples/sample1
-$ gedit sample1.flux
+$ gedit sample1.flux &amp;
 						</code></pre>
 						<pre><code class="nohighlight" data-trim>
+"bib-data.pica.gz" 
+| open-file | as-lines | decode-pica | encode-formeta | write("stdout");
+						</code></pre>
+						<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh sample1.flux
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+				</section>
+
+				<section>
+					<h2>Exercise 1: Printing data &ndash; module options</h2>
+					<p>Output the content of <code>bib-data.pica.gz</code> as Formeta</p>
+						<pre><code class="bash" data-trim>
+$ cd metafacture-flux-examples/sample1
+$ gedit sample1.flux &amp;
+						</code></pre>
+						<pre><code class="bash" data-trim>
 "bib-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|encode-formeta(style="multiline")
+|encode-formeta(style="multiline") # key=value options
 |write("stdout");
 						</code></pre>
 						<pre><code class="bash" data-trim>
@@ -345,19 +355,6 @@ $ ~/metafacture/flux.sh sample1.flux
 				</section>
 
 				<section>
-					<h1>Metamorph</h1>
-					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
-					<p><span class="fragment">Within the morph stream module: mapping separated from input or output format: 
-					key-value-pair &rarr; key-value-pair (rules externalized in morph file, XML)</span></p>
-				</section>
-
-				<section>
-					<h1>Metamorph</h1>
-					<img src="img/morph.png"/>
-					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
-				</section>
-
-				<section>
 					<h2>Exercise 2: Logging</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
 						<pre><code class="nohighlight" data-trim>
@@ -485,6 +482,13 @@ Writing: closeStream
 				</section>
 
 				<section>
+					<h1>Flux workflows</h1>
+					<p><span class="fragment">Where to use <code>log-stream</code> and <code>log-object</code>?</span></p>
+					<p><span class="fragment">What does <code>encode-literals</code> actually do?</span></p>
+					<p><span class="fragment">...</span></p>
+				</section>
+
+				<section>
 					<h2>Set up Metafacture IDE</h2>
 					<img src="img/metafacture-ide.png"/>
 					<p><a href="https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation">https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation</a></p>
@@ -507,6 +511,19 @@ Writing: closeStream
 				</section>
 
 				<section>
+					<h1>Metamorph</h1>
+					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
+					<p><span class="fragment">metadata events / key-value &rarr; metadata events / key-value</span></p>
+					<p><span class="fragment">rules externalized in morph file, XML</span></p>
+				</section>
+
+				<section>
+					<h1>Metamorph</h1>
+					<img src="img/morph.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
 					<h1>Morph: data</h1>
 					<img src="img/morph-data.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
@@ -526,7 +543,7 @@ Writing: closeStream
 
 				<section>
 					<h2>Exercise 3: Transforming data</h2>
-					<p>Edit <code>simple-transformation.xml</code> to get the title, publisher, location and year information from input fields 021A.a, 033A.n, 033A.p, 011@.n</p>
+					<p>Edit 'simple-transformation.xml' to get the title, publisher, location and year information from input fields:<br/> 021A.a, 033A.n, 033A.p, 011@.n</p>
 					<p>Combine publisher and location into one field.</p>
 					<p>Use human-readable output fields.</p>
 				</section>
@@ -616,12 +633,6 @@ in
 				</section>
 
 				<section>
-					<h2>Java workflows</h2>
-					<img src="img/java-workflow.png"/>
-					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
-				</section>
-
-				<section>
 					<h2>Metamorph tests</h2>
 					<img src="img/metamorph-test.png"/>
 					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
@@ -635,6 +646,20 @@ in
 
 				<section data-background="img/metamorph-test-fail.png"
 					data-background-size="contain">
+				</section>
+
+				<section>
+					<h2>Same project: Java workflows</h2>
+					<img src="img/java-workflow.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
+				</section>
+
+				<section>
+					<h1>Recap</h1>
+					<p><span class="fragment">Workflows with Flux</span></p>
+					<p><span class="fragment">Transformations with Morph</span></p>
+					<p><span class="fragment">Automated Morph-Tests</span></p>
+					<p><span class="fragment">Complete basic toolkit</span></p>
 				</section>
 
 				<section>
@@ -732,23 +757,8 @@ in
 
 				<section>
 					<h2>Exercise 5: Counting data patterns</h2>
-					<p>Count the number of birth (060R.a) and death (060R.b) dates that match the patterns yyyy or dd.mm.yyyy. Additionally, output the number of values that don't match these patterns.</p>
-					<span class="fragment">
-						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "authority-data.pica.gz";
-default out = FLUX_DIR + "sample5-out.txt";
-
-in
-|open-file
-|as-lines
-|decode-pica
-|morph(FLUX_DIR + "count.xml")
-|stream-to-triples
-|count-triples(countBy="predicate")
-|template("${s}:\t ${o}")
-|write(out);
-						</code></pre>
-					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
+					<p>Count the number of birth (060R.a) and death (060R.b) dates that match the patterns 'yyyy' or 'dd.mm.yyyy'.</p>
+					<p>Additionally, output the number of values that don't match them.</p>
 				</section>
 
 				<section>
@@ -783,6 +793,25 @@ in
 				</section>
 
 				<section>
+					<h2>Exercise 5: Counting data patterns &ndash; flux</h2>
+						<pre><code class="nohighlight" data-trim>
+default in = FLUX_DIR + "authority-data.pica.gz";
+default out = FLUX_DIR + "sample5-out.txt";
+
+in
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "count.xml")
+|stream-to-triples
+|count-triples(countBy="predicate")
+|template("${s}:\t ${o}")
+|write(out);
+						</code></pre>
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
+				</section>
+
+				<section>
 					<h2>Exercise 5: Counting data patterns &ndash; output</h2>
 					<pre><code class="nohighlight" data-trim>
 birth (full):	 873
@@ -797,6 +826,7 @@ invalid death:	 5
 
 				<section>
 					<h1>Combining data</h1>
+					<p><span class="fragment">Basic idea: collect triples from different sources</span></p>
 				</section>
 
 				<section>
@@ -818,6 +848,13 @@ invalid death:	 5
 				</section>
 
 				<section>
+					<h1>Different IDs</h1>
+					<p><span class="fragment">Typically entities have different IDs in different sources</span></p>
+					<p><span class="fragment">e.g. GND with GND-ID, Wikipedia with GND-ID in field 'gnd'</span></p>
+					<p><span class="fragment">i.e. we need a way to set the ID for data from one of the sources</span></p>
+				</section>
+
+				<section>
 					<h2>redirect="true"</h2>
 					<img src="img/stream-to-triples-redirect.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
@@ -825,7 +862,8 @@ invalid death:	 5
 
 				<section>
 					<h2>Exercise 6: Enriching</h2>
-					<p>Combine Wikipedia data in wiki-persons.foma.gz (contains GND IDs) and GND data in authority-persons.pica.gz into Formeta output.</p>
+					<p>Combine data in wiki-persons.foma.gz (contains GND IDs in field 'gnd') and GND data in authority-persons.pica.gz, output Formeta</p>
+					<p>(Set ID: name="_id", let all data flow through: source="_else")</p>
 					<span class="fragment">
 						<pre><code class="xml" data-trim>
 <rules>
@@ -839,8 +877,6 @@ invalid death:	 5
 
 				<section>
 					<h2>Exercise 6: Enriching &ndash; flux</h2>
-					<p>Combine Wikipedia data in wiki-persons.foma.gz (contains GND IDs) and GND data in authority-persons.pica.gz into Formeta output.</p>
-					<span class="fragment">
 						<pre><code class="nohighlight" data-trim>
 default authoritydata = FLUX_DIR + "authority-persons.pica.gz";
 default wikidata = FLUX_DIR + "wiki-persons.foma.gz";
@@ -869,7 +905,6 @@ wikidata
 |write(out);
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
-					</span>
 				</section>
 
 				<section>
@@ -1005,6 +1040,13 @@ wikidata
 				</section>
 
 				<section>
+					<h1>Backlinks</h1>
+					<p><span class="fragment">How often does dataset A refer to dataset B?</span></p>
+					<p><span class="fragment">e.g. bibliographic records linking to author IDs</span></p>
+					<p><span class="fragment">e.g. authority data linking to location</span></p>
+				</section>
+
+				<section>
 					<h2>{to:ID}-redirection</h2>
 					<img src="img/stream-to-triples-to-id.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
@@ -1017,8 +1059,8 @@ wikidata
 						<pre><code class="xml" data-trim>
 <rules>
 	<combine name="{to:${author-id}}authorOf" value="${book-id}">
-		<data source="_id" name="book-id" />
-		<data source="028A.9" name="author-id" />
+		<data source="_id" name="book-id"></data>
+		<data source="028A.9" name="author-id"></data>
 	</combine>
 </rules>
 						</code></pre>
