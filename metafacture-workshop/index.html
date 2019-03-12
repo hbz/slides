@@ -1057,6 +1057,7 @@ wikidata
 					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
 					<span class="fragment">
 						<pre><code class="xml" data-trim>
+<!-- morph-bib.xml -->
 <rules>
 	<combine name="{to:${author-id}}authorOf" value="${book-id}">
 		<data source="_id" name="book-id"></data>
@@ -1066,7 +1067,19 @@ wikidata
 						</code></pre>
 						</span>
 						<span class="fragment">
-						<pre><code class="nohighlight" data-trim>
+						<pre><code2 class="nohighlight" data-trim>
+default authoritydata = FLUX_DIR + "authority-persons.pica.gz";
+default bibdata = FLUX_DIR + "bib-data.pica.gz";
+default out = FLUX_DIR + "sample7-out.txt";
+
+authoritydata
+|open-file
+|as-lines
+|decode-pica
+|morph(FLUX_DIR + "summarize-authority-persons.xml")
+|stream-to-triples
+|@X;
+
 bibdata
 |open-file
 |as-lines
@@ -1075,7 +1088,14 @@ bibdata
 |stream-to-triples(redirect="true")
 |count-triples(countBy="subject")
 |@X;
-						</code></pre>
+
+@X
+|wait-for-inputs("2")
+|sort-triples(by="subject")
+|collect-triples
+|encode-formeta(style="verbose")
+|write(out);
+						</code2></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
 					</span>
 				</section>

@@ -151,7 +151,16 @@ body {
   display: block;
   padding: 5px;
   overflow: auto;
-  max-height: 400px;
+  max-height: 200px;
+  word-wrap: normal;
+  background: #000000;
+  color: #DCDCDC; }
+
+.reveal pre code2 {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 200px;
   word-wrap: normal;
   background: #000000;
   color: #DCDCDC; }
