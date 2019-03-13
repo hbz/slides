@@ -358,10 +358,7 @@ $ ~/metafacture/flux.sh sample1.flux
 					<h2>Exercise 2: Logging</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
 						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "input.foma.gz";
-default out = FLUX_DIR + "output.txt.gz";
-
-in
+"input.foma.gz"
 |open-file
 |as-lines
 |filter-strings("geburts", passMatches="false")
@@ -369,7 +366,7 @@ in
 |morph(FLUX_DIR + "mystery-morph-1.xml")
 |morph(FLUX_DIR + "mystery-morph-2.xml")
 |encode-literals
-|write(out);
+|write("stdout");
 					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2">https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2</a></small></p>
 				</section>
@@ -378,9 +375,7 @@ in
 					<h2>Exercise 2: Logging &ndash; solution</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
 						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "input.foma.gz";
-default out = FLUX_DIR + "sample2-out.txt";
-in
+"input.foma.gz"
 |open-file
 |as-lines
 |log-object("Filtering: ")
@@ -394,7 +389,7 @@ in
 |log-stream("Encoding: ")
 |encode-literals
 |log-object("Writing: ")
-|write(out);
+|write("stdout");
 					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
 				</section>
