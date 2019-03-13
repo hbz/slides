@@ -92,6 +92,11 @@
 				</section>
 
 				<section>
+					<h1>Setup</h1>
+					<a href="https://github.com/hbz/slides/blob/master/metafacture-workshop/README.md" target=blank>metafacture-workshop/README.md</a>
+				</section>
+
+				<section>
 					<h1>Metafacture</h1>
 					<p><span class="fragment">Basic idea: data streams through multiple modules (read, decode, transform, encode, write)</span></p>
 					<p><span class="fragment">Each module reads data of a specific type and writes data of a specific type</span></p>
@@ -509,7 +514,7 @@ Writing: closeStream
 					<h1>Metamorph</h1>
 					<p><span class="fragment">Stream module for metadata transformation/mapping</span></p>
 					<p><span class="fragment">metadata events / key-value &rarr; metadata events / key-value</span></p>
-					<p><span class="fragment">rules externalized in morph file, XML</span></p>
+					<p><span class="fragment">Rules externalized in morph file, XML</span></p>
 				</section>
 
 				<section>
@@ -551,8 +556,7 @@ Writing: closeStream
 	&lt;data source="011@.n" name="Year"&gt;
 		&lt;regexp match="\[(\d+)\]" format="${1}"/&gt;
 	&lt;/data&gt;
-	&lt;combine name="Publisher" value="${Publisher}: ${Place}" 
-			reset="true"&gt;
+	&lt;combine name="Publisher" value="${Publisher}: ${Place}"&gt;
 		&lt;data source="033A.n" name="Publisher"&gt;&lt;/data&gt;
 		&lt;data source="033A.p" name="Place"&gt;&lt;/data&gt;
 	&lt;/combine&gt;
@@ -1148,11 +1152,8 @@ bibdata
 				</section>
 
 				<section>
-					<h1>Links</h1>
-					<p><a href="https://github.com/metafacture/metafacture-core">https://github.com/metafacture/metafacture-core</a></p>
-					<p><a href="https://github.com/culturegraph/metafacture-ide">https://github.com/culturegraph/metafacture-ide</a></p>
-					<p><a href="https://github.com/hbz/metafacture-flux-examples">https://github.com/hbz/metafacture-flux-examples</a></p>
-					<p><a href="https://github.com/hbz/metafacture-java-examples">https://github.com/hbz/metafacture-java-examples</a></p>
+					<img src="img/metafacture.png"/>
+					<p><a href="https://github.com/culturegraph/metafacture-documentation">https://github.com/culturegraph/metafacture-documentation</a></p>
 				</section>
 
 			</div>
