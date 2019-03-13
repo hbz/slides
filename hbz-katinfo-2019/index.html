@@ -253,22 +253,6 @@ AND describedBy.sourceOrganization.id:
       </section>
 
 			<section>
-        <h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
-				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib%22+OR+%22http%3A%2F%2Fpurl.org%2Flobid%2Fnwbib-spatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22">
-				<pre><code class="json" data-trim>
-subject.source.id:
-  ("http://purl.org/lobid/nwbib" OR
-   "http://purl.org/lobid/nwbib-spatial")
-AND inCollection.id:
-  "http://lobid.org/resources/HT014846970#!"
-AND NOT inCollection.id:
-  "http://lobid.org/resources/HT014176012#!"
-AND describedBy.sourceOrganization.id:
-  "http://lobid.org/organisations/DE-5#!"
-				</code></pre></a>
-      </section>
-
-			<section>
         <h3>Deletions Endpoint: Vom bis 14. bis 23.2. gelöschte Titel</h3>
 				<a href="http://lobid.org/resources/deletions/search?q=describedBy.deleted%3A%5B20190214+TO+20190223%5D">
 				<pre><code class="json" data-trim>
