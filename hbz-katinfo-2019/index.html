@@ -140,24 +140,6 @@
 			</section>
 
 			<section>
-				<h3>lobid-organisations</h3>
-				<a href="https://lobid.org/organisations"><img src="img/lobid-organisations.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-organisations-API: <a href="https://lobid.org/organisations/api">https://lobid.org/organisations/api</a></span></p>
-			</section>
-
-			<section>
-				<h3>lobid-gnd</h3>
-				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-gnd-API: <a href="https://lobid.org/organisations/api">https://lobid.org/gnd/api</a></span></p>
-			</section>
-
-			<section>
-				<h3>lobid-resources</h3>
-				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-resources-API: <a href="https://lobid.org/resources/api">https://lobid.org/resources/api</a></span></p>
-			</section>
-
-			<section>
         <h2>Schauen wir uns das doch mal genauer an</h2>
 			</section>
 
@@ -206,14 +188,7 @@
       </section>
 
 			<section>
-				<h3>Verbesserung der Daten: Generelles</h3>
-				<p><span class="fragment">Von relativ unstrukturiertem und flachem XML zu wohlstrukturiertem und geschachtelten JSON-LD</span></p>
-				<p><span class="fragment">Explikation bisher impliziter Informationen bei der Transformation von Key-Value zu Graph</span></p>
-				<p><span class="fragment">From strings to things: URIs statt IDs oder Strings</span></p>
-      </section>
-
-			<section>
-				<h3>Verbesserung der Daten: Spezielles</h3>
+				<h3>Verbesserung der Daten: Beispiele</h3>
 				<p><span class="fragment">MARC-Relator-Codes werden aus RAK-Nebeneintragungen generiert (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L800-L972">Morph für Personennebeneintragungen</a>)</span></p>
 				<p><span class="fragment">Normalisierung von Jahresangaben</span></p>
 				<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>)</span></p>
@@ -231,7 +206,6 @@
 				<p><span class="fragment"><a href="http://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</p>
 				<p><span class="fragment"><a href="http://lobid.org/resources/api#auto-complete">Parameter für Auto Suggest</a></p>
 				<p><span class="fragment"><a href="http://lobid.org/resources/api#content_types">Parameter für Bulk Downloads</a></p>
-				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span></p>
       </section>
 
 			<section>
@@ -244,12 +218,11 @@
       </section>
 
 			<section>
-        <h3>RDA-Titel in der hbz-Dienstbibliothek</h3>
-				<a href="https://lobid.org/resources/search?q=title%3ARDA+AND+hasItem.heldBy.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-605%23%21%22">
+        <h3>RDA-Titel seit 2010</h3>
+				<a href="https://lobid.org/resources/search?q=title%3Arda+AND+publication.startDate%3A%5B2010+TO+*%5D">
 				<pre><code class="json" data-trim>
-title:RDA
-AND hasItem.heldBy.id:
-"http://lobid.org/organisations/DE-605#!"
+title:rda AND
+publication.startDate:[2010 TO *]
 				</code></pre></a>
       </section>
 
@@ -325,6 +298,30 @@ describedBy.deleted:[20190214 TO 2019023]
       </section>
 
 			<section>
+				<h3>Kalliope</h3>
+				<a href="http://kalliope.staatsbibliothek-berlin.de/de/index.html"><img src="img/kalliope.png" width=750 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Anzeige von externen Links (z.B. Wikipedia) aus lobid-gnd auf Personenseiten</span></p>
+			</section>
+
+			<section>
+				<h3>Biographisches Portal NRW</h3>
+				<a href="https://biographie-nrw.uni-muenster.de/"><img src="img/biographie-nrw.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Literaturlisten auf Basis von und Links zu lobid-resources</span></p>
+			</section>
+
+			<section>
+				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Bulk Download der Daten mit Bestand in DE-5-34</span></p>
+			</section>
+
+			<section>
+				<h3>Discovery-Index der UB Dortmund</h3>
+				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Daten zu den Beständen der UB & einiger umliegender Bibliotheken werden täglich von lobid geholt, transformiert und in den Index geladen</span></p>
+			</section>
+
+			<section>
 				<h3>Verbundbibliotheken auf hbz-Website</h3>
 				<a href="https://www.hbz-nrw.de/produkte/verbunddienstleistungen/verbundbibliotheken"><img src="img/hbz-verbundbibliotheken.png" width=800 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Basiert auf lobid-organisations</span></p>
@@ -333,7 +330,6 @@ describedBy.deleted:[20190214 TO 2019023]
 			<section>
 				<h3>Edoweb und Fachrepositorium Lebenswisschenschaften (FRL)</h3>
 				<p><span class="fragment"><a href="https://www.edoweb-rlp.de/">https://www.edoweb-rlp.de/</a> & <a href="https://repository.publisso.de/">https://repository.publisso.de/</a></span></p>
-				<p><span class="fragment">Betrieben von Jan Schnasse in der Gruppe Publikationssysteme</span></p>
 				<p><span class="fragment">Nutzt lobid-resources Daten</span></p>
 				<p><span class="fragment">Im FRL-Erfassungsformular Nutzung des GND-ID-Lookups von lobid-gnd</p>
 			</section>
@@ -399,30 +395,6 @@ describedBy.deleted:[20190214 TO 2019023]
 
 			<section>
 				<img src="img/openrefine-field.png" width=800 style="border: none; box-shadow: none;" />
-			</section>
-
-			<section>
-				<h3>Kalliope</h3>
-				<a href="http://kalliope.staatsbibliothek-berlin.de/de/index.html"><img src="img/kalliope.png" width=750 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Anzeige von externen Links (z.B. Wikipedia) aus lobid-gnd auf Personenseiten</span></p>
-			</section>
-
-			<section>
-				<h3>Biographisches Portal NRW</h3>
-				<a href="https://biographie-nrw.uni-muenster.de/"><img src="img/biographie-nrw.png" width=800 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Literaturlisten auf Basis von und Links zu lobid-resources</span></p>
-			</section>
-
-			<section>
-				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
-				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Bulk Download der Daten mit Bestand in DE-5-34</span></p>
-			</section>
-
-			<section>
-				<h3>Discovery-Index der UB Dortmund</h3>
-				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Daten zu den Beständen der UB & einiger umliegender Bibliotheken werden täglich von lobid geholt, transformiert und in den Index geladen</span></p>
 			</section>
 
 			<section>
