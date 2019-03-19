@@ -115,12 +115,12 @@
 
 			<section>
 				<h3>Adrian</h3>
-				<p><span class="fragment">Aufgewachsen in Niedersachsen</span></p>
 				<p><span class="fragment">1999-2007 Magister Kommunikationswissenschaften & Philosophie, RWTH Aachen</span></p>
 				<p><span class="fragment">2009-2011 MALIS, FH Köln</span></p>
 				<p><span class="fragment">seit 2008 hbz, Köln</span></p>
 				<p><span class="fragment">Produkte/Projekte: vor allem lobid, aber auch Metadaten für Open Educational Resources (OER) & <a href="https://oerworldmap.org">oerworldmap.org</a></span></p>
 				<p><span class="fragment">Aufgaben: Datenmodellierung & Standards, Functional Review, Koordination & Kommunikation</span></p>
+				<p><span class="fragment">Co-Chair der internationalen SWIB-Konferenz (Semantic Web in Bibliotheken)</span></p>
 			</section>
 
 			<section>
@@ -141,7 +141,7 @@
 			<section>
         <h1>2. LOD @hbz</h1>
       </section>
-			
+
 			<section>
 				<h3>Linked Open Data im hbz</h3>
 				<p>"Im LOD-Programmbereich unterstützen wir die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum. Die Kernpunkte der LOD-Arbeit sind: 1.) Nutzung, Pflege und Unterstützung offener Infrastruktur, 2.) Forschung und Entwicklung sowie 3.) Wissens- und Technologietransfer."</p>
@@ -153,9 +153,9 @@
 
 			<section>
 				<h1>Wer macht was</h1>
-				<p><span class="fragment">Bibliothekar*innen: Metadaten-Formate, -Vokabulare, -Mappings, Functional Review 
+				<p><span class="fragment">Bibliothekar*innen: Metadaten-Formate, -Vokabulare, -Mappings, Functional Review
 				(Adrian Pohl)</span></p>
-				<p><span class="fragment">Entwickler*innen: Datentransformation, Administration, Indexierung, Oberflächen 
+				<p><span class="fragment">Entwickler*innen: Datentransformation, Administration, Indexierung, Oberflächen
 				(Pascal Christoph, Fabian Steeg)</span></p>
 				<p><span class="fragment">Rechner: 1 Web-Proxy, 1 Web-Server, 2*2 Index-Cluster, 5 Batch etc.</span></p>
 			</section>
@@ -211,7 +211,7 @@
 					href="https://github.com/hbz/lobid-resources/issues"><h1>
 						&nbsp;<br />&nbsp;<br />&nbsp;
 					</h1></a>
-			</section> 
+			</section>
 
 			<section data-background="img/github-issue.png"
 				data-background-size="contain">
@@ -226,6 +226,7 @@
 				<p><span class="fragment">GitHub-Issues immer mit 1 GitHub-Repo assoziiert</span></p>
 				<p><span class="fragment">Für einheitlichen Blick auf alle vom Team bearbeiteten Issues: Kanban-Board zur Visualisierung des Workflows</span></p>
 				<p><span class="fragment">Waffle: Kanban-Board mit GitHub-Integration:<br/> jedes Issue entspricht 1 Karte, Spalten entsprechen Labels</span></p>
+				<p><span class="fragment">Achtung: <a href="https://waffle.io/closing-its-doors">Waffle stellt den Betrieb zum 16. Mai 2019 ein.</a></span></p>
 			</section>
 
 			<section data-background="img/waffle.png"
@@ -270,7 +271,7 @@
 				<h2>Tägliche Treffen</h2>
 				<p><span class="fragment">Priorisierung unter anderem in täglichen kurzen Besprechungen<br/>(vor dem Mittagessen, 12 Uhr, 5-15 Minuten)</span></p>
 				<p><span class="fragment">Jeder: 1) Was zuletzt 2) Was aktuell, ev. Probleme 3) Als nächstes</span></p>
-				<p><span class="fragment">Wenn alle im hbz sind: im Stehen; sonst online (z.Zt.: Wire)</span></p>
+				<p><span class="fragment">Wenn alle im hbz sind: im Stehen; sonst online (z.Zt.: <a href="https://wire.com">Wire</a>)</span></p>
 			</section>
 
 			<section>
@@ -319,8 +320,12 @@
 
 			<section>
 				<h3>Historisches</h3>
-				<p><span class="fragment">Open Data: jahrelanger Prozess (Anfang 2010 bis Mitte 2012)</span></p>
-				<p><span class="fragment">Publikation: von RDF-Dateien, zu SPARQL, zu LOD-API</span></p>
+				<p><span class="fragment">2010-2013: R&D / Alpha-Betrieb</span></p>
+				<p><span class="fragment">2010-2012: jahrelanger Prozess zur offenen Lizenzierung der Verbunddaten, siehe auch Kreutzer (2011)</span></p>
+				<p><span class="fragment">2013-2017/18: lobid-API v1.x</span></p>
+				<p><span class="fragment">2017/2018: gradueller Umstieg auf lobid-API v2 (LOUD)</span></p>
+				<p><span class="fragment">Publikation: erst RDF-Dateien, dann SPARQL, jetzt LOD-API</span></p>
+				<p><span class="fragment">Transformation: von Perl-Skript zu hbz-Tool zu <a href="https://github.com/metafacture/metafacture-core">Metafacture</a></span></p>
 				<p><span class="fragment"><a href="https://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a>: Von 303 Redirect zu Hash URIs</span></p>
       </section>
 
@@ -361,6 +366,102 @@
 
 			<section>
         <h1>6. LOUD und JSON-LD</h1>
+      </section>
+			<section data-state="adrian">
+				<h2>Linked Open Usable Data (LOUD)</h2>
+				<span class="fragment"><p>Grundidee: damit Daten nützlich sind, muss man die Zielgruppe kennen & sich auf sie ausrichten</p></span>
+				<span class="fragment"><p>Hauptzielgruppe von LOD: Entwickler*innen (1st & 2nd party) oder Nutzer*innen (3rd party) von <i>Software</i> für Datenzugriff und -manipulation</p></span>
+				<span class="fragment"><p>LOUD: Orientierung auf Bedürfnisse und Konventionen der Software-Entwicklung</p></span>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
+				<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1112">video</a>)</font></p>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
+				<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1910">video</a>)</font></p>
+			</section>
+
+			<section data-state="fabian">
+				<p>Part Ia.</p>
+				<blockquote><h2>Usable data & APIs</h2></blockquote>
+				<blockquote><h2>APIs: why, how</h2></blockquote>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><p>Usable data [& APIs]</p></blockquote>
+				<span class="fragment"><h1>Data is used with software</h1></span>
+				<span class="fragment"><p>Build new software with the data</p></span>
+				<span class="fragment"><p>Use existing software with the data</p></span>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Libraries are Software</h1>
+				<blockquote>Our collections and services are delivered primarily via software. [...] The choices we make in the development,
+				selection, and implementation of this software [...] define the limits of our content and services. We can only be as good as our software.</blockquote>
+				<blockquote> &mdash; Cody Hanson, <a href="http://codyhanson.com/writing/software.html">Libraries are Software</a></blockquote>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><p>[Usable data &] APIs</p></blockquote>
+				<span class="fragment"><h1>Software <br/>requires APIs</h1></span>
+				<span class="fragment"><h4>APIs make software development manageable <br/>(for 1st and 2nd party software)</h4></span>
+				<span class="fragment"><h4>APIs enable usage and integration of 3rd party software</h4></span>
+			</section>
+
+			<section data-state="fabian">
+				<h3>e.g. lobid sources, formats, applications</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" /> <span
+					class="fragment"><h4>APIs decouple applications from
+						specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><h1>API: why?</h1></blockquote>
+				<span class="fragment"><blockquote><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Right abstraction for the audience</p></blockquote></span>
+				<span class="fragment"><blockquote><p>Data is used with software</p></blockquote></span>
+				<span class="fragment"><blockquote><p>Software requires APIs</p></blockquote></span>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><h1>API: why?</h1></blockquote>
+				<span class="fragment"><h1>Usable data <br/>is data with APIs</h1></span>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><h1>API: how?</h1></blockquote>
+				<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</h2></blockquote></span>
+			</section>
+
+			<section data-state="fabian">
+				<blockquote><h1>API: how?</h1></blockquote>
+				<span class="fragment"><h1>JSON over HTTP</h1></span>
+				<span class="fragment"><h3><a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">standard web API format since years</a></h3></span>
+				<span class="fragment"><h4>e.g. <a href='https://api.github.com/'> https://api.github.com/</a></h4></span>
+			</section>
+
+			<section data-state="fabian">
+				<h2>GET https://api.github.com</h2>
+				<pre><code class="json" data-trim>
+{
+"current_user_url": "https://api.github.com/user",
+"authorizations_url": "https://api.github.com/authorizations",
+"emails_url": "https://api.github.com/user/emails",
+"emojis_url": "https://api.github.com/emojis",
+"events_url": "https://api.github.com/events",
+"feeds_url": "https://api.github.com/feeds",
+"followers_url": "https://api.github.com/user/followers",
+"gists_url": "https://api.github.com/gists{/gist_id}",
+"hub_url": "https://api.github.com/hub",
+...
+}
+				</code></pre>
+			</section>
+
+			<section>
+        <h1>Ein Beispiel: lobid-gnd</h1>
       </section>
 
 			<section>
@@ -417,7 +518,7 @@
 				<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
 				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
 				<p><span class="fragment">Anreicherung mit EntityFacts-Links und -Bildern</span></p>
-				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD) <small>-> siehe Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</small></span></p>
+				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD)</small></span></p>
       </section>
 
 			<section>
@@ -589,6 +690,7 @@
 					<li><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></li>
 					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für Bibliotheken. In: Informationspraxis 4(1). <a href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a></li>
 					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2018): lobid-gnd – Eine Schnittstelle zur Gemeinsamen Normdatei für Mensch und Maschine. Erscheint in: Informationspraxis 5(1). Pre"print": <a href="https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md">https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md</a></li>
+					<li>Kreutzer, Till (2011): Open Data – Freigabe von Daten aus Bibliothekskatalogen. Hg. v. Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (<a href="https://hbz.opus.hbz-nrw.de/opus45-hbz/frontdoor/deliver/index/docId/9/file/PDFA_Open_Data_Leitfaden_hbz_2011_1.pdf">PDF</a>)</a></li>
 				</ul>
 			</section>
 
