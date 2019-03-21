@@ -88,31 +88,52 @@
         </p>
       </section>
 
-			<section>
-        <h1>Agenda</h1>
-				<ol>
-					<li>Kennenlernen</li>
-					<li>LOD @hbz</li>
-					<li>Entwicklungsprozess</li>
-					<li>lobid
-						<ol style="list-style-type:lower-latin !important;">
-							<li>lobid: Generelles</li>
-							<li>lobid: Historisches</li>
-							<li>lobid & Openness</li>
-						</ol>
-					</li>
-					<li>Pause</li>
-					<li>LOUD und JSON-LD</li>
-					<li>Ein Beispiel: lobid-gnd</li>
-					<li>lobid-Nutzung</li>
-					<li>Wikidata als Normdatei</li>
-					<li>Abschlussdiskussion</li>
-				</ol>
-      </section>
+			<section data-state="adrian">
+				<h2>Agenda Teil I</h2>
+				<table>
+					<tr><th width="75%"/><th width="25%"/></tr>
+					<tr><td>1. Kennenlernen</td><td>13:15-13:30</td></tr>
+					<tr><td>2. Arbeitweise</i></td><td>13:45-14:00</td></tr>
+					<tr><td>3. Linked Open Data</td><td>14:00-14:10</td></tr>
+					<tr><td>4. lobid</td><td>14:10-14:30</td></tr>
+					<tr><td><i>Pause</td><td>14:30-15:00</i></td></tr>
+				</table>
+			</section>
+
+		<section data-state="adrian">
+			<h2>Agenda Teil II</h2>
+			<table>
+				<tr><th width="75%"/><th width="25%"/></tr>
+				<tr><td>5. LOUD & JSON-LD</td><td>15:00-15:30</td></tr>
+				<tr><td>6. Ein Beispiel: lobid-gnd</td><td>15:30-16:00</td></tr>
+				<tr><td>7. Anwendungsfälle</td><td>16:00-16:15</td></tr>
+				<tr><td>8. Wikidata als Normdatei</td><td>16:15-16:30</td></tr>
+				<tr><td>9. Abschlussdiskussion</td><td>16:30-17:00</td></tr>
+			</table>
+		</section>
 
 			<section>
         <h1>1. Kennenlernen</h1>
       </section>
+
+			<section>
+				<h3>Linked Open Data im hbz</h3>
+				<p>"Im LOD-Programmbereich unterstützen wir die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum." Kernpunkte der LOD-Arbeit:</p>
+				<li>Nutzung, Pflege und Unterstützung offener Infrastruktur</li>
+				<li>Forschung und Entwicklung</li>
+				<li>Wissens- und Technologietransfer.</li>
+			</section>
+
+			<section>
+				<a href="http://lobid.org/team"><img src="img/lobid-team.png" style="border: none; box-shadow: none;" /></a>
+      </section>
+
+			<section>
+				<h1>Wer macht was</h1>
+				<p><span class="fragment"><em>Bibliothekar*innen</em> (Adrian): Datenmodellierung & Standards, Metadaten-Formate, -Vokabulare, -Mappings, Functional Review</span></p>
+				<p><span class="fragment"><em>Entwickler*innen</em> (Pascal, Fabian): Datentransformation, Administration, Indexierung, Oberflächen</span></p>
+				<p><span class="fragment"><em>Rechner</em>: 1 Web-Proxy, 3 Elasticsearch-Cluster-Knoten , 1 Indexierungrechner, 2 Web-Applikationsserver, 4 Spare- und Experimenterechner.</span></p>
+			</section>
 
 			<section>
 				<h3>Adrian</h3>
@@ -139,38 +160,16 @@
 				<p><span class="fragment">Wer hat schon ein Wikimedia-Projekt genutzt?</span> <span class="fragment">Editiert?</span></p>
 				<p><span class="fragment">Wer hat Wikidata geSPARQLt?</span></p>
 				<p><span class="fragment">Wer hat schon von Creative Commons gehört?</span> <span class="fragment">...eine CC-Lizenz vergeben?</span></p>
-				<p><span class="fragment">Wer hat schon eigene Programme entwickelt? </span> <span class="fragment">...und als Open Source veröffentlicht?</span></p>
-
+				<p><span class="fragment">Wer hat schon eine JSON-Datei angeschaut? </span> <span class="fragment">...und verarbeitet?</span></p>
 			</section>
 
 			<section>
-        <h1>2. LOD @hbz</h1>
-      </section>
-
-			<section>
-				<h3>Linked Open Data im hbz</h3>
-				<p>"Im LOD-Programmbereich unterstützen wir die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum." Kernpunkte der LOD-Arbeit:</p>
-				<li>Nutzung, Pflege und Unterstützung offener Infrastruktur</li>
-				<li>Forschung und Entwicklung</li>
-				<li>Wissens- und Technologietransfer.</li>
-			</section>
-
-			<section>
-				<a href="http://lobid.org/team"><img src="img/lobid-team.png" style="border: none; box-shadow: none;" /></a>
-      </section>
-
-			<section>
-				<h1>Wer macht was</h1>
-				<p><span class="fragment"><em>Bibliothekar*innen</em>: Metadaten-Formate, -Vokabulare, -Mappings, Functional Review
-				(Adrian Pohl)</span></p>
-				<p><span class="fragment"><em>Entwickler*innen</em>: Datentransformation, Administration, Indexierung, Oberflächen
-				(Pascal Christoph, Fabian Steeg)</span></p>
-				<p><span class="fragment"><em>Rechner</em>: 1 Web-Proxy, 3 Elasticsearch-Cluster-Knoten , 1 Indexierungrechner, 2 Web-Applikationsserver, 4 Spare- und Experimenterechner.</span></p>
+				<h1>2. Arbeitsweise</h1>
 			</section>
 
 			<section>
 				<h3>Openness</h3>
-				<p><span class="fragment">Gemeinsam ist allen LOD-Aktivitäten ein Bekenntnis zu einer offenen und transparenten Arbeitsweise</span></p>
+				<p><span class="fragment">Gemeinsam ist allen LOD-Aktivitäten am hbz ein Bekenntnis zu einer offenen und transparenten Arbeitsweise</span></p>
 				<p><span class="fragment">Sämtliche Entwicklungen auf Basis offener Webstandards</span></p>
 				<p><span class="fragment"><a href="https://github.com/orgs/hbz/teams/lobid/repositories">Softwarecode</a> und Daten sind offen lizenziert (EPL & CC0)</span></p>
 				<p><span class="fragment">Sämtliche Publikationen, Lehr- und Lernmaterialien im Web mit offener Lizenz veröffentlicht (siehe etwa <a href="http://slides.lobid.org">slides.lobid.org</a>)</span></p>
@@ -189,7 +188,7 @@
 			</section>
 
 			<section>
-				<h1>3. Entwicklungs-prozess</h1>
+				<h2>Entwicklungsprozess</h2>
 				<p>Open-Source-Entwicklung auf GitHub</p>
 			</section>
 
@@ -292,10 +291,57 @@
 			</section>
 
 			<section>
+				<h1>3. Linked Open Data</h1>
+			</section>
+
+
+			<section>
+				<h3>Aufgabe</h3>
+				<p><em>Verlinke eine Liste von Online-Resourcen zum "Hambacher Forst" und speicher das Ergebnis zur weiteren Verarbeitung</em></p>
+				<p>Gruppe 1: OPAC -> <a href="http://okeanos-www.hbz-nrw.de/F">http://okeanos-www.hbz-nrw.de/F</a></p>
+				<p>Gruppe 2: lobid-resources -> <a href="https://lobid.org/resources">https://lobid.org/resources</a></p>
+      </section>
+
+			<section>
+				<h3>Warum LOD?</h3>
+				<p><span class="fragment">Überführung traditioneller bibl. Praktiken in das Web</span></p>
+				<p><span class="fragment">Sichtbarkeit und Auffindbarkeit im Web erreichen</span></p>
+				<p><span class="fragment">Nachnutzbarkeit ermöglichen</span></p>
+				<p><span class="fragment">Synergieeffekte durch Verlinkung mit anderen Daten</span></p>
+				<p><span class="fragment">Verbesserung der Recherchemöglichkeiten</span></p>
+				<small><span class="fragment">Quelle: Pohl, Adrian / Ostrowski, Felix (2010): 'Linked Data' - und warum wir uns im hbz-Verbund damit beschäftigen." B.I.T. Online 13(3): S. 259-268. Preprint: <a href="http://hdl.handle.net/10760/14836">http://hdl.handle.net/10760/14836</a></span></small>
+			</section>
+
+			<section>
+				<h3>Linked Data: Best Practices</h3>
+					<ol>
+						<li>Nutze URIs als Namen für Dinge</li>
+						<li>Nutze HTTP-URIs, so das Menschen sie aufrufen können</li>
+						<li>Wenn jemand einen URI aufruft, biete nützliche Informationen an unter Nutzung der Standards (RDF*, SPARQL)</li>
+						<li>Nimm Links zu anderen URIs auf, so dass weitere Dinge entdeckt werden können.</li>
+					</ol>
+					<small><a href="https://www.w3.org/DesignIssues/LinkedData.html">Tim Berners-Lee (2006ff): Linked Data – Design Issues</a></small>
+			</section>
+
+			<section>
+				<h3>Open Definition</h3>
+				<p><blockquote>Wissen ist offen, wenn jedeR darauf frei zugreifen, es nutzen, verändern und teilen kann – eingeschränkt höchstens durch Maßnahmen, die Ursprung und Offenheit des Wissens bewahren.</blockquote></p>
+				<small><a href="http://opendefinition.org/od/2.1/de/">http://opendefinition.org/od/2.1/de/</a></small>
+			</section>
+
+			<section data-background="img/lod-cup.jpg"
+				data-background-size="contain">
+				<a target="_blank" title="https://5stardata.info/de/"
+					href="https://5stardata.info/de/"><h1>
+						&nbsp;<br />&nbsp;<br />&nbsp;
+					</h1></a>
+			</section>
+
+			<section>
         <h1>4. lobid</h1>
       </section>
 
-		<section>
+			<section>
 				<h3><span style="color:#FA820A">L</span>inking <span style="color:#FA820A">o</span>pen (<span style="color:#FA820A">bi</span>bliographic) <span style="color:#FA820A">d</span>ata</h3>
 				<p><a href="https://lobid.org">lobid.org</a></p>
 				<p><span class="fragment">Das Zentrum der im LOD-Programmbereich bereitgestellten Dienste</span></p>
@@ -305,44 +351,41 @@
 
       <section>
 				<h3>Leitlinien</h3>
-				<p><span class="fragment">1. Publikation <a href="https://opendefinition.org/licenses/">offen lizenzierter</a> Daten zur freien Nutzung</span></p>
+				<p><span class="fragment">1. Publikation offen lizenzierter Daten (<a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>) zur freien Nutzung</span></p>
 				<p><span class="fragment">2. Nutzung domänenübergreifender Web-Standards</span></p>
-				<p><span class="fragment">3. Bereitstellung von Web-APIs plus Rechercheoberflächen</span></p>
-				<p><span class="fragment">(Datenpflege erfolgt nach wie vor in Legacy-Systemen)</span></p>
+				<p><span class="fragment">3. Bereitstellung von Web-APIs plus Rechercheoberflächen</span> <span class="fragment">(Datenpflege erfolgt nach wie vor in Legacy-Systemen)</span></p>
       </section>
 
 			<section>
-				<h3>Warum LOD?</h3>
-				<p><span class="fragment">Überführung traditioneller bibl. Praktiken in das Web</span></p>
-				<p><span class="fragment">Bibliothekarische Institutionen als vertrauenswürdige, stabile Säulen des Semantic Web</span></p>
-				<p><span class="fragment">Sichtbarkeit und Auffindbarkeit im Web erreichen</span></p>
-				<p><span class="fragment">Nachnutzbarkeit ermöglichen</span></p>
-				<p><span class="fragment">Synergieeffekte durch Verlinkung mit anderen Daten</span></p>
-				<p><span class="fragment">Verbesserung der Recherchemöglichkeiten</span></p>
-				<small><span class="fragment">Quelle: Pohl, Adrian / Ostrowski, Felix (2010): 'Linked Data' - und warum wir uns im hbz-Verbund damit beschäftigen." B.I.T. Online 13(3): S. 259-268. Preprint: <a href="http://hdl.handle.net/10760/14836">http://hdl.handle.net/10760/14836</a></span></small>
-      </section>
+				<h2>Historie</h2>
+				<p>Ein Reifeprozess in drei Phasen</p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>2010-2013: Alpha-Betrieb </h2>
+				<p><span class="fragment">Forschung und Entwicklung</span></p>
+				<p><span class="fragment">Datentransformation mit Perl-Skript, dann hbz-Tool</span></p>
+				<p><span class="fragment">Publikation zunächst von RDF-Dateien, dann SPARQL</span></p>
+				<p><span class="fragment">Jahrelanger Prozess zur offenen Lizenzierung der Verbunddaten, siehe auch Kreutzer (2011)</span></p>
+			</section>
 
 			<section>
-				<h3>Beispiel: OPAC vs. lobid</h3>
-				<p><span class="fragment">Aufgabe: Verlinke eine Liste von Online-Resourcen zum "Hambacher Forst"</span></p>
-				<p><span class="fragment">OPAC: <a href="http://okeanos-www.hbz-nrw.de/F">http://okeanos-www.hbz-nrw.de/F</a></span></p>
-				<p><span class="fragment">lobid-resources: <a href="https://lobid.org/resources">https://lobid.org/resources</a></span></p>
+				<h3>2013-2017: lobid v1.x</h3>
+				<p><span class="fragment">Erste Schritte Richtung Linked Open Usable Data: Von SPARQL zu LOD-API</span></p>
+				<p><span class="fragment">Fokus auf Schnittstelle, keine Endnutzeroberflächen</span></p>
+				<p><span class="fragment">Datentransformation mit <a href="https://github.com/metafacture/metafacture-core">Metafacture</a></span></p>
       </section>
 
-			<section>
-				<h3>Historisches</h3>
-				<p><span class="fragment">2010-2013: R&D / Alpha-Betrieb</span></p>
-				<p><span class="fragment">2010-2012: jahrelanger Prozess zur offenen Lizenzierung der Verbunddaten, siehe auch Kreutzer (2011)</span></p>
-				<p><span class="fragment">2013-2017/18: lobid-API v1.x</span></p>
-				<p><span class="fragment">2017/2018: gradueller Umstieg auf lobid-API v2 (LOUD)</span></p>
-				<p><span class="fragment">Publikation: erst RDF-Dateien, dann SPARQL, jetzt LOD-API</span></p>
-				<p><span class="fragment">Transformation: von Perl-Skript zu hbz-Tool zu <a href="https://github.com/metafacture/metafacture-core">Metafacture</a></span></p>
+			<section data-state="adrian">
+				<h2>seit 2017: lobid v2</h2>
+				<p><span class="fragment">Turning it LOUDer: What you see is what you can query </span><span class="fragment">(Details nach der Pause)</span></p>
+				<p><span class="fragment">Oberfächenentwicklung</span></p>
+				<p><span class="fragment">OpenRefine-Schnittstellen</span></p>
 				<p><span class="fragment"><a href="https://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a>: Von 303 Redirect zu Hash URIs</span></p>
-      </section>
+			</section>
 
 			<section>
 				<h3>lobid-Dienste</h3>
-				<p><span class="fragment">Mittlerweile sind alle Dienste in der zweiten Version</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des hbz-Verbundkatalogs</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
@@ -354,25 +397,7 @@
 			</section>
 
 			<section>
-				<h3>lobid-organisations</h3>
-				<a href="https://lobid.org/organisations"><img src="img/lobid-organisations.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-organisations-API: <a href="https://lobid.org/organisations/api">https://lobid.org/organisations/api</a></span></p>
-			</section>
-
-			<section>
-				<h3>lobid-gnd</h3>
-				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-gnd-API: <a href="https://lobid.org/organisations/api">https://lobid.org/gnd/api</a></span></p>
-			</section>
-
-			<section>
-				<h3>lobid-resources</h3>
-				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Dokumentation der lobid-resources-API: <a href="https://lobid.org/resources/api">https://lobid.org/resources/api</a></span></p>
-			</section>
-
-			<section>
-				<h1>5. Pause</h1>
+				<h1><em>Pause</em></h1>
 			</section>
 
 			<section>
