@@ -1,8 +1,11 @@
 # Lehrveranstaltung "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked Open Data am hbz"
 
 Studiengang: Bachelor Informationswissenschaften an der HTW Chur
+
 Kurs: Semantische Systeme
+
 Termin: 29. März 2019, 13:00-16:30
+
 Ort: HWZ, Lagerstrasse 5, Zürich
 
 ## Beschreibung
