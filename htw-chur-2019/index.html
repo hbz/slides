@@ -117,10 +117,14 @@
 
 			<section>
 				<h3>Linked Open Data im hbz</h3>
-				<p>"Im LOD-Programmbereich unterstützen wir die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum." Kernpunkte der LOD-Arbeit:</p>
-				<li>Nutzung, Pflege und Unterstützung offener Infrastruktur</li>
-				<li>Forschung und Entwicklung</li>
-				<li>Wissens- und Technologietransfer.</li>
+				<p>Im LOD-Programmbereich unterstützen wir die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum.
+			</section>
+
+			<section>
+				<h3>Kernpunkte der hbz-LOD-Arbeit</h3>
+				<p><span class="fragment">Nutzung, Pflege und Unterstützung offener Infrastruktur</span></p>
+				<p><span class="fragment">Forschung und Entwicklung</span></p>
+				<p><span class="fragment">Wissens- und Technologietransfer</span></p>
 			</section>
 
 			<section>
@@ -182,7 +186,6 @@
 				<p><span class="fragment">Verstärkt interinstitutionale Zusammenarbeit, verringert Doppelarbeiten</span></p>
 				<p><span class="fragment">Erhöhte Sichtbarkeit der eigenen Arbeit</span></p>
 				<p><span class="fragment">Motivationssteigernd</span></p>
-				<p><span class="fragment">Freie Software ist ein Bewerbungsargument für Entwickler*innen</span></p>
 			</section>
 
 			<section>
@@ -394,6 +397,16 @@
 				<img src="img/lobid-data.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
+			<section data-state="adrian">
+				<h2>Ontologien/Vokabulare</h2>
+				<table>
+					<tr><th width="25%"/><th width="75%"/></tr>
+					<tr><td>lobid-resources</td><td>Applikationsprofil mit Properties/Klassen aus DC Terms, Bibframe, Bibliographic Ontology (Bibo) & anderen Klassen soviel viel eigenen Ergänzungen (lobid-vocab) (<a href="http://blog.lobid.org/2017/04/19/vocabulary-choices.html">Blogpost</a>)</td></tr>
+					<tr><td>lobid-organisations</i></td><td>Fast ausschließlich <a href="http://schema.org">schema.org</a></td></tr>
+					<tr><td>lobid-gnd</td><td>Eigens an der DNB entwickelte Ontologie zur LOD-Publikation der GND (<a ref="http://d-nb.info/standards/elementset/gnd">GND-Ontologie</a>)</td></tr>
+				</table>
+			</section>
+
 			<section>
 				<h1><em>Pause</em></h1>
 			</section>
@@ -403,7 +416,7 @@
       </section>
 			<section data-state="adrian">
 				<h2>Linked Open Usable Data (LOUD)</h2>
-				<span class="fragment"><p>Grundidee: damit Daten nützlich sind, muss man die Zielgruppe kennen & sich auf sie ausrichten</p></span>
+				<span class="fragment"><p>Grundidee: damit Daten nützlich sind, muss man die Zielgruppe kennen & eigene Angebote auf sie ausrichten</p></span>
 				<span class="fragment"><p>Hauptzielgruppe von LOD: Entwickler*innen (1st & 2nd party) oder Nutzer*innen (3rd party) von <i>Software</i> für Datenzugriff und -manipulation</p></span>
 				<span class="fragment"><p>LOUD: Orientierung auf Bedürfnisse und Konventionen der Software-Entwicklung</p></span>
 			</section>
@@ -418,62 +431,40 @@
 				<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1910">video</a>)</font></p>
 			</section>
 
-			<section data-state="fabian">
-				<p>Part Ia.</p>
-				<blockquote><h2>Usable data & APIs</h2></blockquote>
-				<blockquote><h2>APIs: why, how</h2></blockquote>
+			<section data-state="pascal">
+				<h2>Daten & Software</h2>
+				<span class="fragment"><p>Daten werden mit Software bearbeitet (ausgewertet, ergänzt, integriert etc.)</p></span>
+				<span class="fragment"><p>Neue Applikationen entstehen, zur Interaktion mit einem Dataset</p></span>
+				<span class="fragment"><p>Existierende Applikationen zur Datenmaninpulation werden auf das Datenset angewendet</p></span>
 			</section>
 
-			<section data-state="fabian">
-				<blockquote><p>Usable data [& APIs]</p></blockquote>
-				<span class="fragment"><h1>Data is used with software</h1></span>
-				<span class="fragment"><p>Build new software with the data</p></span>
-				<span class="fragment"><p>Use existing software with the data</p></span>
+			<section data-state="pascal">
+				<h2>APIs</h2>
+				<span class="fragment"><p>Software baut auf APIs auf</p></span>
+				<span class="fragment"><p>APIs machen Softwareentwicklung handhabbar (für 1st- und 2nd-Party-Software)</p></span>
+				<span class="fragment"><p>APIs ermöglichen Nutzung und Integration von 3rd-Party-Software</p></span>
 			</section>
 
-			<section data-state="fabian">
-				<h1>Libraries are Software</h1>
-				<blockquote>Our collections and services are delivered primarily via software. [...] The choices we make in the development,
-				selection, and implementation of this software [...] define the limits of our content and services. We can only be as good as our software.</blockquote>
-				<blockquote> &mdash; Cody Hanson, <a href="http://codyhanson.com/writing/software.html">Libraries are Software</a></blockquote>
-			</section>
-
-			<section data-state="fabian">
-				<blockquote><p>[Usable data &] APIs</p></blockquote>
-				<span class="fragment"><h1>Software <br/>requires APIs</h1></span>
-				<span class="fragment"><h4>APIs make software development manageable <br/>(for 1st and 2nd party software)</h4></span>
-				<span class="fragment"><h4>APIs enable usage and integration of 3rd party software</h4></span>
-			</section>
-
-			<section data-state="fabian">
-				<h3>e.g. lobid sources, formats, applications</h3>
+			<section data-state="pascal">
+				<h3>Zum Bsp. lobid-Formate und -Anwendungen</h3>
 				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" /> <span
-					class="fragment"><h4>APIs decouple applications from
-						specific data sources, formats, and systems. They enable modular, sustainable applications.</h4></span>
+					class="fragment"><h4>APIs entkoppeln Anwendungen von Datenquellen, Formaten und Systemen. Sie ermöglichen modulare, zukunftsfähige Applikationen.</h4></span>
 			</section>
 
-			<section data-state="fabian">
-				<blockquote><h1>API: why?</h1></blockquote>
-				<span class="fragment"><blockquote><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Right abstraction for the audience</p></blockquote></span>
-				<span class="fragment"><blockquote><p>Data is used with software</p></blockquote></span>
-				<span class="fragment"><blockquote><p>Software requires APIs</p></blockquote></span>
+			<section data-state="pascal">
+				<h3>Warum APIs?</h3>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Angemessenes Abstraktionslevel für die Zielgruppe</p></span>
+				<span class="fragment"><p>Daten werden mit Software verarbeitet</p></span>
+				<span class="fragment"><p>Software benötigt APIs</p></span>
+				<span class="fragment"><p>Kurz: Brauchbare Daten sind Daten mit APIs</p></span>
 			</section>
 
-			<section data-state="fabian">
-				<blockquote><h1>API: why?</h1></blockquote>
-				<span class="fragment"><h1>Usable data <br/>is data with APIs</h1></span>
-			</section>
-
-			<section data-state="fabian">
-				<blockquote><h1>API: how?</h1></blockquote>
-				<span class="fragment"><blockquote><h2><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</h2></blockquote></span>
-			</section>
-
-			<section data-state="fabian">
-				<blockquote><h1>API: how?</h1></blockquote>
-				<span class="fragment"><h1>JSON over HTTP</h1></span>
-				<span class="fragment"><h3><a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">standard web API format since years</a></h3></span>
-				<span class="fragment"><h4>e.g. <a href='https://api.github.com/'> https://api.github.com/</a></h4></span>
+			<section data-state="pascal">
+				<h3>Aber wie APIs bereitstellen?</h3>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</p></span>
+				<span class="fragment"><p>JSON (JavaScript Object Notation) über HTTP (Hypertext Transfer Protocol)</p></span>
+				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren (Siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">hier</a>)</p></span>
+				<span class="fragment"><p>z.B. <a href='https://api.github.com/'> https://api.github.com/</a></p></span>
 			</section>
 
 			<section data-state="fabian">
