@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "id": "@id",
+    "type": "@type",
+    "creator": "http://purl.org/dc/terms/creator",
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "license": "http://purl.org/dc/terms/license",
+    "subject": "http://purl.org/dc/terms/subject",
+    "title": "http://purl.org/dc/terms/title",
+    "Document": "http://xmlns.com/foaf/0.1/Document",
+    "Person": "http://xmlns.com/foaf/0.1/Person",
+		"License": "http://purl.org/dc/terms/LicenseDocument",
+		"SubjectHeading": "http://d-nb.info/standards/elementset/gnd#SubjectHeadingSensoStricto"
+  }

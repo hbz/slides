@@ -612,7 +612,7 @@
 			</section>
 
 			<section data-state="adrian">
-        <h3>Aufgabe 1</h3>
+        <h3>Schritt 1</h3>
 				<p><em>Überführe die Turtle-Datei in JSON-LD.<br />Nutze dafür den <a href="http://rdf-translator.appspot.com/">RDF Translator</a>.</em></p>
       </section>
 
@@ -622,27 +622,22 @@
       </section>
 
 			<section data-state="adrian">
-				<h3>Problem 1</h3>
+				<h3>Problem</h3>
 				<span class="fragment"><p><code>@graph</code>-Array und flache Struktur</p></span>
 				<span class="fragment"><p>Lösungsansatz: <a href="https://json-ld.org/spec/latest/json-ld-framing/">JSON-LD-Framing</a></p></span>
 			</section>
 
 			<section data-state="adrian">
-        <h3>Aufgabe 2</h3>
+        <h3>Schritt 2</h3>
 				<p><em>Füge das JSON-LD in den <a href="https://json-ld.org/playground/">JSON-LD Playground</a> ein und überführe es in eine flache Struktur, indem du diesen Frame anwendest:</em></p>
-				<pre><code class="json">
-{
+				<pre><code class="json">{
     "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/,
   },
   "@type": "foaf:Document",
   "@embed": "@always"
-}
-				</code></pre>
+}</code></pre>
 				<p><em>Entferne anschließend den <code>@graph</code>-Array</em>.</p>
       </section>
 
@@ -650,60 +645,156 @@
         <h3>Ergebnis 2</h3>
 				<pre><code class="json">{
   "@context": {
-    "dct": "http://purl.org/dc/terms/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
   },
-  {
-    "@id": "https://slides.lobid.org/htw-chur-2019/",
-    "@type": "foaf:Document",
-    "dct:creator": [
-      {
-        "@id": "http://lobid.org/team/pc#!",
-        "@type": "foaf:Person",
-        "foaf:name": "Pascal Christoph"
+  "@graph": [
+    {
+      "@id": "https://slides.lobid.org/htw-chur-2019/",
+      "@type": "foaf:Document",
+      "dcterms:creator": [
+        {
+          "@id": "http://lobid.org/team/pc#!",
+          "@type": "foaf:Person",
+          "foaf:name": "Pascal Christoph"
+        },
+        {
+          "@id": "http://lobid.org/team/ap#!",
+          "@type": "foaf:Person",
+          "foaf:name": "Adrian Pohl"
+        }
+      ],
+      "dcterms:license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
       },
-      {
-        "@id": "http://lobid.org/team/ap#!",
-        "@type": "foaf:Person",
-        "foaf:name": "Adrian Pohl"
-      }
-    ],
-    "dct:license": {
-      "@id": "https://creativecommons.org/licenses/by/4.0/"
-    },
-    "dct:subject": [
-      {
-        "@id": "http://d-nb.info/gnd/7863462-3"
-      },
-      {
-        "@id": "http://d-nb.info/gnd/1064023886"
-      }
-    ],
-    "dct:title": "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz"
-  }
+      "dcterms:subject": [
+        {
+          "@id": "http://d-nb.info/gnd/7863462-3"
+        },
+        {
+          "@id": "http://d-nb.info/gnd/1064023886"
+        }
+      ],
+      "dcterms:title": "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz"
+    }
+  ]
 }</code></pre>
       </section>
 
 			<section data-state="adrian">
-				<h3>Aufgabe 3</h3>
+				<h3>Schritt 3</h3>
 				<p>Namespace-Präfixe sind unschön</p>
-				<p>Passe den Kontext an, so dass die Schlüssel keine Präfixe mehr enthalten (<code>"creator"</code>, <code>"name"</code> etc.)</p>
-				<pre><code class="json">
-{
-		"@context": {
-		"creator": "http://purl.org/dc/terms/creator",
-		"dcterms": "http://purl.org/dc/terms/",
-		"foaf": "http://xmlns.com/foaf/0.1/",
-		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-		"xsd": "http://www.w3.org/2001/XMLSchema#"
-	}
-}
-				</code></pre>
+				<p>Passe den Kontext an, so dass die Schlüssel & Typen keine Präfixe mehr enthalten (<code>"dcterms:creator"</code> -> <code>"creator"</code> etc.)</p>
+				<pre><code class="json">{
+  "@context": {
+    "creator": "http://purl.org/dc/terms/creator",
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "license": "http://purl.org/dc/terms/license",
+    "subject": "http://purl.org/dc/terms/subject",
+    "title": "http://purl.org/dc/terms/title",
+    "Document": "http://xmlns.com/foaf/0.1/Document",
+    "Person": "http://xmlns.com/foaf/0.1/Person"
+  }
+}</code></pre>
 			</section>
+
+			<section data-state="adrian">
+        <h3>Ergebnis 3</h3>
+				<pre><code class="json">{
+  "@context": {
+    "creator": "http://purl.org/dc/terms/creator",
+    "name": "http://xmlns.com/foaf/0.1/name",
+    "license": "http://purl.org/dc/terms/license",
+    "subject": "http://purl.org/dc/terms/subject",
+    "title": "http://purl.org/dc/terms/title",
+    "Document": "http://xmlns.com/foaf/0.1/Document",
+    "Person": "http://xmlns.com/foaf/0.1/Person"
+  },
+  "@id": "https://slides.lobid.org/htw-chur-2019/",
+  "@type": "Document",
+  "creator": [
+    {
+      "@id": "http://lobid.org/team/pc#!",
+      "@type": "Person",
+      "name": "Pascal Christoph"
+    },
+    {
+      "@id": "http://lobid.org/team/ap#!",
+      "@type": "Person",
+      "name": "Adrian Pohl"
+    }
+  ],
+  "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "subject": [
+    {
+      "@id": "http://d-nb.info/gnd/7863462-3"
+    },
+    {
+      "@id": "http://d-nb.info/gnd/1064023886"
+    }
+  ],
+  "title": "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz"
+}</code></pre>
+      </section>
+
+			<section data-state="adrian">
+				<h3>Schritte 4a & 4b</h3>
+				<p>Aliase für JSON-LD-Keywords <code>@id</code> und <code>@type</code> (<a href="http://tinyurl.com/y2v8tyy9">Playground</a>)</p>
+				<p>Namen und Typ für verlinkte Ressourcen</p>
+			</section>
+
+			<section data-state="adrian">
+        <h3>Ergebnis 4</h3>
+				<pre><code class="json">{
+   "@context": {
+     "id": "@id",
+     "type": "@type",
+     "creator": "http://purl.org/dc/terms/creator",
+     "name": "http://xmlns.com/foaf/0.1/name",
+     "license": "http://purl.org/dc/terms/license",
+     "subject": "http://purl.org/dc/terms/subject",
+     "title": "http://purl.org/dc/terms/title",
+     "Document": "http://xmlns.com/foaf/0.1/Document",
+     "Person": "http://xmlns.com/foaf/0.1/Person",
+     "License": "http://purl.org/dc/terms/LicenseDocument",
+     "SubjectHeading": "http://d-nb.info/standards/elementset/gnd#SubjectHeadingSensoStricto"
+   },
+   "id": "https://slides.lobid.org/htw-chur-2019/",
+   "type": "Document",
+   "creator": [
+     {
+       "id": "http://lobid.org/team/pc#!",
+       "type": "Person",
+       "name": "Pascal Christoph"
+     },
+     {
+       "id": "http://lobid.org/team/ap#!",
+       "type": "Person",
+       "name": "Adrian Pohl"
+     }
+   ],
+   "license": {
+     "id": "https://creativecommons.org/licenses/by/4.0/",
+     "type": "License",
+     "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+   },
+   "subject": [
+     {
+       "id": "http://d-nb.info/gnd/7863462-3",
+       "type": "SubjectHeading"
+       "name": "Linked Data"
+     },
+     {
+       "id": "http://d-nb.info/gnd/1064023886",
+       "type": "SubjectHeading"
+       "name": "Open Data"
+     }
+   ],
+   "title": "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz"
+}</code></pre>
+      </section>
 
 			<section data-state="adrian">
 				<h1>6. Ein Beispiel: lobid-gnd</h1>
