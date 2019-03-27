@@ -354,8 +354,16 @@
 				<small><a href="http://opendefinition.org/od/2.1/de/">http://opendefinition.org/od/2.1/de/</a></small>
 			</section>
 
+			<section data-background="img/lod-cup.jpg"
+			data-background-size="contain">
+			<a target="_blank" title="https://5stardata.info/de/"
+			href="https://5stardata.info/de/"><h1>
+				&nbsp;<br />&nbsp;<br />&nbsp;
+			</h1></a>
+		</section>
+
 			<section data-state="pascal">
-				<h3>Der lange Weg zu  "Open Data"</h3>
+				<h3>Der lange Weg zu "Open Data"</h3>
 					<p><span class="fragment">Wem gehören eigentlich die Metadaten?</span></p>
 					<p><span class="fragment">Auch wenn die "Schöpfungshöhe" nicht hoch genug ist um die Metadaten lizensieren zu müssen - alle Bibliotheken müssen zustimmen</span></p>
 					<p><span class="fragment">Wenn eine Bibliothek mit Bestand den Titelsatz freigeben will wird er frei</span></p>
@@ -367,14 +375,6 @@
 				<h3>Pro & Contra "Open Data"</h3>
 				<p>2010-2013 (?!): Bedenken von Leitungsebenen der Bibliotheken  ausräumen</p>
 				<p>(Nachspielen der Diskussion: Pro & Contra)</p>
-			</section>
-
-			<section data-background="img/lod-cup.jpg"
-				data-background-size="contain">
-				<a target="_blank" title="https://5stardata.info/de/"
-					href="https://5stardata.info/de/"><h1>
-						&nbsp;<br />&nbsp;<br />&nbsp;
-					</h1></a>
 			</section>
 
 			<section data-state="adrian">
@@ -469,6 +469,7 @@
 			</section>
 
 			<section data-state="adrian">
+				<h2>LOUD als neues Schlagwort?</h2>
 				<a href="https://twitter.com/azaroth42/status/768140561794502656"><img src="img/loud-tweet.png" width=800 /></a>
 				<p><font size="3">Source: <a href="https://twitter.com/azaroth42/status/768140561794502656">Rob Sanderson on twitter </a></font></p>
       </section>
@@ -516,7 +517,7 @@
 			<section data-state="pascal">
 				<h3>Aber wie APIs bereitstellen?</h3>
 				<span class="fragment"><p>JSON (JavaScript Object Notation) über HTTP (Hypertext Transfer Protocol)</p></span>
-				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">Target (2017)</a</p></span>
+				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">Target (2017)</a></p></span>
 			</section>
 
 			
@@ -526,7 +527,7 @@
 				<p><span class="fragment">Key = String in Anführungszeichen</span></p>
 				<p><span class="fragment">Values = object, array, number, string oder boolean</span></p>
 				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
-				<small><span class="fragment">Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259 </a></span></small>
+				<span class="fragment"><small>Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259 </a></small></span>
       </section>
 
 			<section data-state="pascal">
@@ -548,7 +549,7 @@
 			</section>
 
 			<section>
-				<h3>JSON erobert das Web</h3>
+				<h3>JSON-Nutzungstrend</h3>
 				<a href="https://trends.google.com/trends/explore?date=all&q=api%20json,api%20xml"><img src="img/api-trends.png" width=800 /></a>
 				<p><small style="color:#F74237">xml api</small>  <small style="color:#2095EA">json api</small>  <small style="color:#DCC47A">sparql endpoint</small></p>
 				<p>10 % bis 19 % aller Domains haben eingebettetes JSON-LD</p>
@@ -563,7 +564,7 @@
 
 			<section data-state="pascal">
 				<h3>JSON-LD</h3>
-				<span class="fragment"><p>"designed to be usable directly as JSON, with no knowledge of RDF" – es ist richtiges JSON!</p></span>
+				<span class="fragment"><p>"designed to be usable directly as JSON, with no knowledge of RDF" – Es ist richtiges JSON!</p></span>
 				<span class="fragment"><p>"also designed to be usable as RDF"</p></span>
 				<span class="fragment"><p><a href='https://www.w3.org/TR/json-ld/'>https://www.w3.org/TR/json-ld/</a></p></span>
 			</section>
@@ -577,13 +578,7 @@
       </section>
 
 			<section data-state="pascal">
-				<h3>Übung: JSON-LD</h3>
-			</section>
-
-			<section data-state="pascal">
-				<h3>LOUD</h3>
-				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</p></span>
-				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>2. </a>As simple as possible</p></span>
+				<h3>Die wichtigsten LOUD-Prinzipien</h3>
 				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Niedrige Einstiegshürden</p></span>
 				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Aus sich heraus verständlich</p></span>
 				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Konsistenz, kaum Ausnahmen</p></span>
@@ -596,6 +591,10 @@
 
 			<section data-state="adrian">
 				<h3>Probieren wir das doch einmal aus</h3>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Übung: JSON-LD</h3>
 			</section>
 
 			<section data-state="adrian">
