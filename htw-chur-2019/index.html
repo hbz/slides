@@ -417,7 +417,7 @@
       </section>
 
 			<section data-state="adrian">
-				<h2>seit 2017: lobid v2</h2>
+				<h3>seit 2017: lobid v2</h3>
 				<p><span class="fragment">Turning it LOUDer: What you see is what you can query </span><span class="fragment">(Details nach der Pause)</span></p>
 				<p><span class="fragment">Oberfächenentwicklung</span></p>
 				<p><span class="fragment">OpenRefine-Schnittstellen</span></p>
@@ -451,8 +451,22 @@
 			</section>
 
 			<section data-state="adrian">
-        <h1>5. LOUD und JSON-LD</h1>
+        <h1>5. LOUD & JSON-LD</h1>
       </section>
+
+			<section data-state="adrian">
+					<h3>Zur Entstehung von JSON-LD</h3>
+					<p>RDF, SPARQL, Semantic Web – Not in my backyard!</p>
+					<p><span class="fragment">Stop mentioning RDF and the Semantic Web.</span></p>
+					<p><span class="fragment">Focus on tools for developers.</span></p>
+					<p><span class="fragment">Do more dogfooding.</span></p>
+					<small><span class="fragment">– Manu Sporny, damals Vorsitzender der RDFa Working Group beim W3C, der JSON-LD Community Group & Mitglied weiterer Semantic-Web-Gruppen, beim Schreiben an der JSON-LD-Spezifikation<br /> siehe <a href="http://manu.sporny.org/2012/nuclear-rdf/">Sporny (2012)</a></span></small>
+      </section>
+
+			<section data-state="adrian">
+				<p><blockquote>Ultimately, RDF and the Semantic Web are of no interest to Web developers. They also have a really negative public perception problem. We should stop talking about them. Let’s shift the focus to be on Linked Data, explaining the problems that Web developers face today, and concrete, demonstrable solutions to those problems.</blockquote></p>
+				<small>ebd.</small>
+			</section>
 
 			<section data-state="adrian">
 				<a href="https://twitter.com/azaroth42/status/768140561794502656"><img src="img/loud-tweet.png" width=800 /></a>
@@ -469,11 +483,6 @@
 			<section data-state="adrian">
 				<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-22.png" width=800 /></a>
 				<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1112">video</a>)</font></p>
-			</section>
-
-			<section data-state="adrian">
-				<a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22"><img src="img/sanderson-2018-loud-32.png" width=800 /></a>
-				<p><font size="3">Source: <a href="https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Rob Sanderson, "Shout it Out: LOUD"</a>, CC-BY (<a href="https://youtu.be/r4afi8mGVAY?t=1910">video</a>)</font></p>
 			</section>
 
 			<section data-state="pascal">
@@ -506,14 +515,22 @@
 
 			<section data-state="pascal">
 				<h3>Aber wie APIs bereitstellen?</h3>
-				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>3. </a>Don't break the web</p></span>
 				<span class="fragment"><p>JSON (JavaScript Object Notation) über HTTP (Hypertext Transfer Protocol)</p></span>
-				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren (Siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">hier</a>)</p></span>
-				<span class="fragment"><p>z.B. <a href='https://api.github.com/'> https://api.github.com/</a></p></span>
+				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">Target (2017)</a</p></span>
 			</section>
 
+			
 			<section data-state="pascal">
-				<h2>GET https://api.github.com</h2>
+				<h3>JSON</h3>
+				<p><span class="fragment">Ein einfaches, lesbares Key-Value-Format für strukturierte Daten</span></p>
+				<p><span class="fragment">Key = String in Anführungszeichen</span></p>
+				<p><span class="fragment">Values = object, array, number, string oder boolean</span></p>
+				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
+				<small><span class="fragment">Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259 </a></span></small>
+      </section>
+
+			<section data-state="pascal">
+				<h2>Beispiel:<br /> GET https://api.github.com</h2>
 				<pre><code class="json" data-trim>
 {
 "current_user_url": "https://api.github.com/user",
@@ -530,28 +547,73 @@
 				</code></pre>
 			</section>
 
+			<section>
+				<h3>JSON erobert das Web</h3>
+				<a href="https://trends.google.com/trends/explore?date=all&q=api%20json,api%20xml"><img src="img/api-trends.png" width=800 /></a>
+				<p><small style="color:#F74237">xml api</small>  <small style="color:#2095EA">json api</small>  <small style="color:#DCC47A">sparql endpoint</small></p>
+				<p>10 % bis 19 % aller Domains haben eingebettetes JSON-LD</p>
+				<font size="3">Quellen: <a href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql%20endpoint">Google Trends</a>, <a href="http://webdatacommons.org/structureddata/2017-12/stats/stats.html">Web Data Commons</a>, <a href="https://w3techs.com/technologies/details/da-jsonld/all/all">W3Techs</a></font>
+			</section>
+
+
 			<section data-state="pascal">
 				<h3>JSON + Linked Data = JSON-LD</h3>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="250px" /></a>
+			</section>
+
+			<section data-state="pascal">
+				<h3>JSON-LD</h3>
 				<span class="fragment"><p>"designed to be usable directly as JSON, with no knowledge of RDF" – es ist richtiges JSON!</p></span>
 				<span class="fragment"><p>"also designed to be usable as RDF"</p></span>
 				<span class="fragment"><p><a href='https://www.w3.org/TR/json-ld/'>https://www.w3.org/TR/json-ld/</a></p></span>
 			</section>
 
-			<section data-state="fabian">
-				<h1><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</h1>
+			<section data-state="pascal">
+				<h3>Übung: JSON-LD</h3>
 			</section>
 
 			<section data-state="pascal">
-				<h3>JSON(-LD): Prinzipien</h3>
-				<span class="fragment"><p>Konsistenz, Einfachheit, Verständlichkeit</p></span>
-				<span class="fragment"><p>Geschachteltes Dokumente mit einem Wurzelelement</p></span>
-				<span class="fragment"><p>Labels für verlinkte Ressourcen angeben</p></span>
+				<h3>LOUD</h3>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>5. </a>Design for JSON-LD, consistently</p></span>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/32'>2. </a>As simple as possible</p></span>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Niedrige Einstiegshürden</p></span>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Aus sich heraus verständlich</p></span>
+				<span class="fragment"><p><a href='https://www.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud/22'>&starf; </a>Konsistenz, kaum Ausnahmen</p></span>
+			</section>
+
+			<section>
+				<h2>Wie erreicht man Einfachheit, leichte Verständlichkeit und konsistente Daten?</h2>
+				<span class="fragment"><h3>Worauf muss ich achten?</h3></span>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Probieren wir das doch einmal aus</h3>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Input: RDF</h3>
+				<pre><code>@prefix dct: &#x3C;http://purl.org/dc/terms/&#x3E; .
+@prefix foaf: &#x3C;http://xmlns.com/foaf/0.1/&#x3E; .
+@prefix rdf: &#x3C;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#x3E; .
+
+&#x3C;https://slides.lobid.org/htw-chur-2019/&#x3E;
+&#x9;rdf:type foaf:Document ;
+&#x9;dct:title &#x22;Von LOD zu LOUD &#x2013; Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz&#x22;;
+&#x9;dct:creator &#x3C;http://lobid.org/team/ap#!&#x3E;, &#x3C;http://lobid.org/team/pc#!&#x3E; ;
+&#x9;dct:subject &#x3C;http://d-nb.info/gnd/7863462-3&#x3E; , &#x3C;http://d-nb.info/gnd/1064023886&#x3E; ;
+&#x9;dct:license &#x3C;https://creativecommons.org/licenses/by/4.0/&#x3E; .
+&#x9;
+&#x3C;http://lobid.org/team/ap#!&#x3E; rdf:type foaf:Person ;
+&#x9;foaf:name &#x22;Adrian Pohl&#x22; .
+&#x9;
+&#x3C;http://lobid.org/team/pc#!&#x3E; rdf:type foaf:Person ;
+&#x9;foaf:name &#x22;Pascal Christoph&#x22; .</pre></code>
+<small>Quelle: <a href="https://github.com/hbz/slides/blob/master/htw-chur-2019/data/example.ttl">https://github.com/hbz/slides/blob/master/htw-chur-2019/data/example.ttl</a></small>
 			</section>
 
 			<section data-state="adrian">
 				<h1>6. Ein Beispiel: lobid-gnd</h1>
 			</section>
-
 
 			<section>
         <h3>a. Die Oberfläche</h3>
@@ -773,9 +835,11 @@
 				<ul style=font-size:25px;>
 					<li><a href="http://blog.lobid.org/">lobid-Blog</a></li>
 					<li><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></li>
-					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für Bibliotheken. In: Informationspraxis 4(1). <a href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a></li>
-					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2018): lobid-gnd – Eine Schnittstelle zur Gemeinsamen Normdatei für Mensch und Maschine. Erscheint in: Informationspraxis 5(1). Pre"print": <a href="https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md">https://github.com/hbz/lobid/blob/master/doc/lobid-gnd.md</a></li>
 					<li>Kreutzer, Till (2011): Open Data – Freigabe von Daten aus Bibliothekskatalogen. Hg. v. Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (<a href="https://hbz.opus.hbz-nrw.de/opus45-hbz/frontdoor/deliver/index/docId/9/file/PDFA_Open_Data_Leitfaden_hbz_2011_1.pdf">PDF</a>)</a></li>
+					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für Bibliotheken. In: Informationspraxis 4(1). <a href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a></li>
+					<li>Sporny, Manu (2012): The Problem with RDF and Nuclear Power. URL: <a href="http://manu.sporny.org/2012/nuclear-rdf/">http://manu.sporny.org/2012/nuclear-rdf/</a></li>
+					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a></li>
+					<li>Target, Sinclair (2017): The Rise and Rise of JSON. URL: <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html</a></li>
 				</ul>
 			</section>
 

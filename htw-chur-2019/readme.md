@@ -24,7 +24,7 @@ Die Lehrveranstaltung gibt einen Einblick in die Arbeitsweise und Erfahrungen au
 | Zeit | Thema | Inhalt |
 |------|-------|--------|
 | 13:15-13:30 | Kennenlernen | Vorstellung der Referenten, Fragen an Teilnehmer*innen | 
-| 13:30-14:00 | Arbeitsweise	| Arbeitsprinzipien & Softwareentwicklungsprozess des lobid-Teams
+| 13:30-14:00 | Arbeitsweise	| Arbeitsprinzipien & Softwareentwicklungsprozess des lobid-Teams |
 | 14:00-14:10 | Linked Open Data	| Linked-Open-Data-Grundlagen |
 | 14:10-14:30 | lobid	 | Grundlegendes und Historisches|
 | *14:30-15:00* | *Pause* |  |

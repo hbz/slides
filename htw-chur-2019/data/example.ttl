@@ -1,0 +1,16 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://slides.lobid.org/htw-chur-2019/>
+	rdf:type foaf:Document ;
+	dct:title "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz";
+	dct:creator <http://lobid.org/team/ap#!>, <http://lobid.org/team/pc#!> ;
+	dct:subject <http://d-nb.info/gnd/7863462-3> , <http://d-nb.info/gnd/1064023886> ;
+	dct:license <https://creativecommons.org/licenses/by/4.0/> .
+	
+<http://lobid.org/team/ap#!> rdf:type foaf:Person ;
+	foaf:name "Adrian Pohl" .
+	
+<http://lobid.org/team/pc#!> rdf:type foaf:Person ;
+	foaf:name "Pascal Christoph" .
