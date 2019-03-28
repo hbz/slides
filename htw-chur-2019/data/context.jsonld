@@ -9,6 +9,6 @@
     "title": "http://purl.org/dc/terms/title",
     "Document": "http://xmlns.com/foaf/0.1/Document",
     "Person": "http://xmlns.com/foaf/0.1/Person",
-		"License": "http://purl.org/dc/terms/LicenseDocument",
-		"SubjectHeading": "http://d-nb.info/standards/elementset/gnd#SubjectHeadingSensoStricto"
+    "License": "http://purl.org/dc/terms/LicenseDocument",
+    "SubjectHeading": "http://d-nb.info/standards/elementset/gnd#SubjectHeadingSensoStricto"
   }
