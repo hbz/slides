@@ -8,6 +8,8 @@ Termin: 29. März 2019, 13:00-16:30
 
 Ort: HWZ, Lagerstrasse 5, Zürich
 
+Slides: [http://slides.lobid.org/htw-chur-2019](http://slides.lobid.org/htw-chur-2019)
+
 ## Beschreibung
 
 Im [LOD-Programmbereich](https://www.hbz-nrw.de/produkte/linked-open-data) unterstützt das Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (hbz) die Etablierung und Pflege einer zukunftssicheren bibliothekarischen Dateninfrastruktur im regionalen, überregionalen und internationalen Raum. Kernpunkte der LOD-Arbeit sind:
