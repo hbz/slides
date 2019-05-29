@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SkoHub – KOS-based content syndication</title>
+
+		<meta name="description" content="Presentation in the hbz's English course from 2019-05-29">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "SkoHub – KOS-based content syndication",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Presentation in the hbz's English course from 2019-05-29",
+			"about" : [ "SkoHub", "ActivityPub", "content syndication", "Knowledge Organization Systems", "SKOS"],
+			"url" : "https://slides.lobid.org/skohub-hbz/",
+			"datePublished" : "2019-05-29",
+			"inLanguage" : "en",
+			"audience": [ "librarians", "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>SkoHub –</h2>
+				<h3>KOS-based content syndication</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Köln, 2019-05-29</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/skohub-hbz/">http://slides.lobid.org/skohub-hbz/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Open is the new normal</h1>
+      </section>
+
+			<section>
+				<h3>So we have all those openness initiatives</h3>
+				<p><span class="fragment">Open Access & Open Science</span></p>
+				<p><span class="fragment">Free Culture</span></p>
+				<p><span class="fragment">Open Data</span></p>
+				<p><span class="fragment">Open Educational Resources</span></p>
+				<p><span class="fragment">...</span></p>
+			</section>
+
+			<section>
+				<h3>The goal of openness</h3>
+				<p>To establish a practice where scientific, educational or other cultural resources are by default published under an open license on the web to be read, used, remixed and shared by anybody.</p>
+			</section>
+
+
+			<section>
+				<h2>So we've got a lot of open stuff on the web</h2>
+				<h2><span class="fragment">...but how do we discover what is relevant to us?</span></h2>
+			</section>
+
+			<section>
+				<h1>The challenge</h1>
+				<h3><span class="fragment">With a growing supply of resources on the web, the challenge grows to learn about or find resources relevant for your teaching, studies, or research.</span></h3>
+			</section>
+
+			<section>
+				<h2>The repository approach</h2>
+				<img src="img/repo-approach.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<a href="https://www.base-search.net/"><img src="img/base.png" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>Maintenance burden</h3>
+				<p><span class="fragment">Create and maintain a list of sources (repos) to add</span></p>
+				<p><span class="fragment">Watch out for new resources to be added</span></p>
+				<p><span class="fragment">Adjusting the crawlers when interfaces change</span></p>
+				<p><span class="fragment">Normalize data from different sources</span></p>
+			</section>
+
+			<section>
+				<h3>Shortcomings of the repo approach</h3>
+				<p><span class="fragment">Only cover resources in repos, not elsewhere on the web</span></p>
+				<p><span class="fragment">Users have to know where to find your service to start searching</span></p>
+				<p><span class="fragment">The approach is "off the web"</span></p>
+			</section>
+
+			<section>
+				<h3>Off the web</h3>
+				<p><blockquote>Conceptually, we have come to see [OAI-PMH] as repository-centric instead of resource-centric or web-centric. It has its starting point in the repository, which is considered to be the center of the universe. Interoperability is framed in terms of the repository, rather than in terms of the web and its primitives. This kind of repository, although it resides on the web, hinders seamless access to its content because it does not fully embrace the ways of the web.</blockquote> – <a href="https://dx.doi.org/10.1045/november2015-vandesompel">Van de Sompel/Nelson 2015</a></p>
+			</section>
+
+			<section>
+        <h2>How could a web-centric or resource-centric approach to discovery by subject look like?</h2>
+      </section>
+
+			<section>
+        <h1>URIs, URIs, URIs</h1>
+      </section>
+
+			<section>
+				<h2>URIs for open resources and controlled vocabularies</h2>
+				<img src="img/subject-indexing-with-uris2.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h1>Web-based subscription and notification</h1>
+        <h4>(with <a href="https://activitypub.rocks/">ActivityPub</a>)</h4>
+      </section>
+
+			<section>
+				<h3>An inbox for ervery subject</h3>
+				<img src="img/subject-indexing-with-uris-and-inbox.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Applications can send notifications to the inbox</h3>
+				<img src="img/sending-notification.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Applications subscribe to an inbox and will receive push notifications</h3>
+				<img src="img/pushing-notification.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>So, this infrastructure allows applications</h3>
+				<p><span class="fragment">to send a notification to a subject’s inbox containing information about and a link to new content about this subject</span></p>
+				<p><span class="fragment">to subscribe to the inbox of a subject from a knowledge organization system in order to receive push updates about new content in real time.</span></p>
+			</section>
+
+			<section>
+				<h3>Example</h3>
+				<img src="img/pubsub2.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Advantages</h3>
+				<p><span class="fragment">Push instead of pull</span></p>
+				<p><span class="fragment">Supporting web-wide publications</span></p>
+				<p><span class="fragment">Knowledge organization systems are used to their full potential</span></p>
+				<p><span class="fragment">Encouraging creation and use of shared Knowledge Organization Systems across applications</span></p>
+				<p><span class="fragment">Incentive for content producers to add machine-readable descriptions </span></p>
+			</section>
+
+			<section>
+				<h3>SkoHub project (2019)</h3>
+				<p><span class="fragment">Basic inbox and subscription infrastructure (<a href="https://github.com/hbz/skohub-pubsub">skohub-pubsub</a>)</span></p>
+				<p><span class="fragment">Static site generator for Simple Knowledge Organization Systems (<a href="https://github.com/hbz/skohub-ssg">skohub-ssg</a>)</span></p>
+				<p><span class="fragment">Describe, link resources & send notifications from the browser (<a href="https://github.com/hbz/skohub-editor">skohub-editor</a>)</span></p>
+				<p><span class="fragment">Browser-based subscription to subjects (<a href="https://github.com/hbz/skohub-deck">skohub-deck</a>)</span></p>
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
