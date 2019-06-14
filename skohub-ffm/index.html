@@ -78,9 +78,10 @@
             <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
             <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
             href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
-              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
-          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
-          <small>Köln, 2019-06-18</small>
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a>,  <a
+	            href="https://www.kim-forum.org">DINI AG KIM</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a> <a href="https://lobid.org"><img src="img/dini.png" style="border: none; padding: 5px; background-color: transparent" width="60px" /></a><br/>
+          <small>Frankfurt am Main, 2019-06-18</small>
         </p>
         <p>
           Diese Präsentation: <br /> <a
@@ -91,129 +92,153 @@
       </section>
 
 			<section>
-        <h1>Open is the new normal</h1>
+        <h1>Warum Metadaten für OER?</h1>
       </section>
 
 			<section>
-				<h3>The goal of openness</h3>
-				<p>To establish a practice where scientific, educational or other cultural resources are by default published under an open license on the web to be read, used, remixed and shared by everybody.</p>
+				<h2>2015:</h2>
+				<img src="img/warum-metadaten.png" width="550px" style="border: none; box-shadow: none;" />
+			</section>
+			
+			<section>
+				<h2>Herausforderung: Dezentralität des WWW</h2>
+				<span class="fragment"><h4>OER sind über unterschiedlichste Angebote im Web verteilt: in Repositorien, auf YouTube, Slideshare, persönlichen und institutionellen Webseiten etc.</h4></span>
 			</section>
 
 			<section>
-				<h3>There are lots of openness initiatives</h3>
-				<p><span class="fragment">Open Access & Open Science</span></p>
-				<p><span class="fragment">Free Culture</span></p>
-				<p><span class="fragment">Open Data</span></p>
-				<p><span class="fragment">Open Educational Resources</span></p>
-				<p><span class="fragment">...</span></p>
+				<h2>Of the web</h2>
+				<span class="fragment"><h3>Jeder Ansatz zur Verbesserung der Auffindbarkeit von OER sollte den elementaren Prinzipien des WWW Rechnung tragen.</h3></span>
+				<span class="fragment"><small>(Womit ein Repository-zentrierter Ansatz in Verbindung mit OAI-PMH herausfällt, siehe <a href="http://slides.lobid.org/skohub-ffm/#/26">Anhang</a>.)</small></span>
 			</section>
 
 			<section>
-				<h2>So we've got a lot of open stuff on the web</h2>
-				<h2><span class="fragment">...but how do we discover what is relevant to us?</span></h2>
+				<img src="img/warum-metadaten_markiert.png" width="550px" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h1>The challenge</h1>
-				<h3><span class="fragment">With a growing supply of resources on the web, the challenge grows to learn about or find resources relevant for your teaching, studies, or research.</span></h3>
+				<h3>Wer finden will muss suchen.</h3>
+				<h3><span class="fragment">Noch besser wären Push-Benachrichtigungen über relevante neue OER.</span></h3>
 			</section>
 
 			<section>
-				<h2>The repository approach</h2>
-				<img src="img/repo-approach.png" style="border: none; box-shadow: none;" />
+				<h2>Wie wird abonniert?</h2>
+				<span class="fragment"><h3>Anhand welcher Merkmale sollen Push-Benachrichtigungen verschickt werden?</h3></span>
 			</section>
 
 			<section>
-				<a href="https://www.base-search.net/"><img src="img/base.png" style="border: none; box-shadow: none;" /></a>
+				<img src="img/lrmi-report-felder_chart.png" width="600px" style="border: none; box-shadow: none;" />
+				<small>Quelle: <a href="http://www.dublincore.org/resources/lrmi/499-002-LRMI-2014-Education-Survey-Web.pdf">Winter Group (2014): LRMI Survey Report. July 2014 Update</a></small>
 			</section>
 
 			<section>
-				<h3>Maintenance burden</h3>
-				<p><span class="fragment">Create and maintain a list of sources (repos) to add</span></p>
-				<p><span class="fragment">Watch out for new resources to be added</span></p>
-				<p><span class="fragment">Adjusting the crawlers when interfaces change</span></p>
-				<p><span class="fragment">Normalize data from different sources</span></p>
+				<h2>Lösung:<br />Inhalte/Themen als Kriterium für OER-Subskriptionen</h2>
+				<h3><span class="fragment">Eine neue Rolle für Normdaten/Knowledge Organization Systems (KOS)</span></h3>
+				
 			</section>
-
+			
 			<section>
-				<h3>Shortcomings of the repo approach</h3>
-				<p><span class="fragment">Only cover resources in repos, not elsewhere on the web</span></p>
-				<p><span class="fragment">Users have to know where to find your service to start searching</span></p>
-				<p><span class="fragment">The approach is "off the web"</span></p>
+				<h2>Wie könnte ein webbasierter Ansatz zur themenbasierten Subskription von OER aussehen?</h2>
 			</section>
-
-			<section>
-				<h3>Off the web</h3>
-				<p><blockquote>Conceptually, we have come to see [OAI-PMH] as repository-centric instead of resource-centric or web-centric. It has its starting point in the repository, which is considered to be the center of the universe. Interoperability is framed in terms of the repository, rather than in terms of the web and its primitives. This kind of repository, although it resides on the web, hinders seamless access to its content because it does not fully embrace the ways of the web.</blockquote> – <a href="https://dx.doi.org/10.1045/november2015-vandesompel">Van de Sompel/Nelson 2015</a></p>
-			</section>
-
-			<section>
-        <h2>How could a web-centric or resource-centric approach to discovery by subject look like?</h2>
-      </section>
 
 			<section>
         <h1>URIs, URIs, URIs</h1>
       </section>
 
 			<section>
-				<h2>URIs for open resources and controlled vocabularies</h2>
+				<h2>URIs für OER & kontrollierte Vokabulare (mit SKOS)</h2>
 				<img src="img/subject-indexing-with-uris2.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h1>Web-based subscription and notification</h1>
+				<h1>Web-basierte Subskription & Benachrichtigung</h1>
         <h4>(with <a href="https://activitypub.rocks/">ActivityPub</a>)</h4>
       </section>
 
 			<section>
-				<h3>An inbox for ervery subject</h3>
+				<h3>Eine Inbox für jedes Thema</h3>
 				<img src="img/subject-indexing-with-uris-and-inbox.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h3>Applications can send notifications to the inbox</h3>
+				<h3>Anwendungen senden Benachrichtigungen an die Inbox</h3>
 				<img src="img/sending-notification.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h3>Applications subscribe to an inbox and will receive push notifications</h3>
+				<h3>Anwendungen abonnieren eine Inbox und erhalten Push-Benachrichtigungen</h3>
 				<img src="img/pushing-notification.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h3>The described infrastructure allows applications:</h3>
-				<p><span class="fragment">to send a notification to a subject’s inbox containing information about and a link to new content about this subject</span></p>
-				<p><span class="fragment">to subscribe to the inbox of a subject from a knowledge organization system in order to receive push updates about new content in real time.</span></p>
+				<h3>Die beschriebene Infrastruktur erlaubt Anwendungen</h3>
+				<p><span class="fragment">Benachrichtigungen an die Inbox eines Themas (Schlagwort, Systematikstelle, Deskriptor) zu schicken mit Informationen über und einem Link zu einer Ressource über dieses Thema</span></p>
+				<p><span class="fragment">die Inbox eines Themas (Schlagwort, Systematikstelle, Deskriptor) zu abonnieren, um in Echtzeit Push-Benachrichtigungen pber neue Inhalte zu erhalten</span></p>
 			</section>
 
 			<section>
-				<h3>Example</h3>
-				<img src="img/pubsub2.png" style="border: none; box-shadow: none;" />
+				<h3>Beispiel</h3>
+				<img src="img/pubsub.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
-				<h3>Advantages</h3>
-				<p><span class="fragment">Push instead of pull</span></p>
-				<p><span class="fragment">Supporting web-wide publications</span></p>
-				<p><span class="fragment">Knowledge organization systems are used to their full potential</span></p>
-				<p><span class="fragment">Encouraging creation and use of shared Knowledge Organization Systems across applications</span></p>
-				<p><span class="fragment">Incentive for content producers to add machine-readable descriptions </span></p>
+				<h3>Vorteile</h3>
+				<p><span class="fragment">Push- statt Pull-Ansatz</span></p>
+				<p><span class="fragment">Unterstützt OER überall im Web</span></p>
+				<p><span class="fragment">Der Nutzen von Normdaten/KOS wird maximiert</span></p>
+				<p><span class="fragment">Die  Erstellung und Pflege gemeinsamer, plattformübergreifender KOS</span></p>
+				<p><span class="fragment">Anreize für OER-Produzenten, strukturierte Metadaten zu ergänzen</span></p>
 			</section>
-
+	
 			<section>
-				<h3>SkoHub project (2019)</h3>
-				<p><span class="fragment">Basic inbox and subscription infrastructure (<a href="https://github.com/hbz/skohub-pubsub">skohub-pubsub</a>)</span></p>
-				<p><span class="fragment">Static site generator for Simple Knowledge Organization Systems (<a href="https://github.com/hbz/skohub-ssg">skohub-ssg</a>)</span></p>
-				<p><span class="fragment">Describe, link resources & send notifications from the browser (<a href="https://github.com/hbz/skohub-editor">skohub-editor</a>)</span></p>
-				<p><span class="fragment">Browser-based subscription to subjects (<a href="https://github.com/hbz/skohub-deck">skohub-deck</a>)</span></p>
+				<h2>Das SkoHub-Projekt versucht wesentliche Lücken zu schließen, die über die Jahre im Kontext der KIM-Gruppe "OER-Metadaten" identifiziert wurden.</h2>
 			</section>
-
+			
 			<section>
-				<h3>For more details, see <a href="http://blog.lobid.org/tags/skohub">SkoHub posts at the lobid blog</a>.</h3>
+				<h3>...diese Anforderungen sind:</h3>
+				<p><span class="fragment">Prozess & Tools zur maschinen- und menschenlesbaren Publikation kontrollierter Vokabulare</span></p>
+				<p><span class="fragment">Webbasierter Metadateneditor inklusive Validierung zur Beschreibung von OER</span></p>
+				<p><span class="fragment">Bonus: die beschriebene Infrastruktur zur normdatenbasierten Subskription von OER</span></p>
 			</section>
-
+			
+			<section>
+				<h3>Das SkoHub-Projekt (2019)</h3>
+				<p><span class="fragment">Infrastruktur für Inboxes & Subskription (<a href="https://github.com/hbz/skohub-pubsub">skohub-pubsub</a>)</span></p>
+				<p><span class="fragment">Static Site Generator für SKOS-Vokabulare (<a href="https://github.com/hbz/skohub-ssg">skohub-ssg</a>)</span></p>
+				<p><span class="fragment">Erfassung, Verlinkung & Senden von Benachrichtigungen im Browser (<a href="https://github.com/hbz/skohub-editor">skohub-editor</a>)</span></p>
+				<p><span class="fragment">Browser-basierte Subskription von Themen (<a href="https://github.com/hbz/skohub-deck">skohub-deck</a>)</span></p>
+			</section>
+			
+			<section>
+				<h3>Für weitere Informationen siehe <a href="http://blog.lobid.org/tags/skohub">SkoHub-Beiträge im lobid-Blog</a>.</h3>
+			</section>
+			
 			<section>
 				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h2>Der Repository-Ansatz</h2>
+				<img src="img/repo-approach.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Pflegeaufwand</h3>
+				<p><span class="fragment">Erstellung & Pflege einer Liste von Quellrepositorien</span></p>
+				<p><span class="fragment">Ausschau nach neuen relevanten Quellrepositorien</span></p>
+				<p><span class="fragment">Anpassung des Crawalers, wenn Schnittstellen (URLs, Formate etc.) sich ändern</span></p>
+				<p><span class="fragment">Normalisierung der Daten aus den unterschiedlichen Quellen</span></p>
+			</section>
+
+			<section>
+				<h3>Schwachpunkte des Repo-Ansatzes</h3>
+				<p><span class="fragment">Deckt nur OER in Repositorien, nicht aus anderen Webquellen ab</span></p>
+				<p><span class="fragment">Daten sind häufig lückenhaft und ohne Verschlagwortung</span></p>
+				<p><span class="fragment">"Off the web"</span></p>
+			</section>
+
+			<section>
+				<h3>Off the web</h3>
+				<p><blockquote>Conceptually, we have come to see [OAI-PMH] as repository-centric instead of resource-centric or web-centric. It has its starting point in the repository, which is considered to be the center of the universe. Interoperability is framed in terms of the repository, rather than in terms of the web and its primitives. This kind of repository, although it resides on the web, hinders seamless access to its content because it does not fully embrace the ways of the web.</blockquote> – <a href="https://dx.doi.org/10.1045/november2015-vandesompel">Van de Sompel/Nelson 2015</a></p>
 			</section>
 
      </div>
