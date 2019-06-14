@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>to do</title>
+
+		<meta name="description" content="Präsentation am 18.06.2019 beim Treffen deutscher Akteur*innen zur Vernetzung, Harmonisierung und Zusammenarbeit für eine OER-förderliche (Metadaten-) Infrastruktur">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "SkoHub: Normdatenbasierte Content Syndication",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Präsentation am 18.06.2019 beim Treffen deutscher Akteur*innen zur Vernetzung, Harmonisierung und Zusammenarbeit für eine OER-förderliche (Metadaten-) Infrastruktur",
+			"about" : [ "SkoHub", "ActivityPub", "content syndication", "Knowledge Organization Systems", "SKOS"],
+			"url" : "https://slides.lobid.org/standardisierung-ffm/",
+			"datePublished" : "2019-06-18",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Standardisierung – </h2>
+				<h3>nächste (erste?) Schritte</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a>,  <a
+	            href="https://www.kim-forum.org">DINI AG KIM</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a> <a href="https://lobid.org"><img src="img/dini.png" style="border: none; padding: 5px; background-color: transparent" width="60px" /></a><br/>
+          <small>Frankfurt am Main, 2019-06-18</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/standardisierung-ffm/">http://slides.lobid.org/standardisierung-ffm/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+				<h1>Status quo</h1>
+        <span class="fragment"><h2>✔ Sechs Jahre OER-Metadatengruppe</h2></span>
+				<span class="fragment"><h2>⦻ Null abgeschlossene Empfehlungen</h2></span>
+      </section>
+
+			<section>
+				<h3>Rückblick</h3>
+				<p><span class="fragment">2013: Zwei Metadaten-Sessions auf der OERde13 in Berlin (<a href="https://wiki1.hbz-nrw.de/pages/viewpage.action?pageId=10453369#OER%3FWie%3FWas%3F-BerichtzurOER-Konferenz2013-metadaten">Bericht</a>)</span></p>
+				<p><span class="fragment">August 2014: <a href="https://lists.dnb.de/pipermail/dini-ag-kim-oer/2014-August/000010.html">Empfehlungen zur Publikation von OER-Metadaten - erster Entwurf</a></span></p>
+				<p><span class="fragment">Februar 2016: <a href="https://www.uebertext.org/2016/05/machbarkeitsstudie-zum-aufbau-einer-oer.html">DIPF-"Machbarkeitsstudie zum Aufbau und Betrieb von OER-Infrastrukturen in der Bildung"</a></span></p>
+				<p><span class="fragment">August 2017: Fusion mit jointly-Metadatengruppe, Beginn relmäßiger Online-Treffen</span></p>
+				<p><span class="fragment">26. Februar 2019: Letztes stattgefundenes Online-Treffen</span></p>
+				<p><span class="fragment">8. März 2019: <a href="">Geplante Veröffentlichung eines Entwurfs der OER-Service-Visitenkarte</a></span></p>
+			</section>
+			
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
