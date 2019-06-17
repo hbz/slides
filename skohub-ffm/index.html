@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>SkoHub: Normdatenbasierte Content Syndication</title>
+
+		<meta name="description" content="Präsentation am 18.06.2019 beim Treffen deutscher Akteur*innen zur Vernetzung, Harmonisierung und Zusammenarbeit für eine OER-förderliche (Metadaten-) Infrastruktur">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "SkoHub: Normdatenbasierte Content Syndication",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Präsentation am 18.06.2019 beim Treffen deutscher Akteur*innen zur Vernetzung, Harmonisierung und Zusammenarbeit für eine OER-förderliche (Metadaten-) Infrastruktur",
+			"about" : [ "SkoHub", "ActivityPub", "content syndication", "Knowledge Organization Systems", "SKOS"],
+			"url" : "https://slides.lobid.org/skohub-ffm/",
+			"datePublished" : "2019-06-18",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>SkoHub –</h2>
+				<h3>normdatenbasierte Content Syndication</h3>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Frankfurt am Main, 2019-06-18</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/skohub-ffm/">http://slides.lobid.org/skohub-ffm/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Warum Metadaten für OER?</h1>
+      </section>
+
+			<section>
+				<h2>2015:</h2>
+				<img src="img/warum-metadaten.png" width="550px" style="border: none; box-shadow: none;" />
+			</section>
+			
+			<section>
+				<h2>Herausforderung: Dezentralität des WWW</h2>
+				<span class="fragment"><h4>OER sind über unterschiedlichste Angebote im Web verteilt: in Repositorien, auf YouTube, Slideshare, persönlichen und institutionellen Webseiten etc.</h4></span>
+			</section>
+
+			<section>
+				<h2>Of the web</h2>
+				<span class="fragment"><h3>Jeder Ansatz zur Verbesserung der Auffindbarkeit von OER sollte den elementaren Prinzipien des WWW Rechnung tragen.</h3></span>
+				<span class="fragment"><small>(Womit ein Repository-zentrierter Ansatz in Verbindung mit OAI-PMH herausfällt, siehe <a href="http://slides.lobid.org/skohub-ffm/#/26">Anhang</a>.)</small></span>
+			</section>
+
+			<section>
+				<img src="img/warum-metadaten_markiert.png" width="550px" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Wer finden will muss suchen.</h3>
+				<h3><span class="fragment">Noch besser wären Push-Benachrichtigungen über relevante neue OER.</span></h3>
+			</section>
+
+			<section>
+				<h2>Wie wird abonniert?</h2>
+				<span class="fragment"><h3>Anhand welcher Merkmale sollen Push-Benachrichtigungen verschickt werden?</h3></span>
+			</section>
+
+			<section>
+				<img src="img/lrmi-report-felder_chart.png" width="600px" style="border: none; box-shadow: none;" />
+				<small>Quelle: <a href="http://www.dublincore.org/resources/lrmi/499-002-LRMI-2014-Education-Survey-Web.pdf">Winter Group (2014): LRMI Survey Report. July 2014 Update</a></small>
+			</section>
+
+			<section>
+				<h2>Lösung:<br />Inhalte/Themen als Kriterium für OER-Subskriptionen</h2>
+				<h3><span class="fragment">Eine neue Rolle für Normdaten/Knowledge Organization Systems (KOS)</span></h3>
+				
+			</section>
+			
+			<section>
+				<h2>Wie könnte ein webbasierter Ansatz zur themenbasierten Subskription von OER aussehen?</h2>
+			</section>
+
+			<section>
+        <h1>URIs, URIs, URIs</h1>
+      </section>
+
+			<section>
+				<h2>URIs für OER & kontrollierte Vokabulare (mit SKOS)</h2>
+				<img src="img/subject-indexing-with-uris2.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h1>Web-basierte Subskription & Benachrichtigung</h1>
+        <h4>(with <a href="https://activitypub.rocks/">ActivityPub</a>)</h4>
+      </section>
+
+			<section>
+				<h3>Eine Inbox für jedes Thema</h3>
+				<img src="img/subject-indexing-with-uris-and-inbox.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Anwendungen senden Benachrichtigungen an die Inbox</h3>
+				<img src="img/sending-notification.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Anwendungen abonnieren eine Inbox und erhalten Push-Benachrichtigungen</h3>
+				<img src="img/pushing-notification.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Die beschriebene Infrastruktur erlaubt Anwendungen</h3>
+				<p><span class="fragment">Benachrichtigungen an die Inbox eines Themas (Schlagwort, Systematikstelle, Deskriptor) zu schicken mit Informationen über und einem Link zu einer Ressource über dieses Thema</span></p>
+				<p><span class="fragment">die Inbox eines Themas (Schlagwort, Systematikstelle, Deskriptor) zu abonnieren, um in Echtzeit Push-Benachrichtigungen über neue Inhalte zu erhalten</span></p>
+			</section>
+
+			<section>
+				<h3>Beispiel</h3>
+				<img src="img/pubsub.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Vorteile</h3>
+				<p><span class="fragment">Push- statt Pull-Ansatz</span></p>
+				<p><span class="fragment">Unterstützt OER überall im Web</span></p>
+				<p><span class="fragment">Der Nutzen von Normdaten/KOS wird maximiert</span></p>
+				<p><span class="fragment">Die  Erstellung und Pflege gemeinsamer, plattformübergreifender KOS</span></p>
+				<p><span class="fragment">Anreize für OER-Produzenten, strukturierte Metadaten zu ergänzen</span></p>
+			</section>
+	
+			<section>
+				<h2>Das SkoHub-Projekt versucht wesentliche Lücken zu schließen, die über die Jahre im Kontext der KIM-Gruppe "OER-Metadaten" identifiziert wurden.</h2>
+			</section>
+			
+			<section>
+				<h3>...diese Anforderungen sind:</h3>
+				<p><span class="fragment">Prozess & Tools zur maschinen- und menschenlesbaren Publikation kontrollierter Vokabulare</span></p>
+				<p><span class="fragment">Webbasierter Metadateneditor inklusive Validierung zur Beschreibung von OER</span></p>
+				<p><span class="fragment">Bonus: die beschriebene Infrastruktur zur normdatenbasierten Subskription von OER</span></p>
+			</section>
+			
+			<section>
+				<h3>Das SkoHub-Projekt (2019)</h3>
+				<p><span class="fragment">Infrastruktur für Inboxes & Subskription (<a href="https://github.com/hbz/skohub-pubsub">skohub-pubsub</a>)</span></p>
+				<p><span class="fragment">Static Site Generator für SKOS-Vokabulare (<a href="https://github.com/hbz/skohub-ssg">skohub-ssg</a>)</span></p>
+				<p><span class="fragment">Erfassung, Verlinkung & Senden von Benachrichtigungen im Browser (<a href="https://github.com/hbz/skohub-editor">skohub-editor</a>)</span></p>
+				<p><span class="fragment">Browser-basierte Subskription von Themen (<a href="https://github.com/hbz/skohub-deck">skohub-deck</a>)</span></p>
+			</section>
+			
+			<section>
+				<h3>Für weitere Informationen siehe <a href="http://blog.lobid.org/tags/skohub">SkoHub-Beiträge im lobid-Blog</a>.</h3>
+			</section>
+			
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h2>Der Repository-Ansatz</h2>
+				<img src="img/repo-approach.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Pflegeaufwand</h3>
+				<p><span class="fragment">Erstellung & Pflege einer Liste von Quellrepositorien</span></p>
+				<p><span class="fragment">Ausschau nach neuen relevanten Quellrepositorien</span></p>
+				<p><span class="fragment">Anpassung des Crawalers, wenn Schnittstellen (URLs, Formate etc.) sich ändern</span></p>
+				<p><span class="fragment">Normalisierung der Daten aus den unterschiedlichen Quellen</span></p>
+			</section>
+
+			<section>
+				<h3>Schwachpunkte des Repo-Ansatzes</h3>
+				<p><span class="fragment">Deckt nur OER in Repositorien, nicht aus anderen Webquellen ab</span></p>
+				<p><span class="fragment">Daten sind häufig lückenhaft und ohne Verschlagwortung</span></p>
+				<p><span class="fragment">"Off the web"</span></p>
+			</section>
+
+			<section>
+				<h3>Off the web</h3>
+				<p><blockquote>Conceptually, we have come to see [OAI-PMH] as repository-centric instead of resource-centric or web-centric. It has its starting point in the repository, which is considered to be the center of the universe. Interoperability is framed in terms of the repository, rather than in terms of the web and its primitives. This kind of repository, although it resides on the web, hinders seamless access to its content because it does not fully embrace the ways of the web.</blockquote> – <a href="https://dx.doi.org/10.1045/november2015-vandesompel">Van de Sompel/Nelson 2015</a></p>
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
