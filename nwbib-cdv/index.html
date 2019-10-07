@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)</title>
+
+		<meta name="description" content="Präsentation am 12.10.2019 in Dortmund beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\"">
+		<meta name="author" content="Pascal Christoph, Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)",
+			"creator" : [{
+				"id": "http://lobid.org/team/pc#!",
+				"type": "Person",
+				"name": "Pascal Christoph"
+			},
+			{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Präsentation am 12.10.2019 in Dortmund beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\"",
+			"about" : [ "NWBib", "lobid", "API", "Hackathon", "Coding da Vinci"],
+			"url" : "https://slides.lobid.org/skohub-ffm/",
+			"datePublished" : "2019-10-12",
+			"inLanguage" : "de",
+			"audience": [ "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)</h2>
+          <small>
+            <a href="http://lobid.org/team/pc#!">Pascal Christoph</a> /
+            <a href="https://twitter.com/dr0ide">@dr0ide</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Dortmund, 2019-10-12</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/nwbib-cdv/">http://slides.lobid.org/nwbib-cdv/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+				<h3>Die NWBib</h3>
+				<p><span class="fragment">eine <a href="https://de.wikipedia.org/wiki/Regionalbibliografie">Landesbibliographie</a></span></p>
+				<p><span class="fragment">verzeichnet Literatur über NRW, seine Regionen, Orte und Persönlichkeiten</span></p>
+				<p><span class="fragment">erfasst neben Büchern vor allem Aufsätze aber auch Landkarten, DVDs & andere Medien</span></p>
+				<p><span class="fragment">420.000 Einträge ab Erscheinungsjahr 1983</span></p>
+				<p><span class="fragment">Webauftritt: <a href="https://nwbib.de">nwbib.de</a> (basierend auf <a href="https://lobid.org/resources">lobid-resources</a>)</span></p>
+				<p><span class="fragment">Datenpflege in hbz-Verbunddatenbank</span></p>
+			</section>
+
+			<section>
+        <h1>Die Weboberfläche</h1>
+      </section>
+
+			<section>
+				<h3>Für weitere Informationen siehe den <a href="http://blog.lobid.org/tags/nwbib">Blogbeitrag zur Vorstellung der NWBib-Daten für CdV</a>.</h3>
+			</section>
+
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
