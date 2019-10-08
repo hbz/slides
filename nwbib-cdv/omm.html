@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)</title>
+		<title>Die Nordrhein-Westfälische Bibliographie (NWBib)</title>
 
-		<meta name="description" content="Präsentation am 12.10.2019 in Dortmund beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\"">
+		<meta name="description" content="Slide für One Minute Madness beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\" am 12.10.2019 in Dortmund">
 		<meta name="author" content="Pascal Christoph, Adrian Pohl">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,7 +18,7 @@
 		{
 			"@context": "http://schema.org",
 			"type": "PresentationDigitalDocument",
-			"name" : "Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)",
+			"name" : "Die Nordrhein-Westfälische Bibliographie (NWBib)",
 			"creator" : [{
 				"id": "http://lobid.org/team/pc#!",
 				"type": "Person",
@@ -30,9 +30,9 @@
 				"name": "Adrian Pohl"
 			}
 		],
-			"description": "Präsentation am 12.10.2019 in Dortmund beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\"",
+			"description": "Slide für One Minute Madness beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\" am 12.10.2019 in Dortmund",
 			"about" : [ "NWBib", "lobid", "API", "Hackathon", "Coding da Vinci"],
-			"url" : "http://slides.lobid.org/nwbib-cdv/",
+			"url" : "https://slides.lobid.org/skohub-ffm/",
 			"datePublished" : "2019-10-12",
 			"inLanguage" : "de",
 			"audience": [ "developers" ],
@@ -67,6 +67,15 @@
 				color: lightgray;
 				font-family: sans-serif;
 			}
+			ul {
+			  list-style-type: square !important;
+			}
+			li {
+				margin: 12px 0 !important;
+				font-size: 30px !important;
+				line-height: 1.1 !important;
+			}
+			.floatRight{float:right;margin-left:20px}
 		</style>
 	</head>
 <div id="footer-left"></div>
@@ -75,48 +84,19 @@
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
-      <section>
-        <h2>Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)</h2>
-          <small>
-            <a href="http://lobid.org/team/pc#!">Pascal Christoph</a> /
-            <a href="https://twitter.com/dr0ide">@dr0ide</a> <br /> <br /> <a
-            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
-              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a></small> <br />
-          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
-          <small>Dortmund, 2019-10-12</small>
-        </p>
-        <p>
-          Diese Präsentation: <br /> <a
-            href="http://slides.lobid.org/nwbib-cdv/">http://slides.lobid.org/nwbib-cdv/</a>
-          <br/>
-          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
-        </p>
-      </section>
 
-			<section>
-				<h3>Die NWBib</h3>
-				<p><span class="fragment">eine <a href="https://de.wikipedia.org/wiki/Regionalbibliografie">Landesbibliographie</a></span></p>
-				<p><span class="fragment">verzeichnet Literatur über NRW, seine Regionen, Orte und Persönlichkeiten</span></p>
-				<p><span class="fragment">erfasst neben Büchern vor allem Aufsätze aber auch Landkarten, DVDs & andere Medien</span></p>
-				<p><span class="fragment">420.000 Einträge ab Erscheinungsjahr 1983</span></p>
-				<p><span class="fragment">Webauftritt: <a href="https://nwbib.de">nwbib.de</a> (basierend auf <a href="https://lobid.org/resources">lobid-resources</a>)</span></p>
-				<p><span class="fragment">Datenpflege in hbz-Verbunddatenbank</span></p>
-			</section>
+				<h3>Die Nordrhein-Westfälische Bibliographie (NWBib)</h3>
+				<ul>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Print-NWBib.jpg/1920px-Print-NWBib.jpg" style="margin: 15px" width=400px class="floatRight" />
+					<li>Verzeichnet Literatur über über NRW, seine Regionen, Orte und Persönlichkeiten</li>
+					<li>Umfasst mehr als 420.000 seit 1983 erschienene Bücher, Aufsätze, Landkarten, DVDs & andere Medien</li>
+					<li>Verfügbar als JSON(-LD) über eine Web-API und als Vollabzug</li>
+					<li>Viele Verlinkungen zu Wikidata und der Gemeinsamen Normdatei (GND)</li>
+					<li>Details später und unter <a href="http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html">http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html</a></li>
+			</ul>
+			<a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" class="floatRight" /></a>
 
-			<section>
-        <h1>Die Weboberfläche</h1>
-      </section>
-
-			<section>
-				<h3>Für weitere Informationen siehe den <a href="http://blog.lobid.org/tags/nwbib">Blogbeitrag zur Vorstellung der NWBib-Daten für CdV</a>.</h3>
-			</section>
-
-			<section>
-				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
-			</section>
-
-     </div>
-
+		</div>
    </div>
    <script src="lib/js/head.min.js"></script>
    <script src="js/reveal.js"></script>
@@ -135,7 +115,6 @@
 
        transition: 'none', // none/fade/slide/convex/concave/zoom
        backgroundTransition: 'none',
-			 slideNumber: 'c', // 'c/t'
 			 hashOneBasedIndex: true,
 
        // Optional reveal.js plugins
