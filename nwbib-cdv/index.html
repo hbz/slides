@@ -136,11 +136,11 @@
 			</section>
 
 			<section>
-        <h1>Abfragen der NWBib über die lobid-API</h1>
+        <h1>NWBib und lobid</h1>
       </section>
 
 			<section>
-				<h3>NWBib: Web-Anwendung auf lobid-API</h3>
+				<h3>NWBib: Web-Anwendung auf Basis der lobid-API</h3>
 				<p><span class="fragment">Die Webanwendung der NWBib basiert auf der lobid-API</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Die hbz-Verbunddaten als Linked Open Data unter CC0 Public Domain Dedication</span></p>
 				<p><span class="fragment">lobid-API: JSON(-LD) über HTTP</span></p>
@@ -157,7 +157,122 @@
 			</section>
 
 			<section>
-				<h3>Für weitere Informationen siehe den <a href="http://blog.lobid.org/tags/nwbib">Blogbeitrag zur Vorstellung der NWBib-Daten für CdV</a>.</h3>
+        <h1>Abfragen der NWBib über die lobid-API</h1>
+      </section>
+
+			<section>
+				<h3>Eingrenzen von lobid-Abfragen auf NWBib-Titel</h3>
+				<pre><code>{
+    "inCollection":[
+        {
+            "id":"http://lobid.org/resources/HT014176012#!",
+            "type":[
+                "Collection"
+            ],
+            "label":"Nordrhein-Westfälische Bibliographie (NWBib)"
+        }
+    ]
+}</code></pre>
+				<p>Nötige Query-Ergänzung: <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>inCollection.id:"http://lobid.org/resources/HT014176012#!"</code></pre></a></p>
+			</section>
+
+			<section>
+				<h3>Inhaltstypen, Paging, Bulk Download</h3>
+				<p><span class="fragment">Paging mit "size" und "from"</span></p>
+				<p><span class="fragment">JSON (format=json), JSON Lines (format=jsonl) sowie gzip werden unterstützt</span></p>
+				<p><span class="fragment">Download der gesamten NWBib-Daten (223 MB gepackt,1,9 GB ungepackt) möglich</span></p>
+				<p><span class="fragment">Siehe auch <a href="http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html#inhaltstypen-paging-bulk-download">hier</a></span></p>
+			</section>
+
+			<section>
+				<h3>Datenmodell</h3>
+				<p><span class="fragment">NWBib-Daten werden von Bibliothekar\*innen mit entsprechenden Erschließungsstandards (<a href="https://de.wikipedia.org/wiki/Resource_Description_and_Access">RDA</a>) erfasst</span></p>
+				<p><span class="fragment">Für lobid-resources werden die Augangsdaten nach JSON-LD konvertiert</span></p>
+				<p><span class="fragment">Das Datenmodell ist entsprechend komplex</span></p>
+				<p><span class="fragment">Elementare Beschreibungsfelder lassen sich aber leicht aus dem JSON extrahieren</span></p>
+				<p><span class="fragment"><a href"http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html#lobid-datenmodell">Details im Blogbeitrag</a></span></p>
+			</section>
+
+
+
+			<section>
+				<section>
+					<h3>NWBib-Ortssystematik und Wikidata</h3>
+					<p><span class="fragment"><a href="http://blog.lobid.org/data/nwbib-at-cdv.html">Karte mit Raumbezügen zu bestimmten Suchanfragen</a></span></p>
+					<p><span class="fragment">D.h. sie behandeln als Thema einen Landkreis, einen Stadtteil, einen Kirchenkreis, eine Grafschaft etc.</span></p>
+					<p><span class="fragment">Die Ortsbezüge in der NWBib verlinken auf entsprechende Orte in Wikidata, wo sich wiederum Links auf die NWBib finden (mit der Property <a href="https://www.wikidata.org/wiki/Property:P6814">P6814 “NWBib ID”</a>)</span></p>
+					<p><span class="fragment">Siehe z. B. <a href="https://www.wikidata.org/wiki/Q1250595">Dortmund-Bövinghausen</a></span></p>
+				</section>
+
+				<section>
+					<h3>Wikidata-Eintrag mit NWBib-Link</h3>
+					<a href="https://www.wikidata.org/wiki/Q1250595"><img src="img/wd-bsp.png" style="border: none; box-shadow: none;" width=700 /></a>
+				</section>
+
+				<section>
+					<h3>Ort in NWbib-Raumsystematik</h3>
+					<a href="https://nwbib.de/spatial#Q1250595"><img src="img/ort-in-raumsys.png" style="border: none; box-shadow: none;" width=700 /></a>
+				</section>
+
+				<section>
+					<h3>Angabe des Ortsbezugs im JSON</h3>
+					<pre><code>{
+  "spatial":[
+      {
+          "focus":{
+              "id":"http://www.wikidata.org/entity/Q1250595",
+              "geo":{
+                  "lat":51.5189,
+                  "lon":7.32528
+              },
+              "type":[
+                  "http://www.wikidata.org/entity/Q253019"
+              ]
+          },
+          "id":"https://nwbib.de/spatial#Q1250595",
+          "type":[
+              "Concept"
+          ],
+          "label":"Bövinghausen",
+          "source":{
+              "id":"https://nwbib.de/spatial",
+              "label":"Raumsystematik der Nordrhein-Westfälischen Bibliographie"
+          }
+      }
+  ]
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Abfrage von Titeln auf Basis der QID eines Ortes</h3>
+					<a href="https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ1250595%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>spatial.focus.id:"http://www.wikidata.org/entity/Q1250595"</code></pre></a>
+				</section>
+
+			</section>
+
+			<section>
+				<h1>Ideen</h1>
+			</section>
+
+			<section>
+				<h3>Kartenvisualisierung</h3>
+				<a href="http://blog.lobid.org/data/nwbib-at-cdv.html"><img src="img/karte.png" style="border: none; box-shadow: none;" width=700 /></a>
+				<small>Karte mit Raumbezügen zu einer bestimmten Abfrage</small>
+			</section>
+
+			<section>
+				<h3>Orte & Personen in anderen Datensets</h3>
+				<p><span class="fragment">Im <a href="https://codingdavinci.de/daten/#volkskundliche-kommission-fur-westfalen-landschaftsverband-westfalen-lippe">Volksliedarchiv zu Westfalen</a> tauchen in den Liednamen etwa folgende Orte auf: <a href="https://nwbib.de/spatial#Q182691">Espelkamp</a>, <a href="https://nwbib.de/spatial#Q1971675">Natzungen</a>, <a href="https://nwbib.de/spatial#Q200528">Vreden</a></span></p>
+				<p><span class="fragment">In <a href="https://codingdavinci.de/daten/#euregiohistory">euregio-history.net</a> gibt es die Spalten 'field_place' und 'field_regions'. Die dort eingetragenen Orte finden sich häufig in der NWBib-Raumsystematik/in Wikidata.</span></p>
+				<p><span class="fragment">Über das <a href="https://codingdavinci.de/daten/#lwl-freilichtmuseum-detmold">Freilichtmuseum Detmold</a> und die Gebäude dort gibt es <a href="https://nwbib.de/search?subject=http%3A%2F%2Fd-nb.info%2Fgnd%2F605200-9">176 Einträge</a> in der NWBib</span></p>
+			</section>
+
+			<section>
+				<h3>Weiterführende Informationen im Blogbeitrag <a href="http://blog.lobid.org/tags/nwbib">"NWBib-Daten für Coding da Vinci"</a>.</h3>
+			</section>
+
+			<section>
+				<h3>Bei Fragen: Kontaktieren Sie uns über <a href="https://openbiblio.social/@lobid">Mastodon</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="irc://irc.freenode.net/lobid">IRC</a>, <a href="semweb@hbz-nrw.de">E-Mail</a>.</h3>
 			</section>
 
 			<section>
