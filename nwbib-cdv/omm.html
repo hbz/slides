@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Die Nordrhein-Westfälische Bibliographie (NWBib)</title>
+
+		<meta name="description" content="Slide für One Minute Madness beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\" am 12.10.2019 in Dortmund">
+		<meta name="author" content="Pascal Christoph, Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Die Nordrhein-Westfälische Bibliographie (NWBib)",
+			"creator" : [{
+				"id": "http://lobid.org/team/pc#!",
+				"type": "Person",
+				"name": "Pascal Christoph"
+			},
+			{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Slide für One Minute Madness beim Kickoff des Hackathons \"Coding da Vinci Westfalen-Ruhrgebiet\" am 12.10.2019 in Dortmund",
+			"about" : [ "NWBib", "lobid", "API", "Hackathon", "Coding da Vinci"],
+			"url" : "https://slides.lobid.org/skohub-ffm/",
+			"datePublished" : "2019-10-12",
+			"inLanguage" : "de",
+			"audience": [ "developers" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+			ul {
+			  list-style-type: square !important;
+			}
+			li {
+				margin: 12px 0 !important;
+				font-size: 30px !important;
+				line-height: 1.1 !important;
+			}
+			.floatRight{float:right;margin-left:20px}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+			<section>
+				<h3>Die Nordrhein-Westfälische Bibliographie (NWBib)</h3>
+				<ul>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Print-NWBib.jpg/1920px-Print-NWBib.jpg" style="margin: 15px" width=400px class="floatRight" />
+					<li>Verzeichnet Literatur über über NRW, seine Regionen, Orte und Persönlichkeiten</li>
+					<li>Umfasst mehr als 420.000 seit 1983 erschienene Bücher, Aufsätze, Landkarten, DVDs & andere Medien</li>
+					<li>Verfügbar als JSON(-LD) über eine Web-API und als Vollabzug</li>
+					<li>Viele Verlinkungen zu Wikidata und der Gemeinsamen Normdatei (GND)</li>
+					<li>Details später und unter <a href="http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html">http://blog.lobid.org/2019/10/08/nwbib-at-cdv.html</a></li>
+				</ul>
+				<a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" class="floatRight" /></a>
+		</section>
+
+		</div>
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
