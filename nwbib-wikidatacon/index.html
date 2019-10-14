@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Using Wikidata to improve spatial subject indexing in a regional bibliography</title>
+
+		<meta name="description" content="Presentation for WikidataCon as part of the \"Libraries Panel\", 26 October 2019 in Berlin">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Using Wikidata to improve spatial subject indexing in a regional bibliography",
+			"creator" : [
+			{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Presentation for WikidataCon as part of the \"Libraries Panel\", 26 October 2019 in Berlin",
+			"about" : [ "NWBib", "Wikidata", "lobid" ],
+			"url" : "http://slides.lobid.org/nwbib-wikidatacon/",
+			"datePublished" : "2019-10-26",
+			"inLanguage" : "de",
+			"audience": [ "developers", "librarians", "wikidatans" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Using Wikidata to improve spatial subject indexing in a regional bibliography</h2>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Berlin, 2019-10-26</small>
+        </p>
+        <p>
+          This presentation: <br /> <a
+            href="http://slides.lobid.org/nwbib-wikidatacon/">http://slides.lobid.org/nwbib-wikidatacon/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+				<h3>NWBib</h3>
+				<p><span class="fragment"><a href="http://www.wikidata.org/entity/Q1237350">NWBib = "North-Rhine Westphalian Bibliography"</a></a></span></p>
+				<p><span class="fragment">a <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q1609504)</a> that records literature about North-Rhine Westphalia, its regions, places and people</span></p>
+				<p><span class="fragment">besides monographs, especially articles are recorded as well as maps, DVDs etc.</span></p>
+				<p><span class="fragment">420.000 entries from publication year 1983 onwards</span></p>
+				<p><span class="fragment">Web application: <a href="https://nwbib.de">nwbib.de</a> (based on <a href="https://lobid.org/resources">lobid-resources</a>' web API)</span></p>
+				<p><span class="fragment">Cataloging in hbz union catalog (Aleph)</span></p>
+			</section>
+
+			<section>
+				<h3>Bild</h3>
+				<a href="https://nwbib.de/"><img src="img/name.png" style="border: none; box-shadow: none;" width=700 /></a>
+			</section>
+
+			<section>
+				<h3>The problem</h3>
+				<p><span class="fragment">8,800 string names for places (often with lots if variants for one place)</a></a></span></p>
+				<p><span class="fragment">wish to hve a spatial classification instead</span></p>
+			</section>
+
+			<section>
+        <h1>The problem</h1>
+      </section>
+
+			<section>
+				<section>
+					<h1><a href="https://nwbib.de/">Demo</a></h1>
+				</section>
+
+				<section>
+					<h3>Spatial subjects in NWBib JSON</h3>
+					<pre><code>{
+  "spatial":[
+      {
+          "focus":{
+              "id":"http://www.wikidata.org/entity/Q1250595",
+              "geo":{
+                  "lat":51.5189,
+                  "lon":7.32528
+              },
+              "type":[
+                  "http://www.wikidata.org/entity/Q253019"
+              ]
+          },
+          "id":"https://nwbib.de/spatial#Q1250595",
+          "type":[
+              "Concept"
+          ],
+          "label":"Bövinghausen",
+          "source":{
+              "id":"https://nwbib.de/spatial",
+              "label":"Raumsystematik der Nordrhein-Westfälischen Bibliographie"
+          }
+      }
+  ]
+}</code></pre>
+				</section>
+
+			<section>
+				<h3>Querying for literature based on a place's QID</h3>
+				<a href="https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ1250595%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>spatial.focus.id:"http://www.wikidata.org/entity/Q1250595"</code></pre></a>
+			</section>
+
+			<section>
+				<h3>Questions? Contact us via <a href="https://openbiblio.social/@lobid">Mastodon</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="irc://irc.freenode.net/lobid">IRC</a>, <a href="semweb@hbz-nrw.de">E-Mail</a>.</h3>
+			</section>
+
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
