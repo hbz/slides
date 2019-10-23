@@ -157,9 +157,9 @@
 				<h3>How we did it: Five steps</h3>
 				<ol>
 					<li>Match strings with Wikidata</li>
-					<li>Create transitional classification from Wikidata & update lobid/NWBib data</li>
+					<li>Create classification from Wikidata & update lobid/NWBib data</li>
 					<li>Add links to NWBib in Wikidata with custom property plus qualifier for broader term</li>
-					<li>Create SKOS file from Wikidata</li>
+					<li>Establish process for updating classification including review</li>
 					<li>Update data in union catalogue (Aleph) & use classification URIs in cataloging</li>
 				</ol>
 			</section>
@@ -215,7 +215,7 @@
 			<section>
 			 <h3>Create transitional classification</h3>
 			 <p><span class="fragment">Based on Wikidata entries and hierarchical statements (mainly <a href="https://www.wikidata.org/wiki/Property:P131">P131</a>)</span></p>
-			 <p><span class="fragment">Add SKOS concept URIS and links to Wikidata to lobid/NWbib (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
+			 <p><span class="fragment">Add SKOS concept URIS and links to Wikidata to lobid/NWBib (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
 			</section>
 			
 			<section>
@@ -272,7 +272,7 @@
 
 
 			<section>
-				<h3>Create classification from Wikidata</h3>
+				<h3>Establish update and review processes</h3>
 				<p><span class="fragment">Classification is created based on conf file and Wikidata: <a href="https://nwbib.de/spatial">spatial classification</a> (<a href="https://nwbib.de/spatial.ttl">SKOS version</a>)</span></p>
 				<p><span class="fragment">New classification entries are included by adding a P6814 (NWBib ID) statement in Wikidata</span></p>
 				<p><span class="fragment">Hierarchy is adjusted using the P4900 qualifier</span></p>
