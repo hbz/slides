@@ -92,8 +92,8 @@
 			<section>
 				<h3>NWBib</h3>
 				<p><span class="fragment"><a href="http://www.wikidata.org/entity/Q1237350">NWBib = "North-Rhine Westphalian Bibliography"</a></a></span></p>
-				<p><span class="fragment">A <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q1609504)</a> that records literature about North-Rhine Westphalia (NRW), its regions, places and people</span></p>
-				<p><span class="fragment"><base href="#" target="_blank">sides monographs, especially articles are recorded as well as maps, DVDs etc.</span></p>
+				<p><span class="fragment">A <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q16095</a> that records literature about North-Rhine Westphalia (NRW), its regions, places and people</span></p>
+				<p><span class="fragment">besides monographs, especially articles are recorded as well as maps, DVDs etc.</span></p>
 				<p><span class="fragment">420.000 entries from publication year 1983 onwards</span></p>
 				<p><span class="fragment">Web application: <a href="https://nwbib.de">nwbib.de</a> (based on <a href="https://lobid.org/resources">lobid-resources</a>' web API)</span></p>
 				<p><span class="fragment">Cataloging in hbz union catalog (Aleph)</span></p>
@@ -146,6 +146,13 @@
 			 <p><span class="fragment">Infrastructure for maintenance was already there plus an community we could participate in to keep the data up to date</span></p>
 			</section>
 
+			<section>
+			 <h3>Requirement: intermediate data store</h3>
+			 <p><span class="fragment">NWBib editors did not want NWBib to directly rely on Wikidata</span></p>
+			 <p><span class="fragment">...because Wikidata servers are not under our control</span></p>
+			 <p><span class="fragment">Also fear of unwelcome edits or vandalism</span></p>
+			 <p><span class="fragment">So we decided to create an intermediate SKOS (<a href="https://www.wikidata.org/wiki/Q2288360">Simple Knowledge Organization System</a>) file the application would rely on</span></p>
+			</section>
 
 			<section>
 				<h3>How we did it: Five steps</h3>
@@ -200,16 +207,57 @@
 			</section>
 
 			<section>
-			 <h3>Matching: Results</h3>
+			 <h3>Matching Results</h3>
 			 <p><span class="fragment">Successful automatic matching for &gt;99% of records and ~92% of the place strings</span></p>
 			 <p><span class="fragment">For &lt;1000 strings the matching was incorrect </span></p>
 			 <p><span class="fragment">Catalogers adjusted catalog records and made &gt;6000 manual edits to Wikidata to reach 100% coverage (adding aliases & type information, creating new entries)</span></p>
 			</section>
 
 			<section>
-			 <h3>Create transitional classification from WD</h3>
-			 <p><span class="fragment">Based hierarchical statements in Wikidata (mainly <a href="https://www.wikidata.org/wiki/Property:P131">P131</a>)</span></p>
-			 <p><span class="fragment">NWBib/lobid data contains concept URIS and links to Wikidata (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
+			 <h3>Create transitional classification</h3>
+			 <p><span class="fragment">Based on Wikidata entries and hierarchical statements (mainly <a href="https://www.wikidata.org/wiki/Property:P131">P131</a>)</span></p>
+			 <p><span class="fragment">Add SKOS concept URIS and links to Wikidata to lobid/NWbib (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
+			</section>
+			
+			<section>
+				<h3>Spatial subjects in NWBib/lobid JSON</h3>
+				<pre><code>{
+  "spatial":[
+     {
+        "focus":{
+           "id":"http://www.wikidata.org/entity/Q365",
+           "geo":{
+              "lat":50.942222222222,
+              "lon":6.9577777777778
+           },
+           "type":[
+              "http://www.wikidata.org/entity/Q22865",
+              "http://www.wikidata.org/entity/Q707813",
+              "http://www.wikidata.org/entity/Q200250",
+              "http://www.wikidata.org/entity/Q2202509",
+              "http://www.wikidata.org/entity/Q42744322",
+              "http://www.wikidata.org/entity/Q1549591"
+           ]
+        },
+        "id":"https://nwbib.de/spatial#Q365",
+        "type":[
+           "Concept"
+        ],
+        "label":"Köln",
+        "notation":"05315000",
+        "source":{
+           "id":"https://nwbib.de/spatial",
+           "label":"Raumsystematik der Nordrhein-Westfälischen Bibliographie"
+        }
+     }
+  ]
+				}</code></pre>
+				<small><a href="https://lobid.org/resources/HT017710656.json">Example entry</a></small>
+			</section>
+			
+			<section>
+				<h3>Querying for literature based on a place's QID</h3>
+				<a href="https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>spatial.focus.id:"http://www.wikidata.org/entity/Q365"</code></pre></a>
 			</section>
 
 			<section>
@@ -220,64 +268,29 @@
 			</section>
 
 			<section>
+				<img src="img/wd-example.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+
+			<section>
 				<h3>Create classification from Wikidata</h3>
 				<p><span class="fragment">Classification is created based on conf file and Wikidata: <a href="https://nwbib.de/spatial">spatial classification</a> (<a href="https://nwbib.de/spatial.ttl">SKOS version</a>)</span></p>
-				<p><span class="fragment">new classification entries are included by adding a P6814 (NWBib ID) statement in Wikidata</span></p>
-				<p><span class="fragment">hierarchy is adjusted using the P4900 qualifier</span></p>
-				<p><span class="fragment">review process for new versions of the classification to be specified</span></p>
+				<p><span class="fragment">New classification entries are included by adding a P6814 (NWBib ID) statement in Wikidata</span></p>
+				<p><span class="fragment">Hierarchy is adjusted using the P4900 qualifier</span></p>
+				<p><span class="fragment">Review process for new versions of the classification to be specified</span></p>
 			</section>
 
 			<section>
 				<h3>Update base data and cataloging process (to do)</h3>
-				<p><span class="fragment">by the end of 2019 catalogers will use Wikidata-based URIs for spatial subject indexing in AKeph</span></p>
-				<p><span class="fragment">existing NWBib entries will be updated in Aleph</span></p>
+				<p><span class="fragment"><pre><code>Köln$$0https://nwbib.de/spatial#Q365</code></pre></span></p>
+				<p><span class="fragment">By the end of 2019 catalogers will start using Wikidata-based URIs for spatial subject indexing in Aleph</span></p>
+				<p><span class="fragment">Existing NWBib entries will be updated in Aleph</span></p>
 			</section>
 
 			<section>
 			 <h3>Status Quo</h3>
-			 <p><span class="fragment">NWBib/lobid data contains concept URIS (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
-			 <p><span class="fragment"></span></p>
-			</section>
-
-			<section>
-				<h3>Spatial subjects in NWBib/lobid JSON</h3>
-				<pre><code>{
-"spatial":[
-   {
-      "focus":{
-         "id":"http://www.wikidata.org/entity/Q365",
-         "geo":{
-            "lat":50.942222222222,
-            "lon":6.9577777777778
-         },
-         "type":[
-            "http://www.wikidata.org/entity/Q22865",
-            "http://www.wikidata.org/entity/Q707813",
-            "http://www.wikidata.org/entity/Q200250",
-            "http://www.wikidata.org/entity/Q2202509",
-            "http://www.wikidata.org/entity/Q42744322",
-            "http://www.wikidata.org/entity/Q1549591"
-         ]
-      },
-      "id":"https://nwbib.de/spatial#Q365",
-      "type":[
-         "Concept"
-      ],
-      "label":"Köln",
-      "notation":"05315000",
-      "source":{
-         "id":"https://nwbib.de/spatial",
-         "label":"Raumsystematik der Nordrhein-Westfälischen Bibliographie"
-      }
-   }
-]
-}</code></pre>
-				<small><a href="https://lobid.org/resources/HT017710656.json">Example entry</a></small>
-			</section>
-
-			<section>
-				<h3>Querying for literature based on a place's QID</h3>
-				<a href="https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>spatial.focus.id:"http://www.wikidata.org/entity/Q365"</code></pre></a>
+			 <p><span class="fragment"><a href="https://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22+AND+_exists_%3Aspatial.focus">More than 400k NWBib entries</a> with links to Wikidata</span></p>
+			 <p><span class="fragment"><a href="https://query.wikidata.org/#%23%20Get%20entries%20with%20NWBib-ID%20plus%20label%0ASELECT%20DISTINCT%0A%3Fitem%0A%3FitemLabel%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP6814%20%3FnwbibId.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22de%22%20%7D%0A%7D">More than 4,400 Wikidata entries with links to NWBib</a></span></p>
 			</section>
 
 			<section>
