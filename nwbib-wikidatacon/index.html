@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Using Wikidata to improve spatial subject indexing in a regional bibliography</title>
+
+		<meta name="description" content="Presentation for WikidataCon as part of the \"Libraries Panel\", 26 October 2019 in Berlin">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Using Wikidata to improve spatial subject indexing in a regional bibliography",
+			"creator" : [
+			{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Presentation for WikidataCon as part of the \"Libraries Panel\", 26 October 2019 in Berlin",
+			"about" : [ "NWBib", "Wikidata", "lobid" ],
+			"url" : "http://slides.lobid.org/nwbib-wikidatacon/",
+			"datePublished" : "2019-10-26",
+			"inLanguage" : "de",
+			"audience": [ "developers", "librarians", "wikidatans" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			pre { white-space: pre-wrap; }
+			#footer-left {
+				position: absolute;
+				bottom: 1%;
+				left: 0.5%;
+				color: lightgray;
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+<div id="footer-left"></div>
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Using Wikidata to improve spatial subject indexing in a regional bibliography</h2>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> /
+            <a href="https://twitter.com/acka47">@acka47</a> <br /> <br /> <a
+            href="https://www.hbz-nrw.de/produkte/linked-open-data">Linked
+              Open Data, Hochschulbibliothekszentrum NRW (hbz)</a></small> <br />
+          <a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Berlin, 2019-10-26</small>
+        </p>
+        <p>
+          This presentation: <br /> <a
+            href="http://slides.lobid.org/nwbib-wikidatacon/">http://slides.lobid.org/nwbib-wikidatacon/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+				<h3>NWBib</h3>
+				<p><span class="fragment"><a href="http://www.wikidata.org/entity/Q1237350">NWBib = "North-Rhine Westphalian Bibliography"</a></a></span></p>
+				<p><span class="fragment">A <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q1609504)</a> that records literature about North-Rhine Westphalia (NRW), its regions, places and people</span></p>
+				<p><span class="fragment"><base href="#" target="_blank">sides monographs, especially articles are recorded as well as maps, DVDs etc.</span></p>
+				<p><span class="fragment">420.000 entries from publication year 1983 onwards</span></p>
+				<p><span class="fragment">Web application: <a href="https://nwbib.de">nwbib.de</a> (based on <a href="https://lobid.org/resources">lobid-resources</a>' web API)</span></p>
+				<p><span class="fragment">Cataloging in hbz union catalog (Aleph)</span></p>
+			</section>
+
+			<section>
+				<h3>The initial status (2017)</h3>
+				<p><span class="fragment">8,800 distinct strings for places (mostly administrative areas, but also monasteries, principalities, natural regions etc.)</span></p>
+				<p><span class="fragment">Strings naively matched to Wikidata entries for geo coordinates (since <a href="https://github.com/hbz/nwbib/issues/42">2014</a>)</span></p>
+				<p><span class="fragment">Drawbacks: non-unique names, no hierarchy, poor WD matching</span></p>
+			</section>
+
+			<section>
+				<h3>Initial data (extract)</h3>
+				<p>
+					<pre><code>  3 "Brauweiler"
+  1 "Brauweiler, Puhlheim"
+132 "Brauweiler &lt;Pulheim&gt;"
+  5 "Brauweiler, Pulheim"
+  4 "Breitenbruch &lt;Arnsberg&gt;"
+  1 "Brelen"
+ 29 "Bremen &lt;Ense&gt;"
+  1 "Bremke &lt;Menden, Sauerland&gt;"
+  1 "Brempt"
+  1 "Bremscheid"
+  4 "Bremscheid &lt;Eslohe, Sauerland&gt;"
+  3 "Brenig"
+  2 "Brenken &lt;Büren, Kreis Paderborn&gt;"
+ 21 "Brenken &lt;Büren, Paderborn&gt;"</code></pre>
+				<small>See full list at <a href="https://gist.github.com/acka47/ccd3715201442e8cb78c70cca9ebd1ab">https://gist.github.com/acka47/ccd3715201442e8cb78c70cca9ebd1ab</a></small>
+				</p>
+			</section>
+
+			<section>
+			 <h3>Goal: a full-fledged spatial classification</h3>
+			 <p><span class="fragment">Hierarchical view of places based on administrative areas</span></p>
+			 <p><span class="fragment">One entry/ID for each place</span></p>
+			</section>
+
+			<section>
+				<h3>Mockup by NWBib editors (2016)</h3>
+				<a href="https://github.com/hbz/nwbib/wiki/Raumnotationen-und-Ortsangaben#zuk%C3%BCnftige-einbindung-der-raumnotationen-in-die-nwbib"><img src="img/20160808_raumnotationen.png" style="border: none; box-shadow: none;" width=650 /></a>
+			</section>
+
+			<section>
+			 <h3>Best option: Wikidata</h3>
+			 <p><span class="fragment">We looked at Integrated Authority File (GND), GeoNames and Wikidata</span></p>
+			 <p><span class="fragment">We chose Wikidata as data base mainly because of its coverage, the free infrastructure plus editing capabilities</span></p>
+			 <p><span class="fragment">Good coverage of place entries, geo coordinates and hierarchical information</span></p>
+			 <p><span class="fragment">Infrastructure for maintenance was already there plus an community we could participate in to keep the data up to date</span></p>
+			</section>
+
+
+			<section>
+				<h3>How we did it: Five steps</h3>
+				<ol>
+					<li>Match strings with Wikidata</li>
+					<li>Create transitional classification from Wikidata & update lobid/NWBib data</li>
+					<li>Add links to NWBib in Wikidata with custom property plus qualifier for broader term</li>
+					<li>Create SKOS file from Wikidata</li>
+					<li>Update data in union catalogue (Aleph) & use classification URIs in cataloging</li>
+				</ol>
+			</section>
+
+			<section>
+			 <h3>Matching approach</h3>
+			 <p><span class="fragment">Matching via API isn't sufficient (e.g. because different levels of administrative areas have very similar names)</span></p>
+			 <p><span class="fragment">Matching via custom Elasticsearch index (maximizing precision by type restriction)</span></p>
+			 <p><span class="fragment">The index ist built based on Wikidata SPARQL query for specific entities in NRW</span></p>
+			 <span class="fragment"><small>(see query evolution <a href="https://github.com/hbz/lobid-resources/commits/73a19ba820c82cb04a866121810fc919c5f0d370/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.txt">I</a> and <a href="https://github.com/hbz/lobid-resources/commits/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql">II</a>)</small></span>
+			</section>
+
+			<section>
+				<h3>Example resource in matching index</h3>
+				<p>
+					<pre><code>{
+   "spatial":{
+      "id":"http://www.wikidata.org/entity/Q897382",
+      "label":"Ehrenfeld",
+      "geo":{
+         "lat":50.9464,
+         "lon":6.91833
+      },
+      "type":[
+         "http://www.wikidata.org/entity/Q15632166"
+      ]
+   },
+   "aliases":[
+      {
+         "language":"de",
+         "value":"Köln/Ehrenfeld"
+      },
+      {
+         "language":"de",
+         "value":"Köln-Ehrenfeld"
+      }
+   ],
+   "locatedIn":{
+      "language":"de",
+      "value":"Köln-Ehrenfeld"
+   }
+}</code></pre>
+				</p>
+			</section>
+
+			<section>
+			 <h3>Matching: Results</h3>
+			 <p><span class="fragment">Successful automatic matching for &gt;99% of records and ~92% of the place strings</span></p>
+			 <p><span class="fragment">For &lt;1000 strings the matching was incorrect </span></p>
+			 <p><span class="fragment">Catalogers adjusted catalog records and made &gt;6000 manual edits to Wikidata to reach 100% coverage (adding aliases & type information, creating new entries)</span></p>
+			</section>
+
+			<section>
+			 <h3>Create transitional classification from WD</h3>
+			 <p><span class="fragment">Based hierarchical statements in Wikidata (mainly <a href="https://www.wikidata.org/wiki/Property:P131">P131</a>)</span></p>
+			 <p><span class="fragment">NWBib/lobid data contains concept URIS and links to Wikidata (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
+			</section>
+
+			<section>
+				<h3>Linking Wikidata and NWBib</h3>
+				<p><span class="fragment">Create <a href="https://www.wikidata.org/wiki/Property:P6814">Wikidata property for NWBib ID</a></span></p>
+				<p><span class="fragment">Batch load NWBib IDs with <a href="https://tools.wmflabs.org/quickstatements/#/">QuickStatements</a> (<a href="https://github.com/hbz/nwbib/issues/469">issue</a>)</span></p>
+				<p><span class="fragment">Add broader information to NWBib ID statements with qualifier <a href="https://www.wikidata.org/wiki/Property:P4900">P4900</a> (<a href="https://github.com/hbz/nwbib/issues/487">issue</a>)</span></p>
+			</section>
+
+			<section>
+				<h3>Create classification from Wikidata</h3>
+				<p><span class="fragment">Classification is created based on conf file and Wikidata: <a href="https://nwbib.de/spatial">spatial classification</a> (<a href="https://nwbib.de/spatial.ttl">SKOS version</a>)</span></p>
+				<p><span class="fragment">new classification entries are included by adding a P6814 (NWBib ID) statement in Wikidata</span></p>
+				<p><span class="fragment">hierarchy is adjusted using the P4900 qualifier</span></p>
+				<p><span class="fragment">review process for new versions of the classification to be specified</span></p>
+			</section>
+
+			<section>
+				<h3>Update base data and cataloging process (to do)</h3>
+				<p><span class="fragment">by the end of 2019 catalogers will use Wikidata-based URIs for spatial subject indexing in AKeph</span></p>
+				<p><span class="fragment">existing NWBib entries will be updated in Aleph</span></p>
+			</section>
+
+			<section>
+			 <h3>Status Quo</h3>
+			 <p><span class="fragment">NWBib/lobid data contains concept URIS (see "spatial" object in <a href="https://lobid.org/resources/HT017710656.json">JSON  example</a>)</span></p>
+			 <p><span class="fragment"></span></p>
+			</section>
+
+			<section>
+				<h3>Spatial subjects in NWBib/lobid JSON</h3>
+				<pre><code>{
+"spatial":[
+   {
+      "focus":{
+         "id":"http://www.wikidata.org/entity/Q365",
+         "geo":{
+            "lat":50.942222222222,
+            "lon":6.9577777777778
+         },
+         "type":[
+            "http://www.wikidata.org/entity/Q22865",
+            "http://www.wikidata.org/entity/Q707813",
+            "http://www.wikidata.org/entity/Q200250",
+            "http://www.wikidata.org/entity/Q2202509",
+            "http://www.wikidata.org/entity/Q42744322",
+            "http://www.wikidata.org/entity/Q1549591"
+         ]
+      },
+      "id":"https://nwbib.de/spatial#Q365",
+      "type":[
+         "Concept"
+      ],
+      "label":"Köln",
+      "notation":"05315000",
+      "source":{
+         "id":"https://nwbib.de/spatial",
+         "label":"Raumsystematik der Nordrhein-Westfälischen Bibliographie"
+      }
+   }
+]
+}</code></pre>
+				<small><a href="https://lobid.org/resources/HT017710656.json">Example entry</a></small>
+			</section>
+
+			<section>
+				<h3>Querying for literature based on a place's QID</h3>
+				<a href="https://lobid.org/resources/search?q=spatial.focus.id%3A%22http%3A%2F%2Fwww.wikidata.org%2Fentity%2FQ365%22+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22"><pre><code>spatial.focus.id:"http://www.wikidata.org/entity/Q365"</code></pre></a>
+			</section>
+
+			<section>
+				<h3>Questions? Contact us via <a href="https://openbiblio.social/@lobid">Mastodon</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="irc://irc.freenode.net/lobid">IRC</a>, <a href="semweb@hbz-nrw.de">E-Mail</a>.</h3>
+			</section>
+
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+			Reveal.addEventListener('adrian', function() { document.querySelector('#footer-left').innerHTML = 'A'; } );
+			Reveal.addEventListener('pascal', function() { document.querySelector('#footer-left').innerHTML = 'P'; } )
+			Reveal.addEventListener('alle', function() { document.querySelector('#footer-left').innerHTML = 'A & P'; } );
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
