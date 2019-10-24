@@ -91,10 +91,10 @@
 			<section>
 				<h3>NWBib</h3>
 				<p><span class="fragment"><a href="http://www.wikidata.org/entity/Q1237350">NWBib = "North-Rhine Westphalian Bibliography"</a></a></span></p>
-				<p><span class="fragment">A <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q16095</a> that records literature about North-Rhine Westphalia (NRW), its regions, places and people</span></p>
+				<p><span class="fragment">A <a href="http://www.wikidata.org/entity/Q1609504">regional bibliography (Q1609504)</a> that records literature about North-Rhine Westphalia (NRW), its regions, places and people</span></p>
 				<p><span class="fragment">besides monographs, especially articles are recorded as well as maps, DVDs etc.</span></p>
 				<p><span class="fragment">420.000 entries from publication year 1983 onwards</span></p>
-				<p><span class="fragment">Web application: <a href="https://nwbib.de">nwbib.de</a> (based on <a href="https://lobid.org/resources">lobid-resources</a>' web API)</span></p>
+				<p><span class="fragment">Web application: <a href="https://nwbib.de">nwbib.de</a> (based on <a href="https://lobid.org/resources">lobid-resources</a> API)</span></p>
 				<p><span class="fragment">Cataloging in hbz union catalog (Aleph)</span></p>
 			</section>
 
@@ -142,7 +142,7 @@
 			 <p><span class="fragment">We looked at Integrated Authority File (GND), GeoNames and Wikidata</span></p>
 			 <p><span class="fragment">We chose Wikidata as data base mainly because of its coverage, its existing infrastructure</span></p>
 			 <p><span class="fragment">Good coverage of place entries, geo coordinates and hierarchical information</span></p>
-			 <p><span class="fragment">Infrastructure for editing and versioning was already there plus an community we could participate in to keep the data up to date</span></p>
+			 <p><span class="fragment">Infrastructure for editing and versioning was already there plus a community we could participate in to keep the data up to date</span></p>
 			</section>
 
 			<section>
@@ -157,10 +157,10 @@
 				<h3>How we did it: Five steps</h3>
 				<ol>
 					<li>Match strings with Wikidata</li>
-					<li>Create classification from Wikidata & update lobid/NWBib data</li>
+					<li>Create classification from Wikidata &amp; update lobid/NWBib data</li>
 					<li>Add links to NWBib in Wikidata with custom property plus qualifier for broader term</li>
 					<li>Establish process for updating classification including review</li>
-					<li>Update data in union catalogue (Aleph) & use classification URIs in cataloging</li>
+					<li>Update data in union catalog (Aleph) &amp; use classification URIs in cataloging</li>
 				</ol>
 			</section>
 
@@ -168,7 +168,7 @@
 			 <h3>Matching approach</h3>
 			 <p><span class="fragment">Matching via API isn't sufficient (e.g. because different levels of administrative areas have very similar names)</span></p>
 			 <p><span class="fragment">Matching via custom Elasticsearch index (maximizing precision by type restriction)</span></p>
-			 <p><span class="fragment">The index ist built based on Wikidata SPARQL query for specific entities in NRW</span></p>
+			 <p><span class="fragment">The index is built based on Wikidata SPARQL query for specific entities in NRW</span></p>
 			 <span class="fragment"><small>(see query evolution <a href="https://github.com/hbz/lobid-resources/commits/73a19ba820c82cb04a866121810fc919c5f0d370/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.txt">I</a> and <a href="https://github.com/hbz/lobid-resources/commits/master/src/main/resources/getNwbibSubjectLocationsAsWikidataEntities.sparql">II</a>)</small></span>
 			</section>
 
@@ -209,7 +209,7 @@
 			 <h3>Matching Results</h3>
 			 <p><span class="fragment">Successful automatic matching for &gt;99% of records and ~92% of the place strings</span></p>
 			 <p><span class="fragment">For &lt;1000 strings the matching was incorrect </span></p>
-			 <p><span class="fragment">Catalogers adjusted catalog records and made &gt;6000 manual edits to Wikidata to reach 100% coverage (adding aliases & type information, creating new entries)</span></p>
+			 <p><span class="fragment">Catalogers adjusted catalog records and made &gt;6000 manual edits to Wikidata to reach 100% coverage (adding aliases &amp; type information, creating new entries)</span></p>
 			</section>
 
 			<section>
@@ -273,7 +273,7 @@
 
 			<section>
 				<h3>Establish update and review processes</h3>
-				<p><span class="fragment">Classification is created based on conf file and Wikidata: <a href="https://nwbib.de/spatial">spatial classification</a> (<a href="https://nwbib.de/spatial.ttl">SKOS version</a>)</span></p>
+				<p><span class="fragment">Classification is created based on base SKOS conf file and Wikidata: <a href="https://nwbib.de/spatial">spatial classification</a> (<a href="https://nwbib.de/spatial.ttl">SKOS version</a>)</span></p>
 				<p><span class="fragment">New classification entries are included by adding a P6814 (NWBib ID) statement in Wikidata</span></p>
 				<p><span class="fragment">Hierarchy is adjusted using the P4900 qualifier</span></p>
 				<p><span class="fragment">Review process for new versions of the classification to be specified</span></p>
@@ -281,7 +281,7 @@
 
 			<section>
 				<h3>Update base data and cataloging process (to do)</h3>
-				<p><span class="fragment"><pre><code>Köln$$0https://nwbib.de/spatial#Q365</code></pre></span></p>
+				<p><span class="fragment"><code class="nohighlight">Köln$$0https://nwbib.de/spatial#Q365</code></span></p>
 				<p><span class="fragment">By the end of 2019 catalogers will start using Wikidata-based URIs for spatial subject indexing in Aleph</span></p>
 				<p><span class="fragment">Existing NWBib entries will be updated in Aleph</span></p>
 			</section>
@@ -293,7 +293,8 @@
 			</section>
 
 			<section>
-				<h3>Questions? Contact us via <a href="https://openbiblio.social/@lobid">Mastodon</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="irc://irc.freenode.net/lobid">IRC</a>, <a href="semweb@hbz-nrw.de">E-Mail</a>.</h3>
+				<h3>Questions?</h3>
+				<p>Contact us via <a href="https://openbiblio.social/@lobid">Mastodon</a>, <a href="https://twitter.com/lobidOrg">Twitter</a>, <a href="irc://irc.freenode.net/lobid">IRC</a>, <a href="mailto:semweb@hbz-nrw.de">E-Mail</a></p>
 			</section>
 
      </div>
