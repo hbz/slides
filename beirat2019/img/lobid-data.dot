@@ -6,29 +6,29 @@ digraph data {
 	edge[arrowhead=empty arrowtail=empty]
 	rankdir=TD
 	splines=false
-	
+
 	subgraph cluster_1{
 	style=invis
-	
+
 	/*
 	subgraph cluster_libs{
 		style=invis
 		libs [label="Libraries"]
 	}
 	*/
-	
+
 	subgraph cluster_title{
 		style=solid
 		label="Titeldaten"
 		union [label="hbz-VK (Aleph)"]
 	}
-	
+
 	subgraph cluster_geo{
 		style=solid
 		label="Geodaten"
 		wikidata[label="Wikidata\n(JSON)"]
 	}
-	
+
 	subgraph cluster_auth{
 		style=solid
 		label="Normdaten"
@@ -36,26 +36,30 @@ digraph data {
 		sigel[label="Sigel\n(Pica)"]
 		dbs[label="DBS\n(CSV)"]
 	}
-	
-	
-	
+
+
+
 	api[label="lobid-API" width=3]
-	
+
 	//libs->union[lhead=cluster_title]
 	//libs->sigel[lhead=cluster_auth]
-	
+
 	wikidata->api[ltail=cluster_geo]
 	sigel->api[ltail=cluster_auth]
 	union->api[ltail=cluster_title]
-	
+
 	app1[label="NWBib"]
 	app2[label="Edoweb"]
 	app3[label="FRL"]
-	app4[label="..."]
-	
+	app4[label="VDL"]
+	app5[label="FDDL"]
+	app6[label="..."]
+
 	api->app1[dir=back]
 	api->app2[dir=back]
 	api->app3[dir=back]
 	api->app4[dir=back]
+	api->app5[dir=back]
+	api->app6[dir=back]
 	}
-} 
+}
