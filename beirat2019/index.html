@@ -84,6 +84,7 @@
 				<ol>
 					<li>lobid: Nutzungsbeispiele</li>
 					<li>Was steckt dahinter?</li>
+					<li>Testimonials</li>
 				</ol>
       </section>
 
@@ -93,7 +94,16 @@
 			</section>
 
 			<section>
+				<h4>lobid – ein zentraler Knoten bibliothekarischer Dateninfrastruktur</h4>
+				<img src="img/lobid-anwender.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
 				<h1>1. lobid: Nutzungsbeispiele</h1>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-vzg-hbz-link.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
@@ -103,8 +113,34 @@
 			</section>
 
 			<section>
+				<h3>VZG-Standortverzeichnis</h3>
+				<a href="http://uri.gbv.de/organization/"><img src="img/vzg-standortverzeichnis.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf lobid-Organisationsdaten</span></p>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-edoweb-publisso-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Edoweb und Fachrepositorium Lebenswisschenschaften (FRL)</h3>
+				<a href="https://www.edoweb-rlp.de/"><img src="img/edoweb.png" width=450 style="border: none; box-shadow: none;" /></a><a href="https://repository.publisso.de"><img src="img/publisso.png" width=450 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Enge Integration der lobid-Verbunddaten und des lobid-Datenmodells</span></p>
+				<p><span class="fragment">In Publisso auch GND-ID-Lookup via lobid</p>
+			</section>
+
+			<section>
+				<h3>GND-Lookup im Fachrepositorium Lebenswissenschaften</h3>
+				<img src="img/frl-gnd-lookup.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-nwbib-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
 				<h3>NWBib</h3>
-				<p><span class="fragment">Datenbasis kommt vollständig aus lobid</span></p>
+				<p><span class="fragment">Webanwendung, die nahezu vollständig auf lobid-Daten basiert</span></p>
 				<p><span class="fragment">Nutzt das NWBib-Subset in den lobid-Verbunddaten</span></p>
 				<p><span class="fragment">Informationen zu besitzenden Bibliotheken aus lobid-Organisationsdaten</span></p>
 				<p><span class="fragment">Themenvorschläge auf Basis von lobid-gnd</p>
@@ -122,21 +158,19 @@
 			</section>
 
 			<section>
-				<a href="https://nwbib.de/topics?q=gentrification"><img src="img/nwbib-suchvorschlag.png" width=700 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/search?q=variantName:Gentrification&filter=type:(NOT%20(ConferenceOrEvent%20Work))&size=500">Suche in den Verweisungsformen der GND</a> und Anzeige von bis zu drei Vorschlägen, die am meisten Treffer in der NWBib bringen</span></p>
-			</section>
-
-			<section>
-				<h3>Edoweb und Fachrepositorium Lebenswisschenschaften (FRL)</h3>
-				<a href="https://www.edoweb-rlp.de/"><img src="img/edoweb.png" width=450 style="border: none; box-shadow: none;" /></a><a href="https://repository.publisso.de"><img src="img/publisso.png" width=450 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Basieren auf lobid-Daten</span></p>
-				<p><span class="fragment">Im FRL-Erfassungsformular GND-ID-Lookup via lobid</p>
+				<img src="img/lobid-anwender-js-link.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
 				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
 				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=700 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Basiert auf lobid-Daten mit Bestand in DE-5-34</span></p>
+			</section>
+
+			<section>
+				<h3>Virtuelle Deutsche Landesbibliographie</h3>
+				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Seit April 2018 ist nwbib.de in die VDL integriert.</span></p>
 			</section>
 
 			<section>
@@ -259,38 +293,11 @@ describedBy.deleted:[20190214 TO 2019023]
       </section>
 
 			<section>
-        <h1>3. lobid-gnd & lobid-organisations</h1>
-      </section>
-
-			<section>
 				<h3>Unterschiede zu lobid-resources-API</h3>
 				<p><span class="fragment">Normdaten statt Titeldaten</span></p>
 				<p><span class="fragment">Ausgangsdaten: bei lobid-gnd RDF/XML, bei lobid-organisations Pica-Plus-XML und CSV</span></p>
 				<p><span class="fragment">Bereitstellung einer OpenRefine Reconciliation API, siehe z.B. <a href="http://lobid.org/gnd/api#openrefine">http://lobid.org/gnd/api#openrefine</a></span></p>
       </section>
-
-			<section>
-        <h1>4. Anwendungs-<br />beispiele</h1>
-      </section>
-
-			<section>
-				<h3>NWBib</h3>
-				<a href="https://nwbib.de"><img src="img/nwbib.png" width=800 style="border: none; box-shadow: none;" /></a>
-			</section>
-
-			<section>
-				<h3>GND-Lookup im CMIF Creator 2</h3>
-				<blockquote>Der <a href="https://correspsearch.net/creator/index.xql?l=de">CMIF Creator</a> ermöglicht das bequeme, formularbasierte Erstellen von digitalen Briefverzeichnissen gedruckter Editionen im <a href="https://github.com/TEI-Correspondence-SIG/CMIF">"Corresponence Metadata Interchange Format"</a> (CMIF) – auch ohne technische Kenntnisse. (...)
-					[Es ist] nun möglich, direkt im Formular die zu einer Person oder Körperschaft passende ID aus der Gemeinsamen Normdatei auszuwählen.
-					Hierbei greift der CMIF Creator 2 auf die von <a href="https://lobid.org/">lobid.org</a> bereitgestellte <a href="http://lobid.org/gnd/api">GND-API</a> zurück.</blockquote>
-				<p><font size="3">Quelle: <a href="https://dhd-blog.org/?p=10632">Stefan Dumont, "correspSearch: Neue Tools, neue Daten – und eine Auszeichnung"</a></font></p>
-			</section>
-
-			<section>
-				<h3>Virtuelle Deutsche Landesbibliographie</h3>
-				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
-				<p><span class="fragment">Seit April 2018 ist nwbib.de in die VDL integriert.</span></p>
-			</section>
 
 			<section>
 				<h3>Reconciliation mit OpenRefine</h3>
@@ -314,6 +321,26 @@ describedBy.deleted:[20190214 TO 2019023]
 
 			<section>
 				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+        <h1>Twitter Testimonials</h1>
+      </section>
+
+			<section>
+				<a href="https://twitter.com/stefandumont/status/1006480443611467776"><img src="img/testimonial-dumont.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/stricker_/status/1014661748199186432"><img src="img/testimonial-stricker.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/FrueheNeuzeit/status/1122588243059458048"><img src="img/testimonial-philosopher.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/hauschke/status/1013706849147867136"><img src="img/testimonial-hauschke.png" width=700 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
