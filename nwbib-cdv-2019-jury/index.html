@@ -95,21 +95,22 @@
 
 			<section>
 				<h3>Zwei Projekte: euregio-history-map und NWBib-NRW Städte-Quiz</h3>
-				<p><span class="fragment">beiden Projekten dient die <a href="https://www.wikidata.org/">Wikidata</a> als Datengrundlage</span></p>
-				<p><span class="fragment"><a href="https://euregio-history.net/">euregio-history</a> beruht zusätzlich auf den Metadaten ihrer ca. 70 Geschichten</span></p>
+				<p><span class="fragment">beiden Projekten dient die <a href="https://www.wikidata.org/">Wikidata</a> als Datengrundlage. Zusätzlich verwenden sie folgende Metadaten:</span></p>
+				<p><span class="fragment"><a href="https://euregio-history.net/">euregio-history</a>: ca. 70 Geschichten, die in CdV hochgeladen wurden</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/download/tmp/nrw-quiz/">Das NWBib-NRW Städte Quiz</a> basiert auf der NRW-Landesbibliographie mit ca 400k Metadaten</a></span></p>
 			</section>
 			<section>
         <h1>euregio-history: Ausgangslage</h1>
 				<p><span class="fragment">sammelt Zeitzeugengeschichten im Grenzgebiet Niederlande-Deutschland</span></p>
-				<p><span class="fragment">aktuell (2019) existieren um die 70 Geschichten</span></p>
+				<p><span class="fragment">aktuell (2019) existieren mehr als 90 Geschichten</span></p>
 				<p><span class="fragment">rudimentäre Metadaten, u.a. auch mit Ortsnamen</span></p>
 				<p><span class="fragment">Projektleitung: Dr. Alexandra Bloch Pfister (ab@alexandra-bloch.de)</span></p>
 			</section>
 
 			<section>
         <h1>euregio-history: Anreicherung mit Geodaten</h1>
-				<p><span class="fragment">Städtenamen auf Wikidata Entitäten matchen</span></p>
+				<p><span class="fragment">Die Idee war: interaktive Karte</span></p>
+				<p><span class="fragment">Dazu: Städtenamen auf Wikidata Entitäten matchen</span></p>
 				<p><span class="fragment">&lt;= Geodaten aus Wikidata holen</span></p>
 				<p><span class="fragment">Geodaten und Titeldaten in eine geojson-Datei</span></p>
 				<p><span class="fragment">dies ermöglicht interaktive Karte mit javascript</span></p>
@@ -130,13 +131,14 @@
 
 			<section>
         <h1>NWBib-NRW Städte-Quiz </h1>
-				<p><span class="fragment">Die Webanwendung der NWBib basiert auf der lobid-API</span></p>
-				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Die hbz-Verbunddaten als Linked Open Data unter CC0 Public Domain Dedication</span></p>
+				<p><span class="fragment">basiert auf 20M hbz-Verbunddaten</span></p>
+				<p><span class="fragment">alles CC0 lizensiert</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a> exponiert diese als Linked Open Data</span></p>
 				<p><span class="fragment">lobid-API: JSON(-LD) über HTTP</span></p>
 			</section>
 
 			<section>
-				<h3>Link zur lobid-Sicht</h3>
+				<h3>NWBib</h3>
 				<a href="https://nwbib.de/BT000063880"><img src="img/lobid-link.png" style="border: none; box-shadow: none;" width=700 /></a>
 			</section>
 
@@ -177,15 +179,15 @@
 
 			<section>
 				<h1>Wie es zur Idee des Quiz' kam</h1>
-				<p><span class="fragment">unkonkrete Kartenvisualisierungsidee bei der <a href="http:/slides.lobid.org/nwbib-cdv/#/16">Vorstellung des Datensets</a></span></p>
-
-				<p><span class="fragment">konkrete Idee konnte auf dem Anfangstreffen nicht gefunden werden </span></p>
-				<p><span class="fragment">ist mir dann Abends auf der Heimreise im Zug eingefallen</a></span></p>
-				<p><span class="fragment">Dank des CdV Teams (@cdvwest) reagierte @_hanwong <a href="https://twitter.com/_hanwong/status/1186571496451444736"</a>und verwies auf seinen nachnutzbaren Code</span></p>
+				<p><span class="fragment">unkonkrete Idee bei der <a href="http:/slides.lobid.org/nwbib-cdv/#/16">Vorstellung des Datensets</a></span></p>
+				<p><span class="fragment">keine konkrete Idee auf dem CdV-Anfangstreffen</span></p>
+				<p><span class="fragment">erst Abends auf der Heimreise im Zug eingefallen</a></span></p>
+				<p><span class="fragment">Dank des CdV Teams (@cdvwest) reagierte @_hanwong <a href="https://twitter.com/_hanwong/status/1186571496451444736">und verwies auf seinen nachnutzbaren Code</a></span></p>
+				<p><span class="fragment">&lt;= wichtig! Weil wir nicht genug/die richtigen Ressourcen hatten zur kompletten Neuentwicklung</span></p>
 			</section>
 
 			<section>
-				<h3>Einstiegsseite</h3>
+				<h3>Einstiegsseite: Levelauswahl</h3>
 				<a href="https://lobid.org/download/tmp/nrw-quiz/"><img src="img/Einstiegsseite.png" style="border: none; box-shadow: none; height: 50%; width: 50%" /></a>
 			</section>
 
@@ -218,8 +220,9 @@
 			</section>
 
 			<section>
-				<h1>Datenverbesserung durch Datengebrauch</h1>
-					<p><span class="fragment">Oberhausen hatte falsche Geodaten in Wikidata.(Siehst Du erst, wenn Du's siehst ...)</span></p>
+				<h1>Daten verbessern: durch Gebrauch</h1>
+					<p><span class="fragment">Oberhausen hatte falsche Geodaten in Wikidata</span></p>
+					<p><span class="fragment">(Siehst Du erst, wenn Du's siehst ...)</span></p>
 					<p><span class="fragment">Daten <a href="https://www.wikidata.org/w/index.php?title=Q2838&diff=prev&oldid=1064660592">selber verbessern in Wikidata</a></span></p>
 				</section>
 
