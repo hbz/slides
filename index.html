@@ -2,6 +2,17 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<title>slides.lobid.org</title>
+		<link rel="stylesheet" media="screen" href="https://lobid.org/assets/stylesheets/lobid.css">
+		<link rel="stylesheet" media="all" href="https://lobid.org/assets/stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" media="all" href="https://lobid.org/assets/stylesheets/jquery-ui.min.css">
+		<link rel="stylesheet" media="all" href='https://lobid.org/assets/stylesheets/font-awesome.min.css'>
+		<link rel="shortcut icon" type="image/png" href="https://lobid.org/assets/images/favicon.png">
+		<script src="https://lobid.org/assets/javascripts/jquery-1.10.2.min.js"></script>
+		<script src="https://lobid.org/assets/javascripts/jquery-ui.min.js"></script>
+		<script src="https://lobid.org/assets/javascripts/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
 	</head>
 	<style>
 		table {
@@ -13,190 +24,249 @@
 		}
 	</style>
 	<body style="font-family: sans;">
+		<div class="container">
+		<p/>
+			<div class="navbar navbar-default" role="navigation">
+				<div class="container-fluid" id="header">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#lobid-nav">
+							<span class="sr-only">Navigation ein/ausblenden</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="https://lobid.org/">
+						<span><img id="butterfly" src='https://lobid.org/assets/images/lobid.png'/></span></a>
+					</div>
+					<div class="navbar-collapse collapse" id="lobid-nav">
+						<ul class="nav navbar-nav">
+							<li><a href="https://lobid.org/resources">resources</a></li>
+							<li><a href="https://lobid.org/organisations">organisations</a></li>
+							<li><a href="https://lobid.org/gnd">gnd</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Publikationen">Publikationen</span><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="http://blog.lobid.org/">Blog</a></li>
+									<li class="active"><a href="http://slides.lobid.org/">Slides</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Info"><span class="glyphicon glyphicon-info-sign"></span><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="https://lobid.org/team">Team</a></li>
+									<li><a href="mailto:semweb@hbz-nrw.de?subject=Feedback%20zu%20slides.lobid.org">Feedback</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="page-header">
+					<h1>
+						<img class="media-object nrw-logo pull-right" src="https://lobid.org/assets/images/hbz.png" alt="hbz">
+						lobid <small>&mdash; Präsentationsfolien</small>
+					</h1>
+				</div>
+				<table>
+					<tr>
+						<td>2019-12-06</td>
+						<td><a href="http://slides.lobid.org/nwbib-cdv-2019-jury/">"CodingDaVinci Westfalen 2019: NWBib-NRW Städte-Quiz"</a>, Pascal Christoph. Präsentation auf der <a href="https://codingdavinci.de/events/westfalen-ruhrgebiet/">CdV West 2019</a>, Dortmund</td>
+					</tr>
 
-		<h1>hbz-Präsentationsfolien</h1>
-		<table>
-			<tr>
-				<td>2019-12-06</td>
-				<td><a href="http://slides.lobid.org/nwbib-cdv-2019-jury/">"CodingDaVinci Westfalen 2019: NWBib-NRW Städte-Quiz"</a>, Pascal Christoph. Präsentation auf der <a href="https://codingdavinci.de/events/westfalen-ruhrgebiet/">CdV West 2019</a>, Dortmund</td>
-			</tr>
+					<tr>
+						<td>2019-11-27</td>
+						<td><a href="https://pad.gwdg.de/p/BJvl5sFiB/">"SkoHub: KOS-based content syndication with ActivityPub"</a>, Adrian Pohl, Felix Ostrowski (graphthinking GmbH). Presentation at <a href="https://swib.org/swib19/">SWIB19</a>, Hamburg</td>
+					</tr>
 
-			<tr>
-				<td>2019-11-27</td>
-				<td><a href="https://pad.gwdg.de/p/BJvl5sFiB/">"SkoHub: KOS-based content syndication with ActivityPub"</a>, Adrian Pohl, Felix Ostrowski (graphthinking GmbH). Presentation at <a href="https://swib.org/swib19/">SWIB19</a>, Hamburg</td>
-			</tr>
+					<tr>
+						<td>2019-11-22</td>
+						<td><a href="http://slides.lobid.org/beirat2019">"Offene Infrastruktur – Was heißt das?"</a>, Adrian Pohl. Präsentation in der hbz-Beiratssitzung, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2019-11-22</td>
-				<td><a href="http://slides.lobid.org/beirat2019">"Offene Infrastruktur – Was heißt das?"</a>, Adrian Pohl. Präsentation in der hbz-Beiratssitzung, Köln</td>
-			</tr>
+					<tr>
+						<td>2019-10-26</td>
+						<td><a href="http://slides.lobid.org/nwbib-wikidatacon">"Using Wikidata to improve spatial subject indexing in a regional bibliography"</a>, Adrian Pohl. Presentation for WikidataCon as part of the <a href="https://www.wikidata.org/wiki/Wikidata:WikidataCon_2019/Program/Sessions/Libraries_panel">Libraries Panel</a>, Berlin</td>
+					</tr>
 
-			<tr>
-				<td>2019-10-26</td>
-				<td><a href="http://slides.lobid.org/nwbib-wikidatacon">"Using Wikidata to improve spatial subject indexing in a regional bibliography"</a>, Adrian Pohl. Presentation for WikidataCon as part of the <a href="https://www.wikidata.org/wiki/Wikidata:WikidataCon_2019/Program/Sessions/Libraries_panel">Libraries Panel</a>, Berlin</td>
-			</tr>
+					<tr>
+						<td>2019-10-12</td>
+						<td><a href="http://slides.lobid.org/nwbib-cdv">"Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)"</a>, Pascal Christoph. Präsentation des NWBib-Datensets beim Hackathon Coding da Vinci Westfalen-Ruhrgebiet, Dortmund</td>
+					</tr>
 
-			<tr>
-				<td>2019-10-12</td>
-				<td><a href="http://slides.lobid.org/nwbib-cdv">"Hinweise zur Nutzung der Nordrhein-Westfälische Bibliographie (NWBib)"</a>, Pascal Christoph. Präsentation des NWBib-Datensets beim Hackathon Coding da Vinci Westfalen-Ruhrgebiet, Dortmund</td>
-			</tr>
+					<tr>
+						<td>2019-06-18</td>
+						<td><a href="http://slides.lobid.org/skohub-ffm">"SkoHub – normdatenbasierte Content Syndication"</a>, Adrian Pohl. Input beim Treffen deutscher Akteur*innen im Bereich OER(-Metadaten)-Infrastruktur, Frankfurt am Main</td>
+					</tr>
 
-			<tr>
-				<td>2019-06-18</td>
-				<td><a href="http://slides.lobid.org/skohub-ffm">"SkoHub – normdatenbasierte Content Syndication"</a>, Adrian Pohl. Input beim Treffen deutscher Akteur*innen im Bereich OER(-Metadaten)-Infrastruktur, Frankfurt am Main</td>
-			</tr>
+					<tr>
+						<td>2019-06-18</td>
+						<td><a href="http://slides.lobid.org/standardisierung-ffm">"Standardisierung von OER-Metadaten"</a>, Adrian Pohl. Input beim Treffen deutscher Akteur*innen im Bereich OER(-Metadaten)-Infrastruktur, Frankfurt am Main</td>
+					</tr>
 
-			<tr>
-				<td>2019-06-18</td>
-				<td><a href="http://slides.lobid.org/standardisierung-ffm">"Standardisierung von OER-Metadaten"</a>, Adrian Pohl. Input beim Treffen deutscher Akteur*innen im Bereich OER(-Metadaten)-Infrastruktur, Frankfurt am Main</td>
-			</tr>
+					<tr>
+						<td>2019-05-29</td>
+						<td><a href="http://slides.lobid.org/skohub-hbz/">"SkoHub – KOS-based content syndication"</a>, Adrian Pohl. Presentation in hbz English course, Cologne</td>
+					</tr>
 
-			<tr>
-				<td>2019-05-29</td>
-				<td><a href="http://slides.lobid.org/skohub-hbz/">"SkoHub – KOS-based content syndication"</a>, Adrian Pohl. Presentation in hbz English course, Cologne</td>
-			</tr>
+					<tr>
+						<td>2019-05-07</td>
+						<td><a href="https://hbz.github.io/elag2019-bootcamp/">"From LOD to LOUD: building & using JSON-LD APIs"</a>, Fabian Steeg, Adrian Pohl, Pascal Christoph. Bootcamp at <a href="https://www.elag2019.de/programme.html">ELAG 2019</a>, Berlin</td>
+					</tr>
 
-			<tr>
-				<td>2019-05-07</td>
-				<td><a href="https://hbz.github.io/elag2019-bootcamp/">"From LOD to LOUD: building & using JSON-LD APIs"</a>, Fabian Steeg, Adrian Pohl, Pascal Christoph. Bootcamp at <a href="https://www.elag2019.de/programme.html">ELAG 2019</a>, Berlin</td>
-			</tr>
+					<tr>
+						<td>2019-03-29</td>
+						<td><a href="http://slides.lobid.org/htw-chur-2019">"Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked Open Data am hbz"</a>, Lehrveranstaltung im Rahmen des Kurses "Semantische Systeme" im Bachelorstudiengang Informationswissenschaften an der HTW Chur, Leipzig</td>
+					</tr>
 
-			<tr>
-				<td>2019-03-29</td>
-				<td><a href="http://slides.lobid.org/htw-chur-2019">"Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked Open Data am hbz"</a>, Lehrveranstaltung im Rahmen des Kurses "Semantische Systeme" im Bachelorstudiengang Informationswissenschaften an der HTW Chur, Leipzig</td>
-			</tr>
+					<tr>
+						<td>2019-03-14</td>
+						<td><a href="http://slides.lobid.org/metafacture-workshop/">"Metafacture-Workshop"</a>, Metafacture-Workshop im hbz, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2019-03-14</td>
-				<td><a href="http://slides.lobid.org/metafacture-workshop/">"Metafacture-Workshop"</a>, Metafacture-Workshop im hbz, Köln</td>
-			</tr>
+					<tr>
+						<td>2019-03-12</td>
+						<td><a href="http://slides.lobid.org/hbz-katinfo-2019/">"lobid – offene, webbasierte Infrastruktur für Titel- und Normdaten"</a>, Adrian Pohl. Vortrag bei einer hbz-Informationsveranstaltung für Katalogisierer*innen, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2019-03-12</td>
-				<td><a href="http://slides.lobid.org/hbz-katinfo-2019/">"lobid – offene, webbasierte Infrastruktur für Titel- und Normdaten"</a>, Adrian Pohl. Vortrag bei einer hbz-Informationsveranstaltung für Katalogisierer*innen, Köln</td>
-			</tr>
+					<tr>
+						<td>2019-02-21</td>
+						<td><a href="http://slides.lobid.org/hbz-info-2019/">"lobid – offene, webbasierte Infrastruktur für Titel- und Normdaten"</a>, Adrian Pohl. Vortrag in hbz-interner Infoveranstaltung, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2019-02-21</td>
-				<td><a href="http://slides.lobid.org/hbz-info-2019/">"lobid – offene, webbasierte Infrastruktur für Titel- und Normdaten"</a>, Adrian Pohl. Vortrag in hbz-interner Infoveranstaltung, Köln</td>
-			</tr>
+					<tr>
+						<td>2018-12-04</td>
+						<td><a href="http://slides.lobid.org/gndcon18/">"lobid-gnd – Rechercheoberfläche & LOD-API für die GND"</a>, Adrian Pohl. Impulsvortrag bei der "Tools"-Session auf der <a href="https://wiki.dnb.de/x/PIbpBw">GNDCon</a>, Frankfurt/Main</td>
+					</tr>
 
-			<tr>
-				<td>2018-12-04</td>
-				<td><a href="http://slides.lobid.org/gndcon18/">"lobid-gnd – Rechercheoberfläche & LOD-API für die GND"</a>, Adrian Pohl. Impulsvortrag bei der "Tools"-Session auf der <a href="https://wiki.dnb.de/x/PIbpBw">GNDCon</a>, Frankfurt/Main</td>
-			</tr>
+					<tr>
+						<td>2018-11-26</td>
+						<td><a href="https://hbz.github.io/swib18-workshop/">"From LOD to LOUD: making data usable"</a>, Fabian Steeg, Adrian Pohl, Pascal Christoph. Pre-conference Workshop bei der <a href="http://swib.org/swib18/programme.html#abs03">SWIB18</a>, Bonn</td>
+					</tr>
 
-			<tr>
-				<td>2018-11-26</td>
-				<td><a href="https://hbz.github.io/swib18-workshop/">"From LOD to LOUD: making data usable"</a>, Fabian Steeg, Adrian Pohl, Pascal Christoph. Pre-conference Workshop bei der <a href="http://swib.org/swib18/programme.html#abs03">SWIB18</a>, Bonn</td>
-			</tr>
+					<tr>
+						<td>2018-09-05</td>
+						<td><a href="http://slides.lobid.org/danrw-20180905/">"Regal – Eine flexible Repository Lösung"</a>, Jan Schnasse. hbz-interne Präsentation, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2018-09-05</td>
-				<td><a href="http://slides.lobid.org/danrw-20180905/">"Regal – Eine flexible Repository Lösung"</a>, Jan Schnasse. hbz-interne Präsentation, Köln</td>
-			</tr>
+					<tr>
+						<td>2018-06-14</td>
+						<td><a href="http://slides.lobid.org/bibtag18/">"lobid – offene, webbasierte Infrastruktur für zentrale bibliothekarische Daten"</a>, Adrian Pohl. Vortrag beim <a href="https://bibliothekartag2018.de/">107. Bibliothek*tag</a>, Berlin</td>
+					</tr>
 
-			<tr>
-				<td>2018-06-14</td>
-				<td><a href="http://slides.lobid.org/bibtag18/">"lobid – offene, webbasierte Infrastruktur für zentrale bibliothekarische Daten"</a>, Adrian Pohl. Vortrag beim <a href="https://bibliothekartag2018.de/">107. Bibliothek*tag</a>, Berlin</td>
-			</tr>
+					<tr>
+						<td>2018-05-29</td>
+						<td><a href="http://slides.lobid.org/kmk-oer/">"(Freie) Lernmaterialien im Web verfügbar machen"</a>, Adrian Pohl. Vortrag bei der <a href="https://elan-ev.de/kmk/index.php">KMK-Tagung "Virtuelle Lehrangebote und technische Anforderungen"</a>, Hannover</td>
+					</tr>
 
+					<tr>
+						<td>2018-04-11</td>
+						<td><a href="http://slides.lobid.org/kim-ws-2018-lightning-talk/">"lobid-GND - Rechercheoberfläche & LOD-API für die GND"</a>, Christoph Ewertowski. Lightning Talk beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2018">DINI-KIM-Workshop 2018</a>, Mannheim</td>
+					</tr>
 
-			<tr>
-				<td>2018-05-29</td>
-				<td><a href="http://slides.lobid.org/kmk-oer/">"(Freie) Lernmaterialien im Web verfügbar machen"</a>, Adrian Pohl. Vortrag bei der <a href="https://elan-ev.de/kmk/index.php">KMK-Tagung "Virtuelle Lehrangebote und technische Anforderungen"</a>, Hannover</td>
-			</tr>
+					<tr>
+						<td>2018-04-10</td>
+						<td><a href="http://slides.lobid.org/kim-ws-2018/">"JSON-LD – Einführung und Anwendungen"</a>, Adrian Pohl. Vortrag beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2018">DINI-KIM-Workshop 2018</a>, Mannheim</td>
+					</tr>
 
-			<tr>
-				<td>2018-04-11</td>
-				<td><a href="http://slides.lobid.org/kim-ws-2018-lightning-talk/">"lobid-GND - Rechercheoberfläche & LOD-API für die GND"</a>, Christoph Ewertowski. Lightning Talk beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2018">DINI-KIM-Workshop 2018</a>, Mannheim</td>
-			</tr>
+					<tr>
+						<td>2017-12-05</td>
+						<td><a href="http://slides.lobid.org/swib17-lightning-talk">"Creating a spatial classification from Wikidata"</a>, Adrian Pohl. Lightning Talk bei der <a href="http://swib.org/swib17/">SWIB17</a>, Hamburg</td>
+					</tr>
 
-			<tr>
-				<td>2018-04-10</td>
-				<td><a href="http://slides.lobid.org/kim-ws-2018/">"JSON-LD – Einführung und Anwendungen"</a>, Adrian Pohl. Vortrag beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2018">DINI-KIM-Workshop 2018</a>, Mannheim</td>
-			</tr>
+					<tr>
+						<td>2017-10-24</td>
+						<td><a href="http://slides.lobid.org/kim-oer-infrastruktur">"Infrastruktur für OER-Metadaten"</a>, Adrian Pohl. Impulsvortrag beim 2. Online-Meeting der AG OER Metadaten, WWW</td>
+					</tr>
 
-			<tr>
-				<td>2017-12-05</td>
-				<td><a href="http://slides.lobid.org/swib17-lightning-talk">"Creating a spatial classification from Wikidata"</a>, Adrian Pohl. Lightning Talk bei der <a href="http://swib.org/swib17/">SWIB17</a>, Hamburg</td>
-			</tr>
+					<tr>
+						<td>2017-10-24</td>
+						<td><a href="http://slides.lobid.org/open-access-infotag-koeln-2017">"Regal – Eine flexible Repository Lösung"</a>, Jan Schnasse. Vortrag beim Open-Access-Infotag, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2017-10-24</td>
-				<td><a href="http://slides.lobid.org/kim-oer-infrastruktur">"Infrastruktur für OER-Metadaten"</a>, Adrian Pohl. Impulsvortrag beim 2. Online-Meeting der AG OER Metadaten, WWW</td>
-			</tr>
+					<tr>
+						<td>2017-09-26</td>
+						<td><a href="http://slides.lobid.org/eubfws2017/">"Bibframe at hbz"</a>, Adrian Pohl. Präsentation im Rahmen des <a href="https://wiki.dnb.de/display/EBW/EUBFWS2017">European BIBFRAME Workshop</a>, Frankfurt/Main</td>
+					</tr>
 
-			<tr>
-				<td>2017-10-24</td>
-				<td><a href="http://slides.lobid.org/open-access-infotag-koeln-2017">"Regal – Eine flexible Repository Lösung"</a>, Jan Schnasse. Vortrag beim Open-Access-Infotag, Köln</td>
-			</tr>
+					<tr>
+						<td>2017-07-27</td>
+						<td><a href="http://slides.lobid.org/lobid-show-and-tell/">"lobid 2.0 – Building a LOD-based web API"</a>, Adrian Pohl. IGeLU and ELUNA Show & Tell, WWW (<a href="https://www.youtube.com/watch?v=nwapscatwnU">Aufzeichnung</a>)</td>
+					</tr>
 
-			<tr>
-				<td>2017-09-26</td>
-				<td><a href="http://slides.lobid.org/eubfws2017/">"Bibframe at hbz"</a>, Adrian Pohl. Präsentation im Rahmen des <a href="https://wiki.dnb.de/display/EBW/EUBFWS2017">European BIBFRAME Workshop</a>, Frankfurt/Main</td>
-			</tr>
+					<tr>
+						<td>2017-05-23</td>
+						<td><a href="http://slides.lobid.org/bibcast17/">"lobid-organisations – Ein umfassendes Verzeichnis deutscher Informationseinrichtungen"</a>, Adrian Pohl. Präsentation im Rahmen des BibCast, WWW (<a href="https://www.youtube.com/watch?v=iKYJtL0VjH0">Aufzeichnung</a>)</td>
+					</tr>
 
-			<tr>
-				<td>2017-07-27</td>
-				<td><a href="http://slides.lobid.org/lobid-show-and-tell/">"lobid 2.0 – Building a LOD-based web API"</a>, Adrian Pohl. IGeLU and ELUNA Show & Tell, WWW (<a href="https://www.youtube.com/watch?v=nwapscatwnU">Aufzeichnung</a>)</td>
-			</tr>
+					<tr>
+						<td>2017-05-11</td>
+						<td><a href="http://slides.lobid.org/siit-170511">"Werkstattbericht – Autocompletion für Agrovoc-Schlagworte mit JSKOS & Elasticsearch"</a>, Jan Schnasse. Präsentation beim <a href="https://si-it-workshop.gbv.de/">1. Subject Indexing & Information Technology Workshop</a>, Göttingen</td>
+					</tr>
 
-			<tr>
-				<td>2017-05-23</td>
-				<td><a href="http://slides.lobid.org/bibcast17/">"lobid-organisations – Ein umfassendes Verzeichnis deutscher Informationseinrichtungen"</a>, Adrian Pohl. Präsentation im Rahmen des BibCast, WWW (<a href="https://www.youtube.com/watch?v=iKYJtL0VjH0">Aufzeichnung</a>)</td>
-			</tr>
+					<tr>
+						<td>2017-05-04</td>
+						<td><a href="http://slides.lobid.org/kim-ws-2017">"Best Practices der Datendokumentation"</a>, Adrian Pohl. Session beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+WS+2017">DINI-KIM-Workshop 2017</a>, Mannheim</td>
+					</tr>
 
-			<tr>
-				<td>2017-05-11</td>
-				<td><a href="http://slides.lobid.org/siit-170511">"Werkstattbericht – Autocompletion für Agrovoc-Schlagworte mit JSKOS & Elasticsearch"</a>, Jan Schnasse. Präsentation beim <a href="https://si-it-workshop.gbv.de/">1. Subject Indexing & Information Technology Workshop</a>, Göttingen</td>
-			</tr>
+					<tr>
+						<td>2017-04-11</td>
+						<td><a href="http://slides.lobid.org/lod-hbz/">"LOD @ hbz"</a>, hbz-interne Präsentation, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2017-05-04</td>
-				<td><a href="http://slides.lobid.org/kim-ws-2017">"Best Practices der Datendokumentation"</a>, Adrian Pohl. Session beim <a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+WS+2017">DINI-KIM-Workshop 2017</a>, Mannheim</td>
-			</tr>
+					<tr>
+						<td>2016-08-18</td>
+						<td><a href="http://slides.lobid.org/lobid-jsonld/">"JSON-LD in Lobid"</a>, Fabian Steeg. hbz-interne Präsentation, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2017-04-11</td>
-				<td><a href="http://slides.lobid.org/lod-hbz/">"LOD @ hbz"</a>, hbz-interne Präsentation, Köln</td>
-			</tr>
+					<tr>
+						<td>2016-05-12</td>
+						<td><a href="http://slides.lobid.org/lobid-entwicklungsprozess/">"Der Lobid-Entwicklungsprozess"</a>, Fabian Steeg. hbz-interne Präsentation, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2016-08-18</td>
-				<td><a href="http://slides.lobid.org/lobid-jsonld/">"JSON-LD in Lobid"</a>, Fabian Steeg. hbz-interne Präsentation, Köln</td>
-			</tr>
+					<tr>
+						<td>2016-02-23</td>
+						<td><a href="http://slides.lobid.org/bibcast16/">"lobid-organisations – Ein umfassender Index deutscher Informationseinrichtungen"</a>, Adrian Pohl. Präsentation im Rahmen des BibCast, WWW (<a href="https://www.youtube.com/watch?v=Nzj06azE_Gw">Aufzeichnung</a>)</td>
+					</tr>
 
-			<tr>
-				<td>2016-05-12</td>
-				<td><a href="http://slides.lobid.org/lobid-entwicklungsprozess/">"Der Lobid-Entwicklungsprozess"</a>, Fabian Steeg. hbz-interne Präsentation, Köln</td>
-			</tr>
+					<tr>
+						<td>2016-02-23</td>
+						<td><a href="http://slides.lobid.org/dbs-opendata/">"Freigabe von DBS-Daten"</a>, Adrian Pohl. Präsentation beim Treffen der ÖB-Steuerungsgruppe, Köln</td>
+					</tr>
 
-			<tr>
-				<td>2016-02-23</td>
-				<td><a href="http://slides.lobid.org/bibcast16/">"lobid-organisations – Ein umfassender Index deutscher Informationseinrichtungen"</a>, Adrian Pohl. Präsentation im Rahmen des BibCast, WWW (<a href="https://www.youtube.com/watch?v=Nzj06azE_Gw">Aufzeichnung</a>)</td>
-			</tr>
+					<tr>
+						<td>2015-10-27</td>
+						<td><a href="http://slides.com/acka47/20151027-nwbib-dini#/">"Zurück in die Zukunft – Die NWBib und das Web"</a>, Adrian Pohl. Präsentation bei der <a href="https://dini.de/veranstaltungen/jahrestagungen/2015/programm/">16. DINI-Jahrestagung</a>, Frankfurt/Main</td>
+					</tr>
 
-			<tr>
-				<td>2016-02-23</td>
-				<td><a href="http://slides.lobid.org/dbs-opendata/">"Freigabe von DBS-Daten"</a>, Adrian Pohl. Präsentation beim Treffen der ÖB-Steuerungsgruppe, Köln</td>
-			</tr>
+					<tr>
+						<td>2015-11-24</td>
+						<td><a href="http://slides.lobid.org/swib-15/">"LOD for applications – Using the Lobid API"</a>, Fabian Steeg. Presentation at <a href="http://swib.org/swib15/">SWIB15</a>, Hamburg</td>
+					</tr>
 
-			<tr>
-				<td>2015-10-27</td>
-				<td><a href="http://slides.com/acka47/20151027-nwbib-dini#/">"Zurück in die Zukunft – Die NWBib und das Web"</a>, Adrian Pohl. Präsentation bei der <a href="https://dini.de/veranstaltungen/jahrestagungen/2015/programm/">16. DINI-Jahrestagung</a>, Frankfurt/Main</td>
-			</tr>
-
-			<tr>
-				<td>2015-11-24</td>
-				<td><a href="http://slides.lobid.org/swib-15/">"LOD for applications – Using the Lobid API"</a>, Fabian Steeg. Presentation at <a href="http://swib.org/swib15/">SWIB15</a>, Hamburg</td>
-			</tr>
-
-			<tr>
-				<td>2010-2015</td>
-				<td><a href="https://speakerdeck.com/lobid">Ältere Präsentationsfolien, archiviert bei speakerdeck.com</a></td>
-			</tr>
-
-		<table>
+					<tr>
+						<td>2010-2015</td>
+						<td><a href="https://speakerdeck.com/lobid">Ältere Präsentationsfolien, archiviert bei speakerdeck.com</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel panel-default footer">
+				<div class="panel-body">
+					<span class="pull-left">
+						<img src='https://lobid.org/assets/images/wappen.png' alt="NRW-Wappen"/> &nbsp;
+						lobid | LOD-Dienste des <a href="https://www.hbz-nrw.de/produkte/linked-open-data">hbz — Hochschulbibliothekszentrum des Landes NRW</a>
+					</span>
+					<span class="pull-right">
+						<a href="https://www.hbz-nrw.de/impressum">Impressum</a> | 
+						<a href="https://github.com/hbz/lobid/blob/master/conf/Datenschutzerklaerung_lobid.textile">Datenschutz</a> | 
+						<a href="https://twitter.com/lobidorg"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>&nbsp; 
+						<a href="https://github.com/hbz/slides"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>&nbsp; 
+						<a href="http://blog.lobid.org"><i class="fa fa-pencil" aria-hidden="true"></i> Blog</a>
+					</span>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
