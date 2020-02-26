@@ -1,0 +1,43 @@
+digraph data {
+	compound=true
+	node[shape=box color=white fontcolor=white fontname=helvetica]
+	graph [bgcolor="#004678" color=white fontcolor=white fontname=helvetica]
+	edge[color=white fontcolor=white fontname=helvetica]
+	edge[arrowhead=empty arrowtail=empty]
+	rankdir=TD
+	splines=false
+
+	subgraph cluster_1{
+	style=invis
+
+	/*
+	subgraph cluster_libs{
+		style=invis
+		libs [label="Libraries"]
+	}
+	*/
+
+	source4[label="..." width=1]
+	source1[label="HHOU" width=1]
+	source2[label="Open RUB" width=2]
+	source3[label="ZOERR" width=1]
+
+
+	index[label="{Suchindex|API}" width=3 shape=record]
+
+
+	app1[label="Rechercheoberfläche"]
+	app2[label="NRW-Landesportal"]
+	app3[label="..."]
+
+	source1->index
+	source2->index
+	source3->index
+	source4->index
+
+	index->app1[dir=back]
+	index->app2[dir=back]
+	index->app3[dir=back]
+
+	}
+}
