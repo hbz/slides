@@ -66,7 +66,6 @@
 					<li>Metafacture concepts</li>
 					<li>Metafacture usage</li>
 					<li>Exercises: workflows, transforming,<br> analysing, and combining data</li>
-					<li>Specific issues / discussion</li>
 					<li>Outlook</li>
 					</ul>
 				</section>
@@ -76,32 +75,36 @@
 				</section>
 
 				<section>
-					<h1>What we do</h1>
-					<p><span class="fragment">Lobid (<i>linking open bibliographic data</i>), hbz linked data service, 
-					web APIs and search UIs for title and authority data</span></p>
-					<p><span class="fragment">Based on lobid: regional bibliography for NRW (<a href="https://nwbib.de">nwbib.de</a>)</span></p>
-					<p><span class="fragment">Transformation of source data to JSON-LD with Metafacture</span></p>
-					<p><span class="fragment">Open source development on GitHub (products and tools)</span></p>
+					<h1>What is Metafacture</h1>
+					<p><span class="fragment">[...] for processing semi-structured data, focus on library metadata</span>
+					<p><span class="fragment">A versatile tool: usable as command line tool, Java/JVM library; batch processing, on-the-fly</span></p>
+					<p><span class="fragment">An open framework: share and reuse solutions in the library world (both individual modules and complete workflows)</span></p>
 				</section>
 
 				<section>
-					<h1>This workshop</h1>
-					<p><span class="fragment">Origin: request by colleagues who are considering to switch from an experimental, project-based tool to Metafacture</span></p>
-					<p><span class="fragment">Metafacture: on GitHub since 2013, used at DNB, <a hef="https://www.swissbib.ch/">swissbib.ch</a>, <a href="https://lobid.org">lobid.org</a>, and others</span></p>
-					<p><span class="fragment">Versatile: usable as command line tool, Java library, batch processing, on-the-fly</span></p>
-					<p><span class="fragment">An open, common framework to avoid re-building things needed in the library world (individual modules, complete workflows)</span></p>
+					<h1>Who develops / uses Metafacture</h1>
+					<p><span class="fragment">Originally developed an maintained by Markus Geipel and Christoph Böhme at the <a href="https://www.dnb.de/us">German National Library (DNB)</a></span></p>
+					<p><span class="fragment">On GitHub since 2013, currently 18 contributors, 53 stars; since 2019 maintained by <a href="https://lobid.org/team">Open Infrastructure, hbz NRW</a></span></p>
+					<p><span class="fragment">Used e.g. by <a href="https://www.dnb.de/EN/Professionell/Metadatendienste/Datenbezug/LDS/lds_node.html">DNB LDS</a>, <a href="http://hub.culturegraph.org">Culturegraph</a>, <a href="http://www.dswarm.org/">D:SWARM</a>, <a href="https://www.swissbib.ch/">swissbib</a>, <a href="https://lobid.org">lobid</a></span></p>
+				</section>
+
+				<section>
+					<h1>Where we use Metafacture</h1>
+					<p><span class="fragment">Transformation of catalog data for indexing as JSON-LD</span></p>
+					<p><span class="fragment">hbz linked data service: web APIs and search UIs for title and authority data (<a href="https://lobid.org">lobid.org</a>)</span></p>
+					<p><span class="fragment">Based on lobid: regional bibliography for NRW (<a href="https://nwbib.de">nwbib.de</a>)</span></p>
 				</section>
 
 				<section>
 					<h1>Setup</h1>
-					<a href="https://github.com/hbz/slides/blob/master/metafacture-workshop/README.md" target=blank>metafacture-workshop/README.md</a>
+					<a href="https://github.com/hbz/slides/blob/master/metafacture-2020/README.md" target=blank>metafacture-2020/README.md</a>
 				</section>
 
 				<section>
 					<h1>Metafacture</h1>
 					<p><span class="fragment">Basic idea: data streams through multiple modules (read, decode, transform, encode, write)</span></p>
 					<p><span class="fragment">Each module reads data of a specific type and writes data of a specific type</span></p>
-					<p><span class="fragment">Various formats supported (MAB, MARC, METS, etc.), extensible framework</span></p>
+					<p><span class="fragment">Various formats supported (PICA, MAB, MARC, METS, etc.), extensible framework</span></p>
 				</section>
 
 				<section>
@@ -113,9 +116,8 @@
 				<section>
 					<h1>Workflows</h1>
 					<p><span class="fragment">Individual stream modules build the overall workflow</span></p>
-					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java</span></p>
-					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line</span></p>
-					<p><span class="fragment">We provide an Eclipse-based IDE to edit and run workflows</span></p>
+					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java (with typesafe input and output based on Java Generics)</span></p>
+					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line, Java workflows are like any Java program</span></p>
 				</section>
 
 				<section>
@@ -148,7 +150,7 @@ $ gedit sample1.flux &amp;
 						</code></pre>
 						<pre><code class="nohighlight" data-trim>
 "bib-data.pica.gz" 
-| open-file | as-lines | decode-pica | encode-formeta | write("stdout");
+|open-file|as-lines|decode-pica|encode-formeta|write("stdout");
 						</code></pre>
 						<pre><code class="bash" data-trim>
 $ ~/metafacture/flux.sh sample1.flux
@@ -362,7 +364,7 @@ $ ~/metafacture/flux.sh sample1.flux
 
 				<section>
 					<h2>Exercise 2: Logging</h2>
-					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
+					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
 						<pre><code class="nohighlight" data-trim>
 "input.foma.gz"
 |open-file
@@ -490,22 +492,14 @@ Writing: closeStream
 				</section>
 
 				<section>
-					<h2>Set up Metafacture IDE</h2>
-					<img src="img/metafacture-ide.png"/>
-					<p><a href="https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation">https://github.com/culturegraph/metafacture-ide/blob/master/MANUAL.textile#installation</a></p>
+					<h1>Metafacture documentation</h1>
+					<span class="fragment"><pre><code class="bash" data-trim>
+$ ./flux.sh # or flux.bat on Windows
+					</code></pre></span>
+					<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">
+					https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md</a></span></p>
+					<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation">https://github.com/metafacture/metafacture-documentation</a></span></p>
 				</section>
-
-				<section>
-					<h2>Run sample workflow</h2>
-					<img src="img/metafacture-ide-run.png"/>
-					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample0">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample0</a></small></p>
-				</section>
-
-				<section>
-					<h2>Checkout workshop branch</h2>
-					<p>Right-click metafacture-flux-examples > Team > Switch To > Other > *See image below* > Checkout as New Local Branch > Finish</p>
-					<img src="img/metafacture-ide-checkout.png"/>
-				</section> 
 
 				<section>
 					<h1>Transform data</h1>
@@ -1115,10 +1109,6 @@ bibdata
 				</section>
 
 				<section>
-					<h1>Specific issues / discussion</h1>
-				</section>
-
-				<section>
 					<h1>Outlook</h1>
 				</section>
 
@@ -1147,9 +1137,10 @@ bibdata
 				</section>
 
 				<section>
-					<h1>Ideas</h1>
-					<p><span class="fragment">Provide a record mode with a simplified morph DSL (think Catmandu::Fix)</span></p>
-					<p><span class="fragment">Provide a web based playground for simple input-morph-output experiments (think JSON-LD playground)</span></p>
+					<h1>Future goals</h1>
+					<p><span class="fragment">Provide a record mode with a simplified morph DSL (think Catmandu::Fix): <a href="https://github.com/metafacture/metafacture-fix">https://github.com/metafacture/metafacture-fix</a></span></p>
+					<p><span class="fragment">Fix as a standardized, implementation-independent language for data transformations: <a href="https://github.com/elag/FIG">https://github.com/elag/FIG</a></span></p>
+					<p><span class="fragment">Provide a web based playground for simple input-morph/fix-output experiments (think JSON-LD playground): <a href="http://test.lobid.org/fix/">http://test.lobid.org/fix</a></span></p>
 				</section>
 
 				<section>
