@@ -365,14 +365,14 @@ $ ~/metafacture/flux.sh sample1.flux
 				<section>
 					<h2>Exercise 2: Logging</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
-						<pre><code class="nohighlight" data-trim>
+						<pre><code class="bash" data-trim>
 "input.foma.gz"
 |open-file
 |as-lines
 |filter-strings("geburts", passMatches="false")
 |decode-formeta
-|morph(FLUX_DIR + "mystery-morph-1.xml")
-|morph(FLUX_DIR + "mystery-morph-2.xml")
+|morph("mystery-morph-1.xml")
+|morph("mystery-morph-2.xml")
 |encode-literals
 |write("stdout");
 					</code></pre>
@@ -382,22 +382,22 @@ $ ~/metafacture/flux.sh sample1.flux
 				<section>
 					<h2>Exercise 2: Logging &ndash; solution</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
-						<pre><code class="nohighlight" data-trim>
+						<pre><code class="bash" data-trim>
 "input.foma.gz"
-|open-file
-|as-lines
-|log-object("Filtering: ")
-|filter-strings("geburts", passMatches="false")
-|log-object("Decoding: ")
-|decode-formeta
-|log-stream("Morphing 1: ")
-|morph(FLUX_DIR + "mystery-morph-1.xml")
-|log-stream("Morphing 2: ")
-|morph(FLUX_DIR + "mystery-morph-2.xml")
-|log-stream("Encoding: ")
-|encode-literals
-|log-object("Writing: ")
-|write("stdout");
+ |open-file
+ |as-lines
+#|log-object("Filtering: ")
+ |filter-strings("geburts", passMatches="false")
+#|log-object("Decoding: ")
+ |decode-formeta
+#|log-stream("Morphing 1: ")
+ |morph("mystery-morph-1.xml")
+#|log-stream("Morphing 2: ")
+ |morph("mystery-morph-2.xml")
+#|log-stream("Encoding: ")
+ |encode-literals
+#|log-object("Writing: ")
+ |write("stdout");
 					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
 				</section>
@@ -557,17 +557,14 @@ $ ./flux.sh # or flux.bat on Windows
 	&lt;/combine&gt;
 &lt;/rules&gt;
 						</code></pre>
-						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "bib-data.pica.gz";
-default out = FLUX_DIR + "sample3-out.txt";
-
-in
+						<pre><code class="bash" data-trim>
+"bib-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|morph(FLUX_DIR + "simple-transformation.xml")
+|morph("simple-transformation.xml")
 |encode-formeta(style="multiline")
-|write(out);
+|write("stdout");
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
 				</section>
@@ -689,19 +686,16 @@ in
 						</code></pre>
 						</span>
 					<span class="fragment">
-						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "bib-data.pica.gz";
-default out = FLUX_DIR + "sample4-out.txt";
-
-in
+						<pre><code class="bash" data-trim>
+"bib-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|morph(FLUX_DIR + "count.xml")
+|morph("count.xml")
 |stream-to-triples
 |count-triples(countBy="object")
 |template("${o} | ${s}")
-|write(out);
+|write("stdout");
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample4">https://github.com/hbz/metafacture-flux-examples/tree/master/sample4</a></small></p>
 					</span>
@@ -788,19 +782,16 @@ in
 
 				<section>
 					<h2>Exercise 5: Counting data patterns &ndash; flux</h2>
-						<pre><code class="nohighlight" data-trim>
-default in = FLUX_DIR + "authority-data.pica.gz";
-default out = FLUX_DIR + "sample5-out.txt";
-
-in
+						<pre><code class="bash" data-trim>
+"authority-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|morph(FLUX_DIR + "count.xml")
+|morph("count.xml")
 |stream-to-triples
 |count-triples(countBy="predicate")
 |template("${s}:\t ${o}")
-|write(out);
+|write("stdout");
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
 				</section>
@@ -872,22 +863,18 @@ invalid death:	 5
 				<section>
 					<h2>Exercise 6: Enriching &ndash; flux</h2>
 						<pre><code class="nohighlight" data-trim>
-default authoritydata = FLUX_DIR + "authority-persons.pica.gz";
-default wikidata = FLUX_DIR + "wiki-persons.foma.gz";
-default out = FLUX_DIR + "sample6-out.txt";
-
-authoritydata
+"authority-persons.pica.gz"
 |open-file
 |as-lines
 |decode-pica
 |stream-to-triples
 |@X;
 
-wikidata
+"wiki-persons.foma.gz"
 |open-file
 |as-lines
 |decode-formeta
-|morph(FLUX_DIR + "enrich-wiki.xml")
+|morph("enrich-wiki.xml")
 |stream-to-triples(redirect="true")
 |@X;
 
@@ -896,7 +883,7 @@ wikidata
 |sort-triples(by="subject")
 |collect-triples
 |encode-formeta(style="multiline")
-|write(out);
+|write("stdout");
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
 				</section>
@@ -1062,23 +1049,19 @@ wikidata
 						</span>
 						<span class="fragment">
 						<pre><code style="max-height: 200px" class="nohighlight" data-trim>
-default authoritydata = FLUX_DIR + "authority-persons.pica.gz";
-default bibdata = FLUX_DIR + "bib-data.pica.gz";
-default out = FLUX_DIR + "sample7-out.txt";
-
-authoritydata
+"authority-persons.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|morph(FLUX_DIR + "summarize-authority-persons.xml")
+|morph("summarize-authority-persons.xml")
 |stream-to-triples
 |@X;
 
-bibdata
+"bib-data.pica.gz"
 |open-file
 |as-lines
 |decode-pica
-|morph(FLUX_DIR + "morph-bib.xml")
+|morph("morph-bib.xml")
 |stream-to-triples(redirect="true")
 |count-triples(countBy="subject")
 |@X;
@@ -1088,7 +1071,7 @@ bibdata
 |sort-triples(by="subject")
 |collect-triples
 |encode-formeta(style="verbose")
-|write(out);
+|write("stdout");
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
 					</span>
