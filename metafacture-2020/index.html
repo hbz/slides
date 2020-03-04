@@ -128,6 +128,13 @@
 				</section>
 
 				<section>
+					<h1>Solutions</h1>
+					<p>Download and unpack the 'master' branch of the 'metafacture-flux-examples' GitHub repo</p>
+					<p><a href="https://github.com/hbz/metafacture-flux-examples/archive/master.zip">https://github.com/hbz/metafacture-flux-examples/archive/master.zip</a></p>
+					<p>(or: <code>git clone https://github.com/hbz/metafacture-flux-examples.git</code>)</p>
+				</section>
+
+				<section>
 					<h2>Set up Metafacture CLI app</h2>
 					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
 					<p>The code below assumes you moved the resulting folder to your home directory and renamed it to 'metafacture'</p>
@@ -148,7 +155,7 @@ $ ./flux.sh # or flux.bat on Windows
 $ cd metafacture-flux-examples/sample1
 $ gedit sample1.flux &amp;
 						</code></pre>
-						<pre><code class="nohighlight" data-trim>
+						<pre><code class="bash" data-trim>
 "bib-data.pica.gz" 
 |open-file|as-lines|decode-pica|encode-formeta|write("stdout");
 						</code></pre>
@@ -170,7 +177,7 @@ $ gedit sample1.flux &amp;
 |open-file
 |as-lines
 |decode-pica
-|encode-formeta(style="multiline") # key=value options
+|encode-formeta(style="multiline")
 |write("stdout");
 						</code></pre>
 						<pre><code class="bash" data-trim>
@@ -366,6 +373,10 @@ $ ~/metafacture/flux.sh sample1.flux
 					<h2>Exercise 2: Logging</h2>
 					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
 						<pre><code class="bash" data-trim>
+$ cd ../sample2
+$ gedit mystery-script.flux &amp;
+						</code></pre>
+						<pre><code class="bash" data-trim>
 "input.foma.gz"
 |open-file
 |as-lines
@@ -376,28 +387,31 @@ $ ~/metafacture/flux.sh sample1.flux
 |encode-literals
 |write("stdout");
 					</code></pre>
+					<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh mystery-script.flux
+						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2">https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2</a></small></p>
 				</section>
 
 				<section>
 					<h2>Exercise 2: Logging &ndash; solution</h2>
-					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~metafacture/config/log4j.xml)</p>
-						<pre><code class="bash" data-trim>
+					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
+						<pre><code class="nohighlight" data-trim>
 "input.foma.gz"
- |open-file
- |as-lines
-#|log-object("Filtering: ")
- |filter-strings("geburts", passMatches="false")
-#|log-object("Decoding: ")
- |decode-formeta
-#|log-stream("Morphing 1: ")
- |morph("mystery-morph-1.xml")
-#|log-stream("Morphing 2: ")
- |morph("mystery-morph-2.xml")
-#|log-stream("Encoding: ")
- |encode-literals
-#|log-object("Writing: ")
- |write("stdout");
+|open-file
+|as-lines
+|log-object("Filtering: ")
+|filter-strings("geburts", passMatches="false")
+|log-object("Decoding: ")
+|decode-formeta
+|log-stream("Morphing 1: ")
+|morph("mystery-morph-1.xml")
+|log-stream("Morphing 2: ")
+|morph("mystery-morph-2.xml")
+|log-stream("Encoding: ")
+|encode-literals
+|log-object("Writing: ")
+|write("stdout");
 					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample2">https://github.com/hbz/metafacture-flux-examples/tree/master/sample2</a></small></p>
 				</section>
@@ -545,6 +559,18 @@ $ ./flux.sh # or flux.bat on Windows
 
 				<section>
 					<h2>Exercise 3: Transforming data</h2>
+						<pre><code class="bash" data-trim>
+"bib-data.pica.gz"
+|open-file
+|as-lines
+|decode-pica
+|morph("simple-transformation.xml")
+|encode-formeta(style="multiline")
+|write("stdout");
+						</code></pre>
+						<pre><code class="bash" data-trim>
+$ cd ../sample3 ; gedit simple-transformation.xml &amp;
+						</code></pre>
 						<pre><code class="xml" data-trim>
 &lt;rules&gt;
 	&lt;data source="021A.a" name="Title"&gt;&lt;/data&gt;
@@ -558,13 +584,7 @@ $ ./flux.sh # or flux.bat on Windows
 &lt;/rules&gt;
 						</code></pre>
 						<pre><code class="bash" data-trim>
-"bib-data.pica.gz"
-|open-file
-|as-lines
-|decode-pica
-|morph("simple-transformation.xml")
-|encode-formeta(style="multiline")
-|write("stdout");
+$ ~/metafacture/flux.sh simple-transformation.flux
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
 				</section>
@@ -679,6 +699,9 @@ $ ./flux.sh # or flux.bat on Windows
 					<h2>Exercise 4: Counting values</h2>
 					<p>Count the number of distinct values for the edition (032@.a) in bib-data.pica.gz</p>
 					<span class="fragment">
+					<pre><code class="bash" data-trim>
+$ cd ../sample4 ; gedit count.xml &amp;
+					</code></pre>
 					<pre><code class="xml" data-trim>
 <rules>
 	<data source="032@.a" name="Edition"></data>
@@ -686,6 +709,9 @@ $ ./flux.sh # or flux.bat on Windows
 						</code></pre>
 						</span>
 					<span class="fragment">
+						<pre><code class="bash" data-trim>
+$ gedit count.flux &amp;
+						</code></pre>
 						<pre><code class="bash" data-trim>
 "bib-data.pica.gz"
 |open-file
@@ -751,37 +777,43 @@ $ ./flux.sh # or flux.bat on Windows
 
 				<section>
 					<h2>Exercise 5: Counting data patterns &ndash; morph</h2>
+					<pre><code class="bash" data-trim>
+$ cd ../sample5 ; gedit count.xml &amp;
+					</code></pre>
 					<pre><code class="xml" data-trim>
-<rules>
-	<choose>
-		<data source="060R.a" name="birth (full)">
-			<regexp match="^\d{2}\.\d{2}.\d{4}" />
-		</data>
-		<data source="060R.a" name="birth (year)">
-			<regexp match="^\d{2,4}" />
-		</data>
-		<data source="060R.a" name="invalid birth">
-			<constant value="other" />
-		</data>
-	</choose>
-	<choose>
-		<data source="060R.b" name="death (full)">
-			<regexp match="^\d{2}\.\d{2}.\d{4}" />
-		</data>
-		<data source="060R.b" name="death (year)">
-			<regexp match="^\d{2,4}" />
-		</data>
-		<data source="060R.b" name="invalid death">
-			<constant value="other" />
-		</data>
-	</choose>
-</rules>
-						</code></pre>
+&lt;rules&gt;
+	&lt;choose&gt;
+		&lt;data source=&quot;060R.a&quot; name=&quot;birth (full)&quot;&gt;
+			&lt;regexp match=&quot;^\d{2}\.\d{2}.\d{4}&quot;/&gt;
+		&lt;/data&gt;
+		&lt;data source=&quot;060R.a&quot; name=&quot;birth (year)&quot;&gt;
+			&lt;regexp match=&quot;^\d{2,4}&quot;/&gt;
+		&lt;/data&gt;
+		&lt;data source=&quot;060R.a&quot; name=&quot;invalid birth&quot;&gt;
+			&lt;constant value=&quot;other&quot;/&gt;
+		&lt;/data&gt;
+	&lt;/choose&gt;
+	&lt;choose&gt;
+		&lt;data source=&quot;060R.b&quot; name=&quot;death (full)&quot;&gt;
+			&lt;regexp match=&quot;^\d{2}\.\d{2}.\d{4}&quot;/&gt;
+		&lt;/data&gt;
+		&lt;data source=&quot;060R.b&quot; name=&quot;death (year)&quot;&gt;
+			&lt;regexp match=&quot;^\d{2,4}&quot;/&gt;
+		&lt;/data&gt;
+		&lt;data source=&quot;060R.b&quot; name=&quot;invalid death&quot;&gt;
+			&lt;constant value=&quot;other&quot;/&gt;
+		&lt;/data&gt;
+	&lt;/choose&gt;
+&lt;/rules&gt;
+					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
 				</section>
 
 				<section>
 					<h2>Exercise 5: Counting data patterns &ndash; flux</h2>
+						<pre><code class="bash" data-trim>
+$ gedit count.flux &amp;
+						</code></pre>
 						<pre><code class="bash" data-trim>
 "authority-data.pica.gz"
 |open-file
@@ -792,6 +824,9 @@ $ ./flux.sh # or flux.bat on Windows
 |count-triples(countBy="predicate")
 |template("${s}:\t ${o}")
 |write("stdout");
+						</code></pre>
+						<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh count.flux
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample5">https://github.com/hbz/metafacture-flux-examples/tree/master/sample5</a></small></p>
 				</section>
@@ -850,6 +885,9 @@ invalid death:	 5
 					<p>Combine data in wiki-persons.foma.gz (contains GND IDs in field 'gnd') and GND data in authority-persons.pica.gz, output Formeta</p>
 					<p>(Set ID: name="_id", let all data flow through: source="_else")</p>
 					<span class="fragment">
+					<pre><code class="bash" data-trim>
+$ cd ../sample6 ; gedit enrich-wiki.xml &amp;
+					</code></pre>
 						<pre><code class="xml" data-trim>
 <rules>
 	<data source="gnd" name="_id"></data>
@@ -862,6 +900,9 @@ invalid death:	 5
 
 				<section>
 					<h2>Exercise 6: Enriching &ndash; flux</h2>
+					<pre><code class="bash" data-trim>
+$ gedit enrich-wiki.flux &amp;
+					</code></pre>
 						<pre><code class="nohighlight" data-trim>
 "authority-persons.pica.gz"
 |open-file
@@ -884,6 +925,9 @@ invalid death:	 5
 |collect-triples
 |encode-formeta(style="multiline")
 |write("stdout");
+						</code></pre>
+						<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh enrich-wiki.flux
 						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
 				</section>
@@ -1034,11 +1078,13 @@ invalid death:	 5
 				</section>
 
 				<section>
-					<h2>Exercise 7: Counting references</h2>
+					<h2>Exercise 7: Counting references &ndash; morph</h2>
 					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
 					<span class="fragment">
+						<pre><code class="bash" data-trim>
+$ cd ../sample7 ; gedit morph-bib.xml &amp;
+						</code></pre>
 						<pre><code class="xml" data-trim>
-<!-- morph-bib.xml -->
 <rules>
 	<combine name="{to:${author-id}}authorOf" value="${book-id}">
 		<data source="_id" name="book-id"></data>
@@ -1046,8 +1092,16 @@ invalid death:	 5
 	</combine>
 </rules>
 						</code></pre>
-						</span>
-						<span class="fragment">
+					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
+					</span>
+				</section>
+
+				<section>
+					<h2>Exercise 7: Counting references &ndash; flux</h2>
+					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
+						<pre><code class="bash" data-trim>
+$ gedit count-refs.flux &amp;
+						</code></pre>
 						<pre><code style="max-height: 200px" class="nohighlight" data-trim>
 "authority-persons.pica.gz"
 |open-file
@@ -1073,8 +1127,10 @@ invalid death:	 5
 |encode-formeta(style="verbose")
 |write("stdout");
 						</code></pre>
+						<pre><code class="bash" data-trim>
+$ ~/metafacture/flux.sh count-refs.flux
+						</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample7">https://github.com/hbz/metafacture-flux-examples/tree/master/sample7</a></small></p>
-					</span>
 				</section>
 
 				<section>
