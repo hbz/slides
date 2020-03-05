@@ -640,7 +640,46 @@ $ ~/metafacture/flux.sh simple-transformation.flux
 				</section>
 
 				<section>
+					<h1>Data lookup</h1>
+					<span class="fragment">
+						<p>Internal/embedded</p>
+						<pre><code class="xml" data-trim>
+&lt;data source=&quot;002@.0&quot; name=&quot;dcterms:format&quot;&gt;
+  &lt;substring start=&quot;0&quot; end=&quot;1&quot; /&gt;
+  &lt;lookup&gt;
+    &lt;entry name=&quot;A&quot; value=&quot;print&quot; /&gt;
+    &lt;entry name=&quot;B&quot; value=&quot;audiovisual&quot; /&gt;
+    &lt;entry name=&quot;O&quot; value=&quot;online&quot; /&gt;
+  &lt;/lookup&gt;
+&lt;/data&gt;
+						</code></pre>
+					</span>
+					<span class="fragment">
+						<p>External (File, URL, Java class)</p>
+						<pre><code class="xml" data-trim>
+&lt;filemap name=&quot;country-codes&quot; files=&quot;maps/MARC-country-codes.csv&quot;/&gt;
+						</code></pre>
+						<pre><code class="xml" data-trim>
+&lt;data source=...&gt;
+  &lt;lookup in=&quot;country-codes&quot;/&gt;
+&lt;/data&gt;
+						</code></pre>
+					</span>
+				</section>
+
+				<section>
 					<h1>Test transformations</h1>
+				</section>
+
+				<section>
+					<h1>Java examples</h1>
+					<p>Download and unpack the 'master' branch of the 'metafacture-java-examples' GitHub repo</p>
+					<p><a href="https://github.com/hbz/metafacture-java-examples/archive/master.zip">https://github.com/hbz/metafacture-java-examples/archive/master.zip</a></p>
+					<p>(or: <code>git clone https://github.com/hbz/metafacture-java-examples.git</code>)</p>
+					<pre><code class="nohighlight" data-trim>
+$ cd metafacture-java-examples
+$ mvn test
+					</code></pre>
 				</section>
 
 				<section>
