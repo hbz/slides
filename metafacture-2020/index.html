@@ -113,7 +113,7 @@
 				</section>
 
 				<section>
-					<h1>Writing and running workflows</h1>
+					<h1>Writing &amp; running workflows</h1>
 					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java (with typesafe input and output based on Java Generics)</span></p>
 					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line, Java workflows are like any Java program</span></p>
 				</section>
@@ -134,7 +134,7 @@
 					<h1>(Solutions)</h1>
 					<p>Download and unpack the 'master' branch of the 'metafacture-flux-examples' GitHub repo</p>
 					<p><a href="https://github.com/hbz/metafacture-flux-examples/archive/master.zip">https://github.com/hbz/metafacture-flux-examples/archive/master.zip</a></p>
-					<p>(or: <code>git clone https://github.com/hbz/metafacture-flux-examples.git</code>)</p>
+					<p>(or: <code>git checkout master</code>)</p>
 				</section>
 
 				<section>
@@ -142,8 +142,7 @@
 					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
 					<p>The code below assumes you moved the resulting folder to your home directory and renamed it to 'metafacture'</p>
 					<pre><code class="bash" data-trim>
-$ cd ~/metafacture
-$ ./flux.sh # or flux.bat on Windows
+$ ~/metafacture/flux.sh # or flux.bat on Windows
 					</code></pre>
 				</section>
 
@@ -380,7 +379,8 @@ $ ~/metafacture/flux.sh sample1.flux
 
 				<section>
 					<h2>Exercise 2: Logging</h2>
-					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
+					<p>Use <code>log-stream</code> and <code>log-object</code> to analyze Flux script<br/>
+					<small>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</small></p>
 						<pre><code class="bash" data-trim>
 $ cd ../sample2
 $ gedit mystery-script.flux &amp;
@@ -398,14 +398,15 @@ $ gedit mystery-script.flux &amp;
 					</code></pre>
 					<pre><code class="bash" data-trim>
 $ ~/metafacture/flux.sh mystery-script.flux
-						</code></pre>
+					</code></pre>
 					<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2">https://github.com/hbz/metafacture-flux-examples/tree/workshop/sample2</a></small></p>
 				</section>
 
 				<section>
 					<h2>Exercise 2: Logging &ndash; solution</h2>
-					<p><code>log-stream</code> and <code>log-object</code> to analyze <code>mystery-script.flux</code><br/>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</p>
-						<pre><code class="nohighlight" data-trim>
+					<p>Use <code>log-stream</code> and <code>log-object</code> to analyze Flux script<br/>
+					<small>(Set <code>priority value="debug"</code> in ~/metafacture/config/log4j.xml)</small></p>
+					<pre><code class="nohighlight" data-trim>
 "input.foma.gz"
 |open-file
 |as-lines
@@ -508,16 +509,10 @@ Writing: closeStream
 				</section>
 
 				<section>
-					<h1>Flux workflows</h1>
-					<p><span class="fragment">Where to use <code>log-stream</code> and <code>log-object</code>?</span></p>
-					<p><span class="fragment">What does <code>encode-literals</code> actually do?</span></p>
-					<p><span class="fragment">...</span></p>
-				</section>
-
-				<section>
-					<h1>Metafacture documentation</h1>
+					<h1>Documentation</h1>
+					<p><span class="fragment">What does <code>filter-strings</code>, <code>encode-literals</code>, ... actually do?</span></p>
 					<span class="fragment"><pre><code class="bash" data-trim>
-$ ./flux.sh # or flux.bat on Windows
+$ ~/metafacture/flux.sh # or flux.bat on Windows
 					</code></pre></span>
 					<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">
 					https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md</a></span></p>
@@ -561,9 +556,12 @@ $ ./flux.sh # or flux.bat on Windows
 
 				<section>
 					<h2>Exercise 3: Transforming data</h2>
-					<p>Edit 'simple-transformation.xml' to get the title, publisher, location and year information from input fields:<br/> 021A.a, 033A.n, 033A.p, 011@.n</p>
-					<p>Combine publisher and location into one field.</p>
-					<p>Use human-readable output fields.</p>
+					<pre><code class="bash" data-trim>
+$ cd ../sample3 ; gedit simple-transformation.xml &amp;
+						</code></pre>
+					<p><span class="fragment">Edit morph file to get the title, publisher, location and year information from input fields: 021A.a, 033A.n, 033A.p, 011@.n</span></p>
+					<p><span class="fragment">Combine publisher and location into one field.</span></p>
+					<p><span class="fragment">Use human-readable output fields.</span></p>
 				</section>
 
 				<section>
@@ -718,7 +716,6 @@ $ mvn test
 					<p><span class="fragment">Workflows with Flux</span></p>
 					<p><span class="fragment">Transformations with Morph</span></p>
 					<p><span class="fragment">Automated Morph-Tests</span></p>
-					<p><span class="fragment">Complete basic toolkit</span></p>
 				</section>
 
 				<section>
@@ -745,7 +742,7 @@ $ mvn test
 
 				<section>
 					<h2>Exercise 4: Counting values</h2>
-					<p>Count the number of distinct values for the edition (032@.a) in bib-data.pica.gz</p>
+					<p>Count the number of distinct values for the edition (032@.a) in sample4/bib-data.pica.gz</p>
 					<span class="fragment">
 					<pre><code class="bash" data-trim>
 $ cd ../sample4 ; gedit count.xml &amp;
@@ -819,8 +816,8 @@ $ gedit count.flux &amp;
 
 				<section>
 					<h2>Exercise 5: Counting data patterns</h2>
-					<p>Count the number of birth (060R.a) and death (060R.b) dates that match the patterns 'yyyy' or 'dd.mm.yyyy'.</p>
-					<p>Additionally, output the number of values that don't match them.</p>
+					<p><span class="fragment">Output the number of birth (060R.a) and death (060R.b) dates in sample5/authority-data.pica.gz that match the patterns 'yyyy' or 'dd.mm.yyyy'</span></p>
+					<p><span class="fragment">Output the number of values that don't match them</span></p>
 				</section>
 
 				<section>
@@ -930,8 +927,8 @@ invalid death:	 5
 
 				<section>
 					<h2>Exercise 6: Enriching</h2>
-					<p>Combine data in wiki-persons.foma.gz (contains GND IDs in field 'gnd') and GND data in authority-persons.pica.gz, output Formeta</p>
-					<p>(Set ID: name="_id", let all data flow through: source="_else")</p>
+					<p><span class="fragment">Combine data in sample6/wiki-persons.foma.gz (contains GND IDs in field 'gnd') and GND data in sample6/authority-persons.pica.gz, output Formeta</span></p>
+					<p><span class="fragment">(Set ID: name="_id", let all data flow through: source="_else")</span></p>
 					<span class="fragment">
 					<pre><code class="bash" data-trim>
 $ cd ../sample6 ; gedit enrich-wiki.xml &amp;
@@ -1127,7 +1124,7 @@ $ ~/metafacture/flux.sh enrich-wiki.flux
 
 				<section>
 					<h2>Exercise 7: Counting references &ndash; morph</h2>
-					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
+					<p>For each authority in sample7/authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
 					<span class="fragment">
 						<pre><code class="bash" data-trim>
 $ cd ../sample7 ; gedit morph-bib.xml &amp;
@@ -1146,7 +1143,7 @@ $ cd ../sample7 ; gedit morph-bib.xml &amp;
 
 				<section>
 					<h2>Exercise 7: Counting references &ndash; flux</h2>
-					<p>For each authority in authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
+					<p>For each authority in sample7/authority-persons.pica.gz, output how often it is referenced from bib-data.pica.gz in 028A.9</p>
 						<pre><code class="bash" data-trim>
 $ gedit count-refs.flux &amp;
 						</code></pre>
@@ -1216,7 +1213,7 @@ $ ~/metafacture/flux.sh count-refs.flux
 
 				<section>
 					<h1>The problem</h1>
-					<p><span class="fragment">Core issue: streaming architecture</span></p>
+					<p><span class="fragment">Core issue: streaming architecture on field level</span></p>
 					<p><span class="fragment">Conceptually gives us a single attribute-value-pair at a time</span></p>
 					<p><span class="fragment">But we actually have records in our source data</span></p>
 					<p><span class="fragment">Transformation rules often depend on the values of other fields in the same record</span></p>
@@ -1225,9 +1222,9 @@ $ ~/metafacture/flux.sh count-refs.flux
 
 				<section>
 					<h1>Future goals</h1>
-					<p><span class="fragment">Provide a record mode with a simplified morph DSL (think Catmandu::Fix): <a href="https://github.com/metafacture/metafacture-fix">https://github.com/metafacture/metafacture-fix</a></span></p>
-					<p><span class="fragment">Fix as a standardized, implementation-independent language for data transformations: <a href="https://github.com/elag/FIG">https://github.com/elag/FIG</a></span></p>
-					<p><span class="fragment">Provide a web based playground for simple input-morph/fix-output experiments (think JSON-LD playground): <a href="http://test.lobid.org/fix/">http://test.lobid.org/fix</a></span></p>
+					<p><span class="fragment">Provide a (non-streaming) record mode with a simplified morph DSL (think Catmandu::Fix):<br/> <a href="https://github.com/metafacture/metafacture-fix">https://github.com/metafacture/metafacture-fix</a></span></p>
+					<p><span class="fragment">Fix as a standardized, implementation-independent language for data transformations:<br/> <a href="https://github.com/elag/FIG">https://github.com/elag/FIG</a></span></p>
+					<p><span class="fragment">Provide a web based playground for simple input-morph/fix-output experiments (think JSON-LD playground):<br/> <a href="http://test.lobid.org/fix/">http://test.lobid.org/fix</a></span></p>
 				</section>
 
 				<section>
