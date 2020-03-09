@@ -61,17 +61,16 @@
 
 				<section>
 					<h1>Agenda</h1>
-					<ul>
+					<ol>
 					<li>Introduction</li>
-					<li>Metafacture concepts</li>
-					<li>Metafacture usage</li>
-					<li>Exercises: workflows, transforming,<br> analysing, and combining data</li>
+					<li>Data workflows</li>
+					<li>Transform data</li>
+					<li>Analyze data</li>
 					<li>Outlook</li>
-					</ul>
+					</ol>
 				</section>
-
 					<section>
-					<h1>Introduction</h1>
+					<h1>1. Introduction</h1>
 				</section>
 
 				<section>
@@ -96,28 +95,32 @@
 				</section>
 
 				<section>
-					<h1>Setup</h1>
-					<a href="https://github.com/hbz/slides/blob/master/metafacture-2020/README.md" target=blank>metafacture-2020/README.md</a>
+					<h1>How Metafacture works</h1>
+					<p><span class="fragment">Basic idea: our data streams through multiple modules: <br/>&rarr; read &rarr; decode &rarr; transform &rarr; encode &rarr; write &rarr;</span></p>
+					<p><span class="fragment">Each module expects input and writes output of a specific type</span></p>
+					<p><span class="fragment">Various formats supported (e.g. PICA, MARC), extensible framework</span></p>
+					<p><span class="fragment">Combination of stream modules builds the overall workflow</span></p>
 				</section>
 
 				<section>
-					<h1>Metafacture</h1>
-					<p><span class="fragment">Basic idea: data streams through multiple modules (read, decode, transform, encode, write)</span></p>
-					<p><span class="fragment">Each module reads data of a specific type and writes data of a specific type</span></p>
-					<p><span class="fragment">Various formats supported (PICA, MAB, MARC, METS, etc.), extensible framework</span></p>
-				</section>
-
-				<section>
-					<h2>Sample workflow</h2>
+					<h1>Sample workflow</h1>
 					<img src="img/flow.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
-					<h1>Workflows</h1>
-					<p><span class="fragment">Individual stream modules build the overall workflow</span></p>
+					<h1>2. Data workflows</h1>
+				</section>
+
+				<section>
+					<h1>Writing and running workflows</h1>
 					<p><span class="fragment">Workflow can be expressed with Flux (a simple DSL) or with Java (with typesafe input and output based on Java Generics)</span></p>
 					<p><span class="fragment">Flux workflows can be edited in any text editor and executed on the command line, Java workflows are like any Java program</span></p>
+				</section>
+
+				<section>
+					<h1>Setup</h1>
+					<a href="https://github.com/hbz/slides/blob/master/metafacture-2020/README.md" target=blank>metafacture-2020/README.md</a>
 				</section>
 
 				<section>
@@ -128,14 +131,14 @@
 				</section>
 
 				<section>
-					<h1>Solutions</h1>
+					<h1>(Solutions)</h1>
 					<p>Download and unpack the 'master' branch of the 'metafacture-flux-examples' GitHub repo</p>
 					<p><a href="https://github.com/hbz/metafacture-flux-examples/archive/master.zip">https://github.com/hbz/metafacture-flux-examples/archive/master.zip</a></p>
 					<p>(or: <code>git clone https://github.com/hbz/metafacture-flux-examples.git</code>)</p>
 				</section>
 
 				<section>
-					<h2>Set up Metafacture CLI app</h2>
+					<h2>Set up the Metafacture command line app</h2>
 					<p><a href="https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application">https://github.com/metafacture/metafacture-core#metafacture-as-a-stand-alone-application</a></p>
 					<p>The code below assumes you moved the resulting folder to your home directory and renamed it to 'metafacture'</p>
 					<pre><code class="bash" data-trim>
@@ -146,6 +149,12 @@ $ ./flux.sh # or flux.bat on Windows
 
 				<section>
 					<h1>Exercises</h1>
+				</section>
+
+				<section>
+					<h1>Sample workflow</h1>
+					<img src="img/flow.png"/>
+					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
 				</section>
 
 				<section>
@@ -166,7 +175,7 @@ $ ~/metafacture/flux.sh sample1.flux
 				</section>
 
 				<section>
-					<h2>Exercise 1: Printing data &ndash; module options</h2>
+					<h2>Exercise 1: Printing data <br/>&ndash; module options</h2>
 					<p>Output the content of <code>bib-data.pica.gz</code> as Formeta</p>
 						<pre><code class="bash" data-trim>
 $ cd metafacture-flux-examples/sample1
@@ -516,7 +525,7 @@ $ ./flux.sh # or flux.bat on Windows
 				</section>
 
 				<section>
-					<h1>Transform data</h1>
+					<h1>3. Transform data</h1>
 				</section>
 
 				<section>
@@ -713,7 +722,7 @@ $ mvn test
 				</section>
 
 				<section>
-					<h1>Analyzing data</h1>
+					<h1>4. Analyzing data</h1>
 				</section>
 
 				<section>
@@ -1187,7 +1196,7 @@ $ ~/metafacture/flux.sh count-refs.flux
 				</section>
 
 				<section>
-					<h1>Outlook</h1>
+					<h1>5. Outlook</h1>
 				</section>
 
 				<section>
