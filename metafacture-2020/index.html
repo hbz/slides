@@ -549,9 +549,28 @@ $ ~/metafacture/flux.sh # or flux.bat on Windows
 				</section>
 
 				<section>
+					<h1>Morph: other functions</h1>
+					<p><span class="fragment">Things that go inside <code>data</code> elements: functions</span></p>
+					<p><span class="fragment"><code>regexp</code> (previous slide), <code>trim</code>, <code>split</code>, <code>substring</code>, ...</span></p>
+					<p><span class="fragment">
+						<small><a href="https://github.com/metafacture/metafacture-core/wiki/Metamorph-functions">https://github.com/metafacture/metafacture-core/wiki/Metamorph-functions</a></small></span>
+					</p>
+				</section>
+
+				<section>
 					<h1>Morph: combine</h1>
 					<img src="img/morph-combine.png"/>
 					<p><small>Source: Christoph Böhme, <a href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small></p>
+				</section>
+
+				<section>
+					<h1>Morph: other collectors</h1>
+					<p><span class="fragment">Things that wrap around <code>data</code> elements: collectors</span></p>
+					<p><span class="fragment"><code>combine</code> (previous slide), <code>concat</code>, <code>choose</code> (first match), ...</span></p>
+					<p><span class="fragment"><code>if</code>, <code>none</code>, <code>any</code>, <code>all</code></span></p>
+					<p><span class="fragment">
+						<small><a href="https://github.com/metafacture/metafacture-core/wiki/Metamorph-collectors">https://github.com/metafacture/metafacture-core/wiki/Metamorph-collectors</a></small></span>
+					</p>
 				</section>
 
 				<section>
@@ -560,8 +579,8 @@ $ ~/metafacture/flux.sh # or flux.bat on Windows
 $ cd ../sample3 ; gedit simple-transformation.xml &amp;
 						</code></pre>
 					<p><span class="fragment">Edit morph file to get the title, publisher, location and year information from input fields: 021A.a, 033A.n, 033A.p, 011@.n</span></p>
-					<p><span class="fragment">Combine publisher and location into one field.</span></p>
-					<p><span class="fragment">Use human-readable output fields.</span></p>
+					<p><span class="fragment">Combine publisher and location into one field</span></p>
+					<p><span class="fragment">Use human-readable output fields</span></p>
 				</section>
 
 				<section>
