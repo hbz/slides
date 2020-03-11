@@ -683,10 +683,6 @@ $ ~/metafacture/flux.sh simple-transformation.flux
 					<p>Download and unpack the 'master' branch of the 'metafacture-java-examples' GitHub repo</p>
 					<p><a href="https://github.com/hbz/metafacture-java-examples/archive/master.zip">https://github.com/hbz/metafacture-java-examples/archive/master.zip</a></p>
 					<p>(or: <code>git clone https://github.com/hbz/metafacture-java-examples.git</code>)</p>
-					<pre><code class="nohighlight" data-trim>
-$ cd metafacture-java-examples
-$ mvn test
-					</code></pre>
 				</section>
 
 				<section>
@@ -695,20 +691,41 @@ $ mvn test
 					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
 				</section>
 
-				<section>
-					<h2>Running Metamorph tests</h2>
-					<img src="img/metamorph-test-run.png"/>
-					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java</a></small></p>
-				</section>
-
 				<section data-background="img/metamorph-test-fail.png"
 					data-background-size="contain">
 				</section>
 
 				<section>
-					<h2>Same project: Java workflows</h2>
-					<img src="img/java-workflow.png"/>
-					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/resources/sample3</a></small></p>
+					<h2>Running Metamorph tests: IDE</h2>
+					<img src="img/metamorph-test-run.png"/>
+					<p><small><a href="https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java">https://github.com/hbz/metafacture-java-examples/tree/master/src/test/java</a></small></p>
+				</section>
+
+				<section>
+					<h2>Running Metamorph test: CLI</h2>
+						<pre><code class="nohighlight" data-trim>
+$ cd metafacture-java-examples
+$ mvn test
+						</code></pre>
+						<pre><code class="nohighlight" data-trim>
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestMorphs
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.762 sec - in TestMorphs
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.517 s
+[INFO] Finished at: 2020-03-11T13:39:01+01:00
+[INFO] Final Memory: 15M/223M
+[INFO] ------------------------------------------------------------------------
+						</code></pre>
 				</section>
 
 				<section>
