@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Entwicklung eines Profils für OER-Metadaten mit JSON Schema & SkoHub</title>
+
+		<meta name="description" content="Folien für eine Präsentation am 2020-05-04 beim KIM-Workshop">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Entwicklung eines Profils für OER-Metadaten mit JSON Schema & SkoHub",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Folien für eine Präsentation am 2020-05-04 beim KIM-Workshop",
+			"about" : [ "SkoHub", ""],
+			"url" : "http://slides.lobid.org/kim-ws-2020",
+			"datePublished" : "2020-05-04",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "metadata practitioners" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h2>Entwicklung eines Profils für OER-Metadaten mit JSON Schema & SkoHub</h2>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+            Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br /> <br />
+          <small>KIM-Workshop, WWW, 04.05.2020</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/kim-ws-2020/">http://slides.lobid.org/kim-ws-2020/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        <h1>Agenda</h1>
+				<ol>
+					<li>a</li>
+					<li>b</li>
+					<li>c</li>
+					<li>d</li>
+				</ol>
+      		</section>
+
+			<section>
+				<h3>Was ist ein (Metadaten)profil?</em></h3>
+				<p><span class="fragment">Auch "Profil", "Application Profile/Anwendungsprofil" oder "Community Profile" genannt</span></p>
+				<p><span class="fragment">Im Dublin-Core-Kontext entstanden</span></p>
+				<p><span class="fragment">Aktuell Thema in der Data Exchange Working (dxwg) Group des W3C, siehe z.B. <a href="https://w3c.github.io/dxwg/profiles">https://w3c.github.io/dxwg/profiles/</a></span></p>
+			</section>
+
+			<section>
+				<p><blockquote>
+					A set of metadata elements, policies, and guidelines defined for a particular application. The elements may be from one or more element sets, thus allowing a given application to meet its functional requirements by using metadata from several element sets including locally defined sets.
+				</blockquote></p>
+				<small>Quelle: <a href="https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/glossary/">Using Dublin Core. Glossary (2001)</a></small>
+			</section>
+
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
