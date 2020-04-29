@@ -85,7 +85,7 @@
 		</section>
 
 		<section>
-			<h1>Agenda</h1>
+			<h2>Agenda</h2>
 			<ol>
 				<li>Was ist ein Metadatenprofil?</li>
 				<li>Ein LRMI-Profil für Hochschul-OER</li>
@@ -100,48 +100,54 @@
 
 		<section>
 			<h3>Kontext</h3>
-			<p><span class="fragment">Vorschlag von Rachel Heery & Manjula Patel im Herbst 2000 (<a href="http://www.ariadne.ac.uk/issue/25/app-profiles/">Heery/Patel, 2000</a>), seitdem zentrales Thema in der Dublin Core Metadata Initative (DCMI)</span></p>
+			<p><span class="fragment">Vorschlag von Rachel Heery & Manjula Patel im Herbst 2000 (<a href="http://www.ariadne.ac.uk/issue/25/app-profiles/">Heery/Patel, 2000</a>), seitdem zentrales Thema in der Dublin Core Metadata Initative (DCMI) und Verwendung in vielen anderen Kontexten</span></p>
 			<p><span class="fragment">Auch "Profil", "Application Profile/Anwendungsprofil" oder "Community Profile" genannt</span></p>
 			<p><span class="fragment">Aktuell Thema in der <a href= "https://www.dublincore.org/groups/application_profiles_ig/">Dublin Core Application Profile Interest Group</a> und der Data Exchange Working (dxwg) Group des W3C, siehe z.B. <a href="https://w3c.github.io/dxwg/profiles">hier</a></span></p>
 		</section>
 
 		<section>
+			<h3>Definition</h3>
 			<p><blockquote>
-				A named set of constraints on one or more identified base specifications 
+				A named set of constraints on one or more identified base specifications
 			</blockquote></p>
 			<small>Quelle: <a href="https://w3c.github.io/dxwg/profiles/">Profile Guidance (Editor's Draft) by W3C Dataset Exchange Working Group</a></small>
+			<br /> <br /> <br /> <br />
+		</section>
+
+		<section>
+			<h3>Definition</h3>
+			<p><blockquote>
+				A named set of <b style="color:orangered">constraints</b> on one or more identified base specifications 
+			</blockquote></p>
+			<small>Quelle: <a href="https://w3c.github.io/dxwg/profiles/">Profile Guidance (Editor's Draft) by W3C Dataset Exchange Working Group</a></small>
+			<p><span class="fragment">z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben)</span></p>
 		</section>
 
 		<section>
 			<img src="img/baker-coyle-swib19-slide04.png" width=800 style="border: none; box-shadow: none;" />
-			<small>Quelle <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
-		</section>
-
-		<section>
-			<h3>Warum Metadatenprofile?</h3>
-			<p><span class="fragment">Nutzung von Standards (Dublin Core, LRMI, Bibframe etc.) um Interoperabilität sicherzustellen</span></p>
-			<p><span class="fragment">Für bestimmte Zwecke und Gruppen sind Spezifizierungen der Standards nötig</span></p>
-			<p><span class="fragment">Ein Metadatenprofil definiert und dokumentiert diese Spezifizierungen</span></p>
-			<p><span class="fragment">... z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben)</span></p>
+			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
 		</section>
 
 		<section>
 			<h3>Funktionen eines Profils</h3>
 			<p><span class="fragment">Dokumentation von Verabredungen einer Community</span></p>
 			<p><span class="fragment">Zur Produktion von Daten</span></p>
-			<p><span class="fragment">Für die Analyse und Validierung von Datan</span></p>
+			<p><span class="fragment">Für die Analyse und Validierung von Daten</span></p>
 			<p><span class="fragment">Um Daten aus verschiedenen Quellen zu mischen/auszuwählen</span></p>
 			<p><span class="fragment">Um Daten Dritter zu indexieren</span></p>
-			<p><span class="fragment">Für Retrieval oder das Angebot verschiedener Ansichten <br /> <br />
+			<p><span class="fragment">Für Retrieval oder das Angebot verschiedener Ansichten<br /> <br />
 			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 3</a></small></span></p>
 		</section>
 
 		<section>
 			<h3>Mögliche Ausformungen/Bestandteile eines Profils</h3>
-			<p><span class="fragment">Menschenlesbare Dokumentation häufig tabellarisch in PDFs)</span></p>
+			<p><span class="fragment">Menschenlesbare Dokumentation (z.B. tabellarisch in PDFs)</span></p>
 			<p><span class="fragment">Beispiel-zentrierte menschenlesbare Dokumentation (siehe <a href="http://slides.lobid.org/kim-ws-2017/#/45">Dokumentationssession KIM WS 2017</a>)</span></p>
 			<p><span class="fragment">Schema für spezifische Serialisierung (z. B.: XML Schema, JSON Schema)</span></p>
-			<p><span class="fragment">Generische Spezifikation des Graphen (ShEx, SHACL etc.)</span></p>
+			<p><span class="fragment">Spezifikation eines RDF-Graphen (ShEx, SHACL etc.)</span></p>
+			<p><span class="fragment">Generische Spezifikation eines Profils mit tabellenbasiertem <a href="https://github.com/dcmi/dcap">DC AP Core Vocabulary</a> (in Entwicklung)</span></p>
+			<p><span class="fragment">...</span></p>
+
 		</section>
 
 		<section>
@@ -281,6 +287,7 @@
 			<h3>Wo kommen die vorgeschlagenen Vokabular-Werte her?</h3>
 			<p><span class="fragment">Kontrollierte Vokabulare müssen in SkoHub Vocabs veröffentlicht sein</span></p>
 			<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io</span></p>
+			<p><span class="fragment">Hier: Nutzung einer im Kontext von "LOM for Higher Education OER Repositories" publizierten Klassifikation</span></p>
 		</section>
 
 		<section>
@@ -299,21 +306,21 @@
 			<h3>Vorteile</h3>
 			<p><span class="fragment">Entwicklung auf GitHub o.ä. mit den dort etablierten Prozessen</span></p>
 			<p><span class="fragment">Referenz-Formular und Schema zur Validierung werden in einem Zuge entwickelt</span></p>
-			<p><span class="fragment">Kontrollierte Vokabulare werden paralle mit SKOS entwickelt und sind unabhängig vom Schema nutzbar</span></p>
+			<p><span class="fragment">Kontrollierte Vokabulare werden parallel mit SKOS entwickelt und sind unabhängig vom Schema nutzbar</span></p>
 		</section>
 
 		<section>
 			<h3>Nachteile (?)</h3>
 			<p><span class="fragment">Fokussiert auf JSON und genau eine (von vielen möglichen) JSON-LD-Repräsentationen der Daten</span></p>
+			<p><span class="fragment">Deshalb keine Validierungsmöglichkeit für anders strukturierte JSON-Daten und andere RDF-Serialisierungen</span></p>
 			<p><span class="fragment">Menschenlesbare Version ist nicht von Beginn an nutzbar und muss separat geschrieben werden</span></p>
-			<p><span class="fragment"></span></p>
 		</section>
 
 		<section>
 			<h3>Diskussion</h3>
-			<p><span class="fragment">Fokussiert auf JSON und genau eine (von vielen möglichen) JSON-LD-Repräsentationen der Daten</span></p>
-			<p><span class="fragment">Deshalb keine Validierungsmöglichkeit für anders strukturierte JSON-Daten und andere RDF-Serialisierungen</span></p>
-			<p><span class="fragment">Menschenlesbare Version ist nicht von Beginn an nutzbar und muss separat geschrieben werden</span></p>
+			<p><span class="fragment">Möglichkeiten der (zusätzlichen) Nutzung des DC Core Vocabulary for Profiles oder von ShEx?</span></p>
+			<p><span class="fragment">Welche Form sollte die menschenlesbare Version haben? </span></p>
+			<p><span class="fragment">Wer hat Interesse, das LRMI-Profil mit weiterzuentwickeln?</span></p>
 		</section>
 
 		<section>
