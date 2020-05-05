@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten</title>
+
+		<meta name="description" content="Folien für einen Lightning Talk am 2020-05-05 beim KIM-Workshop">
+		<meta name="author" content="Pascal Christoph">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten",
+			"creator" : [{
+				"id": "http://lobid.org/team/pc#!",
+				"type": "Person",
+				"name": "Pascal Christoph"
+			}
+		],
+			"description": "Folien für einen Lightning Talk am 2020-05-05 beim KIM-Workshop",
+			"about" : [ "Katalog", "Anreicherung", "Katalogsanreicherung"],
+			"url" : "http://slides.lobid.org/kim-ws-2020",
+			"datePublished" : "2020-05-05",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "metadata practitioners" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+		<section>
+			<h3>Elasticsearch-Konkordanz von Katalogs-IDs zu RVK auf Grundlage der Culturegraph Aggregatdaten</h3>
+			<p>
+			<small>
+				<a href="http://lobid.org/team/pc#!">Pascal Christoph (dr0i)</a> <br />
+				Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br /> 
+				<img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px"/>
+				<img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px"/><br/>
+			<small>KIM-Workshop, WWW, 05.05.2020</small>
+			</p>
+			<p>
+			<small>
+			Diese Präsentation: <br /> <a
+				href="http://slides.lobid.org/kim-ws-2020-lightning-talk/">http://slides.lobid.org/kim-ws-2020-lightning-talk/</a> </small>
+			<br/>
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Was ist RVK?</h2>
+				<p><span class="fragment">Die Regensburger Verbundklassifikation (RVK, auch Regensburger Systematik) ist eine Klassifikation</span></p>
+				<p><span class="fragment">Gegliedert in Hauptgruppen und thematische Klassen, die durch eine Notation identifiziert sind (ähnlich Dewey Decimal Classification)</span></p>
+				<p><span class="fragment">Z.B.: "CI 5310" für "Abhandlungen im Kontext französischsprachiger Literatur der Philosophie"</span></p>
+				<p><span class="fragment">CC0 lizensiert</span></p>
+		</section>
+
+		<section>
+			<h2>Wozu RVK Anreicherung ?</h2>
+			<p>Inhaltserschließung, z. B. virtuelle Aufstellungssystematik</p>
+			<a href="https://katalog.ub.tu-dortmund.de/taxonomy/tree"><img src="img/rvkTUDortmund.png"/></a>
+		</section>
+
+		<section>
+			<h2>Wie</h2>
+				<p><span class="fragment">Culturegraph stellt geclusterte Bestände der Verbünde (u.a. mit RVK) bereit</span></p></pre>
+				<p><span class="fragment">Dieses MARC21-XML filtern mit dieser Metafacture-Morph: </span></p></pre>
+				<pre class="fragment"><small><code class="xml" data-trim>
+ &lt;combine name=&quot;@rvk&quot; value=&quot;${a}&quot; sameEntity=&quot;true&quot; &gt;
+         &lt;data source=&quot;084??.a&quot; name=&quot;a&quot;/&gt;
+         &lt;data source=&quot;084??.2&quot;&gt;
+                 &lt;regexp match=&quot;rvk&quot; /&gt;
+         &lt;/data&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;@id&quot; value=&quot;${a}&quot;&gt;
+         &lt;data source=&quot;035??.a&quot; name=&quot;a&quot;&gt;
+                 &lt;regexp match=&quot;^\(DE-605\)(.*)&quot; format=&quot;${1}&quot;/&gt;
+         &lt;/data&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;rvk&quot; value=&quot;${a}&quot; &gt;
+         &lt;data source=&quot;@id&quot;/&gt;
+         &lt;data source=&quot;@rvk&quot; name=&quot;a&quot;/&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;id&quot; value=&quot;${a}&quot;&gt;
+         &lt;concat delimiter=&quot;, &quot; name=&quot;a&quot; &gt;
+                 &lt;data source=&quot;@id&quot;/&gt;
+         &lt;/concat&gt;
+                 &lt;data source=&quot;@rvk&quot; /&gt;
+ &lt;/combine&gt;
+				</code></small></pre>
+		</section>
+
+		<section>
+			<h2>Wie</h2>
+			<p><span class="fragment">
+			=&gt; der Output als Elasticsearch JSON bulk:
+			</span></p></pre>
+				<pre class="fragment"><code class="json" data-trim>
+{"index":{"_index":"cgrvk","_type":"rvk"}}
+{"rvk":["CI 1125","CI 5604","CI 5603","IH 34381","CI 1100","CI 5310","EC 2430"],"id":"HT013166356, HT018625006, TT000577460"}
+...
+				</code></pre>
+				<p><span class="fragment">... das per curl nach Elasticsearch indexieren</span></p>
+				<p><span class="fragment">... Elasticsearch verwenden als Lookuptabelle</span></p>
+		</section>
+
+		<section>
+			<h2>Links</h2>
+			<ul>
+			<li><a href="https://github.com/metafacture/metafacture-examples/tree/master/Concordance-RVK-Verbundbibliothek">Das Tool auf github</a></li>
+			<li><a href="https://culturegraph:guhusu@data.dnb.de/aggregate_auslieferung_20191212.marcxml.gz">Aggregatdatei (MARC21-XML, 6.1 GB)</a></li>
+			<li><a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2019?preview=/146377939/146606097/2019-04-03_KIMWS19_Becker_Culturegraph-virtuelle-Systematik.pdf">Hans-Georg Becker:Mit CultureGraph zu einer virtuellen Systematik </a></li>
+			</ul>
+		</section>
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+   </script>
+
+  </body>
+</html>
