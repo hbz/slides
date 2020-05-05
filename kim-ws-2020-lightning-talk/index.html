@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregat Daten</title>
+		<title>Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten</title>
 
 		<meta name="description" content="Folien für einen Lightning Talk am 2020-05-05 beim KIM-Workshop">
 		<meta name="author" content="Pascal Christoph">
@@ -18,7 +18,7 @@
 		{
 			"@context": "http://schema.org",
 			"type": "PresentationDigitalDocument",
-			"name" : "Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregat Daten",
+			"name" : "Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten",
 			"creator" : [{
 				"id": "http://lobid.org/team/pc#!",
 				"type": "Person",
@@ -61,7 +61,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 		<section>
-			<h3>Elasticsearch-Konkordanz von Katalogs-IDs zu RVK auf Grundlage der Culturegraph Aggregat-Daten</h3>
+			<h3>Elasticsearch-Konkordanz von Katalogs-IDs zu RVK auf Grundlage der Culturegraph Aggregatdaten</h3>
 			<p>
 			<small>
 				<a href="http://lobid.org/team/pc#!">Pascal Christoph (dr0i)</a> <br />
@@ -96,7 +96,6 @@
 
 		<section>
 			<h2>Wie</h2>
-			<p><span class="fragment">
 				<p><span class="fragment">Culturegraph stellt geclusterte Bestände der Verbünde (u.a. mit RVK) bereit</span></p>
 				<p><span class="fragment">Dieses MARC21-XML filtern und zu ES-JSON-Bulk machen =&gt; </span></p>
 				<pre class="fragment"><code class="json" data-trim>
@@ -105,15 +104,14 @@
 		...
 				</code></pre>
 				<p><span class="fragment">... das per curl nach Elasticsearch indexieren</span></p>
-				<p><span class="fragment">... Elasticsearch zu verwenden als Lookuptabelle</span></p>
-			</span></p>
+				<p><span class="fragment">... Elasticsearch verwenden als Lookuptabelle</span></p>
 		</section>
 
 		<section>
 			<h2>Links</h2>
 			<ul>
 			<li><a href="https://github.com/metafacture/metafacture-examples/tree/master/Concordance-RVK-Verbundbibliothek">Das Tool auf github</a></li>
-			<li><a href="https://culturegraph:guhusu@data.dnb.de/aggregate_auslieferung_20191212.marcxml.gz">Aggregatdatei (MARC21-XML, 6.1 GB)</li>
+			<li><a href="https://culturegraph:guhusu@data.dnb.de/aggregate_auslieferung_20191212.marcxml.gz">Aggregatdatei (MARC21-XML, 6.1 GB)</a></li>
 			<li><a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2019?preview=/146377939/146606097/2019-04-03_KIMWS19_Becker_Culturegraph-virtuelle-Systematik.pdf">Hans-Georg Becker:Mit CultureGraph zu einer virtuellen Systematik </a></li>
 			</ul>
 		</section>
