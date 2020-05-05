@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregat Daten</title>
+		<title>Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten</title>
 
 		<meta name="description" content="Folien für einen Lightning Talk am 2020-05-05 beim KIM-Workshop">
 		<meta name="author" content="Pascal Christoph">
@@ -18,7 +18,7 @@
 		{
 			"@context": "http://schema.org",
 			"type": "PresentationDigitalDocument",
-			"name" : "Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregat Daten",
+			"name" : "Erstellen einer Konkordanz in Elasticsearch zur Anreicherung von Katalogsdaten mit RVK auf Grundlage der Culturegraph Aggregatdaten",
 			"creator" : [{
 				"id": "http://lobid.org/team/pc#!",
 				"type": "Person",
@@ -61,7 +61,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 		<section>
-			<h3>Elasticsearch-Konkordanz von Katalogs-IDs zu RVK auf Grundlage der Culturegraph Aggregat-Daten</h3>
+			<h3>Elasticsearch-Konkordanz von Katalogs-IDs zu RVK auf Grundlage der Culturegraph Aggregatdaten</h3>
 			<p>
 			<small>
 				<a href="http://lobid.org/team/pc#!">Pascal Christoph (dr0i)</a> <br />
@@ -82,24 +82,24 @@
 		<section>
 			<h3>Zur Person</h3>
 			<p><span class="fragment">Angestellt am hbz, arbeite vor allem an <a href="https://lobid.org/">lobid</a></span></p>
-			<p><span class="fragment">Software Entwickler, Maintainer von <a href="https://github.com/metafacture/">metafacture</a> und <a href="https://github.com/jsonld-java/jsonld-java/">jsonld-java</a></span></p>
+			<p><span class="fragment">Software-Entwickler, Maintainer von <a href="https://github.com/metafacture/">metafacture</a> und <a href="https://github.com/jsonld-java/jsonld-java/">jsonld-java</a></span></p>
 			<p><span class="fragment">Fokus: Extraktion/Transformation/Laden von Metadaten</a></span></p>
 		</section>
 
 		<section>
 			<h2>Agenda</h2>
 			<ol>
-				<li>Was ist RVK ?</li>
-				<li>Wozu eine RVK Anreicherung ?</li>
-				<li>Wie ?</li>
+				<li>Was ist die RVK?</li>
+				<li>Wozu eine RVK Anreicherung?</li>
+				<li>Wie?</li>
 				<li>Fazit / Ausblick</li>
 			</ol>
 		</section>
 
 		<section>
-			<h2>Was ist RVK?</h2>
-				<p><span class="fragment">Die Regensburger Verbundklassifikation (RVK, auch Regensburger Systematik) ist eine Klassifikation</span></p>
-				<p><span class="fragment">Gegleidert in Hauptgruppen und thematische Klassen, die durch eine Notation identifiziert sind (ähnlich Dewey Decimal Classification)</span></p>
+			<h2>Was ist die RVK?</h2>
+				<p><span class="fragment">Die Regensburger Verbundklassifikation (RVK, auch Regensburger Systematik)</span></p>
+				<p><span class="fragment">Gegliedert in Hauptgruppen und thematische Klassen, die durch eine Notation identifiziert sind (ähnlich Dewey Decimal Classification)</span></p>
 				<p><span class="fragment">Z.B.: "AN 59100 Altertum"</span></p>
 				<p><span class="fragment">CC0 lizensiert</span></p>
 		</section>
@@ -113,7 +113,6 @@
 
 		<section>
 			<h2>Wie</h2>
-			<p><span class="fragment">
 				<p><span class="fragment">Culturegraph stellt geclusterte Bestände der Verbünde (u.a. mit RVK) bereit</span></p>
 				<p><span class="fragment">Dieses MARC21-XML filtern und zu ES-JSON-Bulk machen =&gt; </span></p>
 				<pre class="fragment"><code class="json" data-trim>
@@ -122,15 +121,14 @@
 		...
 				</code></pre>
 				<p><span class="fragment">... das per curl nach Elasticsearch indexieren</span></p>
-				<p><span class="fragment">... Elasticsearch zu verwenden als Lookuptabelle</span></p>
-			</span></p>
+				<p><span class="fragment">... Elasticsearch verwenden als Lookuptabelle</span></p>
 		</section>
 
 		<section>
 			<h2>Links</h2>
 			<ul>
 			<li><a href="https://github.com/metafacture/metafacture-examples/tree/master/Concordance-RVK-Verbundbibliothek">Das Tool auf github</a></li>
-			<li><a href="https://culturegraph:guhusu@data.dnb.de/aggregate_auslieferung_20191212.marcxml.gz">Aggregatdatei (MARC21-XML, 6.1 GB)</li>
+			<li><a href="https://culturegraph:guhusu@data.dnb.de/aggregate_auslieferung_20191212.marcxml.gz">Aggregatdatei (MARC21-XML, 6.1 GB)</a></li>
 			<li><a href="https://wiki.dnb.de/display/DINIAGKIM/KIM+Workshop+2019?preview=/146377939/146606097/2019-04-03_KIMWS19_Becker_Culturegraph-virtuelle-Systematik.pdf">Hans-Georg Becker:Mit CultureGraph zu einer virtuellen Systematik </a></li>
 			</ul>
 		</section>
