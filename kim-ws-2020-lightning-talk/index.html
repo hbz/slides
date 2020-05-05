@@ -83,7 +83,7 @@
 			<h2>Was ist RVK?</h2>
 				<p><span class="fragment">Die Regensburger Verbundklassifikation (RVK, auch Regensburger Systematik) ist eine Klassifikation</span></p>
 				<p><span class="fragment">Gegliedert in Hauptgruppen und thematische Klassen, die durch eine Notation identifiziert sind (ähnlich Dewey Decimal Classification)</span></p>
-				<p><span class="fragment">Z.B.: "AN 59100" für "Altertum"</span></p>
+				<p><span class="fragment">Z.B.: "CI 5310" für "Abhandlungen im Kontext französischsprachiger Literatur der Philosophie"</span></p>
 				<p><span class="fragment">CC0 lizensiert</span></p>
 		</section>
 
@@ -100,7 +100,7 @@
 				<p><span class="fragment">Dieses MARC21-XML filtern und zu ES-JSON-Bulk machen =&gt; </span></p>
 				<pre class="fragment"><code class="json" data-trim>
 			{"index":{"_index":"cgrvk","_type":"rvk"}}
-{"rvk":["CI 1100","5,1"],"hbzId":"HT018839495, HT018625006"}
+			{"rvk":["CI 1125","CI 5604","CI 5603","IH 34381","CI 1100","CI 5310","EC 2430"],"id":"HT013166356, HT018625006, TT000577460"}
 		...
 				</code></pre>
 				<p><span class="fragment">... das per curl nach Elasticsearch indexieren</span></p>
