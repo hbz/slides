@@ -93,15 +93,44 @@
 			<a href="https://katalog.ub.tu-dortmund.de/taxonomy/tree"><img src="img/rvkTUDortmund.png"/></a>
 		</section>
 
+		<section>
+			<h2>Wie</h2>
+				<p><span class="fragment">Culturegraph stellt geclusterte Bestände der Verbünde (u.a. mit RVK) bereit</span></p></pre>
+				<p><span class="fragment">Dieses MARC21-XML filtern mit dieser Metafacture-Morph: </span></p></pre>
+				<pre class="fragment"><small><code class="xml" data-trim>
+ &lt;combine name=&quot;@rvk&quot; value=&quot;${a}&quot; sameEntity=&quot;true&quot; &gt;
+         &lt;data source=&quot;084??.a&quot; name=&quot;a&quot;/&gt;
+         &lt;data source=&quot;084??.2&quot;&gt;
+                 &lt;regexp match=&quot;rvk&quot; /&gt;
+         &lt;/data&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;@id&quot; value=&quot;${a}&quot;&gt;
+         &lt;data source=&quot;035??.a&quot; name=&quot;a&quot;&gt;
+                 &lt;regexp match=&quot;^\(DE-605\)(.*)&quot; format=&quot;${1}&quot;/&gt;
+         &lt;/data&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;rvk&quot; value=&quot;${a}&quot; &gt;
+         &lt;data source=&quot;@id&quot;/&gt;
+         &lt;data source=&quot;@rvk&quot; name=&quot;a&quot;/&gt;
+ &lt;/combine&gt;
+ &lt;combine name=&quot;id&quot; value=&quot;${a}&quot;&gt;
+         &lt;concat delimiter=&quot;, &quot; name=&quot;a&quot; &gt;
+                 &lt;data source=&quot;@id&quot;/&gt;
+         &lt;/concat&gt;
+                 &lt;data source=&quot;@rvk&quot; /&gt;
+ &lt;/combine&gt;
+				</code></small></pre>
+		</section>
 
 		<section>
 			<h2>Wie</h2>
-				<p><span class="fragment">Culturegraph stellt geclusterte Bestände der Verbünde (u.a. mit RVK) bereit</span></p>
-				<p><span class="fragment">Dieses MARC21-XML filtern und zu ES-JSON-Bulk machen =&gt; </span></p>
+			<p><span class="fragment">
+			=&gt; der Output als Elasticsearch JSON bulk:
+			</span></p></pre>
 				<pre class="fragment"><code class="json" data-trim>
-			{"index":{"_index":"cgrvk","_type":"rvk"}}
-			{"rvk":["CI 1125","CI 5604","CI 5603","IH 34381","CI 1100","CI 5310","EC 2430"],"id":"HT013166356, HT018625006, TT000577460"}
-		...
+{"index":{"_index":"cgrvk","_type":"rvk"}}
+{"rvk":["CI 1125","CI 5604","CI 5603","IH 34381","CI 1100","CI 5310","EC 2430"],"id":"HT013166356, HT018625006, TT000577460"}
+...
 				</code></pre>
 				<p><span class="fragment">... das per curl nach Elasticsearch indexieren</span></p>
 				<p><span class="fragment">... Elasticsearch verwenden als Lookuptabelle</span></p>
