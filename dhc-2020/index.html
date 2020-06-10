@@ -222,10 +222,31 @@
       </section>
 
 			<section data-state="alle">
-				<h2>LOUD</h2>
-				<span class="fragment"><p>Damit Daten nützlich sind, muss man die Zielgruppe kennen & eigene Angebote auf sie ausrichten</p></span>
-				<span class="fragment"><p>Hauptzielgruppe von LOD: Entwickler*innen oder Nutzer*innen von <i>Software</i> für Datenzugriff<br />und -manipulation</p></span>
-				<span class="fragment"><p>LOUD: Orientierung auf Bedürfnisse und Konventionen der Software-Entwicklung</p></span>
+				<h2>"Using Data"?</h2>
+				<span class="fragment"><p>Daten werden mit existierender Software bearbeitet (ausgewertet, ergänzt, integriert etc.)</p></span>
+				<span class="fragment"><p>Entwicklung neuer Software zur Interaktion mit Daten</p></span>
+				<span class="fragment"><p>LOUD: Orientierung auf Bedürfnisse und Konventionen rund um Software (Entwicklung, Standards, etc.)</p></span>
+				<span class="fragment"><p>Damit Daten nützlich sind, muss man die Zielgruppe kennen &amp; eigene Angebote auf sie ausrichten</p></span>
+				<span class="fragment"><p>Hauptzielgruppe: Entwickler*innen oder Nutzer*innen von <i>Software</i> für Datenzugriff und -manipulation</p></span>
+			</section>
+
+			<section data-state="alle">
+				<h1>APIs</h1>
+				<span class="fragment"><p>Software baut auf APIs auf</p></span>
+				<span class="fragment"><p>APIs machen Softwareentwicklung handhabbar (für 1st- und 2nd-Party-Software)</p></span>
+				<span class="fragment"><p>APIs ermöglichen Nutzung und Integration von 3rd-Party-Software</p></span>
+			</section>
+
+			<section data-state="alle">
+				<h3>Zum Bsp. lobid-Formate und -Anwendungen</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<h4><span class="fragment">APIs entkoppeln Anwendungen von Datenquellen, Formaten und Systemen. Sie ermöglichen so modulare, zukunftsfähige Applikationen</span></h4>
+			</section>
+
+			<section data-state="alle">
+				<h2>Und wie APIs bereitstellen?</h2>
+				<span class="fragment"><p>JSON (JavaScript Object Notation) über HTTP (Hypertext Transfer Protocol)</p></span>
+				<span class="fragment"><p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">Target (2017)</a></p></span>
 			</section>
 
 			<section>
@@ -324,25 +345,23 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			
 			<section data-state="alle">
 				<h2>2010-2013: Alpha-Betrieb </h2>
-				<p><span class="fragment">Forschung und Entwicklung</span></p>
+				<p><span class="fragment">Publikation zunächst von RDF-Dateien, dann auch SPARQL</span></p>
 				<p><span class="fragment">Datentransformation mit Perl-Skript, dann hbz-Tool</span></p>
-				<p><span class="fragment">Publikation zunächst von RDF-Dateien, dann SPARQL</span></p>
 				<p><span class="fragment">Jahrelanger Prozess zur offenen Lizenzierung der Verbunddaten</span></p>
 			</section>
 
 			<section data-state="alle">
 				<h2>2013-2017: lobid v1.x</h2>
-				<p><span class="fragment">Erste Schritte Richtung Linked Open Usable Data: Von SPARQL zu LOD-API</span></p>
-				<p><span class="fragment">Fokus auf Schnittstelle, keine Endnutzeroberflächen</span></p>
-				<p><span class="fragment">Datentransformation mit <a href="https://github.com/metafacture/metafacture-core">Metafacture</a></span></p>
+				<p><span class="fragment">Richtung LOUD: Von RDF-Dateien und SPARQL zu LOD-API mit generiertem JSON-LD</span></p>
+				<p><span class="fragment">Datentransformation mit Metafacture</span></p>
+				<p><span class="fragment">Fokus auf Schnittstelle, keine Oberflächen</span></p>
 			</section>
 
 			<section data-state="alle">
 				<h2>seit 2017: lobid v2</h2>
-				<p><span class="fragment">Turning it LOUDer: What you see is what you can query </span></p>
+				<p><span class="fragment">Richtig LOUD: <a href="http://slides.lobid.org/kim-ws-2018/#/18">JSON-LD-y JSON-LD</a></span></p>
 				<p><span class="fragment">Oberflächen</span></p>
 				<p><span class="fragment">OpenRefine-Schnittstellen</span></p>
-				<p><span class="fragment">Von 303 Redirect zu Hash URIs (<a href="https://www.w3.org/TR/cooluris/">details</a>)</span></p>
 			</section>
 
 			<section data-state="alle">
