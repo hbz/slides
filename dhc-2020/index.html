@@ -153,10 +153,8 @@
 			<section data-state="alle">
 				<h2>Warum Normdaten?</h2>
 				<p><span class="fragment">Ursprüngliches Ziel: normierte Namensformen für Dinge und Personen</span></p>
-				<p><span class="fragment">Ermöglicht (bereits im Zettelkatalog!) einheitlichen Einstieg bei der
-						Literatursuche, z.B. von oder über eine bestimmte Person</span></p>
-				<p><span class="fragment">Zur Suche nach Literatur zu einem bestimmten Thema anhand eines normierten
-						Terms</span></p>
+				<p><span class="fragment">Ermöglicht (bereits im Zettelkatalog!) einheitlichen Einstieg in die Literatursuche</span></p>
+				<p><span class="fragment">Beispiele: Suche nach Literatur von oder über eine bestimmte <em>Person</em> oder zu einem bestimmten <em>Thema</em> anhand eines normierten Namens</span></p>
 			</section>
 
 			<section data-state="alle">
@@ -169,8 +167,8 @@
 
 			<section data-state="alle">
 				<h2>Was sind Normdaten? 1/2</h2>
-				<p><span class="fragment">Datensätze zur eindeutigen Identifizierung von Personen, Organisationen,
-						geographischen und/oder administrativen Einheiten, Themen etc.</span></p>
+				<p><span class="fragment">Sammlungen von Datensätzen zur eindeutigen Identifizierung von Dingen</span></p>
+				<p><span class="fragment">Dinge können z.B. sein: Personen, Organisationen, geographische und/oder administrative Einheiten, Themen</span></p>
 				<p><span class="fragment">ein Normdatensatz besteht mindestens aus: ID, Vorzugsbenennung</span></p>
 				<p><span class="fragment">oftmals gibt es weitere identifizierende Merkmale, z.B.: alternative
 						Benennungen, Lebensdaten, Orte (Geburts-, Sterbeort, Wirkungsort, Sitz etc.)</span></p>
@@ -199,8 +197,6 @@
 
 			<section data-state="alle">
 				<h2>Die GND-Kooperative</h2>
-				<p><span class="fragment">(Insbesondere Wissenschaftliche) Bibliotheken katalogisieren primär in
-						Verbundkatalogen</span></p>
 				<p><span class="fragment">Verantwortlich für die GND ist die GND-Kooperative</span></p>
 				<p><span class="fragment">die GND-Kooperative besteht hauptsächlich aus den deutschsprachigen
 						Bibliotheksverbünden, den angeschlossenen Bibliotheken sowie der Deutschen Nationalbibliothek
@@ -208,7 +204,7 @@
 				<p><span class="fragment">in den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
 						Wissenschaftler*innen genutzt</span></p>
 				<p><span class="fragment">die weitere Öffnung der GND wird insbesondere von der DNB gefördert (z.B.
-						GND4C)</span></p>
+						<a href="">GND4C</a>)</span></p>
 			</section>
 
 			<section data-state="alle">
@@ -675,21 +671,80 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section>
-				<h2>Wie könnte ein webbasierter Ansatz zur themenbasierten Subskription von OER aussehen?</h2>
+				<h2>SkoHub-Projekt (seit 2019)</h2>
+				<p><span class="fragment">Entwickelt vom hbz mit graphthinking GmbH</span></p>
+				<p><span class="fragment">Gefördert vom Ministerium für Kultur und Wissenschaft NRW </span></p>
+				<p><span class="fragment">Ziel: Infrastruktur zum Bekanntnmachen und Abonnieren von Web-Ressourcen über themenbasierte Kommunikatonskanäle</span></p>
 			</section>
 
 			<section>
-				<h1>URIs, URIs, URIs</h1>
+				<h2>SkoHub-Module</h2>
+				<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">SkoHub Vocabs</a>: Prozess &amp; Tools zur maschinen- und menschenlesbaren Publikation kontrollierter Vokabulare</span></p>
+				<p><span class="fragment"><a href="http://blog.lobid.org/2020/03/31/skohub-editor.html">SkoHub Editor</a>: Mit JSON-Schema konfigurierter webbasierter Metadateneditor inklusive Validierung</span></p>
+				<p><span class="fragment">Bonus <a href="http://blog.lobid.org/2019/05/17/skohub.html">SkoHub PubSub</a>: Infrastruktur zur normdatenbasierten Subskription von neuen Publikationen</span></p>
 			</section>
 
 			<section>
-				<h2>URIs für OER & kontrollierte Vokabulare (mit SKOS)</h2>
-				<img src="img/subject-indexing-with-uris2.png" style="border: none; box-shadow: none;" />
+				<h2>Beispiel: Nutzung der SkoHub-Werkzeuge bei der Entwicklung eines Metadatenprofils</h2>
 			</section>
 
 			<section>
-				<h1>Web-basierte Subskription & Benachrichtigung</h1>
-				<h4>(with <a href="https://activitypub.rocks/">ActivityPub</a>)</h4>
+				<h2>Exkurs: Was ist ein Profil?</h2>
+				<p><span class="fragment">Datenmodell für eine bestimmte Anwendung/Community unter Nutzung existierender Metadatenschemas und kontrollierter Vokabulare</span></p>
+				<p><span class="fragment">Gibt an welche existierenden Metadatenschemas (z.B. Dublin Core, schema.org) und welche Elemente und Typen daraus benutzt werden</span></p>
+				<p><span class="fragment">Definiert Einschränkungen für die Nutzung des/der Schema(s)</span></p>
+				<p><span class="fragment">z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben, kontrollierte Vokabulare)</span></p>
+			</section>
+
+			<section>
+				<h2>Das LRMI-Profil</h2>
+				<p><span class="fragment">auf LRMI (Learning Resource Metadata Initiative) und damit schema.org basierendes Profil für die Beschreibung von offenen Lehr- und Lernressourcen (OER) im Hochschulbereich</span></p>
+				<p><span class="fragment">dient als Basis für <a href="https://gitlab.com/oersi">OER Search Index (OERSI)</a></span></p>
+				<p><span class="fragment">wird offen entwickelt im Rahmen der <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER-Metadatengruppe des Kompetenzzentrums Interoperable Metadaten (KIM)</a></span></p>
+			</section>
+	
+			<section>
+				<h2>Die Umsetzung</h2>
+				<p><span class="fragment">Zuerst JSON Schema & SkoHub-basiertes Referenz-Eingabeformular entwickeln</span></p>
+				<p><span class="fragment">Wenn benötigt, kontrollierte Vokabulare mit SkoHub Vocabs publizieren</span></p>
+				<p><span class="fragment">Danach: menschenlesbare Spezifikation schreiben</span></p>
+			</section>
+	
+			<section>
+				<h2>JSON Schema als zentrales Dokument</h2>
+				<p><span class="fragment">Das JSON Schema legt Felder, Wertetypen & referenzierte kontrollierte Vokabulare fest:<br /><a href="https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json">https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/dini-ag-kim/lrmi-profile#tests">Automatisierte Tests</a>: Schema wird gegen valide/invalide Beispieldatensätze validiert</a></span></p>
+				<p><span class="fragment">Schema lässt sich im SkoHub Editor ausprobieren:<br /><a href="https://skohub.io/editor/">https://skohub.io/editor/</a></span></p>
+			</section>
+	
+			<section>
+				<h2>Kontrollierte Vokabulare als separate SKOS-Datei</h2>
+				<p><span class="fragment">Kontrollierte Vokabulare/Wertelisten werden separat als SKOS-Datei veröffentlicht und im Schema referenziert, so dass es im Editor eine Lookup-Funktion gibt</span></p>
+				<p><span class="fragment">(Es gibt übrigens seit Kurzem eine <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">deutschsprachige Einführung zu SKOS – Simple Knowledge Organization System</a>)</span></p>
+			</section>
+	
+			<section>
+				<a href="https://skohub.io/editor/"><img src="img/editor.png" width=1200 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h2>Wo kommen die "Subject"-Werte her?</h2>
+				<p><span class="fragment">Kontrollierte Vokabulare müssen in SkoHub Vocabs veröffentlicht sein</span></p>
+				<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">hier</a> für Details)</span></p>
+				<p><span class="fragment">Hier: Nutzung einer skosifizierten Destatis-Systematik</span></p>
+			</section>
+	
+			<section>
+				<a href="https://github.com/dini-ag-kim/hochschulfaechersystematik/blob/master/hochschulfaechersystematik.ttl"><img src="img/vocab-ttl.png" width=1000 style="border: none; box-shadow: none;" /></a>
+			</section>
+	
+			<section>
+				<a href="https://w3id.org/kim/hochschulfaechersystematik/scheme"><img src="img/vocab-html.png" width=1000 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h2>SkoHub PubSub: Web-basierte Subskription & Benachrichtigung</h2>
+				<h4>(mit <a href="https://activitypub.rocks/">ActivityPub</a>)</h4>
 			</section>
 
 			<section>
@@ -709,50 +764,17 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section>
 				<h1>Beispiel</h1>
-				<img src="img/pubsub.png" style="border: none; box-shadow: none;" />
+				<img src="img/pubsub-dhc.png" style="border: none; box-shadow: none;" />
 			</section>
 
 			<section>
 				<h1>Vorteile</h1>
 				<p><span class="fragment">Push- statt Pull-Ansatz</span></p>
-				<p><span class="fragment">Unterstützt OER überall im Web</span></p>
+				<p><span class="fragment">Unterstützt alle Web-Ressourcen</span></p>
 				<p><span class="fragment">Der Nutzen von Normdaten/KOS wird maximiert</span></p>
 				<p><span class="fragment">Die Erstellung und Pflege gemeinsamer, plattformübergreifender KOS wird
 						gefördert </span></p>
-				<p><span class="fragment">Anreize für OER-Produzenten, strukturierte Metadaten zu ergänzen</span></p>
-			</section>
-
-			<section>
-				<h2>Das SkoHub-Projekt versucht zudem wesentliche Lücken zu schließen, die über die Jahre im Kontext der
-					KIM-Gruppe "OER-Metadaten" identifiziert wurden.</h2>
-			</section>
-
-			<section>
-				<h2>...diese sind:</h2>
-				<p><span class="fragment">Prozess &amp; Tools zur maschinen- und menschenlesbaren Publikation kontrollierter
-						Vokabulare</span></p>
-				<p><span class="fragment">Webbasierter Metadateneditor inklusive Validierung zur Beschreibung von
-						OER</span></p>
-				<p><span class="fragment">Bonus: Infrastruktur zur normdatenbasierten Subskription von OER</span></p>
-			</section>
-
-			<section>
-				<h2>SkoHub-Projekt (seit 2019)</h2>
-				<p><span class="fragment">Infrastruktur für Inboxes & Subskription (<a
-							href="https://github.com/hbz/skohub-pubsub">skohub-pubsub</a>)</span></p>
-				<p><span class="fragment">Static Site Generator für SKOS-Vokabulare (<a
-							href="https://github.com/hbz/skohub-ssg">skohub-ssg</a>, <a
-							href="https://test.skohub.io/w3id.org/class/hochschulkompass/scheme.html">Bsp.</a>)</span>
-				</p>
-				<p><span class="fragment">Erfassung, Verlinkung & Senden von Benachrichtigungen im Browser (<a
-							href="https://github.com/hbz/skohub-editor">skohub-editor</a>)</span></p>
-				<p><span class="fragment">Browser-basierte Subskription von Themen (<a
-							href="https://github.com/hbz/skohub-deck">skohub-deck</a>)</span></p>
-			</section>
-
-			<section>
-				<h3>Für weitere Informationen siehe <a href="http://blog.lobid.org/tags/skohub">SkoHub-Beiträge im
-						lobid-Blog</a></h3>
+				<p><span class="fragment">Anreize für Publizierende, strukturierte Metadaten zu ergänzen</span></p>
 			</section>
 
 			<section>
