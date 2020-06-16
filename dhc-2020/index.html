@@ -144,6 +144,7 @@
 				<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
 				<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
 				<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
+				<p><span class="fragment">ca. 90 Mitarbeitende, ca. 10% haben Informationsverarbeitung studiert, Prof. Eide im hbz-Beirat</span></p>
 			</section>
 
 			<section data-state="alle">
@@ -186,29 +187,34 @@
 
 			<section data-state="alle">
 				<h2>Die Gemeinsame Normdatei (GND)</h2>
-				<p><span class="fragment">Die GND ist <em>die</em> Normdatei für Bibliotheken im deutschsprachigen
+				<p><span class="fragment">Normdatei für Bibliotheken im deutschsprachigen
 						Raum</span></p>
-				<p><span class="fragment">Sie beinhaltet Datensätze für Personen, Körperschaften, Konferenzen &
+				<p><span class="fragment">Datensätze für Personen, Körperschaften, Konferenzen &amp;
 						Veranstaltungen, Geografika, Schlagwörter, Werke</span></p>
-				<p><span class="fragment">Sie wird sowohl für die formale Erfassung einer Ressource verwendet
-						(Autor*innen, Körperschaften etc.) als auch für die inhaltliche Erschließung (wer oder was sind
+				<p><span class="fragment">Für die formale Erfassung einer Ressource 
+						(Autor*innen, Körperschaften etc.) und für die inhaltliche Erschließung (wer oder was sind
 						die Themen einer Ressource)</span></p>
+				<p><span class="fragment">In den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
+						Wissenschaftler*innen genutzt</span></p>
 			</section>
 
 			<section data-state="alle">
 				<h2>Die GND-Kooperative</h2>
 				<p><span class="fragment">Verantwortlich für die GND ist die GND-Kooperative</span></p>
-				<p><span class="fragment">die GND-Kooperative besteht hauptsächlich aus den deutschsprachigen
+				<p><span class="fragment">Die GND-Kooperative besteht hauptsächlich aus den deutschsprachigen
 						Bibliotheksverbünden, den angeschlossenen Bibliotheken sowie der Deutschen Nationalbibliothek
 						(DNB) als technischer Hoster</span></p>
-				<p><span class="fragment">in den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
-						Wissenschaftler*innen genutzt</span></p>
-				<p><span class="fragment">die weitere Öffnung der GND wird insbesondere von der DNB gefördert (z.B.
-						<a href="">GND4C</a>)</span></p>
 			</section>
 
 			<section data-state="alle">
-				<h1>2. Linked Data</h1>
+				<h1>GND als LOD von der DNB</h1>
+				<p><span class="fragment">Die DNB publiziert die GND unter anderem als Linked Open Data (LOD) unter <a href="https://data.dnb.de/opendata/">https://data.dnb.de/opendata/</a></span></p>
+				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links in <a href="https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/Entity-Facts/entityFacts_node.html">EntityFacts</a></span></p>
+				<p><span class="fragment">Diese Daten bilden die Grundlage für <a href="https://lobid.org/gnd">lobid-gnd</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>2. Linked Data &amp; JSON-LD</h1>
 			</section>
 
 			<section data-state="alle">
@@ -616,6 +622,13 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section>
+				<h3><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt
+						angegeben wurde</a></h3>
+				<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png"
+						width="800" /></a>
+			</section>
+
+			<section>
 				<h3><a
 						href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen,
 						die während der NS-Zeit in Köln geboren wurden</a></h3>
@@ -624,18 +637,15 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 						src="img/koelsche-ns-geburten.png" width="800" /></a>
 			</section>
 
-			<section>
-				<h3><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt
-						angegeben wurde</a></h3>
-				<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png"
-						width="800" /></a>
-			</section>
-
 			<section data-state="alle">
 				<h2>
 					<a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
 						lobid-gnd: Formulierung komplexer Suchanfragen</a>
 				</h2>
+			</section>
+
+			<section data-state="alle">
+				<h1>3. OpenRefine Reconciliation</h1>
 			</section>
 
 			<section data-state="alle">
@@ -732,7 +742,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section data-state="alle">
-				<h1>SkoHub</h1>
+				<h1>4. SkoHub</h1>
 			</section>
 
 			<section>
