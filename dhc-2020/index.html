@@ -500,7 +500,6 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 				<a href="http://lobid.org/gnd/11850391X#rels"><img src="img/lobid-gnd-graph.png"
 						style="border: none; box-shadow: none;" /></a>
 			</section>
-			</section>
 
 			<section>
 				<h3>b. Die Daten</h3>
@@ -539,11 +538,11 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
 						Suchsyntax</span></p>
 				<p><span class="fragment"><a href="http://lobid.org/gnd/api#auto-complete">Parameter für Auto
-							Suggest</a></p>
+							Suggest</a></span></p>
 				<p><span class="fragment"><a href="http://lobid.org/gnd/api#openrefine">OpenRefine Reconciliation
-							Endpoint</a></p>
+							Endpoint</a></span></p>
 				<p><span class="fragment"><a href="http://lobid.org/gnd/api#bulk_downloads">Parameter für Bulk
-							Downloads</a></p>
+							Downloads</a></span></p>
 				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span>
 				</p>
 			</section>
@@ -573,6 +572,35 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 					<a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
 						lobid-gnd: Formulierung komplexer Suchanfragen</a>
 				</h2>
+			</section>
+
+			<section>
+				<h1>Beispiel-Nutzung</h1>
+			</section>
+
+			<section>
+				<h3>correspsearch.net: GND-Lookup </h3>
+				<a href="https://dhd-blog.org/?p=10632"><img src="img/cs_cmif-creator2.jpg" width="600" /></a>
+			</section>
+
+			<section>
+				<h3>repository.publisso.de: GND-Lookup</h3>
+				<img src="img/frl-gnd-lookup.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>kalliope-verbund.info: Externe Links</h3>
+				<a href="http://kalliope-verbund.info/gnd/118972553"><img src="img/kalliope-bsp.png" width=750 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>performing-arts.eu: Infoboxen zu Personen aus der GND</h3>
+				<a href="https://www.performing-arts.eu/agent/gnd_118507680"><img src="img/performing-arts-screenshot.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>bauhaus.de: Abgleich und Anreicherung lokaler Archivdaten mit der GND</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="alle">
@@ -789,10 +817,9 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section>
-				<h2><span>Weiterführende Informationen</span></h2>
+				<h3><span>Weiterführende Informationen –<br/> Rund um lobid und Linked Data</span></h3>
 				<ul style=font-size:25px;>
-					<li><a href="http://blog.lobid.org/">lobid-Blog</a></li>
-					<li><a href="https://twitter.com/lobidOrg">lobid auf Twitter</a> und <a
+					<li><a href="http://blog.lobid.org/">lobid-Blog</a>, <a href="http://slides.lobid.org/">Präsentationsfolien</a>, <a href="https://twitter.com/lobidOrg">lobid auf Twitter</a> und <a
 							href="https://openbiblio.social/@lobid">Mastodon</a></li>
 					<li>Kreutzer, Till (2011): Open Data – Freigabe von Daten aus Bibliothekskatalogen. Hg. v.
 						Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (<a
@@ -810,8 +837,18 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
 					</li>
 					<li>Target, Sinclair (2017): The Rise and Rise of JSON. URL: <a
-							href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html</a>
-					</li>
+							href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h3><span>Weiterführende Informationen – Nutzung von lobid-gnd</span></h3>
+				<ul style=font-size:25px;>
+					<li>Stefan Dumont: correspSearch: Neue Tools, neue Daten – und eine Auszeichnung <a href="https://dhd-blog.org/?p=10632">https://dhd-blog.org/?p=10632</a></li>
+					<li>Harald Lordick: Die Öffnung der GND und die historische Forschung: <a href="https://djgd.hypotheses.org/1511">https://djgd.hypotheses.org/1511</a></li>
+					<li>Harald Lordick &amp; Beata Mache: Annotationen anhand der Gemeinsamen Normdatei aus einer anwendungsorientierten Perspektive historischer Forschung <a href="https://zenodo.org/record/1188230">https://zenodo.org/record/1188230</a></li>
+					<li>Christian Thomas: Humboldts ›Bekenntnisse‹ von 1801 nach der Original-Handschrift aus den Amerikanischen Reisetagebüchern im Deutschen Textarchiv der BBAW <a href="http://www.avhumboldt.de/?p=14447">http://www.avhumboldt.de/?p=14447</a></li>
+					<li>Christian Erlinger-Schiedlbauer et al. (u.a. Sven Schlarb): Semantische Suchabfragen mit der Linked Open Data Cloud generieren <a href="https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/">https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/</a></li>
 				</ul>
 			</section>
 
