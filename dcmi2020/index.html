@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Developing a JSON-LD-based LRMI metadata profile</title>
+
+		<meta name="description" content="Slides for a presentation in the 'LRMI Metadata in use' panel at DCMI Virtual 2020">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Developing a JSON-LD-based LRMI metadata profile",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Slides for a presentation in the 'LRMI Metadata in use' panel at DCMI Virtual 2020",
+			"about" : [ "LRMI", "OERSI", "SkoHub", "JSON-LD", "JSOn Schema"],
+			"url" : "http://slides.lobid.org/dcmi2020",
+			"datePublished" : "2020-09-25",
+			"inLanguage" : "en",
+			"audience": [ "librarians", "metadata practitioners" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+		<section>
+			<h2>Developing a JSON-LD-based LRMI metadata profile</h2>
+			<p>
+			<small>
+				<a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+				Open Infrastructure, Library service centre NRW (hbz) </small> <br />
+			<a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+			<small>DCMI Virtual, WWW, 2020-09-25</small>
+			</p>
+			<p>
+			This presentation: <br /> <a
+				href="http://slides.lobid.org/dcmi2020/">http://slides.lobid.org/dcmi2020/</a>
+			<br/>
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Zur Person</h2>
+			<p><span class="fragment">Focus: data modelling, web and (meta)data standards</a></span></p>
+			<p><span class="fragment">Employed at <a href="http://www.wikidata.org/entity/Q18085187">hbz</a>, focus on <a href="https://lobid.org">lobid</a> and lately on <a href="https://skohub.io">SkoHub</a> and <a href="https://oersi.de">OERSI (OER Search Index)</a></span></p>
+			<p><span class="fragment">Initiated the <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER Metadata Group</a> of KIM und Jointly in 2013</span></p>
+		</section>
+
+		<section>
+			<h2>Agenda</h2>
+			<ol>
+				<li>Was ist ein Metadatenprofil?</li>
+				<li>Ein LRMI-Profil für Hochschul-OER</li>
+				<li>Entwicklungsprozess</li>
+				<li>Fazit / Ausblick</li>
+			</ol>
+		</section>
+
+		<section>
+			<h1>Was ist ein Metadatenprofil?</h1>
+		</section>
+
+		<section>
+			<h2>Kontext</h2>
+			<p><span class="fragment"><a href="http://www.ariadne.ac.uk/issue/25/app-profiles/">Vorschlag von Rachel Heery & Manjula Patel im Herbst 2000</a>, seitdem zentrales Thema in der Dublin Core Metadata Initative (DCMI) und Verwendung in vielen anderen Kontexten</span></p>
+			<p><span class="fragment">Auch "Profil", "Application Profile/Anwendungsprofil" oder "Community Profile" genannt</span></p>
+			<p><span class="fragment">Aktuell Thema in der <a href= "https://www.dublincore.org/groups/application_profiles_ig/">Dublin Core Application Profile Interest Group</a></span></p>
+		</section>
+
+		<section>
+			<h2>Was macht ein Profil?</h2>
+			<p><span class="fragment">Gibt an welche existierenden Metadatenschemas (z.B. Dublin Core, schema.org) und welche Elemente und Typen daraus benutzt werden</span></p>
+			<p><span class="fragment">Definiert Einschränkungen für die Nutzung des/der Schema(s)</span></p>
+			<p><span class="fragment">z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben, kontrollierte Vokabulare)</span></p>
+		</section>
+
+		<section>
+			<img src="img/baker-coyle-swib19-slide04.png" width=800 style="border: none; box-shadow: none;" />
+			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
+		</section>
+
+		<section>
+			<h2>Funktionen eines Profils</h2>
+			<p><span class="fragment">Dokumentation von Verabredungen einer Community</span></p>
+			<p><span class="fragment">Zur Produktion von Daten</span></p>
+			<p><span class="fragment">Für die Analyse und Validierung von Daten</span></p>
+			<p><span class="fragment">Um Daten aus verschiedenen Quellen zu mischen/auszuwählen</span></p>
+			<p><span class="fragment">Um Daten Dritter zu indexieren</span></p>
+			<p><span class="fragment">Für Retrieval oder das Angebot verschiedener Ansichten<br /> <br />
+			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 3</a></small></span></p>
+		</section>
+
+		<section>
+			<h2>Mögliche Ausformungen/Bestandteile</h2>
+			<p><span class="fragment">Menschenlesbare Dokumentation (z.B. tabellarisch in PDFs)</span></p>
+			<p><span class="fragment">Beispiel-zentrierte menschenlesbare Dokumentation (siehe <a href="http://slides.lobid.org/kim-ws-2017/#/45">Dokumentationssession KIM WS 2017</a>)</span></p>
+			<p><span class="fragment">Schema für spezifische Serialisierung (z. B.: XML Schema, JSON Schema)</span></p>
+			<p><span class="fragment">Spezifikation eines RDF-Graphen (z. B. <a href="https://shex.io/">ShEx</a>)</span></p>
+			<p><span class="fragment">Generische Spezifikation eines Profils mit tabellenbasiertem <a href="https://github.com/dcmi/dcap">DC AP Core Vocabulary</a> (in Entwicklung)</span></p>
+			<p><span class="fragment">...</span></p>
+		</section>
+
+		<section>
+			<h1>LRMI-Metadatenprofil für Hochschul-OER</h1>
+		</section>
+
+		<section>
+			<h2>Zu viele Akronyme?!</h2>
+			<p><span class="fragment">OER: Open Educational Resources, frei zugängliche und offen lizenzierte Lehr- und Lernmaterialien</span></p>
+			<p><span class="fragment"><a href="https://www.dublincore.org/about/lrmi/">LRMI</a>: Learning Resource Metadata Initiative, ein Initiative zur Ergänzung von bildungsmaterialspezifischen Properties & Classes in <a href="https://schema.org">schema.org</a></span></p>
+		</section>
+
+		<section>
+			<h2>Wurde nicht gerade ein OER-Profil veröffentlicht?</h2>
+			<p><span class="fragment">Ja, mit <a href="https://w3id.org/kim/hs-oer-lom-profil/latest/">LOM for Higher Education OER Repositories</a> wurde bereits ein Profil inklusive XML Schema von der OER-Metadatengruppe veröffentlicht, das auf LOM (Learning Objects Metadata) basiert</span></p>
+			<p><span class="fragment">LOM ist XML-basiert und  eignet sich für einige Zwecke (z.B. OAI/PMH) gut, für das Web ist schema.org/LRMI besser</span></p>
+		</section>
+
+		<section>
+			<h2>Warum ein LRMI-Profil?</h2>
+			<p><span class="fragment">Interesse an LRMI ist groß in der deutschsprachigen OER-Welt, allerdings gibt es keine leichte Anleitung, wie man es am besten nutzt</span></p>
+			<p><span class="fragment">Aktuelles Projekt (von TIB Hannover und hbz) mit konkretem Bedarf an einem an Standards orientierten JSON Schema für OER-Metadaten: <a href="https://gitlab.com/oersi">OERSI – OER Search Index</a></span></p>
+		</section>
+
+		<section>
+			<h1>Der Entwicklungs-prozess</h1>
+		</section>
+
+		<section>
+			<h2>Idee zur Umsetzung</h2>
+			<p><span class="fragment">Zuerst JSON Schema & SkoHub-basiertes Referenz-Eingabeformular entwickeln</span></p>
+			<p><span class="fragment">Danach: Spezifikation mit ReSpec schreiben (siehe dazu Sebastians Vortrag am morgigen Dienstag)</span></p>
+		</section>
+
+		<section>
+			<h2>JSON Schema als zentrales Dokument</h2>
+			<p><span class="fragment">Das JSON Schema legt Felder, Wertetypen & referenzierte kontrollierte Vokabulare fest:<br /><a href="https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json">https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json</a></span></p>
+			<p><span class="fragment">Schema lässt sich im SkoHub Editor ausprobieren:<br /><a href="https://skohub.io/editor/">https://skohub.io/editor/</a></span></p>
+		</section>
+
+		<section>
+			<h2>Kontrollierte Vokabulare als separate SKOS-Datei</h2>
+			<p><span class="fragment">Kontrollierte Vokabulare/Wertelisten werden separat als SKOS-Datei veröffentlicht und im Schema referenziert, so dass es im Editor eine Lookup-Funktion gibt</span></p>
+			<p><span class="fragment">(Es gibt übrigens eine neue <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">deutschsprachige Einführung zu SKOS – Simple Knowledge Organization System</a>)</span></p>
+		</section>
+
+		<section>
+			<a href="https://skohub.io/editor/"><img src="img/editor.png" width=1200 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+
+		<section>
+			<h2>Property mit nicht-formatiertem String</h2>
+			<pre><code class="json" data-trim>
+{
+  "properties": {
+    "name": {
+    "title": "Title",
+    "type": "string"
+    }
+  }
+}
+			</code></pre>
+		</section>
+
+		<section>
+			<img src="img/title.png" width=800 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Property mit formatiertem String (URI)</h2>
+			<pre><code class="json" data-trim>
+{
+  "image": {
+    "title": "Image",
+    "type": "string",
+    "format": "uri",
+    "_display": {
+	  "placeholder": "A link to an image of the resource"
+    }
+  }
+}
+			</code></pre>
+		</section>
+
+		<section>
+			<img src="img/empty-image-field.png" width=800 style="border: none; box-shadow: none;" />
+			<img src="img/valid-link.png" width=800 style="border: none; box-shadow: none;" />
+			<img src="img/invalid-link.png" width=800 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Liste von möglichen Strings</h2>
+			<pre><code class="json" data-trim>
+{
+  "type": {
+    "title": "Type",
+    "type": "string",
+    "enum": [
+      "AudioObject",
+      "Book",
+      "Course",
+      "CreativeWork",
+      "DataDownload",
+      "ImageObject",
+      "PresentationDigitalDocument",
+      "SoftwareApplication",
+      "VideoObject"
+    ]
+  }
+}
+			</code></pre>
+		</section>
+
+		<section>
+			<img src="img/enum.png" width=800 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Referenz auf SKOS-Vokabular</h2>
+			<pre><code class="json" data-trim>
+{
+  "about":{
+    "title":"Subject",
+    "type":"array",
+    "items":{
+      "type":"object",
+      "properties":{
+        "inScheme":{
+          "type":"object",
+          "properties":{
+            "id":{
+              "type":"string",
+              "enum":[
+                "https://w3id.org/kim/hochschulfaechersystematik/scheme"
+              ]
+            }
+          }
+        }
+      },
+      "_widget":"SkohubLookup"
+    }
+  }
+}
+			</code></pre>
+		</section>
+
+		<section>
+			<img src="img/lookup.png" width=800 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Wo kommen die vorgeschlagenen Werte her?</h2>
+			<p><span class="fragment">Kontrollierte Vokabulare müssen in SkoHub Vocabs veröffentlicht sein</span></p>
+			<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">hier</a> für Details)</span></p>
+			<p><span class="fragment">Hier: Nutzung einer im Kontext von "LOM for Higher Education OER Repositories" publizierten Klassifikation</span></p>
+		</section>
+
+		<section>
+			<a href="https://github.com/dini-ag-kim/hochschulfaechersystematik/blob/master/hochschulfaechersystematik.ttl"><img src="img/vocab-ttl.png" width=1000 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<a href="https://w3id.org/kim/hochschulfaechersystematik/scheme"><img src="img/vocab-html.png" width=1000 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<h1>Fazit / Ausblick</h1>
+		</section>
+
+		<section>
+			<h2>Vorteile</h2>
+			<p><span class="fragment">Entwicklung auf GitHub o.ä. mit den dort etablierten Prozessen</span></p>
+			<p><span class="fragment">Referenz-Formular und Schema zur Validierung werden in einem Zuge entwickelt</span></p>
+			<p><span class="fragment">Kontrollierte Vokabulare werden parallel mit SKOS entwickelt und sind unabhängig vom Schema nutzbar</span></p>
+		</section>
+
+		<section>
+			<h2>Nachteile (?)</h2>
+			<p><span class="fragment">Fokussiert auf JSON und genau eine (von vielen möglichen) JSON-LD-Repräsentationen der Daten</span></p>
+			<p><span class="fragment">Deshalb keine Validierungsmöglichkeit für anders strukturierte JSON-Daten und andere RDF-Serialisierungen</span></p>
+			<p><span class="fragment">Menschenlesbare Version ist nicht von Beginn an verfügbar und muss separat geschrieben werden</span></p>
+		</section>
+
+		<section>
+			<h2>Diskussion</h2>
+			<p><span class="fragment">Möglichkeiten der (zusätzlichen) Nutzung des DC Core Vocabulary for Profiles oder von ShEx?</span></p>
+			<p><span class="fragment">Welche Form sollte die menschenlesbare Version haben?</span></p>
+			<p><span class="fragment">Wer hat Interesse, das LRMI-Profil mit weiterzuentwickeln?</span></p>
+		</section>
+
+		<section>
+			<h2><span>Weiterführende Informationen</span></h2>
+			<ul style=font-size:25px;>
+				<li><a href="https://www.dublincore.org/blog/2011/application_profile/">Tom Baker (2011): Dublin Core™ Application Profiles at eleven years</a></li>
+				<li><a href= "http://www.ariadne.ac.uk/issue/25/app-profiles/">Rachel Heery & Manjula Patel (2000): Application Profiles: Mixing and Matching Metadata Schemas</a></li>
+				<li><a href= "http://blog.lobid.org/tags/skohub">SkoHub-Blogbeiträge</a></li>
+				<li><a href= "https://www.dublincore.org/groups/application_profiles_ig/">Dublin Core Application Profile Interest Group</a></li>
+				<li>Tom Baker, Karen Coyle (2019): Design for simple application profiles, SWIB19-Präsentation: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Slides</a>, <a href="https://www.youtube.com/watch?v=5LRrlzvVNes">Aufzeichnung</a></li>
+				<li><a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER-Metadatengruppe von KIM/Jointly</a></li>
+			</ul>
+		</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+s
+   </script>
+
+  </body>
+</html>
