@@ -156,7 +156,7 @@
 				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" height="100px" /></a></h3>
 				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
 				<p><span class="fragment">Seit fast zehn Jahren die zentrale Komponente der offenen Infrastruktur im hbz</span></p>
-				<p><span class="fragment">Stellt intuitive Rechercheoberflächen und webbasierte Schnittstellen bereit</span></p>
+				<p><span class="fragment">Stellt intuitive, web-basierte Rechercheoberflächen und Schnittstellen bereit</span></p>
 			</section>
 
 			<section data-state="alle">
@@ -737,7 +737,7 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 
 			<section>
 				<h1>JSON</h1>
-				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+				<pre><code class="json">
 $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 {
   "login": "acka47",
@@ -749,12 +749,12 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
   "location": "Cologne, Germany",
   "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
 }
-				</code></font>
+				</code></pre>
 			</section>
 
 			<section>
 				<h3>JSON + @context + @id = JSON-LD</h3>
-				<font size=5><code style=display:block;white-space:pre-wrap;text-align:left>
+				<pre><code class=json>
 {
   "@context": "http://schema.org/",
   "@id": "https://github.com/users/acka47",
@@ -767,7 +767,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
   "location": "Cologne, Germany",
   "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
 }
-				</code></font>
+				</code></pre>
 			</section>
 
 			<section data-state="alle">
@@ -777,26 +777,10 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section data-state="alle">
-				<h2>2010-2013: Alpha-Betrieb </h2>
-				<p><span class="fragment">Publikation zunächst von RDF-Dateien, dann auch SPARQL</span></p>
-				<p><span class="fragment">Datentransformation mit Perl-Skript, dann hbz-Tool</span></p>
-				<p><span class="fragment">Jahrelanger Prozess zur offenen Lizenzierung der Verbunddaten</span></p>
-			</section>
-
-			<section data-state="alle">
-				<h2>2013-2017: lobid v1.x</h2>
-				<p><span class="fragment">Richtung LOUD: Von RDF-Dateien und SPARQL zu LOD-API mit generiertem
-						JSON-LD</span></p>
-				<p><span class="fragment">Datentransformation mit <a href="https://github.com/metafacture/">Metafacture</a></span></p>
-				<p><span class="fragment">Fokus auf Schnittstelle, keine Oberflächen</span></p>
-			</section>
-
-			<section data-state="alle">
-				<h2>seit 2017: lobid v2</h2>
-				<p><span class="fragment">Richtig LOUD: <a href="http://slides.lobid.org/kim-ws-2018/#/18">JSON-LD-y
-							JSON-LD</a>: <br/><em>Best</em> statt <em>worst of both worlds</em></span></p>
-				<p><span class="fragment">Oberflächen</span></p>
-				<p><span class="fragment">OpenRefine-Schnittstellen</span></p>
+				<h2>Entwicklung der lobid-Technologie</h2>
+				<p><span class="fragment">2010-2013: Alpha-Betrieb mit RDF & SPARQL</span></p>
+				<p><span class="fragment">2013-2017: lobid v1.x mit JSON-LD aber noch nicht sehr intuitiv nutzbar</span></p>
+				<p><span class="fragment">seit 2017: richtig LOUDe lobid v2 plus OpenRefine-Schnittstellen</span></p>
 			</section>
 
 			<section data-state="alle">
@@ -980,7 +964,7 @@ _exists_:dateOfBirth
 
 			<section data-state="adrian">
 				<h1>Übung</h1>
-				<p><em>Suche nach allen Personen in der GND, die in Chur geboren wurden und in Zürich gestorben sind<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4010189-7%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4068038-1%22&filter=%2B%28type%3APerson%29">.</a></em></p>
+				<p><em>Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">.</a></em></p>
 			</section>
 
 			<section>
@@ -1093,7 +1077,7 @@ AND describedBy.sourceOrganization.id:
 			</section>
 
 			<section>
-				<h2>Deletions Endpoint: Vom bis 14. bis 23.2. gelöschte Titel</h2>
+				<h2>Deletions Endpoint: Vom 14. bis 23.2.2019 gelöschte Titel</h2>
 				<a href="http://lobid.org/resources/deletions/search?q=describedBy.deleted%3A%5B20190214+TO+20190223%5D">
 				<pre><code class="json" data-trim>
 describedBy.deleted:[20190214 TO 2019023]
@@ -1102,7 +1086,8 @@ describedBy.deleted:[20190214 TO 2019023]
 
 			<section>
 				<h2>Kibana-Visualisierungen</h2>
-				<a href="http://kibana.lobid.org/app/kibana#/visualize">http://kibana.lobid.org/app/kibana#/visualize</a>
+				<a href="http://kibana.lobid.org/app/kibana#/visualize">http://kibana.lobid.org/app/kibana#/visualize</a><br />
+				<small>(zugriffsbeschränkt)</small>
 			</section>
 
 			<section data-state="alle">
@@ -1123,7 +1108,7 @@ describedBy.deleted:[20190214 TO 2019023]
 				<p><span class="fragment">Läuft im Browser, lokal oder gehostet</span></p>
 			</section>
 
-			<section><p>TODO: Hosted Instanz zur Nutzung (war: https://openrefine.labs.lobid.org)</p></section>
+			<section><p>TODO: Hosted Instanz (v3.4) zur Nutzung (war: https://openrefine.labs.lobid.org)</p></section>
 
 			<section data-state="alle">
 				<h1>Reconciliation mit OpenRefine</h1>
@@ -1132,8 +1117,6 @@ describedBy.deleted:[20190214 TO 2019023]
 				<p><span class="fragment">Übernahme von Daten aus spezifischen Feldern der gematchten GND-Einträge mittels <a
 							href="https://github.com/OpenRefine/OpenRefine/wiki/Data-Extension-API">Data Extension
 							API</a></span></p>
-				<p><span class="fragment">lobid-gnd war der zweite Dienst nach Wikidata, der die Data Extension API
-						unterstützt</span></p>
 			</section>
 
 			<section><h1>Grundlegendes Vorgehen</h1></section>
@@ -1157,27 +1140,6 @@ describedBy.deleted:[20190214 TO 2019023]
 			<section>
 				<h1>Übung <br/><small>Grundlegendes Vorgehen</small></h1>
 				<a href="https://blog.lobid.org/2018/08/27/openrefine.html">https://blog.lobid.org/2018/08/27/openrefine.html</a> <br/>(bis 'Start Reconciling')
-			</section>
-
-			<section><h1>Ergebnisse verbessern</h1></section>
-
-			<section data-state="alle">
-				<img src="img/openrefine-suggest-1.png" width=800 style="border: none; box-shadow: none;" />
-			</section>
-
-			<section data-state="alle">
-				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
-			</section>
-
-			<section data-state="alle">
-				<img src="img/openrefine-suggest-3.png" width=800 style="border: none; box-shadow: none;" />
-			</section>
-
-			<section data-state="alle">
-				<h2>Übung: Properties zur Verbessung der Matches – Beispiele</h2>
-				<p><span class="fragment">Lebensdaten</span></p>
-				<p><span class="fragment">Beruf &amp; Parteizugehörigkeit</span></p>
-				<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">http://blog.lobid.org/2019/09/30/openrefine-examples.html</a></span></p>
 			</section>
 
 			<section><h1>Daten erweitern</h1></section>
@@ -1218,16 +1180,29 @@ id,name
 				</code></pre>
 			</section>
 
-			<section>
-				<h2>Reconciliation API Clients</h2>
-				<p><span class="fragment">Reconciliation API für andere Clients als OpenRefine</span></p>
-				<p><span class="fragment">z.B. <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a>, "a web application to manage and create mappings between knowledge organization systems, such as classifications, authority files, and thesauri."</span></p>
-				<p><span class="fragment"><a href="https://www.w3.org/community/reconciliation/">W3C Reconciliation Community Group</a>: "Matching entities across data sources using different identifiers and formats [...] on the web."</span></p>
-				<p><span class="fragment">Ziel: Reconciliation als Web-Standard</p>
+			<section><h1>Ergebnisse verbessern</h1></section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-1.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="alle">
-				<h1><a href="https://lobid.org/gnd/reconcile">https://lobid.org/gnd/reconcile</a></h1>
+				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h2>Übung: Properties zur Verbessung der Matches – Beispiele</h2>
+				<p><span class="fragment">Lebensdaten</span></p>
+				<p><span class="fragment">Beruf &amp; Parteizugehörigkeit</span></p>
+				<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">http://blog.lobid.org/2019/09/30/openrefine-examples.html</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h3><a href="https://lobid.org/gnd/reconcile">https://lobid.org/gnd/reconcile</a></h3>
 			</section>
 
 			<section>
