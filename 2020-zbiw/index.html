@@ -129,15 +129,20 @@
 				</table>
 			</section>
 
+			<section data-state="fabian">
+				<h1>Teil 1:<br><small>Offene Infrastruktur</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>lobid</b></td><td>lobid-Dienste und Nutzungsbeispiele</td><td>10:00–10:30</td></tr>
+					<tr><td><b>GND</b></td><td>GND, lobid-gnd, Rechercheoberfläche</td><td>10:30–11:00</td></tr>
+				</table>
+			</section>
+
 			<section data-state="adrian">
 				<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
 				<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
 				<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
 				<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
-			</section>
-
-			<section>
-				<h1>1. Offene Infrastruktur</h1>
 			</section>
 
 			<section>
@@ -376,18 +381,26 @@
 			</section>
 
 			<section>
-				<h1>TODO: Übung Oberfläche ausprobieren</h1>
+				<h1>Übung</h1>
+				<p><em>Probiert die auf den vorigen Folien beschriebene Oberfläche von lobid-gnd aus (die Screenshots verlinken auf die entsprechenden Seiten)</em></p>
 			</section>
 
 			<section data-state="alle">
-				<h1>2. Linked Data &amp; JSON-LD</h1>
+				<h1>Teil 2:<br><small>Linked Data &amp; JSON-LD</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>Standards</b></td><td>RDF, Linked Data</td><td>11:00–11:30</td></tr>
+					<tr><td><b>APIs</b></td><td>JSON, JSON-LD, LOUD</td><td>11:30–12:00</td></tr>
+					<tr><td><b>lobid-gnd</b></td><td>Daten und Abfragemöglichkeiten GND</td><td>12:30–13:00</td></tr>
+					<tr><td><b>lobid-resources</b></td><td>Daten und Abfragemöglichkeiten Verbundkatalog</td><td>13:00–13:30</td></tr>
+				</table>
 			</section>
-			
+
 			<section data-state="pascal">
 				<h1>Übung</h1>
 				<p><em>Verschicke einen Link zum Buch "With Reference to Reference" von Catherine Elgin</em></p>
-				<p>Gruppe 1: OPAC -> <a href="http://okeanos-www.hbz-nrw.de/F">http://okeanos-www.hbz-nrw.de/F</a></p>
-				<p>Gruppe 2: lobid-resources -> <a href="https://lobid.org/resources">https://lobid.org/resources</a></p>
+				<p>1: OPAC -> <a href="http://okeanos-www.hbz-nrw.de/F">http://okeanos-www.hbz-nrw.de/F</a></p>
+				<p>2: lobid-resources -> <a href="https://lobid.org/resources">https://lobid.org/resources</a></p>
 			</section>
 
 			<section data-state="alle">
@@ -530,25 +543,179 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 						</a></small></span>
 			</section>
 
-			<section data-state="alle">
-				<h2>Beispiel:<br /> GET https://api.github.com</h2>
+			<section data-state="fabian">
+				<h3>Beispiel: GET<br/> https://lobid.org/organisations/DE-1a</h3>
 				<pre><code class="json" data-trim>
 {
-"current_user_url": "https://api.github.com/user",
-"authorizations_url": "https://api.github.com/authorizations",
-"emails_url": "https://api.github.com/user/emails",
-"emojis_url": "https://api.github.com/emojis",
-"events_url": "https://api.github.com/events",
-"feeds_url": "https://api.github.com/feeds",
-"followers_url": "https://api.github.com/user/followers",
-"gists_url": "https://api.github.com/gists{/gist_id}",
-"hub_url": "https://api.github.com/hub",
-...
-}
+  "linkedTo" : {
+    "id" : "http://lobid.org/organisations/DE-601#!",
+    "label" : "Verbundzentrale des GBV (VZG)"
+  },
+  "rs" : "110000000000",
+  "address" : {
+    "addressLocality" : "Berlin",
+    "type" : "PostalAddress",
+    "addressCountry" : "DE",
+    "postalCode" : "10772"
+  }
+  ...
 				</code></pre>
 			</section>
 
-			<section><h1>TODO: Übungen JSON &amp; jq via jq-play (elag2019-bootcamp)</h1></section>
+			<section data-state="alle">
+						<h1>cURL</h1>
+						<p><span class="fragment">Kommandozeilen-Tool zum Datentransfer mit URLs</span></p>
+						<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
+						<p><span class="fragment"><a href="https://www.mycompiler.io/new/bash" target="_blank">https://www.mycompiler.io/new/bash</a></span></p>
+						<span class="fragment">
+							<pre><code class="bash">$ curl --help</code></pre>
+						</span>
+					</section>
+
+			<section data-state="alle">
+				<h2>Übung: cURL</h2>
+					<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+									<col width="10%" />
+									<col width="90%" />
+									<tbody>
+										<tr>
+											<td>cURL</td>
+											<td>
+												<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+							<tr>
+								<td>Copy<br/>/Paste</td>
+								<td>
+									<pre><code class="bash" data-trim>
+# Kopieren und im Terminal einfügen (s. Hinweise unten)
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+							<tr>
+								<td>History</td>
+								<td>
+									<pre><code class="bash" data-trim>
+$ &uarr; # Auf die Kommandozeilen-History zugreifen
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				<p><font size="5"><i>(Für Copy/Paste in GUI: CTRL+c bzw. CTRL+v. <br/>Im Terminal: SHIFT+CTRL+c bzw. SHIFT+CTRL+v. )</i></font></p>
+			</section>
+
+			<section data-state="alle">
+				<h2>Antwort</h2>
+				<pre><code class="json" data-trim>
+$ curl https://lobid.org/organisations/DE-1a
+{
+  "linkedTo" : {
+    "id" : "http://lobid.org/organisations/DE-601#!",
+    "label" : "Verbundzentrale des GBV (VZG)"
+  },
+  "rs" : "110000000000",
+  "address" : {
+    "addressLocality" : "Berlin",
+    "type" : "PostalAddress",
+    "addressCountry" : "DE",
+    "postalCode" : "10772"
+  },
+...
+				</code></pre>
+				<p>Ausgabe ist lang, oft wollen wir nur bestimmte Werte</p>
+			</section>
+
+			<section data-state="alle">
+				<h2>JavaScript Object Notation (JSON)</h2>
+				<span class="fragment"><pre><code class="javascript" data-trim>
+var options = {
+  url: 'https://lobid.org/organisations/DE-1a'
+};
+
+request(options, function (error, response, body) {
+  var doc = JSON.parse(body);
+  console.log('postal code:', doc.address.postalCode) // <--
+});
+				</code></pre></span>
+				<span class="fragment"><pre><code class="nohighlight" data-trim>
+> postal code: 10772
+				</code></pre></span>
+			</section>
+
+			<section data-state="alle">
+				<h1>jq</h1>
+				<p><span class="fragment">Ein flexibles Kommandozeilen-Tool zur JSON-Verarbeitung</span></p>
+				<p><span class="fragment"><a href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a></span></p>
+				<p><span class="fragment"><a href="https://jqplay.org/">https://jqplay.org/</a></span></p>
+				<span class="fragment">
+					<pre><code class="bash">$ jq --help</code></pre>
+				</span>
+			</section>
+
+			<section data-state="alle">
+				<h2>Übung: JSON mit jq (1)</h2>
+				<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" \
+| jq .name # filter: .name
+				</code></pre>
+			</section>
+
+			<section data-state="alle">
+				<h2>Übung: JSON mit jq (2)</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="21%" />
+					<col width="79%" />
+					<tbody>
+						<tr>
+							<td>Kosten-<br/>träger</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq &lt;???&gt; # dt. Bezeichner für den Kostenträger
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Modifikations-<br/>datum</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq &lt;???&gt; # Datum der letzten Modifikation
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<h2>Übung: JSON mit jq (3)</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="21%" />
+					<col width="79%" />
+					<tbody>
+						<tr>
+							<td>Kosten-<br/>träger</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq .fundertype.label.de
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Modifikations-<br/>datum</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModified
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 
 			<section data-state="alle">
 				<h2>JSON + Linked Data = JSON-LD</h2>
@@ -680,6 +847,108 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 							Downloads</a></span></p>
 				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span>
 				</p>
+			</section>
+
+			<section data-state="alle">
+				<h2>Übung: Suchsyntax</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="25%" />
+					<col width="75%" />
+					<tbody>
+						<tr>
+							<td>Feldsuche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # &lt;field&gt;:&lt;term&gt;
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Boolsche Suche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # AND, OR
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Trunkierung</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # Trunkieren mit *
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Intervalle</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # &lt;feld&gt;:[* TO &lt;???&gt;]
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Existenz</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # _exists_:&lt;field&gt;
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
+			</section>
+
+			<section data-state="alle">
+				<h2>Suchsyntax: Lösungen</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="25%" />
+					<col width="75%" />
+					<tbody>
+						<tr>
+							<td>Feldsuche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+abbreviatedNameForTheCorporateBody:zbiw
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Boolsche Suche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+Kunst AND (Kultur OR Wissenschaft)
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Trunkierung</td>
+							<td>
+								<pre><code class="bash" data-trim>
+professionOrOccupation.label:Politiker*
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Intervalle</td>
+							<td>
+								<pre><code class="bash" data-trim>
+dateOfBirth:[* TO 1500]
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Existenz</td>
+							<td>
+								<pre><code class="bash" data-trim>
+_exists_:dateOfBirth
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
 			</section>
 
 			<section>
@@ -837,7 +1106,13 @@ describedBy.deleted:[20190214 TO 2019023]
 			</section>
 
 			<section data-state="alle">
-				<h1>3. OpenRefine Reconciliation</h1>
+				<h1>Teil 3:<br><small>OpenRefine Reconciliation</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>Grundlagen</b></td><td>Grundlagen von OpenRefine und Reconciliation</td><td>13:30–14:00</td></tr>
+					<tr><td><b>Matching</b></td><td>Verbesserung des Matching auf GND-Einträge</td><td>14:00–14:30</td></tr>
+					<tr><td><b>Extension</b></td><td>Datenanreicherung auf Basis der Matches</td><td>14:30–15:00</td></tr>
+				</table>
 			</section>
 
 			<section data-state="alle">
@@ -848,7 +1123,7 @@ describedBy.deleted:[20190214 TO 2019023]
 				<p><span class="fragment">Läuft im Browser, lokal oder gehostet</span></p>
 			</section>
 
-			<section><h2>TODO: Hosted Instanz zur Nutzung (war: https://openrefine.labs.lobid.org)</h2></section>
+			<section><p>TODO: Hosted Instanz zur Nutzung (war: https://openrefine.labs.lobid.org)</p></section>
 
 			<section data-state="alle">
 				<h1>Reconciliation mit OpenRefine</h1>
@@ -879,7 +1154,10 @@ describedBy.deleted:[20190214 TO 2019023]
 				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
-			<section><h1>TODO: Übung Grundlegendes Vorgehen</h1></section>
+			<section>
+				<h1>Übung <br/><small>Grundlegendes Vorgehen</small></h1>
+				<a href="https://blog.lobid.org/2018/08/27/openrefine.html">https://blog.lobid.org/2018/08/27/openrefine.html</a> <br/>(bis 'Start Reconciling')
+			</section>
 
 			<section><h1>Ergebnisse verbessern</h1></section>
 
@@ -896,13 +1174,11 @@ describedBy.deleted:[20190214 TO 2019023]
 			</section>
 
 			<section data-state="alle">
-				<h2>Properties zur Verbessung der Matches – Beispiele</h2>
+				<h2>Übung: Properties zur Verbessung der Matches – Beispiele</h2>
 				<p><span class="fragment">Lebensdaten</span></p>
 				<p><span class="fragment">Beruf &amp; Parteizugehörigkeit</span></p>
 				<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">http://blog.lobid.org/2019/09/30/openrefine-examples.html</a></span></p>
 			</section>
-
-			<section><h1>TODO: Übung Ergebnisse verbessern</h1></section>
 
 			<section><h1>Daten erweitern</h1></section>
 
