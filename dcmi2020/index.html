@@ -78,117 +78,75 @@
 		</section>
 
 		<section>
-			<h2>Zur Person</h2>
+			<h2>Personal background</h2>
 			<p><span class="fragment">Focus: data modelling, web and (meta)data standards</a></span></p>
 			<p><span class="fragment">Employed at <a href="http://www.wikidata.org/entity/Q18085187">hbz</a>, focus on <a href="https://lobid.org">lobid</a> and lately on <a href="https://skohub.io">SkoHub</a> and <a href="https://oersi.de">OERSI (OER Search Index)</a></span></p>
 			<p><span class="fragment">Initiated the <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER Metadata Group</a> of KIM und Jointly in 2013</span></p>
 		</section>
 
 		<section>
-			<h2>Agenda</h2>
-			<ol>
-				<li>Was ist ein Metadatenprofil?</li>
-				<li>Ein LRMI-Profil für Hochschul-OER</li>
-				<li>Entwicklungsprozess</li>
-				<li>Fazit / Ausblick</li>
-			</ol>
-		</section>
-
-		<section>
-			<h1>Was ist ein Metadatenprofil?</h1>
-		</section>
-
-		<section>
-			<h2>Kontext</h2>
-			<p><span class="fragment"><a href="http://www.ariadne.ac.uk/issue/25/app-profiles/">Vorschlag von Rachel Heery & Manjula Patel im Herbst 2000</a>, seitdem zentrales Thema in der Dublin Core Metadata Initative (DCMI) und Verwendung in vielen anderen Kontexten</span></p>
-			<p><span class="fragment">Auch "Profil", "Application Profile/Anwendungsprofil" oder "Community Profile" genannt</span></p>
-			<p><span class="fragment">Aktuell Thema in der <a href= "https://www.dublincore.org/groups/application_profiles_ig/">Dublin Core Application Profile Interest Group</a></span></p>
-		</section>
-
-		<section>
-			<h2>Was macht ein Profil?</h2>
-			<p><span class="fragment">Gibt an welche existierenden Metadatenschemas (z.B. Dublin Core, schema.org) und welche Elemente und Typen daraus benutzt werden</span></p>
-			<p><span class="fragment">Definiert Einschränkungen für die Nutzung des/der Schema(s)</span></p>
-			<p><span class="fragment">z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben, kontrollierte Vokabulare)</span></p>
+			<h2>Metadata profile</h2>
+			<p><span class="fragment">Indicates which properties and types from existing metadata schemas are used</span></p>
+			<p><span class="fragment">Defines constraints for their usage (mandatory fields, cardinality, value constraints etc.)</span></p>
 		</section>
 
 		<section>
 			<img src="img/baker-coyle-swib19-slide04.png" width=800 style="border: none; box-shadow: none;" />
-			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
+			<small>Source: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
 		</section>
 
 		<section>
-			<h2>Funktionen eines Profils</h2>
-			<p><span class="fragment">Dokumentation von Verabredungen einer Community</span></p>
-			<p><span class="fragment">Zur Produktion von Daten</span></p>
-			<p><span class="fragment">Für die Analyse und Validierung von Daten</span></p>
-			<p><span class="fragment">Um Daten aus verschiedenen Quellen zu mischen/auszuwählen</span></p>
-			<p><span class="fragment">Um Daten Dritter zu indexieren</span></p>
-			<p><span class="fragment">Für Retrieval oder das Angebot verschiedener Ansichten<br /> <br />
-			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 3</a></small></span></p>
-		</section>
-
-		<section>
-			<h2>Mögliche Ausformungen/Bestandteile</h2>
-			<p><span class="fragment">Menschenlesbare Dokumentation (z.B. tabellarisch in PDFs)</span></p>
-			<p><span class="fragment">Beispiel-zentrierte menschenlesbare Dokumentation (siehe <a href="http://slides.lobid.org/kim-ws-2017/#/45">Dokumentationssession KIM WS 2017</a>)</span></p>
-			<p><span class="fragment">Schema für spezifische Serialisierung (z. B.: XML Schema, JSON Schema)</span></p>
-			<p><span class="fragment">Spezifikation eines RDF-Graphen (z. B. <a href="https://shex.io/">ShEx</a>)</span></p>
-			<p><span class="fragment">Generische Spezifikation eines Profils mit tabellenbasiertem <a href="https://github.com/dcmi/dcap">DC AP Core Vocabulary</a> (in Entwicklung)</span></p>
+			<h2>What does a profile look like?</h2>
+			<p><span class="fragment">Human-only-readable doc (PDF)</span></p>
+			<p><span class="fragment">Schema for specific serialization (e.g. XML Schema, JSON Schema)</span></p>
+			<p><span class="fragment">Graph shapes (e.g. <a href="https://shex.io/">ShEx</a>)</span></p>
+			<p><span class="fragment">Generic specification of a profile with tabular <a href="https://github.com/dcmi/dcap">DC AP Core Vocabulary</a> (in development)</span></p>
 			<p><span class="fragment">...</span></p>
 		</section>
 
 		<section>
-			<h1>LRMI-Metadatenprofil für Hochschul-OER</h1>
+			<h1>LRMI metadata profile for higher ed OER</h1>
 		</section>
 
 		<section>
-			<h2>Zu viele Akronyme?!</h2>
-			<p><span class="fragment">OER: Open Educational Resources, frei zugängliche und offen lizenzierte Lehr- und Lernmaterialien</span></p>
-			<p><span class="fragment"><a href="https://www.dublincore.org/about/lrmi/">LRMI</a>: Learning Resource Metadata Initiative, ein Initiative zur Ergänzung von bildungsmaterialspezifischen Properties & Classes in <a href="https://schema.org">schema.org</a></span></p>
+			<h2>Too many acronyms?!</h2>
+			<p><span class="fragment">OER: Open Educational Resources, free accessible & openly licensed</span></p>
+			<p><span class="fragment">Phil already cleared that up</span></p>
 		</section>
 
 		<section>
-			<h2>Wurde nicht gerade ein OER-Profil veröffentlicht?</h2>
-			<p><span class="fragment">Ja, mit <a href="https://w3id.org/kim/hs-oer-lom-profil/latest/">LOM for Higher Education OER Repositories</a> wurde bereits ein Profil inklusive XML Schema von der OER-Metadatengruppe veröffentlicht, das auf LOM (Learning Objects Metadata) basiert</span></p>
-			<p><span class="fragment">LOM ist XML-basiert und  eignet sich für einige Zwecke (z.B. OAI/PMH) gut, für das Web ist schema.org/LRMI besser</span></p>
+			<h2>Why an LRMI profile?</h2>
+			<p><span class="fragment">Great interest in LRMI in the German-speaking OER community but there are no easy instructions for implementation</span></p>
+			<p><span class="fragment">Current project by hbz and TIB Hannover in need of a standards-oriented JSON Schema for learning resources: <a href="https://oersi.de">OERSI – OER Search Index</a></span></p>
 		</section>
 
 		<section>
-			<h2>Warum ein LRMI-Profil?</h2>
-			<p><span class="fragment">Interesse an LRMI ist groß in der deutschsprachigen OER-Welt, allerdings gibt es keine leichte Anleitung, wie man es am besten nutzt</span></p>
-			<p><span class="fragment">Aktuelles Projekt (von TIB Hannover und hbz) mit konkretem Bedarf an einem an Standards orientierten JSON Schema für OER-Metadaten: <a href="https://gitlab.com/oersi">OERSI – OER Search Index</a></span></p>
+			<h1>The general approach</h1>
 		</section>
 
 		<section>
-			<h1>Der Entwicklungs-prozess</h1>
+			<h2>Machines first, humans second</h2>
+			<p><span class="fragment">1st step: define JSON Schema & controlled vocabularies, and provide SkoHub-based reference web form</span></p>
+			<p><span class="fragment">2nd step: write human-readable documentation with ReSpec</span></p>
 		</section>
 
 		<section>
-			<h2>Idee zur Umsetzung</h2>
-			<p><span class="fragment">Zuerst JSON Schema & SkoHub-basiertes Referenz-Eingabeformular entwickeln</span></p>
-			<p><span class="fragment">Danach: Spezifikation mit ReSpec schreiben (siehe dazu Sebastians Vortrag am morgigen Dienstag)</span></p>
+			<h2>JSON Schema plus SKOS vocabularies</h2>
+			<p><span class="fragment"><a href="https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json">JSON Schema</a> defines fields, value type & referenced controlled vocabularies</span></p>
+			<p><span class="fragment">Controlled vocabularies/value lists are published separately as SKOS files and are referenced in the schema </span></p>
+			<p><span class="fragment">Schema can be tried out in <a href="https://skohub.io/editor/">SkoHub editor</a> including lookup of controlled vocabs</span></p>
 		</section>
 
 		<section>
-			<h2>JSON Schema als zentrales Dokument</h2>
-			<p><span class="fragment">Das JSON Schema legt Felder, Wertetypen & referenzierte kontrollierte Vokabulare fest:<br /><a href="https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json">https://dini-ag-kim.github.io/lrmi-profile/draft/schemas/schema.json</a></span></p>
-			<p><span class="fragment">Schema lässt sich im SkoHub Editor ausprobieren:<br /><a href="https://skohub.io/editor/">https://skohub.io/editor/</a></span></p>
-		</section>
-
-		<section>
-			<h2>Kontrollierte Vokabulare als separate SKOS-Datei</h2>
-			<p><span class="fragment">Kontrollierte Vokabulare/Wertelisten werden separat als SKOS-Datei veröffentlicht und im Schema referenziert, so dass es im Editor eine Lookup-Funktion gibt</span></p>
-			<p><span class="fragment">(Es gibt übrigens eine neue <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">deutschsprachige Einführung zu SKOS – Simple Knowledge Organization System</a>)</span></p>
+			<h1>JSON Schema & SkoHub Editor</h1>
 		</section>
 
 		<section>
 			<a href="https://skohub.io/editor/"><img src="img/editor.png" width=1200 style="border: none; box-shadow: none;" /></a>
 		</section>
 
-
 		<section>
-			<h2>Property mit nicht-formatiertem String</h2>
+			<h2>Property with non-specified string</h2>
 			<pre><code class="json" data-trim>
 {
   "properties": {
@@ -206,7 +164,7 @@
 		</section>
 
 		<section>
-			<h2>Property mit formatiertem String (URI)</h2>
+			<h2>Property with formated string (URI)</h2>
 			<pre><code class="json" data-trim>
 {
   "image": {
@@ -228,7 +186,7 @@
 		</section>
 
 		<section>
-			<h2>Liste von möglichen Strings</h2>
+			<h2>Listing possible strings</h2>
 			<pre><code class="json" data-trim>
 {
   "type": {
@@ -255,7 +213,7 @@
 		</section>
 
 		<section>
-			<h2>Referenz auf SKOS-Vokabular</h2>
+			<h2>Referencing a SKOS vocabulary</h2>
 			<pre><code class="json" data-trim>
 {
   "about":{
@@ -288,10 +246,25 @@
 		</section>
 
 		<section>
-			<h2>Wo kommen die vorgeschlagenen Werte her?</h2>
-			<p><span class="fragment">Kontrollierte Vokabulare müssen in SkoHub Vocabs veröffentlicht sein</span></p>
-			<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">hier</a> für Details)</span></p>
-			<p><span class="fragment">Hier: Nutzung einer im Kontext von "LOM for Higher Education OER Repositories" publizierten Klassifikation</span></p>
+			<h2>Automatic test setup</h2>
+			<p><span class="fragment">Profile is <a href="https://github.com/dini-ag-kim/lrmi-profile/blob/master/test.sh">automatically tested</a> against two sets of examples (<a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/valid">valid</a> & <a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/invalid">invald</a>)</span></p>
+			<p><span class="fragment">Whenever a file validates that shouzldn't it is added to the <code>/invalid</code> folder and the schema is updated to pass the tests</span></p>
+			<p><span class="fragment">The examples are also helpful for people implementing the profile</span></p>
+		</section>
+
+		<section>
+			<h2>Where exactly do these suggested values come from?</h2>
+			<img src="img/lookup.png" width=800 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h1>SKOS & SkoHub Vocabs</h1>
+		</section>
+
+		<section>
+			<h2>Publishing SKOS with SkoHub vocabs</h2>
+			<p><span class="fragment">Controlled vocabularies must be published with SkoHub Vocabs</span></p>
+			<p><span class="fragment">Publication & maintenance in Turtle file on GitHub/GitLab & publication as HTML/JSON-LD under skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">here</a> for details)</span></p>
 		</section>
 
 		<section>
@@ -303,39 +276,33 @@
 		</section>
 
 		<section>
-			<h1>Fazit / Ausblick</h1>
+			<h1>Pros and cons</h1>
 		</section>
 
 		<section>
-			<h2>Vorteile</h2>
-			<p><span class="fragment">Entwicklung auf GitHub o.ä. mit den dort etablierten Prozessen</span></p>
-			<p><span class="fragment">Referenz-Formular und Schema zur Validierung werden in einem Zuge entwickelt</span></p>
-			<p><span class="fragment">Kontrollierte Vokabulare werden parallel mit SKOS entwickelt und sind unabhängig vom Schema nutzbar</span></p>
+			<h2>Benefits</h2>
+			<p><span class="fragment">Development on GitHub/GitLab with established working processes</span></p>
+			<p><span class="fragment">Schema and reference web form are developed in one go</span></p>
+			<p><span class="fragment">Controlled vocabularies are developed parallely in SKOS and can be used independently from the Schema</span></p>
 		</section>
 
 		<section>
-			<h2>Nachteile (?)</h2>
-			<p><span class="fragment">Fokussiert auf JSON und genau eine (von vielen möglichen) JSON-LD-Repräsentationen der Daten</span></p>
-			<p><span class="fragment">Deshalb keine Validierungsmöglichkeit für anders strukturierte JSON-Daten und andere RDF-Serialisierungen</span></p>
-			<p><span class="fragment">Menschenlesbare Version ist nicht von Beginn an verfügbar und muss separat geschrieben werden</span></p>
+			<h2>Possible drawbacks</h2>
+			<p><span class="fragment">Schema focuses on one specific JSON-LD representation of the data</span></p>
+			<p><span class="fragment">Thus, no way to validate differently structured JSON or other RDF serializations</span></p>
+			<p><span class="fragment">Human-readable version is not there from the beginning & must be written separately</span></p>
 		</section>
 
 		<section>
-			<h2>Diskussion</h2>
-			<p><span class="fragment">Möglichkeiten der (zusätzlichen) Nutzung des DC Core Vocabulary for Profiles oder von ShEx?</span></p>
-			<p><span class="fragment">Welche Form sollte die menschenlesbare Version haben?</span></p>
-			<p><span class="fragment">Wer hat Interesse, das LRMI-Profil mit weiterzuentwickeln?</span></p>
+			<h1>Thanks for watching!</h1>
 		</section>
 
 		<section>
-			<h2><span>Weiterführende Informationen</span></h2>
+			<h2><span>Further informationen</span></h2>
 			<ul style=font-size:25px;>
-				<li><a href="https://www.dublincore.org/blog/2011/application_profile/">Tom Baker (2011): Dublin Core™ Application Profiles at eleven years</a></li>
-				<li><a href= "http://www.ariadne.ac.uk/issue/25/app-profiles/">Rachel Heery & Manjula Patel (2000): Application Profiles: Mixing and Matching Metadata Schemas</a></li>
-				<li><a href= "http://blog.lobid.org/tags/skohub">SkoHub-Blogbeiträge</a></li>
-				<li><a href= "https://www.dublincore.org/groups/application_profiles_ig/">Dublin Core Application Profile Interest Group</a></li>
-				<li>Tom Baker, Karen Coyle (2019): Design for simple application profiles, SWIB19-Präsentation: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Slides</a>, <a href="https://www.youtube.com/watch?v=5LRrlzvVNes">Aufzeichnung</a></li>
-				<li><a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER-Metadatengruppe von KIM/Jointly</a></li>
+				<li><a href= "http://blog.lobid.org/tags/skohub">SkoHub blog posts</a></li>
+				<li>Tom Baker, Karen Coyle (2019): Design for simple application profiles, SWIB19-Präsentation: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=5LRrlzvVNes">recording</a></li>
+				<li><a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER Metadata Group of KIM/Jointly (German)</a></li>
 			</ul>
 		</section>
 
