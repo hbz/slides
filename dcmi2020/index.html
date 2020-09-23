@@ -26,7 +26,7 @@
          }
       ],
          "description": "Slides for a presentation in the 'LRMI Metadata in use' panel at DCMI Virtual 2020",
-         "about" : [ "LRMI", "OERSI", "SkoHub", "JSON-LD", "JSOn Schema"],
+         "about" : [ "LRMI", "OERSI", "SkoHub", "JSON-LD", "JSON Schema"],
          "url" : "http://slides.lobid.org/dcmi2020",
          "datePublished" : "2020-09-25",
          "inLanguage" : "en",
@@ -84,11 +84,12 @@
       <section>
          <h2>Personal background</h2>
          <p><span class="fragment">Focus: data modelling, web and (meta)data standards</a></span></p>
-		 <p><span class="fragment">Working in "open Infrastructure" team at <a href="http://www.wikidata.org/entity/Q18085187">hbz</a></span></p>
+		 <p><span class="fragment">Working in Open Infrastructure team at <a href="http://www.wikidata.org/entity/Q18085187">hbz</a></span></p>
 		 <p><span class="fragment">focus on <a href="https://lobid.org">lobid</a> and lately on <a href="https://skohub.io">SkoHub</a> and <a href="https://oersi.de">OERSI (OER Search Index)</a></span></p>
 		 <p><span class="fragment">Initiated the <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER Metadata Group</a> of KIM und Jointly in 2013</span></p>
 
 		 <aside class="notes">
+			- My name is Adrian, I call myself a "web libriarian" these days.<br />
 			- For more than ten years I have been working with metadata on the web and especially Linked Open Data.<br />
 			- work at hbz in Cologne, Germany.<br />
 			- our "Open Infrastructure" team focuses on providing lobid.org but we also have a lot to do with OER metadata & infastructure in the OERSI project or SkoHub.<br />
@@ -147,7 +148,7 @@
          <h2>Why an LRMI profile?</h2>
          <p><span class="fragment">Great interest in LRMI in the German-speaking OER community but there are no easy instructions for implementation</span></p>
 		 <p><span class="fragment">Current project by hbz and TIB Hannover in need of a standards-oriented JSON Schema for learning resources: <a href="https://oersi.de">OERSI – OER Search Index</a></span></p>
-		 <p><span class="fragment">A LOM-based XML profile exists but a web-standards-driven approach is more future-proof</span></p>
+		 <p><span class="fragment">A LOM-based XML profile exists but a HTTP+JSON-based approach is more future-proof</span></p>
 
 		 <aside class="notes">
 			- There is more then on motive for developing this profile, here a three of them
@@ -213,7 +214,7 @@
 		 </code></pre>
 
 		 <aside class="notes">
-			- This part of the schema adds the field "name" as a unconstrained string<br />
+			- This part of the schema adds the property "name" which will appear as "Title" in the editor and expects an unconstrained string<br />
 		</aside>
       </section>
 
@@ -237,7 +238,7 @@
 		 </code></pre>
 
 		 <aside class="notes">
-			- This adds a string that has to be formatted as URI
+			- This adds the field "image" that expects a string that is formatted as URI
 		</aside>
       </section>
 
@@ -247,7 +248,8 @@
 		 <img src="img/invalid-link.png" width=800 style="border: none; box-shadow: none;" />
 
 		 <aside class="notes">
-			- As you can see here the JSON schema is not only used for building the web form but also for validating the input
+         - As you can see here the JSON schema is not only used for building the web form but also for validating the input<br />
+         - When adding a string that is not formatted as URL, an error is shown.
 		</aside>
       </section>
 
@@ -321,9 +323,15 @@
 
       <section>
          <h2>Automatic test setup</h2>
-         <p><span class="fragment">JSOn Schema is <a href="https://github.com/dini-ag-kim/lrmi-profile/blob/master/test.sh">automatically tested</a> against two sets of examples (<a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/valid">valid</a> & <a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/invalid">invalid</a>)</span></p>
+         <p><span class="fragment">JSON Schema is <a href="https://github.com/dini-ag-kim/lrmi-profile/blob/master/test.sh">automatically tested</a> against two sets of examples (<a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/valid">valid</a> & <a href="https://github.com/dini-ag-kim/lrmi-profile/tree/master/draft/examples/invalid">invalid</a>)</span></p>
          <p><span class="fragment">Whenever a file validates that shouldn't, it is added to the <code>/invalid</code> folder and the schema is updated to pass the tests</span></p>
          <p><span class="fragment">The example files are also helpful for people implementing the profile</span></p>
+
+         <aside class="notes">
+            - What I really like about this setup are the automatic tests<br />
+            - The schema is tested against one set of valid and another set of invalid JSON files.<br />
+            - So, when we notice a file that is invalid but the schema doesn't catch this, we add the file to the invalid set and update the schema so that the tests pass.
+         </aside>
       </section>
 
       <section>
@@ -429,24 +437,6 @@ $ curl -L  https://w3id.org/kim/lrmi-profile/draft/context.jsonld
    ]
 }
          </code></pre>
-      </section>
-
-      <section>
-         <h1>Pros and cons</h1>
-      </section>
-
-      <section>
-         <h2>Benefits</h2>
-         <p><span class="fragment">Development on GitHub/GitLab with established working processes</span></p>
-         <p><span class="fragment">Schema and reference web form are developed in one go</span></p>
-         <p><span class="fragment">Controlled vocabularies are developed parallely in SKOS and can be used independently from the Schema</span></p>
-      </section>
-
-      <section>
-         <h2>Possible drawbacks</h2>
-         <p><span class="fragment">Schema focuses on one specific JSON-LD representation of the data</span></p>
-         <p><span class="fragment">Thus, no way to validate differently structured JSON or other RDF serializations</span></p>
-         <p><span class="fragment">Human-readable version is not there from the beginning & must be written separately</span></p>
       </section>
 
       <section>
