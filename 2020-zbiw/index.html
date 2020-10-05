@@ -381,19 +381,19 @@
 
 			<section data-state="fabian">
 				<h3>Ergebnisliste</h3>
-				<a href="http://lobid.org/gnd/search?q=hannah+arendt"><img src="img/lobid-gnd-result-list.png"
+				<a href="https://lobid.org/gnd/search?q=k%C3%B6ln"><img src="img/lobid-gnd-result-list.png"
 						width=800 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="fabian">
 				<h3>Einzeltreffer</h3>
-				<a href="http://lobid.org/gnd/11850391X"><img src="img/lobid-gnd-einzeltreffer.png" width=800
+				<a href="https://lobid.org/gnd/4393546-1"><img src="img/lobid-gnd-einzeltreffer.png" width=800
 						style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="fabian">
 				<h3>Beziehungsgraph</h3>
-				<a href="http://lobid.org/gnd/11850391X#rels"><img src="img/lobid-gnd-graph.png"
+				<a href="https://lobid.org/gnd/4393546-1#rels"><img src="img/lobid-gnd-graph.png"
 						style="border: none; box-shadow: none;" /></a>
 			</section>
 
@@ -510,6 +510,9 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			<section data-state="fabian">
 				<h1>APIs</h1>
 				<span class="fragment">
+					<p>Application Programming Interfaces (Programmierschnittstellen)</p>
+				</span>
+				<span class="fragment">
 					<p>Software baut auf APIs auf</p>
 				</span>
 				<span class="fragment">
@@ -530,7 +533,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			<section data-state="fabian">
 				<h2>Und wie APIs bereitstellen?</h2>
 				<span class="fragment">
-					<p>JSON (JavaScript Object Notation) über HTTP (Hypertext Transfer Protocol)</p>
+					<p>JSON über HTTP</p>
 				</span>
 				<span class="fragment">
 					<p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a
@@ -554,7 +557,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				<h1>JSON</h1>
 				<p><span class="fragment">Ein einfaches Key-Value-Format für strukturierte Daten</span></p>
 				<p><span class="fragment">Key ist immer ein String</span></p>
-				<p><span class="fragment">Value ist Object, Array, Number, String oder Boolean</span></p>
+				<p><span class="fragment">Value ist String, Number, Boolean, Array oder Object</span></p>
 				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
 				<span class="fragment"><small>Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259
 						</a></small></span>
@@ -754,8 +757,8 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 
 			<section data-state="fabian">
 				<h1>JSON</h1>
+				<pre><code class="bash">$ curl -H "Accept: application/json" https://api.github.com/users/acka47</code></pre>
 				<pre><code class="json">
-$ curl -H "Accept: application/json" https://api.github.com/users/acka47
 {
   "login": "acka47",
   "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
@@ -788,16 +791,12 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 			</section>
 
 			<section data-state="fabian">
-				<h2>Diese allgemeine Entwicklung von RDF zu LOD zu JSON-LD spiegelt sich in unserer eigenen Arbeit wider</h2>
-				<p><span class="fragment"><a href="http://slides.lobid.org/htw-chur-2019">Von LOD zu LOUD – Erfahrungen
-							aus zehn Jahren Linked-Open-Data-Entwicklung am hbz</a></span></p>
-			</section>
-
-			<section data-state="fabian">
 				<h2>Entwicklung der lobid-Technologie</h2>
 				<p><span class="fragment">2010-2013: Alpha-Betrieb mit RDF & SPARQL</span></p>
-				<p><span class="fragment">2013-2017: lobid v1.x mit JSON-LD aber noch nicht sehr intuitiv nutzbar</span></p>
+				<p><span class="fragment">2013-2017: lobid v1.x mit JSON-LD aber noch nicht sehr intuitiv nutzbar (JSON-LD als RDF-Serialisierung)</span></p>
 				<p><span class="fragment">seit 2017: richtig LOUDe lobid v2 plus OpenRefine-Schnittstellen</span></p>
+				<p><span class="fragment"><small><a href="http://slides.lobid.org/htw-chur-2019">Von LOD zu LOUD – Erfahrungen
+							aus zehn Jahren Linked-Open-Data-Entwicklung am hbz</a></small></span></p>
 			</section>
 
 			<section data-state="fabian">
@@ -811,7 +810,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section data-state="fabian">
 				<h3>JSON-LD-Link</h3>
-				<a href="http://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
+				<a href="https://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
 						style="border: none; box-shadow: none;" /></a>
 				<a href="http://lobid.org/gnd/11850391X">
 					<h1>&nbsp;<br />&nbsp;<br />&nbsp;</h1>
@@ -820,17 +819,17 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 
 			<section data-state="fabian">
 				<h3>JSON(-LD)</h3>
-				<a href="http://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
 						style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="fabian">
-				<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json.png" width="1024" /></a>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" width="1024" /></a>
 			</section>
 
 			<section  data-state="fabian">
 				<h3>b. Web-API</h3>
-				<a href="http://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
+				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
 			</section>
 
 			<section data-state="fabian">
@@ -840,14 +839,19 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
 						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
 						Suchsyntax</span></p>
-				<p><span class="fragment"><a href="http://lobid.org/gnd/api#auto-complete">Parameter für Auto
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
 							Suggest</a></span></p>
-				<p><span class="fragment"><a href="http://lobid.org/gnd/api#openrefine">OpenRefine Reconciliation
-							Endpoint</a></span></p>
-				<p><span class="fragment"><a href="http://lobid.org/gnd/api#bulk_downloads">Parameter für Bulk
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
 							Downloads</a></span></p>
-				<p><span class="fragment">Für Einzeltreffer andere RDF-Serialisierungen per Content Negotiation</span>
-				</p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
+							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Übung: Suchsyntax</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png"
+						style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="fabian">
@@ -908,7 +912,7 @@ $ curl -H "Accept: application/json" https://api.github.com/users/acka47
 					<col width="75%" />
 					<tbody>
 						<tr>
-							<td>Feldsuche</td>
+							<td><a href="https://lobid.org/gnd/search?q=abbreviatedNameForTheCorporateBody%3Azbiw">Feldsuche</a></td>
 							<td>
 								<pre><code class="bash" data-trim>
 abbreviatedNameForTheCorporateBody:zbiw
@@ -916,7 +920,7 @@ abbreviatedNameForTheCorporateBody:zbiw
 							</td>
 						</tr>
 						<tr>
-							<td>Boolsche Suche</td>
+							<td><a href="https://lobid.org/gnd/search?q=Kunst+AND+%28Kultur+OR+Wissenschaft%29">Boolsche Suche</a></td>
 							<td>
 								<pre><code class="bash" data-trim>
 Kunst AND (Kultur OR Wissenschaft)
@@ -924,7 +928,7 @@ Kunst AND (Kultur OR Wissenschaft)
 							</td>
 						</tr>
 						<tr>
-							<td>Trunkierung</td>
+							<td><a href="https://lobid.org/gnd/search?q=professionOrOccupation.label%3APolitiker*">Trunkierung</a></td>
 							<td>
 								<pre><code class="bash" data-trim>
 professionOrOccupation.label:Politiker*
@@ -932,7 +936,7 @@ professionOrOccupation.label:Politiker*
 							</td>
 						</tr>
 						<tr>
-							<td>Intervalle</td>
+							<td><a href="https://lobid.org/gnd/search?q=dateOfBirth%3A%5B*+TO+1500%5D">Intervalle</a></td>
 							<td>
 								<pre><code class="bash" data-trim>
 dateOfBirth:[* TO 1500]
@@ -940,7 +944,7 @@ dateOfBirth:[* TO 1500]
 							</td>
 						</tr>
 						<tr>
-							<td>Existenz</td>
+							<td><a href="https://lobid.org/gnd/search?q=_exists_%3AdateOfBirth">Existenz</a></td>
 							<td>
 								<pre><code class="bash" data-trim>
 _exists_:dateOfBirth
@@ -953,35 +957,28 @@ _exists_:dateOfBirth
 			</section>
 
 			<section data-state="fabian">
-				<h1>Beispiel-Abfragen</h1>
-			</section>
-
-			<section data-state="fabian">
-				<h3><a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect">Alle Entitäten, zu denen ein Architekt
-						angegeben wurde</a></h3>
-				<a href="http://lobid.org/gnd/search?q=_exists_%3Aarchitect"><img src="img/architect.png"
-						width="800" /></a>
+				<h1>Alles kombinierbar</h1>
 			</section>
 
 			<section data-state="fabian">
 				<h3><a
-						href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen,
+						href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen,
 						die während der NS-Zeit in Köln geboren wurden</a></h3>
 				<a
-					href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img
+					href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img
 						src="img/koelsche-ns-geburten.png" width="800" /></a>
 			</section>
 
 			<section data-state="fabian">
-				<h2>
-					<a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
-						lobid-gnd: Formulierung komplexer Suchanfragen</a>
-				</h2>
+				<h1>Übung</h1>
+				<p><em>Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</em></p>
+				<p><small><a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
+						lobid-gnd: Formulierung komplexer Suchanfragen</a></small></p>
 			</section>
 
 			<section data-state="fabian">
-				<h1>Übung</h1>
-				<p><em>Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind<a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">.</a></em></p>
+				<h1>Übung: Lösung</h1>
+				<p><em><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</a></em></p>
 			</section>
 
 			<section data-state="fabian">
