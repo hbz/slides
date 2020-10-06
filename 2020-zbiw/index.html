@@ -1006,25 +1006,25 @@ _exists_:dateOfBirth
 			</section>
 
 			<section data-state="adrian">
-				<a href="http://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=1024 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=1024 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="adrian">
-				<a href="http://lobid.org/resources/HT019788651"><img src="img/focus-json-ld-res.png" width=1024 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/resources/HT019788651"><img src="img/focus-json-ld-res.png" width=1024 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="adrian">
-				<a href="http://lobid.org/resources/HT019788651.json"><img src="img/browser-json-res.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="https://lobid.org/resources/HT019788651.json"><img src="img/browser-json-res.png" width=800 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="adrian">
-				<a href="https://www.w3.org/TR/json-ld/"><img src="img/get-json-res.png" width="1024" /></a>
+				<a href="https://lobid.org/resources/HT019788651.json"><img src="img/get-json-res.png" width="1024" /></a>
 			</section>
 
 			<section data-state="adrian">
 				<h1>Datenherkunft &amp; -generierung</h1>
 				<p><span class="fragment">Tägl. Bezug der XML-Daten über den Aleph-Publishing-Mechanismus</span></p>
-				<p><span class="fragment">Konversion nach N-Triples mittels mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>)</span></p>
+				<p><span class="fragment">Konversion nach N-Triples mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>)</span></p>
 				<p><span class="fragment">Dabei finden verschiedene Normalisierungsarbeiten statt</span></p>
 				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
 				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD) <small>-> siehe Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</small></span></p>
@@ -1039,16 +1039,16 @@ _exists_:dateOfBirth
 
 			<section data-state="adrian">
 				<h3>c. Web-API</h3>
-				<a href="http://lobid.org/resources/api"><img src="img/lobid-resources-api.png" width="800" /></a>
+				<a href="https://lobid.org/resources/api"><img src="img/lobid-resources-api.png" width="800" /></a>
 			</section>
 
 			<section data-state="adrian">
 				<h2>Abfragemöglichkeiten</h2>
 				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
 				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
-				<p><span class="fragment"><a href="http://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</span></p>
-				<p><span class="fragment"><a href="http://lobid.org/resources/api#auto-complete">Parameter für Auto Suggest</a></span></p>
-				<p><span class="fragment"><a href="http://lobid.org/resources/api#content_types">Parameter für Bulk Downloads</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#auto-complete">API für Auto Suggest</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#bulk_downloads">API für Bulk Downloads</a></span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -1057,7 +1057,7 @@ _exists_:dateOfBirth
 
 			<section data-state="adrian">
 				<h2>Ermitteln eines hbz-Titels anhand der OCLC-Nummer</h2>
-				<a href="http://lobid.org/resources/search?q=oclcNumber:601339369"><code>oclcNumber:601339369</code></a>
+				<a href="https://lobid.org/resources/search?q=oclcNumber:601339369"><code>oclcNumber:601339369</code></a>
 			</section>
 
 			<section data-state="adrian">
@@ -1080,7 +1080,7 @@ AND _exists_:hasItem
 			</section>
 
 			<section data-state="adrian">
-				<h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
+				<h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind, aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
 				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22https%3A%2F%2Fnwbib.de%2Fsubjects%22+OR+%22https%3A%2F%2Fnwbib.de%2Fspatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22">
 				<pre><code class="json" data-trim>
 subject.source.id:
@@ -1127,7 +1127,11 @@ describedBy.deleted:[20190214 TO 2019023]
 				<p><span class="fragment">Läuft im Browser, lokal oder gehostet</span></p>
 			</section>
 
-			<section data-state="fabian"><p>TODO: Hosted Instanz (v3.4) zur Nutzung (war: https://openrefine.labs.lobid.org)</p></section>
+			<section data-state="fabian">
+				<h1>OpenRefine</h1>
+				<p><a href="https://openrefine.org/download.html">https://openrefine.org/download.html</a></p>
+				<p><a href="https://openrefine.labs.lobid.org">https://openrefine.labs.lobid.org</a></p>
+			</section>
 
 			<section data-state="fabian">
 				<h1>Reconciliation mit OpenRefine</h1>
@@ -1141,11 +1145,27 @@ describedBy.deleted:[20190214 TO 2019023]
 			<section data-state="fabian"><h1>Grundlegendes Vorgehen</h1></section>
 
 			<section data-state="fabian">
+				<img src="img/openrefine-clipboard.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-data.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
 				<img src="img/openrefine-project.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="fabian">
 				<img src="img/openrefine-reconcile.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-add-service.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-service-url.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="fabian">
@@ -1157,8 +1177,18 @@ describedBy.deleted:[20190214 TO 2019023]
 			</section>
 
 			<section data-state="fabian">
-				<h1>Übung <br/><small>Grundlegendes Vorgehen</small></h1>
-				<a href="https://blog.lobid.org/2018/08/27/openrefine.html">https://blog.lobid.org/2018/08/27/openrefine.html</a> <br/>(bis 'Start Reconciling')
+				<h1>Übung</h1>
+				<pre><code class=nohighlight>
+name;beruf;ort
+J. Weizenbaum;Informatiker;Berlin
+Twain, Mark;Schriftsteller;
+Kumar, Lalit;;
+Jemand;;
+				</code></pre>
+				<pre><code class=nohighlight>
+https://lobid.org/gnd/reconcile
+				</code></pre>
+				<p><small>(Daten und URL per CTRL+C in die Zwischenablage kopieren)</small></p>
 			</section>
 
 			<section data-state="fabian"><h1>Daten erweitern</h1></section>
@@ -1185,7 +1215,6 @@ describedBy.deleted:[20190214 TO 2019023]
 
 			<section data-state="fabian">
 				<h1>Übung</h1>
-				<p><em>Lade diese Liste, matche die Einträge mit der GND und ergänze Berufe und Wirkungsorte</em></p>
 				<pre><code class=csv>
 id,name
 1,Haddaway
@@ -1197,6 +1226,7 @@ id,name
 7,Anne Cuneo
 8,Vitus Huonder
 				</code></pre>
+				<p>Reconcile, Berufe und Wirkungsorte ergänzen</p>
 			</section>
 
 			<section data-state="fabian"><h1>Ergebnisse verbessern</h1></section>
@@ -1214,9 +1244,11 @@ id,name
 			</section>
 
 			<section data-state="fabian">
-				<h2>Übung: Properties zur Verbessung der Matches – Beispiele</h2>
-				<p><span class="fragment">Lebensdaten</span></p>
-				<p><span class="fragment">Beruf &amp; Parteizugehörigkeit</span></p>
+				<h1>Übung</h1>
+				<p><span class="fragment">Properties zur Verbessung der Matches</span></p>
+				<p><span class="fragment">Auf Basis von konreten Anfragen durch Nutzer</span></p>
+				<p><span class="fragment">1. Beispiel: Lebensdaten</span></p>
+				<p><span class="fragment">2. Beispiel: Beruf &amp; Parteizugehörigkeit</span></p>
 				<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">http://blog.lobid.org/2019/09/30/openrefine-examples.html</a></span></p>
 			</section>
 
@@ -1256,7 +1288,7 @@ id,name
 					<li>Harald Lordick: Die Öffnung der GND und die historische Forschung: <a href="https://djgd.hypotheses.org/1511">https://djgd.hypotheses.org/1511</a></li>
 					<li>Harald Lordick &amp; Beata Mache: Annotationen anhand der Gemeinsamen Normdatei aus einer anwendungsorientierten Perspektive historischer Forschung <a href="https://zenodo.org/record/1188230">https://zenodo.org/record/1188230</a></li>
 					<li>Christian Thomas: Humboldts ›Bekenntnisse‹ von 1801 nach der Original-Handschrift aus den Amerikanischen Reisetagebüchern im Deutschen Textarchiv der BBAW <a href="http://www.avhumboldt.de/?p=14447">http://www.avhumboldt.de/?p=14447</a></li>
-					<li>Christian Erlinger-Schiedlbauer et al. (u.a. Sven Schlarb): Semantische Suchabfragen mit der Linked Open Data Cloud generieren <a href="https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/">https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/</a></li>
+					<li>Christian Erlinger-Schiedlbauer et al.: Semantische Suchabfragen mit der Linked Open Data Cloud generieren <a href="https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/">https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/</a></li>
 				</ul>
 			</section>
 
