@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>W3C Entity Reconciliation CG</title>
+
+	<meta name="description"
+		content="W3C Entity Reconciliation CG">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "W3C Entity Reconciliation CG",
+			"creator" : [{
+				"id": "http://lobid.org/team/fs#!",
+				"type": "Person",
+				"name": "Fabian Steeg"
+			}
+		],
+			"description": "",
+			"about" : [ "OpenRefine", "Reconciliation", "W3C"],
+			"url" : "https://slides.lobid.org/2020-zbiw/",
+			"datePublished" : "2020-11-27",
+			"inLanguage" : "en",
+			"audience": [ "librarians", "developers" ],
+			"isBasedOn": [ "https://slides.lobid.org/2020-zbiw/"],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="adrian">
+				<h2>W3C Entity Reconciliation CG</h2>
+				<p>
+					<small>
+						<a href="http://lobid.org/team/fs#!">Fabian Steeg</a>
+						<br /> <br /> Open Infrastructure, Hochschulbibliothekszentrum NRW (hbz) </small> <br />
+					<a href="https://lobid.org">
+						<img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="125px" />
+					</a><br />
+					<small>Lightning Talk at SWIB20, WWW, 2020-11-27</small>
+					<br />
+				</p>
+				<p>
+					This presentation: <br /> <a
+						href="http://slides.lobid.org/2020-swib-reconciliation/">http://slides.lobid.org/2020-swib-reconciliation/</a> (<a href="https://slides.lobid.org/2020-swib-reconciliation/2020-swib-reconciliation.pdf">PDF</a>)
+					<br />
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section>
+				<h1>OpenRefine</h1>
+				<p>"A powerful tool for working with messy data"</p>
+				<p><a href="https://openrefine.org">https://openrefine.org</a></p>
+			</section>
+
+			<section>
+				<h1>Reconciliation</h1>
+				<p><span class="fragment">Align your own data with identifiers from a data provider<br/>(e.g. authority IDs)</span></p>
+				<p><span class="fragment">Extend your local data with the reconciled data <br/>(e.g. add fields from the authority data)</span></p>
+				<p><span class="fragment">OpenRefine talks to a remote Reconciliation Service via a defined API, anyone can plug into OpenRefine like that</span></p>
+			</section>
+
+			<section>
+				<h1>Community Group</h1>
+				<p><span class="fragment">Document and improve the OpenRefine Reconciliation API</span></p>
+				<p><span class="fragment">Promote it as a standard for data matching on the Web</span></p>
+				<p><span class="fragment">Build tools around it</span></p>
+			</section>
+
+			<section>
+				<h1>Testbench</h1>
+				<p><span class="fragment">A tool to test reconciliation services</span></p>
+				<p><span class="fragment">A central overview of available services (currently 36)</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+
+			<section>
+				<h1>Census</h1>
+				<p><span class="fragment">Overview of the reconciliation ecosystem</span></p>
+				<p><span class="fragment">Available services, clients, software libraries</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
+			</section>
+
+			<section>
+				<h1>Alma Refine</h1>
+				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h1>Cocoda</h1>
+				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h1>Specs</h1>
+				<p><span class="fragment">Specifications of the reconciliation API</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
+			</section>
+
+			<section data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
+
+			<section data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+
+			<section>
+				<h1>W3C Entity Reconciliation CG</h1>
+				<p><a href="https://www.w3.org/community/reconciliation/">https://www.w3.org/community/reconciliation/</a></p>
+				<p><a href="https://github.com/reconciliation-api">https://github.com/reconciliation-api</a></p>
+			</section>
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
