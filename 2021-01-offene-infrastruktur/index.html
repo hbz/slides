@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Offene Infrastruktur: Was soll das?</title>
+
+		<meta name="description" content="Präsentation der Aktivitäten & Ziele der Gruppe Offene Infrastruktur des hbz">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Offene Infrastruktur: Was soll das?",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Präsentation der Aktivitäten & Ziele der Gruppe Offene Infrastruktur des hbz",
+			"about" : [ "lobid", "hbz", Linked Open Data", "libraries", "Metafacture", "SkoHub" ],
+			"url" : "http://slides.lobid.org/2021-02-offene-infrastruktur/",
+			"datePublished" : "2021-02-10",
+			"inLanguage" : "de",
+			"isBasedOn": "http://slides.lobid.org/beirat2019/",
+			"audience": [ "management" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <h1>Offene Infrastruktur</h1>
+            <h2>Was soll das?</h2>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+            Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br /> <br />
+          <small>hbz-Beiratssitzung, Köln, 10.02.2021</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/2021-02-offene-infrastruktur/">http://slides.lobid.org/2021-02-offene-infrastruktur/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+      </section>
+
+			<section>
+        		<h1>Agenda</h1>
+				<ol>
+					<li>Die Gruppe</li>
+					<li>Produkte</li>
+					<li>Kooperationen</li>
+				</ol>
+      		</section>
+
+			  <section>
+				<h1>1. Die Gruppe</h1>
+			</section>
+
+			<section>
+				<h3>hbz-Gruppe <em>Offene Infrastruktur</em></h3>
+				<p><span class="fragment">neue Gruppe seit September 2019</span></p>
+				<p><span class="fragment">entstanden aus der dreiköpfigen Stabstelle <em>Linked Open Data</em></span></p>
+				<p><span class="fragment">Produkte: lobid, Metafacture, SkoHub, NWBib</span></p>
+			</section>
+
+			<section>
+				<h3>Gute Dienstleistungen sind Teamarbeit</h3>
+				<p><span class="fragment">Drei Entwickler*innen: Fabian Steeg, Katinka Tauber, Pascal Christoph</span></p>
+				<p><span class="fragment">Zwei Bibliothekare: Adrian Pohl, Tobias Bülte</span></p>
+			</section>
+
+			<section>
+				<h2>Leitmotiv "Openness"</h2>
+				<p><span class="fragment">Publikation von Daten und Software unter offen Lizenzen</span></p>
+				<p><span class="fragment">Nutzung und Mitentwicklung offener (Web-)Standards</span></p>
+				<p><span class="fragment">Transparente Entwicklungsprozesse</span></p>
+				<p><span class="fragment">Offene Entwickler*innen-Community</span></p>
+				<p><span class="fragment">Alle Publikationen (Slides, Blog, Zeitschriftenartikel etc.) <br/>sind Open Access</span></p>
+				<p><span class="fragment">Siehe auch das <a href="https://badge.openbiblio.eu/badge-traegerinnen/">hbz als Träger des Open Library Badge</a></span></p>
+      		</section>
+
+			<section>
+				<h3>Webbasierte Infrastruktur für:</h3>
+				<p><span class="fragment">Standardisierung von Schnittstellen und Daten</span></p>
+				<p><span class="fragment">Erfassung von Daten (gemäß gemeinsamer Standards)</span></p>
+				<p><span class="fragment">Speicherung und Präsentation von Daten</span></p>
+				<p><span class="fragment">Bereitstellung von Programmierschnittstellen für Daten</span></p>
+				<p><span class="fragment">Transformation von Daten (ETL: Extract, transform, Load)</span></p>
+			</section>
+
+			<section>
+				<h2>Unser Selbstverständnis</h2>
+				<p><span class="fragment">Leistungsfähige, flexible und zuverlässige Werkzeuge und Dienste</span></p>
+				<p><span class="fragment">Offene und transparente Entwicklung</span></p>
+				<p><span class="fragment">Kompetente und zügige Reaktion auf <br/>Fehlerberichte und Anfragen</span></p>
+      		</section>
+
+			<section>
+				<h1>2. Produkte</h1>
+			</section>
+
+			<section>
+				<img src="img/oi-overview.png" width=1024 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>2.1 lobid</h3>
+				<img src="img/lobid-anwender.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" width="200px" /></a></h3>
+				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
+				<p><span class="fragment">seit fast zehn Jahren die zentrale Komponente der offenen Infrastruktur im hbz</span></p>
+				<p><span class="fragment">stellt intuitive Rechercheoberflächen und webbasierte Schnittstellen bereit</span></p>
+			</section>
+
+			<section>
+				<h1>lobid: Nutzungsbeispiele</h1>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-vzg-hbz-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Verbundbibliotheken auf hbz-Website</h3>
+				<a href="https://www.hbz-nrw.de/produkte/verbunddienstleistungen/verbundbibliotheken"><img src="img/hbz-verbundbibliotheken.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf lobid-Organisationsdaten</span></p>
+			</section>
+
+			<section>
+				<h2>VZG-Standortverzeichnis</h2>
+				<a href="http://uri.gbv.de/organization/"><img src="img/vzg-standortverzeichnis.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf lobid-Organisationsdaten</span></p>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-edoweb-publisso-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Edoweb und Fachrepositorium Lebenswisschenschaften (FRL)</h3>
+				<a href="https://www.edoweb-rlp.de/"><img src="img/edoweb.png" width=450 style="border: none; box-shadow: none;" /></a><a href="https://repository.publisso.de"><img src="img/publisso.png" width=450 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Enge Integration der lobid-Verbunddaten und des lobid-Datenmodells</span></p>
+				<p><span class="fragment">In Publisso auch GND-ID-Lookup via lobid</p>
+			</section>
+
+			<section>
+				<h3>GND-Lookup im Fachrepositorium Lebenswissenschaften</h3>
+				<img src="img/frl-gnd-lookup.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-nwbib-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h2>NWBib</h2>
+				<a href="https://nwbib.de/search?q=bildband+k%C3%B6ln"><img src="img/nwbib-suchergebnis.png" width=450 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Webanwendung, die nahezu vollständig auf lobid-Daten basiert</span></p>
+      		</section>
+
+			<section>
+				<img src="img/lobid-anwender-js-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=750 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf täglich aktualisierten lobid-Daten</span></p>
+			</section>
+
+			<section>
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog-info.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-tu-dortmund-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Discovery-Index der UB Dortmund</h3>
+				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><small><span class="fragment">Titeldaten zu den Beständen der UB &amp; einiger umliegender Bibliotheken <br/>werden täglich von lobid geholt, transformiert und in den Index geladen</span></small></p>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-vdl-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Virtuelle Deutsche Landesbibliographie</h3>
+				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Seit April 2018 ist nwbib.de in die VDL integriert</span></p>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-kalliope-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h2>Kalliope</h2>
+				<a href="http://kalliope-verbund.info/gnd/119101211"><img src="img/kalliope-bsp.png" width=750 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Anzeige von externen Links (z.B. Wikipedia) aus lobid-gnd auf Personenseiten</span></p>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-archive-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Abgleich und Anreicherung lokaler Archivdaten mit der GND</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+				<span class="fragment"><small>Unter Nutzung von <a href="http://openrefine.org/">OpenRefine</a> und der entsprechenden <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a></small></span>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender-performing-arts-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h3>Infoboxen zu Personen aus der GND</h3>
+				<a href="https://www.performing-arts.eu/agent/gnd_118507680"><img src="img/performing-arts-screenshot.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<span class="fragment"><small>Außerdem Nutzung der <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a> zum <br/><a href="https://twitter.com/j4lib/status/1126429060433874944">Mappen großer Mengen von Personendaten auf die GND</a></small></span>
+			</section>
+
+			<section>
+				<img src="img/lobid-anwender.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+        		<h1>Das sagen die lobid-Nutzer*innen</h1>
+      		</section>
+
+			<section>
+				<a href="https://twitter.com/stefandumont/status/1006480443611467776"><img src="img/testimonial-dumont.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/stricker_/status/1014661748199186432"><img src="img/testimonial-stricker.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/FrueheNeuzeit/status/1122588243059458048"><img src="img/testimonial-philosopher.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<p>"Für mich ist lobid <i>die</i> Rechercheoberfläche für die GND und ich empfehle den Dienst allen Kolleg*innen."</p>
+				<small>– kürzlich erhaltenes Feedback eines Kollegen aus Wien</small>
+			</section>
+
+			<section>
+				<a href="https://twitter.com/hauschke/status/1013706849147867136"><img src="img/testimonial-hauschke.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h2>Datenquellen und -formate</h2>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+        		<h1>2.2. Metafacture</h1>
+      		</section>
+
+			  <section>
+				<h3>ETL-Werkzeugkasten</h3>
+				<p><span class="fragment">ein modulares, vielseitig einsetzbares ETL-Toolkit zum Prozessieren (semi-)strukturierter Daten</span></p>
+				<p><span class="fragment">seit 2013 an der DNB entwickelt</span></p>
+				<p><span class="fragment">Offene Infrastruktur/hbz ist seit 2019 Maintainer</span></p>
+				<p><span class="fragment">Nutzer*innen: OI, DNB, UB Dortmund, Gruppe Portale im hbz</span></p>
+			</section>
+
+			<section>
+				<h3>Strategie</h3>
+				<p><span class="fragment">Derzeit  laufen zwei Projekte, um Metafacture besser aufzustellen</span></p>
+				<p><span class="fragment">Metafacture-Fix: Vereinfachung der ETL-Konfiguration, um sie Entwickler*innen zu erleichtern und für Bobliothekar*innen zu öffnen</span></p>
+				<p><span class="fragment">Metafacture Playground: einfache Nutzung von Metafacture im Web und Aufbau einer Community zum Teilen von ETL-Prozessen</span></p>
+			</section>
+
+			<section>
+        		<h1>2.3 SkoHub</h1>
+      		</section>
+
+			<section>
+				<h3>Vielfältiger Nutzen</h3>
+				<p><span class="fragment">Git- und webbasierte Infrastruktur für die Pflege und Publikation kontrollierter Vokabulare (SkoHub Vocabs</span></p>
+				<p><span class="fragment">JSON-Schema-basiertes Webformular (SkoHub Vocabs)</span></p>
+				<p><span class="fragment">Forschung/Innovation: Aufbau einer offenen, webbasierten, dezentralen Infrastruktur für neuartige Discovery-Lösungen</span></p>
+			</section>
+
+			<section>
+				<h3>Nutzer*innen</h3>
+				<p><span class="fragment">Kompetenzzentrum Interoperable Metadaten(KIM): Publikation gemeinsamer kontrollierter Vokabulare (<a href="https://w3id.org/kim/hcrt/scheme">HCRT</a>, <a href="https://w3id.org/kim/hochschulfaechersystematik/)scheme">Hochschulfächersystematik</a></span></p>
+				<p><span class="fragment"><a href="https://wirlernenonline.de/">Wir lernen online</a>: Publikation verschiedener <a href="https://vocabs.openeduhub.de/">kontrollierter Vokabulare</a></span></p>
+				<p><span class="fragment"><a href="https://www.kerndatensatz-forschung.de/">Kerndatensatz Forschung</a>: Publikation einer <a href="https://w3id.org/kdsf-ffk/">Klassifikation für interdisziplinäre Forschungsfelder</a></span></p>
+			</section>
+
+			<section>
+        		<h1>Was macht die Gruppe noch?</h1>
+      		</section>
+
+			<section>
+				<h2>Überregionale Kooperation: Entwicklung</h2>
+				<p><span class="fragment">Mitarbeit an der Entwicklung der GND, mit Fokus auf Entwicklungsschnittstellen</span></p>
+				<p><span class="fragment">Seit 2019 Maintainer von <a href="https://github.com/metafacture/metafacture-core">Metafacture</a>,<br/>einem im DACH-Raum häufig genutzten Werkzeug zur Datentransformation</span></p>
+				<p><span class="fragment">Beiträge zu verschiedenen anderen Tools,<br/>z.B. <a href="https://github.com/OpenRefine/OpenRefine">OpenRefine</a> und <a href="https://github.com/jsonld-java/jsonld-java">JSONLD-Java</a></span></p>
+      		</section>
+
+			<section>
+				<h2>Überregionale Kooperation: Standardisierung</h2>
+				<p><span class="fragment">DINI AG KIM, z.B. <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadaten-Gruppe">OER-Metadatengruppe</a></span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/community/reconciliation/">W3C Entity Reconciliation Community Group</a></span></p>
+				<p><span class="fragment">Learning Resource Metadata Initiative (LRMI) @DCMI</span></p>
+      </section>
+
+			<section>
+				<h2>Kompetenz- und Wissensvermittlung</h2>
+				<p><span class="fragment">Mitorganisation der SWIB-Konferenz (<em>Semantic Web in Bibliotheken</em>) gemeinsam mit der ZBW</span></p>
+				<p><span class="fragment">Vorträge</span></p>
+				<p><span class="fragment">Blogbeiträge, Zeitschriftenartikel<br/>(siehe <a href="#/49">weiterführende Informationen</a>)</span></p>
+				<p><span class="fragment">Workshops, Seminare</span></p>
+      		</section>
+
+			<section>
+				<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+        <h2>Fragen? Gerne jetzt oder später an<br /><a href="mailto:semweb@hbz-nrw.de">semweb@hbz-nrw.de</a></h2>
+			</section>
+
+		<section>
+			<h2>Weiterführende Informationen</h2>
+			<ul style=font-size:25px;>
+				<li><a href="http://blog.lobid.org/">lobid-Blog</a></li>
+				<li><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></li>
+				<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für Bibliotheken. In: Informationspraxis 4(1). <a href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a></li>
+				<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a></li>
+			</ul>
+		</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
