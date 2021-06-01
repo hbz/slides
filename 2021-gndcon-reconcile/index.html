@@ -202,7 +202,7 @@
 				<p><span class="fragment">Anreicherung durch Übernahme von spezifischen Feldern der gematchten GND-Einträge</a></span></p>
 			</section>
 
-			<section data-state="fabian"><h1>Grundlegendes Vorgehen</h1></section>
+			<section data-state="fabian"><h1>Projekt anlegen</h1></section>
 
 			<section data-state="fabian">
 				<img src="img/openrefine-clipboard.png" width=800 style="border: none; box-shadow: none;" />
@@ -215,6 +215,12 @@
 			<section data-state="fabian">
 				<img src="img/openrefine-project.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian"><h1>Abgleich / Reconciliation</h1></section>
 
 			<section data-state="fabian">
 				<img src="img/openrefine-reconcile.png" width=800 style="border: none; box-shadow: none;" />
@@ -233,11 +239,16 @@
 			</section>
 
 			<section data-state="fabian">
+				<img src="img/openrefine-reconciled.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
 				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="fabian">
 				<h1>Übung</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
 				<pre><code class=nohighlight>
 name;beruf;ort
 J. Weizenbaum;Informatiker;Berlin
@@ -251,7 +262,13 @@ https://lobid.org/gnd/reconcile
 				<p><small>(Daten und URL per CTRL+C in die Zwischenablage kopieren)</small></p>
 			</section>
 
-			<section data-state="fabian"><h1>Datenanreicherung</h1></section>
+			<section data-state="fabian">
+				<h1>Anreicherung</h1>
+				<p><span class="fragment">Unsere Namen wurden mit GND-IDs assoziiert</span></p>
+				<p><span class="fragment">Felder der GND-Entitäten stehen so zur Verfügung</span></p>
+				<p><span class="fragment">Mit diesen können wir unsere lokalen Daten anreichern</span></p>
+				<p><span class="fragment">d.h. konkret: neue Spalten in unserer Tabelle anlegen</span></p>
+			</section>
 
 			<section data-state="fabian">
 				<img src="img/openrefine-extend.png" width=800 style="border: none; box-shadow: none;" />
@@ -267,6 +284,13 @@ https://lobid.org/gnd/reconcile
 
 			<section data-state="fabian">
 				<img src="img/openrefine-literal.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>GND-Entitäten</h1>
+				<p><span class="fragment">Angereicherte Felder sind z.T. GND-Entitäten</span></p>
+				<p><span class="fragment">Sind automatisch abgeglichen / reconciled</span></p>
+				<p><span class="fragment">Können als Grundlage für weitere Anreicherung dienen</span></p>
 			</section>
 
 			<section data-state="fabian">
@@ -301,11 +325,27 @@ id,name
 			</section>
 
 			<section data-state="fabian">
+				<h3>Einschränkung der Entitätstypen</h3>
+			</section>
+
+			<section data-state="fabian">
 				<img src="img/openrefine-suggest-1.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
 			<section data-state="fabian">
+				<h3>Verwendung zusätzlicher lokaler Daten</h3>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table-additional.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
 				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h3>Gezielte Suche nach Treffern</h3>
 			</section>
 
 			<section data-state="fabian">
