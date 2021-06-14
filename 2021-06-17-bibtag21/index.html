@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON &amp; OpenRefine in der Praxis</title>
+
+	<meta name="description"
+		content="Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON & OpenRefine in der Praxis">
+	<meta name="author" content="Adrian Pohl">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "",
+			"about" : [ "lobid", "JSON-LD", "Linked Open Data", "libraries"],
+			"url" : "https://slides.lobid.org/2021-06-17-bibtag21",
+			"datePublished" : "2021-06-15",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "developers" ],
+			"isBasedOn": [ "https://slides.lobid.org/2020-zbiw/" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="adrian">
+				<h2>Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid</h2>
+				<h3>Teil I</h3>
+				<p>
+					<small>
+						<a href="http://lobid.org/team/ap#!">Adrian Pohl</a>
+						<br /> <a href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+					<a href="https://lobid.org"><img src="img/lobid.png"
+							style="border: none; padding: 5px; background-color: white" width="125px" /></a><br />
+					<small>Bibliothekar*innentag, 2021-06-17</small>
+					<br />
+				</p>
+				<small>
+					Diese Präsentation: <br /> <a
+						href="http://slides.lobid.org/2021-06-17-bibtag21/">http://slides.lobid.org/2021-06-17-bibtag21/</a> (<a href="https://slides.lobid.org/2020-zbiw/2020-zbiw-lobid.pdf">PDF</a>)
+					<br />
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+					</small>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Agenda</h2>
+				<table>
+					<tr>
+						<th width="75%" />
+						<th width="25%" />
+					</tr>
+					<tr>
+						<td>1. Offene Infrastruktur</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2. Linked Data &amp; JSON-LD</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3. OpenRefine Reconciliation</td>
+						<td></td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
+				<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
+				<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
+				<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>hbz-Gruppe <em>Offene Infrastruktur</em></h1>
+				<p><span class="fragment">Offene Daten und Free Software, Offene Standards und Schnittstellen</span></p>
+				<p><span class="fragment">Infrastruktur für die Publikation von Daten im Web</span></p>
+				<p><span class="fragment">Derzeit fünf Personen: 3 Entwickler*innen und zwei Bibliothekare</span></p>
+				<p><span class="fragment">Arbeitsschwerpunkte: <a href=""https://lobid.org>lobid</a>, <a href="https://metafacture.org">Metafacture</a>, <a href="https://oersi.de">OERSI</a>, <a href="https://skohub.io">SkoHub</a></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" height="100px" /></a></h3>
+				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
+				<p><span class="fragment">Unter lobid.org publiziert das hbz seit 2011 Linked Open Data (LOD), inzwischen in 3 Diensten</span></p>
+				<p><span class="fragment">Stellen web-basierte Rechercheoberflächen und Schnittstellen bereit</span></p>
+			</section>
+
+
+			<section data-state="adrian">
+				<h1>lobid-Dienste</h1>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des
+						hbz-Verbundkatalogs</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des
+						deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>lobid-gnd</h2>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd.png" width=650 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h2>GND als LOD von der DNB</h2>
+				<p><span class="fragment">Die DNB publiziert die GND unter anderem als Linked Open Data (LOD) unter <a href="https://data.dnb.de/opendata/">https://data.dnb.de/opendata/</a></span></p>
+				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links in <a href="https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/Entity-Facts/entityFacts_node.html">EntityFacts</a></span></p>
+				<p><span class="fragment">Diese Daten bilden die Grundlage für <a href="https://lobid.org/gnd">lobid-gnd</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Die Oberfläche</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Auto Suggest</h3>
+				<img src="img/lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h3>Ergebnisliste</h3>
+				<a href="https://lobid.org/gnd/search?q=k%C3%B6ln"><img src="img/lobid-gnd-result-list.png"
+						width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Einzeltreffer</h3>
+				<a href="https://lobid.org/gnd/4393546-1"><img src="img/lobid-gnd-einzeltreffer.png" width=800
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Beziehungsgraph</h3>
+				<a href="https://lobid.org/gnd/4393546-1#rels"><img src="img/lobid-gnd-graph.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>JSON-LD-Link</h3>
+				<a href="https://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
+						style="border: none; box-shadow: none;" /></a>
+				<a href="http://lobid.org/gnd/11850391X">
+					<h1>&nbsp;<br />&nbsp;<br />&nbsp;</h1>
+				</a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>JSON(-LD)</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" width="1024" /></a>
+			</section>
+
+			<section  data-state="fabian">
+				<h3>b. Web-API</h3>
+				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Abfragemöglichkeiten</h2>
+				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+				<p><span class="fragment"><a
+							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
+						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
+						Suchsyntax</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
+							Suggest</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
+							Downloads</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
+							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>/reconcile</h2>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-reconcile.png" width=650 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Abgleich und Anreicherung lokaler Daten mit der GND</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
