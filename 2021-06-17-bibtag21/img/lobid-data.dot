@@ -48,8 +48,8 @@ digraph data {
 	sigel->api[ltail=cluster_auth]
 	union->api[ltail=cluster_title]
 
-	app1[label="NRW-Bib."]
-	app2[label="Virt. Dt. Landesbib."]
+	app1[label="NWBib"]
+	app2[label="DSpace"]
 	app3[label="OpenRefine"]
 	app4[label="..."]
 

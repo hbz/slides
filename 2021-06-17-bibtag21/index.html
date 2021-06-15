@@ -4,12 +4,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON &amp; OpenRefine in der Praxis</title>
+	<title>Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid</title>
 
 	<meta name="description"
-		content="Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON & OpenRefine in der Praxis">
+		content="Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid">
 	<meta name="author" content="Adrian Pohl">
-	<meta name="author" content="Fabian Steeg">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -93,34 +92,12 @@
 				</p>
 				<small>
 					Diese Präsentation: <br /> <a
-						href="http://slides.lobid.org/2021-06-17-bibtag21/">http://slides.lobid.org/2021-06-17-bibtag21/</a> (<a href="https://slides.lobid.org/2020-zbiw/2020-zbiw-lobid.pdf">PDF</a>)
+						href="http://slides.lobid.org/2021-06-17-bibtag21/">http://slides.lobid.org/2021-06-17-bibtag21/</a>
 					<br />
 					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
 							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
 							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
 					</small>
-			</section>
-
-			<section data-state="adrian">
-				<h2>Agenda</h2>
-				<table>
-					<tr>
-						<th width="75%" />
-						<th width="25%" />
-					</tr>
-					<tr>
-						<td>1. Offene Infrastruktur</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>2. Linked Data &amp; JSON-LD</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>3. OpenRefine Reconciliation</td>
-						<td></td>
-					</tr>
-				</table>
 			</section>
 
 			<section data-state="adrian">
@@ -132,8 +109,7 @@
 
 			<section data-state="adrian">
 				<h1>hbz-Gruppe <em>Offene Infrastruktur</em></h1>
-				<p><span class="fragment">Offene Daten und Free Software, Offene Standards und Schnittstellen</span></p>
-				<p><span class="fragment">Infrastruktur für die Publikation von Daten im Web</span></p>
+				<p><span class="fragment">Offenheit der genutzten Standards, der Daten, Software und Schnittstellen</span></p>
 				<p><span class="fragment">Derzeit fünf Personen: 3 Entwickler*innen und zwei Bibliothekare</span></p>
 				<p><span class="fragment">Arbeitsschwerpunkte: <a href=""https://lobid.org>lobid</a>, <a href="https://metafacture.org">Metafacture</a>, <a href="https://oersi.de">OERSI</a>, <a href="https://skohub.io">SkoHub</a></span></p>
 			</section>
@@ -142,7 +118,8 @@
 				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" height="100px" /></a></h3>
 				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
 				<p><span class="fragment">Unter lobid.org publiziert das hbz seit 2011 Linked Open Data (LOD), inzwischen in 3 Diensten</span></p>
-				<p><span class="fragment">Stellen web-basierte Rechercheoberflächen und Schnittstellen bereit</span></p>
+				<p><span class="fragment">Web-basierte Rechercheoberflächen und offene Schnittstellen</span></p>
+				<p><span class="fragment">Viele verschiedene Nutzer*innen aus dem gesamten deutschsprachigen Raum (siehe z.B. diese <a href="https://service-wiki.hbz-nrw.de/x/NAAxJQ">Liste</a>)</span></p>
 			</section>
 
 
@@ -155,6 +132,11 @@
 				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
 			</section>
 
+			<section  data-state="fabian">
+				<h3>Datenquellen</h3>
+				<img src="img/lobid-data.png" width="800" />
+			</section>
+
 			<section data-state="fabian">
 				<h2>lobid-gnd</h2>
 				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd.png" width=650 style="border: none; box-shadow: none;" /></a>
@@ -163,7 +145,7 @@
 			<section data-state="fabian">
 				<h2>GND als LOD von der DNB</h2>
 				<p><span class="fragment">Die DNB publiziert die GND unter anderem als Linked Open Data (LOD) unter <a href="https://data.dnb.de/opendata/">https://data.dnb.de/opendata/</a></span></p>
-				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links in <a href="https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/Entity-Facts/entityFacts_node.html">EntityFacts</a></span></p>
+				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links, in <a href="https://www.dnb.de/entityfacts">EntityFacts</a></span></p>
 				<p><span class="fragment">Diese Daten bilden die Grundlage für <a href="https://lobid.org/gnd">lobid-gnd</a></span></p>
 			</section>
 
@@ -216,7 +198,7 @@
 			</section>
 
 			<section  data-state="fabian">
-				<h3>b. Web-API</h3>
+				<h3>Web-API</h3>
 				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
 			</section>
 
@@ -227,23 +209,31 @@
 							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
 						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
 						Suchsyntax</span></p>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
 							Suggest</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
 							Downloads</a></span></p>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
-							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a></span></p>
 			</section>
 
 			<section data-state="fabian">
-				<h2>/reconcile</h2>
-				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-reconcile.png" width=650 style="border: none; box-shadow: none;" /></a>
+				<h2>Und nun zu Pascal, der die Nutzung der lobid-gnd-API an einem konkreten Beispiel zeigt.</h2>
 			</section>
 
-			<section data-state="fabian">
-				<h3>Abgleich und Anreicherung lokaler Daten mit der GND</h3>
-				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+			<section>
+				<h2>Weiterführende Informationen</h2>
+				<ul style=font-size:25px;>
+					<li><a href="http://blog.lobid.org/">lobid-Blog</a>, <a href="http://slides.lobid.org/">Präsentationsfolien</a>, <a href="https://twitter.com/lobidOrg">lobid auf Twitter</a> und <a
+							href="https://openbiblio.social/@lobid">Mastodon</a></li>
+					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für
+						Bibliotheken. In: Informationspraxis 4(1). <a
+							href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a>
+					</li>
+					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur
+						Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a
+							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
+					</li>
+				</ul>
 			</section>
 
 		</div>
@@ -253,9 +243,6 @@
 	<script src="js/reveal.js"></script>
 
 	<script>
-		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
-		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
-		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
 		// Full list of configuration options available at:
 		// https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
