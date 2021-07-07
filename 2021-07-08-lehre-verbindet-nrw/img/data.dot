@@ -1,0 +1,49 @@
+digraph data {
+	compound=true
+	node[shape=box color=black fontcolor=black fontname=helvetica]
+	graph [bgcolor="white" color=black fontcolor=black fontname=helvetica]
+	edge[color=black fontcolor=black fontname=helvetica]
+	edge[arrowhead=empty arrowtail=empty]
+	rankdir=TD
+	splines=false
+
+	subgraph cluster_1{
+	style=invis
+
+	/*
+	subgraph cluster_libs{
+		style=invis
+		libs [label="Libraries"]
+	}
+	*/
+
+	source4[label="..." width=1]
+	source1[label="HOOU" width=1]
+	source2[group=g1 label="Open RUB" width=1.2]
+	source1b[label="twillo" width=1.2]
+	source3[label="ZOERR" width=1]
+
+
+	etl[group=g1 label="ETL" width=0.7 shape=circle]
+
+	index[group=g1 label="{Write API|OER\nSearch Index|Read API}" width=3 shape=record]
+
+
+	app1[label="OERSI UI"]
+	app2[label="ORCA.nrw"]
+	app3[label="..."]
+
+	source1->etl
+	source1b->etl
+	source2->etl
+	source3->etl
+	source4->etl
+
+	etl->index
+
+	index->app1[dir=back]
+	index->app2[dir=back]
+	index->app3[dir=back]
+
+	}
+}

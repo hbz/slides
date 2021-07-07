@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Die ORCA-Metadateninfrastruktur</title>
+
+		<meta name="description" content="Folien für eine Präsentation am 08.07.2021">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "ORCA-Metadaten-Infrastruktur",
+			"creator" : [{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "Präsentation am 2021-07-08 im Rahmen von 'Lehre verbindet NRW'",
+			"about" : [ "oer", "open educational resources", "resource discovery", "orca"],
+			"url" : "http://slides.lobid.org/2021-07-08-lehre-verbindet-nrw/",
+			"datePublished" : "2021-07-08",
+			"inLanguage" : "de",
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section>
+		<h1>ORCA-Metadaten-Infrastruktur</h1>
+        <p>
+          <small>
+            <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+			Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br />
+			<a href="https://www.hbz-nrw.de"><img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+          <small>Lehre verindet NRW, 08.07.2021</small>
+        </p>
+        <p>
+          Diese Präsentation: <br /> <a
+            href="http://slides.lobid.org/2021-07-08-lehre-verbindet-nrw/">http://slides.lobid.org/2021-07-08-lehre-verbindet-nrw/</a>
+          <br/>
+          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+        </p>
+	  </section>
+
+		<section data-state="adrian">
+			<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
+			<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
+			<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
+			<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
+		</section>
+
+	  <section>
+			<h1>Metadaten</h1>
+	  </section>
+
+	  <section>
+			<h2>Metadaten sind ein Infrastrukturthema und damit technisch. Ich versuche aber, auf einer allgemeinverständlichen Ebene zu bleiben.</h2>
+	  </section>
+
+	  <section>
+			<h2>Was sind Metadaten?</h2>
+				<p><span class="fragment">Element-Wert-Paare zur Beschreibung einer Ressource:</span></p>
+				<p><span class="fragment"><code>
+					Typ: Präsentation <br />
+					Urheber: Adrian Pohl<br />
+					Titel:  ORCA-Metadaten-Infrastruktur
+			</code></span></p>
+		</section>
+
+	  <section>
+			<h1>Warum Metadaten?</h1>
+	  </section>
+
+	  <section>
+			<h2>Damit relevante Lehr- und Lernressourcen einfach und schnell gefunden werden können.</h2>
+	  </section>
+
+	  <section>
+			<h2>Damit <b>relevante</b> Lehr- und Lernressourcen <b>einfach</b> und <b>schnell</b> gefunden werden können.</h2>
+	  </section>
+
+		<section>
+			<a href="https://beta.orca.nrw/landesportal-infos/services"><img src="img/orca-screenshot.png" width=800 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<a href="https://beta.orca.nrw/landesportal-infos/services"><img src="img/orca-screenshot_highlight.png" width=800 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+	  <section>
+			<h2>OERSI & ORCA</h2>
+				<p><span class="fragment">Für die OER-Recherche in ORCA.nrw wird OERSI integriert</span></p>
+				<p><span class="fragment">OERSI = OER Suchindex, <a href="https://oersi.de">oersi.de</a></span></p>
+				<p><span class="fragment">gemeinsames Projekt von hbz und TIB seit Januar 2020</span></p>
+				<p><span class="fragment">entstanden im Rahmen der KMK OER Repo AG</span></p>
+				<p><span class="fragment">Zielgruppen: Endnutzer*innen (OERSI-Frontend) und Entwickler*innen (OERSI-API)</span></p>
+		</section>
+
+		<section>
+			<h3>OERSI-Architektur</h3>
+			<img src="img/data.png" width=750 style="border: none; box-shadow: none;" />
+		</section>
+
+	  <section>
+			<h2>Beim Bau eines Suchindex über verschiedene Quellen sind Metadaten zentrales Thema.</h2>
+	  </section>
+
+	  <section>
+			<h1>Welche Metadaten?</h1>
+	  </section>
+
+		<section>
+			<img src="img/lrmi-report-felder_chart.png" width=600 style="border: none; box-shadow: none;" />
+			<small>Winter Group (2014): LRMI Survey Report. July 2014 Update.</small>
+		</section>
+
+	  <section>
+			<h2>Welche Metadaten?</h2>
+				<p><span class="fragment">Inhaltserschließung (Fach, Thema) und Ressourcentyp: wichtige Rolle für Discovery</span></p>
+				<p><span class="fragment">Titel, Urheber, Lizenz: wichtig für Urheberrechts-/Lizenzangaben</span></p>
+		</section>
+
+		<section>
+			<h2>OERSI-Filter</h2>
+			<a href="https://oersi.de/resources/?search=%22chemie%22"><img src="img/oersi-filter.png" width=750 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+	  <section>
+			<h1>Interoperabilität durch Standardisierung</h1>
+	  </section>
+
+	  <section>
+			<h2>Probleme mit Metadaten</h2>
+				<p><span class="fragment"><code>
+					Typ: Präsentation <br />
+					Urheber: Adrian Pohl<br />
+					Titel:  ORCA-Metadaten-Infrastruktur<br />
+					Thema: Metadaten
+			</code></span></p>
+			<p><span class="fragment"><code>
+				Format: Presentation <br />
+				Creator: Pohl, Adrian<br />
+				Name:  ORCA-Metadaten-Infrastruktur<br />
+				Subject: Metadata
+		</code></span></p>
+		</section>
+
+	  <section>
+			<h3>Vergabe minimaler standardisierter Metadaten ist wesentliche Gelingensbedingung für ein Projekt wie ORCA.</h3>
+	  </section>
+
+		<section>
+			<h2>Aspekte der Standardisierung</h2>
+				<p><span class="fragment">Kodierung der Metadaten: Datenformat</span></p>
+				<p><span class="fragment">Namen und Struktur der Elemente: Metadatenschema</span></p>
+				<p><span class="fragment">Mögliche Werte: Kontrolliertes Vokabular</span></p>
+				<p><span class="fragment">Art der Publikation und Schnittstellen zum Abruf der Metadaten</span></p>
+		</section>
+
+		<section>
+			<h2>Berücksichtigung bestehender Standards</h2>
+				<p><span class="fragment">Datenformat: de-facto Standard JSON(-LD)</span></p>
+				<p><span class="fragment">Metadatenschema: basierend auf <a href="https://schema.org">schema.org</a></span></p>
+				<p><span class="fragment">Kontrollierte Vokabulare: Nachnutzung einer Destatis-Klassifikation, Publikation als strukturierte Daten im Web</span></p>
+		</section>
+
+		<section>
+			<h2>Standardisierungsebenen</h2>
+			<img src="img/standard-ebenen.png" width=600 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Gegenseitiger Einfluss</h2>
+			<img src="img/standard-ebenen-austausch.png" width=600 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Überregionale Aktivitäten</h2>
+			<p><span class="fragment">DINI AG KIM: Kompetenzzentrum Interoperable Metadaten</span></p>
+			<p><span class="fragment">ein überinstitutioneller, institutions- und projektunabhängiger Rahmen zur Standardentwicklung</span></p>
+			<p><span class="fragment">Standardisierung von Metadatenschemas und kontrollierten Vokabularen</span></p>
+		</section>
+
+		<section>
+			<h2>Kontrollierte Vokabulare</h2>
+			<a href="https://w3id.org/kim/lrmi-profile/draft/"><img src="img/hcrt.png" width=400 style="border: none; box-shadow: none;" /></a>  </a><a href="https://w3id.org/kim/hochschulfaechersystematik/scheme"><img src="img/systematik.png" width=400 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<h2>Metadatenschema</h2>
+			<a href="https://w3id.org/kim/lrmi-profile/draft/"><img src="img/amb.png" width=750 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<h2>ORCA-spezifische Vorgaben</h2>
+			<p><span class="fragment">gelten für Erfassung von Material aus den Förderprojekten</span></p>
+			<p><span class="fragment">Verpflichtung zur Angabe von Urheber </span></p>
+			<p><span class="fragment">Verpflichtende Auswahl einer der Lizenzen: CC BY-SA 4.0, CC BY 4.0 oder CC 0</span></p>
+			<p><span class="fragment">weiteres ist noch in Diskussion</span></p>
+		</section>
+
+		<section>
+			<h2>Projektspezifische Metadaten</h2>
+			<p><span class="fragment">gelten für Erfassung von Material aus den Förderprojekten</span></p>
+			<p><span class="fragment">Verpflichtung zur Angabe von Urheber </span></p>
+			<p><span class="fragment">Verpflichtende Auswahl einer der Lizenzen: CC BY-SA 4.0, CC BY 4.0 oder CC 0</span></p>
+			<p><span class="fragment">weiteres ist noch in Diskussion</span></p>
+		</section>
+
+		<section>
+			<img src="img/ende.gif" width=400 style="border: none; box-shadow: none;" />
+		</section>
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+
+   </script>
+
+  </body>
+</html>
