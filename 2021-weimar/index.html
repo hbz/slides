@@ -247,7 +247,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 						ausrichten</p>
 				</span>
 				<span class="fragment">
-					<p>Hauptzielgruppe: Entwickler*innen oder Nutzer*innen von <i>Software</i> für Datenzugriff und
+					<p>Hauptzielgruppe: Entwickler:innen oder Nutzer:innen von <i>Software</i> für Datenzugriff und
 						-manipulation</p>
 				</span>
 			</section>
@@ -410,7 +410,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 						Veranstaltungen, Geografika, Schlagwörter, Werke</span></p>
 				<p><span class="fragment">Für die formale Erfassung einer Ressource und für die inhaltliche Erschließung</span></p>
 				<p><span class="fragment">In den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
-						Wissenschaftler*innen genutzt</span></p>
+						Wissenschaftler:innen genutzt</span></p>
 			</section>
 
 			<section data-state="fabian">
@@ -436,12 +436,12 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 						style="border: none; box-shadow: none;" /></a>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h3>Die Daten</h3>
 				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h3>JSON-LD-Link</h3>
 				<a href="https://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
 						style="border: none; box-shadow: none;" /></a>
@@ -450,19 +450,26 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				</a>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h3>JSON(-LD)</h3>
 				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
 						style="border: none; box-shadow: none;" /></a>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" width="1024" /></a>
 			</section>
 
-			<section  data-state="adrian">
+			<section  data-state="fabian">
 				<h3>Web-API</h3>
 				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
+			</section>
+
+			<section  data-state="fabian">
+				<h2>Formulierung von Suchanfragen</h2>
+				<p><span class="fragment">Daten per Oberfläche erkunden, UI und API verschiedene Sichten auf die gleichen Daten</span></p>
+				<p><span class="fragment">Alle Suchen und Ressourcen können auch als JSON-LD betrachtet werden</span></p>
+				<p><span class="fragment"><a href="https://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">Formulierung komplexer Suchanfragen auf Basis der Daten</a></span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -524,22 +531,22 @@ _exists_:dateOfBirth
 					z.B. Personen, die in Köln geboren wurden und in Weimar gestorben sind</a></span></p>
 			</section>
 
-			<section data-state="fabian">
-				<h2>Abfragemöglichkeiten</h2>
-				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
-				<p><span class="fragment"><a
-							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
-						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
-						Suchsyntax</span></p>
+			<section data-state="adrian">
+				<h2>Weitere Abfragemöglichkeiten</h2>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
-				<p><span class="fragment">APIs z.B. für <a href="https://lobid.org/gnd/api#auto-complete">
-						Auto Suggest</a> &amp; <a href="https://lobid.org/gnd/api#bulk_downloads"> Bulk Downloads</a></span></p>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
-							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">Für Suchen: Bulk Downloads als JSON lines</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> <a href="https://lobid.org/gnd/api#openrefine">JSON API</a></span></p>
 			</section>
 
 			<section data-state="adrian">
 				<h1>3. Addendum</h1>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Wie erzeugen wir das beschriebene JSON-LD?</h2>
+				<p><span class="fragment">1. JSON-LD kann direkt im Hauptsystem erzeugt werden</span></p>
+				<p><span class="fragment">2. Daten liegen schon als RDF vor: <a href="https://hbz.github.io/elag2019-bootcamp/#/40">mit JSON-LD-Prozessor verarbeiten (import, frame, compact)</a></span></p>
+				<p><span class="fragment">3. Daten liegen in einem anderen Format vor bzw. werden in einem anderen Format gepflegt: Datentransformation</span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -551,12 +558,19 @@ _exists_:dateOfBirth
 
 			<section data-state="adrian">
 				<h2>Metafacture-Weiterentwicklung</h2>
-				<p><span class="fragment">Metafacture-Fix: Erleichterung der Konfiguration durch Bibliothekar*innen & Standardisierung</span></p>
+				<p><span class="fragment">Metafacture-Fix: Erleichterung der Konfiguration durch Bibliothekar:innen & Standardisierung</span></p>
 				<p><span class="fragment">Metafacture-Playground für Tutorials und schnelles Ausprobieren von Workflows & Infrastruktur zum Teilen und Nachnutzen von Workflows im Web</span></p>
 			</section>
 
 			<section data-state="adrian">
-				<h2>SkoHub</h2>
+				<h2>Was schreiben wir in unser JSON-LD?</h2>
+				<p><span class="fragment"><i>Usable</i> heisst nicht nur dass die Daten strukturell gut nutzbar sind, sondern auch inhaltlich</span></p>
+				<p><span class="fragment">Linked Data: "Synergieeffekte durch Verlinkung mit anderen Daten"; "Nimm Links zu anderen URIs auf, so dass weitere Dinge entdeckt werden können"</span></p>
+				<p><span class="fragment">Daher möglichst selten Freitext oder interne IDs, sondern geteilte kontrollierte Vokabulare</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>SkoHub</h1>
 				<p><span class="fragment">Grundidee: neuartiger Push-basierter Discovery-Ansatz durch Subskription von Elementen eines kontrollierten Vokabukars</span></p>
 				<p><span class="fragment">Produktiv wird derzeit nur SkoHub Vocabs benutzt für die einfache Publikation kontrollierter Vokabulare im Web</span></p>
 				<p><span class="fragment">Beispiele: <a href="https://w3id.org/rg-mpg-de/polmat/scheme">Polmat</a>, <a href="https://w3id.org/kdsf-ffk/">KDSF-FFK</a></span></p>
