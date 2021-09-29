@@ -253,12 +253,12 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			</section>
 
 			<section data-state="fabian">
-				<h1>APIs</h1>
+				<h2>Programmierschnittstellen</h2>
 				<span class="fragment">
-					<p>Application Programming Interfaces (Programmierschnittstellen)</p>
+					<p>Nicht irgendwie Daten bereitstellen, sondern so, dass wir aus Software gut zugreifen können</p>
 				</span>
 				<span class="fragment">
-					<p>Software baut auf APIs auf</p>
+					<p>z.B. möglichst einheitlich (statt viele Formate), möglichst stabil (statt häufige Anpassungen)</p>
 				</span>
 				<span class="fragment">
 					<p>APIs machen Softwareentwicklung handhabbar <br/>(für 1st- und 2nd-Party-Software)</p>
@@ -287,7 +287,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			</section>
 
 			<section data-state="fabian">
-				<h3>z.B. 3rd-Party:<br/>Abgleich und Anreicherung lokaler Daten mit der GND</h3>
+				<h3>z.B. 3rd-Party:<br/>Abgleich und Anreicherung lokaler Daten in OpenRefine</h3>
 				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
 				<p><small>Unter Nutzung von <a href="http://openrefine.org/">OpenRefine</a> und der entsprechenden <a href="https://lobid.org/gnd/reconcile/">lobid Reconciliation-Schnittstelle</a> (bzw. <a href="http://lobid.org/gnd/api#openrefine">API</a>)</small></p>
 			</section>
@@ -346,12 +346,12 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			<p><small><a href="https://slides.lobid.org/2020-zbiw/#/64">Details zur Verarbeitung von JSON auf der Kommandozeile</a></small></p>
 			</section>
 
-			<section data-state="fabian">
+			<section data-state="adrian">
 				<h2>JSON + Linked Data = JSON-LD</h2>
 				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="250px" /></a>
 			</section>
 
-			<section data-state="fabian">
+			<section data-state="adrian">
 				<h1>JSON-LD</h1>
 				<span class="fragment">
 					<p>"designed to be usable directly as JSON, with no knowledge of RDF" – Es ist richtiges JSON!</p>
@@ -364,7 +364,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				</span>
 			</section>
 
-			<section data-state="fabian">
+			<section data-state="adrian">
 				<h1>JSON</h1>
 				<pre><code class="bash">$ curl -H "Accept: application/json" https://api.github.com/users/acka47</code></pre>
 				<pre><code class="json">
@@ -380,7 +380,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				</code></pre>
 			</section>
 
-			<section data-state="fabian">
+			<section data-state="adrian">
 				<h3>JSON + @context + @id = JSON-LD</h3>
 				<pre><code class=json>
 {
@@ -420,6 +420,13 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				<p><span class="fragment">Für die formale Erfassung einer Ressource und für die inhaltliche Erschließung</span></p>
 				<p><span class="fragment">In den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
 						Wissenschaftler:innen genutzt</span></p>
+			</section>
+
+			<section  data-state="fabian">
+				<h2>Formulierung von Suchanfragen</h2>
+				<p><span class="fragment">Daten per Oberfläche erkunden, UI und API verschiedene Sichten auf die gleichen Daten</span></p>
+				<p><span class="fragment">Alle Suchen und Ressourcen können auch als JSON-LD betrachtet werden</span></p>
+				<p><span class="fragment"><a href="https://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">Formulierung komplexer Suchanfragen auf Basis der Daten</a></span></p>
 			</section>
 
 			<section data-state="fabian">
@@ -474,14 +481,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
 			</section>
 
-			<section  data-state="fabian">
-				<h2>Formulierung von Suchanfragen</h2>
-				<p><span class="fragment">Daten per Oberfläche erkunden, UI und API verschiedene Sichten auf die gleichen Daten</span></p>
-				<p><span class="fragment">Alle Suchen und Ressourcen können auch als JSON-LD betrachtet werden</span></p>
-				<p><span class="fragment"><a href="https://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">Formulierung komplexer Suchanfragen auf Basis der Daten</a></span></p>
-			</section>
-
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h2>Suchsyntax: Beispiele</h2>
 				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
 					<col width="25%" />
@@ -532,7 +532,7 @@ _exists_:dateOfBirth
 				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h1>Alles kombinierbar</h1>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/search?q=placeOfActivity.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4065105-8%22+AND+dateOfBirth%3A%5B1772+TO+1832%5D">
 					z.B. Personen, die 1772 bis 1832 geboren wurden und in Weimar gewirkt haben</a></span></p>
@@ -540,7 +540,7 @@ _exists_:dateOfBirth
 					z.B. Personen, die in Köln geboren wurden und in Weimar gestorben sind</a></span></p>
 			</section>
 
-			<section data-state="adrian">
+			<section data-state="fabian">
 				<h2>Weitere Abfragemöglichkeiten</h2>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">Für Suchen: Bulk Downloads als JSON lines</a></span></p>
