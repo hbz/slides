@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>OpenRefine Reconciliation mit lobid-gnd</title>
+
+	<meta name="description"
+		content="Abgleich und Anreicherung eigener Datenbestände mit der Gemeinsamen Normdatei in OpenRefine">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"type": "PresentationDigitalDocument",
+			"name" : "Abgleich und Anreicherung eigener Datenbestände mit der Gemeinsamen Normdatei in OpenRefine: OpenRefine Reconciliation mit lobid-gnd",
+			"creator" : [{
+				"id": "http://lobid.org/team/fs#!",
+				"type": "Person",
+				"name": "Fabian Steeg"
+			},
+			{
+				"id": "http://lobid.org/team/ap#!",
+				"type": "Person",
+				"name": "Adrian Pohl"
+			}
+		],
+			"description": "",
+			"about" : [ "lobid", "gnd", "openrefine", "reconciliation"],
+			"url" : "https://slides.lobid.org/2021-kim-reconcile/",
+			"datePublished" : "2021-06-10",
+			"inLanguage" : "de",
+			"audience": [ "librarians", "developers" ],
+			"isBasedOn": [ "https://slides.lobid.org/2021-gndcon-reconcile/", "https://slides.lobid.org/2020-swib-reconciliation/" ],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="alle">
+				<h2>Abgleich &amp; Anreicherung eigener Daten mit der GND</h2>
+				<p>OpenRefine Reconciliation mit lobid-gnd</p>
+				<p>
+					<small>
+						<a href="http://lobid.org/team/fs#!">Fabian Steeg</a> &amp; <a href="http://lobid.org/team/ap#!">Adrian Pohl</a>, 
+						<a href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur, hbz NRW</a> </small> <br />
+					<a href="https://lobid.org/team"><img src="img/lobid.png"
+							style="border: none; padding: 5px; background-color: white" width="125px" /></a><br />
+					<small><a href="https://dini.de/veranstaltungen/workshops/abgleich-und-anreicherung-eigener-datenbestaende-mit-der-gemeinsamen-normdatei-in-openrefine/">Workshop im Rahmen des DINI-KIM, 2021-10-07</a></small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="http://slides.lobid.org/2021-kim-reconcile/">http://slides.lobid.org/2021-kim-reconcile/</a>
+					<br />
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Überblick</h1>
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
+					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td><b>Datenquellen und Oberfläche von lobid-gnd</b></td></tr>
+					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
+					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" height="100px" /></a></h3>
+				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
+				<p><span class="fragment">Unter lobid.org publiziert das hbz seit 2011 Linked Open Data (LOD), inzwischen in 3 Diensten</span></p>
+				<p><span class="fragment">Stellen web-basierte Rechercheoberflächen und Schnittstellen bereit</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h3><img src="img/gnd.png" style="border: none; padding: 5px; background-color: white" height="150px" /></h3>
+				<p><span class="fragment">Gemeinsame Normdatei für Bibliotheken im deutschsprachigen
+						Raum</span></p>
+				<p><span class="fragment">Datensätze für Personen, Körperschaften, Konferenzen &amp;
+						Veranstaltungen, Geografika, Schlagwörter, Werke</span></p>
+				<p><span class="fragment">Für die formale Erfassung einer Ressource und für die inhaltliche Erschließung</span></p>
+				<p><span class="fragment">In den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
+						Wissenschaftler:innen genutzt</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h2>lobid-gnd</h2>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-ui.png" width=650 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h2>/reconcile</h2>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-reconcile.png" width=650 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h3>Abgleich und Anreicherung lokaler Daten mit der GND</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h1>Datenquellen</h1>
+				<p><span class="fragment">Die GND wird erstellt und gepflegt durch die GND-Kooperative (Verbünde, Bibliotheken, DNB, ZDB, Agenturen)</span></p>
+				<p><span class="fragment">Die DNB publiziert die GND u.a. als <a href="https://data.dnb.de/opendata/">Linked Open Data</a></span></p>
+				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links, in <a href="https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/Entity-Facts/entityFacts_node.html">EntityFacts</a></span></p>
+				<p><span class="fragment">Diese Daten bilden die Grundlage für lobid-gnd</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Daten erkunden</h2>
+				<p><span class="fragment">Rechercheoberfläche ermöglicht ein manuelles Erkunden der Daten vor einem automatischen Abgleich</span></p>
+				<p><span class="fragment">Zum Ausprobieren verlinken die folgenden Screenshots auf die entsprechenden Seiten in lobid-gnd</span></p>
+				<p><span class="fragment">Siehe auch das Tutorial <a href="https://blog.lobid.org/2018/07/04/lobid-gnd-suche.html">lobid-gnd: Suche und Navigation</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Oberfläche</h2>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Auto Suggest</h2>
+				<img src="img/lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h2>Ergebnisliste</h2>
+				<a href="https://lobid.org/gnd/search?q=k%C3%B6ln&filter=%2B%28gndSubjectCategory.id%3A%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgnd-sc%2312.2p%22%29+%2B%28geographicAreaCode.id%3A%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XA-DE%22%29+%2B%28geographicAreaCode.id%3A%22https%3A%2F%2Fd-nb.info%2Fstandards%2Fvocab%2Fgnd%2Fgeographic-area-code%23XB-TR%22%29+%2B%28type%3APerson%29"><img src="img/lobid-gnd-result-list.png"
+						width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Einzeltreffer</h2>
+				<a href="https://lobid.org/gnd/4393546-1"><img src="img/lobid-gnd-einzeltreffer.png" width=800
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Beziehungsgraph</h2>
+				<a href="https://lobid.org/gnd/4393546-1#rels"><img src="img/lobid-gnd-graph.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td><b>Grundlagen der Reconciliation in OpenRefine</b></td></tr>
+					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<h1>Was ist OpenRefine?</h1>
+				<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
+				<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
+				<p><span class="fragment">Oberfläche wie Tabellenkalkulation</span></p>
+				<p><span class="fragment">Läuft im Browser</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Wo ist OpenRefine?</h1>
+				<p><span class="fragment">Lokal, downloaden und installieren:<br /><a href="https://openrefine.org/download.html">https://openrefine.org/download.html</a></span></p>
+				<p><span class="fragment">Gehostet, z.B. zum Ausprobieren: <br/><a href="http://openrefine.labs.lobid.org">http://openrefine.labs.lobid.org</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Wofür ist OpenRefine?</h1>
+				<p><span class="fragment">Gut geeigent wo UI/Tabellenkalkulation passt</span></p>
+				<p><span class="fragment">Fachliche Arbeit</span></p>
+				<p><span class="fragment">Manuelle Optimierung</span></p>
+				<p><span class="fragment">Überschaubare Datenmengen</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Wofür ist OpenRefine (noch) nicht?</h1>
+				<p><span class="fragment">Bisher nicht geeignet für große Dateien, aber eine neue <a href="https://vimeo.com/568913971">Architektur für größere Datenmengen ist fast fertig</a></span></p>
+				<p><span class="fragment">Automatisierung ohne UI nicht mit Bordmitteln, aber mit Zusatztool möglich: <a href="https://github.com/opencultureconsulting/openrefine-batch">openrefine-batch</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Was ist Reconciliation?</h1>
+				<p><span class="fragment">Abgleichen / Matchen eigener Daten (z.B. Namen von Personen) auf GND-Einträge</span></p>
+				<p><span class="fragment">Anreicherung durch Übernahme von spezifischen Feldern der gematchten GND-Einträge</a></span></p>
+			</section>
+
+			<section data-state="alle"><h1>Projekt anlegen</h1></section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-clipboard.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-data.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-project.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-table.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Projekt anlegen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<pre><code class=nohighlight>
+name;beruf;ort
+J. Weizenbaum;Informatiker;Berlin
+Twain, Mark;Schriftsteller;
+Kumar, Lalit;;
+Jemand;;
+				</code></pre>
+				<p><small>(Daten und URL per CTRL+C in die Zwischenablage kopieren)</small></p>
+			</section>
+
+			<section data-state="alle"><h1>Abgleich / Reconciliation</h1></section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-reconcile.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-add-service.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-service-url.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-type.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-reconciled.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Abgleich / Reconciliation</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<pre><code class=nohighlight>
+https://lobid.org/gnd/reconcile
+				</code></pre>
+				<p><small>(Auf openrefine.labs.lobid.org muss der Dienst nicht ergänzt werden)</small></p>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
+					<tr><td><b>Datenanreicherung auf Basis der Matches</b></td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<h1>Anreicherung</h1>
+				<p><span class="fragment">Namen wurden mit GND-IDs assoziiert</span></p>
+				<p><span class="fragment">Felder der GND-Entitäten stehen so zur Verfügung</span></p>
+				<p><span class="fragment">Mit diesen können wir unsere lokalen Daten anreichern</span></p>
+				<p><span class="fragment">d.h. konkret: neue Spalten in unserer Tabelle anlegen</span></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-extend.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-4.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-field.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-literal.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Anreicherung</h1>
+				<pre><code class=csv>
+id,name
+1,Haddaway
+2,Johannes Geßner
+3,Judith Kuckart
+4,Rosa Luxemburg
+5,Albert Einstein
+6,Hazel Brugger
+7,Anne Cuneo
+8,Vitus Huonder
+				</code></pre>
+				<p>Projekt anlegen, Namen abgleichen und Berufe anreichern</p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Anreicherung mit GND-Entitäten</h1>
+				<p><span class="fragment">Angereicherte Felder sind z.T. GND-Entitäten</span></p>
+				<p><span class="fragment">Sind automatisch abgeglichen / reconciled</span></p>
+				<p><span class="fragment">Können als Grundlage für weitere Anreicherung dienen</span></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-extend-again.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Anreicherung mit GND-Entitäten</h1>
+				<p>Wirkungsort und Darstellung des Wirkungsortes anreichern</p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-uebung-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
+					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td><b>Möglichkeiten zur Verbesserung des Matching</b></td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+				</table>		
+			</section>
+			
+			<section data-state="alle">
+				<h1>Ergebnisse verbessern</h1>
+				<p><span class="fragment">Einschränkung der Typen der Zielentitäten</span></p>
+				<p><span class="fragment">Verwendung zusätzlicher lokaler Daten</span></p>
+				<p><span class="fragment">Gezielte Suche nach Treffern</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h3>Einschränkung der Entitätstypen</h3>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h3>Verwendung zusätzlicher lokaler Daten</h3>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-table-additional.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h3>Gezielte Suche nach Treffern</h3>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-suggest-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h1>Beispiele</h1>
+				<p><span class="fragment">Verwendung zusätzlicher lokaler Daten</span></p>
+				<p><span class="fragment">1. Beispiel: Lebensdaten</span></p>
+				<p><span class="fragment">2. Beispiel: Beruf &amp; Parteizugehörigkeit</span></p>
+			<!--<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">Details in Blogpost (en)</a></span></p>-->
+			</section>
+
+			<section data-state="alle">
+				<h1><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html#birth-and-death-dates">1. Beispiel: Lebensdaten</a></h1>
+				<!--<span class="fragment"><p>Themen: Daten angucken, verstehen; Spalte transformieren; lokale Daten mitschicken</p></span>-->
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-0.png" width=800 style="border: none; box-shadow: none;" />
+				<p>CSV lokal speichern oder direkt per URL: https://blog.lobid.org/data/persons.csv</p></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-1_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Project anlegen und Namen abgleichen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<p><a href="https://blog.lobid.org/data/persons.csv">persons.csv</a></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-1_2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Ein erstes Ergebnis: <p>70% automatisch abgeglichen</p></p>
+			</section>
+
+			<section data-state="alle">
+				<h2>Wir wollen die Lebensdaten zur Disambiguierung nutzen</h2>
+				<p><span class="fragment">In unseren abzugleichenden Daten z.B. <code>"1904"</code></span></p>
+				<p><span class="fragment">Womit gleichen wir ab? z.B. <a href="https://lobid.org/gnd/1019841192.json">Ellen Frank</a></span></p>
+				<span class="fragment"><pre><code class=json>
+"dateOfDeath": [
+  "1999-09-17"
+],
+"dateOfBirth": [
+  "1904-03-09"
+]
+				</code></pre></span>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-1_3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h1>TODO: Mini-Exkurs Expression Languages</h1>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-dates-2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Wildcards: <code>?</code> für ein Zeichen, <code>*</code> für beliebig viele Zeichen</p>
+			</section>
+
+			<section data-state="alle">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-2_1.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Vorherigen Abgleich zurücksetzen</p>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-dates-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-dates-4.png" width=800 style="border: none; box-shadow: none;" />
+				<p>&gt;95% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="alle">
+				<h1><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html#occupations-and-affiliations">2. Beispiel: Beruf &amp; Parteizugehörigkeit</a></h1>
+				<!--<span class="fragment"><p>Themen: Daten angucken, verstehen; Werte transformieren mit Text facet; Redo/Undo-Apply</p></span>-->
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-0.png" width=800 style="border: none; box-shadow: none;" />
+				<p>CSV lokal speichern oder direkt per URL: https://blog.lobid.org/data/politicians.csv</p></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-1_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Project anlegen und Namen abgleichen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<p><a href="https://blog.lobid.org/data/politicians.csv">politicians.csv</a></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-1_2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Ein erstes Ergebnis: <p>&lt; 60% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Wir wollen die Parteizugehörigkeit nutzen</h2>
+				<p><span class="fragment">In unseren abzugleichenden Daten z.B. <code>SPD</code></span></p>
+				<p><span class="fragment">Womit gleichen wir ab? z.B. <a href="http://lobid.org/gnd/11851444X.json">Willy Brandt</a></span></p>
+				<span class="fragment"><pre><code class=json>
+"affiliation": [
+  {
+    "id": "https://d-nb.info/gnd/2022139-3",
+    "label": "Sozialdemokratische Partei Deutschlands"
+  }
+]
+				</code></pre></span>
+			</section>
+
+			<section data-state="alle">
+				<h2>Abkürzungen auf eindeutige Identifier mappen</h2>
+			</section>
+
+			<section data-state="uebung">
+				<p>Welche Abkürzungen kommen in den Daten vor?</p>
+				<img src="img/openrefine-improve-affiliations-1_3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<p>Wie finden wir die GND-Nummern? z.B. SPD:</p>
+				<img src="img/openrefine-improve-affiliations-1_4.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Gesuchte Mappings</h1>
+				<ul>
+					<li>SPD → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>CDU → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>GRUENE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>FDP → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>LINKE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>PDS → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+				  </ul>
+			</section>
+
+			<section data-state="alle">
+				<h1>Mappings</h1>
+				<ul>
+					<li>SPD → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/2022139-3</code></li>
+					<li>CDU → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/7230-8</code></li>
+					<li>GRUENE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/2124337-2</code></li>
+					<li>FDP → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/37037-X</code></li>
+					<li>LINKE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/10173685-X</code></li>
+					<li>PDS → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/5010217-5</code></li>
+				  </ul>
+			</section>
+
+			<section data-state="uebung">
+				<p>In der Text-Facette können wir alle Vorkommen der Werte entsprechend unseres Mappings editieren:</p>
+				<img src="img/openrefine-improve-affiliations-1_5.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<p>Diese manuelle Arbeit kann aus der Undo/Redo-History extrahiert werden:</p>
+				<pre><code class=json>
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "parliamentary_group",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "affiliation",
+    "columnInsertIndex": 2,
+    "description": "Create column affiliation at index 2 based on column parliamentary_group using expression grel:value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "affiliation",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "GRUENE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/2124337-2"
+      },
+      {
+        "from": [
+          "NA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "FDP"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/37037-X"
+      },
+      {
+        "from": [
+          "CDU"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/7230-8"
+      },
+      {
+        "from": [
+          "SPD"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/2022139-3"
+      },
+      {
+        "from": [
+          "LINKE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/10173685-X"
+      },
+      {
+        "from": [
+          "PDS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/5010217-5"
+      }
+    ],
+    "description": "Mass edit cells in column affiliation"
+  }
+]
+				</code></pre>
+			</section>
+
+			<section data-state="alle">
+				<p>Undo/Redo-History kann so (angepasst und) reproduziert werden:</p>
+				<img src="img/openrefine-improve-affiliations-1_6.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-affiliations-1_7.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-2_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-affiliations-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-affiliations-4.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Zwischenergebnis: &gt; 70% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Implizites Wissen nutzen</h1>
+				<p><span class="fragment">Hintergrundwissen, das so gar nicht in den Daten ist</span></p>
+				<p><span class="fragment">Formal ergänzen für die Disambiguierung</span></p>
+				<p><span class="fragment">Hier z.B. wissen wir, dass es sich um Politiker:innen handelt</span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Beruf ergänzen</h1>
+				<span class="fragment"><p>D.h. wir ergänzen eine neue Spalte mit dem Beruf</p></span>
+				<span class="fragment">Mit dem Wert <code>Politik*</code></span>
+				<span class="fragment"><p>Über die Wildcard decken wir mehrere Formen ab: Politiker, Politikerin, Politikwissenschaftler, Politikwissenschaftlerin</p></span>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-occupations-0.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-occupations-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+				<span class="fragment"><p>Vorherigen Abgleich zurücksetzen</p></span>
+				<span class="fragment"><p>Beruf &amp; Affiliation mitschicken</p></span>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-occupations-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-improve-occupations-3.png" width=800 style="border: none; box-shadow: none;" />
+				<p>&gt; 80% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Export</h1>
+				<p><span class="fragment">Zahlreiche eingebaute Exportformate</span></p>
+				<p><span class="fragment">Erweiterte Funktionalität durch Extensions</span></p>
+				<p><span class="fragment">z.B. für Wikidata, vergleichbar für GND denkbar</span></p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-export.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="alle">
+				<a href="https://www.wikidata.org/wiki/Wikidata:Tools/OpenRefine/Editing/Tutorials/Basic_editing"><img src="img/openrefine-extension.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h1>TODO: Flexibler Export mit Templating</h1>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
+					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td><b>Standardisierung &amp; W3C Community Group</b></td></tr>
+				</table>
+			</section>
+
+			<section data-state="alle">
+				<h2>Standardisierung &amp; W3C Community Group</h2>
+				<span class="fragment"><p>W3C Entity Reconciliation Community Group</p></span>
+				<span class="fragment"><p><a href="https://www.w3.org/community/reconciliation/">https://www.w3.org/community/reconciliation/</a></p></span>
+				<span class="fragment"><p><a href="https://github.com/reconciliation-api">https://github.com/reconciliation-api</a></p></span>
+			</section>
+			
+			<section data-state="alle">
+				<h1>Ziele</h1>
+				<p><span class="fragment">Dokumentation und Verbesserung des Protokolls der OpenRefine Reconciliation API</span></p>
+				<p><span class="fragment">Protokoll als Standard für den Datenabgleich im Web vorantreiben</span></p>
+				<p><span class="fragment">Werkzeuge rund um das Protokoll bereitstellen</span></p>
+			</section>
+			
+			<section data-state="alle" data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+			
+			<section data-state="alle">
+				<h1>Testbench</h1>
+				<p><span class="fragment">Ein Werkzeug zum Testen von Reconciliation-Services</span></p>
+				<p><span class="fragment">Ein zentrales Verzeichnis verfügbarer Reconciliation-Services (aktuell 38)</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-state="uebung" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+
+			<section data-state="alle">
+				<h1>Census</h1>
+				<p><span class="fragment">Überblick über das Reconciliation-Ökosystem</span></p>
+				<p><span class="fragment">Verfügbare Services, Clients, Software-Bibliotheken</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Andere Clients als OpenRefine</h1>
+			</section>
+
+			<section data-state="alle">
+				<h1>Alma Refine</h1>
+				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h1>Cocoda</h1>
+				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h1>Specs</h1>
+				<p><span class="fragment">Spezifikation des Protokolls für Datenabgleich und -anreicherung</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
+			</section>
+
+			<section data-state="alle" data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
+
+			<section data-state="alle">
+				<h2>Eigene Reconciliation-Services anbieten</h2>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/libraries/">Mit speziellen Reconciliation-Tools/Frameworks</a></span></p>
+				<p><span class="fragment">Mit generischen Web-Entwicklungs-Tools/Frameworks (JSON API)</span></p>
+				<p><span class="fragment">Testen mit Testbench</span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h1>In Testbench abgleichen</h1>
+				<p><span class="fragment">Einzel-Abgleich simulieren für "Brandt, Willy" mit Beruf und Affiliation (wie im 2. Beispiel vorhin)</p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-state="alle" data-background="img/reconciliation-testbench-reconcile.png" data-background-size="contain"></section>
+
+			<section data-state="alle">
+				<h1>TODO: JSON-API; Spec, Schemas, Beispiele</h1>
+			</section>
+
+			<section data-state="alle">
+				<h1>Weitere Informationen</h1>
+				<p><a href="https://lobid.org/gnd/reconcile">API-Dokumentation, Tutorials, etc</a></p>
+				<p><a href="https://github.com/hbz/lobid-gnd/blob/master/app/controllers/Reconcile.java">Implementierung & Details in lobid-gnd</a></p>
+				<p><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html">Danke an Felix Ostrowski und Florian Gilberg für die Beispiel-Datensets/-Anwendungsfälle</a></p>
+				<!--<p>https://fdmlab.landesarchiv-bw.de/post/2021-09-fuenf-dinge-die-wir-mit-openrefine-nicht-machen/</p>-->
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
