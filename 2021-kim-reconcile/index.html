@@ -38,7 +38,7 @@
 			"datePublished" : "2021-06-10",
 			"inLanguage" : "de",
 			"audience": [ "librarians", "developers" ],
-			"isBasedOn": [ "https://slides.lobid.org/2021-gndcon-reconcile/", "https://slides.lobid.org/2020-swib-reconciliation/" ],
+			"isBasedOn": [ "https://slides.lobid.org/2021-gndcon-reconcile/", "https://slides.lobid.org/2020-swib-reconciliation/", "https://hbz.github.io/elag2019-bootcamp/" ],
 			"license": "https://creativecommons.org/licenses/by/4.0/"
 		}
 		</script>
@@ -107,20 +107,21 @@
 				<h1>Überblick</h1>
 				<table>
 					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
-					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
-					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
 					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
 					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
 				</table>
+				<small><p><span class="fragment"><a href="https://etherpad.lobid.org/p/gndcon2021">Wir haben versucht, Themenwünsche zu berücksichtigen, soweit wir uns damit auskennen</a></span></p></small>
 			</section>
 
 			<section data-state="alle">
 				<table>
 					<tr><td><b>Datenquellen und Oberfläche von lobid-gnd</b></td></tr>
-					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
-					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
 					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
 					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
 				</table>
 			</section>
 
@@ -204,10 +205,10 @@
 			<section data-state="alle">
 				<table>
 					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
-					<tr><td><b>Grundlagen der Reconciliation in OpenRefine</b></td></tr>
-					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td><b>Datenabgleich und -anreicherung in OpenRefine</b></td></tr>
 					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
 					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
 				</table>
 			</section>
 
@@ -234,7 +235,7 @@
 			</section>
 
 			<section data-state="alle">
-				<h1>Wofür ist OpenRefine (noch) nicht?</h1>
+				<h2>Wofür ist OpenRefine (noch) nicht?</h2>
 				<p><span class="fragment">Bisher nicht geeignet für große Dateien, aber eine neue <a href="https://vimeo.com/568913971">Architektur für größere Datenmengen ist fast fertig</a></span></p>
 				<p><span class="fragment">Automatisierung ohne UI nicht mit Bordmitteln, aber mit Zusatztool möglich: <a href="https://github.com/opencultureconsulting/openrefine-batch">openrefine-batch</a></span></p>
 			</section>
@@ -243,6 +244,7 @@
 				<h1>Was ist Reconciliation?</h1>
 				<p><span class="fragment">Abgleichen / Matchen eigener Daten (z.B. Namen von Personen) auf GND-Einträge</span></p>
 				<p><span class="fragment">Anreicherung durch Übernahme von spezifischen Feldern der gematchten GND-Einträge</a></span></p>
+				<small><p><span class="fragment"><a href="https://docs.openrefine.org/">Fokus hier ist Reconciliation, sehen auch Grundlagen von OpenRefine, es gibt aber noch viel mehr</a></span></p></small>
 			</section>
 
 			<section data-state="alle"><h1>Projekt anlegen</h1></section>
@@ -312,16 +314,6 @@ https://lobid.org/gnd/reconcile
 			</section>
 
 			<section data-state="alle">
-				<table>
-					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
-					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
-					<tr><td><b>Datenanreicherung auf Basis der Matches</b></td></tr>
-					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
-					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
-				</table>
-			</section>
-
-			<section data-state="alle">
 				<h1>Anreicherung</h1>
 				<p><span class="fragment">Namen wurden mit GND-IDs assoziiert</span></p>
 				<p><span class="fragment">Felder der GND-Entitäten stehen so zur Verfügung</span></p>
@@ -388,10 +380,10 @@ id,name
 			<section data-state="alle">
 				<table>
 					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
-					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
-					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
 					<tr><td><b>Möglichkeiten zur Verbesserung des Matching</b></td></tr>
 					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
 				</table>		
 			</section>
 			
@@ -486,7 +478,10 @@ id,name
 			</section>
 
 			<section data-state="alle">
-				<h1>TODO: Mini-Exkurs Expression Languages</h1>
+				<h1>Expression Language</h1>
+				<p><span class="fragment">Für die Transformation verschiedene Sprachen</span></p>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/grel">General Refine Expression Language (GREL)</a></span></p>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/jythonclojure">Python/Jython &amp; Clojure</a></span></p>
 			</section>
 
 			<section data-state="uebung">
@@ -598,8 +593,13 @@ id,name
 				<img src="img/openrefine-improve-affiliations-1_5.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
+			<section data-state="uebung">
+				<p>Diese manuelle Schritte können in der Undo/Redo-History extrahiert werden:</p>
+				<img src="img/openrefine-improve-affiliations-1_5_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
 			<section data-state="alle">
-				<p>Diese manuelle Arbeit kann aus der Undo/Redo-History extrahiert werden:</p>
+				<p>Wir bekommen die Editierhistorie als JSON:</p>
 				<pre><code class=json>
 [
   {
@@ -685,10 +685,11 @@ id,name
   }
 ]
 				</code></pre>
+				<small><p><span class="fragment">(Hier setzt auch die erwähnte Möglichkeit zur Automatisierung an: die manuell von der Fachebene in der Oberfläche erstellten Schritte können so ohne Oberfläche automatisiert werden)</span></p></small>
 			</section>
 
 			<section data-state="alle">
-				<p>Undo/Redo-History kann so (angepasst und) reproduziert werden:</p>
+				<p>Operationen können angepasst und reproduziert werden:</p>
 				<img src="img/openrefine-improve-affiliations-1_6.png" width=800 style="border: none; box-shadow: none;" />
 			</section>
 
@@ -752,7 +753,7 @@ id,name
 
 			<section data-state="alle">
 				<h1>Export</h1>
-				<p><span class="fragment">Zahlreiche eingebaute Exportformate</span></p>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/exporting">Zahlreiche eingebaute, anpassbare Exportformate</a></span></p>
 				<p><span class="fragment">Erweiterte Funktionalität durch Extensions</span></p>
 				<p><span class="fragment">z.B. für Wikidata, vergleichbar für GND denkbar</span></p>
 			</section>
@@ -766,16 +767,22 @@ id,name
 			</section>
 
 			<section data-state="alle">
-				<h1>TODO: Flexibler Export mit Templating</h1>
+				<p>Flexibler Export mit Templating</p>
 			</section>
+
+			<section data-state="alle">
+				<img src="img/openrefine-export-templating-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung" data-background="img/openrefine-export-templating-2.png" data-background-size="contain"></section>
 
 			<section data-state="alle">
 				<table>
 					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
-					<tr><td>Grundlagen der Reconciliation in OpenRefine</td></tr>
-					<tr><td>Datenanreicherung auf Basis der Matches</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
 					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
 					<tr><td><b>Standardisierung &amp; W3C Community Group</b></td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
 				</table>
 			</section>
 
@@ -831,37 +838,151 @@ id,name
 				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
 			</section>
 
-			<section data-state="alle" data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
-
 			<section data-state="alle">
-				<h2>Eigene Reconciliation-Services anbieten</h2>
-				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/libraries/">Mit speziellen Reconciliation-Tools/Frameworks</a></span></p>
-				<p><span class="fragment">Mit generischen Web-Entwicklungs-Tools/Frameworks (JSON API)</span></p>
-				<p><span class="fragment">Testen mit Testbench</span></p>
+				<table>
+					<tr><td>Datenquellen und Oberfläche von lobid-gnd</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
+					<tr><td>Möglichkeiten zur Verbesserung des Matching</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td><b>Eigene Daten in OpenRefine verfügbar machen</b></td></tr>
+				</table>
 			</section>
 
-			<section data-state="uebung">
-				<h1>In Testbench abgleichen</h1>
-				<p><span class="fragment">Einzel-Abgleich simulieren für "Brandt, Willy" mit Beruf und Affiliation (wie im 2. Beispiel vorhin)</p>
+			<section data-state="alle">
+				<h2>Eigene Daten in OpenRefine verfügbar machen</h2>
+				<p><span class="fragment">1. Einzeldatensätze als JSON anbieten</p>
+					<p><span class="fragment">2. Suche nach Datensätzen implementieren</p>
+						<p><span class="fragment">3. Reconciliation-Protokoll implementieren</span></p>
+						<small><span class="fragment"><p><a href="https://github.com/hbz/elag2019-bootcamp">Für Details zu 1. und 2. siehe Workshop-Material From LOD to LOUD: building & using JSON-LD APIs</a></p></span></small>
+					</section>
+					
+					<section data-state="fabian">
+						<h2>1. Einzeldatensätze als JSON</h2>
+				<span class="fragment"><p>z.B. http://localhost:9200/loc/work/c000000011/_source</p></span>
+				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen</p></span>
+			</section>
+			
+			<section data-state="fabian">
+				<h2>Exkurs: z.B. mit diesen Daten</h2>
+				<pre><code class="nohighlight" data-trim>
+http://id.loc.gov/resources/works/c000000011
+http://id.loc.gov/resources/works/c000000020
+http://id.loc.gov/resources/works/c000000026
+http://id.loc.gov/resources/works/c000000028
+http://id.loc.gov/resources/works/c000000100
+				</code></pre>
+			</section>
+			
+			<!--<section data-state="fabian" data-background="img/openrefine-1-import.png"
+				data-background-size="contain">
+			</section>
+			
+			<section data-state="fabian" data-background="img/openrefine-2-import.png"
+			data-background-size="contain">
+		</section>-->
+		
+		<section data-state="fabian" data-background="img/openrefine-3-add-from-url.png"
+		data-background-size="contain">
+	</section>
+
+	<section data-state="fabian">
+		<p>ID rauspicken &amp; URL erzeugen, unter der wir JSON finden/selbst anbieten</p>
+		<span class="fragment">
+			http://id.loc.gov/resources/works/c000000011
+		</span>
+		<span class="fragment">
+			&rarr; http://localhost:9200/loc/work/c000000011/_source
+		</span>
+		<span class="fragment"><p><code class="nohighlight" data-trim>
+			"http://localhost:9200/loc/work/" + split(value, '/')[-1] + "/_source"
+		</code></p>
+	</section>
+	
+	<section data-state="fabian" data-background="img/openrefine-4-add-from-url.png"
+	data-background-size="contain">
+</section>
+
+<section data-state="fabian">
+	<p>Das JSON können wir dann zum Anreichern nutzen</p>
+</section>
+
+<section data-state="fabian" data-background="img/openrefine-5-add-from-json.png"
+data-background-size="contain">
+</section>
+
+<section data-state="fabian" data-background="img/openrefine-6-add-from-json.png"
+data-background-size="contain">
+</section>
+
+<section data-state="fabian" data-background="img/openrefine-7-export.png"
+data-background-size="contain">
+</section>
+
+<section data-state="fabian">
+	<h2>2. Suche nach Datensätzen implementieren</h2>
+				<span class="fragment"><p>z.B. http://localhost:9200/loc/work/_search?q=*</p></span>
+				<span class="fragment"><p>d.h. Indexierung der Daten in Suchmaschine, z.B. Elasticsearch, Solr, Lucene</p></span>
+			</section>
+			
+			<section data-state="fabian">
+				<h2>z.B. mit diesen Daten</h2>
+				<pre><code class="nohighlight" data-trim>
+Letters from an American farmer
+Italian journeys
+Report of the trial of George Ryan
+The devil upon crutches in England
+Educational interests of Colorado
+				</code></pre>
+				<span class="fragment"><p><code>"http://localhost:9200/loc/work/_search?q=\"" + replace(value, " ", "+") + "\""</code></p></span>
+				<span class="fragment"><p><code>value.parseJson().hits.hits[0]._source.id</code></p></span>
+			</section>
+			
+			<section data-state="fabian" data-background="img/openrefine-8-uris.png"
+			data-background-size="contain">
+		</section>
+		
+		<!--https://hbz.github.io/elag2019-bootcamp/-->
+		<section data-state="alle">
+			<h2>3. Reconciliation-Protokoll implementieren</h2>
+			<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/libraries/">Mit speziellen Reconciliation-Tools/Frameworks</a></span></p>
+			<p><span class="fragment">Mit generischen Web-Entwicklungs-Tools/Frameworks (JSON API)</span></p>
+			<p><span class="fragment">Testen mit Testbench</span></p>
+		</section>
+
+		<section data-state="alle" data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
+
+		<section data-state="alle" data-background="img/reconciliation-specs-1.png" data-background-size="contain"></section>
+
+		<section data-state="alle" data-background="img/reconciliation-specs-2.png" data-background-size="contain"></section>
+
+		<section data-state="alle" data-background="img/reconciliation-specs-3.png" data-background-size="contain"></section>
+
+		<section data-state="uebung">
+			<h1>In Testbench abgleichen</h1>
+			<p><span class="fragment">Einzel-Abgleich simulieren für "Brandt, Willy" mit Beruf und Affiliation (wie im 2. Beispiel vorhin)</p>
 				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
 			</section>
-
+			
 			<section data-state="alle" data-background="img/reconciliation-testbench-reconcile.png" data-background-size="contain"></section>
-
-			<section data-state="alle">
-				<h1>TODO: JSON-API; Spec, Schemas, Beispiele</h1>
+			
+			<section data-state="uebung">
+				<h2>Zusammenarbeit von Fachebene &amp; Entwicklung</h2>
+				<p><span class="fragment">Schon erster Schritt, Bereitstellung von Einzeldaten als JSON kann fachlich in OpenRefine getestet werden</span></p>
+				<p><span class="fragment">Bis hin zur Evaluation der Scores beim Abgleich mit disambiguierenden lokalen Daten in der Testbench</span></p>
+				<p><span class="fragment">Ermöglicht auf vielen Ebenen die unmittelbare Zusammenarbeit von Fachebene &amp; Entwicklung</span></p>
 			</section>
-
+			
 			<section data-state="alle">
 				<h1>Weitere Informationen</h1>
-				<p><a href="https://lobid.org/gnd/reconcile">API-Dokumentation, Tutorials, etc</a></p>
+				<p><a href="https://docs.openrefine.org/">OpenRefine user manual</a></p>
+				<p><a href="https://lobid.org/gnd/reconcile">GND reconciliation for OpenRefine</a></p>
 				<p><a href="https://github.com/hbz/lobid-gnd/blob/master/app/controllers/Reconcile.java">Implementierung & Details in lobid-gnd</a></p>
-				<p><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html">Danke an Felix Ostrowski und Florian Gilberg für die Beispiel-Datensets/-Anwendungsfälle</a></p>
+				<small><p><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html">Danke an Felix Ostrowski und Florian Gilberg für die Beispiel-Datensets/-Anwendungsfälle</a></p></small>
 				<!--<p>https://fdmlab.landesarchiv-bw.de/post/2021-09-fuenf-dinge-die-wir-mit-openrefine-nicht-machen/</p>-->
 			</section>
-
+			
 		</div>
-
+		
 	</div>
 	<script src="lib/js/head.min.js"></script>
 	<script src="js/reveal.js"></script>
