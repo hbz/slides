@@ -18,8 +18,8 @@
 
 	<script type="application/ld+json">
 		{
-			"@context": "http://schema.org",
-			"type": "PresentationDigitalDocument",
+			"@context": "https://schema.org",
+			"type": [ "PresentationDigitalDocument" ],
 			"name" : "Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid",
 			"creator" : [{
 				"id": "http://lobid.org/team/ap#!",
@@ -28,10 +28,14 @@
 			}
 		],
 			"description": "",
-			"about" : [ "lobid", "JSON-LD", "Linked Open Data", "libraries"],
+			"keywords" : [ "lobid", "JSON-LD", "Linked Open Data", "libraries"],
+			"about": [
+			{
+				"id": "https://lobid.org/product/lobid"
+			}]
 			"url" : "https://slides.lobid.org/2021-06-17-bibtag21",
 			"datePublished" : "2021-06-15",
-			"inLanguage" : "de",
+			"inLanguage" : [ "de" ],
 			"audience": [ "librarians", "developers" ],
 			"isBasedOn": [ "https://slides.lobid.org/2020-zbiw/" ],
 			"license": "https://creativecommons.org/licenses/by/4.0/"
