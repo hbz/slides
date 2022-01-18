@@ -123,7 +123,7 @@
 			</section>
 
 			<section>
-				<h1>Was ist Metafacture?</h1>
+				<h2>Was ist Metafacture?</h2>
 				<p><span class="fragment">[...] zur Verarbeitung von semi-strukturierten Daten mit dem Fokus auf Bibliotheksdaten</span>
 				<p><span class="fragment">Ein vielseitiges Werkzeug: nutzbar als Kommandozeilentool, als Java/JVM library, Batch-Verarbeitung, on-the-fly</span></p>
 				<p><span class="fragment">Ein offenes Framework: Wiederverwendung und Austausch (von einzelnen Modulen und ganzen Workflows)</span></p>
@@ -141,11 +141,12 @@
 				<p><span class="fragment">Transformation der Daten des Verbundkatalogs für die Indexierung als JSON-LD</span></p>
 				<p><span class="fragment">hbz linked data service: Web-APIs und Suchoberflächen für Titel- und Normdaten (<a href="https://lobid.org">lobid.org</a>)</span></p>
 				<p><span class="fragment">Auf Basis von Lobid: Nordrhein-Westfälische Bibliographie (<a href="https://nwbib.de">nwbib.de</a>)</span></p>
+				<p><span class="fragment">Aggregierung von Metadaten aus verschiedenen Quellen im OER Suchindex (<a href="https://oersi.de">OERSI</a>)</span></p>
 			</section>
 
 			<section>
 				<h2>Wie Metafacture funktioniert</h2>
-				<p><span class="fragment">Grundidee: unsere Daten fließen durch mehrere Module: <br/>&rarr; read &rarr; decode &rarr; transform &rarr; encode &rarr; write &rarr;</span></p>
+				<p><span class="fragment">Grundidee: Daten fließen durch mehrere Module: <br/>&rarr; read &rarr; decode &rarr; transform &rarr; encode &rarr; write &rarr;</span></p>
 				<p><span class="fragment">Jedes Modul erwartet Input eines bestimmten Typs und erzeugt Output eines bestimmten Typs</span></p>
 				<p><span class="fragment">Verschiedene Formate werden unterstützt (z.B. PICA, MARC), erweiterbares Framework für eigene Formate</span></p>
 				<p><span class="fragment">Durch Kombination einzelner Module, durch die unsere Daten fließen, bauen wir den Workflow</span></p>
@@ -159,7 +160,7 @@
 
 			<section>
 				<h2>Workflows bearbeiten und ausführen</h2>
-				<p><span class="fragment">Workflows können in Flux (einer speziellen Konfigurationssprache) or mit Java (typsicher über Java Generics) bearbeitet werden</span></p>
+				<p><span class="fragment">Workflows können in Flux (einer speziellen Konfigurationssprache) oder mit Java (typsicher über Java Generics) bearbeitet werden</span></p>
 				<p><span class="fragment">Flux-Workflows können in einem Texteditor editiert und auf der Kommandozeile ausgeführt werden, Java-Workflows funktionieren wie andere Java-Komponenten</span></p>
 			</section>
 
@@ -167,7 +168,6 @@
 				<h2>Workflow-Beispiel</h2>
 				<p>Ausgabe des Inhalts von <code>bib-data.pica.gz</code> als Formeta</p>
 					<pre><code class="bash" data-trim>
-$ cd metafacture-flux-examples/sample1
 $ gedit sample1.flux &amp;
 					</code></pre>
 					<pre><code class="bash" data-trim>
@@ -175,7 +175,7 @@ $ gedit sample1.flux &amp;
 |open-file|as-lines|decode-pica|encode-formeta|write("stdout");
 					</code></pre>
 					<pre><code class="bash" data-trim>
-$ ~/metafacture/flux.sh sample1.flux
+$ flux.sh sample1.flux
 					</code></pre>
 				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
 			</section>
@@ -184,7 +184,6 @@ $ ~/metafacture/flux.sh sample1.flux
 				<h2>Workflow-Beispiel</h2>
 				<p>Ausgabe des Inhalts von <code>bib-data.pica.gz</code> als Formeta</p>
 					<pre><code class="bash" data-trim>
-$ cd metafacture-flux-examples/sample1
 $ gedit sample1.flux &amp;
 					</code></pre>
 					<pre><code class="bash" data-trim>
@@ -196,7 +195,7 @@ $ gedit sample1.flux &amp;
 |write("stdout");
 					</code></pre>
 					<pre><code class="bash" data-trim>
-$ ~/metafacture/flux.sh sample1.flux
+$ flux.sh sample1.flux
 					</code></pre>
 				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
 			</section>
@@ -205,7 +204,7 @@ $ ~/metafacture/flux.sh sample1.flux
 				<h1>Dokumentation</h1>
 				<p><span class="fragment">Was für Module gibt es? Was machen die?</span></p>
 				<span class="fragment"><pre><code class="bash" data-trim>
-$ ~/metafacture/flux.sh # oder flux.bat auf Windows
+$ flux.sh # oder flux.bat auf Windows
 				</code></pre></span>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">
 				https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md</a></span></p>
@@ -404,7 +403,7 @@ $ ~/metafacture/flux.sh # oder flux.bat auf Windows
 				<p>Anzahl unterschiedlicher Werte im Edition-Feld (032@.a)</p>
 				<span class="fragment">
 				<pre><code class="bash" data-trim>
-$ cd ../sample4 ; gedit count.xml &amp;
+$ gedit count.xml &amp;
 				</code></pre>
 				<pre><code class="xml" data-trim>
 <rules><data source="032@.a" name="Edition"></data></rules>
@@ -510,7 +509,7 @@ $ gedit enrich-wiki.flux &amp;
 |write("stdout");
 					</code></pre>
 					<pre><code class="bash" data-trim>
-$ ~/metafacture/flux.sh enrich-wiki.flux
+$ flux.sh enrich-wiki.flux
 					</code></pre>
 				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample6">https://github.com/hbz/metafacture-flux-examples/tree/master/sample6</a></small></p>
 			</section>
@@ -660,14 +659,14 @@ $ ~/metafacture/flux.sh enrich-wiki.flux
 			</section>
 
 			<section>
-				<h2>Beispiel: Datentransformation</h2>
+				<h3>Beispiel: Datentransformation</h3>
 				<p><span class="fragment">z.B. Titel, Verlag, Erscheinungsort und -jahr aus den PICA-Feldern 021A.a, 033A.n, 033A.p, 011@.n verwenden</span></p>
 				<p><span class="fragment">Verlag und Erscheinungsort sollen in einem neuen Feld kombiniert werden</span></p>
 				<p><span class="fragment">Als Feldnamen wollen wir sprechende, nicht-numerische Bezeichnungen haben</span></p>
 			</section>
 
 			<section>
-				<h2>Beispiel: Datentransformation</h2>
+				<h3>Beispiel: Datentransformation</h3>
 					<pre><code class="bash" data-trim>
 "bib-data.pica.gz"
 |open-file
@@ -678,7 +677,7 @@ $ ~/metafacture/flux.sh enrich-wiki.flux
 |write("stdout");
 					</code></pre>
 					<pre><code class="bash" data-trim>
-$ cd ../sample3 ; gedit simple-transformation.xml &amp;
+$ gedit simple-transformation.xml &amp;
 					</code></pre>
 					<pre><code class="xml" data-trim>
 &lt;data source="021A.a" name="Title"&gt;&lt;/data&gt;
@@ -691,13 +690,13 @@ $ cd ../sample3 ; gedit simple-transformation.xml &amp;
 &lt;/combine&gt;
 					</code></pre>
 					<pre><code class="bash" data-trim>
-$ ~/metafacture/flux.sh simple-transformation.flux
+$ flux.sh simple-transformation.flux
 					</code></pre>
 				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample3">https://github.com/hbz/metafacture-flux-examples/tree/master/sample3</a></small></p>
 			</section>
 
 			<section>
-				<h2>Beispiel: Datentransformation</h2>
+				<h3>Beispiel: Datentransformation</h3>
 					<pre><code class="nohighlight" data-trim>
 '576121444' {
 	'Year': '1939',
@@ -751,7 +750,7 @@ $ ~/metafacture/flux.sh simple-transformation.flux
 			</section>
 
 			<section>
-				<p><span class="fragment">2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch, Architektur-Anregungen durch hbz-Toolbox</span></p>
+				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch, Architektur-Anregungen durch hbz-Toolbox</p>
 				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
 				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird Maintainer</span></p>
 				<p><span class="fragment">2020: Metafacture ist Teil des einheitlichen Metadatenmanagements an der TU Dortmund</span></p>
