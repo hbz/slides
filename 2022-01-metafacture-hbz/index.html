@@ -89,9 +89,11 @@
     <div class="slides">
       <section>
         <h1>Metafacture</h1>
-        <h3>Werkzeug für Datentransformationen im hbz</h3>
+        <h4>Werkzeug für Datentransformationen im hbz</h4>
         <p>
           <small>
+			<br/><a href="http://metafacture.org"><img src="img/metafacture.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a>
+			<br/>
             <a href="http://lobid.org/team#!">Offene Infrastruktur</a> <br />
             hbz-interne Infoveranstaltung</small> <br /> <br />
           <small>WWW, 20. Januar 2022</small>
@@ -125,12 +127,11 @@
 			</section>
 
 			<section>
-				<p><span class="fragment">2013: Start der Entwicklung durch DNB im Rahmen von Culturegraph</span></p>
-				<p><span class="fragment">Architektur-Anregungen durch hbz-Toolbox</span></p>
-				<p><span class="fragment">Mit der Zeit immer weniger DNB-Ressourcen für Metafacture</span></p>
-				<p><span class="fragment">2019: hbz wird Maintainer</span></p>
+				<p><span class="fragment">2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch, Architektur-Anregungen durch hbz-Toolbox</span></p>
+				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
+				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird Maintainer</span></p>
 				<p><span class="fragment">2020: Metafacture ist Teil des einheitlichen Metadatenmanagements an der TU Dortmund</span></p>
-				<p><span class="fragment">Ende 2020: Start der Projekte <a href="https://lobid.org/project/metafacture-fix">Metafacture-Fix</a>] und <a href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span></p>
+				<p><span class="fragment">Ende 2020: Start der Projekte <a href="https://lobid.org/project/metafacture-fix">Metafacture-Fix</a> und <a href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span></p>
 			</section>
 
 			<section>
@@ -141,15 +142,15 @@
 				<h2>Metafacture Playground</h2>
 				<p><span class="fragment"><a href="https://metafacture.org/playground">https://metafacture.org/playground</a></span></p>
 				<p><span class="fragment">webbasierte Oberfläche zum Herumspielen</span></p>
-				<p><span class="fragment">soll in Tutorials, Workshops und Dokumentation verwendet werden</span></p>
+				<p><span class="fragment">für Tutorials, Workshops, Dokumentation</span></p>
       		</section>
 
 			  <section>
 				<h2>Metafacture-Fix</h2>
-				<p><span class="fragment">Wechsel von einem streaming-basierten zu einem record-basierten Verarbeitungsansatz bei der Transformation</span></p>
-				<p><span class="fragment">Anknüpfung an existierende DSL aus [Catmandu](https://github.com/LibreCat/Catmandu) (mit dem mittelfristigen Ziel der Standardisierung)</span></p>
-				<p><span class="fragment">Erleichterung der Metafacture-Konfiguration</span></p>
-				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar\*innen und andere Metadatenfachleute</span></p>
+				<p><span class="fragment">Wechsel von einem Feld-basierten zu einem Record-basierten Verarbeitungsansatz bei der Transformation</span></p>
+				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a href="https://github.com/LibreCat/Catmandu">Catmandu</a> (mittelfristiges Ziel: Standardisierung)</span></p>
+				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
+				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar*innen und andere Metadatenfachleute</span></p>
       		</section>
 
 			  <section>
@@ -157,10 +158,10 @@
       		</section>
 
 			  <section>
-				<h2>Alma-Daten mit fix transformieren</h2>
+				<h2>Alma-Daten mit Fix transformieren</h2>
 				<p><span class="fragment">Fix steht in Grundzügen</span></p>
 				<p><span class="fragment">wird nun von DigiBib und OI mit Alma-MARC-Daten genutzt dabei optimiert</span></p>
-				<p><span class="fragment">außerdem Nutzung für [OERSI](https://lobid.org/project/oersi)-Transformationen und zum initialen Aufbau der neuen [Rheinland-Pfälzischen Bibliographie](https://lobid.org/project/rpb)</span></p>
+				<p><span class="fragment">außerdem Nutzung für Transformationen in <a href="https://lobid.org/project/oersi">OERSI</a> und zum initialen Aufbau der neuen <a href="https://lobid.org/project/rpb">RPB</a></span></p>
       		</section>
 
 			  <section>
@@ -176,13 +177,13 @@
 
 			  <section>
 				<h2>Standards nutzen und aufbauen</h2>
-				<p><span class="fragment">Unterstützung der Reconciliatuion API</span></p>
+				<p><span class="fragment">Unterstützung der Reconciliation API</span></p>
 				<p><span class="fragment">SKOS Lookups</span></p>
 				<p><span class="fragment">Fix-Standardisierung</span></p>
       		</section>
 
 			  <section>
-				<h2>Aufbau von ETL Hubs</h2>
+				<h1>ETL Hub</h1>
 				<p><span class="fragment">mehr Kollaboration, Teilen & Auffinden von Workflows ermöglichen</span></p>
 				<p><span class="fragment">Entwicklung von Best Practices zur Paketierung und Beschreibung von ETL-Konfigurationen</span></p>
 				<p><span class="fragment">Aufbau eines ETL Hubs zum Entdecken existierender ETL-Prozesse für die einfache Nachnutzung und Anpassung</span></p>
@@ -209,14 +210,10 @@
 				<h1>6. Fragen und Diskussion</h1>
 			</section>
 
-		<section>
-			<h2>Weiterführende Informationen</h2>
-			<ul style=font-size:25px;>
-				<li><a href="http://blog.lobid.org/">lobid-Blog</a></li>
-				<li><a href= "https://twitter.com/lobidOrg">lobid auf Twitter</a></li>
-				<li><a href="https://github.com/search?q=topic%3Agruppe-offene-infrastruktur+org%3Ahbz&type=Repositories">GitHub Repositories der Gruppe</a></li>
-			</ul>
-		</section>
+			<section>
+				<img src="img/metafacture.png"/>
+				<p><a href="https://metafacture.org">https://metafacture.org</a></p>
+			</section>
 
      </div>
 
