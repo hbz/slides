@@ -1,0 +1,1806 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON &amp; OpenRefine in der Praxis</title>
+
+	<meta name="description"
+		content="Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON & OpenRefine in der Praxis">
+	<meta name="author" content="Adrian Pohl">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"type": [
+				"PresentationDigitalDocument"
+			],
+			"name": {
+				"de": "Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON & OpenRefine in der Praxis"
+			},
+			"creator": [
+				{
+					"id": "http://lobid.org/team/ap#!",
+					"type": "Person",
+					"name": "Adrian Pohl"
+				},
+				{
+					"id": "http://lobid.org/team/fs#!",
+					"type": "Person",
+					"name": "Fabian Steeg"
+				}
+			],
+			"keywords": [
+				"lobid",
+				"JSON-LD",
+				"Linked Open Data",
+				"libraries"
+			],
+			"id": "https://slides.lobid.org/2022-zbiw/",
+			"about": [
+				{
+					"id": "https://lobid.org/product/lobid"
+				}
+			],
+			"datePublished": "2022-02-10",
+			"inLanguage": [
+				"de"
+			],
+			"audience": [
+				"librarians",
+				"developers"
+			],
+			"isBasedOn": [
+				{
+					"id": "https://slides.lobid.org/zbiw-2020/"
+				},
+				{
+					"id": "https://slides.lobid.org/2021-kim-reconcile"
+				}
+			],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="adrian">
+				<h2>Offene Infrastruktur für bibliothekarische Daten</h2>
+				<p>Linked Open Data, JSON &amp; OpenRefine in der Praxis</p>
+				<p>
+					<small>
+						<a href="https://lobid.org/team/ap#!">Adrian Pohl</a> &amp;
+						<a href="https://lobid.org/team/fs#!">Fabian Steeg</a>
+						<br /> <br /> <a href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+					<a href="https://lobid.org"><img src="img/lobid.png"
+							style="border: none; padding: 5px; background-color: white" width="125px" /></a><br />
+					<small>WWW, 2022-02-10</small>
+					<br />
+					<small>Zentrum für Bibliotheks- und Informationswissenschaftliche Weiterbildung, TH Köln (ZBIW)</small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="https://slides.lobid.org/2022-zbiw/">https://slides.lobid.org/2022-zbiw/</a> (<a href="https://slides.lobid.org/2022-zbiw/2022-zbiw-lobid.pdf">PDF</a>)
+					<br />
+					<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Seminar-Etikette</h1>
+				<p><span class="fragment">Fragen sind stets willkommen</span></p>
+				<p><span class="fragment">Hilf anderen, wo du kannst</span></p>
+				<p><span class="fragment">Sei offen für unterschiedliche Fachkenntnisse & Erfahrungen</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Adrian</h1>
+				<p><span class="fragment">Seit 2008 im hbz, seit 2019 Leitung Offene Infrastruktur</span></p>
+				<p><span class="fragment">Schwerpunkte: Datenmodellierung, Offene Standards, Kommunikation/Koordination</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Fabian</h1>
+				<p><span class="fragment">Seit 2012 im hbz, bis 2019 LOD, dann Offene Infrastruktur</span></p>
+				<p><span class="fragment">Schwerpunkte: Webentwicklung und Datentransformation für lobid.org (etc.)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Und ihr?</h1>
+				<p><span class="fragment">Wo und was arbeitet ihr?</span></p>
+				<p><span class="fragment">Was erwartet ihr von diesem Seminar?</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Agenda</h2>
+				<table>
+					<tr>
+						<th width="75%" />
+						<th width="25%" />
+					</tr>
+					<tr>
+						<td>1. Offene Infrastruktur</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2. Linked Data &amp; JSON-LD</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3. OpenRefine Reconciliation</td>
+						<td></td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Grober Zeitplan</h2>
+				<small>
+					<table>
+						<tr><th width="25%"/><th width="60%"/><th width="15%"/></tr>
+						<tr><td><b>1. Offene Infrastruktur</b></td><td>lobid-Dienste und Nutzungsbeispiele</td><td>10:00–10:30</td></tr>
+						<tr><td><b></b></td><td>GND, lobid-gnd, Rechercheoberfläche</td><td>10:30–11:00</td></tr>
+						<tr><td><b>2. Linked Data &amp; JSON-LD</b></td><td>RDF, Linked Data</td><td>11:00–11:30</td></tr>
+						<tr><td><b></b></td><td>JSON, JSON-LD, LOUD</td><td>11:30–12:00</td></tr>
+						<tr><td><b></b></td><td>Daten und Abfragemöglichkeiten GND</td><td>12:00–12:30</td></tr>
+						<tr><td><b></b></td><td><b>Pause</b></td><td></td></tr>
+						<tr><td><b></b></td><td>Daten und Abfragemöglichkeiten Verbundkatalog</td><td>13:30–14:00</td></tr>
+						<tr><td><b>3. OpenRefine Reconciliation</b></td><td>Grundlagen von OpenRefine und Reconciliation</td><td>14:00–14:30</td></tr>
+						<tr><td><b></b></td><td>Verbesserung des Matching auf GND-Einträge</td><td>14:30–15:00</td></tr>
+						<tr><td><b></b></td><td>Datenanreicherung auf Basis der Matches</td><td>15:00–15:30</td></tr>
+					</table>
+				</small>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Teil 1:<br><small>Offene Infrastruktur</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>lobid</b></td><td>lobid-Dienste und Nutzungsbeispiele</td><td>10:00–10:30</td></tr>
+					<tr><td><b>GND</b></td><td>GND, lobid-gnd, Rechercheoberfläche</td><td>10:30–11:00</td></tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
+				<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
+				<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
+				<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>hbz-Gruppe <em>Offene Infrastruktur</em></h2>
+				<p><span class="fragment">Nutzung und Pflege von Infrastruktur für die Publikation strukturierter Daten im Web:</span></p>
+				<p><span class="fragment">Offene Webstandards und darauf aufsetzend kooperative Entwicklung von Spezifikationen (z.b <a href="https://dini-ag-kim.github.io/lrmi-profile/draft/">AMB</a>)</span></p>
+				<p><span class="fragment">Transformation von Alt- und Fremddaten in web-kompatible Strukturen (mit <a href="https://metafacture.org">Metafacture</a>)</span></p>
+				<p><span class="fragment">Publikation strukturierter Daten im Web inkl. APIs (<a href="https://lobid.org">lobid</a>, <a href="https://oersi.de">OERSI</a>, <a href="https://skohub.io">SkoHub</a>)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3><a href="https://lobid.org"><img src="img/lobid.png" style="border: none; padding: 5px; background-color: white" height="100px" /></a></h3>
+				<p><span class="fragment"><i>lobid</i> steht für <i>Linking Open Bibliographic Data</i></span></p>
+				<p><span class="fragment">Seit über zehn Jahren die zentrale Komponente der offenen Infrastruktur im hbz</span></p>
+				<p><span class="fragment">Stellt intuitive, web-basierte Rechercheoberflächen und Schnittstellen bereit</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>lobid-Dienste</h1>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des
+						hbz-Verbundkatalogs</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des
+						deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>lobid-resources</h3>
+				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p>Dokumentation der lobid-resources-API: <br/><a href="https://lobid.org/resources/api">https://lobid.org/resources/api</a></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>lobid-organisations</h3>
+				<a href="https://lobid.org/organisations"><img src="img/lobid-organisations.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p>Dokumentation der lobid-organisations-API: <br/><a href="https://lobid.org/organisations/api">https://lobid.org/organisations/api</a></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>lobid-gnd</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd.png" width=650 style="border: none; box-shadow: none;" /></a>
+				<p>Dokumentation der lobid-gnd-API: <br/><a href="https://lobid.org/gnd/api">https://lobid.org/gnd/api</a></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>lobid – ein zentraler Knoten bibliothekarischer Dateninfrastruktur</h3>
+				<img src="img/lobid-anwender.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h1>lobid: Nutzungsbeispiele</h1>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-vzg-hbz-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Verbundbibliotheken auf hbz-Website</h3>
+				<a href="https://www.hbz-nrw.de/produkte/verbunddienstleistungen/verbundbibliotheken"><img src="img/hbz-verbundbibliotheken.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf lobid-Organisationsdaten</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>VZG-Standortverzeichnis</h2>
+				<a href="http://uri.gbv.de/organization/"><img src="img/vzg-standortverzeichnis.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf lobid-Organisationsdaten</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-edoweb-publisso-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Edoweb und Fachrepositorium Lebenswisschenschaften (FRL)</h3>
+				<a href="https://www.edoweb-rlp.de/"><img src="img/edoweb.png" width=450 style="border: none; box-shadow: none;" /></a><a href="https://repository.publisso.de"><img src="img/publisso.png" width=450 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Enge Integration der lobid-Verbunddaten und des lobid-Datenmodells</span></p>
+				<p><span class="fragment">In Publisso auch GND-ID-Lookup via lobid</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>GND-Lookup im Fachrepositorium Lebenswissenschaften</h3>
+				<img src="img/frl-gnd-lookup.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-nwbib-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h1>NWBib</h1>
+				<p><span class="fragment">Webanwendung, die nahezu vollständig auf lobid-Daten basiert</span></p>
+				<p><span class="fragment">Nutzt das NWBib-Subset in den lobid-Verbunddaten</span></p>
+				<p><span class="fragment">Informationen zu besitzenden Bibliotheken aus lobid-Organisationsdaten</span></p>
+				<p><span class="fragment">Themenvorschläge auf Basis von lobid-gnd</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>NWBib-Suchergebnisliste</h2>
+				<a href="https://nwbib.de/search?q=bildband+k%C3%B6ln"><img src="img/nwbib-suchergebnis.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Anfrage gegen das <a href="http://lobid.org/resources/search?q=inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23!%22">NWBib-Subset in lobid-Verbunddaten</a></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://nwbib.de/HT018791597"><img src="img/nwbib-einzeltreffer.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Informationen zu besitzenden Bibliotheken (Name, URL, Standort) werden aus lobid geladen</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-js-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Bibliothekskatalog des Juristischen Seminars der ULB Bonn</h3>
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog.png" width=750 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Basiert auf täglich aktualisierten lobid-Daten</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://seminar.jura.uni-bonn.de/literatursuche/medien-im-seminar/opac/"><img src="img/seminarkatalog-info.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-tu-dortmund-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Discovery-Index der UB Dortmund</h3>
+				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<p><small><span class="fragment">Titeldaten zu den Beständen der UB &amp; einiger umliegender Bibliotheken <br/>werden täglich von lobid geholt, transformiert und in den Index geladen</span></small></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-vdl-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Virtuelle Deutsche Landesbibliographie</h3>
+				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Seit 2018 ist nwbib.de in die VDL integriert</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-kalliope-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h2>Kalliope</h2>
+				<a href="http://kalliope-verbund.info/gnd/119101211"><img src="img/kalliope-bsp.png" width=550 style="border: none; box-shadow: none;" /></a>
+				<p><span class="fragment">Anzeige von externen Links (z.B. Wikipedia) aus lobid-gnd auf Personenseiten</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-archive-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Abgleich und Anreicherung lokaler Archivdaten mit der GND</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+				<span class="fragment"><small>Unter Nutzung von <a href="http://openrefine.org/">OpenRefine</a> und der entsprechenden <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a></small></span>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender-performing-arts-link.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Infoboxen zu Personen aus der GND</h3>
+				<a href="https://www.performing-arts.eu/agent/gnd_118507680"><img src="img/performing-arts-screenshot.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<span class="fragment"><small>Außerdem Nutzung der <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a> zum <br/><a href="https://twitter.com/j4lib/status/1126429060433874944">Mappen großer Mengen von Personendaten auf die GND</a></small></span>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/lobid-anwender.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h1>Beispiel: lobid-gnd</h1>
+				<p>Rechercheoberfläche &amp; LOD-API für die GND</p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Die Gemeinsame Normdatei (GND)</h2>
+				<p><span class="fragment">Normdatei für Bibliotheken im deutschsprachigen
+						Raum</span></p>
+				<p><span class="fragment">Datensätze für Personen, Körperschaften, Konferenzen &amp;
+						Veranstaltungen, Geografika, Schlagwörter, Werke</span></p>
+				<p><span class="fragment">Für die formale Erfassung einer Ressource und für die inhaltliche Erschließung</span></p>
+				<p><span class="fragment">In den letzten Jahren wird die GND vermehrt auch von Archiven, Museen und
+						Wissenschaftler*innen genutzt</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Die GND-Kooperative</h2>
+				<p><span class="fragment">Verantwortlich für die GND ist die GND-Kooperative</span></p>
+				<p><span class="fragment">Die GND-Kooperative besteht hauptsächlich aus den deutschsprachigen
+						Bibliotheksverbünden, den angeschlossenen Bibliotheken sowie der Deutschen Nationalbibliothek
+						(DNB) als technischer Hoster</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>GND als LOD von der DNB</h2>
+				<p><span class="fragment">Die DNB publiziert die GND unter anderem als Linked Open Data (LOD) unter <a href="https://data.dnb.de/opendata/">https://data.dnb.de/opendata/</a></span></p>
+				<p><span class="fragment">Zusätzliche Anreicherungen, z.B. Links in <a href="https://www.dnb.de/DE/Professionell/Metadatendienste/Datenbezug/Entity-Facts/entityFacts_node.html">EntityFacts</a></span></p>
+				<p><span class="fragment">Diese Daten bilden die Grundlage für <a href="https://lobid.org/gnd">lobid-gnd</a></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Die Oberfläche</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Auto Suggest</h3>
+				<img src="img/lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h3>Ergebnisliste</h3>
+				<a href="https://lobid.org/gnd/search?q=k%C3%B6ln"><img src="img/lobid-gnd-result-list.png"
+						width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Einzeltreffer</h3>
+				<a href="https://lobid.org/gnd/4393546-1"><img src="img/lobid-gnd-einzeltreffer.png" width=800
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Beziehungsgraph</h3>
+				<a href="https://lobid.org/gnd/4393546-1#rels"><img src="img/lobid-gnd-graph.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h1>Übung</h1>
+				<p><em>Probiert die auf den vorigen Folien beschriebene Oberfläche von lobid-gnd aus (die Screenshots verlinken auf die entsprechenden Seiten)</em></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Teil 2:<br><small>Linked Data &amp; JSON-LD</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>Standards</b></td><td>RDF, Linked Data</td><td>11:00–11:30</td></tr>
+					<tr><td><b>APIs</b></td><td>JSON, JSON-LD, LOUD</td><td>11:30–12:00</td></tr>
+					<tr><td><b>lobid-gnd</b></td><td>Daten und Abfragemöglichkeiten GND</td><td>12:00–12:30</td></tr>
+					<tr><td><b>lobid-resources</b></td><td>Daten und Abfragemöglichkeiten Verbundkatalog</td><td>13:30–14:00</td></tr>
+				</table>
+			</section>
+
+			<section data-state="uebung">
+				<h1>Übung</h1>
+				<p><em>Verschicke einen Link zum Buch "With Reference to Reference" von Catherine Elgin</em></p>
+				<p>1: OPAC -> <a href="http://okeanos-www.hbz-nrw.de/F">http://okeanos-www.hbz-nrw.de/F</a></p>
+				<p>2: lobid-resources -> <a href="https://lobid.org/resources">https://lobid.org/resources</a></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Ziele</h1>
+				<p><span class="fragment">Überführung traditioneller bibl. Praktiken in das Web</span></p>
+				<p><span class="fragment">Sichtbarkeit und Auffindbarkeit im Web erreichen</span></p>
+				<p><span class="fragment">Nachnutzbarkeit ermöglichen</span></p>
+				<p><span class="fragment">Synergieeffekte durch Verlinkung mit anderen Daten</span></p>
+				<p><span class="fragment">Verbesserung der Recherchemöglichkeiten</span></p>
+				<small><span class="fragment">Quelle: Pohl, Adrian / Ostrowski, Felix (2010): 'Linked Data' - und warum
+						wir uns im hbz-Verbund damit beschäftigen." B.I.T. Online 13(3): S. 259-268. Preprint: <a
+							href="http://www.hbz-
+nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf">http://www.hbz-
+nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf</a></span></small>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Linked Data: Best Practices</h2>
+				<ol>
+					<span class="fragment"><li>Nutze URIs als Namen für Dinge</li></span>
+					<span class="fragment"><li>Nutze HTTP-URIs, so dass Menschen sie aufrufen können</li></span>
+					<span class="fragment"><li>Wenn jemand einen URI aufruft, biete nützliche Informationen an unter Nutzung der Standards
+						(RDF, SPARQL)</li></span>
+					<span class="fragment"><li>Nimm Links zu anderen URIs auf, so dass weitere Dinge entdeckt werden können.</li></span>
+				</ol>
+				<p><span class="fragment"><small><a href="https://www.w3.org/DesignIssues/LinkedData.html">Tim Berners-Lee (2006ff): Linked
+							Data – Design Issues</a></small></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>RDF &amp; The Semantic Web <br /> <span class="fragment">– cutting edge seit 1999</span></h2>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Linked Data</h1>
+				<p>
+				<blockquote>Ultimately, RDF and the Semantic Web are of no interest to Web developers. They also have a
+					really negative public perception problem. We should stop talking about them. Let’s shift the focus
+					to be on Linked Data, explaining the problems that Web developers face today, and concrete,
+					demonstrable solutions to those problems.</blockquote>
+				</p>
+				<small><span class="fragment">– Manu Sporny, damals Vorsitzender der RDFa Working Group beim W3C, der
+						JSON-LD Community Group &amp; Mitglied weiterer Semantic-Web-Gruppen, beim Schreiben an der
+						JSON-LD-Spezifikation<br /><a href="http://manu.sporny.org/2012/nuclear-rdf/">Sporny
+							(2012)</a></span></small>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Linked Open Data</h1>
+				<p>
+				<blockquote>Wissen ist offen, wenn jedeR darauf frei zugreifen, es nutzen, verändern und teilen kann –
+					eingeschränkt höchstens durch Maßnahmen, die Ursprung und Offenheit des Wissens bewahren.
+				</blockquote>
+				</p>
+				<small><span class="fragment"><a href="http://opendefinition.org/od/2.1/de/">http://opendefinition.org/od/2.1/de/</a></span></small>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Linked Open Usable Data</h2>
+				<a href="https://twitter.com/azaroth42/status/768140561794502656"><img src="img/loud-tweet.png"
+						width=800 /></a>
+				<p>
+					<font size="3">Quelle: <a href="https://twitter.com/azaroth42/status/768140561794502656">Rob
+							Sanderson auf Twitter</a><br />Siehe auch Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</font>
+				</p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>"Using data"?</h2>
+				<span class="fragment">
+					<p>Daten werden mit existierender Software bearbeitet (ausgewertet, ergänzt, integriert etc.)</p>
+				</span>
+				<span class="fragment">
+					<p>Entwicklung neuer Software zur Interaktion mit Daten</p>
+				</span>
+				<span class="fragment">
+					<p>LOUD: Orientierung auf Bedürfnisse und Konventionen rund um Software (Entwicklung, Standards,
+						etc.)</p>
+				</span>
+				<span class="fragment">
+					<p>Nützliche Daten: Zielgruppe kennen &amp; eigene Angebote auf sie
+						ausrichten</p>
+				</span>
+				<span class="fragment">
+					<p>Hauptzielgruppe: Entwickler*innen oder Nutzer*innen von <i>Software</i> für Datenzugriff und
+						-manipulation</p>
+				</span>
+			</section>
+
+			<section data-state="fabian">
+				<h1>APIs</h1>
+				<span class="fragment">
+					<p>Application Programming Interfaces (Programmierschnittstellen)</p>
+				</span>
+				<span class="fragment">
+					<p>Software baut auf APIs auf</p>
+				</span>
+				<span class="fragment">
+					<p>APIs machen Softwareentwicklung handhabbar <br/>(für 1st- und 2nd-Party-Software)</p>
+				</span>
+				<span class="fragment">
+					<p>APIs ermöglichen Nutzung und Integration <br/>von 3rd-Party-Software</p>
+				</span>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Zum Bsp. lobid-Formate und -Anwendungen</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<h4><span class="fragment">APIs entkoppeln Anwendungen von Datenquellen, Formaten und Systemen. Sie
+						ermöglichen so modulare, zukunftsfähige Applikationen</span></h4>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Und wie APIs bereitstellen?</h2>
+				<span class="fragment">
+					<p>JSON über HTTP</p>
+				</span>
+				<span class="fragment">
+					<p><em>Der</em> Web-API-Standard seit Jahren, siehe z.B. <a
+							href="https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html">Target (2017)</a>
+					</p>
+				</span>
+			</section>
+
+			<section data-state="fabian">
+				<h2>The Rise and Rise of JSON</h2>
+				<a href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql,rdf%20api"><img
+						src="img/api-trends.png" width=800 /></a>
+				<p><small>Quellen: <a
+						href="https://trends.google.com/trends/explore?date=all&q=json%20api,xml%20api,sparql,rdf%20api">Google
+						Trends</a>, <a href="http://webdatacommons.org/structureddata/2017-12/stats/stats.html">Web Data
+						Commons</a>, <a href="https://w3techs.com/technologies/details/da-jsonld/all/all">W3Techs</a>
+				</small></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>JSON</h1>
+				<p><span class="fragment">Ein einfaches Key-Value-Format für strukturierte Daten</span></p>
+				<p><span class="fragment">Key ist immer ein String</span></p>
+				<p><span class="fragment">Value ist String, Number, Boolean, Array oder Object</span></p>
+				<p><span class="fragment"><code>{ "foo": "bar" }</code></span></p>
+				<span class="fragment"><small>Quelle: <a href="https://tools.ietf.org/html/rfc8259">RFC 8259
+						</a></small></span>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Beispiel: GET<br/> https://lobid.org/organisations/DE-1a</h3>
+				<pre><code class="json" data-trim>
+{
+  "linkedTo" : {
+    "id" : "http://lobid.org/organisations/DE-601#!",
+    "label" : "Verbundzentrale des GBV (VZG)"
+  },
+  "rs" : "110000000000",
+  "address" : {
+    "addressLocality" : "Berlin",
+    "type" : "PostalAddress",
+    "addressCountry" : "DE",
+    "postalCode" : "10772"
+  }
+  ...
+				</code></pre>
+			</section>
+
+			<section data-state="fabian">
+						<h1>cURL</h1>
+						<p><span class="fragment">Kommandozeilen-Tool zum Datentransfer mit URLs</span></p>
+						<p><span class="fragment"><a href="https://curl.haxx.se/download.html" target="_blank">https://curl.haxx.se/download.html</a></span></p>
+						<p><span class="fragment"><a href="https://reqbin.com/curl" target="_blank">https://reqbin.com/curl</a></span></p>
+						<span class="fragment">
+							<pre><code class="bash">$ curl "https://lobid.org"</code></pre>
+						</span>
+					</section>
+
+			<section data-state="uebung">
+				<h2>Übung: cURL</h2>
+					<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+									<col width="10%" />
+									<col width="90%" />
+									<tbody>
+										<tr>
+											<td>cURL</td>
+											<td>
+												<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+							<tr>
+								<td>Copy<br/>/Paste</td>
+								<td>
+									<pre><code class="bash" data-trim>
+# Kopieren und im Terminal einfügen (s. Hinweise unten)
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+							<tr>
+								<td>History</td>
+								<td>
+									<pre><code class="bash" data-trim>
+$ &uarr; # Auf die Kommandozeilen-History zugreifen
+$ curl "https://lobid.org/organisations/DE-1a"
+									</code></pre>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				<p><font size="5"><i>(Für Copy/Paste in GUI: CTRL+c bzw. CTRL+v. <br/>Im Terminal: SHIFT+CTRL+c bzw. SHIFT+CTRL+v. )</i></font></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Antwort</h2>
+				<pre><code class="json" data-trim>
+$ curl https://lobid.org/organisations/DE-1a
+{
+  "linkedTo" : {
+    "id" : "http://lobid.org/organisations/DE-601#!",
+    "label" : "Verbundzentrale des GBV (VZG)"
+  },
+  "rs" : "110000000000",
+  "address" : {
+    "addressLocality" : "Berlin",
+    "type" : "PostalAddress",
+    "addressCountry" : "DE",
+    "postalCode" : "10772"
+  },
+...
+				</code></pre>
+				<p>Ausgabe ist lang, oft wollen wir nur bestimmte Werte</p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>JavaScript Object Notation (JSON)</h2>
+				<span class="fragment"><pre><code class="javascript" data-trim>
+var options = {
+  url: 'https://lobid.org/organisations/DE-1a'
+};
+
+request(options, function (error, response, body) {
+  var doc = JSON.parse(body);
+  console.log('postal code:', doc.address.postalCode) // <--
+});
+				</code></pre></span>
+				<span class="fragment"><pre><code class="nohighlight" data-trim>
+> postal code: 10772
+				</code></pre></span>
+			</section>
+
+			<section data-state="fabian">
+				<h1>jq</h1>
+				<p><span class="fragment">Ein flexibles Kommandozeilen-Tool zur JSON-Verarbeitung</span></p>
+				<p><span class="fragment"><a href="https://stedolan.github.io/jq/" target="_blank">https://stedolan.github.io/jq/</a></span></p>
+				<p><span class="fragment"><a href="https://jqplay.org/">https://jqplay.org/</a></span></p>
+				<span class="fragment">
+					<pre><code class="bash">$ jq --help</code></pre>
+				</span>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Übung: JSON mit jq (1)</h2>
+				<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" \
+| jq .name # filter: .name
+				</code></pre>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Übung: JSON mit jq (2)</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="21%" />
+					<col width="79%" />
+					<tbody>
+						<tr>
+							<td>Kosten-<br/>träger</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq &lt;???&gt; # dt. Bezeichner für den Kostenträger
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Modifikations-<br/>datum</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq &lt;???&gt; # Datum der letzten Modifikation
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Übung: JSON mit jq (3)</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="21%" />
+					<col width="79%" />
+					<tbody>
+						<tr>
+							<td>Kosten-<br/>träger</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq .fundertype.label.de
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Modifikations-<br/>datum</td>
+							<td>
+								<pre><code class="bash" data-trim>
+$ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModified
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-state="fabian">
+				<h2>JSON + Linked Data = JSON-LD</h2>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="250px" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h1>JSON-LD</h1>
+				<span class="fragment">
+					<p>"designed to be usable directly as JSON, with no knowledge of RDF" – Es ist richtiges JSON!</p>
+				</span>
+				<span class="fragment">
+					<p>"also designed to be usable as RDF"</p>
+				</span>
+				<span class="fragment">
+					<p><a href='https://www.w3.org/TR/json-ld/'>https://www.w3.org/TR/json-ld/</a></p>
+				</span>
+			</section>
+
+			<section data-state="fabian">
+				<h1>JSON</h1>
+				<pre><code class="bash">$ curl -H "Accept: application/json" https://api.github.com/users/acka47</code></pre>
+				<pre><code class="json">
+{
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></pre>
+			</section>
+
+			<section data-state="fabian">
+				<h3>JSON + @context + @id = JSON-LD</h3>
+				<pre><code class=json>
+{
+  "@context": "http://schema.org/",
+  "@id": "https://github.com/users/acka47",
+  "login": "acka47",
+  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
+  "url": "https://api.github.com/users/acka47",
+  "type": "User",
+  "name": "Adrian",
+  "company": "hbz",
+  "location": "Cologne, Germany",
+  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+}
+				</code></pre>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Entwicklung der lobid-Technologie</h2>
+				<p><span class="fragment">2010-2013: Alpha-Betrieb mit RDF & SPARQL</span></p>
+				<p><span class="fragment">2013-2017: lobid v1.x mit JSON-LD aber noch nicht sehr intuitiv nutzbar (JSON-LD als RDF-Serialisierung)</span></p>
+				<p><span class="fragment">seit 2017: richtig LOUDe lobid v2 plus OpenRefine-Schnittstellen</span></p>
+				<p><span class="fragment"><small><a href="http://slides.lobid.org/htw-chur-2019">Von LOD zu LOUD – Erfahrungen
+							aus zehn Jahren Linked-Open-Data-Entwicklung am hbz</a></small></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Beispiel: lobid-gnd</h1>
+			</section>
+
+			<section data-state="fabian">
+				<h3>a. Die Daten</h3>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>JSON-LD-Link</h3>
+				<a href="https://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
+						style="border: none; box-shadow: none;" /></a>
+				<a href="http://lobid.org/gnd/11850391X">
+					<h1>&nbsp;<br />&nbsp;<br />&nbsp;</h1>
+				</a>
+			</section>
+
+			<section data-state="fabian">
+				<h3>JSON(-LD)</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" width="1024" /></a>
+			</section>
+
+			<section  data-state="fabian">
+				<h3>b. Web-API</h3>
+				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Abfragemöglichkeiten</h2>
+				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+				<p><span class="fragment"><a
+							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
+						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
+						Suchsyntax</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
+							Suggest</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
+							Downloads</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
+							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung: Suchsyntax</h3>
+				<a href="https://lobid.org/gnd"><img src="img/lobid-gnd-home.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Übung: Suchsyntax</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="25%" />
+					<col width="75%" />
+					<tbody>
+						<tr>
+							<td>Feldsuche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # &lt;field&gt;:&lt;term&gt;
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Boolsche Suche</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # AND, OR
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Trunkierung</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # Trunkieren mit *
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Intervalle</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # &lt;feld&gt;:[* TO &lt;???&gt;]
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td>Existenz</td>
+							<td>
+								<pre><code class="bash" data-trim>
+??? # _exists_:&lt;field&gt;
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Suchsyntax: Lösungen</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="25%" />
+					<col width="75%" />
+					<tbody>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=abbreviatedNameForTheCorporateBody%3Azbiw">Feldsuche</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+abbreviatedNameForTheCorporateBody:zbiw
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=Kunst+AND+%28Kultur+OR+Wissenschaft%29">Boolsche Suche</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+Kunst AND (Kultur OR Wissenschaft)
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=professionOrOccupation.label%3APolitiker*">Trunkierung</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+professionOrOccupation.label:Politiker*
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=dateOfBirth%3A%5B*+TO+1500%5D">Intervalle</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+dateOfBirth:[* TO 1500]
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=_exists_%3AdateOfBirth">Existenz</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+_exists_:dateOfBirth
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Alles kombinierbar</h1>
+			</section>
+
+			<section data-state="fabian">
+				<h3><a
+						href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen,
+						die während der NS-Zeit in Köln geboren wurden</a></h3>
+				<a
+					href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img
+						src="img/koelsche-ns-geburten.png" width="800" /></a>
+			</section>
+
+			<section data-state="uebung">
+				<h1>Übung</h1>
+				<p><em>Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</em></p>
+				<p><small><a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
+						lobid-gnd: Formulierung komplexer Suchanfragen</a></small></p>
+			</section>
+
+			<section data-state="uebung">
+				<h1>Übung: Lösung</h1>
+				<p><em><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</a></em></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Pause</h1>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Beispiel: lobid-resources</h1>
+			</section>
+
+			<section data-state="adrian">
+				<h3>a. Die Oberfläche</h3>
+				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>b. Die Daten</h3>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://lobid.org/resources/HT019788651"><img src="img/lobid-resources-einzeltreffer.png" width=1024 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://lobid.org/resources/HT019788651"><img src="img/focus-json-ld-res.png" width=1024 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://lobid.org/resources/HT019788651.json"><img src="img/browser-json-res.png" width=800 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://lobid.org/resources/HT019788651.json"><img src="img/get-json-res.png" width="1024" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Datenherkunft &amp; -generierung</h1>
+				<p><span class="fragment">Tägl. Bezug der XML-Daten über den Aleph-Publishing-Mechanismus</span></p>
+				<p><span class="fragment">Konversion nach N-Triples mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>)</span></p>
+				<p><span class="fragment">Dabei finden verschiedene Normalisierungsarbeiten statt</span></p>
+				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
+				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Verbesserung der Daten: Beispiele</h1>
+				<p><span class="fragment">MARC-Relator-Codes werden aus RAK-Nebeneintragungen generiert (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L800-L972">Morph für Personennebeneintragungen</a>)</span></p>
+				<p><span class="fragment">Normalisierung von Jahresangaben</span></p>
+				<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>c. Web-API</h3>
+				<a href="https://lobid.org/resources/api"><img src="img/lobid-resources-api.png" width="800" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Abfragemöglichkeiten</h2>
+				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#auto-complete">API für Auto Suggest</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/resources/api#bulk_downloads">API für Bulk Downloads</a></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Beispielabfragen</h1>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Ermitteln eines hbz-Titels anhand der OCLC-Nummer</h2>
+				<a href="https://lobid.org/resources/search?q=oclcNumber:601339369"><code>oclcNumber:601339369</code></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>RDA-Titel seit 2010</h2>
+				<a href="https://lobid.org/resources/search?q=title%3Arda+AND+publication.startDate%3A%5B2010+TO+*%5D">
+				<pre><code class="json" data-trim>
+title:rda AND
+publication.startDate:[2010 TO *]
+				</code></pre></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Online-Medien mit Bestand</h2>
+				<a href="https://lobid.org/resources/search?q=medium.id%3A%22http%3A%2F%2Frdaregistry.info%2FtermList%2FRDACarrierType%2F1018%22+AND+_exists_%3AhasItem">
+				<pre><code class="json" data-trim>
+medium.id:
+"http://rdaregistry.info/termList/ RDACarrierType/1018"
+AND _exists_:hasItem
+				</code></pre></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>ZDB-Titel, die mit einer NWBib-Systematik erschlossen sind, aber nicht der NWBib zugerechnet werden und von der ULB Bonn erstellt wurden</h3>
+				<a href="https://lobid.org/resources/search?q=subject.source.id%3A%28%22https%3A%2F%2Fnwbib.de%2Fsubjects%22+OR+%22https%3A%2F%2Fnwbib.de%2Fspatial%22%29+AND+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014846970%23%21%22+AND+NOT+inCollection.id%3A%22http%3A%2F%2Flobid.org%2Fresources%2FHT014176012%23%21%22AND+describedBy.sourceOrganization.id%3A%22http%3A%2F%2Flobid.org%2Forganisations%2FDE-5%23%21%22">
+				<pre><code class="json" data-trim>
+subject.source.id:
+  ("https://nwbib.de/subjects" OR
+   "https://nwbib.de/spatial")
+AND inCollection.id:
+  "http://lobid.org/resources/HT014846970#!"
+AND NOT inCollection.id:
+  "http://lobid.org/resources/HT014176012#!"
+AND describedBy.sourceOrganization.id:
+  "http://lobid.org/organisations/DE-5#!"
+				</code></pre></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Deletions Endpoint: Vom 14. bis 23.2.2019 gelöschte Titel</h2>
+				<a href="http://lobid.org/resources/deletions/search?q=describedBy.deleted%3A%5B20190214+TO+20190223%5D">
+				<pre><code class="json" data-trim>
+describedBy.deleted:[20190214 TO 2019023]
+				</code></pre></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Kibana-Visualisierungen</h2>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/kibana-gnd-berufe.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Balkendiagramm: Häufigkeit von Berufsangaben in der GND</p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/kibana-gnd-sameas.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Balkendiagramm: Häufigkeit von sameAs-Links in lobid-GND</p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/kibana-resources-bestand.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Kuchendiagramm: Bestand nach Einrichtung in lobid-resources</p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/kibana-resources-pubdate.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Balkendiagramm: Publikationsdatum in lobid-resources></p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/kibana-resources-subjects.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Tagcloud: Top 150 GND-Schlagwörter in lobid-resources</p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Teil 3:<br><small>OpenRefine Reconciliation</small></h1>
+				<table>
+					<tr><th width="25%"/><th width="50%"/><th width="25%"/></tr>
+					<tr><td><b>Grundlagen</b></td><td>Grundlagen von OpenRefine und Reconciliation</td><td>14:00–14:30</td></tr>
+					<tr><td><b>Matching</b></td><td>Verbesserung des Matching auf GND-Einträge</td><td>14:30–15:00</td></tr>
+					<tr><td><b>Extension</b></td><td>Datenanreicherung auf Basis der Matches</td><td>15:00–15:30</td></tr>
+				</table>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Was ist OpenRefine?</h1>
+				<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
+				<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
+				<p><span class="fragment">Oberfläche wie Tabellenkalkulation</span></p>
+				<p><span class="fragment">Läuft im Browser</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Wo ist OpenRefine?</h1>
+				<p><span class="fragment">Lokal, downloaden und installieren:<br /><a href="https://openrefine.org/download.html">https://openrefine.org/download.html</a></span></p>
+				<p><span class="fragment">Gehostet, z.B. zum Ausprobieren: <br/><a href="http://openrefine.labs.lobid.org">http://openrefine.labs.lobid.org</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Wofür ist OpenRefine?</h1>
+				<p><span class="fragment">Gut geeigent wo UI/Tabellenkalkulation passt</span></p>
+				<p><span class="fragment">Fachliche Arbeit</span></p>
+				<p><span class="fragment">Manuelle Optimierung</span></p>
+				<p><span class="fragment">Überschaubare Datenmengen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Wofür ist OpenRefine (noch) nicht?</h2>
+				<p><span class="fragment">Bisher nicht geeignet für große Dateien, aber eine neue <a href="https://vimeo.com/568913971">Architektur für größere Datenmengen ist fast fertig</a></span></p>
+				<p><span class="fragment">Automatisierung ohne UI nicht mit Bordmitteln, aber mit Zusatztool möglich: <a href="https://github.com/opencultureconsulting/openrefine-batch">openrefine-batch</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Was ist Reconciliation?</h2>
+				<p><span class="fragment">Abgleichen / Matchen eigener Daten (z.B. Namen von Personen) auf GND-Einträge</span></p>
+				<p><span class="fragment">Anreicherung durch Übernahme von spezifischen Feldern der gematchten GND-Einträge</a></span></p>
+				<small><p><span class="fragment"><a href="https://docs.openrefine.org/">Fokus hier ist Reconciliation, auch Grundlagen von OpenRefine, aber es gibt noch viel mehr</a></span></p></small>
+			</section>
+
+			<section data-state="fabian"><h1>Projekt anlegen</h1></section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-clipboard.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-data.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-project.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Projekt anlegen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<pre><code class=nohighlight>
+name;beruf;ort
+J. Weizenbaum;Informatiker;Berlin
+Twain, Mark;Schriftsteller;
+Kumar, Lalit;;
+Jemand;;
+				</code></pre>
+				<p><small>(Daten und URL per CTRL+C in die Zwischenablage kopieren)</small></p>
+			</section>
+
+			<section data-state="fabian"><h1>Abgleich / Reconciliation</h1></section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-reconcile.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-add-service.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-service-url.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-type.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-reconciled.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Abgleich / Reconciliation</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<pre><code class=nohighlight>
+https://lobid.org/gnd/reconcile
+				</code></pre>
+				<p><small>(Auf openrefine.labs.lobid.org muss der Dienst nicht ergänzt werden)</small></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Anreicherung</h1>
+				<p><span class="fragment">Namen wurden mit GND-IDs assoziiert</span></p>
+				<p><span class="fragment">Felder der GND-Entitäten stehen so zur Verfügung</span></p>
+				<p><span class="fragment">Mit diesen können wir unsere lokalen Daten anreichern</span></p>
+				<p><span class="fragment">d.h. konkret: neue Spalten in unserer Tabelle anlegen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extend.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-4.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-field.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-literal.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Anreicherung</h1>
+				<pre><code class=csv>
+id,name
+1,Haddaway
+2,Johannes Geßner
+3,Judith Kuckart
+4,Rosa Luxemburg
+5,Albert Einstein
+6,Hazel Brugger
+7,Anne Cuneo
+8,Vitus Huonder
+				</code></pre>
+				<p>Projekt anlegen, Namen abgleichen und Berufe anreichern</p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Anreicherung mit GND-Entitäten</h1>
+				<p><span class="fragment">Angereicherte Felder sind z.T. GND-Entitäten</span></p>
+				<p><span class="fragment">Sind automatisch abgeglichen / reconciled</span></p>
+				<p><span class="fragment">Können als Grundlage für weitere Anreicherung dienen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extend-again.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Anreicherung mit GND-Entitäten</h1>
+				<p>Wirkungsort und Darstellung des Wirkungsortes anreichern</p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-uebung-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>Verbesserung des Matching auf GND-Einträge</h1>
+			</section>
+			
+			<section data-state="fabian">
+				<h1>Ergebnisse verbessern</h1>
+				<p><span class="fragment">Einschränkung der Typen der Zielentitäten</span></p>
+				<p><span class="fragment">Verwendung zusätzlicher lokaler Daten</span></p>
+				<p><span class="fragment">Gezielte Suche nach Treffern</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Einschränkung der Entitätstypen</h3>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h3>Verwendung zusätzlicher lokaler Daten</h3>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table-additional.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h3>Gezielte Suche nach Treffern</h3>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>Beispiele</h1>
+				<p><span class="fragment">Verwendung zusätzlicher lokaler Daten</span></p>
+				<p><span class="fragment">1. Beispiel: Lebensdaten</span></p>
+				<p><span class="fragment">2. Beispiel: Beruf &amp; Parteizugehörigkeit</span></p>
+			<!--<p><span class="fragment"><a href="http://blog.lobid.org/2019/09/30/openrefine-examples.html">Details in Blogpost (en)</a></span></p>-->
+			</section>
+
+			<section data-state="fabian">
+				<h1><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html#birth-and-death-dates">1. Beispiel: Lebensdaten</a></h1>
+				<!--<span class="fragment"><p>Themen: Daten angucken, verstehen; Spalte transformieren; lokale Daten mitschicken</p></span>-->
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-0.png" width=800 style="border: none; box-shadow: none;" />
+				<p>CSV lokal speichern oder direkt per URL: https://blog.lobid.org/data/persons.csv</p></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-1_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Project anlegen und Namen abgleichen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<p><a href="https://blog.lobid.org/data/persons.csv">persons.csv</a></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-1_2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Ein erstes Ergebnis: <p>70% automatisch abgeglichen</p></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Wir wollen die Lebensdaten zur Disambiguierung nutzen</h2>
+				<p><span class="fragment">In unseren abzugleichenden Daten z.B. <code>"1904"</code></span></p>
+				<p><span class="fragment">Womit gleichen wir ab? z.B. <a href="https://lobid.org/gnd/1019841192.json">Ellen Frank</a></span></p>
+				<span class="fragment"><pre><code class=json>
+"dateOfDeath": [
+  "1999-09-17"
+],
+"dateOfBirth": [
+  "1904-03-09"
+]
+				</code></pre></span>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-1_3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>Expression Language</h1>
+				<p><span class="fragment">Für die Transformation verschiedene Sprachen</span></p>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/grel">General Refine Expression Language (GREL)</a></span></p>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/jythonclojure">Python/Jython &amp; Clojure</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-dates-2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Wildcards: <code>?</code> für ein Zeichen, <code>*</code> für beliebig viele Zeichen</p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-2_1.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Vorherigen Abgleich zurücksetzen</p>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-dates-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-dates-4.png" width=800 style="border: none; box-shadow: none;" />
+				<p>&gt;95% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="fabian">
+				<h1><a href="https://blog.lobid.org/2019/09/30/openrefine-examples.html#occupations-and-affiliations">2. Beispiel: Beruf &amp; Parteizugehörigkeit</a></h1>
+				<!--<span class="fragment"><p>Themen: Daten angucken, verstehen; Werte transformieren mit Text facet; Redo/Undo-Apply</p></span>-->
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-0.png" width=800 style="border: none; box-shadow: none;" />
+				<p>CSV lokal speichern oder direkt per URL: https://blog.lobid.org/data/politicians.csv</p></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-1_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Project anlegen und Namen abgleichen</h1>
+				<p><a href="http://openrefine.labs.lobid.org/">openrefine.labs.lobid.org</a> | <a href="http://localhost:3333/">localhost:3333</a></p>
+				<p><a href="https://blog.lobid.org/data/politicians.csv">politicians.csv</a></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-1_2.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Ein erstes Ergebnis: <p>&lt; 60% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="uebung">
+				<h2>Wir wollen die Parteizugehörigkeit nutzen</h2>
+				<p><span class="fragment">In unseren abzugleichenden Daten z.B. <code>SPD</code></span></p>
+				<p><span class="fragment">Womit gleichen wir ab? z.B. <a href="http://lobid.org/gnd/11851444X.json">Willy Brandt</a></span></p>
+				<span class="fragment"><pre><code class=json>
+"affiliation": [
+  {
+    "id": "https://d-nb.info/gnd/2022139-3",
+    "label": "Sozialdemokratische Partei Deutschlands"
+  }
+]
+				</code></pre></span>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Abkürzungen auf eindeutige Identifier mappen</h2>
+			</section>
+
+			<section data-state="uebung">
+				<p>Welche Abkürzungen kommen in den Daten vor?</p>
+				<img src="img/openrefine-improve-affiliations-1_3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<p>Wie finden wir die GND-Nummern? z.B. SPD:</p>
+				<img src="img/openrefine-improve-affiliations-1_4.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<h1>Gesuchte Mappings</h1>
+				<ul>
+					<li>SPD → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>CDU → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>GRUENE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>FDP → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>LINKE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+					<li>PDS → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
+				  </ul>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Mappings</h1>
+				<ul>
+					<li>SPD → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/2022139-3</code></li>
+					<li>CDU → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/7230-8</code></li>
+					<li>GRUENE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/2124337-2</code></li>
+					<li>FDP → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/37037-X</code></li>
+					<li>LINKE → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/10173685-X</code></li>
+					<li>PDS → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/5010217-5</code></li>
+				  </ul>
+			</section>
+
+			<section data-state="uebung">
+				<p>In der Text-Facette können wir alle Vorkommen der Werte entsprechend unseres Mappings editieren:</p>
+				<img src="img/openrefine-improve-affiliations-1_5.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<p>Diese manuelle Schritte können in der Undo/Redo-History extrahiert werden:</p>
+				<img src="img/openrefine-improve-affiliations-1_5_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<p>Wir bekommen die Editierhistorie als JSON:</p>
+				<pre><code class=json>
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "parliamentary_group",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "affiliation",
+    "columnInsertIndex": 2,
+    "description": "Create column affiliation at index 2 based on column parliamentary_group using expression grel:value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "affiliation",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "GRUENE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/2124337-2"
+      },
+      {
+        "from": [
+          "NA"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": ""
+      },
+      {
+        "from": [
+          "FDP"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/37037-X"
+      },
+      {
+        "from": [
+          "CDU"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/7230-8"
+      },
+      {
+        "from": [
+          "SPD"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/2022139-3"
+      },
+      {
+        "from": [
+          "LINKE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/10173685-X"
+      },
+      {
+        "from": [
+          "PDS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "https://d-nb.info/gnd/5010217-5"
+      }
+    ],
+    "description": "Mass edit cells in column affiliation"
+  }
+]
+				</code></pre>
+				<small><p><span class="fragment">(Hier setzt auch die erwähnte Möglichkeit zur Automatisierung an: die manuell von der Fachebene in der Oberfläche erstellten Schritte können so ohne Oberfläche automatisiert werden)</span></p></small>
+			</section>
+
+			<section data-state="fabian">
+				<p>Operationen können angepasst und reproduziert werden:</p>
+				<img src="img/openrefine-improve-affiliations-1_6.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-affiliations-1_7.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-2_1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-affiliations-3.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-affiliations-4.png" width=800 style="border: none; box-shadow: none;" />
+				<p>Zwischenergebnis: &gt; 70% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Implizites Wissen nutzen</h1>
+				<p><span class="fragment">Hintergrundwissen, das so gar nicht in den Daten ist</span></p>
+				<p><span class="fragment">Formal ergänzen für die Disambiguierung</span></p>
+				<p><span class="fragment">Hier z.B. wissen wir, dass es sich um Politiker:innen handelt</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Beruf ergänzen</h1>
+				<span class="fragment"><p>D.h. wir ergänzen eine neue Spalte mit dem Beruf</p></span>
+				<span class="fragment">Mit dem Wert <code>Politik*</code></span>
+				<span class="fragment"><p>Über die Wildcard decken wir mehrere Formen ab: Politiker, Politikerin, Politikwissenschaftler, Politikwissenschaftlerin</p></span>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-occupations-0.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-occupations-1.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h2>Daten bereit für neuen, verbesserten Abgleich</h2>
+				<span class="fragment"><p>Vorherigen Abgleich zurücksetzen</p></span>
+				<span class="fragment"><p>Beruf &amp; Affiliation mitschicken</p></span>
+			</section>
+
+			<section data-state="uebung">
+				<img src="img/openrefine-improve-occupations-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-improve-occupations-3.png" width=800 style="border: none; box-shadow: none;" />
+				<p>&gt; 80% automatisch abgeglichen</p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Export und mehr</h1>
+				<p><span class="fragment">Fertige Daten können flexibel exportiert werden</span></p>
+				<p><span class="fragment"><a href="https://slides.lobid.org/2021-kim-reconcile/#/99">https://slides.lobid.org/2021-kim-reconcile/#/99</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile">https://lobid.org/gnd/reconcile</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h3><span>Weiterführende Informationen –<br/> Rund um lobid und Linked Data</span></h3>
+				<ul style=font-size:25px;>
+					<li><a href="http://blog.lobid.org/">lobid-Blog</a>, <a href="http://slides.lobid.org/">Präsentationsfolien</a>, <a href="https://twitter.com/lobidOrg">lobid auf Twitter</a> und <a
+							href="https://openbiblio.social/@lobid">Mastodon</a></li>
+					<li>Kreutzer, Till (2011): Open Data – Freigabe von Daten aus Bibliothekskatalogen. Hg. v.
+						Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen (<a
+							href="https://hbz.opus.hbz-nrw.de/opus45-hbz/frontdoor/deliver/index/docId/9/file/PDFA_Open_Data_Leitfaden_hbz_2011_1.pdf">PDF</a>)</a>
+					</li>
+					<li>Pohl, Adrian / Steeg, Fabian / Christoph, Pascal (2018): lobid – Dateninfrastruktur für
+						Bibliotheken. In: Informationspraxis 4(1). <a
+							href="https://doi.org/10.11588/ip.2018.1.52445">https://doi.org/10.11588/ip.2018.1.52445</a>
+					</li>
+					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur
+						Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a
+							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
+					</li>
+					<li>Steeg, Fabian / Pohl, Adrian (2021): Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND).
+						In: Qualität in der Inhaltserschließung. <a
+							href="https://doi.org/10.1515/9783110691597-013">https://doi.org/10.1515/9783110691597-013</a>
+					</li>
+				</ul>
+			</section>
+
+			<section data-state="alle">
+				<h3><span>Weiterführende Informationen – Nutzung von lobid-gnd</span></h3>
+				<ul style=font-size:25px;>
+					<li>Stefan Dumont: correspSearch: Neue Tools, neue Daten – und eine Auszeichnung <a href="https://dhd-blog.org/?p=10632">https://dhd-blog.org/?p=10632</a></li>
+					<li>Harald Lordick: Die Öffnung der GND und die historische Forschung: <a href="https://djgd.hypotheses.org/1511">https://djgd.hypotheses.org/1511</a></li>
+					<li>Harald Lordick &amp; Beata Mache: Annotationen anhand der Gemeinsamen Normdatei aus einer anwendungsorientierten Perspektive historischer Forschung <a href="https://zenodo.org/record/1188230">https://zenodo.org/record/1188230</a></li>
+					<li>Christian Thomas: Humboldts ›Bekenntnisse‹ von 1801 nach der Original-Handschrift aus den Amerikanischen Reisetagebüchern im Deutschen Textarchiv der BBAW <a href="http://www.avhumboldt.de/?p=14447">http://www.avhumboldt.de/?p=14447</a></li>
+					<li>Christian Erlinger-Schiedlbauer et al.: Semantische Suchabfragen mit der Linked Open Data Cloud generieren <a href="https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/">https://www.societybyte.swiss/2018/10/24/semantische-suchabfragen-mit-der-linked-open-data-cloud-generieren/</a></li>
+				</ul>
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
