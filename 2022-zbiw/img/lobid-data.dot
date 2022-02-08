@@ -39,14 +39,14 @@ digraph data {
 
 
 
-	api[label="lobid-API" width=3]
+	api[label="lobid"]
 
 	//libs->union[lhead=cluster_title]
 	//libs->sigel[lhead=cluster_auth]
 
-	wikidata->api[ltail=cluster_geo]
-	sigel->api[ltail=cluster_auth]
-	union->api[ltail=cluster_title]
+	wikidata->api[ltail=cluster_geo dir=back]
+	sigel->api[ltail=cluster_auth dir=back]
+	union->api[ltail=cluster_title dir=back]
 
 	app1[label="NRW-Bib."]
 	app2[label="Virt. Dt. Landesbib."]

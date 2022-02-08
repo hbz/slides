@@ -561,30 +561,14 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			</section>
 
 			<section data-state="fabian">
-				<h1>APIs</h1>
-				<span class="fragment">
-					<p>Application Programming Interfaces (Programmierschnittstellen)</p>
-				</span>
-				<span class="fragment">
-					<p>Software baut auf APIs auf</p>
-				</span>
-				<span class="fragment">
-					<p>APIs machen Softwareentwicklung handhabbar <br/>(für 1st- und 2nd-Party-Software)</p>
-				</span>
-				<span class="fragment">
-					<p>APIs ermöglichen Nutzung und Integration <br/>von 3rd-Party-Software</p>
-				</span>
-			</section>
-
-			<section data-state="fabian">
-				<h3>Zum Bsp. lobid-Formate und -Anwendungen</h3>
+				<h3>Zum Bsp. lobid-Datenquellen und -Anwendungen</h3>
 				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
-				<h4><span class="fragment">APIs entkoppeln Anwendungen von Datenquellen, Formaten und Systemen. Sie
-						ermöglichen so modulare, zukunftsfähige Applikationen</span></h4>
+				<h4><span class="fragment">Programmierschnittstellen (Application Programming Interfaces, API) entkoppeln Anwendungen von Datenquellen, Formaten und Systemen</span></h4>
+				<h4><span class="fragment">APIs ermöglichen Integration in Drittanbieter-Software</span></h4>
 			</section>
 
 			<section data-state="fabian">
-				<h2>Und wie APIs bereitstellen?</h2>
+				<h2>Und wie APIs im Web bereitstellen?</h2>
 				<span class="fragment">
 					<p>JSON über HTTP</p>
 				</span>
@@ -617,22 +601,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			</section>
 
 			<section data-state="fabian">
-				<h3>Beispiel: GET<br/> https://lobid.org/organisations/DE-1a</h3>
-				<pre><code class="json" data-trim>
-{
-  "linkedTo" : {
-    "id" : "http://lobid.org/organisations/DE-601#!",
-    "label" : "Verbundzentrale des GBV (VZG)"
-  },
-  "rs" : "110000000000",
-  "address" : {
-    "addressLocality" : "Berlin",
-    "type" : "PostalAddress",
-    "addressCountry" : "DE",
-    "postalCode" : "10772"
-  }
-  ...
-				</code></pre>
+				<h3>z.B. JSON über HTTP GET<br/> https://lobid.org/organisations/DE-1a</h3>
 			</section>
 
 			<section data-state="fabian">
@@ -700,7 +669,7 @@ $ curl https://lobid.org/organisations/DE-1a
   },
 ...
 				</code></pre>
-				<p>Ausgabe ist lang, oft wollen wir nur bestimmte Werte</p>
+				<span class="fragment"><p>Ausgabe ist lang, oft wollen wir nur bestimmte Werte</p></span>
 			</section>
 
 			<section data-state="fabian">
@@ -791,6 +760,10 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 			</section>
 
 			<section data-state="fabian">
+				<h2>JSON ist praktisch &amp; verbreitet, aber was ist mit Linked Data &amp; RDF?</h2>
+			</section>
+
+			<section data-state="fabian">
 				<h2>JSON + Linked Data = JSON-LD</h2>
 				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="250px" /></a>
 			</section>
@@ -826,28 +799,54 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 			</section>
 
 			<section data-state="fabian">
-				<h3>JSON + @context + @id = JSON-LD</h3>
+				<h3>JSON + @id: <br/>Subject-URIs für Triple-Struktur</h3>
 				<pre><code class=json>
 {
-  "@context": "http://schema.org/",
   "@id": "https://github.com/users/acka47",
-  "login": "acka47",
-  "avatar_url": "https://avatars2.githubusercontent.com/u/160292?v=4",
-  "url": "https://api.github.com/users/acka47",
-  "type": "User",
   "name": "Adrian",
-  "company": "hbz",
   "location": "Cologne, Germany",
-  "bio": "Metadata, RDF, vocabularies. Working at @hbz. "
+  ...
 }
 				</code></pre>
 			</section>
 
 			<section data-state="fabian">
-				<h2>Entwicklung der lobid-Technologie</h2>
-				<p><span class="fragment">2010-2013: Alpha-Betrieb mit RDF & SPARQL</span></p>
+				<h3>JSON + @context: <br/>URIs als eindeutige Prädikate</h3>
+				<pre><code class=json>
+{
+  "@context": "http://schema.org/",
+  "name": "Adrian",      # -> http://schema.org/name
+  "location": "Cologne", # -> http://schema.org/location
+  ...
+}
+				</code></pre>
+			</section>
+
+			<section data-state="uebung">
+				<h3>JSON + @context + @id = JSON-LD</h3>
+				<pre><code class=json>
+{
+  "@id": "https://github.com/users/acka47",
+  "@context": "http://schema.org/",
+  "name": "Adrian",
+  "location": "Cologne, Germany"
+}
+				</code></pre>
+				<span class="fragment"><pre><code class=nohighlight>
+&lt;https://github.com/users/acka47&gt; &lt;http://schema.org/location&gt; "Cologne, Germany" .
+&lt;https://github.com/users/acka47&gt; &lt;http://schema.org/name&gt; "Adrian" .
+				</code></pre>
+				<small>
+					<a href="https://json-ld.org/playground/#startTab=tab-nquads&json-ld=%7B%22%40id%22%3A%22https%3A%2F%2Fgithub.com%2Fusers%2Facka47%22%2C%22%40context%22%3A%22http%3A%2F%2Fschema.org%2F%22%2C%22name%22%3A%22Adrian%22%2C%22location%22%3A%22Cologne%2C%20Germany%22%7D">Andere RDF-Serialisierungen z.B. im JSON-LD Playground</a>
+				</small>
+				</span>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Von RDF zu LOD zu LOUD</h2>
+				<p><span class="fragment">2010-2013: lobid-Alpha-Betrieb mit RDF & SPARQL</span></p>
 				<p><span class="fragment">2013-2017: lobid v1.x mit JSON-LD aber noch nicht sehr intuitiv nutzbar (JSON-LD als RDF-Serialisierung)</span></p>
-				<p><span class="fragment">seit 2017: richtig LOUDe lobid v2 plus OpenRefine-Schnittstellen</span></p>
+				<p><span class="fragment">seit 2017: LOUD lobid v2 plus OpenRefine-Schnittstellen</span></p>
 				<p><span class="fragment"><small><a href="http://slides.lobid.org/htw-chur-2019">Von LOD zu LOUD – Erfahrungen
 							aus zehn Jahren Linked-Open-Data-Entwicklung am hbz</a></small></span></p>
 			</section>
@@ -871,13 +870,16 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 			</section>
 
 			<section data-state="fabian">
-				<h3>JSON(-LD)</h3>
-				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png" width=700
+				<h3>JSON-LD-Daten</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png"
 						style="border: none; box-shadow: none;" /></a>
+				<p>Browser-Plugin z.B. JSON Lite</p>
 			</section>
 
 			<section data-state="fabian">
-				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" width="1024" /></a>
+				<h3>JSON-LD-Daten</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" /></a>
+				<p>Hier mit curl und jq für Formatierung und Farbe</p>
 			</section>
 
 			<section  data-state="fabian">
@@ -889,16 +891,15 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 				<h2>Abfragemöglichkeiten</h2>
 				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
 				<p><span class="fragment"><a
-							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a>
-						bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a>
-						Suchsyntax</span></p>
+							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch-</a>
+						/ <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene-Suchsyntax</a>
+						</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
 							Suggest</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
 							Downloads</a></span></p>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a> | 
-							<a href="https://lobid.org/gnd/api#openrefine">API</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a></span></p>
 			</section>
 
 			<section data-state="uebung">
@@ -1025,13 +1026,17 @@ _exists_:dateOfBirth
 			<section data-state="uebung">
 				<h1>Übung</h1>
 				<p><em>Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</em></p>
-				<p><small><a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
+				<p><small><a href="index.html#/46">s. vorne, Rechercheoberfläche lobid-gnd</a> | <a href="http://blog.lobid.org/2018/07/06/lobid-gnd-queries.html">
 						lobid-gnd: Formulierung komplexer Suchanfragen</a></small></p>
 			</section>
 
-			<section data-state="uebung">
-				<h1>Übung: Lösung</h1>
-				<p><em><a href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">Suche nach allen Personen in der GND, die in Köln geboren wurden und in Düsseldorf gestorben sind</a></em></p>
+			<section data-state="fabian">
+				<h3><a
+						href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22">
+						Personen, die in Köln geboren wurden und in Düsseldorf gestorben sind</a></h3>
+				<a
+					href="http://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+placeOfDeath.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4013255-9%22"><img
+						src="img/koeln-duesseldorfer.png" width="800" /></a>
 			</section>
 
 			<section data-state="fabian">
@@ -1092,7 +1097,7 @@ _exists_:dateOfBirth
 			<section data-state="adrian">
 				<h2>Abfragemöglichkeiten</h2>
 				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
-				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch</a> bzw. <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene</a> Suchsyntax</span></p>
+				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch-</a> / <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene-Suchsyntax</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources/api#auto-complete">API für Auto Suggest</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources/api#bulk_downloads">API für Bulk Downloads</a></span></p>
@@ -1315,7 +1320,7 @@ https://lobid.org/gnd/reconcile
 			</section>
 
 			<section data-state="uebung">
-				<h1>Anreicherung</h1>
+				<h2>Übung: Anreicherung</h2>
 				<pre><code class=csv>
 id,name
 1,Haddaway
@@ -1346,7 +1351,7 @@ id,name
 			</section>
 
 			<section data-state="uebung">
-				<h1>Anreicherung mit GND-Entitäten</h1>
+				<h2>Übung: Anreicherung mit GND-Entitäten</h2>
 				<p>Wirkungsort und Darstellung des Wirkungsortes anreichern</p>
 			</section>
 
@@ -1536,7 +1541,7 @@ id,name
 			</section>
 
 			<section data-state="uebung">
-				<h1>Gesuchte Mappings</h1>
+				<h2>Übung: Abkürzungen auf eindeutige Identifier mappen</h2>
 				<ul>
 					<li>SPD → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
 					<li>CDU → <code class="language-plaintext highlighter-rouge">https://d-nb.info/gnd/???</code></li>
@@ -1724,8 +1729,7 @@ id,name
 
 			<section data-state="fabian">
 				<h1>Export und mehr</h1>
-				<p><span class="fragment">Fertige Daten können flexibel exportiert werden</span></p>
-				<p><span class="fragment"><a href="https://slides.lobid.org/2021-kim-reconcile/#/99">https://slides.lobid.org/2021-kim-reconcile/#/99</a></span></p>
+				<p><span class="fragment"><a href="https://slides.lobid.org/2021-kim-reconcile/#/99">Fertige Daten können flexibel exportiert werden</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile">https://lobid.org/gnd/reconcile</a></span></p>
 			</section>
 
