@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Integration externer Normdatenquellen für Abgleich und Anreicherung lokaler Daten in OpenRefine</title>
+
+	<meta name="description"
+		content="Integration externer Normdatenquellen für Abgleich und Anreicherung lokaler Daten in OpenRefine">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"type": [
+				"PresentationDigitalDocument"
+			],
+			"id": "https://slides.lobid.org/2022-halle-reconcile",
+			"name": {
+				"de": "Integration externer Normdatenquellen für Abgleich und Anreicherung lokaler Daten in OpenRefine"
+			},
+			"creator": [
+				{
+					"id": "http://lobid.org/team/fs#!",
+					"type": "Person",
+					"name": "Fabian Steeg"
+				},
+				{
+					"id": "http://lobid.org/team/ap#!",
+					"type": "Person",
+					"name": "Adrian Pohl"
+				}
+			],
+			"about": [
+				{
+					"id": "https://lobid.org/product/lobid"
+				}
+			],
+			"keywords": [
+				"openrefine",
+				"reconciliation"
+			],
+			"url": "https://slides.lobid.org/2022-halle-reconcile/",
+			"datePublished": "2022-03-28",
+			"inLanguage": [
+				"de"
+			],
+			"audience": [
+				"librarians",
+				"developers"
+			],
+			"isBasedOn": [
+				"https://slides.lobid.org/2021-kim-reconcile/"
+			],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="alle">
+				<h3>Integration externer Normdatenquellen für Abgleich und Anreicherung lokaler Daten in OpenRefine</h3>
+				<p>
+					<small>
+						<a href="http://lobid.org/team/fs#!">Fabian Steeg</a> &amp; <a href="http://lobid.org/team/ap#!">Adrian Pohl</a>, 
+						<a href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur, hbz NRW</a> </small> <br />
+					<a href="https://lobid.org/team"><img src="img/lobid.png"
+							style="border: none; padding: 5px; background-color: white" width="125px" /></a><br />
+					<small>Präsentation im Rahmen des Kolloquiums der Professur Wirtschafts- und Sozialgeschichte am Institut für Geschichte, Martin-Luther-Universität Halle-Wittenberg, 2022-03-28</a></small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="http://slides.lobid.org/2022-halle-reconcile/">http://slides.lobid.org/2022-halle-reconcile/</a>
+					<br />
+					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section data-state="adrian">
+				<img src="img/hbz.png" style="border: none; box-shadow: none;background-color: white; height: 100px; padding:10px" />
+				<p><span class="fragment">Hochschulbibliothekszentrum des Landes Nordrhein-Westfalen, seit 1973</span></p>
+				<p><span class="fragment">Dienstleistungs- und Entwicklungseinrichtung für digitale Services in Hochschulbibliotheken</span></p>
+				<p><span class="fragment">Einige Arbeitsbereiche: Verbundkatalog, Suchportal DigiBib, Fernleihe, Konsortiale Erwerbung</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Überblick</h1>
+				<table>
+					<tr><td>Normdaten im Web</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<table>
+					<tr><td><b>Normdaten im Web</b></td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Warum Normdaten?</h2>
+				<p><span class="fragment">Ursprüngliches Ziel: normierte Namensformen für Dinge und Personen</span></p>
+				<p><span class="fragment">Ermöglicht (bereits im Zettelkatalog!) einheitlichen Einstieg in die Literatursuche</span></p>
+				<p><span class="fragment">Beispiele: Suche nach Literatur von oder über eine bestimmte <em>Person</em> oder zu einem bestimmten <em>Thema</em> anhand eines normierten Namens</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Was sind Normdaten? 1/2</h2>
+				<p><span class="fragment">Sammlungen von Datensätzen zur eindeutigen Identifizierung von Dingen</span></p>
+				<p><span class="fragment">Dinge können z.B. sein: Personen, Organisationen, geographische und/oder administrative Einheiten, Themen</span></p>
+				<p><span class="fragment">ein Normdatensatz besteht mindestens aus: ID, Vorzugsbenennung</span></p>
+				<p><span class="fragment">oftmals gibt es weitere identifizierende Merkmale, z.B.: alternative
+						Benennungen, Lebensdaten, Orte (Geburts-, Sterbeort, Wirkungsort, Sitz etc.)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Was sind Normdaten? 2/2</h2>
+				<p><span class="fragment">Normdatensätze können aufeinander verweisen, z.B. Person --geborenIn-->
+						Ort</span></p>
+				<p><span class="fragment">...oder auf Einträge zum selben Gegenstand in anderen Datenbanken</span></p>
+				<p><span class="fragment">Beispiel-Normdateien: <a href="https://orcid.org/">ORCiD</a>, <a
+							href="">ISNI</a>, <a href="">Wikidata</a>, <a href="https://www.geonames.org/">Geonames</a>,
+						<a href="https://www.grid.ac/">GRID</a> </span></p>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://lobid.org/gnd/118527053"><img src="img/dostoevskij.png" width=800 /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Ihre besondere Stärke entfalten Normdaten durch Pflege und Verwendung innerhalb einer überinstitutionellen Gemeinschaft</h3>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Zu diesem Zweck bietet sich die Publikation der Normdaten im Web an</h2>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Wie publiziere ich Normdaten am besten? – Linked Open Usable Data (LOUD)</h2>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Einfache Nutzung ermöglichen</h2>
+				<p><span class="fragment">Rechercheoberfläche und Browsing: gutes UI/UX für Menschen</span></p>
+				<p><span class="fragment">Entwickler:innen und Anwendungen: intuitive, offene, standardbasierte APIs</span></p>
+				<p><span class="fragment">Standards: HTTP, HTML, JSON-LD, <a href="https://dini-ag-kim.github.io/skos-einfuehrung">SKOS</a> (Simple Knowledge Organization System)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>SkoHub Vocabs</h2>
+				<p><span class="fragment">Publikation von in SKOS kodierten kontrollierten Vokabularen im Web</span></p>
+				<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD a) auf eigenem Server b) <a href="https://pad.gwdg.de/p/einfuehrung-in-skos-mit-skohub#/39">mit Docker und GitHub Pages</a> c) <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">via skohub.io</a></span></p>
+				<p><span class="fragment">Hier: Nutzung einer SKOS-ifizierten Taxonomie der Gegenstände frühneuzeitlicher Policeygesetze</span></p>
+			</section>
+	
+			<section data-state="adrian">
+				<a href="https://github.com/rhonda-org/vocabs-polmat/blob/main/polmat.ttl"><img src="img/vocab-ttl.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://w3id.org/kim/hochschulfaechersystematik/scheme"><img src="img/vocab-html.png" width=1000 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Einfachen Einstieg in die Community ermöglichen</h2>
+				<p><span class="fragment">Potentiellen neuen Mitgliedern der Normdaten-Nutzergemeinschaft soll der Einstieg möglichst leicht gemacht werden</span></p>
+				<p><span class="fragment">Sie bringen Daten mit und wollen diese mit meinen Normdaten verknüpfen/abgleichen</span></p>
+				<p><span class="fragment">Welche Tools gibt es? Welche Standards und Software für das Angebot einer einfachen Schnittstelle zum Datenabgleich?</span></p>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Normdaten im Web</td></tr>
+					<tr><td><b>Datenabgleich und -anreicherung in OpenRefine</b></td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
+				</table>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Was ist OpenRefine?</h1>
+				<p><span class="fragment">"A powerful tool for working with messy data"</span></p>
+				<p><span class="fragment">"cleaning it; transforming it from one format into another; and extending it with web services and external data"</span></p>
+				<p><span class="fragment">Oberfläche wie Tabellenkalkulation</span></p>
+				<p><span class="fragment">Läuft im Browser</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Wo ist OpenRefine?</h1>
+				<p><span class="fragment">Lokal, downloaden und installieren:<br /><a href="https://openrefine.org/download.html">https://openrefine.org/download.html</a></span></p>
+				<p><span class="fragment">Gehostet, z.B. zum Ausprobieren: <br/><a href="http://openrefine.labs.lobid.org">http://openrefine.labs.lobid.org</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h1>Wofür ist OpenRefine?</h1>
+				<p><span class="fragment">Gut geeigent wo UI/Tabellenkalkulation passt</span></p>
+				<p><span class="fragment">Fachliche Arbeit</span></p>
+				<p><span class="fragment">Manuelle Optimierung</span></p>
+				<p><span class="fragment">Überschaubare Datenmengen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Wofür ist OpenRefine (noch) nicht?</h2>
+				<p><span class="fragment">Bisher nicht geeignet für große Dateien, aber eine neue <a href="https://vimeo.com/568913971">Architektur für größere Datenmengen ist fast fertig</a></span></p>
+				<p><span class="fragment">Automatisierung ohne UI nicht mit Bordmitteln, aber mit Zusatztool möglich: <a href="https://github.com/opencultureconsulting/openrefine-batch">openrefine-batch</a></span></p>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Was ist Reconciliation?</h2>
+				<p><span class="fragment">Abgleichen / Matchen eigener Daten (z.B. Namen von Personen) auf Normdateneinträge</span></p>
+				<p><span class="fragment">Voraussetzung für Datenanreicherung durch Übernahme von Feldern aus gematchten Einträgen</a></span></p>
+			</section>
+
+			<section data-state="fabian"><h2>Beispiel: Abgleich mit und Anreicherung aus GND</h2></section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian"><h1>Abgleich / Reconciliation</h1></section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-reconcile.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-add-service.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-service-url.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-type.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-reconciled.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-preview.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>Anreicherung</h1>
+				<p><span class="fragment">Namen wurden mit GND-IDs assoziiert</span></p>
+				<p><span class="fragment">Felder der GND-Entitäten stehen so zur Verfügung</span></p>
+				<p><span class="fragment">Mit diesen können wir unsere lokalen Daten anreichern</span></p>
+				<p><span class="fragment">d.h. konkret: neue Spalten in unserer Tabelle anlegen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extend.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-4.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-field.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-literal.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h2>Anreicherung mit Entitäten aus der Normdatenquelle</h2>
+				<p><span class="fragment">Angereicherte Felder sind z.T. selbst GND-Entitäten</span></p>
+				<p><span class="fragment">Sind automatisch abgeglichen / reconciled</span></p>
+				<p><span class="fragment">Können als Grundlage für weitere Anreicherung dienen</span></p>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-extend-again.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-uebung-extended.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h3><a href="https://slides.lobid.org/2021-kim-reconcile/#/48">Es gibt verschiedene Möglichkeiten zur Verbesserung der Matchingergebnisse</a></h3>
+			</section>
+
+			<section data-state="fabian">
+				<h3>Verwendung zusätzlicher lokaler Daten</h3>
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-table-additional.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<img src="img/openrefine-suggest-2.png" width=800 style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="fabian">
+				<h1>Export</h1>
+				<p><span class="fragment"><a href="https://docs.openrefine.org/manual/exporting">Zahlreiche eingebaute, anpassbare Exportformate</a></span></p>
+				<p><span class="fragment"><a href="https://www.wikidata.org/wiki/Wikidata:Tools/OpenRefine/Editing/Tutorials/Basic_editing">Erweiterte Funktionalität durch Extensions, z.B. zum Upload in Wikidata, vergleichbar für eigene Normdaten denkbar</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Normdaten im Web</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
+					<tr><td><b>Standardisierung &amp; W3C Community Group</b></td></tr>
+					<tr><td>Eigene Daten in OpenRefine verfügbar machen</td></tr>
+				</table>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Standardisierung &amp; W3C Community Group</h2>
+				<span class="fragment"><p>W3C Entity Reconciliation Community Group</p></span>
+				<span class="fragment"><p><a href="https://www.w3.org/community/reconciliation/">https://www.w3.org/community/reconciliation/</a></p></span>
+				<span class="fragment"><p><a href="https://github.com/reconciliation-api">https://github.com/reconciliation-api</a></p></span>
+			</section>
+			
+			<section data-state="adrian">
+				<h1>Ziele</h1>
+				<p><span class="fragment">Dokumentation und Verbesserung des Protokolls der OpenRefine Reconciliation API</span></p>
+				<p><span class="fragment">Protokoll als Standard für den Datenabgleich im Web vorantreiben</span></p>
+				<p><span class="fragment">Werkzeuge rund um das Protokoll bereitstellen</span></p>
+			</section>
+			
+			<section data-state="adrian" data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+			
+			<section data-state="adrian">
+				<h1>Testbench</h1>
+				<p><span class="fragment">Ein Werkzeug zum Testen von Reconciliation-Services</span></p>
+				<p><span class="fragment">Ein zentrales Verzeichnis verfügbarer Reconciliation-Services (aktuell 38)</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-state="adrian" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+
+			<section data-state="adrian">
+				<h1>Census</h1>
+				<p><span class="fragment">Überblick über das Reconciliation-Ökosystem</span></p>
+				<p><span class="fragment">Verfügbare Services, Clients, Software-Bibliotheken</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Andere Clients als OpenRefine</h1>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Alma Refine</h1>
+				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Cocoda</h1>
+				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Specs</h1>
+				<p><span class="fragment">Spezifikation des Protokolls für Datenabgleich und -anreicherung</span></p>
+				<p><span class="fragment"><a href="https://www.degruyter.com/document/doi/10.1515/9783110691597-013/html">Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND)</a></span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<table>
+					<tr><td>Normdaten im Web</td></tr>
+					<tr><td>Datenabgleich und -anreicherung in OpenRefine</td></tr>
+					<tr><td>Standardisierung &amp; W3C Community Group</td></tr>
+					<tr><td><b>Eigene Daten in OpenRefine verfügbar machen</b></td></tr>
+				</table>
+			</section>
+
+			<section data-state="fabian">
+				<h2>Eigene Daten in OpenRefine verfügbar machen</h2>
+				<p><span class="fragment">1. Einzeldatensätze im Web verfügbar machen</p>
+					<p><span class="fragment">2. Suche nach Datensätzen ermöglichen</p>
+						<p><span class="fragment">3. Reconciliation-Protokoll / -API implementieren</span></p>
+						<small><span class="fragment"><p>Alle Schritte können je nach Kontext und Technologie sehr unterschiedlich umgesetzt werden</p></span></small>
+			</section>
+			
+			<section data-state="fabian">
+				<h2>1. Einzeldatensätze im Web verfügbar machen</h2>
+				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen (z.B. skohub-vocabs: <a href="https://skohub.io/rg-mpg-de/vocabs-polmat/heads/main/w3id.org/rg-mpg-de/polmat/n01.1so.5.d.de.html">HTML</a>, <a href="https://skohub.io/rg-mpg-de/vocabs-polmat/heads/main/w3id.org/rg-mpg-de/polmat/n01.1so.5.d.json">JSON</a>)</p></span>
+				<span class="fragment"><p>Die Daten können wir dann zum Anreichern nutzen</p></span>
+			</section>
+
+			<section data-state="fabian" data-background="img/openrefine-3-add-from-url.png"
+				data-background-size="contain">
+			</section>
+
+			<section data-state="fabian" data-background="img/openrefine-5-add-from-json.png"
+			data-background-size="contain">
+			</section>
+
+			<section data-state="fabian" data-background="img/openrefine-7-export.png"
+			data-background-size="contain">
+			</section>
+
+			<section data-state="fabian">
+				<h2>2. Suche nach Datensätzen implementieren</h2>
+				<span class="fragment"><p>d.h. Indexierung der Daten in Suchmaschine, z.B. Elasticsearch, Solr, Lucene</p></span>
+				<span class="fragment"><p>je nach Kontext und Technologie kann der Index zentral verwaltet als Cluster oder im Browser (z.B. SkoHub Vocabs) eingebettet sein</p></span>
+			</section>
+
+		<!--https://hbz.github.io/elag2019-bootcamp/-->
+		<section data-state="fabian">
+			<h2>3. Reconciliation-Protokoll implementieren</h2>
+			<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/libraries/">Mit speziellen Reconciliation-Tools/Frameworks</a></span></p>
+			<p><span class="fragment">z.B. <a href="https://github.com/rg-mpg-de/skohub-reconcile/">skohub-reconcile</a></span></p>
+			<p><span class="fragment">Mit generischen Web-Entwicklungs-Tools/Frameworks (JSON API)</span></p>
+			<p><span class="fragment">Testen mit Testbench</span></p>
+		</section>
+
+		<section data-state="fabian" data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
+
+		<section data-state="fabian" data-background="img/reconciliation-specs-1.png" data-background-size="contain"></section>
+
+		<section data-state="fabian" data-background="img/reconciliation-specs-2.png" data-background-size="contain"></section>
+
+		<section data-state="fabian" data-background="img/reconciliation-specs-3.png" data-background-size="contain"></section>
+
+		<section data-state="fabian">
+			<h1>In Testbench abgleichen</h1>
+			<p><span class="fragment">Einzel-Abgleich simulieren für "Brandt, Willy" mit Beruf und Affiliation</p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+			
+			<section data-state="fabian" data-background="img/reconciliation-testbench-reconcile.png" data-background-size="contain"></section>
+			
+			<section data-state="fabian">
+				<h2>Zusammenarbeit von Fachebene &amp; Entwicklung</h2>
+				<p><span class="fragment">Schon erster Schritt, Bereitstellung von Einzeldaten kann fachlich in OpenRefine getestet werden</span></p>
+				<p><span class="fragment">Bis hin zur Evaluation der Scores beim Abgleich mit disambiguierenden lokalen Daten in der Testbench</span></p>
+				<p><span class="fragment">Ermöglicht auf vielen Ebenen die unmittelbare Zusammenarbeit von Fachebene &amp; Entwicklung</span></p>
+			</section>
+			
+			<section data-state="alle">
+				<h1>Weitere Informationen</h1>
+				<p><a href="https://docs.openrefine.org/">OpenRefine user manual</a></p>
+				<p><a href="https://lobid.org/gnd/reconcile">GND reconciliation for OpenRefine</a></p>
+				<p><a href="https://pad.gwdg.de/p/einfuehrung-in-skos-mit-skohub">Eine Einführung in SKOS mit SkoHub Vocabs (Folien)</a></p>
+				<p><a href="https://github.com/rg-mpg-de/skohub-reconcile">skohub-reconcile</a></p>
+			</section>
+			
+		</div>
+		
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
