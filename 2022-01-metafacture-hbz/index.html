@@ -106,6 +106,23 @@
 		</p>
       </section>
 
+
+	  <section>
+		<h2>Annahmen</h2>
+		<p><span class="fragment">Transformationen von Metadaten gehören im hbz & in größeren wissenschaftlichen Bibliotheken zum täglichen Geschäft.</span>
+		<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnise voraussetzen (z.B. Perl-Skripts).</span></p>
+		<p><span class="fragment">Bereits existierende, von anderen entwickelte Transformationsprozesse können nur bedingt entdeckt und nachgenutzt werden.</span></p>
+		<p><span class="fragment">Das heißt: Es gibt großes Potential, eine immer wiederkehrende Arbeit kollaborativer, effizienter, bequemer zu gestalten.</span></p>
+	  </section>
+
+	  <section>
+		<h2>Anwendungsszenarien für Datentransformationen</h2>
+		<p><span class="fragment"><em>Datenanreicherung</em>: z.B. Ergänzung von Daten aus Wikidata in lobid</span>
+		<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen: z.B. für DigiBib IntrOX oder ONIX-Verlagsdaten für <a href="https://wekb.hbz-nrw.de/">we:kb</a></span></p>
+		<p><span class="fragment"><em>Systemmigration</em>: z.B. nach Alma oder Folio oder weg von Allegro</span>
+		<p><span class="fragment"><em>Datenbereitstellung</em>: z.B. Publikation von Linked Open Data in <a href="https://lobid.org">lobid</a></span></p>
+	  </section>
+
 			<section>
         		<h1>Agenda</h1>
 				<ol>
@@ -134,6 +151,7 @@
 				<p><span class="fragment">Daten analysieren (z.B. Felder oder Werte zählen)</span></p>
 				<p><span class="fragment">Daten zusammenführen / anreichern (z.B. Katalog/Wikipedia)</span></p>
 				<p><span class="fragment">Daten transformieren (z.B. von MARC zu JSON)</span></p>
+				<p><span class="fragment">Daten extrahieren / laden (z.B. von OAI-PMH zu Elasticsearch)</span></p>				
 			</section>
 
 			<section>
@@ -141,7 +159,7 @@
 				<p><span class="fragment">Transformation der Daten des Verbundkatalogs für die Indexierung als JSON-LD</span></p>
 				<p><span class="fragment">hbz linked data service: Web-APIs und Suchoberflächen für Titel- und Normdaten (<a href="https://lobid.org">lobid.org</a>)</span></p>
 				<p><span class="fragment">Auf Basis von Lobid: Nordrhein-Westfälische Bibliographie (<a href="https://nwbib.de">nwbib.de</a>)</span></p>
-				<p><span class="fragment">Aggregierung von Metadaten aus verschiedenen Quellen im OER Suchindex (<a href="https://oersi.de">OERSI</a>)</span></p>
+				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex aggregieren (<a href="https://oersi.de">OERSI</a>)</span></p>
 			</section>
 
 			<section>
@@ -162,6 +180,7 @@
 				<h2>Workflows bearbeiten und ausführen</h2>
 				<p><span class="fragment">Workflows können in Flux (einer speziellen Konfigurationssprache) oder mit Java (typsicher über Java Generics) bearbeitet werden</span></p>
 				<p><span class="fragment">Flux-Workflows können in einem Texteditor editiert und auf der Kommandozeile ausgeführt werden, Java-Workflows funktionieren wie andere Java-Komponenten</span></p>
+				<p><span class="fragment">In Entwicklung: <a href="https://metafacture.org/playground">Metafacture-Playground</a> zum einfachen Ausprobieren in einer Web-Oberfläche</span></p>
 			</section>
 
 			<section>
@@ -770,6 +789,10 @@ $ flux.sh simple-transformation.flux
 				<p><span class="fragment">für Tutorials, Workshops, Dokumentation</span></p>
       		</section>
 
+			<section>
+				<iframe src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix" width="900" height="600"></iframe>
+			</section>
+
 			  <section>
 				<h2>Metafacture-Fix</h2>
 				<p><span class="fragment">Wechsel von einem Feld-basierten zu einem Record-basierten Verarbeitungsansatz bei der Transformation</span></p>
@@ -832,10 +855,10 @@ retain(id, title, author)
 					<p><small><a href="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix">Beispiel im Playground</a></small></p>
 					</span>
       		</section>
-			  
+
 			  <section>
 				<h2>Alma-Daten mit Fix transformieren</h2>
-				<p><span class="fragment">Fix steht in Grundzügen (Danke für die Unterstützung an Gruppe Portale, speziell Jens Wille!)</span></p>
+				<p><span class="fragment">Fix steht in Grundzügen (Danke für die gute Zusammenarbeit an die Gruppe Portale!)</span></p>
 				<p><span class="fragment">wird nun von DigiBib und OI mit Alma-MARC-Daten genutzt und dabei optimiert</span></p>
 				<p><span class="fragment">außerdem Nutzung für Transformationen in <a href="https://lobid.org/project/oersi">OERSI</a> und zum initialen Aufbau der neuen <a href="https://lobid.org/project/rpb">RPB</a></span></p>
       		</section>
@@ -848,13 +871,13 @@ retain(id, title, author)
 				<h2>Community vergrößern</h2>
 				<p><span class="fragment">Metafacture hbz-intern als zentrales Tool etablieren</span></p>
 				<p><span class="fragment">mehr Bibliotheken im hbz-Verbund als Nutzer:innen gewinnen</span></p>
-				<p><span class="fragment">mehr Nutzer:innen außerhalb des Verbunds (wieder)gewinnen</span></p>
+				<p><span class="fragment">mehr Nutzer:innen und Mitentwickler:innen außerhalb des Verbunds (wieder)gewinnen</span></p>
       		</section>
 
 			  <section>
 				<h2>Standards nutzen und aufbauen</h2>
 				<p><span class="fragment">Unterstützung der Reconciliation API</span></p>
-				<p><span class="fragment">SKOS Lookups</span></p>
+				<p><span class="fragment">SKOS Lookups (zum Andocken an <a href="https://github.com/skohub-io/skohub-vocabs">SkoHub Vocabs</a>)</span></p>
 				<p><span class="fragment">Fix-Standardisierung</span></p>
       		</section>
 

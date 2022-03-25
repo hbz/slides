@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 /**
  * hbz theme based on night.css:
  *
@@ -15,7 +13,13 @@ body {
   background-color: #004678; }
 
 .reveal {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  src:
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.woff2') format('woff2'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.eot?#iefix') format('embedded-opentype'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.woff') format('woff'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.svg#NotoSans') format('svg'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.ttf') format('truetype');
   font-size: 30px;
   font-weight: normal;
   color: #eee; }
@@ -35,7 +39,13 @@ body {
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   margin: 0 0 20px 0;
   color: #eee;
-  font-family: 'Montserrat', Impact, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  src:
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.woff2') format('woff2'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.eot?#iefix') format('embedded-opentype'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.woff') format('woff'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.svg#NotoSans') format('svg'),
+  url('//www.hbz-nrw.de/fonts/Noto_Sans_700.ttf') format('truetype');	
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: -0.03em;
