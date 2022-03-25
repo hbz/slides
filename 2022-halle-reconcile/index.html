@@ -194,18 +194,18 @@
 				<h2>Einfache Nutzung ermöglichen</h2>
 				<p><span class="fragment">Rechercheoberfläche und Browsing: gutes UI/UX für Menschen</span></p>
 				<p><span class="fragment">Entwickler:innen und Anwendungen: intuitive, offene, standardbasierte APIs</span></p>
-				<p><span class="fragment">Standards: HTTP, HTML, JSON-LD, SKOS (Simple Knowledge Organization System)</span></p>
+				<p><span class="fragment">Standards: HTTP, HTML, JSON-LD, <a href="https://dini-ag-kim.github.io/skos-einfuehrung">SKOS</a> (Simple Knowledge Organization System)</span></p>
 			</section>
 
 			<section>
 				<h2>SkoHub Vocabs</h2>
-				<p><span class="fragment">Publikation von kontrollierten Vokabularen im web</span></p>
-				<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">hier</a> für Details)</span></p>
-				<p><span class="fragment">Hier: Nutzung einer skosifizierten Destatis-Systematik</span></p>
+				<p><span class="fragment">Publikation von in SKOS kodierten kontrollierten Vokabularen im Web</span></p>
+				<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD a) auf eigenem Server b) <a href="https://pad.gwdg.de/p/einfuehrung-in-skos-mit-skohub#/39">mit Docker und GitHub Pages</a> c) <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">via skohub.io</a></span></p>
+				<p><span class="fragment">Hier: Nutzung einer SKOS-ifizierten Taxonomie der Gegenstände frühneuzeitlicher Policeygesetze</span></p>
 			</section>
 	
 			<section>
-				<a href="https://github.com/dini-ag-kim/hochschulfaechersystematik/blob/master/hochschulfaechersystematik.ttl"><img src="img/vocab-ttl.png" width=700 style="border: none; box-shadow: none;" /></a>
+				<a href="https://github.com/rhonda-org/vocabs-polmat/blob/main/polmat.ttl"><img src="img/vocab-ttl.png" width=700 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
@@ -440,7 +440,7 @@
 			
 			<section data-state="fabian">
 				<h2>1. Einzeldatensätze im Web verfügbar machen</h2>
-				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen (z.B. skohub-vocabs: <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/n0322.en.html">HTML</a>, <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/n0322.json">JSON</a>)</p></span>
+				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen (z.B. skohub-vocabs: <a href="https://skohub.io/rg-mpg-de/vocabs-polmat/heads/main/w3id.org/rg-mpg-de/polmat/n01.1so.5.d.de.html">HTML</a>, <a href="https://skohub.io/rg-mpg-de/vocabs-polmat/heads/main/w3id.org/rg-mpg-de/polmat/n01.1so.5.d.json">JSON</a>)</p></span>
 				<span class="fragment"><p>Die Daten können wir dann zum Anreichern nutzen</p></span>
 			</section>
 
@@ -459,7 +459,7 @@
 			<section data-state="fabian">
 				<h2>2. Suche nach Datensätzen implementieren</h2>
 				<span class="fragment"><p>d.h. Indexierung der Daten in Suchmaschine, z.B. Elasticsearch, Solr, Lucene</p></span>
-				<span class="fragment"><p>je nach Kontext und Technologie kann der Index zentral verwaltet als Cluster oder im Browser eingebettet sein (z.B. <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.en.html">skohub-vocabs</a>)</p></span>
+				<span class="fragment"><p>je nach Kontext und Technologie kann der Index zentral verwaltet als Cluster oder im Browser (z.B. SkoHub Vocabs) eingebettet sein</p></span>
 			</section>
 
 		<!--https://hbz.github.io/elag2019-bootcamp/-->
@@ -499,6 +499,7 @@
 				<p><a href="https://docs.openrefine.org/">OpenRefine user manual</a></p>
 				<p><a href="https://lobid.org/gnd/reconcile">GND reconciliation for OpenRefine</a></p>
 				<p><a href="https:/skohub.io">SkoHub</a> & <a href="https://github.com/rg-mpg-de/skohub-reconcile">skohub-reconcile</a></p>
+				<p><a href="https://pad.gwdg.de/p/einfuehrung-in-skos-mit-skohub">Eine Einführung in SKOS mit SkoHub Vocabs (Folien)</a></p>
 			</section>
 			
 		</div>
