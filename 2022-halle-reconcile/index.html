@@ -179,11 +179,11 @@
 			</section>
 
 			<section data-state="adrian">
-				<h2>Ihre besondere Stärke entfalten Normdaten durch Pflege und Verwendung innerhalb einer überinstitutionellen Gemeinschaft.</h2>
+				<h3>Ihre besondere Stärke entfalten Normdaten durch Pflege und Verwendung innerhalb einer überinstitutionellen Gemeinschaft</h3>
 			</section>
 
 			<section data-state="adrian">
-				<h2>Zu diesem Zweck bietet sich die Publikation der Normdaten im Web an.</h2>
+				<h2>Zu diesem Zweck bietet sich die Publikation der Normdaten im Web an</h2>
 			</section>
 
 			<section data-state="adrian">
@@ -194,7 +194,22 @@
 				<h2>Einfache Nutzung ermöglichen</h2>
 				<p><span class="fragment">Rechercheoberfläche und Browsing: gutes UI/UX für Menschen</span></p>
 				<p><span class="fragment">Entwickler:innen und Anwendungen: intuitive, offene, standardbasierte APIs</span></p>
-				<p><span class="fragment">Standards: HTTP, HTML, JSON-LD, Simple Knowledge Organization System (SKOS)</span></p>
+				<p><span class="fragment">Standards: HTTP, HTML, JSON-LD, SKOS (Simple Knowledge Organization System)</span></p>
+			</section>
+
+			<section>
+				<h2>SkoHub Vocabs</h2>
+				<p><span class="fragment">Publikation von kontrollierten Vokabularen im web</span></p>
+				<p><span class="fragment">Pflege als Turtle-Datei auf GitHub und Publikation als HTML/JSON-LD unter skohub.io (siehe <a href="http://blog.lobid.org/2019/09/27/presenting-skohub-vocabs.html">hier</a> für Details)</span></p>
+				<p><span class="fragment">Hier: Nutzung einer skosifizierten Destatis-Systematik</span></p>
+			</section>
+	
+			<section>
+				<a href="https://github.com/dini-ag-kim/hochschulfaechersystematik/blob/master/hochschulfaechersystematik.ttl"><img src="img/vocab-ttl.png" width=700 style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<a href="https://w3id.org/kim/hochschulfaechersystematik/scheme"><img src="img/vocab-html.png" width=1000 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section data-state="adrian">
@@ -204,7 +219,7 @@
 				<p><span class="fragment">Welche Tools gibt es? Welche Standards und Software für das Angebot einer einfachen Schnittstelle zum Datenabgleich?</span></p>
 			</section>
 
-			<section data-state="fabian">
+			<section data-state="alle">
 				<table>
 					<tr><td>Normdaten im Web</td></tr>
 					<tr><td><b>Datenabgleich und -anreicherung in OpenRefine</b></td></tr>
@@ -376,7 +391,7 @@
 				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
 			</section>
 
-			<section data-state="uebung" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+			<section data-state="alle" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
 
 			<section data-state="alle">
 				<h1>Census</h1>
@@ -417,102 +432,41 @@
 
 			<section data-state="alle">
 				<h2>Eigene Daten in OpenRefine verfügbar machen</h2>
-				<p><span class="fragment">1. Einzeldatensätze als JSON anbieten</p>
-					<p><span class="fragment">2. Suche nach Datensätzen implementieren</p>
-						<p><span class="fragment">3. Reconciliation-Protokoll implementieren</span></p>
-						<small><span class="fragment"><p><a href="https://github.com/hbz/elag2019-bootcamp">Für Details zu 1. und 2. siehe Workshop-Material From LOD to LOUD: building & using JSON-LD APIs</a></p></span></small>
-					</section>
-					
-					<section data-state="fabian">
-						<h2>1. Einzeldatensätze als JSON</h2>
-				<span class="fragment"><p>z.B. http://localhost:9200/loc/work/c000000011/_source</p></span>
-				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen</p></span>
+				<p><span class="fragment">1. Einzeldatensätze im Web verfügbar machen</p>
+					<p><span class="fragment">2. Suche nach Datensätzen ermöglichen</p>
+						<p><span class="fragment">3. Reconciliation-Protokoll / -API implementieren</span></p>
+						<small><span class="fragment"><p>Alle Schritte können je nach Kontext und Technologie sehr unterschiedlich umgesetzt werden</p></span></small>
 			</section>
 			
 			<section data-state="fabian">
-				<h2>z.B. mit diesen Daten</h2>
-				<pre><code class="nohighlight" data-trim>
-http://id.loc.gov/resources/works/c000000011
-http://id.loc.gov/resources/works/c000000020
-http://id.loc.gov/resources/works/c000000026
-http://id.loc.gov/resources/works/c000000028
-http://id.loc.gov/resources/works/c000000100
-				</code></pre>
+				<h2>1. Einzeldatensätze im Web verfügbar machen</h2>
+				<span class="fragment"><p>Dann schon nutzbar in OpenRefine: Daten per URL holen (z.B. skohub-vocabs: <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/n0322.en.html">HTML</a>, <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/n0322.json">JSON</a>)</p></span>
+				<span class="fragment"><p>Die Daten können wir dann zum Anreichern nutzen</p></span>
 			</section>
-			
-			<!--<section data-state="fabian" data-background="img/openrefine-1-import.png"
+
+			<section data-state="fabian" data-background="img/openrefine-3-add-from-url.png"
 				data-background-size="contain">
 			</section>
-			
-			<section data-state="fabian" data-background="img/openrefine-2-import.png"
+
+			<section data-state="fabian" data-background="img/openrefine-5-add-from-json.png"
 			data-background-size="contain">
-		</section>-->
-		
-		<section data-state="fabian" data-background="img/openrefine-3-add-from-url.png"
-		data-background-size="contain">
-	</section>
-
-	<section data-state="fabian">
-		<p>ID rauspicken &amp; URL erzeugen, unter der wir JSON finden/selbst anbieten</p>
-		<span class="fragment">
-			http://id.loc.gov/resources/works/c000000011
-		</span>
-		<span class="fragment">
-			&rarr; http://localhost:9200/loc/work/c000000011/_source
-		</span>
-		<span class="fragment"><p><code class="nohighlight" data-trim>
-			"http://localhost:9200/loc/work/" + split(value, '/')[-1] + "/_source"
-		</code></p>
-	</section>
-	
-	<section data-state="fabian" data-background="img/openrefine-4-add-from-url.png"
-	data-background-size="contain">
-</section>
-
-<section data-state="fabian">
-	<p>Das JSON können wir dann zum Anreichern nutzen</p>
-</section>
-
-<section data-state="fabian" data-background="img/openrefine-5-add-from-json.png"
-data-background-size="contain">
-</section>
-
-<section data-state="fabian" data-background="img/openrefine-6-add-from-json.png"
-data-background-size="contain">
-</section>
-
-<section data-state="fabian" data-background="img/openrefine-7-export.png"
-data-background-size="contain">
-</section>
-
-<section data-state="fabian">
-	<h2>2. Suche nach Datensätzen implementieren</h2>
-				<span class="fragment"><p>z.B. http://localhost:9200/loc/work/_search?q=*</p></span>
-				<span class="fragment"><p>d.h. Indexierung der Daten in Suchmaschine, z.B. Elasticsearch, Solr, Lucene</p></span>
 			</section>
-			
+
+			<section data-state="fabian" data-background="img/openrefine-7-export.png"
+			data-background-size="contain">
+			</section>
+
 			<section data-state="fabian">
-				<h2>z.B. mit diesen Daten</h2>
-				<pre><code class="nohighlight" data-trim>
-Letters from an American farmer
-Italian journeys
-Report of the trial of George Ryan
-The devil upon crutches in England
-Educational interests of Colorado
-				</code></pre>
-				<span class="fragment"><p><code>"http://localhost:9200/loc/work/_search?q=\"" + replace(value, " ", "+") + "\""</code></p></span>
-				<span class="fragment"><p><code>value.parseJson().hits.hits[0]._source.id</code></p></span>
+				<h2>2. Suche nach Datensätzen implementieren</h2>
+				<span class="fragment"><p>d.h. Indexierung der Daten in Suchmaschine, z.B. Elasticsearch, Solr, Lucene</p></span>
+				<span class="fragment"><p>je nach Kontext und Technologie kann der Index zentral verwaltet als Cluster oder im Browser eingebettet sein (z.B. <a href="https://skohub.io/hbz/vocabs-edu/heads/master/w3id.org/class/esc/scheme.en.html">skohub-vocabs</a>)</p></span>
 			</section>
-			
-			<section data-state="fabian" data-background="img/openrefine-8-uris.png"
-			data-background-size="contain">
-		</section>
-		
+
 		<!--https://hbz.github.io/elag2019-bootcamp/-->
 		<section data-state="alle">
 			<h2>3. Reconciliation-Protokoll implementieren</h2>
 			<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/libraries/">Mit speziellen Reconciliation-Tools/Frameworks</a></span></p>
-			<p><span class="fragment">z.B. <a href="https://github.com/skohub-io/skohub-vocabs/">skohub-vocabs</a> &amp; <a href="https://github.com/rg-mpg-de/skohub-reconcile/">skohub-reconcile</a></span></p>
+			<p><span class="fragment">z.B. <a href="https://github.com/rg-mpg-de/skohub-reconcile/">skohub-reconcile</a></span></p>
 			<p><span class="fragment">Mit generischen Web-Entwicklungs-Tools/Frameworks (JSON API)</span></p>
 			<p><span class="fragment">Testen mit Testbench</span></p>
 		</section>
@@ -535,7 +489,7 @@ Educational interests of Colorado
 			
 			<section data-state="alle">
 				<h2>Zusammenarbeit von Fachebene &amp; Entwicklung</h2>
-				<p><span class="fragment">Schon erster Schritt, Bereitstellung von Einzeldaten als JSON kann fachlich in OpenRefine getestet werden</span></p>
+				<p><span class="fragment">Schon erster Schritt, Bereitstellung von Einzeldaten kann fachlich in OpenRefine getestet werden</span></p>
 				<p><span class="fragment">Bis hin zur Evaluation der Scores beim Abgleich mit disambiguierenden lokalen Daten in der Testbench</span></p>
 				<p><span class="fragment">Ermöglicht auf vielen Ebenen die unmittelbare Zusammenarbeit von Fachebene &amp; Entwicklung</span></p>
 			</section>
@@ -544,6 +498,7 @@ Educational interests of Colorado
 				<h1>Weitere Informationen</h1>
 				<p><a href="https://docs.openrefine.org/">OpenRefine user manual</a></p>
 				<p><a href="https://lobid.org/gnd/reconcile">GND reconciliation for OpenRefine</a></p>
+				<p><a href="https:/skohub.io">SkoHub</a> & <a href="https://github.com/rg-mpg-de/skohub-reconcile">skohub-reconcile</a></p>
 			</section>
 			
 		</div>
