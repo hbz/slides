@@ -112,6 +112,21 @@
 		</p>
       </section>
 
+	  <section>
+		<h1>Agenda</h1>
+		<ol>
+			<li>Kontext</li>
+			<li>Was ist Metafacture?</li>
+			<li>Metafacture-Fix</li>
+			<li>Metafacture Playground</li>
+			<li>Ausblick</li>
+			<li>Fragen & Diskussion</li>
+		</ol>
+	  </section>
+
+	  <section>
+		<h1>1. Kontext</h1>
+	</section>
 
 	  <section>
 		<h2>Annahmen</h2>
@@ -124,25 +139,13 @@
 	  <section>
 		<h2>Anwendungsszenarien für Datentransformationen</h2>
 		<p><span class="fragment"><em>Datenanreicherung</em>: z.B. Ergänzung von Daten aus Wikidata in lobid</span>
-		<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen: z.B. für DigiBib IntrOX oder ONIX-Verlagsdaten für <a href="https://wekb.hbz-nrw.de/">we:kb</a></span></p>
-		<p><span class="fragment"><em>Systemmigration</em>: z.B. nach Alma oder Folio oder weg von Allegro</span>
-		<p><span class="fragment"><em>Datenbereitstellung</em>: z.B. Publikation von Linked Open Data in <a href="https://lobid.org">lobid</a></span></p>
+		<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen: z.B. <a href="https://oersi.org">OERSI</a> aus unterschiedlichen OER-Inhaltsquellen</span></p>
+		<p><span class="fragment"><em>Systemmigration</em>: z.B. in ein neues Bibliotheksmanagementsystem wie Alma oder Folio</span>
+		<p><span class="fragment"><em>Datenbereitstellung</em>: z.B. Publikation von Linked Open Usable Data in <a href="https://lobid.org">lobid</a></span></p>
 	  </section>
 
 			<section>
-        		<h1>Agenda</h1>
-				<ol>
-					<li>Was ist Metafacture?</li>
-					<li>Zur Historie</li>
-					<li>Aktuelle Entwicklungen & Ziele</li>
-					<li>Strategie</li>
-					<li>Nächste Schritte</li>
-					<li>Diskussion</li>
-				</ol>
-      		</section>
-
-			<section>
-				<h1>1. Was ist Metafacture?</h1>
+				<h1>2. Was ist Metafacture?</h1>
 			</section>
 
 			<section>
@@ -153,19 +156,19 @@
 			</section>
 
 			<section>
+				<h2>Metafacture-Historie</h2>
+				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch, Architektur-Anregungen durch hbz-Toolbox</p>
+				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
+				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird Maintainer</span></p>
+				<p><span class="fragment">Ende 2020: Start der Projekte <a href="https://lobid.org/project/metafacture-fix">Metafacture-Fix</a> und <a href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span></p>
+			</section>
+
+			<section>
 				<h2>Was kann man mit Metafacture machen?</h2>
 				<p><span class="fragment">Daten analysieren (z.B. Felder oder Werte zählen)</span></p>
 				<p><span class="fragment">Daten zusammenführen / anreichern (z.B. Katalog/Wikipedia)</span></p>
 				<p><span class="fragment">Daten transformieren (z.B. von MARC zu JSON)</span></p>
 				<p><span class="fragment">Daten extrahieren / laden (z.B. von OAI-PMH zu Elasticsearch)</span></p>				
-			</section>
-
-			<section>
-				<h2>Wo wir Metafacture nutzen</h2>
-				<p><span class="fragment">Transformation der Daten des Verbundkatalogs für die Indexierung als JSON-LD</span></p>
-				<p><span class="fragment">hbz linked data service: Web-APIs und Suchoberflächen für Titel- und Normdaten (<a href="https://lobid.org">lobid.org</a>)</span></p>
-				<p><span class="fragment">Auf Basis von Lobid: Nordrhein-Westfälische Bibliographie (<a href="https://nwbib.de">nwbib.de</a>)</span></p>
-				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex aggregieren (<a href="https://oersi.de">OERSI</a>)</span></p>
 			</section>
 
 			<section>
@@ -183,14 +186,9 @@
 			</section>
 
 			<section>
-				<h2>Workflows bearbeiten und ausführen</h2>
+				<h2>Workflows konfigurieren und ausführen</h2>
 				<p><span class="fragment">Workflows können in Flux (einer speziellen Konfigurationssprache) oder mit Java (typsicher über Java Generics) bearbeitet werden</span></p>
 				<p><span class="fragment">Flux-Workflows können in einem Texteditor editiert und auf der Kommandozeile ausgeführt werden, Java-Workflows funktionieren wie andere Java-Komponenten</span></p>
-				<p><span class="fragment">In Entwicklung: <a href="https://metafacture.org/playground">Metafacture-Playground</a> zum einfachen Ausprobieren in einer Web-Oberfläche</span></p>
-			</section>
-
-			<section>
-				<h1>Daten transformieren</h1>
 			</section>
 
 			<section>
@@ -200,41 +198,6 @@
 				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, normalisieren etc.</span></p>
 				<p><span class="fragment">Feldwerte aus Lookup-Tabellen in externen Dateien (z.B. Freitextfelder -> kontrollierte Vokabulare)</span></p>
 			</section>
-
-			<section>
-				<h1>2. Zur Historie</h1>
-			</section>
-
-			<section>
-				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch, Architektur-Anregungen durch hbz-Toolbox</p>
-				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
-				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird Maintainer</span></p>
-				<p><span class="fragment">2020: Metafacture ist Teil des einheitlichen Metadatenmanagements an der TU Dortmund</span></p>
-				<p><span class="fragment">Ende 2020: Start der Projekte <a href="https://lobid.org/project/metafacture-fix">Metafacture-Fix</a> und <a href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span></p>
-			</section>
-
-			<section>
-				<h1>3. Aktuelle Entwicklungen</h1>
-			</section>
-
-			<section>
-				<h2>Metafacture Playground</h2>
-				<p><span class="fragment"><a href="https://metafacture.org/playground">https://metafacture.org/playground</a></span></p>
-				<p><span class="fragment">webbasierte Oberfläche zum Herumspielen</span></p>
-				<p><span class="fragment">für Tutorials, Workshops, Dokumentation</span></p>
-      		</section>
-
-			<section>
-				<iframe src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix" width="900" height="600"></iframe>
-			</section>
-
-			  <section>
-				<h2>Metafacture-Fix</h2>
-				<p><span class="fragment">Wechsel von einem Feld-basierten zu einem Record-basierten Verarbeitungsansatz bei der Transformation</span></p>
-				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a href="https://github.com/LibreCat/Catmandu">Catmandu</a> (mittelfristiges Ziel: Standardisierung)</span></p>
-				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
-				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar*innen und andere Metadatenfachleute</span></p>
-      		</section>
 
 			<section>
 				<h2>Morph</h2>
@@ -269,6 +232,18 @@
       		</section>
 
 			  <section>
+				<h1>3. Metafacture Fix</h1>
+			</section>
+
+			  <section>
+				<h2>Metafacture-Fix: Ziele</h2>
+				<p><span class="fragment">Wechsel von einem Feld-basierten zu einem Record-basierten Verarbeitungsansatz bei der Transformation</span></p>
+				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a href="https://github.com/LibreCat/Catmandu">Catmandu</a> (mittelfristiges Ziel: Standardisierung)</span></p>
+				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
+				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar*innen und andere Metadatenfachleute</span></p>
+      		</section>
+
+			  <section>
 				<h2>Fix</h2>
 					<pre><code class="nohighlight" data-trim>
 1{a: Faust, b {n: Goethe, v: JW}, c: Weimar}
@@ -291,8 +266,26 @@ retain(id, title, author)
 					</span>
       		</section>
 
+
+
 			<section>
-				<h1>4. Strategie</h1>
+				<h1>4. Metafacture Playground</h1>
+			</section>
+
+			<section>
+				<h2>Metafacture Playground</h2>
+				<p><span class="fragment"><a href="https://metafacture.org/playground">https://metafacture.org/playground</a></span></p>
+				<p><span class="fragment">webbasierte Oberfläche zum Herumspielen</span></p>
+				<p><span class="fragment">für Tutorials, Workshops, Dokumentation</span></p>
+      		</section>
+
+			<section>
+				<iframe src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix" width="900" height="600"></iframe>
+			</section>
+
+
+			<section>
+				<h1>5. Ausblick</h1>
 			</section>
 
 			  <section>
@@ -318,27 +311,11 @@ retain(id, title, author)
       		</section>
 
 			<section>
-				<h1>5. Nächste Schritte</h1>
-			</section>
-
-			<section>
-				<h2>Dokumentation verbessern</h2>
-				<p><span class="fragment">Aufsetzen einer zentralen Dokumentationsumgebung und Verbesserung der Dokumentation</span></p>
-				<p><span class="fragment">parallel zur Nutzung für Alma, OERSI, RPB</span></p>
-      		</section>
-
-			<section>
-				<h2>Metafacture Workshops</h2>
-				<p><span class="fragment">hbz-intern, verbundweit und darüber hinaus</span></p>
-				<p><span class="fragment">Hands-On-Lab beim Bibliothekskongress in Leipzig</span></p>
-      		</section>
-
-			<section>
 				<h1>6. Fragen und Diskussion</h1>
 			</section>
 
 			<section>
-				<h3>Wer hat Interesse an einem hbz-/verbundinternen Metafacture-Workshop teilzunehmen?</h3>
+				<h3>Wer hätte Interesse an einem Metafacture-Workshop teilzunehmen?</h3>
       		</section>
 
 			<section>
