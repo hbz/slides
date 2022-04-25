@@ -99,7 +99,11 @@
 						style="border: none; padding: 5px; background-color: white" width="500px" /></a>
 				<h3>Datentransformation mit Metafacture – Aktuelle Entwicklungen</h3>
 				<p>
-					<a href="http://lobid.org/team#!">Offene Infrastruktur</a><br />
+					<small>
+						<a href="https://lobid.org/team/ap#!">Adrian Pohl</a> &amp;
+						<a href="https://lobid.org/team/fs#!">Fabian Steeg</a>
+						<br /> <br /> <a href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
 					<small><br />
 						KIM Workshop,<br />
 						WWW, 2. Mai 2022
@@ -120,7 +124,7 @@
 			<section>
 				<h1>Agenda</h1>
 				<ol>
-					<li>Kontext</li>
+					<li>Kontext: Datentransformation</li>
 					<li>Was ist Metafacture?</li>
 					<li>Metafacture-Fix</li>
 					<li>Metafacture Playground</li>
@@ -130,31 +134,46 @@
 			</section>
 
 			<section>
-				<h1>1. Kontext</h1>
-			</section>
-
-			<section>
-				<h2>Annahmen</h2>
-				<p><span class="fragment">Transformationen von Metadaten gehören im hbz & in größeren wissenschaftlichen
-						Bibliotheken zum täglichen Geschäft.</span>
-				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnise
-						voraussetzen (z.B. Perl-Skripts).</span></p>
-				<p><span class="fragment">Bereits existierende, von anderen entwickelte Transformationsprozesse können
-						nur bedingt entdeckt und nachgenutzt werden.</span></p>
-				<p><span class="fragment">Das heißt: Es gibt großes Potential, eine immer wiederkehrende Arbeit
-						kollaborativer, effizienter, bequemer zu gestalten.</span></p>
+				<h1>1. Kontext: Datentransformation</h1>
 			</section>
 
 			<section>
 				<h2>Anwendungsszenarien für Datentransformationen</h2>
+				<p><span class="fragment"><em>Datenaufbereitung</em>, z.B. zur Auswertung in einem
+						Drittmittelprojekt</span></p>
 				<p><span class="fragment"><em>Datenanreicherung</em>: z.B. Ergänzung von Daten aus Wikidata in
-						lobid</span>
+						<a href="https://lobid.org">lobid</a></span>
 				<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen: z.B. <a
 							href="https://oersi.org">OERSI</a> aus unterschiedlichen OER-Inhaltsquellen</span></p>
 				<p><span class="fragment"><em>Systemmigration</em>: z.B. in ein neues Bibliotheksmanagementsystem wie
 						Alma oder Folio</span>
-				<p><span class="fragment"><em>Datenbereitstellung</em>: z.B. Publikation von Linked Open Usable Data in
-						<a href="https://lobid.org">lobid</a></span></p>
+			</section>
+
+			<section>
+				<h2>Annahmen</h2>
+				<p><span class="fragment">Transformationen von Metadaten gehören zum täglichen Geschäft
+						wissenschaftlicher
+						Bibliotheken.</span>
+				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnisse
+						voraussetzen.</span></p>
+				<p><span class="fragment">Datentransformationen werden meist im Zusammenspiel von Fachabteilungen &
+						IT umgesetzt, verbunden mit größeren Kommunikationsaufwand.</span></p>
+				<p><span class="fragment">Bereits existierende, von anderen entwickelte Transformationsprozesse können
+						nur bedingt entdeckt und nachgenutzt werden.</span></p>
+			</section>
+
+			<section>
+				<h2>Das heißt:</h2>
+				<p><span class="fragment">Es gibt großes Potential, eine immer wiederkehrende Arbeit zugänglicher,
+						kollaborativer und effizienter zu gestalten.</span>
+			</section>
+
+			<section>
+				<h2>Übergeordnete Ziele</h2>
+				<p><span class="fragment">Ermächtigung der Fachebene zur Konfiguration von Datentransformationen</span>
+				</p>
+				<p><span class="fragment">Förderung von Praktiken zum Teilen und Auffinden von
+						Transformationsprozessen</span></p>
 			</section>
 
 			<section>
@@ -166,15 +185,14 @@
 				<p><span class="fragment">[...] zur Verarbeitung von semi-strukturierten Daten mit dem Fokus auf
 						Bibliotheksdaten</span>
 				<p><span class="fragment">Ein vielseitiges Werkzeug: nutzbar als Kommandozeilentool, als Java/JVM
-						library, Batch-Verarbeitung, on-the-fly</span></p>
+						library, für Batch-Verarbeitung oder on-the-fly</span></p>
 				<p><span class="fragment">Ein offenes Framework: Wiederverwendung und Austausch (von einzelnen Modulen
 						und ganzen Workflows)</span></p>
 			</section>
 
 			<section>
 				<h2>Metafacture-Historie</h2>
-				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch,
-					Architektur-Anregungen durch hbz-Toolbox</p>
+				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch mit dem hbz</p>
 				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
 				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird
 						Maintainer</span></p>
@@ -232,7 +250,9 @@
 
 			<section>
 				<h2>Morph</h2>
-				<iframe src="https://metafacture.org/playground/?flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cmorph%0A%7Cencode-json%0A%7Cprint%0A%3B&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&active-editor=morph" title="Morph-based workflow in Metafacture Playground" width="800" height="500"></iframe>
+				<iframe
+					src="https://metafacture.org/playground/?flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cmorph%0A%7Cencode-json%0A%7Cprint%0A%3B&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&active-editor=morph"
+					title="Morph-based workflow in Metafacture Playground" width="800" height="500"></iframe>
 			</section>
 
 			<section>
@@ -254,7 +274,9 @@
 
 			<section>
 				<h2>Fix</h2>
-				<iframe src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix" title="Fix-based workflow in Metafacture Playground" width="1024" height="520"></iframe>
+				<iframe
+					src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix"
+					title="Fix-based workflow in Metafacture Playground" width="1024" height="520"></iframe>
 			</section>
 
 			<section>
