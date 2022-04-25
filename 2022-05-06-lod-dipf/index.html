@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Web-Schnittstellen &amp; Linked Open Usable Data: LOUD mit JSON über HTTP</title>
+
+	<meta name="description"
+		content="Web-Schnittstellen &amp; Linked Open Usable Data: LOUD mit JSON über HTTP">
+	<meta name="author" content="Adrian Pohl">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"type": [
+				"PresentationDigitalDocument"
+			],
+			"id": "https://slides.lobid.org/2021-weimar/",
+			"name": {
+				"de": "Web-Schnittstellen &amp; Linked Open Usable Data: LOUD mit JSON über HTTP"
+			},
+			"creator": [
+				{
+					"id": "http://lobid.org/team/ap#!",
+					"type": "Person",
+					"name": "Adrian Pohl"
+				},
+				{
+					"id": "http://lobid.org/team/fs#!",
+					"type": "Person",
+					"name": "Fabian Steeg"
+				}
+			],
+			"description": {
+				"de": "Präsentation beim Schnittstellen-Workshop mit der Klassik Stiftung Weimar"
+			},
+			"keywords": [
+				"lobid",
+				"JSON-LD",
+				"Linked Open Data",
+				"glam"
+			],
+			"about": [
+				{
+					"id": "https://lobid.org/product/lobid"
+				}
+			],
+			"datePublished": "2021-10-29",
+			"inLanguage": [
+				"de"
+			],
+			"audience": [
+				"librarians",
+				"developers"
+			],
+			"isBasedOn": [
+				"https://slides.lobid.org/2020-zbiw/"
+			],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section data-markdown="slides.md"
+					 data-separator="^^\r?\n---\r?\n$"
+					 data-separator-vertical="^\r?\n------\r?\n$"
+					 data-separator-notes="^Note:"
+					 data-charset="utf8">
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
