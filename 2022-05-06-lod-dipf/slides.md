@@ -1,12 +1,3 @@
----
-title: "Folien zur dritten Präsenzphase"
-author: Adrian Pohl
-date: 2022-01-28
-revealOptions:
-  transition: none
-  theme: blood
----
-
 <style type="text/css">
     .reveal table th { font-size: .65em}
     .reveal table td { font-size: .65em}
@@ -18,8 +9,6 @@ revealOptions:
         display: none;
     }
 </style>
-
----
 
 # Linked Open Data – Eine Einführung
 
@@ -38,7 +27,21 @@ revealOptions:
 
 ---
 
-### Warum LOD?
+### Agenda
+
+1. Warum Linked Open Data?
+2. LOD-Definition
+3. 
+
+---
+
+# 1. Warum Linked Open Data?
+
+
+---
+
+### Warum Linked Open Data (LOD)?
+
 * Überführung traditioneller bibl. Praktiken in das Web
 * Sichtbarkeit und Auffindbarkeit im Web erreichen
 * Nachnutzbarkeit ermöglichen
@@ -48,14 +51,45 @@ revealOptions:
 
 ---
 
+### LOD als politische Entscheidung
+
+<p align="left">RDF hat zum Ziel, Austausch und Nachnutzung von Daten über Systemgrenzen hinweg zu vereinfachen. Somit richtet es sich an Organisationen,</p>
+1. deren Geschäftsmodell nicht darauf basiert, Nutzer\*innendaten zu horten
+2. die nicht im kommerziellen Wettbewerb stehen
+3. die existieren, um Information zu teilen
+
+<small>Credit: <a href="https://www.youtube.com/watch?v=7VGJCLef3wM">Dorian Taylor. "Linked Data is a political agenda"</a></small>
+
+---
+
+# 2. LOD-Definition
+
+---
+
+### Technische und rechtliche Offenheit
+
+Damit Daten nachgenutzt werden können, sollten sie sowohl rechtlich als auch technisch offen sein.
+
+---
+
 ### Open Definition
+
 > Wissen ist offen, wenn jedeR darauf frei zugreifen, es nutzen, verändern und teilen kann – eingeschränkt höchstens durch Maßnahmen, die Ursprung und Offenheit des Wissens bewahren. 
 
 [https://opendefinition.org/od/2.1/de/](https://opendefinition.org/od/2.1/de/)
 
 ---
 
+### Rechtliche Offenheit
+
+Vergabe einer Offenen Lizenz
+
+für Daten hat sich CC0 etabliert
+
+---
+
 ### Linked Data: Best Practices
+
 1. Nutze URIs als Namen für Dinge
 2. Nutze HTTP-URIs, so dass Menschen sie aufrufen können
 3. Wenn jemand einen URI aufruft, biete nützliche Informationen an unter Nutzung der Standards (RDF*, SPARQL)
@@ -69,16 +103,32 @@ revealOptions:
 
 ---
 
-### Resource Description Framework (RDF)
+### Exkurs: URIs
+
+* *Uniform*: einheitliche Struktur ([RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986))
+* *Resource*: ein Ding, ob digital oder nicht-digital
+* *Identifier*: Identifikation durch Namensvergabe
+
+---
+
+### RDF – Resource Description Framework
+
 * graph-basiertes Datenmodell
 * zum Austausch von Daten über das Web, entworfen und gepflegt vom W3C
 * Abstraktes Modell mit verschiedenen Serialisierungsformaten (RDF/XML, Turtle, JSON-LD…)
 
 ---
 
+### Was ist ein Graph?
+
+[![Der Graph des DIPF innerhalb der GND](img/dipf-gnd-graph.png)](https://lobid.org/gnd/117117618X#rels)
+
+---
+
 ### Tripel überall
+
 Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
-![](img/triple.png)
+![Ein Tripel mit zwei Knoten "Subjekt" und "Objekt", verbunden durch eine Kante "Prädikat"](img/triple.png)
 
 ---
 
@@ -90,6 +140,7 @@ Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
 ---
 
 ### URIs und Literale
+
 * **Subjekt** und **Prädikat** sind immer ein URI
 * **Objekt** ist ein URI *oder* ein Literal (String, Date, Integer)
 
@@ -104,7 +155,9 @@ Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
 
 ---
 
-### Die verschiedenen RDF-Serialisierungen sind semantisch äquivalent
+### Die verschiedenen RDF-Serialisierungen sind semantisch äquivalent.
+
+Deshalb wird es ein "abstraktes" Modell genannt.
 
 ---
 
@@ -197,7 +250,7 @@ Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
 
 ### Übung: Turtle schreiben
 
-Erstellen Sie eine kurze Beschreibung von sich orientiert am Beispiel von [Slide 13](#13).
+Erstellen Sie eine kurze Beschreibung von sich orientiert am Beispiel von [Slide 18](#18).
 
 Zur Erstellung und Validierung lässt sich gut dieser Turtle-Web-Editor nutzen: https://felixlohmeier.github.io/turtle-web-editor/
 
@@ -312,40 +365,6 @@ WHERE
 
 ---
 
-### Interessante Dinge auf Wikidata-Basis
-
----
-
-### Scholia
-[Scholia](https://scholia.toolforge.org/): ein Projekt zur Sammlung bibliographischer Informationen und von Personen- und Institutionsprofilen
-
----
-
-![](img/scholia-screenshot-foerstner.png)
-
-<small>Quelle: <a href="https://scholia.toolforge.org/author/Q18744528">Scholia-Profil von Konrad Förstner</a></small>
-
----
-
-### Die Datenlaube
-* Citizen-Science-Projekt zur Erschließung von Artikeln (1853 bis 1899) der deutschsprachigen Illustrierten "Die Gartenlaube"
-* Ein großes vernetztes Projekt,  begründet von zwei Bibliothekaren und mit ersten Nutzungen in den Digital Humanities.
-* Zum Einstieg empfiehlt sich [der erste Blogbeitrag](https://diedatenlaube.github.io/die_datenlaube_der_gartenlaube) und der [Zwischenbericht des „SFB 1853“ – zwei Jahre #DieDatenlaube](https://saxorum.hypotheses.org/5692)
-
----
-
-### NWBib-Raumsystematik
-![](img/nwbib-spatial.png)
-<small>Quelle: https://nwbib.de/spatial, siehe auch [Code4Lib-Artikel zum Thema](https://blog.lobid.org/2021/06/16/nwbib-wikidata-code4lib.html)</small>
-
----
-
-### Sucherweiterung @ETH
-![Slide 9  der Swisscovery-SWIB20-Präsentation mit der Abbildung einer Personenvorschlagsliste basierend auf dem Suchbegriff](img/eth.png)
-<small>Quelle: [SWIB20-Präsentation von Bernd Uttenweiler](https://swib.org/swib21/programme.html#abs102)</small>
-
----
-
 ## Ein Imageproblem?
 
 ---
@@ -354,9 +373,11 @@ WHERE
 
 <small>– Manu Sporny, damals Vorsitzender der RDFa Working Group beim W3C, der JSON-LD Community Group & Mitglied weiterer Semantic-Web-Gruppen, beim Schreiben an der JSON-LD-Spezifikation <a href="http://manu.sporny.org/2012/nuclear-rdf/">Sporny (2012)</a>
 </small>
+
 ---
 
 ### Linked Open Usable Data
+
 ![](img/loud-tweet.png)
 <small>Quelle: <a href="https://twitter.com/azaroth42/status/768140561794502656">Rob Sanderson auf Twitter</a>, siehe auch Rob Sanderson's Europeanatech 2018 Keynote (<a href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">Slides</a>, <a href="https://www.youtube.com/watch?v=r4afi8mGVAY">Aufzeichnung</a>)</small>
 
@@ -628,100 +649,4 @@ Siehe die Punkte *SKOS* und *SkoHub Vocabs* unter [Weiterführendes Lernmaterial
 
 ---
 
-### Was haben wir denn da?
-![](img/skohub-lookup.png)
-
----
-
-### Übung: Index ausprobieren
-
-Testen Sie die (deutschspachige) Suche unter [https://w3id.org/kim/hochschulfaechersystematik/scheme](https://w3id.org/kim/hochschulfaechersystematik/scheme):
-* Was funktioniert gut?
-* Welche wünschenswerten Suchmöglichkeiten fehlen?
-
----
-
-### Die Suchfunktion in SkoHub Vocabs
-* Basiert auf der JavaScript-Bibliothek [FlexSearch](https://github.com/nextapps-de/flexsearch)
-* Das Gute: Der [Index](https://w3id.org/kim/hochschulfaechersystematik/scheme.de.index) lässt sich herunterladen und anschauen.
-* Eine in besser lesbares JSON überführte Version gibt es unter [https://malis21.acka47.net/data/index-hochschulfaecher-de.json](https://malis21.acka47.net/data/index-hochschulfaechersystematik-de.json)
-
----
-
-### Ein Suchmaschinenindex (Ausschnitt)
-``` json
-"i": [
-    "https://w3id.org/kim/hochschulfaechersystematik/n004",
-    "https://w3id.org/kim/hochschulfaechersystematik/n030",
-    "https://w3id.org/kim/hochschulfaechersystematik/n030010001",
-    "https://w3id.org/kim/hochschulfaechersystematik/n040",
-    "https://w3id.org/kim/hochschulfaechersystematik/n049",
-    "https://w3id.org/kim/hochschulfaechersystematik/n072",
-    "https://w3id.org/kim/hochschulfaechersystematik/n078",
-    "https://w3id.org/kim/hochschulfaechersystematik/n079",
-    "https://w3id.org/kim/hochschulfaechersystematik/n080",
-    "https://w3id.org/kim/hochschulfaechersystematik/n081",
-    "https://w3id.org/kim/hochschulfaechersystematik/n083",
-    "https://w3id.org/kim/hochschulfaechersystematik/n084",
-    "https://w3id.org/kim/hochschulfaechersystematik/n123",
-    "https://w3id.org/kim/hochschulfaechersystematik/n182",
-    "https://w3id.org/kim/hochschulfaechersystematik/n203",
-    "https://w3id.org/kim/hochschulfaechersystematik/n242",
-    "https://w3id.org/kim/hochschulfaechersystematik/n261",
-    "https://w3id.org/kim/hochschulfaechersystematik/n61",
-    "https://w3id.org/kim/hochschulfaechersystematik/n8"
-],
-"in": [
-    "https://w3id.org/kim/hochschulfaechersystematik/n004",
-    "https://w3id.org/kim/hochschulfaechersystematik/n030",
-    "https://w3id.org/kim/hochschulfaechersystematik/n040",
-    "https://w3id.org/kim/hochschulfaechersystematik/n049",
-    "https://w3id.org/kim/hochschulfaechersystematik/n072",
-    "https://w3id.org/kim/hochschulfaechersystematik/n078",
-    "https://w3id.org/kim/hochschulfaechersystematik/n079",
-    "https://w3id.org/kim/hochschulfaechersystematik/n080",
-    "https://w3id.org/kim/hochschulfaechersystematik/n123",
-    "https://w3id.org/kim/hochschulfaechersystematik/n182",
-    "https://w3id.org/kim/hochschulfaechersystematik/n203",
-    "https://w3id.org/kim/hochschulfaechersystematik/n242",
-    "https://w3id.org/kim/hochschulfaechersystematik/n261",
-    "https://w3id.org/kim/hochschulfaechersystematik/n61",
-    "https://w3id.org/kim/hochschulfaechersystematik/n8"
-],
-"int": [
-    "https://w3id.org/kim/hochschulfaechersystematik/n004",
-    "https://w3id.org/kim/hochschulfaechersystematik/n030",
-    "https://w3id.org/kim/hochschulfaechersystematik/n040",
-    "https://w3id.org/kim/hochschulfaechersystematik/n049",
-    "https://w3id.org/kim/hochschulfaechersystematik/n072",
-    "https://w3id.org/kim/hochschulfaechersystematik/n182"
-],
-```
-
----
-
-## Weitere Beispiele
-
-* Indexierte Strings: "Archiv", "Museum", "Öffentliche Bibliothek", "Spezialbibliothek", "Universitätsbibliothek", "Fahrbibliothek"
-* Indexe mit unterschiedlichem [Tokenizer](https://github.com/nextapps-de/flexsearch#tokenizer): [strict](https://codeberg.org/acka47/flexsearch-test/src/branch/main/index/strict.json), [forward](https://codeberg.org/acka47/flexsearch-test/src/branch/main/index/forward.json), [full](https://codeberg.org/acka47/flexsearch-test/src/branch/main/index/full.json), [reverse](https://codeberg.org/acka47/flexsearch-test/src/branch/main/index/reverse.json)
-* Weitere Möglichkeiten: Stemming (Stammformreduktion), Filter (Stoppwörter)
-
----
-
-### Grundbestandteile einer Suchmaschine
-* Datenquelle(n): strukturierte Daten, Volltexte, beides
-* Index
-* Abfragesprache(n), z.B. [Apache Lucene Query Syntax](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html)
-* Suchoberfläche
-
----
-
-#### Gute Struktur & Indexierung ermöglichen komplexe Abfragen
-
-[![lobid-gnd-Suchergebnisliste](img/lobid-query.png)](https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A[1933+TO+1945]+AND+professionOrOccupation.label%3Ak%C3%BCnstler*)
-
----
-
-## Ende
-
-[Weiterführendes Lernmaterial](https://malis21.acka47.net/#/page/weiterf%C3%BChrendes%20lernmaterial)
+# Ende
