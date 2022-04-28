@@ -134,38 +134,36 @@
 			</section>
 
 			<section>
-				<h1>1. Kontext: Datentransformation</h1>
+				<h2>1. Kontext: Datentransformation</h2>
 			</section>
 
 			<section>
-				<h2>Anwendungsszenarien für Datentransformationen</h2>
-				<p><span class="fragment"><em>Datenaufbereitung</em>, z.B. zur Auswertung in einem
-						Drittmittelprojekt</span></p>
-				<p><span class="fragment"><em>Datenanreicherung</em>: z.B. Ergänzung von Daten aus Wikidata in
-						<a href="https://lobid.org">lobid</a></span>
-				<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen: z.B. <a
-							href="https://oersi.org">OERSI</a> aus unterschiedlichen OER-Inhaltsquellen</span></p>
-				<p><span class="fragment"><em>Systemmigration</em>: z.B. in ein neues Bibliotheksmanagementsystem wie
-						Alma oder Folio</span>
+				<h2>Anwendungsszenarien</h2>
+				<p><span class="fragment"><em>Datenanalyse</em>, z.B. Feldabdeckung im Katalog</span></p>
+				<p><span class="fragment"><em>Datenaufbereitung</em>, z.B. zur Visualisierung mit Kibana</span></p>
+				<p><span class="fragment"><em>Datenanreicherung</em>, z.B. Ergänzung von Daten aus Wikidata</span>
+				<p><span class="fragment"><em>Datenaggregation</em> aus unterschiedlichen Quellen, z.B. <a
+							href="https://oersi.org">OERSI</a></span></p>
+				<p><span class="fragment"><em>Systemmigration</em>, z.B. nach Alma oder Folio</span>
 			</section>
 
 			<section>
 				<h2>Annahmen</h2>
 				<p><span class="fragment">Transformationen von Metadaten gehören zum täglichen Geschäft
 						wissenschaftlicher
-						Bibliotheken.</span>
+						Bibliotheken</span>
 				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnisse
-						voraussetzen.</span></p>
+						voraussetzen</span></p>
 				<p><span class="fragment">Datentransformationen werden meist im Zusammenspiel von Fachabteilungen &
-						IT umgesetzt, verbunden mit größeren Kommunikationsaufwand.</span></p>
+						IT umgesetzt, verbunden mit größeren Kommunikationsaufwand</span></p>
 				<p><span class="fragment">Bereits existierende, von anderen entwickelte Transformationsprozesse können
-						nur bedingt entdeckt und nachgenutzt werden.</span></p>
+						nur bedingt entdeckt und nachgenutzt werden</span></p>
 			</section>
 
 			<section>
 				<h2>Das heißt:</h2>
 				<p><span class="fragment">Es gibt großes Potential, eine immer wiederkehrende Arbeit zugänglicher,
-						kollaborativer und effizienter zu gestalten.</span>
+						kollaborativer und effizienter zu gestalten</span>
 			</section>
 
 			<section>
@@ -197,17 +195,9 @@
 				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird
 						Maintainer</span></p>
 				<p><span class="fragment">Ende 2020: Start der Projekte <a
-							href="https://lobid.org/project/metafacture-fix">Metafacture-Fix</a> und <a
+							href="https://lobid.org/project/metafacture-fix">Metafacture Fix</a> und <a
 							href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span>
 				</p>
-			</section>
-
-			<section>
-				<h2>Was kann man mit Metafacture machen?</h2>
-				<p><span class="fragment">Daten analysieren (z.B. Felder oder Werte zählen)</span></p>
-				<p><span class="fragment">Daten zusammenführen / anreichern (z.B. Katalog/Wikipedia)</span></p>
-				<p><span class="fragment">Daten transformieren (z.B. von MARC zu JSON)</span></p>
-				<p><span class="fragment">Daten extrahieren / laden (z.B. von OAI-PMH zu Elasticsearch)</span></p>
 			</section>
 
 			<section>
@@ -239,21 +229,82 @@
 			</section>
 
 			<section>
+				<h2>Workflow-Beispiel</h2>
+				<p>Ausgabe des Inhalts von <code>bib-data.pica.gz</code> als Formeta</p>
+					<pre><code class="bash" data-trim>
+$ gedit sample1.flux &amp;
+					</code></pre>
+					<pre><code class="bash" data-trim>
+"bib-data.pica.gz" 
+|open-file|as-lines|decode-pica|encode-formeta|write("stdout");
+					</code></pre>
+					<pre><code class="bash" data-trim>
+$ flux.sh sample1.flux
+					</code></pre>
+				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+			</section>
+
+			<section>
+				<h2>Workflow-Beispiel</h2>
+				<p>Ausgabe des Inhalts von <code>bib-data.pica.gz</code> als Formeta</p>
+					<pre><code class="bash" data-trim>
+$ gedit sample1.flux &amp;
+					</code></pre>
+					<pre><code class="bash" data-trim>
+"bib-data.pica.gz"
+|open-file
+|as-lines
+|decode-pica
+|encode-formeta(style="multiline")
+|write("stdout");
+					</code></pre>
+					<pre><code class="bash" data-trim>
+$ flux.sh sample1.flux
+					</code></pre>
+				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+			</section>
+
+			<section>
 				<h2>Transformationsmodul</h2>
-				<p><span class="fragment">Morph: XML-basiert, Feld- / Metadaten-Event-Ebene</span></p>
-				<p><span class="fragment">Fix: eigene, Catmandu-Fix-artige Sprache, Record-basiert</span></p>
 				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, normalisieren
 						etc.</span></p>
 				<p><span class="fragment">Feldwerte aus Lookup-Tabellen in externen Dateien (z.B. Freitextfelder ->
 						kontrollierte Vokabulare)</span></p>
+				<p><span class="fragment">Morph: XML-basiert, Feld- / Metadaten-Event-Ebene</span></p>
+				<p><span class="fragment">Fix: eigene, Catmandu-Fix-artige Sprache, Record-basiert</span></p>
 			</section>
 
 			<section>
 				<h2>Morph</h2>
-				<iframe
-					src="https://metafacture.org/playground/?flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cmorph%0A%7Cencode-json%0A%7Cprint%0A%3B&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&active-editor=morph"
-					title="Morph-based workflow in Metafacture Playground" width="800" height="500"></iframe>
-			</section>
+					<pre><code class="nohighlight" data-trim>
+1{a: Faust, b {n: Goethe, v: JW}, c: Weimar}
+2{a: Räuber, b {n: Schiller, v: F}, c: Weimar}
+					</code></pre>
+					<span class="fragment">
+					<pre><code class="xml" data-trim>
+&lt?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1"&gt;
+  &lt;rules&gt;
+    &lt;data source="_id" name="id"/&gt;
+    &lt;data source="a" name="title"/&gt;
+    &lt;combine value="${first} ${last} aus ${place}" name="author"&gt;
+      &lt;data source="b.v" name="first" /&gt;
+      &lt;data source="b.n" name="last" /&gt;
+      &lt;data source="c" name="place" /&gt;
+    &lt;/combine&gt;
+  &lt;/rules&gt;
+&lt;/metamorph&gt;
+					</code></pre>
+					</span>
+					<span class="fragment">
+					<pre><code class="json" data-trim>
+{"id":"1", "title":"Faust", "author":"JW Goethe aus Weimar"}
+{"id":"2", "title":"Räuber", "author":"F Schiller aus Weimar"}
+					</code></pre>
+					<p><small><a href="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cmorph%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=morph">Beispiel im Playground</a></small></p>
+					</span>
+				</span>
+      		</section>
 
 			<section>
 				<h1>3. Metafacture Fix</h1>
@@ -271,13 +322,28 @@
 						Metadatenfachleute</span></p>
 			</section>
 
-
 			<section>
 				<h2>Fix</h2>
-				<iframe
-					src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix"
-					title="Fix-based workflow in Metafacture Playground" width="1024" height="520"></iframe>
-			</section>
+					<pre><code class="nohighlight" data-trim>
+1{a: Faust, b {n: Goethe, v: JW}, c: Weimar}
+2{a: Räuber, b {n: Schiller, v: F}, c: Weimar}
+					</code></pre>
+					<span class="fragment">
+					<pre><code class="nohighlight" data-trim>
+move_field(_id, id)
+move_field(a, title)
+paste(author, b.v, b.n, '~aus', c)
+retain(id, title, author)
+					</code></pre>
+					</span>
+					<span class="fragment">
+					<pre><code class="json" data-trim>
+{"id":"1", "title":"Faust", "author":"JW Goethe aus Weimar"}
+{"id":"2", "title":"Räuber", "author":"F Schiller aus Weimar"}
+					</code></pre>
+					<p><small><a href="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix">Beispiel im Playground</a></small></p>
+					</span>
+      		</section>
 
 			<section>
 				<h1>4. Metafacture Playground</h1>
@@ -292,29 +358,31 @@
 			</section>
 
 			<section>
+				<iframe src="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&morph=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E%0A%3Cmetamorph+xmlns%3D%22http%3A//www.culturegraph.org/metamorph%22+xmlns%3Axsi%3D%22http%3A//www.w3.org/2001/XMLSchema-instance%22%0A%09version%3D%221%22%3E%0A%09%3Crules%3E%0A%09%09%3Cdata+source%3D%22_id%22+name%3D%22id%22/%3E%0A%09%09%3Cdata+source%3D%22a%22+name%3D%22title%22/%3E%0A%09%09%3Ccombine+value%3D%22%24%7Bfirst%7D+%24%7Blast%7D+aus+%24%7Bplace%7D%22+name%3D%22author%22%3E%0A%09%09%09%3Cdata+source%3D%22b.v%22+name%3D%22first%22+/%3E%0A%09%09%09%3Cdata+source%3D%22b.n%22+name%3D%22last%22+/%3E%0A%09%09%09%3Cdata+source%3D%22c%22+name%3D%22place%22+/%3E%0A%09%09%3C/combine%3E%0A%09%3C/rules%3E%0A%3C/metamorph%3E%0A&active-editor=fix" width="900" height="675"></iframe>
+			</section>
+
+			<section>
 				<h1>5. Ausblick</h1>
 			</section>
 
 			<section>
 				<h2>Community vergrößern</h2>
 				<p><span class="fragment">Metafacture hbz-intern als zentrales Tool etablieren</span></p>
-				<p><span class="fragment">mehr Bibliotheken im hbz-Verbund als Nutzer:innen gewinnen</span></p>
-				<p><span class="fragment">mehr Nutzer:innen und Mitentwickler:innen außerhalb des Verbunds
-						(wieder)gewinnen</span></p>
+				<p><span class="fragment">Weitere Nutzer:innen und Mitentwickler:innen innerhalb und außerhalb des hbz-Verbunds gewinnen</span></p>
 			</section>
 
 			<section>
 				<h2>Standards nutzen und aufbauen</h2>
-				<p><span class="fragment">Unterstützung der Reconciliation API</span></p>
 				<p><span class="fragment">SKOS Lookups (zum Andocken an <a
 							href="https://github.com/skohub-io/skohub-vocabs">SkoHub Vocabs</a>)</span></p>
+				<p><span class="fragment">Unterstützung der Reconciliation API</span></p>
 				<p><span class="fragment">Fix-Standardisierung</span></p>
 			</section>
 
 			<section>
 				<h1>ETL Hub</h1>
 				<p><span class="fragment">ETL: Extract, Transform, Load</span></p>
-				<p><span class="fragment">mehr Kollaboration, Teilen & Auffinden von Workflows ermöglichen</span></p>
+				<p><span class="fragment">mehr Kollaboration, Teilen & Auffinden von Workflows ermöglichen (nicht nur für Metafacture)</span></p>
 				<p><span class="fragment">Entwicklung von Best Practices zur Paketierung und Beschreibung von
 						ETL-Konfigurationen</span></p>
 				<p><span class="fragment">Aufbau eines ETL Hubs zum Entdecken existierender ETL-Prozesse für die
@@ -323,10 +391,6 @@
 
 			<section>
 				<h1>6. Fragen und Diskussion</h1>
-			</section>
-
-			<section>
-				<h3>Wer hätte Interesse an einem Metafacture-Workshop teilzunehmen?</h3>
 			</section>
 
 			<section>
