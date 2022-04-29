@@ -126,7 +126,7 @@
 				<ol>
 					<li>Kontext: Datentransformation</li>
 					<li>Was ist Metafacture?</li>
-					<li>Metafacture-Fix</li>
+					<li>Metafacture Fix</li>
 					<li>Metafacture Playground</li>
 					<li>Ausblick</li>
 					<li>Fragen & Diskussion</li>
@@ -154,7 +154,7 @@
 				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnisse
 						voraussetzen.</span></p>
 				<p><span class="fragment">Datentransformationen werden meist im Zusammenspiel von Fachabteilungen &
-						IT umgesetzt, verbunden mit größeren Kommunikationsaufwand.</span></p>
+						IT umgesetzt, verbunden mit größerem Kommunikationsaufwand.</span></p>
 				<p><span class="fragment">Bereits existierende, von anderen entwickelte Transformationsprozesse können
 						nur bedingt entdeckt und nachgenutzt werden.</span></p>
 			</section>
@@ -189,15 +189,12 @@
 
 			<section>
 				<h2>Metafacture-Historie</h2>
-				<p>2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch mit dem hbz
-				</p>
-				<p><span class="fragment">2013: Umzug auf GitHub, Open-Source-Projekt geworden</span></p>
+				<p><span class="fragment">2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch mit dem hbz</span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-core/graphs/contributors">2013: Umzug auf GitHub, Open-Source-Projekt geworden</a></span></p>
 				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird
 						Maintainer</span></p>
-				<p><span class="fragment">Ende 2020: Start der Projekte <a
-							href="https://lobid.org/project/metafacture-fix">Metafacture Fix</a> und <a
-							href="https://lobid.org/project/metafacture-playground">Metafacture Playground</a></span>
-				</p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix/graphs/contributors">2019: Start von Metafacture Fix</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-playground/graphs/contributors">2021: Start von Metafacture Playground</a></span></p>
 			</section>
 
 			<section>
@@ -269,6 +266,189 @@ $ flux.sh sample1.flux
 			</section>
 
 			<section>
+				<h2>Workflow-Beispiel: Ausgabe</h2>
+					<pre><code class="nohighlight" data-trim>
+'482147350' {
+	'001@' {
+		'a': '5',
+		'0': '1-2'
+	},
+	'001A' {
+		'0': '1100:15-10-94'
+	},
+	'001B' {
+		'0': '9999:12-06-06',
+		't': '16:10:17.000'
+	},
+	'001D' {
+		'0': '9999:99-99-99'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Aag'
+	},
+	'003@' {
+		'0': '482147350'
+	},
+	'006U' {
+		'0': '94,P05'
+	},
+	'007E' {
+		'0': 'U 70.16407'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '74057548'
+	},
+	'011@' {
+		'a': '1970'
+	},
+	'017A' {
+		'a': 'rh'
+	},
+	'021A' {
+		'a': 'Die @Berufsfreiheit der Arbeitnehmer und ihre Ausgestaltung in völkerrechtlichen Verträgen',
+		'd': 'Eine Grundrechtsbetrachtg'
+	},
+	'028A' {
+		'9': '106884905',
+		'7': 'Tn3',
+		'A': 'gnd',
+		'0': '106884905',
+		'a': 'Projahn',
+		'd': 'Horst D.'
+	},
+	'033A' {
+		'p': 'Würzburg'
+	},
+	'034D' {
+		'a': 'XXXVIII, 165 S.'
+	},
+	'034I' {
+		'a': '8'
+	},
+	'037C' {
+		'a': 'Würzburg, Jur. F., Diss. v. 7. Aug. 1970'
+	}
+}
+'958090564' {
+	'001@' {
+		'0': '1',
+		'a': '5'
+	},
+	'001A' {
+		'0': '1140:08-12-99'
+	},
+	'001B' {
+		'0': '9999:05-01-08',
+		't': '22:57:29.000'
+	},
+	'001D' {
+		'0': '9999:99-99-99'
+	},
+	'001U' {
+		'0': 'utf8'
+	},
+	'001X' {
+		'0': '0'
+	},
+	'002@' {
+		'0': 'Aa'
+	},
+	'003@' {
+		'0': '958090564'
+	},
+	'004A' {
+		'f': 'kart. : DM 9.70, EUR 4.94, sfr 8.00, S 68.00'
+	},
+	'006U' {
+		'0': '00,B05,0285'
+	},
+	'007I' {
+		'S': 'o',
+		'0': '76088278'
+	},
+	'011@' {
+		'a': '1999'
+	},
+	'017A' {
+		'a': 'rb',
+		'a': 'si'
+	},
+	'019@' {
+		'a': 'XA-AT'
+	},
+	'021A' {
+		'a': 'Zukunft Bildung',
+		'h': 'Politische Akademie. [Hrsg. von Günther R. Burkert-Dottolo und Bernhard Moser]'
+	},
+	'028C' {
+		'9': '130681849',
+		'7': 'Tp1',
+		'V': 'piz',
+		'A': 'gnd',
+		'0': '130681849',
+		'E': '1952',
+		'a': 'Burkert',
+		'd': 'Günther R.',
+		'B': 'Hrsg.'
+	},
+	'033A' {
+		'p': 'Wien',
+		'n': 'Polit. Akad.'
+	},
+	'034D' {
+		'a': '79 S.'
+	},
+	'034I' {
+		'a': '24 cm'
+	},
+	'036F' {
+		'x': '299 12',
+		'9': '551720077',
+		'g': 'Adn',
+		'7': 'Tb1',
+		'A': 'gnd',
+		'0': '1040469-7',
+		'a': 'Politische Akademie',
+		'g': 'Wien',
+		'Y': 'PA-Information',
+		'h': 'Politische Akademie, WB',
+		'p': 'Wien',
+		'J': 'Politische Akad., WB',
+		'l': '99,2'
+	},
+	'036F/01' {
+		'x': '12',
+		'9': '025841467',
+		'g': 'Advz',
+		'i': '2142105-5',
+		'Y': 'Aktuelle Fragen der Politik',
+		'h': 'Politische Akademie',
+		'p': 'Wien',
+		'J': 'Politische Akad. der ÖVP',
+		'l': 'Bd. 2'
+	},
+	'045E' {
+		'a': '22',
+		'd': '18',
+		'm': '370'
+	},
+	'047A' {
+		'S': 'FE',
+		'a': 'ta'
+	}
+}
+					</code></pre>
+				<p><small><a href="https://github.com/hbz/metafacture-flux-examples/tree/master/sample1">https://github.com/hbz/metafacture-flux-examples/tree/master/sample1</a></small></p>
+			</section>
+
+			<section>
 				<h2>Transformationsmodul</h2>
 				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, normalisieren
 						etc.</span></p>
@@ -313,19 +493,27 @@ $ flux.sh sample1.flux
 			</section>
 
 			<section>
-				<h1>3. Metafacture Fix</h1>
+				<h1>Zwischenfazit</h1>
+				<p><span class="fragment">Erfahrung hat gezeigt: Metafacture ist durch seine Modularität und Erweiterbarkeit sehr vielseitig einsetzbar, aber die Transformation mit Morph ist sehr komplex</span></p>
+				<p><span class="fragment">Kernproblem: Transformationsregeln beziehen sich konzeptuell auf ganze Records (z.B. wenn in Feld x das und das steht, dann mach mit Feld y das und das)</span></p>
+				<p><span class="fragment">Grundsätzlich bahandelt man in Morph aber wie vorhin beschrieben quasi Feld-Events, wird sehr schnell unintuitiv</span></p>
 			</section>
 
 			<section>
-				<h2>Metafacture-Fix: Ziele</h2>
+				<h1>3. Metafacture Fix</h1>
+				<a href="https://github.com/metafacture/metafacture-fix/graphs/contributors"><img src="img/fix-commits.png" style="border: none;" /></a>
+			</section>
+
+			<section>
+				<h2>Metafacture Fix: Ziele</h2>
 				<p><span class="fragment">Wechsel von einem Feld-basierten zu einem Record-basierten Verarbeitungsansatz
 						bei der Transformation</span></p>
 				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a
 							href="https://github.com/LibreCat/Catmandu">Catmandu</a> (mittelfristiges Ziel:
-						Standardisierung)</span></p>
+						Standardisierung, s. <a href="https://github.com/elag/FIG">https://github.com/elag/FIG</a>)</span></p>
 				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
-				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar*innen und andere
-						Metadatenfachleute</span></p>
+				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar:innen und andere
+						Metadatenfachleute (bei uns z.B. in OERSI, erster Anwendungsfall und Entwicklungsbegleitung zu Fix)</span></p>
 			</section>
 
 			<section>
@@ -354,15 +542,28 @@ retain(id, title, author)
 			</section>
 
 			<section>
+				<h1>Aktueller Stand Fix</h1>
+				<p><span class="fragment">Beispiele: produktiv in <a href="https://gitlab.com/oersi/oersi-etl/-/tree/master/data/production">OERSI</a> (diverse Web-Quellen &rarr; JSON), im Aufbau für <a href="https://github.com/hbz/limetrans/tree/metafix/src/main/resources/transformation">Verbundkatalog</a> (MARC &rarr; JSON) und <a href="https://github.com/hbz/rpb/tree/main/conf">Rheinland-Pfälzische Bibliographie</a> (Allegro &rarr; JSON)</span></p>
+				<p><span class="fragment">Tests: <a href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/java/org/metafacture/metafix">unit</a> (Simulation von Input-Output-Events und Fix auf Code-Ebene; aktuell 436 pass / 26 skip), <a href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/resources/org/metafacture/metafix/integration">integration</a> (Input, Flux, Fix, Output als Dateien wie bei Real-World-Setup; aktuell 161 pass / 67 skip, d.h. aktuell 70% "conformance")</span></p>
+				<p><span class="fragment">d.h. vieles geht schon, aber es gibt auch noch einiges zu tun</span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">Aktuelle Dokumentation</a>, <a href="https://github.com/metafacture/metafacture-fix">GitHub-Repo</a>, <a href="https://metafacture.org/playground">Playground</a></span></p>
+			</section>
+
+			<section>
 				<h1>4. Metafacture Playground</h1>
 			</section>
 
 			<section>
 				<h2>Metafacture Playground</h2>
+				<p><span class="fragment">Webbasierte Oberfläche zum Ausprobieren und Austauschen von Workflows</span></p>
+				<p><span class="fragment">Ziel: Einstiegshürde für Metafacture senken, neben Morph-Komplexität unserer Erfahrung nach ein weiteres zentrales Problem bei der Metafacture-Nutzung</span></p>
+				<p><span class="fragment">Für Entwicklung, Dokumentation, Tutorials, Workshops</span></p>
 				<p><span class="fragment"><a
 							href="https://metafacture.org/playground">https://metafacture.org/playground</a></span></p>
-				<p><span class="fragment">webbasierte Oberfläche zum Herumspielen</span></p>
-				<p><span class="fragment">für Tutorials, Workshops, Dokumentation</span></p>
+			</section>
+
+			<section>
+				<a href="https://metafacture.org/playground/?flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix%0A%7Cencode-json%0A%7Cprint%0A%3B&fix=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&active-editor=fix"><img src="img/playground.png" style="border: none;" /></a>
 			</section>
 
 			<section>
@@ -386,8 +587,8 @@ retain(id, title, author)
 				<h2>Standards nutzen und aufbauen</h2>
 				<p><span class="fragment">SKOS Lookups (zum Andocken an <a
 							href="https://github.com/skohub-io/skohub-vocabs">SkoHub Vocabs</a>)</span></p>
-				<p><span class="fragment">Unterstützung der Reconciliation API</span></p>
-				<p><span class="fragment">Fix-Standardisierung</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/community/reconciliation/">Entity Reconciliation</a> mit <a href="https://docs.openrefine.org/manual/reconciling">OpenRefine-kompatiblen Diensten</a></span></p>
+				<p><span class="fragment">Fix-Standardisierung, s. <a href="https://github.com/elag/FIG">https://github.com/elag/FIG</a></span></p>
 			</section>
 
 			<section>
