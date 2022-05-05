@@ -27,11 +27,24 @@
 
 ---
 
+# Hello, again!
+
+---
+
+### 10 Jahre ist's her
+
+[![Programm der FIS Bildung-Frühjahrstagung vom 22.05.2012 zum Thema
+'Linked Open Data' mit drei Vorträgen, zwei davon von Adrian Pohl](img/fid-bildung-fachtagung-2012.png)](https://www.fachportal-paedagogik.de/pdf/FIS_Bildung_Tagungsdokumentation_Archiv/tagung2012.pdf)
+
+---
+
 ### Agenda
 
 1. Warum Linked Open Data?
-2. LOD-Definition
-3. 
+2. LOD Basics
+3. Linked Open Usable Data
+4. SKOS
+5. Fragen und Diskussion
 
 ---
 
@@ -53,7 +66,7 @@
 
 ### LOD als politische Entscheidung
 
-<p align="left">RDF hat zum Ziel, Austausch und Nachnutzung von Daten über Systemgrenzen hinweg zu vereinfachen. Somit richtet es sich an Organisationen,</p>
+<p align="left">LOD hat zum Ziel, Austausch und Nachnutzung von Daten über Systemgrenzen hinweg zu vereinfachen. Somit richtet es sich an Organisationen,</p>
 1. deren Geschäftsmodell nicht darauf basiert, Nutzer\*innendaten zu horten
 2. die nicht im kommerziellen Wettbewerb stehen
 3. die existieren, um Information zu teilen
@@ -62,7 +75,7 @@
 
 ---
 
-# 2. LOD-Definition
+# 2. LOD Basics
 
 ---
 
@@ -127,7 +140,7 @@ Vergabe einer [Offenen Lizenz](https://opendefinition.org/licenses/)
 
 * graph-basiertes Datenmodell
 * zum Austausch von Daten über das Web, entworfen und gepflegt vom W3C
-* Abstraktes Modell mit verschiedenen Serialisierungsformaten (RDF/XML, Turtle, JSON-LD…)
+* abstraktes Modell mit verschiedenen Serialisierungsformaten (RDF/XML, Turtle, JSON-LD…)
 
 ---
 
@@ -160,9 +173,8 @@ Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
 
 ---
 
-
-
 ### Abbildung von Daten in RDF
+
 * **Subjekt**: Ressource über die eine Aussage getroffen wird
 * **Prädikat**: Beziehung zwischen Subjekt und Objekt
 * **Objekt**: Ressource, zu dem die Ressource in einer Verbindung steht oder ein Literal
@@ -192,6 +204,7 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 ---
 
 ### N-Triples
+
 ```
 <https://orcid.org/0000-0001-9083-7442> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/namePerson> .
 <https://orcid.org/0000-0001-9083-7442> <https://schema.org/namename> "Adrian"@de .
@@ -205,6 +218,7 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 ---
 
 ### Turtle
+
 ``` turtle
 @prefix schema: <https://schema.org/name> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -217,6 +231,7 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 ---
 
 ### RDF/XML
+
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -236,6 +251,7 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 ---
 
 ### RDFa – RDF in attributes
+
 ``` html
 <div xmlns:schema="https://schema.org/" xmlns:foaf="http://xmlns.com/foaf/0.1/"
     about="https://orcid.org/0000-0001-9083-7442" typeOf="schema:Person">
@@ -251,6 +267,7 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 ---
 
 ### JSON-LD
+
 ``` json
 {
    "@context":{
@@ -291,6 +308,7 @@ Zur Erstellung und Validierung lässt sich gut dieser Turtle-Web-Editor nutzen: 
 
 - RDF Schema und Web Ontology Language
 - Beschreibugnssprachen zur Definition und Dokumentation von Properties und Klassen und deren Beziehungen
+- Beispiele: schema.org, Dublin Core, SKOS, Bibframe, FoaF
 
 ---
 
@@ -337,6 +355,7 @@ dcterms:title
 ---
 
 ### SPARQL Protocol and RDF Query Language
+
 * Sprache/Protokoll zur Abfrage und Modifikation von RDF-Graphen
 * Grundidee: Beschreibung von Subgraphen, die in dem abzufragenden Graphen enthalten sind inklusive `?Variabeln`
 * Server antwortet mit passenden Knoten/URIs, für die das Graphmuster passt
@@ -344,6 +363,7 @@ dcterms:title
 ---
 
 ### Gut zu SPARQLn: Wikidata
+
 * ein Knowledge Graph
 * ein Wikimedia-Projekt
 * für Menschen und Maschinen
@@ -355,6 +375,7 @@ dcterms:title
 ---
 
 ### Wikidata-Datenmodell
+
 [![](img/wikidata-datenmodell.png)](https://commons.wikimedia.org/wiki/File:Datamodel_in_Wikidata_de.svg)
 <small>Quelle: <a href="https://commons.wikimedia.org/wiki/File:Datamodel_in_Wikidata_de.svg">Wikimedia Commons</a>, Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">CC0</a></small>
 
@@ -375,6 +396,7 @@ WHERE
 ---
 
 ### Beispiel Wikidata-Query II
+
 ```sparql
 SELECT ?item ?itemLabel
 WHERE
@@ -392,6 +414,7 @@ WHERE
 ---
 
 ### Beispiel Wikidata-Query III
+
 ```sparql
 SELECT ?item ?itemLabel
 WHERE
@@ -407,6 +430,7 @@ WHERE
 ---
 
 ### Beispiel Wikidata-Query IV
+
 ```sparql
 #defaultView:ImageGrid
 
@@ -424,6 +448,7 @@ WHERE
 ---
 
 ### Beispiel Wikidata-Query V
+
 ```sparql
 #defaultView:Map
 
@@ -440,8 +465,13 @@ WHERE
 
 ---
 
-### Übung: SPARQl-Abfrage erweitern
+### Übung: SPARQL-Abfrage erweitern
+
 -> https://w.wiki/4ixR
+
+---
+
+# 3. Linked Open Usable Data
 
 ---
 
@@ -464,6 +494,7 @@ WHERE
 ---
 
 ### Using *data*?
+
 * Daten werden mit existierender Software bearbeitet (ausgewertet, ergänzt, integriert etc.)
 * Entwicklung neuer Software zur Interaktion mit Daten
 * LOUD: Orientierung auf Bedürfnisse und Konventionen rund um Software (Entwicklung, Standards, etc.)
@@ -473,6 +504,7 @@ WHERE
 ---
 
 ### LOUD = Web-APIs mit JSON-LD
+
 * Entwickler:innen sind Kernzielgruppe von Open-Data-Publikation
 * APIs sind das User Interface von Entwickler:innen
 
@@ -525,12 +557,13 @@ Ergänze einen Kontext im JSON-LD Playground: http://tinyurl.com/ya3ydscw
 *Usable* heisst nicht nur dass die Daten strukturell gut nutzbar sind, sondern auch einige Vorteile von Linked Data mit sich bringen:
 
 1. Implizite Dokumentation: Properties haben URIs und ihre Bedeutung lässt sich nachschlagen
-2. Interoperabilität: wer nicht nachnutzt, muss selbst spezifizieren
+2. Interoperabilität: wer faul ist, nutzt nach und muss nicht selbst spezifizieren
 3. Things not strings: Präferenz von URIs über Strings führt zu Erstellung, Nutzung und Pflege von SKOS-Schemas für kontrollierte Wertelisten
 
 ---
 
 ### LOUD-Beispiele
+
 * [lobid](https:/lobid.org)
 * [IIIF](https://iiif.io/)
 * [Linked Art](https://linked.art/)
@@ -538,9 +571,20 @@ Ergänze einen Kontext im JSON-LD Playground: http://tinyurl.com/ya3ydscw
 
 ---
 
+## Low Hanging Fruit I
+
+- JSON-LD lässt sich auch in HTML-Seiten einbetten mit `<script type="application/ld+json">`
+- für viele Content-Management-Systeme gibt es Plugins, z.B. für WordPress [Schema](https://wordpress.org/plugins/schema/) oder [Structured Content](https://wordpress.org/plugins/structured-content/)
+
+---
+
+# 4. SKOS
+
+---
+
 ### <img src="https://www.w3.org/Icons/SW/Buttons/sw-skos-magenta-v.svg" width=300 style="border: none; box-shadow: none;" />
 * SKOS: **S**imple **K**nowledge **O**rganization **S**ystem
-* Datenmodell für die maschinenlesbare und webbasierte Publikation kontrollierter Vokabulare als Linked Open Data2009 als [Empfehlung des World Wide Web Consortiums (W3C)](https://www.w3.org/TR/2009/REC-skos-reference-20090818/) veröffentlicht
+* Datenmodell (RDFS/OWL) für die maschinenlesbare und webbasierte Publikation kontrollierter Vokabulare als Linked Open Data 2009 als [Empfehlung des World Wide Web Consortiums (W3C)](https://www.w3.org/TR/2009/REC-skos-reference-20090818/) veröffentlicht
 * Unterstützt Mehrsprachigkeit, Abbildung von Beziehungen & einiges mehr
 
 ---
@@ -553,6 +597,7 @@ Ergänze einen Kontext im JSON-LD Playground: http://tinyurl.com/ya3ydscw
 ---
 
 ### Vorteile
+
 * Webintegration
 * Maschinenlesbarkeit
 * Interoperabilität
@@ -562,6 +607,7 @@ Ergänze einen Kontext im JSON-LD Playground: http://tinyurl.com/ya3ydscw
 ---
 
 ### SKOS-Namespace und -Prefix
+
 `@prefix skos: <http://www.w3.org/2004/02/skos/core#>.`
 
 ---
@@ -583,6 +629,7 @@ Ergänze einen Kontext im JSON-LD Playground: http://tinyurl.com/ya3ydscw
 ---
 
 ### Bsp.: Concept Scheme
+
 ```turtle
 @prefix colour: <https://example.org/colour-with-hierarchy/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -598,6 +645,7 @@ colour: a skos:ConceptScheme ;
 ---
 
 ### Wichtige SKOS-Properties
+
 * Verbindung zwischen Vokabular und seinen Werten: `hasTopConcept`, `topConceptOf`, `inScheme`
 * Vorzugsbezeichnung: `prefLabel`
 * Alternativbezeichnung: `altLabel`
@@ -606,6 +654,7 @@ colour: a skos:ConceptScheme ;
 ---
 
 ### Bsp.: SKOS Concept I
+
 ```
 colour:violet a skos:Concept ;
     skos:prefLabel "Violett"@de, "violet"@en ;
@@ -618,6 +667,7 @@ colour: skos:hasTopConcept colour:violet .
 ---
 
 ### Bsp.: SKOS Concept II
+
 ```
 colour:green a skos:Concept ;
     skos:prefLabel "Green"@en, "Grün"@de ;
@@ -632,6 +682,7 @@ colour:grassgreen a skos:Concept ;
 ---
 
 ### Sonstige Properties I
+
 * Notation: `notation`
 * Dokumentation des Vokabulars und seiner Entwicklung: `changeNote`, `definition`, `editorialNote`, `example`, `note`, `historyNote`, `scopeNote`
 * Externe Relationen: `broadMatch`, `narrowMatch`, `exactMatch`, `closeMatch`, `mappingRelation`
@@ -639,6 +690,7 @@ colour:grassgreen a skos:Concept ;
 ---
 
 ### Bsp.: SKOS Concept III
+
 ```
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
@@ -666,58 +718,18 @@ colour:grassgreen a skos:Concept ;
 
 ---
 
-### Demo: Publikation mit SkoHub Vocabs (Docker)
+### SkoHub Vocabs
 
-1. Fork von skohub-docker-vocabs auf GitHub
-2. Kleine Anpassungen der GitHub-Actions-Konfiguration im Repo
-3. GitHub Actions aktivieren
-4. Bau eines eigenen Vokabulars
-5. git push und Publikation
-6. Anlegen von Perma-URIs
-
----
-
-### 1. Fork von skohub-docker-vocabs auf GitHub
--> https://github.com/skohub-io/skohub-docker-vocabs
-![](img/fork-skohub-docker-vocabs.png)
-
----
-
-### 2. Anpassung der GitHub-Actions-Konfiguration
-* Klick im Fork-Repo auf den Ordner .github/workflows
-* Klick auf die Datei `main.yml` und anschließend auf den “Edit”-Button (✏️)
-* Zeile 34: auf EUREN GitHub-Namen ändern, z.B. `git clone https://github.com/acka47/skohub-docker-vocabs.git data/`
-
----
-
-### 3. GitHub Actions aktivieren
-![](img/github-actions-aktivieren.png)
-
----
-
-### 4. Eigenes Vokabular schreiben
-* Nutzung [bereits mit SkoHub Vocabs publizierter Vokabulare](https://pad.gwdg.de/s/skohub-booth-at-swib21#Example-Vocabs) als Vorlage/Orientierung
-* Dieser [Turtle Web-Editor](https://felixlohmeier.github.io/turtle-web-editor/) kann zur RDF-Validierung benutzt werden
-
----
-
-### 5. git push & Publikation
-* mit `git push` bzw. einem direkten commit auf GitHub, wird das Vokabular gebaut und unter `https://{GitHub-username}.github.io/skohub-docker-vocabs/` veröffentlicht
-* Das Bauen und Publizieren kann ein wenig dauern.
-
----
-
-### 6. Anlegen von Perma-URIs
-Siehe dazu [Anleitung aus dem SkoHub-Workshop bei der SWIB20](https://github.com/skohub-io/swib20-workshop/blob/main/resources/publish-vocab.md#step-6-set-up-redirect-for-persistent-identifiers)
-
----
-
-### Mehr Anleitungen
-Siehe die Punkte *SKOS* und *SkoHub Vocabs* unter [Weiterführendes Lernmaterial](https://malis21.acka47.net/#/page/weiterf%C3%BChrendes%20lernmaterial)
+- Software zum Publizieren von SKOS-Vokabularen als statische Webeseiten
+- leicht aufzusetzen und zu deployen
+- git-basierte Redaktionsprozesse
+- Integration mit GitHub und GitLab via Webhooks
+- “serverless” Hosting möglich
 
 ---
 
 ### Beispielvokabulare
+
 * Kompetenzzentrum Interoperable Daten (KIM):
 	* [Hochschulfächersystematik](https://w3id.org/kim/hochschulfaechersystematik/scheme)
 	* [Resource Types](https://w3id.org/kim/hcrt/scheme)
@@ -726,6 +738,18 @@ Siehe die Punkte *SKOS* und *SkoHub Vocabs* unter [Weiterführendes Lernmaterial
 * Wir lernen online: https://vocabs.openeduhub.de/
 * [ZPID](http://zpidvokabulare.surge.sh/index.en.html) (Test), leibniz-psychology.org
 * [MPIeR Categories of Matters regulated by Police Ordinances](https://w3id.org/rg-mpg-de/polmat/scheme)
+
+---
+
+## Low Hanging Fruit II
+
+- existierende vom Bildungsserver gepflegte kontrollierte Vokabulare nach SKOS überführen und mit SkoHub Vocabs veröffentlichen
+- kann auch über skohub.io, ein Service des hbz, publiziert werden
+
+---
+
+# 5. Fragen und Diskussion
+
 
 ---
 
