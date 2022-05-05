@@ -58,7 +58,7 @@
 2. die nicht im kommerziellen Wettbewerb stehen
 3. die existieren, um Information zu teilen
 
-<small>Credit: <a href="https://www.youtube.com/watch?v=7VGJCLef3wM">Dorian Taylor. "Linked Data is a political agenda"</a></small>
+<small>Siehe auch: <a href="https://www.youtube.com/watch?v=7VGJCLef3wM">Dorian Taylor. "Linked Data is a political agenda"</a></small>
 
 ---
 
@@ -82,20 +82,13 @@ Damit Daten nachgenutzt werden können, sollten sie sowohl rechtlich als auch te
 
 ### Rechtliche Offenheit
 
-Vergabe einer Offenen Lizenz
+Vergabe einer [Offenen Lizenz](https://opendefinition.org/licenses/)
 
-für Daten hat sich CC0 etabliert
+(für Daten hat sich [CC0](https://creativecommons.org/publicdomain/zero/1.0/) etabliert)
 
 ---
 
-### Linked Data: Best Practices
-
-1. Nutze URIs als Namen für Dinge
-2. Nutze HTTP-URIs, so dass Menschen sie aufrufen können
-3. Wenn jemand einen URI aufruft, biete nützliche Informationen an unter Nutzung der Standards (RDF*, SPARQL)
-4. Nimm Links zu anderen URIs auf, so dass weitere Dinge entdeckt werden können.
-
-[Tim Berners-Lee (2006ff): Linked Data – Design Issues](https://www.w3.org/DesignIssues/LinkedData.html)
+## Technische Offenheit
 
 ---
 
@@ -103,11 +96,30 @@ für Daten hat sich CC0 etabliert
 
 ---
 
+### Linked Data: Best Practices
+
+1. Nutze URIs als Namen für Dinge
+2. Nutze HTTP-URIs, so dass Menschen sie aufrufen können
+3. Wenn jemand einen URI aufruft, biete nützliche Informationen an unter Nutzung der Standards (RDF, SPARQL)
+4. Nimm Links zu anderen URIs auf, so dass weitere Dinge entdeckt werden können.
+
+[Tim Berners-Lee (2006ff): Linked Data – Design Issues](https://www.w3.org/DesignIssues/LinkedData.html)
+
+---
+
 ### Exkurs: URIs
 
 * *Uniform*: einheitliche Struktur ([RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986))
 * *Resource*: ein Ding, ob digital oder nicht-digital
-* *Identifier*: Identifikation durch Namensvergabe
+* *Identifier*: Identifikation durch Vergabe eines Namens/einer ID
+
+---
+
+### URIs
+
+- Namensräume machen URIs eindeutig
+- z.B. gibt es viele Webseiten, die "about" oder "faq" heißen und durch die Angabe der Domain disambiguiert werden
+- URIs können als bloßer Identifikator genutzt werden, ohne im Browser aufgerufen werden zu können
 
 ---
 
@@ -125,12 +137,30 @@ für Daten hat sich CC0 etabliert
 
 ---
 
-### Tripel überall
+![Ein komplexerer Graph mit vielen Knoten und Kanten](img/graph.png)
 
-Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
+<small>[File:SocialNetworkAnalysis.png](https://commons.wikimedia.org/wiki/File:SocialNetworkAnalysis.png) von Martin Grandjean, [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de)</small>
+
+---
+
+### RDF: ein gerichteter, beschrifteter Graph
+
+- directed labeled graph
+- d.h. die Kanten haben eine Richtung und ein Etikett
+
 ![Ein Tripel mit zwei Knoten "Subjekt" und "Objekt", verbunden durch eine Kante "Prädikat"](img/triple.png)
 
 ---
+
+### Tripel: Das Graph-Atom
+
+Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:
+
+![Ein Tripel mit zwei Knoten "Subjekt" und "Objekt", verbunden durch eine Kante "Prädikat"](img/triple.png)
+
+---
+
+
 
 ### Abbildung von Daten in RDF
 * **Subjekt**: Ressource über die eine Aussage getroffen wird
@@ -243,16 +273,66 @@ Deshalb wird es ein "abstraktes" Modell genannt.
 
 ---
 
-### RDF-Visualisierung 
+### RDF-Visualisierung
+
 ![](img/rdf.png)
 
 ---
 
 ### Übung: Turtle schreiben
 
-Erstellen Sie eine kurze Beschreibung von sich orientiert am Beispiel von [Slide 18](#18).
+Erstellen Sie eine kurze Beschreibung von sich orientiert am Beispiel von [Slide 25](#25).
 
 Zur Erstellung und Validierung lässt sich gut dieser Turtle-Web-Editor nutzen: https://felixlohmeier.github.io/turtle-web-editor/
+
+---
+
+### RDFS und OWL
+
+- RDF Schema und Web Ontology Language
+- Beschreibugnssprachen zur Definition und Dokumentation von Properties und Klassen und deren Beziehungen
+
+---
+
+### Beispiel: DC Terms
+
+- URI: http://purl.org/dc/terms/
+- Turtle-Version: https://www.dublincore.org/2020/01/20/dublin_core_terms.ttl
+
+---
+
+```
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcterms:BibliographicResource
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdfs:Class ;
+    rdfs:comment "A book, article, or other documentary resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Bibliographic Resource"@en .
+
+
+dcterms:title
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "A name given to the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Title"@en ;
+    rdfs:range rdfs:Literal .
+```
+
+---
+
+
+```
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://slides.lobid.org/2022-05-06-lod-dipf/>
+  rdf:type dct:BibliographicResource ;
+  dct:title "Linked Open Data – Eine Einführung"@de ;
+  dct:creator <https://lobid.org/team/ap#!> .
+```
 
 ---
 
