@@ -17,7 +17,7 @@
     Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br />
     <a href="https://www.hbz-nrw.de"><img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
   </small>
-  <small>DIPF, 2022-05-06</small>
+  <small>Teamworkshop des Deutschen Bildungsservers, 2022-05-06</small>
 
   <small>
     <a href="https://slides.lobid.org/2022-05-06-lod-dipf/">https://slides.lobid.org/2022-05-06-lod-dipf/</a>
@@ -130,6 +130,7 @@ Vergabe einer [Offenen Lizenz](https://opendefinition.org/licenses/)
 
 ### URIs
 
+- URIs sind die Basis eines verteilten, dezentral gepflegten Linked-Data-Netzwerks
 - Namensräume machen URIs eindeutig
 - z.B. gibt es viele Webseiten, die "about" oder "faq" heißen und durch die Angabe der Domain disambiguiert werden
 - URIs können als bloßer Identifikator genutzt werden, ohne im Browser aufgerufen werden zu können
@@ -158,10 +159,10 @@ Vergabe einer [Offenen Lizenz](https://opendefinition.org/licenses/)
 
 ### RDF: ein gerichteter, beschrifteter Graph
 
-- directed labeled graph
+- Englisch: directed labeled graph
 - d.h. die Kanten haben eine Richtung und ein Etikett
 
-![Ein Tripel mit zwei Knoten "Subjekt" und "Objekt", verbunden durch eine Kante "Prädikat"](img/triple.png)
+![Ein Tripel mit zwei Knoten "Subjekt" und "Objekt", verbunden durch eine Kante "Prädikat"](img/dlg.png)
 
 ---
 
@@ -468,6 +469,16 @@ WHERE
 ### Übung: SPARQL-Abfrage erweitern
 
 -> https://w.wiki/4ixR
+
+---
+
+## Wikidata kann für Vieles nützlich sein
+
+- [Generierung einer Liste offizieller Ländercodes](https://github.com/dini-ag-kim/amb/pull/99#issuecomment-913461266)
+- [Aufbau und Pflege einer Raumsystematik](https://blog.lobid.org/2021/06/16/nwbib-wikidata-code4lib.html)
+- Sammlung bibliographischer Informationen und von Personen- und Institutionsprofilen (siehe [Scholia](https://scholia.toolforge.org/))
+- Citizen Science Projekt zur Erschließung der digitalisierten Artikel einer Illustrierten ([Die Datenlaube](https://diedatenlaube.github.io/die_datenlaube_der_gartenlaube))
+- Erweiterung der Katalogsuche, z.B. Vorschläge von Personen bei bestimmten Suchbegriffen (siehe die [SWIB20-Präsentation von Bernd Uttenweiler](https://swib.org/swib21/programme.html#abs102))
 
 ---
 
