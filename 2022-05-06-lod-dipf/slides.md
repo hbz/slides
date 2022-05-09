@@ -20,7 +20,7 @@
   <small>Teamworkshop des Deutschen Bildungsservers, 2022-05-06</small>
 
   <small>
-    <a href="https://slides.lobid.org/2022-05-06-lod-dipf/">https://slides.lobid.org/2022-05-06-lod-dipf/</a>
+    <a href="https://slides.lobid.org/2022-05-06-lod-dipf/">https://slides.lobid.org/2022-05-06-lod-dipf/</a> (<a href="https://slides.lobid.org/2022-05-06-lod-dipf/2022-05-06-lod-dipf.pdf">PDF</a>)
     <br/>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
   </small>
