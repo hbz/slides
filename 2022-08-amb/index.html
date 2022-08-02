@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>AMB – Allgemeines Metadatenprofil für Bildungsressourcen</title>
+
+		<meta name="description" content="Folien für eine Präsentation am 2022-08-04 beim Treffen der OER-Repo-AG">
+		<meta name="author" content="Adrian Pohl">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"type": [
+					"PresentationDigitalDocument"
+				],
+				"id": "http://slides.lobid.org/kim-ws-2020",
+				"name": {
+					"de": "AMB – Allgemeines Metadatenprofil für Bildungsressourcen"
+				},
+				"creator": [
+					{
+						"id": "http://lobid.org/team/ap#!",
+						"type": "Person",
+						"name": "Adrian Pohl"
+					}
+				],
+				"description": {
+					"de": "Folien für eine Präsentation am 2022-08-04 beim Treffen der OER-Repo-AG"
+				},
+				"about": [
+					"amb",
+					"oer",
+					"metadata"
+				],
+				"datePublished": "2022-08-04",
+				"inLanguage": [
+					"de"
+				],
+				"audience": [
+					"metadata practitioners"
+				],
+				"license": "https://creativecommons.org/licenses/by/4.0/"
+			}
+		</script>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+    <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+		<section>
+			<h2>AMB</h2>
+			<h3>Allgemeines Metadatenprofil für Bildungsressourcen</h3>
+			<p>
+			<small>
+				<a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+				Offene Infrastruktur, Hochschulbibliothekszentrum NRW (hbz) </small> <br />
+				<a href="https://www.hbz-nrw.de"><img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+			<small>OER-Repo AG, WWW, 4.8.2022</small>
+			</p>
+			<p>
+			Diese Präsentation: <br /> <a
+				href="http://slides.lobid.org/2022-08-amb/">http://slides.lobid.org/2022-08-amb/</a>
+			<br/>
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Agenda</h2>
+			<ol>
+				<li>Was ist das AMB?</li>
+				<li>Auf welchen Standards basiert AMB?</li>
+				<li>Was ist das AMB?</li>
+				<li>Wie wird AMB entwickelt?</li>
+				<li>Wer ist beteiligt?</li>
+				<li>Wer nutzt AMB?</li>
+			</ol>
+		</section>
+
+		<section>
+			<h1>Was ist das AMB?</h1>
+		</section>
+
+		<section>
+			<h2>AMB = Allgemeines Metadaten<i>profil</i> für Bildungsressourcen</h2>
+		</section>
+
+		<section>
+			<h2>Was macht ein Metadatenprofil?</h2>
+			<p><span class="fragment">Gibt an welche existierenden Metadatenschemas (z.B. Dublin Core, schema.org) und welche Elemente und Typen daraus benutzt werden</span></p>
+			<p><span class="fragment">Definiert Einschränkungen für die Nutzung des/der Schema(s)</span></p>
+			<p><span class="fragment">z. B. Einschränkungen auf Felder (welche Felder, Pflichtfeld: ja/nein, Häufigkeit) oder Werte (Formatvorgaben, kontrollierte Vokabulare)</span></p>
+		</section>
+
+		<section>
+			<img src="img/baker-coyle-swib19-slide04.png" width=800 style="border: none; box-shadow: none;" />
+			<small>Quelle: <a href="https://swib.org/swib19/slides/04_coyle_design-for-simple-application.pdf">Baker/Coyle (2019), Slide 4</a></small>
+		</section>
+
+		<section>
+			<h2>Zwecke des AMB</h2>
+			<p><span class="fragment">Gemeinsame Konventionen für interoperable Metadaten spezifizieren</span></p>
+			<p><span class="fragment">Anwendung internationaler Standards im DACH-Raum erleichtern</span></p>
+			<p><span class="fragment">Instanzdaten auf Profilkonformität prüfen</span></p>
+		</section>
+
+		<section>
+			<h2>Prinzipien</h2>
+			<p><span class="fragment">Web-Konformität, sämtliche Daten sind Linked-Data-konform</span></p>
+			<p><span class="fragment">Einfache Verständlichkeit und Anwendbarkeit</span></p>
+			<p><span class="fragment">Maschinen- und Menschenlesbarkeit: <a href="https://w3id.org/kim/amb/draft/schemas/schema.json">Schema</a> & <a href="https://w3id.org/kim/amb/draft/">HTML-Spezifikation</a></span></p>
+		</section>
+
+		<section>
+			<h2>Ein paar Details</h2>
+			<p><span class="fragment">Anzahl der Top-Level-Felder: 30, davon derzeit 4 Pflichtfelder (<code>@context</code>, <code>id</code>, <code>name</code>, <code>type</code>) </span></p>
+			<p><span class="fragment">didaktische Angaben mit <code>competencyRequired</code>, <code>teaches</code>, <code>assesses</code></span></p>
+			<p><span class="fragment">Beschreibung von (AV-)Medien mit <code>duration</code>, <code>caption</code>, <code>encodingFormat</code>, <code>contentSize</code>, <code>embedUrl</code> u.a.</span></p>
+			<p><span class="fragment">Komplexe Objekte beschreiben mit <code>isPartOf</code> und <code>hasPart</code></span></p>
+			<p><span class="fragment">Klare Angabe von Affiliierungen (<code>affiliation</code>) und Titeln (<code>honorificPrefix</code>)</span></p>
+		</section>
+
+		<section>
+			<h1>Auf welchen Standards basiert AMB?</h1>
+		</section>
+
+		<section>
+			<h3>Bei der Standardisierung werden existierende Standards berücksichtigt und soweit es geht nachgenutzt.</h3>
+		</section>
+
+		<section>
+			<h2>Standardisierungsebenen</h2>
+			<img src="img/standard-ebenen.png" width=600 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Gegenseitiger Einfluss</h2>
+			<img src="img/standard-ebenen-austausch.png" width=600 style="border: none; box-shadow: none;" />
+		</section>
+
+		<section>
+			<h2>Internationale Standards</h2>
+			<p><span class="fragment">Datenformat: de-facto Standard JSON als Linked Data (<a href="">JSON-LD</a>)</span></p>
+			<p><span class="fragment"><a href="https://schema.org">schema.org</a> als Basis-Metadatenschema </span></p>
+			<p><span class="fragment">Simple Knowledge Organization System (SKOS, siehe <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">diese Einführung</a>) für die Definition und Publikation kontrollierter Vokabulare</span></p>
+		</section>
+
+		<section>
+			<h2>Überregionale Aktivitäten</h2>
+			<p><span class="fragment">DINI AG KIM: Kompetenzzentrum Interoperable Metadaten, <a href="https://wiki.dnb.de/x/IQ30B">OER-Metadatengruppe</a></span></p>
+			<p><span class="fragment">Ein überinstitutioneller, institutions- und projektunabhängiger Rahmen zur Standardentwicklung</span></p>
+			<p><span class="fragment">Standardisierung von Metadatenschemas und kontrollierten Vokabularen</span></p>
+		</section>
+
+		<section>
+			<h1>AMB und HS-OER-LOM</h1>
+		</section>
+
+		<section>
+			<h2>Warum ein zweites OER-Metadatenprofil?</h2>
+			<p><span class="fragment">Mit <a href="https://w3id.org/kim/hs-oer-lom-profil/latest/">LOM for Higher Education OER Repositories</a> wurde bereits ein Profil inklusive XML Schema von der OER-Metadatengruppe veröffentlicht, das auf LOM (Learning Objects Metadata) basiert</span></p>
+			<p><span class="fragment">LOM ist XML-basiert und  eignet sich für einige Zwecke (z.B. OAI/PMH) gut, für das Web ist schema.org/LRMI besser</span></p>
+		</section>
+
+		<section>
+			<h2>Warum ein schema.org/LRMI-Profil?</h2>
+			<p><span class="fragment">Interesse an LRMI ist groß in der deutschsprachigen OER-Welt, allerdings gibt es keine leichte Anleitung, wie man es am besten nutzt.</span></p>
+			<p><span class="fragment">OERSI indxiert JSON und stellt JSON-über-HTTP-API bereit, so dass es konkreten Bedarf an einem an Standards orientierten JSON-Schema für OER-Metadaten gab.</span></p>
+		</section>
+
+		<section>
+			<h2>Vergleich AMB HS-OER-LOM</h2>
+			<a href="https://dini-ag-kim.github.io/amb/draft/#beziehung-zu-hs-oer-lom"><img src="img/amb-hs-oer-lom.png" width=800 style="border: none; box-shadow: none;" /></a>
+		</section>
+
+		<section>
+			<h1>Wie wird AMB entwickelt?</h1>
+		</section>
+
+		<section>
+			<h2>JSON Schema als zentrales Dokument</h2>
+			<p><span class="fragment">Das JSON Schema legt Felder, Wertetypen & referenzierte kontrollierte Vokabulare fest:<br /><a href="https://w3id.org/kim/amb/draft/schemas/schema.json">https://w3id.org/kim/amb/draft/schemas/schema.json</a></span></p>
+			<p><span class="fragment">Änderungen/Ergänzungen werden zuerst im JSON Schema ergänzt und getestet</span></p>
+			<p><span class="fragment">Im zweiten Schritt wird die <a href="https://w3id.org/kim/amb/draft/">HTML-Spezifikation</a> entsprechend angepasst</span></p>
+		</section>
+
+		<section>
+			<h2>Kontrollierte Vokabulare als separate SKOS-Datei</h2>
+			<p><span class="fragment">Kontrollierte Vokabulare/Wertelisten sind separat als SKOS-Datei mit SkoHub Vocabs veröffentlicht und im Schema referenziert</span></p>
+			<p><span class="fragment"><a href="https://w3id.org/kim/hcrt/scheme">HCRT</a>, <a href="https://w3id.org/kim/hochschulfaechersystematik/scheme">Hochschulfächersystematik</a></span></p>
+			<p><span class="fragment">Nachnutzung von im HS-OER-LOM-Kontext entstandenen Vokabularen, was eine gewisse Interoperabilität beider Profile gewährleistet</span></p>
+		</section>
+
+		<section>
+			<h2>Entwicklungprozess</h2>
+			<p><span class="fragment">Entwicklung findet auf <a href="https://github.com/dini-ag-kim/amb">GitHub</a> statt, siehe auch die <a href="https://dini-ag-kim.github.io/stoeberspecs/">StöberSpecs-Prozesse</a></span></p>
+			<p><span class="fragment">Überblick mit <a href="https://github.com/dini-ag-kim/amb/projects/2">Kanban Board</a></span></p>
+			<p><span class="fragment">Monatliche Videokonferenz mit 5-10 Teilnehmer*innen zur Vorstellung des Fortschritts, Diskussion von Ergänzungen und Verteilen der Aufgaben (siehe die auf der <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">Wikiseite</a> verlinkten Notizen)</span></p>
+		</section>
+
+		<section>
+			<h2>Derzeitiger Status des Profils:</h2>
+			<h3>weit fortgeschrittener, produktiv genutzter Entwurf</h3>
+		</section>
+
+		<section>
+			<h1>Wer ist beteiligt?</h1>
+		</section>
+
+		<section>
+			<h2>Das Wertvollste am AMB ist die Community dahinter.</h2>
+		</section>
+
+		<section>
+			<h2>Die AMB Community</h2>
+			<p><span class="fragment">Aus dem Repo-AG-Kontext: <a href="https://oersi.org">OERSI</a>, <a href="https://orca.nrw">ORCA</a>, <a href="https://www.twillo.de">Twillo</a>, <a href="https://www.zoerr.de/">ZOERR</a></span></p>
+			<p><span class="fragment">Andere Hochschulakteure: <a href="https://www.uni-due.de/comein/">ComeIn</a>, SLUB Dresden (für <a href="https://www.slub-dresden.de/mitmachen/open-educational-resources/oer-display">OER Display</a>)</span></p>
+			<p><span class="fragment">Aus dem Schulbereich: <a href="https://dbildungscloud.de/">HPI Schulcloud</a>, <a href="https://www.lmz-bw.de/">Landesmediumzentrum Baden Württemberg</a>, <a href="https://pl.bildung-rp.de/">Pädagogisches Landesinstitut Rheinland-Pfalz</a>, <a href="https://wirlernenonline.de/">Wir lernen online</a></span></p>
+			<p><span class="fragment">Sonstige: <a href="https://edu-sharing.com">edu-sharing</a>, <a href="https://www.gwdg.de/">GWDG</a>, <a href="https://ki-campus.org/">KI Campus</a>, <a href="https://de.serlo.org/">serlo</a></span></p>
+
+		</section>
+
+		<section>
+			<h2>Wer nutzt AMB?</h2>
+			<p><span class="fragment">OERSI, ORCA</span></p>
+			<p><span class="fragment"><a href="https://serlo.org/">serlo</a></span></p>
+			<p><span class="fragment"><a href="https://openmusic.academy/">Open Music Academy</a></span></p>
+			<p><span class="fragment">???</span></p>
+		</section>
+
+		<section>
+			<h2>Fragen? Gerne jetzt oder später an<br /><a href="mailto:pohl@hbz-nrw.de">pohl@hbz-nrw.de</a></h2>
+				</section>
+	
+
+     </div>
+
+   </div>
+   <script src="lib/js/head.min.js"></script>
+   <script src="js/reveal.js"></script>
+
+   <script>
+
+     // Full list of configuration options available at:
+     // https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       controls: true,
+       progress: true,
+       history: true,
+       center: true,
+
+       transition: 'none', // none/fade/slide/convex/concave/zoom
+       backgroundTransition: 'none',
+			 slideNumber: 'c', // 'c/t'
+			 hashOneBasedIndex: true,
+
+       // Optional reveal.js plugins
+       dependencies: [
+         { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+         { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+         { src: 'plugin/zoom-js/zoom.js', async: true },
+         { src: 'plugin/notes/notes.js', async: true }
+       ]
+     });
+s
+   </script>
+
+  </body>
+</html>
