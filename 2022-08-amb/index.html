@@ -136,7 +136,16 @@
 			<h2>Prinzipien</h2>
 			<p><span class="fragment">Web-Konformität, sämtliche Daten sind Linked-Data-konform</span></p>
 			<p><span class="fragment">Einfache Verständlichkeit und Anwendbarkeit</span></p>
-			<p><span class="fragment">Maschinen- und Menschenlesbarkeit: Schema & HTML-Spezifikation</span></p>
+			<p><span class="fragment">Maschinen- und Menschenlesbarkeit: <a href="https://w3id.org/kim/amb/draft/schemas/schema.json">Schema</a> & <a href="https://w3id.org/kim/amb/draft/">HTML-Spezifikation</a></span></p>
+		</section>
+
+		<section>
+			<h2>Ein paar Details</h2>
+			<p><span class="fragment">Anzahl der Top-Level-Felder: 30, davon derzeit 4 Pflichtfelder (<code>@context</code>, <code>id</code>, <code>name</code>, <code>type</code>) </span></p>
+			<p><span class="fragment">didaktische Angaben mit <code>competencyRequired</code>, <code>teaches</code>, <code>assesses</code></span></p>
+			<p><span class="fragment">Beschreibung von (AV-)Medien mit <code>duration</code>, <code>caption</code>, <code>encodingFormat</code>, <code>contentSize</code>, <code>embedUrl</code> u.a.</span></p>
+			<p><span class="fragment">Komplexe Objekte beschreiben mit <code>isPartOf</code> und <code>hasPart</code></span></p>
+			<p><span class="fragment">Klare Angabe von Affiliierungen (<code>affiliation</code>) und Titeln (<code>honorificPrefix</code>)</span></p>
 		</section>
 
 		<section>
@@ -159,9 +168,9 @@
 
 		<section>
 			<h2>Internationale Standards</h2>
-			<p><span class="fragment">Datenformat: de-facto Standard JSON(-LD)</span></p>
+			<p><span class="fragment">Datenformat: de-facto Standard JSON als Linked Data (<a href="">JSON-LD</a>)</span></p>
 			<p><span class="fragment"><a href="https://schema.org">schema.org</a> als Basis-Metadatenschema </span></p>
-			<p><span class="fragment">Simple Knowledge Organization System (SKOS) für die Definition und Publikation kontrollierter Vokabulare</span></p>
+			<p><span class="fragment">Simple Knowledge Organization System (SKOS, siehe <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">diese Einführung</a>) für die Definition und Publikation kontrollierter Vokabulare</span></p>
 		</section>
 
 		<section>
@@ -183,8 +192,8 @@
 
 		<section>
 			<h2>Warum ein schema.org/LRMI-Profil?</h2>
-			<p><span class="fragment">Interesse an LRMI ist groß in der deutschsprachigen OER-Welt, allerdings gibt es keine leichte Anleitung, wie man es am besten nutzt</span></p>
-			<p><span class="fragment">In OERSI gab es konkretem Bedarf an einem an Standards orientierten JSON Schema für OER-Metadaten</span></p>
+			<p><span class="fragment">Interesse an LRMI ist groß in der deutschsprachigen OER-Welt, allerdings gibt es keine leichte Anleitung, wie man es am besten nutzt.</span></p>
+			<p><span class="fragment">OERSI indxiert JSON und stellt JSON-über-HTTP-API bereit, so dass es konkreten Bedarf an einem an Standards orientierten JSON-Schema für OER-Metadaten gab.</span></p>
 		</section>
 
 		<section>
@@ -200,7 +209,7 @@
 			<h2>JSON Schema als zentrales Dokument</h2>
 			<p><span class="fragment">Das JSON Schema legt Felder, Wertetypen & referenzierte kontrollierte Vokabulare fest:<br /><a href="https://w3id.org/kim/amb/draft/schemas/schema.json">https://w3id.org/kim/amb/draft/schemas/schema.json</a></span></p>
 			<p><span class="fragment">Änderungen/Ergänzungen werden zuerst im JSON Schema ergänzt und getestet</span></p>
-			<p><span class="fragment">Im zweiten Schritt wird die HTML-Spezifikation entsprechend angepasst</span></p>
+			<p><span class="fragment">Im zweiten Schritt wird die <a href="https://w3id.org/kim/amb/draft/">HTML-Spezifikation</a> entsprechend angepasst</span></p>
 		</section>
 
 		<section>
@@ -214,17 +223,12 @@
 			<h2>Entwicklungprozess</h2>
 			<p><span class="fragment">Entwicklung findet auf <a href="https://github.com/dini-ag-kim/amb">GitHub</a> statt, siehe auch die <a href="https://dini-ag-kim.github.io/stoeberspecs/">StöberSpecs-Prozesse</a></span></p>
 			<p><span class="fragment">Überblick mit <a href="https://github.com/dini-ag-kim/amb/projects/2">Kanban Board</a></span></p>
-			<p><span class="fragment">Monatliche Videokonferenz mit 5-10 Teilnehmer*innen zur Vorstellung des Fortschritts, Diskussion von Ergänzungen und Verteilen der Aufgaben (siehe die Notizen auf der <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">Wikiseite</a>)</span></p>
+			<p><span class="fragment">Monatliche Videokonferenz mit 5-10 Teilnehmer*innen zur Vorstellung des Fortschritts, Diskussion von Ergänzungen und Verteilen der Aufgaben (siehe die auf der <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">Wikiseite</a> verlinkten Notizen)</span></p>
 		</section>
 
 		<section>
 			<h2>Derzeitiger Status des Profils:</h2>
 			<h3>weit fortgeschrittener, produktiv genutzter Entwurf</h3>
-		</section>
-
-		<section>
-			<h2>Wer nutzt AMB?</h2>
-			<p><span class="fragment">OERSI, ORCA, serlo ???</span></p>
 		</section>
 
 		<section>
@@ -236,33 +240,20 @@
 		</section>
 
 		<section>
-			<h2>Aus dem Repo-AG-Kontext</h2>
-			<p><span class="fragment">OERSI</span></p>
-			<p><span class="fragment">ORCA</span></p>
-			<p><span class="fragment">Twillo</span></p>
-			<p><span class="fragment">ZOERR</span></p>
+			<h2>Die AMB Community</h2>
+			<p><span class="fragment">Aus dem Repo-AG-Kontext: <a href="https://oersi.org">OERSI</a>, <a href="https://orca.nrw">ORCA</a>, <a href="https://www.twillo.de">Twillo</a>, <a href="https://www.zoerr.de/">ZOERR</a></span></p>
+			<p><span class="fragment">Andere Hochschulakteure: <a href="https://www.uni-due.de/comein/">ComeIn</a>, SLUB Dresden (für <a href="https://www.slub-dresden.de/mitmachen/open-educational-resources/oer-display">OER Display</a>)</span></p>
+			<p><span class="fragment">Aus dem Schulbereich: <a href="https://dbildungscloud.de/">HPI Schulcloud</a>, <a href="https://www.lmz-bw.de/">Landesmediumzentrum Baden Württemberg</a>, <a href="https://pl.bildung-rp.de/">Pädagogisches Landesinstitut Rheinland-Pfalz</a>, <a href="https://wirlernenonline.de/">Wir lernen online</a></span></p>
+			<p><span class="fragment">Sonstige: <a href="https://edu-sharing.com">edu-sharing</a>, <a href="https://www.gwdg.de/">GWDG</a>, <a href="https://ki-campus.org/">KI Campus</a>, <a href="https://de.serlo.org/">serlo</a></span></p>
+
 		</section>
 
 		<section>
-			<h2>Andere Hochschulakteure</h2>
-			<p><span class="fragment"><a href="https://www.uni-due.de/comein/">ComeIn</a>, ein BMBF-gefördertes Projekt im Kontext Lehrerbildung</span></p>
-			<p><span class="fragment">SLUB Dresden, für <a href="https://www.slub-dresden.de/mitmachen/open-educational-resources/oer-display">OER Display</a></span></p>
-		</section>
-
-		<section>
-			<h2>Aus dem Schulbereich</h2>
-			<p><span class="fragment">HPI Schulcloud</span></p>
-			<p><span class="fragment">Landesmediumzentrum Baden Württemberg</span></p>
-			<p><span class="fragment"><a href="https://pl.bildung-rp.de/">Pädagogisches Landesinstitut Rheinland-Pfalz</a></span></p>
-			<p><span class="fragment">Wir lernen online</span></p>
-		</section>
-
-		<section>
-			<h2>Sonstige</h2>
-			<p><span class="fragment">EduSharing</span></p>
-			<p><span class="fragment">GWDG</span></p>
-			<p><span class="fragment"><a href="https://ki-campus.org/">KI Campus</a></span></p>
-			<p><span class="fragment"><a href="https://de.serlo.org/">serlo</a></span></p>
+			<h2>Wer nutzt AMB?</h2>
+			<p><span class="fragment">OERSI, ORCA</span></p>
+			<p><span class="fragment"><a href="https://serlo.org/">serlo</a></span></p>
+			<p><span class="fragment"><a href="https://openmusic.academy/">Open Music Academy</a></span></p>
+			<p><span class="fragment">???</span></p>
 		</section>
 
 		<section>
