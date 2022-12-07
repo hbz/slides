@@ -15,3 +15,8 @@ Adapt it to your need. Reference the marker in your slides:
 
 # Make a PDF
 Follow https://github.com/hbz/slides/issues/59.
+
+# Publish to https://slides.lobid.org/
+The slides will be published via GitHub Pages to http://hbz.github.io/slides/ (and hence
+resolved by our web proxy) when pushed into master. GitHub Pages takes its time
+so you need a little patience!
