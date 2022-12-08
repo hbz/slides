@@ -20,3 +20,6 @@ Follow https://github.com/hbz/slides/issues/59.
 The slides will be published via GitHub Pages to `http://hbz.github.io/slides/<directory-name>` (and hence
 resolved by our web proxy at `https://slides.lobid.org/<directory-name>`) when pushed into master. GitHub Pages takes its time
 so you need a little patience!
+
+To add the slides to the overview at https://slides.lobid.org/ one has to
+update the `index.html` at the root level of this repository.
