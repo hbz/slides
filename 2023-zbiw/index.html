@@ -220,9 +220,9 @@
 			<section data-state="adrian">
 				<h2>hbz-Bereich <em>Metadateninfrastruktur</em></h2>
 				<p><span class="fragment">Nutzung und Pflege von Infrastruktur für die Publikation strukturierter Daten im Web:</span></p>
-				<p><span class="fragment">Offene Webstandards und darauf aufsetzend kooperative Entwicklung von Spezifikationen (z.b <a href="https://dini-ag-kim.github.io/lrmi-profile/draft/">AMB</a>)</span></p>
+				<p><span class="fragment">Offene Webstandards und darauf aufsetzend kooperative Entwicklung von Spezifikationen (z.b <a href="https://dini-ag-kim.github.io/amb/draft/">AMB</a>)</span></p>
 				<p><span class="fragment">Transformation von Alt- und Fremddaten in web-kompatible Strukturen (mit <a href="https://metafacture.org">Metafacture</a>)</span></p>
-				<p><span class="fragment">Publikation strukturierter Daten im Web inkl. APIs (<a href="https://lobid.org">lobid</a>, <a href="https://oersi.de">OERSI</a>, <a href="https://skohub.io">SkoHub</a>)</span></p>
+				<p><span class="fragment">Publikation strukturierter Daten im Web inkl. APIs (<a href="https://lobid.org">lobid</a>, <a href="https://oersi.org">OERSI</a>, <a href="https://skohub.io">SkoHub</a>)</span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -343,7 +343,7 @@
 
 			<section data-state="adrian">
 				<h3>Discovery-Index der UB Dortmund</h3>
-				<a href="https://www.ub.tu-dortmund.de/katalogplus/search/?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<a href="https://katalog.ub.tu-dortmund.de/search?q=gentrifizierung"><img src="img/ub-dortmund-katalog.png" width=600 style="border: none; box-shadow: none;" /></a>
 				<p><small><span class="fragment">Titeldaten zu den Beständen der UB &amp; einiger umliegender Bibliotheken <br/>werden täglich von lobid geholt, transformiert und in den Index geladen</span></small></p>
 			</section>
 
@@ -353,7 +353,7 @@
 
 			<section data-state="adrian">
 				<h3>Virtuelle Deutsche Landesbibliographie</h3>
-				<a href="https://tinyurl.com/vdlbsp"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
+				<a href="http://kvk.bibliothek.kit.edu/vdl/"><img src="img/vdl.png" width=800 style="border: none; box-shadow: none;" /></a>
 				<p><span class="fragment">Seit 2018 ist nwbib.de in die VDL integriert</span></p>
 			</section>
 
@@ -642,7 +642,7 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				</p>
 				<small><span class="fragment">– Manu Sporny, damals Vorsitzender der RDFa Working Group beim W3C, der
 						JSON-LD Community Group &amp; Mitglied weiterer Semantic-Web-Gruppen, beim Schreiben an der
-						JSON-LD-Spezifikation<br /><a href="http://manu.sporny.org/2012/nuclear-rdf/">Sporny
+						JSON-LD-Spezifikation<br /><a href="http://web.archive.org/web/20221225033505/manu.sporny.org/2012/nuclear-rdf/">Sporny
 							(2012)</a></span></small>
 			</section>
 
@@ -1203,7 +1203,7 @@ _exists_:dateOfBirth
 			<section data-state="adrian">
 				<h1>Datenherkunft &amp; -generierung</h1>
 				<p><span class="fragment">Tägl. Bezug der XML-Daten über den Aleph-Publishing-Mechanismus</span></p>
-				<p><span class="fragment">Konversion nach N-Triples mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>)</span></p>
+				<p><span class="fragment">Konversion nach N-Triples mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>, <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/fix">Fix</a>)</span></p>
 				<p><span class="fragment">Dabei finden verschiedene Normalisierungsarbeiten statt</span></p>
 				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
 				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD)</span></p>
@@ -1213,7 +1213,7 @@ _exists_:dateOfBirth
 				<h1>Verbesserung der Daten: Beispiele</h1>
 				<p><span class="fragment">MARC-Relator-Codes werden aus RAK-Nebeneintragungen generiert (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L800-L972">Morph für Personennebeneintragungen</a>)</span></p>
 				<p><span class="fragment">Normalisierung von Jahresangaben</span></p>
-				<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>)</span></p>
+				<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>, <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/alma/fix/mediumAndType.fix">Fix</a>)</span></p>
 			</section>
 
 			<section data-state="adrian">
