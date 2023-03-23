@@ -61,6 +61,9 @@
 			"isBasedOn": [
 				{
 					"id": "https://slides.lobid.org/2022-zbiw/"
+				},
+				{
+					"id": "https://slides.lobid.org/2022-05-06-lod-dipf/"
 				}
 			],
 			"license": "https://creativecommons.org/licenses/by/4.0/"
@@ -499,6 +502,133 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 			</section>
 
 			<section data-state="adrian">
+				<h2>Exkurs: URIs</h2>
+				<p><span class="fragment"><i>Uniform</i>: einheitliche Struktur (<a href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>)</span></p>
+				<p><span class="fragment"><i>Resource</i>: ein Ding, ob digital oder nicht-digital</span></p>
+				<p><span class="fragment"><i>Identifier</i>: Identifikation durch Vergabe eines Namens / ID</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>URIs</h2>
+				<p><span class="fragment">URIs sind die Basis eines verteilten, dezentral gepflegten Linked-Data-Netzwerks</span></p>
+				<p><span class="fragment">Namensräume machen URIs eindeutig</p>
+				<p><span class="fragment">z.B. gibt es viele Webseiten, die "about" oder "faq" heißen und durch die Angabe der Domain disambiguiert werden</p>
+				<p><span class="fragment">URIs können als bloßer Identifikator genutzt werden, ohne im Browser aufgerufen werden zu können</p>
+			</section>
+
+			<section data-state="adrian">
+				<h2> RDF: Resource Description Framework</h2>
+				<p><span class="fragment">Graph-basiertes Datenmodell</span></p>
+				<p><span class="fragment">Zum Austausch von Daten über das Web, entworfen und gepflegt vom W3C</span></p>
+				<p><span class="fragment">Abstraktes Modell mit verschiedenen Serialisierungsformaten (RDF/XML, Turtle, JSON-LD…)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Was ist ein Graph?</h2>
+				<a href="https://lobid.org/gnd/10173708-7#rels"><img src="img/zbiw-graph.png"
+						style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="adrian">
+				<a href="https://commons.wikimedia.org/wiki/File:SocialNetworkAnalysis.png"><img src="img/graph.png"
+						style="border: none; box-shadow: none;" /></a>
+				<p><small><a href="https://commons.wikimedia.org/wiki/File:SocialNetworkAnalysis.png">
+					File:SocialNetworkAnalysis.png</a> von Martin Grandjean, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de">CC-BY-SA 4.0</a></small></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>RDF: ein gerichteter, beschrifteter Graph</h2>
+				<p>Englisch: directed labeled graph</p>
+				<p>d.h. die Kanten haben eine Richtung und ein Etikett</p>
+				<img src="img/dlg.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h2>Tripel: Das Graph-Atom</h3>
+				<p>Alle Daten in RDF existieren in Form von Tripeln mit Subjekt, Prädikat, Objekt:</p>
+				<img src="img/triple.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section data-state="adrian">
+				<h2>Abbildung von Daten in RDF</h2>
+				<p><span class="fragment"><i>Subjekt</i>: Ressource über die eine Aussage getroffen wird</span></p>
+				<p><span class="fragment"><i>Prädikat</i>: Beziehung zwischen Subjekt und Objekt</span></p>
+				<p><span class="fragment"><i>Objekt</i>: Ressource, zu dem die Ressource in einer Verbindung steht oder ein Literal</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h2>URIs und Literale</h2>
+				<p><span class="fragment"><i>Subjekt</i> und <i>Prädikat</i> sind immer ein URI</span></p>
+				<p><span class="fragment"><i>Objekt</i> ist ein URI oder ein Literal (String, Date, Integer)</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<small>
+					<table>
+						<tr><th>Subjekt</th><th>Prädikat</th><th>Objekt</th></tr>
+						<tr><td>Ich</td><td>heiße</td><td>Adrian</td></tr>
+						<tr><td>https://orcid.org/0000-0001-9083-7442</td><td>https://schema.org/name</td><td>"Adrian"@de</td></tr>
+						<tr><td>Ich</td><td>interessiere mich für</td><td>Linked Library Data</td></tr>
+						<tr><td>https://orcid.org/0000-0001-9083-74422</td><td>http://xmlns.com/foaf/0.1/interest</td><td>http://www.wikidata.org/entity/Q28134421</td></tr>
+					</table>
+				</small>
+			</section>
+
+			<section data-state="adrian">
+				<h2>Ein abstraktes Modell</h2>
+				<p><span class="fragment">Die verschiedenen RDF-Serialisierungen sind semantisch äquivalent</span></p>
+				<p><span class="fragment">Deshalb wird es ein "abstraktes" Modell genannt</span></p>
+			</section>
+
+			<section data-state="adrian">
+				<h3>N-Triples</h3>
+				<small>
+				<pre><code class="nohighlight" data-trim="">
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;https://schema.org/namePerson&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;https://schema.org/namename&gt; "Adrian"@de .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://xmlns.com/foaf/0.1/interest&gt; &lt;http://www.wikidata.org/entity/Q466&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://xmlns.com/foaf/0.1/interest&gt; &lt;http://www.wikidata.org/entity/Q28134421&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://xmlns.com/foaf/0.1/interest&gt; &lt;http://www.wikidata.org/entity/Q341&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://xmlns.com/foaf/0.1/interest&gt; &lt;http://www.wikidata.org/entity/Q380962&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; &lt;http://xmlns.com/foaf/0.1/interest&gt; &lt;http://www.wikidata.org/entity/Q56298524> .
+				</code></pre>
+				</small>
+			</section>
+
+			<section data-state="adrian">
+				<h3>Turtle</h3>
+				<pre><code class="nohighlight" data-trim>
+@prefix schema: &lt;https://schema.org/name&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix wd: &lt;http://www.wikidata.org/entity/&gt; .
+&lt;https://orcid.org/0000-0001-9083-7442&gt; a schema:Person ;
+	schema:name "Adrian"@de ;
+	foaf:interest wd:Q466, wd:Q28134421, wd:Q341, wd:Q380962 , wd:Q56298524 .
+				</code></pre>
+			</section>
+
+			<section data-state="adrian">
+				<h3>RDF/XML</h3>
+				<small>
+				<pre><code class="nohighlight" data-trim>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;rdf:RDF xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:schema="https://schema.org/name"&gt;
+	&lt;schema:Person rdf:about="https://orcid.org/0000-0001-9083-7442"&gt;
+	&lt;foaf:interest rdf:resource="http://www.wikidata.org/entity/Q28134421"/&gt;
+	&lt;foaf:interest rdf:resource="http://www.wikidata.org/entity/Q341"/&gt;
+	&lt;foaf:interest rdf:resource="http://www.wikidata.org/entity/Q380962"/&gt;
+	&lt;foaf:interest rdf:resource="http://www.wikidata.org/entity/Q466"/&gt;
+	&lt;foaf:interest rdf:resource="http://www.wikidata.org/entity/Q56298524"/&gt;
+	&lt;schema:name xml:lang="de"&gt;Adrian&lt;/schema:name&gt;
+	&lt;/schema:Person&gt;
+&lt;/rdf:RDF&gt;
+				</code></pre>
+				</small>
+			</section>
+
+			<section data-state="adrian">
 				<h2>RDF &amp; The Semantic Web <br /> <span class="fragment">– cutting edge seit 1999</span></h2>
 			</section>
 
@@ -796,7 +926,7 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 			</section>
 
 			<section data-state="fabian">
-				<h3>JSON + @id: <br/>Subject-URIs für Triple-Struktur</h3>
+				<h3>JSON + @id: <br/>Subject-URIs für Tripel-Struktur</h3>
 				<pre><code class=json>
 {
   "@id": "https://github.com/users/acka47",
@@ -1150,35 +1280,6 @@ AND describedBy.sourceOrganization.id:
 				<pre><code class="json" data-trim>
 describedBy.deleted:[20230214 TO 2023023]
 				</code></pre></a>
-			</section>
-
-			<section data-state="adrian">
-				<h2>Kibana-Visualisierungen</h2>
-			</section>
-
-			<section data-state="adrian">
-				<img src="img/kibana-gnd-berufe.png" width=800 style="border: none; box-shadow: none;" />
-				<p>Balkendiagramm: Häufigkeit von Berufsangaben in der GND</p>
-			</section>
-
-			<section data-state="adrian">
-				<img src="img/kibana-gnd-sameas.png" width=800 style="border: none; box-shadow: none;" />
-				<p>Balkendiagramm: Häufigkeit von sameAs-Links in lobid-GND</p>
-			</section>
-
-			<section data-state="adrian">
-				<img src="img/kibana-resources-bestand.png" width=800 style="border: none; box-shadow: none;" />
-				<p>Kuchendiagramm: Bestand nach Einrichtung in lobid-resources</p>
-			</section>
-
-			<section data-state="adrian">
-				<img src="img/kibana-resources-pubdate.png" width=800 style="border: none; box-shadow: none;" />
-				<p>Balkendiagramm: Publikationsdatum in lobid-resources></p>
-			</section>
-
-			<section data-state="adrian">
-				<img src="img/kibana-resources-subjects.png" width=800 style="border: none; box-shadow: none;" />
-				<p>Tagcloud: Top 150 GND-Schlagwörter in lobid-resources</p>
 			</section>
 
 			<section data-state="fabian">
