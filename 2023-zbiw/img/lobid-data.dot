@@ -20,7 +20,7 @@ digraph data {
 	subgraph cluster_title{
 		style=solid
 		label="Titeldaten"
-		union [label="hbz-VK (Aleph)"]
+		union [label="hbz-VK (Aleph->Alma)"]
 	}
 
 	subgraph cluster_geo{
