@@ -475,7 +475,7 @@
 			</section>
 
 			<section data-state="adrian">
-				<h1>Ziele</h1>
+				<h1>Motivationen für LOD</h1>
 				<p><span class="fragment">Überführung traditioneller bibl. Praktiken in das Web</span></p>
 				<p><span class="fragment">Sichtbarkeit und Auffindbarkeit im Web erreichen</span></p>
 				<p><span class="fragment">Nachnutzbarkeit ermöglichen</span></p>
@@ -486,6 +486,26 @@
 							href="http://www.hbz-
 nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf">http://www.hbz-
 nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf</a></span></small>
+			</section>
+
+			<section data-state="adrian">
+				<h2>LOD als politische Entscheidung</h2>
+				<p><span class="fragment">LOD hat zum Ziel, Austausch und Nachnutzung von Daten über Systemgrenzen hinweg zu vereinfachen. Somit richtet es sich an Organisationen,</span></p>
+				<p><span class="fragment">deren Geschäftsmodell nicht darauf basiert Nutzer*innendaten zu horten,</span></p>
+				<p><span class="fragment">die nicht im kommerziellen Wettbewerb stehen,</span></p>
+				<p><span class="fragment">die existieren,  um Information zu teilen.</span></p>
+				<small><span class="fragment">Siehe auch <a
+							href="https://www.youtube.com/watch?v=7VGJCLef3wM">Dorian Taylor (2022): "Linked Data is a political agenda"</a></span></small>
+			</section>
+
+			<section data-state="adrian">
+				<h1>Open Data</h1>
+				<p>
+				<blockquote>Wissen ist offen, wenn jedeR darauf frei zugreifen, es nutzen, verändern und teilen kann –
+					eingeschränkt höchstens durch Maßnahmen, die Ursprung und Offenheit des Wissens bewahren.
+				</blockquote>
+				</p>
+				<small><span class="fragment"><a href="http://opendefinition.org/od/2.1/de/">http://opendefinition.org/od/2.1/de/</a></span></small>
 			</section>
 
 			<section data-state="adrian">
@@ -507,6 +527,16 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 				<p><span class="fragment"><i>Resource</i>: ein Ding, ob digital oder nicht-digital</span></p>
 				<p><span class="fragment"><i>Identifier</i>: Identifikation durch Vergabe eines Namens / ID</span></p>
 			</section>
+
+
+			<section data-state="adrian">
+				<h2>URI-Beispiele</h2>
+				<p><span class="fragment"><code>http://lobid.org/resources/HT002948556#!</code></span></p>
+				<p><span class="fragment"><code>urn:nbn:de:hbz:6:2-1426138</code></span></p>
+				<p><span class="fragment"><code>doi:10.3278/6004804w</code></span></p>
+				<p><span class="fragment"><code>https://dx.doi.org/10.3278/6004804w</code></span></p>
+			</section>
+
 
 			<section data-state="adrian">
 				<h2>URIs</h2>
@@ -644,16 +674,6 @@ nrw.de/dokumentencenter/produkte/lod/aktuell/pohl_ostrowski_2010_linked-data.pdf
 						JSON-LD Community Group &amp; Mitglied weiterer Semantic-Web-Gruppen, beim Schreiben an der
 						JSON-LD-Spezifikation<br /><a href="http://web.archive.org/web/20221225033505/manu.sporny.org/2012/nuclear-rdf/">Sporny
 							(2012)</a></span></small>
-			</section>
-
-			<section data-state="adrian">
-				<h1>Linked Open Data</h1>
-				<p>
-				<blockquote>Wissen ist offen, wenn jedeR darauf frei zugreifen, es nutzen, verändern und teilen kann –
-					eingeschränkt höchstens durch Maßnahmen, die Ursprung und Offenheit des Wissens bewahren.
-				</blockquote>
-				</p>
-				<small><span class="fragment"><a href="http://opendefinition.org/od/2.1/de/">http://opendefinition.org/od/2.1/de/</a></span></small>
 			</section>
 
 			<section data-state="adrian">
@@ -1026,7 +1046,7 @@ $ curl "https://lobid.org/organisations/DE-1a" | jq .mainEntityOfPage.dateModifi
 							Suggest</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
 							Downloads</a></span></p>
-				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">OpenRefine Reconciliation</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">Reconciliation Service API</a></span></p>
 			</section>
 
 			<section data-state="uebung">
@@ -1174,6 +1194,12 @@ _exists_:dateOfBirth
 				<h1>Beispiel: lobid-resources</h1>
 			</section>
 
+			<section>
+				<h3>API-Kapselung: Ein großer Vorteil bei Systemmigrationen</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+			</section>
+
+
 			<section data-state="adrian">
 				<h3>a. Die Oberfläche</h3>
 				<a href="https://lobid.org/resources"><img src="img/lobid-resources.png" style="border: none; box-shadow: none;" /></a>
@@ -1202,18 +1228,11 @@ _exists_:dateOfBirth
 
 			<section data-state="adrian">
 				<h1>Datenherkunft &amp; -generierung</h1>
-				<p><span class="fragment">Tägl. Bezug der XML-Daten über den Aleph-Publishing-Mechanismus</span></p>
-				<p><span class="fragment">Konversion nach N-Triples mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>, <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/fix">Fix</a>)</span></p>
-				<p><span class="fragment">Dabei finden verschiedene Normalisierungsarbeiten statt</span></p>
+				<p><span class="fragment">Tägl. Bezug der Daten über den Aleph- bzw. Alma Publishing Mechanismus</span></p>
+				<p><span class="fragment">Konversion nach JSON-LD mit Metafacture (<a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/morph-hbz01-to-lobid.xml">Morph</a>/Aleph, <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/fix">Fix</a>/Alma)</span></p>
+				<p><span class="fragment">Dabei verschiedene Normalisierungsarbeiten</span></p>
 				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
 				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD)</span></p>
-			</section>
-
-			<section data-state="adrian">
-				<h1>Verbesserung der Daten: Beispiele</h1>
-				<p><span class="fragment">MARC-Relator-Codes werden aus RAK-Nebeneintragungen generiert (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L800-L972">Morph für Personennebeneintragungen</a>)</span></p>
-				<p><span class="fragment">Normalisierung von Jahresangaben</span></p>
-				<p><span class="fragment">Mapping von Informationen aus 050, 057, 058, 334, 652a, 9--, 400/403 etc. auf eine Liste von Publikations- und Medientypen (<a href="https://github.com/hbz/lobid-resources/blob/1ae142b63f8c69f09dc12cfa2e273cb889e127bc/src/main/resources/morph-hbz01-to-lobid.xml#L1458-L1898">Morph</a>, <a href="https://github.com/hbz/lobid-resources/blob/master/src/main/resources/alma/fix/mediumAndType.fix">Fix</a>)</span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -1225,9 +1244,9 @@ _exists_:dateOfBirth
 				<h2>Abfragemöglichkeiten</h2>
 				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
 				<p><span class="fragment"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch-</a> / <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene-Suchsyntax</a></span></p>
-				<p><span class="fragment"><a href="https://lobid.org/resources/api#query-syntax">Abfrage nach gelöschten Titeln</a> (ab 2018-04-04)</span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources/api#auto-complete">API für Auto Suggest</a></span></p>
 				<p><span class="fragment"><a href="https://lobid.org/resources/api#bulk_downloads">API für Bulk Downloads</a></span></p>
+				<p><span class="fragment">Im Aufbau: Reconciliation Service API für Deduplizierungszwecke</span></p>
 			</section>
 
 			<section data-state="adrian">
@@ -1271,14 +1290,6 @@ AND NOT inCollection.id:
   "http://lobid.org/resources/HT014176012#!"
 AND describedBy.sourceOrganization.id:
   "http://lobid.org/organisations/DE-5#!"
-				</code></pre></a>
-			</section>
-
-			<section data-state="adrian">
-				<h2>Deletions Endpoint: Vom 14. bis 23.2.2023 gelöschte Titel</h2>
-				<a href="http://lobid.org/resources/deletions/search?q=describedBy.deleted%3A%5B20230214+TO+20230223%5D">
-				<pre><code class="json" data-trim>
-describedBy.deleted:[20230214 TO 2023023]
 				</code></pre></a>
 			</section>
 
