@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Standardisierung</title>
+
+	<meta name="description"
+		content="Standardisierung">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"type": [
+				"PresentationDigitalDocument"
+			],
+			"id": "https://slides.lobid.org/2023-standardisierung/",
+			"name": {
+				"de": "Standardisierung"
+			},
+			"creator": [
+				{
+					"id": "http://lobid.org/team/fs#!",
+					"type": "Person",
+					"name": "Fabian Steeg"
+				}
+			],
+			"description": {
+				"en": "Lightning Talk im DWI-Bereichstreffen, WWW"
+			},
+			"datePublished": "2023-04-18",
+			"inLanguage": ["en"],
+			"audience": [
+				"librarians",
+				"developers"
+			],
+			"isBasedOn": [
+				"https://slides.lobid.org/2020-swib-reconciliation/",
+				"https://slides.lobid.org/2022-08-amb",
+				"https://slides.lobid.org/beirat2019"
+			],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section>
+				<h1>Standardisierung</h1>
+				<p>
+				<small>
+					<a href="http://lobid.org/team/fs#!">Fabian Steeg</a>, <a href="http://lobid.org/team/ap#!">Adrian Pohl</a> <br />
+					Metadateninfrastruktur</small> <br />
+					<a href="https://www.hbz-nrw.de"><img src="img/hbz.png" style="border: none; padding: 5px; background-color: white" width="125px" /></a><br/>
+				<small>Lightning Talk im DWI-Bereichstreffen, WWW, 2023-04-18</small>
+				</p>
+				<p>
+				Diese Präsentation: <br /> <a
+					href="https://slides.lobid.org/2023-standardisierung/">https://slides.lobid.org/2023-standardisierung/</a>
+				<br/>
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="img/cc-by.png" title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section>
+				<h1>Standardisierung</h1>
+				<p><span class="fragment">DINI AG KIM, z.B. <a href="https://wiki.dnb.de/display/DINIAGKIM/OER-Metadatengruppe">OER-Metadatengruppe</a> / AMB</span></p>
+				<p><span class="fragment"><a href="https://www.w3.org/community/reconciliation/">W3C Entity Reconciliation Community Group</a></span></p>
+				<p><span class="fragment"><a href="https://www.dublincore.org/members/hbz/">DublinCore institutional member</a></span></p>
+			</section>
+
+			<section>
+				<h2>AMB = Allgemeines Metadatenprofil für Bildungsressourcen</h2>
+			</section>
+	
+			<section>
+				<h2>Zwecke des AMB</h2>
+				<p><span class="fragment">Gemeinsame Konventionen für interoperable Metadaten spezifizieren</span></p>
+				<p><span class="fragment">Anwendung internationaler Standards im DACH-Raum erleichtern</span></p>
+				<p><span class="fragment">Instanzdaten auf Profilkonformität prüfen</span></p>
+			</section>
+	
+			<section>
+				<h2>Technische Grundlagen</h2>
+				<p><span class="fragment">Datenformat: de-facto Standard JSON als Linked Data (<a href="">JSON-LD</a>)</span></p>
+				<p><span class="fragment"><a href="https://schema.org">schema.org</a> als Basis-Metadatenschema </span></p>
+				<p><span class="fragment">Simple Knowledge Organization System (SKOS, siehe <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">diese Einführung</a>) für die Definition und Publikation kontrollierter Vokabulare</span></p>
+			</section>
+	
+			<section>
+				<h2>DINI AG KIM</h2>
+				<p><span class="fragment">DINI AG KIM: Kompetenzzentrum Interoperable Metadaten, <a href="https://wiki.dnb.de/x/IQ30B">OER-Metadatengruppe</a></span></p>
+				<p><span class="fragment">Ein überinstitutioneller, institutions- und projektunabhängiger Rahmen zur Standardentwicklung</span></p>
+				<p><span class="fragment">Standardisierung von Metadatenschemas und kontrollierten Vokabularen</span></p>
+			</section>
+
+			<section>
+				<h2>Entwicklungprozess</h2>
+				<p><span class="fragment">Entwicklung findet auf <a href="https://github.com/dini-ag-kim/amb">GitHub</a> statt, siehe auch die <a href="https://dini-ag-kim.github.io/stoeberspecs/">StöberSpecs-Prozesse</a></span></p>
+				<p><span class="fragment">JSON Schema als zentrales Dokument, die <a href="https://w3id.org/kim/amb/draft/">HTML-Spezifikation</a> wird entsprechend angepasst</span></p>
+				<p><span class="fragment">Kontrollierte Vokabulare als separate SKOS-Datei, mit SkoHub Vocabs veröffentlicht und im Schema referenziert</span></p>
+			</section>
+
+			<section><h2><i>Entity Reconciliation</i> Community Group beim W3C</h2></section>
+
+			<section>
+				<h1>OpenRefine</h1>
+				<p>"A powerful tool for working with messy data"</p>
+				<p><a href="https://openrefine.org">https://openrefine.org</a></p>
+			</section>
+
+			<section>
+				<h1>Reconciliation</h1>
+				<p><span class="fragment">Eigene Daten mit IDs abgleichen</span></p>
+				<p><span class="fragment">Eigene Daten mit abgeglichenen Daten anreichern</span></p>
+				<p><span class="fragment">Erfolgt über eine definierte API, so können beliebige Services in OpenRefine integriert werden</span></p>
+			</section>
+
+			<section>
+				<h1>Community Group</h1>
+				<p><span class="fragment">Dokumentation und Verbesserung dieser Reconciliation API</span></p>
+				<p><span class="fragment">Entwicklung zu einem Standard für den Datenaustausch im Web</span></p>
+				<p><span class="fragment">Werkzeuge dafür bereitstellen</span></p>
+			</section>
+
+			<section>
+				<h1>Testbench</h1>
+				<p><span class="fragment">Zum Testen von Reconciliation-Services</span></p>
+				<p><span class="fragment">Überblick der verfügbaren Services (aktuell über 60)</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+
+			<section>
+				<h1>Census</h1>
+				<p><span class="fragment">Überblick über das "reconciliation ecosystem"</span></p>
+				<p><span class="fragment">Verfügbare Services, Clients, Libraries</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
+			</section>
+
+			<section>
+				<h1>Alma Refine</h1>
+				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h1>Cocoda</h1>
+				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h1>Specs</h1>
+				<p><span class="fragment">Spezifikation der Reconciliation-API</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
+			</section>
+
+			<section data-background="img/reconciliation-specs.png" data-background-size="contain"></section>
+
+			<section data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+
+			<section><h2><a href="https://www.dublincore.org/members/hbz/">DublinCore (DCMI)</a></h2></section>
+
+			<section>
+				<h2>Fragen? <br/> Gerne jetzt und auch später <a href="https://lobid.org/team/">https://lobid.org/team/</a></h2>
+			</section>
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
