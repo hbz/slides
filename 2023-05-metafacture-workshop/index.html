@@ -640,7 +640,11 @@ PG_DATA
 				<p><span class="fragment">Conditionals: if, elsif, else, unless</span></p>
 				<p><span class="fragment">Wiederholte Felder / Arrays; Zugriff, Manipulation, Iteration</span></p>
 				<p><span class="fragment">Regular Expressions: Muster in Werten erkennen, zerlegen, ersetzen</span></p>
-				<p><span class="fragment">Daten aus verschiedenen Quellen sammeln und zu Records zusammensetzen: `collect-triples`</span></p>
+				<p><span class="fragment">
+					<a href="
+									 https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/hbz/metafacture-flux-examples/master/sample6/authority-persons.pica%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+stream-to-triples%0A%7C+@X%3B%0A%0A%22https%3A//raw.githubusercontent.com/hbz/metafacture-flux-examples/master/sample6/wiki-persons.foma%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-formeta%0A%7C+fix%28%22copy_field%28%27gnd%27%2C+%27_id%27%29%22%29%0A%7C+stream-to-triples%28redirect%3D%22true%22%29%0A%7C+@X%3B%0A%0A@X%0A%7C+wait-for-inputs%28%222%22%29%0A%7C+sort-triples%28by%3D%22subject%22%29%0A%7C+collect-triples%0A%7C+fix%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%3B%0A%0A&fix=paste%28%27name%27%2C+%27028A.d%27%2C+%27028A.a%27%29%0Aretain%28%27name%27%2C+%27viaf%27%2C+%27gnd%27%29&active-editor=fix
+									 ">
+							Daten aus verschiedenen Quellen sammeln und zu Records zusammensetzen: `collect-triples`</a></span></p>
 			</section>
 
 			<section data-state="pascal">
