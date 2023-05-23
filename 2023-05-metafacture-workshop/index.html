@@ -628,7 +628,7 @@ retain(title, author)
 
 			<section data-state="uebung">
 				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/LibraryCarpentry/lc-marcedit/gh-pages/data/marc_sample_data.mrc%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-marc21%0A%7C+fix%0A%7C+encode-xml%0A%7C+print%0A%3B&fix=set_array%28%22dc%3Atitle%22%29%0Acopy_field%28%22245%3F%3F.%2A%22%2C%22dc%3Atitle%22%29%0Ajoin_field%28%22dc%3Atitle%22%2C%22%22%29%0A%0Aset_array%28%22dc%3Acontributor%22%29%0Ado+list%28path%3A%22100%3F%3F%7C110%3F%3F%7C111%3F%3F%7C700%3F%3F%7C710%3F%3F%7C711%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22dc%3Acontributor.%24append%22%29%0Aend%0A%0Areplace_all%28%22dc%3Acontributor.%2A%22%2C%22\\.%22%2C%22%22%29%0Areplace_all%28%22dc%3Acontributor.%2A%22%2C%22%28.%2B%29%2C+%28.%2B%29%22%2C+%22%242+%241%22%29%0A%0Aretain%28%22dc%3Acontributor%22%2C+%22dc%3Atitle%22%29%0A&active-editor=fix" >Lasst uns noch ein Beispiel für Wildcards anschauen.</a>
-				<small>sample3x_Lookup_fields</small>
+				<small>Wildcards</small>
 			</section>
 
 			<section data-state="pascal">
