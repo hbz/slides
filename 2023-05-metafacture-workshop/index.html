@@ -488,36 +488,37 @@ publisher: Belknap Press
 date: 1984
 					</code></pre>
 					<small>
-							<p><span class="fragment"><b>Metadaten</b>: Beschreibende, strukturierte Aussagen: Gegenstand -> Beschreibungsbeziehung -> Beschreibungsinhalt</span></p>
-							<p><span class="fragment"><b>Record/Datensatz</b>: eine Sammlung von Aussagen über einen Gegenstand (z.B. Buch)</span></p>
-							<p><span class="fragment"><b>Element/Feld(/Property/Attribute/Key)</b>: Eine Beschreibungsbeziehung eines Gegenstands. Kann je nach Datentyp wiederholt werden oder nicht</span></p>
-							<p><span class="fragment"><b>Wert/value</b>: Beschreibungsinhalt einer Aussage`</span></p>
+							<p><span class="fragment">Wir sehen...</span></p>
+							<p><span class="fragment">...<b>Metadaten</b> für ein Buch</span></p>
+							<p><span class="fragment">...einen <b>Record/Datensatz</b> eine Sammlung von Metadaten zu einen Gegenstand (z.B. Buch)</span></p>
+							<p><span class="fragment">...<b>Elemente/Felder(/Properties/Attribute/Keys)</b></span></p>
+							<p><span class="fragment">...<b>Werte/Values</b></span></p>
 					</small>
 		</section>			
 			<section data-state="tobias">
 
 				<h3>Kurzer Exkurs: Metadatenstrukturen-Besonderheiten</h3>
-				<p><small><span class="fragment">Unterfeld/Unterelement: Unter ein anderes Feld untergeordnetes Feld
+				<p><small><span class="fragment">Unterfeld/Unterelement und Objekte
 						</span></small></p>
 				<span class="fragment">
-					<pre><code class="nohighlght" data-trim>
+					<pre><code class="nohighlight" data-trim>
 author:
 firstName: Judith
 lastName: Shklar
 				</code></pre></span></p>
-				<p><small><span class="fragment">Attribute (im Kontext XML): Eine zugeordnete Beschreibung neben dem Wert des Elements</span></small></p>
+				<p><small><span class="fragment">Attribute (im Kontext XML)</span></small></p>
 				<span class="fragment">
 				<pre><code class="nohighlight" data-trim>
 <creator type="author">Judith Shklar</creator>
 										</code></pre>
 										</span></p>
-										<p><small><span class="fragment">Array/Liste</span></small></p>
+										<p><small><span class="fragment">Array/Liste (von einfachen Werten oder Objekten)</span></small></p>
 										<span class="fragment">
 				<pre><code class="nohighlight" data-trim>
 keywords:
-- Hund
-- Katze
-- Maus
+- Politische Theorie
+- Philosophie
+- Grausamkeit
 				</code></pre></span>
 			</section>		
 
@@ -527,7 +528,7 @@ keywords:
 				<p><span class="fragment">Um die verschiedenen Elemente und Felder für die Transformation anzuwählen, muss man ihre Pfade angeben</span></p>
 				<p><span class="fragment">Einfache Elemente der obersten Ebene / Felder: z.B. `title`</span></p>
 				<p><span class="fragment">Elemente auf einer unteren Ebene / Unterfelder: z.B. `title.subtitle`</span></p>
-				<p><span class="fragment">Wiederholte Felder/Listen werden als Listen mit Index-Nummer angegeben: z.B. `creator.1.name.firstName`</span></p>
+				<p><span class="fragment">Wiederholte Felder/Arrays werden als Listen mit Index-Nummer angegeben: z.B. `creator.1.name.firstName`</span></p>
 				</small>
 			</section>
 
@@ -542,8 +543,7 @@ keywords:
 				<h2>Feld-Pfad-Übersicht</h2>
 				<p><span class="fragment">Bevor man anfängt mit Feldern zu arbeiten ist es nützlich eine Übersicht zu bekommen</span></p>
 				<p><span class="fragment">Dazu wollen wir die verfügbaren Feld-Pfade und ihre Werte ausgeben</span></p>
-				<p><span class="fragment">Dabei wollen wir hierarchische Unterfeld-Strukturen in "flache", adressierbare Pfade (wie `title.subtitle`) umwandeln</span></p>
-				<p><span class="fragment">Dabei hilft uns das Flux-Commando `list-fix-paths`</span></p>
+				<p><span class="fragment">Dabei hilft uns das neue Flux-Commando `list-fix-paths`</span></p>
 			</section>
 
 			<section data-state="uebung">
@@ -657,11 +657,8 @@ PG_DATA
 			</section>
 
 			<section data-state="uebungsPause">
-				<h2>Daten per URL lesen</h2>
-				<p><span class="fragment">Statt aus Datei lesen (oder PG_DATA) auch per URL möglich</span></p>
-				<p><span class="fragment">Statt `"some.file" | open-file ...` &rarr; `"http://..." | open-http`</span></p>
-				<p><span class="fragment">Aufgabe: voriges Beispiel, aber von URL lesen, was fällt auf?</span></p>
-				<p><span class="fragment"><small><code>https://github.com/hbz/metafacture-flux-examples/blob/master/sample4/bib-data-1k.pica?raw=true</code></small></span></p>
+					Lasst uns jetzt mal PICA-Daten aus dem Web aubrufen und ansonsten den Workflow übernehmen.
+					Von der Quelle: https://github.com/hbz/metafacture-flux-examples/blob/master/sample4/bib-data-1k.pica?raw=true
 			</section>
 
 			<section data-state="uebung">
