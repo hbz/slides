@@ -617,11 +617,14 @@ retain(title, author)
 			</section>
 
 			<section data-state="uebungsPause">
+				<a target="_blank" href="
+												https://metafacture.org/playground/?flux=PG_DATA%0A%7Cas-lines%0A%7Cdecode-json%0A%7Cfix%0A%7Cencode-xml%28rootTag%3D%22collection%22%29%0A%7Cprint%0A%3B&fix=move_field%28%22_id%22%2C+%22id%22%29%0Amove_field%28%22a%22%2C+%22title%22%29%0Apaste%28%22creator%22%2C+%22b.v%22%2C+%22b.n%22%2C+%22~aus%22%2C+%22c%22%29%0Aretain%28%22id%22%2C+%22title%22%2C+%22creator%22%29&data=%7B%22a%22%3A+%22Faust%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Goethe%22%2C+%22v%22%3A+%22JW%22%7D%2C+%22c%22%3A+%22Weimar%22%7D%0A%7B%22a%22%3A+%22R%C3%A4uber%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Schiller%22%2C+%22v%22%3A+%22F%22%7D%2C+%22c%22%3A+%22Weimar%22%7D&active-editor=fix
+								"><img src="img/move_field-paste-retain.png" /></a>
+			</section>
+
+			<section data-state="uebungsPause">
 				<h1>Übung</h1>
 				<p><span class="fragment"><a target="_blank" href="https://pad.gwdg.de/bpGL2dvqR_ajtfZlXcUbOA#">Aufgaben für MARC-Transformation in kleinen Schritten</a></span></p>
-				<p><span class="fragment"><a target="_blank" href="
-https://metafacture.org/playground/?flux=%22https%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&fix=paste%28%22title%22%2C%22245%3F%3F.a%22%2C%22245%3F%3F.b%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22001%22%2C%22identifier%5B%5D.%24append%22%29%0Ado+list%28path%3A%220247%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++if+any_equal%28%22%24i.2%22%2C%22doi%22%29%0A++++++++copy_field%28%22%24i.a%22%2C%22doi%22%29%0A++++end%0Aend%0Aset_array%28%22creator%5B%5D%22%29%0Ado+list%28path%3A%22100%3F%3F%7C110%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22creator%5B%5D.%24append%22%29%0Aend%0Aretain%28%22title%22%2C%22identifier%5B%5D%22%2C%22doi%22%2C%22creator%5B%5D%22%29&active-editor=fix
-								">Playground Lösung für die komplexe MARC-Transformation</a></span></p>
 			</section>
 
 			<section data-state="uebung">
