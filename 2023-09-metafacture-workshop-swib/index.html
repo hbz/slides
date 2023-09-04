@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Creating LOUD with Metafacture</title>
+
+	<meta name="description" content="Hands-on Lab at SWIB23 in Berlin">
+	<meta name="author" content="Pascal Christoph">
+	<meta name="author" content="Tobias Bülte">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"type": [
+					"PresentationDigitalDocument"
+				],
+				"id": "https://slides.lobid.org/2023-09-metafacture-workshop-swib/",
+				"name": {
+					"en": "Creating LOUD with Metafacture"
+				},
+				"creator": [
+				{
+					"id": "http://lobid.org/team/pc#!",
+					"type": "Person",
+					"name": "Pascal Christoph"
+				},
+				{
+					"id": "http://lobid.org/team/tb#!",
+					"type": "Person",
+					"name": "Tobias Bülte"
+				}
+				],
+				"description": {
+					"de": "Hands-on Lab at SWIB23 in Berlin"
+				},
+				"keywords": [
+					"Metafacture"
+				],
+				"about": [
+					{
+						"id": "https://lobid.org/product/metafacture"
+					},
+					{
+						"id": "https://lobid.org/project/metafacture-fix"
+					},
+					{
+						"id": "https://lobid.org/project/metafacture-playground"
+					}
+				],
+				"datePublished": "2023-09-08",
+				"inLanguage": [
+					"de"
+				],
+				"isBasedOn": [
+					"https://slides.lobid.org/2023-05-metafacture-workshop/",
+				],
+				"audience": [
+					"management",
+					"librarians",
+					"developers"
+				],
+				"license": "https://creativecommons.org/licenses/by/4.0/"
+			}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="tobias">
+				<a target="_blank" href="http://metafacture.org"><img src="img/metafacture.png"
+						style="border: none; padding: 5px; background-color: white" width="500px" /></a>
+				<h3>Creating LOUD with Metafacture</h3>
+				<p>
+					<small>
+						<a target="_blank" href="https://lobid.org/team/pc#!">Pascal Christoph</a>
+						&amp;
+						<a target="_blank" href="https://lobid.org/team/tb#!">Tobias Bülte</a>
+						<br /> <a target="_blank" href="https://www.hbz-nrw.de/produkte/linked-open-data">Metadateninfrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+					<small><br />
+						Hands-on Lab<br />
+					<br />
+					SWIB 23<br />
+					Berlin, 11. September 2023
+					</small>
+				</p>
+				<p>
+					<small>
+						<a
+							href="https://slides.lobid.org/2023-09-metafacture-workshop-swib/">https://slides.lobid.org/2023-09-metafacture-workshop-swib/</a> :
+						(<a target="_blank" href="2023-09-metafacture-workshop-swib.pdf">PDF</a>)
+						<br />
+						<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+								alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+								title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+					</small>
+				</p>
+			</section>
+
+			<section data-state="tobias">
+				<h1>Who are we ?</h1>
+				<p><span class="fragment">We are Pascal and Tobias.</p>
+				<p><span class="fragment">Pascal is a software engineer. Tobias is a librarian.</p>
+				<p><span class="fragment">We are both part of the Metadateninfrastruktur-Team at hbz. fka. lobid, offene Infrastruktur.</p>
+			</section>
+
+			<section data-state="tobias">
+				<h1>Who are we 2/2 ?</h1>
+				<p><span class="fragment">Metadateninfrastruktur is a mixed team of librarians and developers.</p>
+				<p><span class="fragment">We engage in everything open:</p>
+				<p><span class="fragment">open source</p>
+				<p><span class="fragment">open data</p>
+				<p><span class="fragment">open standards</p>
+			</section>
+
+			<section data-state="tobias">
+				<h1>Who are you?</h1>
+				<p><span class="fragment">Let's team up in pairs and introduce yourself in 5 minutes. Ask your interview partner e.g.: </p>
+				<ol>
+					<span class="fragment"> <li>Who are you?</li>
+					<span class="fragment"> <li>Do you have any knowledge in data transformation?</li> 
+					<span class="fragment"> <li>In Linked Open Data ?</li> 
+					<span class="fragment"> <li>What do you expect from this course?</li>
+					<span class="fragment"><li>After the 5 minutes: introduce to us your interview partner</li>
+			</ol>
+			</section>
+
+			<section data-state="tobias">
+			<h2>Agenda</h2>
+Part I: Metafacture and Motivation (10m)
+			<p><span class="fragment">
+Part II: Getting to know MF and FLUX (30m) </br>
+- 15m break -
+</p></span>
+			<p><span class="fragment">
+Part III: More practice and MF FIX (40m) </br>
+- 30m break -
+</p></span>
+			<p><span class="fragment">
+Part IV: LOUD (2h)
+</p></span>
+			</section>
+
+
+			<section data-state="tobias">
+			<h2>Part I: What is Metafacture?</h2>
+			<p><span class="fragment">
+Metafacture is a toolkit for processing semi-structured data with a focus on library metadata.
+</p></span>
+			<p><span class="fragment">
+Metafacture can be used as a stand-alone CLI application or as a Java/JVM library in other applications.
+</p></span>
+			<p><span class="fragment">
+Allows Batch- and on the fly-processing
+</p></span>
+			<p><span class="fragment">
+It is also an open framework. (You can use modules on their own. It's Open Source so you can develope your own modules.)
+</p></span>
+			</section>
+
+			<section data-state="pascal">
+				<h2>Metafacture-Module</h2>
+				<img src="img/metafacture-etl-module.png" />
+				<br /><small>Autoren: Tobias &amp; Pascal (2021-2023)</small>
+			</section>
+
+			<section data-state="tobias">
+			<h3>The Workshop: Why are we doing what we are doing?</h3>
+			<p><span class="fragment">
+Metafacture helps us to transform e.g. MARC21-XML, CSV and PICA to JSON-LD to index that into elasticsearch (JSON search engine based on lucene) for lobid to publish it as LOUD via our web API, properly documented.
+</p></span>
+
+			<p><span class="fragment">
+The tools are very flexible so that we can easily and continuiously develope our API and our LOUD in conversation with our consumers/customers.
+</p></span>
+			</section>
+
+<section data-state="tobias">
+We presume you are here because you want to expose your data in a useful way. Like we at lobid:
+<span class="fragment">
+<img src="img/lobid-data.png" />·
+</span></br>
+<span class="fragment">
+So we build web APIs!
+</span>
+</section>
+
+
+			<section data-state="tobias">
+			<h3>The Workshop: Why are we doing what we are doing? 2/2</h3>
+			<p><span class="fragment">
+In our Workshop today, we want to introduce you to the tool Metafacture and show how you can transform MARC-XML to JSON-LD.
+</p></span>
+			<p><span class="fragment">
+We are using the new Metafacture Playground and rely on Live Coding.
+</p></span>
+			<p><span class="fragment">
+Metafacture is an open framework. (You can use modules on their own. It's Open Source so you can develope your own modules.)
+</p></span>
+			<p><span class="fragment">
+Especially the DSL FLUX and FIX do not need any special Java knowledge, so that open-minded librarians can be included in the developement and maintainance of an ETL process.
+</p></span>
+			</section>
+
+
+			<section data-state="tobias">
+					<h1>Part II: Getting to know MF and FLUX</h1>
+			</section>
+
+			<section data-state="tobias">
+				<h2>Instead of a formal introduction to MF-FLUX lets get straigt to the Playground</h2>
+			</section>
+
+			<section data-state="tobias">
+				<p>Exercise 1: <a href="https://metafacture.org/playground/?flux=%22Hello%2C+friend.+I%27am+Metafacture%21%22%0A%7Cprint%0A%3B">first steps: how to use the Playground</a></p>
+			</section>
+
+
+			<section data-state="tobias">
+				<p>Exercise 2: <a href="https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+print%0A%3B&data=%22Hello%2C+friend.+I%27am+Metafacture%21%22">how to open a file and read the data from it</a></p>
+			</section>
+
+			<section data-state="tobias">
+				<p>Exercise 3: <a href="https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/metafacture/metafacture-core/master/metafacture-runner/src/main/dist/examples/read/marc21/10.marc21%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-marc21%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B">interpret a process</a></p>
+			</section>
+
+			<section data-state="tobias">
+				<h2>How does MF work?</h2>
+				<p><span class="fragment">Data runs through multiple modules</span></p>
+				<p><span class="fragment">roughly like this:</br>
+				→ read → decode → transform → encode → write →
+				</span></p>
+				<p><span class="fragment">Each module expects certain input and creates specific output ("signature") =&gt; the output of a certain modul has to match the input of the following modul </span></p>
+				<p><span class="fragment">Through the combination of different modules we create a MF workflow</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h2>Example of a MF Workflow</h2>
+				<p><span class="fragment">
+						<img src="img/flow-json.png" />
+						<small>(from Christoph Böhme, <a
+							href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">http://swib.org/swib13/slides/boehme_swib13_131.pdf)</a></small>
+				</span></p>
+				<span class="fragment">
+						<prebigger><code class="nohighlight" data-trim>
+"fileName"|open-file|as-lines|decode-pica|encode-json|write("stdout");
+						</code></prebigger>
+						<p><small>(example of a "flux" file)</p></small>
+				</span>
+			</section>
+
+			<section data-state="tobias">
+				<h2>MF workflows</h2>
+				<p>Workflows can be configured by using:</p>
+				<span class="fragment">
+				<ol>
+					<li><a href="
+https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#flow-definitions
+">FLUX</a>(the scripting language we already used in the Playground)</li>
+					<li><a href="
+https://github.com/metafacture/metafacture-documentation/blob/master/Framework-User-Guide.md#building-a-flow
+">
+Java by building a Flow</a>(typesafe as Java Generics)</li>
+				</ol>
+				</span>
+				<span class="fragment">
+				<p>Workflows can be executed:</p>
+				<ol>
+					<li><a href="
+https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#stand-alone-application-without-java-code
+">with the CLI</a></li>
+					<li><a href="
+https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#working-with-the-java-source-code
+">invoking the FLUX from source code</a></li>
+					<li><a href="
+https://github.com/metafacture/metafacture-documentation/blob/master/Framework-User-Guide.md#building-a-flow
+">starting the Flow</a></li>
+				</ol>
+				</span>
+<p>
+				<span class="fragment">
+				For getting to know MF you also can use the Playground.
+				</span></p>
+			</section>
+
+			<section data-state="tobias">
+				<h2>MF Modules</h2>
+				<p><span class="fragment">which Modules exists?</span></p>
+				<p><span class="fragment">what do they do?</span></p>
+				<p><span class="fragment">what options do they have?</span></p>
+				<p><span class="fragment">what is the signature (i.e. expected input and created output)</span></p>
+				<p><span class="fragment">what is the name of the Java class?</span></p>
+				<p><span class="fragment">
+					<img src="img/flux-docu.png" alt="flux-commands"/>
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">link</a>
+				</span></p>
+			</section>
+
+			<section data-state="tobias">
+				<p>Exercise 4: <a target="_blank" href="
+https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+...%0A%7C+...%0A%7C+...%0A%7C+print%0A%3B&data=001@+%1Fa5%1F01-2%1E001A+%1F01100%3A15-10-94%1E001B+%1F09999%3A12-06-06%1Ft16%3A10%3A17.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aag%1E003@+%1F0482147350%1E006U+%1F094%2CP05%1E007E+%1F0U+70.16407%1E007I+%1FSo%1F074057548%1E011@+%1Fa1970%1E017A+%1Farh%1E021A+%1FaDie+@Berufsfreiheit+der+Arbeitnehmer+und+ihre+Ausgestaltung+in+vo%CC%88lkerrechtlichen+Vertra%CC%88gen%1FdEine+Grundrechtsbetrachtg%1E028A+%1F9106884905%1F7Tn3%1FAgnd%1F0106884905%1FaProjahn%1FdHorst+D.%1E033A+%1FpWu%CC%88rzburg%1E034D+%1FaXXXVIII%2C+165+S.%1E034I+%1Fa8%1E037C+%1FaWu%CC%88rzburg%2C+Jur.+F.%2C+Diss.+v.+7.+Aug.+1970%1E%0A001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1Fa5%1F01-3%1E001A+%1F01240%3A01-08-95%1E001B+%1F09999%3A24-09-10%1Ft17%3A42%3A20.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F0945184085%1E004A+%1F03-89007-044-2%1FfGewebe+%3A+DM+198.00%2C+sfr+198.00%2C+S+1386.00%1E006T+%1F095%2CN35%2C0856%1E006U+%1F095%2CA48%2C1186%1E006U+%1F010%2CP01%1E007I+%1FSo%1F061975997%1E011@+%1Fa1995%1E017A+%1Fara%1E021A+%1Fx213%1F9550711899%1FYNeues+Handbuch+der+Musikwissenschaft%1Fhhrsg.+von+Carl+Dahlhaus.+Fortgef.+von+Hermann+Danuser%1FpLaaber%1FJLaaber-Verl.%1FS48%1F03-89007-030-2%1FgAc%1E021B+%1FlBd.+13.%1FaRegister%1Fhzsgest.+von+Hans-Joachim+Hinrichsen%1E028C+%1F9121445453%1F7Tp3%1FVpiz%1FAgnd%1F0121445453%1FE1952%1FaHinrichsen%1FdHans-Joachim%1E034D+%1FaVIII%2C+408+S.%1E045V+%1F9090001001%1E047A+%1FSFE%1Fagb/fm%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01239%3A18-08-11%1E001B+%1F09999%3A05-09-11%1Ft23%3A31%3A44.000%1E001D+%1F01240%3A30-08-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F01014417392%1E004A+%1Ffkart.%1E006U+%1F011%2CA37%1E007G+%1FaDNB%1F01014417392%1E007I+%1FSo%1F0752937239%1E010@+%1Fager%1E011@+%1Fa2011%1E017A+%1Fara%1Fasf%1E021A+%1Fxtr%1F91014809657%1F7Tp3%1FVpiz%1FAgnd%1F01034622773%1FE1958%1FaLu%CC%88beck%1FdMonika%1FYPersonalwirtschaft+mit+DATEV%1FhMonika+Lu%CC%88beck+%3B+Helmut+Lu%CC%88beck%1FpBodenheim%1FpWien%1FJHerdt%1FRXA-DE%1FS650%1FgAc%1E021B+%1FlTrainerbd.%1E032@+%1Fg11%1Fa1.+Ausg.%1E034D+%1Fa129+S.%1E034M+%1FaIll.%1E047A+%1FSFE%1Famar%1E047A+%1FSERW%1Fasal%1E047I+%1Fu%24%1Fc04%1FdDNB%1Fe1%1E
+">
+Pica to YAML</a></p>
+			</section>
+
+			<section data-state="tobias">
+				<p>Exercise 5: <a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+...%0A%7C+...%0A%7C+...%0A%7C+...%0A%7C+print%0A%3B
+">Collect MARC-XML from the WEB and transform them to JSON</a></p>
+			</section>
+
+			<section data-state="tobias">
+		<h3> 15m break ☕ </h3>
+			</section>
+
+
+			<section data-state="tobias">
+					<h1>Part III: More practice and FIX</h1>
+					<p><span class="fragment">Transforming Metadata from one format to another is not enough</span>
+					<p><span class="fragment">Moving MARC to JSON and keeping the structure is NO linked data</span>
+					<p><span class="fragment">We also have to transform elements, structure and values by manipulating the records and elements</span>
+					<p><span class="fragment">e.g. add fields, lookup values, clean data etc.</span>
+					<p><span class="fragment">For that we need FIX - the transformation module of Metafacture (in contrast to FLUX - which configures the broader workflow)</span>
+					<p><span class="fragment">FIX helps us to manipulate the data on the record level</span>
+			</section>
+
+			<section data-state="tobias">
+				<h2>How to FIX</h2>
+			<p><span class="fragment">Before we start creating real LOUD metadata lets play around FIX</span></p>
+<p><span class="fragment">
+			Exercise 6: <a target="_blank" href="
+https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-records%0A%7C+decode-json%0A//+This+uses+a+variable+to+refrence+the+content+of+the+box+transformationFile%0A%7C+fix%28transformationFile%29%0A%7C+encode-yaml%0A%7C+print%0A%3B&transformation=replace_all%28%22Hello%22%2C%22orld%22%2C%22eirdos%22%29%0Aupcase%28%22Hello%22%29%0Aadd_field%28%22Great%22%2C%22Success%21%22%29%0Aprepend%28%22Great%22%2C%22Real+Great+%22%29&data=%7B%0A++++%22Hello%22%3A+%22World%22%0A%7D
+">Manipulating text with FIX</a></p></span>
+			</section>
+
+
+			<section data-state="pascal">
+				<h2>What is FIX</h2>
+				<p><span class="fragment">simple scripting language</span></p>
+				<p><span class="fragment">inspired by Catmandu Fix</span></p>
+				<p><span class="fragment">it allows you to to manipulate records and metadata elements, e.g.: </span></p>
+				<ol>
+					<span class="fragment"><li>fields can be changed, removed, filterd, separated or added</li></span>
+					<span class="fragment"><li>structure and hierachy can be changed</li></span>
+					<span class="fragment"><li>values can be looked up in external files</li></span>
+				</ol>
+			</section>
+
+			<section data-state="pascal">
+				<h1>FIX concepts</h1>
+<pre><code class="json" data-trim>
+# Simple Fix functions
+add_field("hello", "world")
+remove_field("my.deep.nested.junk")
+copy_field("stats", "output.$append")
+
+# Conditionals:
+if exists("error")
+  set_field("is_valid", "no")
+else
+  set_field("is_valid", "yes")
+end
+
+# Binds - Loops:
+do list(path: "foo", "var": "$i")
+  add_field("$i.bar", "baz")
+end
+
+# Selector:
+if exists("error")
+   reject()
+end
+</code></pre>
+</small>
+</span>
+			</section>
+
+			<section data-state="tobias">
+			<h2>FIX Docu</h2>
+			<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-User-Guide.md">FIX User Guide</a></br>
+			<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md">FIX Functions and Cookbook</a></br>
+			</section>
+
+			<section data-state="tobias">
+			<h2>Exercise 7: </h2>
+			<a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-records%0A%7C+decode-yaml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=nothing%28%29%0A&data=245%3A+%3COrdinary+Vices%3E%0A100%3A+Judith+..+.+Shklar%0A9%3A+Belknap+Press%0A800%3A+%5B1984%5D">doing some cleanup with FIX</a></br>
+			</section>
+
+			<section data-state="tobias">
+				<h2>FIX Path: how to reference fields</h2>
+<p><span class="fragment">
+If you want to manipulate specific elements or create a new element you need to know the FIX path to the element.
+</p></span>
+<span class="fragment">
+FIX-Path is a close relative of JSON-Path.
+</p></span>
+			</section>
+
+<section data-state="pascal">
+<h3>Excursion: Metadata structures</h3>
+<span class="fragment">
+<small>Metadata example:</small>
+<pre><code class="nohighlight" data-trim>
+title: Ordinary Vices
+author: Judith Shklar
+publisher: Belknap Press
+date: 1984
+</code></small></pre></span>
+<p><span class="fragment">
+We see:
+</span></p>
+<p><span class="fragment">
+... a record /data set (a collection of metadata of that book)
+</span></p>
+<p><span class="fragment">
+... elements/fields/properties/attributes/keys
+</span></p>
+<p><span class="fragment">
+... values of these elements
+</span></p>
+</section>
+
+<section data-state="pascal">
+<h3>Excursion: Metadata structures</h3>
+<p><span class="fragment">
+The structure is often not just flat "key:value"
+</span></p>
+<span class="fragment">
+<small>Subfields and Objects</small>
+<pre><code class="nohighlight" data-trim>
+author:
+  firstName: Judith
+  lastName: Shklar
+</code></small></pre></span>
+<span class="fragment">
+<small>Attributes in context of XML</small>
+<pre><code class="xml" data-trim>
+&lt;creator type="author"&gt;Judith Shklar&lt;/creator&gt;
+</code></small></pre></span>
+<span class="fragment">
+<small>Array/List (of strings or objects)</small>
+<pre><code class="nohighlight" data-trim>
+keywords:
+- Politische Theorie
+- Philosophie
+- Grausamkeit
+</code></pre></span>
+</section>
+
+<section data-state="pascal">
+<h3>Selecting elements with FIX path</h3>
+<span class="fragment">
+<small>Metadata example:</small>
+<pre><code class="nohighlight" data-trim>
+id: 978-3-518-10639-6
+title:
+  mainTitle: Öffentlichkeit und Erfahrung
+  subTitle: Zur Organisationsanalyse von bürgerlicher und proletarischer Öffentlichkeit
+creator:
+  firstName: Alexander
+  lastName: Kluge
+creator:
+  firstName: Oskar
+  lastName: Negt
+</code></small></pre></span>
+<p><span class="fragment">
+Select simple top level element: <emg>id</emg>
+</span></p>
+<p><span class="fragment">
+sublevel element: <emg>title.subTitle</emg> (separate with <emg>.</emg>)
+</span></p>
+<p><span class="fragment">
+repeated elements/arrays: <emg>creator.2.firstName</emg> (using index number)
+</span></p>
+</section>
+
+<section data-state="tobias">
+<h2>FIX Path: selecting specialities</h2>
+<p><span class="fragment">
+JSON arrays have a array marker <emg>[]</emg>, due to the JSON encoder/decoder, e.g. <emg><emg>creator[]</emg>
+</p></span>
+<p><span class="fragment">
+Path wildcards: <emg>?</emg> and <emg>*</emg> in element names
+</p></span>
+<p>
+<span class="fragment">
+Array-Wildcards:
+</span></br>
+<span class="fragment">
+<emg>*</emg> (all instances)
+</span></br>
+<span class="fragment">
+<emg>$append</emg> for a new intance
+</span></br>
+<span class="fragment">
+<emg>$last</emg> for the last instance
+</span></br>
+</p></span>
+</section>
+
+<section data-state="tobias">
+<h2>Know your paths</h2>
+<span class="fragment">
+use the flux command <emg>list-fix-paths</emg>
+</span></br>
+<span class="fragment">
+(it's useful to get an overview of your paths)
+</span></br>
+<span class="fragment">
+<img src="img/list-fix-paths.png" />
+</br>
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-paths%28count%3D%22false%22%29%0A%7C+print%0A%3B
+">link
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h2>Selecting an element</h2>
+<span class="fragment">
+Discard any data but keep all title information from element <emg>245</emg>:
+</span></br>
+<span class="fragment">
+use "any indicator" =&gt; <emg>245??</emg>
+</span></br>
+<span class="fragment">
+plus use <emg>retain</emg> to discard all other data =&gt; <emg>retain('245??')</emg>
+</span></br>
+<span class="fragment">
+<img src="img/retain-245.png" /> </br>
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28%22retain%28%27245%3F%3F%27%29%22%29%0A%7C+encode-json%0A%7C+print%0A%3B
+">
+link
+</a>
+</span></br>
+</section>
+
+<section data-state="tobias">
+<h2>Outsource the FIX</h2>
+FIX may get really big. You can separate it from the FLUX.
+<span class="fragment">
+<img src="img/outsource-fix-retain245.png" /></br>
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%0A%7C+print%0A%3B&transformation=retain%28%22245%3F%3F%22%29
+">
+link
+</a>
+</span></br>
+</section>
+
+                        <section data-state="tobias">
+                                <h2>move_field, paste, retain</h2>
+                                <span class="fragment">
+                                        <pre><code class="nohighlight" data-trim>
+{"a": "Faust", "b": {"n": "Goethe", "v": "JW"}, "c": "Weimar"}
+{"a": "Räuber", "b": {"n": "Schiller", "v": "F"}, "c": "Weimar"}
+                                        </code></pre>
+                                </span>
+                                <span class="fragment">
+                                        <pre><code class="nohighlight" data-trim>
+move_field(a, title)
+                                        </code></pre>
+                                </span>
+                                <span class="fragment">
+                                        <pre><code class="nohighlight" data-trim>
+paste(author, b.v, b.n, '~from', c)
+                                        </code></pre>
+                                </span>
+                                <span class="fragment">
+                                        <pre><code class="nohighlight" data-trim>
+retain(title, author)
+                                        </code></pre>
+                                </span>
+                                <span class="fragment">
+                                        <p><small><a
+                                                                href="
+https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-lines%0A%7Cdecode-json%0A%7Cfix%28transformationFile%29%0A%7Cencode-xml%28rootTag%3D%22collection%22%29%0A%7Cprint%0A%3B&transformation=move_field%28%22_id%22%2C+%22id%22%29%0Amove_field%28%22a%22%2C+%22title%22%29%0Apaste%28%22creator%22%2C+%22b.v%22%2C+%22b.n%22%2C+%22~from%22%2C+%22c%22%29%0Aretain%28%22id%22%2C+%22title%22%2C+%22creator%22%29&data=%7B%22a%22%3A+%22Faust%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Goethe%22%2C+%22v%22%3A+%22JW%22%7D%2C+%22c%22%3A+%22Weimar%22%7D%0A%7B%22a%22%3A+%22R%C3%A4uber%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Schiller%22%2C+%22v%22%3A+%22F%22%7D%2C+%22c%22%3A+%22Weimar%22%7D
+"
+>example in Playground</a></small></p>
+                                </span>
+                        </section>
+
+
+<section data-state="tobias">
+<h3>Practice!</h3>
+<span class="fragment">
+<a target="_blank" href="
+https://pad.gwdg.de/bpGL2dvqR_ajtfZlXcUbOA#
+">
+Let's transform MARC-XML in simple steps
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h3>Pica example</h3>
+<span class="fragment">
+<img src="img/pica-example.png" style="border: none; padding: 5px; background-color: white" width="800px" /></br>
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix(transformationFile)%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%0A%3B&transformation=move_field%28%27021A.a%27%2C+%27Title%27%29%0Amove_field%28%27011@.a%27%2C+Year%29%0Apaste%28%27Publisher%27%2C+%27033A.n%27%2C+%27~%3A+%27%2C+%27033A.p%27%29%0Aretain%28Title%2C+Year%2C+Publisher%29&data=001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1F02%1Fa5%1E001A+%1F01200%3A24-11-77%1E001B+%1F09999%3A16-01-08%1Ft01%3A01%3A54.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aan%1E003@+%1F0780510143%1E006U+%1F078%2CB02%2C0205%1E007I+%1FSo%1F0312819221%1E011@+%1Fa1977%1E017A+%1Fava%1E021A+%1FaChrista+Dichgans%2C+%22Unsere+Welt%22%1FdBilder+1973+-+1977+%3B+6.+August+-+24.+September+1977%2C+Galerie+Springer+Berlin%1FhEinf.+von+P.+H.+Go%CC%88pfert+u.+J.+Gutelius%1E028C+%1F9133822869%1F7Tp3%1FVpiz%1FAgnd%1F0133822869%1FaGo%CC%88pfert%1FdPeter+Hans%1FBBearb.%1E033A+%1FpBerlin%1FnGalerie+Springer%1E034D+%1Fa%5B34%5D+S.%1E034I+%1Fa21+cm%1E034M+%1FaIll.%1E045E+%1Fb12a%1Fm700%1Fm710%1Fm720%1Fm730%1Fm740%1Fm750%1Fm760%1Fm900%1Fm930%1E047A+%1FSFE%1Fa%5Bzi%1E%0A001@+%1Fa5%1F01-2%1E001A+%1F01140%3A28-06-99%1E001B+%1F09999%3A17-04-11%1Ft14%3A40%3A50.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0956745954%1E004A+%1F03-930425-11-4%1Ffkart.%1E006U+%1F099%2CB32%2C0466%1E007I+%1FSo%1F075995772%1E011@+%1Fa1995%1E017A+%1Farb%1Fali%1Fasi%1E021A+%1FaArbeit%2C+Ausbildung+und+Qualifikation+fu%CC%88r+Drogengebraucher+in+Substitutionsbehandlung%1Fh%5BDeutsche+AIDS-Hilfe+e.V.%5D.+Heino+Sto%CC%88ver+%28Hrsg.%29%1E028C+%1F9111736757%1F7Tp1%1FVpiz%1FAgnd%1F0111736757%1FE1956%1FaSto%CC%88ver%1FdHeino%1FBHrsg.%1E033A+%1FpBerlin%1FnDt.+AIDS-Hilfe%1E034D+%1Fa176+S.%1E034I+%1Fa21+cm%1E036F+%1Fx219%1F9019026145%1FgAdvz%1Fi1407838-7%1F7Tb1%1FVkiz%1FAgnd%1F045747-4%1FaDeutsche+AIDS-Hilfe+e.V.%1FYAids-Forum+DAH%1FhDeutsche+AIDS-Hilfe+e.V.%1FpBerlin%1FJDAH%1FlBd.+19%1E037A+%1FaLiteraturangaben%1E045E+%1Fa33%1Fd11%1Fd14%1Fd18%1Fm610%1E047A+%1FSFE%1FaSo%1E047I+%1Fu%24%1Fc04%1FdHBZ%1Fe1%1E%0A001@+%1F01%1Fa5%1E001A+%1F09999%3A08-03-02%1E001B+%1F09999%3A12-03-04%1Ft11%3A47%3A27.000%1E001D+%1F09999%3A08-03-02%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0576121444%1E004A+%1Ff-.10%1E006U+%1F000%2CL01%1E007I+%1FSo%1F072116970%1E007M+%1F03828/0713%1E011@+%1Fa1939%1Fn%5B1939%5D%1E021A+%1FaDie+@Nathanaelfrage+unserer+Tage%1Fd%22Kann+denn+aus+Pala%CC%88stina+etwas+Gutes+kommen%3F%22%1FhKarl+Schwarzmann%1E028A+%1F9126797811%1F7Tn6%1FAgnd%1F0126797811%1FaSchwarzmann%1FdKarl%1E033A+%1FpKo%CC%88ln%1FnSchwarzmann%1E034D+%1Fa31+S.%1E034I+%1Fakl.+8%1E&active-editor=fix
+">
+link
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h3>Lookups using external tables</h3>
+<span class="fragment">
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%0A%7C+print%0A%3B&transformation=put_filemap%28%22https%3A//gist.githubusercontent.com/TobiasNx/005d8d7b65324c88b1aa28fa5bea540b/raw/da995f9f3837f51709cae965426271f76aae2bb6/bibliographicLevel.tsv%22%2C+%22bibliographicLevelMap%22%2Csep_char%3A%22\t%22%29%0A%0A%0Acopy_field%28%22leader%22%2C%22bibliographicLevel%22%29%0Asubstring%28%22bibliographicLevel%22%2C%227%22%2C%221%22%29%0Alookup%28%22bibliographicLevel%22%2C%22bibliographicLevelMap%22%29%0Aretain%28%22bibliographicLevel%22%29
+">
+Map bibliographic level from MARC leader to human readable representation by doing a lookup an a tabulator separated value file (tsv) residing at the web
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h3>RDF web lookups</h3>
+<span class="fragment">
+In Alma Marc XML we get only the identifier of "DNB Sachgruppen":
+<pre>
+<code class="xml">
+  &lt;datafield tag="084" ind1=" " ind2=" "&gt;
+    &lt;subfield code="a"&gt;340&lt;/subfield&gt;
+    &lt;subfield code="q"&gt;DE-101&lt;/subfield&gt;
+    &lt;subfield code="2"&gt;sdnb&lt;/subfield&gt;
+  &lt;/datafield&gt;
+</code></pre>
+
+
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=do+once%28%22maps%22%29%0A++++put_rdfmap%28%22https%3A//raw.githubusercontent.com/acka47/dnb-sg-skos/main/sg_skos_2020.ttl%22%2C+%22idLookup%22%2Ctarget%3A%22skos%3Anotation%22%29%0A++++put_rdfmap%28%22https%3A//raw.githubusercontent.com/acka47/dnb-sg-skos/main/sg_skos_2020.ttl%22%2C+%22labelLookup%22+%2C+target%3A+%22skos%3AprefLabel%22%2C+select_language%3A%22de%22%29%0Aend%0A%0Aset_array%28%22dnb_sg%5B%5D%22%29%0A%0Ado+list%28path%3A%22084%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++if+any_match%28%22%24i.2%22%2C+%22sdnb%7Czdbs%22%29%0A++++++++do+list%28path%3A%22%24i.a%22%2C%22var%22%3A%22%24j%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24append.notation%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24last.id%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24last.label%22%29%0A++++++++end%0A++++end%0Aend%0A%0Alookup%28%22dnb_sg%5B%5D.%2A.id%22%2C%22idLookup%22%29%0Alookup%28%22dnb_sg%5B%5D.%2A.label%22%2C%22idLookup%22%29%0Alookup%28%22dnb_sg%5B%5D.%2A.label%22%2C%22labelLookup%22%29%0A%0Aretain%28%22dnb_sg%5B%5D%22%29
+">
+Lookup "DNB Sachgruppen" to enrich with skos:notation and skos:prefLabel
+</a>
+</span>
+</section>
+
+
+
+<section data-state="tobias">
+<h3>Usage of wildcards and binds</h3>
+<span class="fragment">
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/LibraryCarpentry/lc-marcedit/gh-pages/data/marc_sample_data.mrc%22%0A%7C+open-http%0A%7C+as-records%0A%7C+decode-marc21%28ignoreMissingId%3D%22true%22%29%0A%7C+fix%28transformationFile%29%0A%7C+encode-xml%0A%7C+print%0A%3B&transformation=set_array%28%22dc%3Atitle%22%29%0Acopy_field%28%22245%3F%3F.%3F%22%2C%22dc%3Atitle%22%29%0Ajoin_field%28%22dc%3Atitle%22%2C%22%22%29%0A%0Aset_array%28%22dc%3Acontributor%22%29%0Ado+list%28path%3A%22100%3F%3F%7C110%3F%3F%7C111%3F%3F%7C700%3F%3F%7C710%3F%3F%7C711%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22dc%3Acontributor.%24append%22%29%0Aend%0A%0Areplace_all%28%22dc%3Acontributor.%2A%22%2C%22\\.%22%2C%22%22%29%0Areplace_all%28%22dc%3Acontributor.%2A%22%2C%22%28.%2B%29%2C+%28.%2B%29%22%2C+%22%242+%241%22%29%0A%0Aretain%28%22dc%3Acontributor%22%2C+%22dc%3Atitle%22%29%0A
+">
+Collect all contributors from MARC21 and map those to dc:contributor
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h3>Analysis of element values</h3>
+<span class="fragment">
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22https%3A//github.com/hbz/metafacture-flux-examples/blob/master/sample4/bib-data-1k.pica%3Fraw%3Dtrue%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+list-fix-values%28%22032@.a%22%29%0A%7C+print%0A%3B
+">
+with flux command: <emg>list-fix-values</emg>
+</a>
+</span>
+</section>
+
+<section data-state="tobias">
+<h3>That's it</h3>
+<span class="fragment">
+This was our crash course "Metafacture".
+In Part IV we will create LOUD JSON-LD records with Metafacture.
+
+We only showed you a part of the metafacture tool box.
+</span></br>
+<span class="fragment">
+We did not talk about:
+</span></br>
+<span class="fragment">
+<a target="_blank" href="
+https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma
+">
+very complex transformations</emg>
+</a>
+</span></br>
+<span class="fragment">
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix(transformationFile)%0A%7C+stream-to-triples%0A%7C+count-triples%28countBy%3D%22predicate%22%29%0A%7C+template%28%22%24%7Bs%7D%3A\t+%24%7Bo%7D%22%29%0A%7C+print%3B&transformation=if+any_match%28%27060R.a%27%2C+%27%5E\\d%7B2%7D\\.\\d%7B2%7D.\\d%7B4%7D%27%29%0A++move_field%28%27060R.a%27%2C+%27birth+%28full%29%27%29%0Aelsif+any_match%28%27060R.a%27%2C+%27%5E\\d%7B2%2C4%7D%27%29%0A++move_field%28%27060R.a%27%2C+%27birth+%28year%29%27%29%0Aelse%0A++move_field%28%27060R.a%27%2C+%27invalid+birth%27%29%0Aend%0Aretain%28%27birth+%28full%29%27%2C+%27birth+%28year%29%27%2C+%27invalid+birth%27%29%0A&data=001A+%1F09013%3A26-09-11%1E001B+%1F09013%3A26-09-11%1Ft13%3A45%3A15.000%1E001D+%1F09013%3A26-09-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp6%1E003@+%1F0172385830%1E003U+%1Fahttp%3A//d-nb.info/gnd/172385830%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0172385830%1E007N+%1Fapnd%1F0172385830%1Fvzg%1E008A+%1Faf%1E028A+%1FdJochanan%1FaStenesh%1E042@+%1F0NN%1Fchbz-per_indiv_20110920%1Fd45423%1Fe2011-09-26%1E047A/03+%1FeDE-605%1E047A/03+%1FrDE-605%1E047C+%1FSpnd%1Fia%1FaStenesh%2C+Jochanan%1F0172385830%1E050C+%1Famaschinell+eingespielte+Altdaten%1E060R+%1Fa1927%1F4datl%1E%0A001A+%1F01240%3A06-06-08%1E001B+%1F09999%3A12-07-08%1Ft01%3A36%3A32.000%1E001D+%1F01240%3A06-06-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp3%1E003@+%1F0135646189%1E003U+%1Fahttp%3A//d-nb.info/gnd/135646189%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0135646189%1E007N+%1Fapnd%1F0135646189%1Fvzg%1E008A+%1Faf%1E008B+%1Fav%1E028A+%1FdMichael%1FaHack%1E041R+%1F9040031578%1F7Ts1%1FVsaz%1FAgnd%1F04003157-3%1FaArzt%1F4berc%1E047A/03+%1FeDE-101%1E047A/03+%1FrDE-101%1E047C+%1FSpnd%1Fia%1FaHack%2C+Michael%1F0135646189%1E050G+%1FbDiss.+Medizinische+Fakulta%CC%88t+an+der+Universita%CC%88t+Regensburg%1E060R+%1Fa1976%1F4datl%1E065R+%1FaDingolfing%1F4ortg%1E%0A001A+%1F09013%3A26-09-11%1E001B+%1F09013%3A26-09-11%1Ft13%3A27%3A15.000%1E001D+%1F09013%3A26-09-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp6%1E003@+%1F017216575X%1E003U+%1Fahttp%3A//d-nb.info/gnd/17216575X%1E004B+%1Fapiz%1E007K+%1Fagnd%1F017216575X%1E007N+%1Fapnd%1F017216575X%1Fvzg%1E008A+%1Faf%1E028@+%1FdP.+W.+M.%1FaJacobs%1E028@+%1FdPatrick+W.+M.%1FaJacobs%1E028A+%1FdPatrick+W.%1FaJacobs%1E042@+%1F0NN%1Fchbz-per_indiv_20110920%1Fd23415%1Fe2011-09-26%1E047A/03+%1FeDE-605%1E047A/03+%1FrDE-605%1E047C+%1FSpnd%1Fia%1FaJacobs%2C+Patrick+W.%1F017216575X%1E050C+%1Famaschinell+eingespielte+Altdaten%1E050G+%1FbEmeritus+Professor+der+Physikalischen+Chemie%1E%0A001A+%1F01140%3A16-12-99%1E001B+%1F09999%3A06-04-08%1Ft10%3A09%3A57.000%1E001D+%1F09999%3A06-04-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp3%1E003@+%1F0121656551%1E003U+%1Fahttp%3A//d-nb.info/gnd/121656551%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0121656551%1E007N+%1Fapnd%1F0121656551%1Fvzg%1E008A+%1Faf%1E008B+%1Fav%1E028A+%1FdMichael%1FaBotor%1E047A/03+%1FeDE-101%1E047A/03+%1FrDE-101%1E047C+%1FSpnd%1Fia%1FaBotor%2C+Michael%1F0121656551%1E050G+%1FbDissertation+Fachbereich+Germanistik%3B+Germanist%2C+Lehrer%1E060R+%1Fa1969%1F4datl%1E%0A001A+%1F09013%3A26-09-11%1E001B+%1F09013%3A26-09-11%1Ft15%3A59%3A48.000%1E001D+%1F09013%3A26-09-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp6%1E003@+%1F0174129386%1E003U+%1Fahttp%3A//d-nb.info/gnd/174129386%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0174129386%1E007N+%1Fapnd%1F0174129386%1Fvzg%1E008A+%1Faf%1E028@+%1FdWilhelmus%1Fcde%1FaPechmann%1E028A+%1FdWilhelm%1Fcvon%1FaPechmann%1E042@+%1F0NN%1Fchbz-per_indiv_20110920%1Fd219778%1Fe2011-09-26%1E047A/03+%1FeDE-605%1E047A/03+%1FrDE-605%1E047C+%1FSpnd%1Fia%1FaPechmann%2C+Wilhelm+/von%1F0174129386%1E050C+%1Famaschinell+eingespielte+Altdaten%1E050G+%1Fb1.2%3A+%22Ex+libris+Wilhelmi+Liberi+Baronis+de+Pechmann%22%1E%0A001A+%1F09013%3A26-09-11%1E001B+%1F09999%3A31-07-13%1Ft01%3A16%3A49.000%1E001D+%1F09013%3A26-09-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp6%1E003@+%1F0174168926%1E007K+%1Fagnd%1F0174168926%1E008@+%1Fazu%1E039I+%1F9174039441%1F7Tp3%1FVpiz%1FAgnd%1F0174039441%1FaMolisch%1FdHans%1E%0A001A+%1F00012%3A30-04-97%1E001B+%1F09999%3A05-04-08%1Ft22%3A04%3A47.000%1E001D+%1F09999%3A05-04-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp1%1E003@+%1F0104379642%1E003U+%1Fahttp%3A//d-nb.info/gnd/104379642%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0104379642%1E007N+%1Fapnd%1F0104379642%1Fvzg%1E008A+%1Faa%1Faf%1E028A+%1FdAndre%CC%81%1FaBaiole%1E042B+%1FaXA-FR%1E047A/03+%1FeDE-12%1E047A/03+%1FrDE-12%1E047C+%1FSpnd%1Fia%1FaBaiole%2C+Andre%CC%81%1F0104379642%1E050C+%1FaHBZ%1E050E+%1FaBN%1E050G+%1FbFranz.+Theologe%1E060R+%1Fcum+1649%1F4datl%1E%0A001A+%1F00103%3A31-07-96%1E001B+%1F07777%3A30-07-13%1Ft11%3A05%3A32.000%1E001D+%1F09999%3A05-04-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp1%1E003@+%1F0117305553%1E003U+%1Fahttp%3A//d-nb.info/gnd/117305553%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0117305553%1E007N+%1Fapnd%1F0117305553%1Fvzg%1E008A+%1Faz%1E008B+%1Fak%1E028@+%1FdL...%1FaStrackerjan%1E028A+%1FdLudwig%1FaStrackerjan%1E032T+%1Fam%1E041R+%1F9040290506%1F7Ts1%1FVsaz%1FAgnd%1F04029050-5%1FaJurist%1F4berc%1E041R+%1F9040533093%1F7Ts1%1FVsaz%1FAgnd%1F04053309-8%1FaSchriftsteller%1F4beru%1E042B+%1FaXA-DE%1E047A/03+%1FeDE-611%1E047A/03+%1FrDE-611%1E047C+%1FSpnd%1Fia%1FaStrackerjan%2C+Ludwig%1F0117305553%1E050C+%1FaNDSBIO%1E060R+%1Fa1825%1Fb1881%1F4datl%1E%0A001A+%1F00255%3A08-01-02%1E001B+%1F09999%3A02-01-12%1Ft17%3A16%3A36.000%1E001D+%1F09999%3A06-04-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp1%1E003@+%1F0123464595%1E003U+%1Fahttp%3A//d-nb.info/gnd/123464595%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0123464595%1E007N+%1Fapnd%1F0123464595%1Fvzg%1E007N+%1Faswd%1F04666643-6%1Fvzg%1E008A+%1Fas%1E028A+%1FdSiliano%1FaSimoncini%1E042A+%1Fa13.4p%1E042B+%1FaXA-IT%1E047A/03+%1FeDE-255%1E047A/03+%1FrDE-255%1E047C+%1FSpnd%1Fia%1FaSimoncini%2C+Siliano%1F0123464595%1E050E+%1FaInternet%1E050G+%1FbItal.+Maler%1E060R+%1Fakein-jahr%1F4datl%1FvVorlage%1E%0A001A+%1F09999%3A23-01-02%1E001B+%1F09999%3A05-04-08%1Ft20%3A38%3A46.000%1E001D+%1F09999%3A05-04-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Tp6%1E003@+%1F0126744327%1E003U+%1Fahttp%3A//d-nb.info/gnd/126744327%1E004B+%1Fapiz%1E007K+%1Fagnd%1F0126744327%1E007N+%1Fapnd%1F0126744327%1Fvzg%1E008A+%1Faf%1E008B+%1Fav%1E028A+%1FdHermann%1FaMa%CC%88dler%1E046G+%1FaMehr+fu%CC%88r+Hamburg+-+weniger+fu%CC%88r+die+Ru%CC%88stung%1E047A/03+%1FeDE-101%1E047A/03+%1FrDE-101%1E047C+%1FSpnd%1Fia%1FaMa%CC%88dler%2C+Hermann%1F0126744327%1E050C+%1FaMaschinell+erzeugt+aus+DBL-Retro-Daten%3BMaschinell+verknuepft+mit+DBL-Retro-Titeldaten%1E060R+%1Fc1970%1F4datw%1E&active-editor=fix
+">
+complex analytics., e.g. counting patterns</emg>
+</a>
+</span></br>
+<span class="fragment">
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/hbz/metafacture-flux-examples/master/sample6/authority-persons.pica%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+stream-to-triples%0A%7C+@X%3B%0A%0A%22https%3A//raw.githubusercontent.com/hbz/metafacture-flux-examples/master/sample6/wiki-persons.foma%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-formeta%0A%7C+fix%28%22copy_field%28%27gnd%27%2C+%27_id%27%29%22%29%0A%7C+stream-to-triples%28redirect%3D%22true%22%29%0A%7C+@X%3B%0A%0A@X%0A%7C+wait-for-inputs%28%222%22%29%0A%7C+sort-triples%28by%3D%22subject%22%29%0A%7C+collect-triples%0A%7C+fix(transformationFile)%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%3B%0A%0A&transformation=paste%28%27name%27%2C+%27028A.d%27%2C+%27028A.a%27%29%0Aretain%28%27name%27%2C+%27viaf%27%2C+%27gnd%27%29&active-editor=fix
+">
+merging different records from different sources with collect-triples</emg>
+</a>
+</span></br>
+</section>
+
+			<section data-state="tobias">
+		<h3>30m break </h3>
+			</section>
+
+
+<section data-state="tobias">
+<h1>Part IV (2h with a break)</h1>
+LOUD introduction
+</section>
+
+
+			<section data-state="tobias">
+				<h1>What is this LOUD?</h1>
+				<img src="img/loud-tweet.png"
+						style="border: none; padding: 5px; background-color: white" width="500px" />
+				-<p>
+					<small>Source:<a target="_blank" href="https://twitter.com/azaroth42/status/768140561794502656">Rob Sanderson on Twitter</a></br>
+							See also Rob Sanderson’s Europeanatech 2018 Keynote
+							<a target="_blank" href="https://de.slideshare.net/azaroth42/europeanatech-keynote-shout-it-out-loud">(Slides</a>
+							<a target="_blank" href="https://www.youtube.com/watch?v=r4afi8mGVAY">Video)</a>
+					</small>
+				</p>
+			</section>
+
+
+			<section data-state="tobias">
+				<h1>Not just LOD</h1>
+			<a target="_blank" href="https://5stardata.info/"><img src="img/lod-cup.jpg"
+				style="border: none; padding: 1px; background-color: blue; float: left" width="300px" /></a>
+			<span class="fragment">
+			<small> ... which could look like this RDF (ntriples): </small>
+				<pre><code class="json" data-trim >
+&lt;http://lobid.org/resource/99371981001306441#!&gt;
+&lt;http://purl.org/dc/terms/title&gt;
+"Smart grids and sustainable energy" .
+</code></pre>
+</span>
+			<span class="fragment">
+			Which doesn't look so bad - but "blank nodes" etc ... you would need a TripleStore.
+</span>
+			</section>
+
+
+			<section data-state="tobias">
+Graphs - good for triple stores
+			<img src="img/graph.png" />
+			<span class="fragment">
+.. but the most of us don't use SPARQL and triple stores ...
+	</span>
+			</section>
+
+			<section data-state="tobias">
+			Ah - ok - JSON then! Trees to the rescue:
+			<span class="fragment">
+ It could look like this JSON/RDF result:
+				<pre><code class="json" >
+{ "head": { "vars": [ "s", "p","o"] },
+ "results": {
+  "bindings": [ {
+   "o": {
+    "type": "literal",
+    "value": "Smart grids and sustainable energy"
+   },
+   "p": {
+    "type": "uri",
+    "value": "http://purl.org/dc/terms/title"
+   },
+   "s": {
+    "type": "uri",
+    "value": "http://lobid.org/resource/99371981001306441#!"
+   }
+  }, [...]
+</code></pre>
+<small>(example of an unLOUD JSON representation of LOD - a "flat" tree)</small>
+</span>
+		</section>
+
+			<section data-state="tobias">
+Turning it LOUDer: What you see is what you can query
+				<pre><code class="json" >
+ "contribution": [
+    {
+      "agent": {
+        "gndIdentifier": "135539897",
+        "id": "https://d-nb.info/gnd/135539897",
+        "label": "Elgin, Catherine Z.",
+        "type": [
+          "Person"
+        ],
+        "dateOfBirth": "1948",
+        "altLabel": [
+          "Elgin, Catherine"
+        ]
+      },
+      "role": {
+        "id": "http://id.loc.gov/vocabulary/relators/aut",
+        "label": "Autor/in"
+      },
+      "type": [
+        "Contribution"
+      ]
+    }
+  ],
+</code></pre>
+			<span class="fragment">
+<small>(Query example: <a href="http://lobid.org/resources/search?q=contribution.agent.label%3A%22Elgin%2C+Catherine%22+AND+NOT+contribution.role.id%3A%22http%3A%2F%2Fid.loc.gov%2Fvocabulary%2Frelators%2Faut%22">contribution.agent.label:"Elgin, Catherine" AND NOT contribution.role.id:"http://id.loc.gov/vocabulary/relators/aut")</a></small>
+	</span>
+			<span class="fragment">
+But wait - this is not LOD !
+	</span>
+</section>
+
+			<section data-state="tobias">
+Machine readable semantics are missing! Let's add that with a "context":
+			<span class="fragment">
+				<pre><code class="json" >
+{
+ "@context": "http://lobid.org/resources/context.jsonld",
+ "contribution": [
+    {
+      "agent": {
+        "gndIdentifier": "135539897",
+        "id": "https://d-nb.info/gnd/135539897",
+        "label": "Elgin, Catherine Z.",
+[...]
+</code></pre>
+</span>
+			<span class="fragment">
+JSON + context =&gt; JSON-LD ("context" here not embedded but as a reference)
+</span>
+</section>
+
+<section data-state="tobias">
+<h2>JSON-LD</h2>
+<p><span class="fragment">
+"designed to be usable directly as JSON, with no knowledge of RDF" — it's real JSON!
+</span></p>
+<p><span class="fragment">
+"also designed to be usable as RDF"
+</span></p>
+<p><span class="fragment">
+<a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a>
+</span></p>
+</section>
+
+			<section data-state="tobias">
+Let's have a look into the referenced "context" at <a href="http://lobid.org/resources/context.jsonld">http://lobid.org/resources/context.jsonld</a>:
+			<span class="fragment">
+				<pre><code class="json" >
+{
+  "@context": {
+   "contribution": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/contribution",
+      "@container": "@list"
+    },
+   "agent": {
+      "@id": "http://id.loc.gov/ontologies/bibframe/agent"
+    },
+   "label": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+[...]
+</code></pre>
+</span>
+</section>
+
+			<section data-state="tobias">
+			<img src="img/sanderson-2018-loud-22.png"
+				style="border: none; padding: 5px; background-color: white" /></br>
+			</section>
+
+			<section data-state="tobias">
+
+So let's do LOUD now!
+
+<span class="fragment"><p>
+Main thing  to learn is there is no the <em>one</em> solution of the transformation. You have to map,you have to transform you have to try and test.
+</p></span>
+<span class="fragment"><p>
+Iterate.
+</p></span>
+<span class="fragment"><p>
+Improve step by step.
+</p></span>
+<span class="fragment"><p>
+This is true for all work.
+</p></span>
+<span class="fragment"><p>
+Let's go to <a href="
+https://pad.lobid.org/g4oXCsn2TbSZb5F4rSm1Nw#
+">
+https://pad.lobid.org/g4oXCsn2TbSZb5F4rSm1Nw#</a>
+</p></span>
+</section>
+
+<section data-state="alle">
+<img src="img/metafacture.png" />
+<p><a target="_blank" href="https://metafacture.org">https://metafacture.org</a></p>
+</section>
+
+</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('pascal', function () { document.querySelector('#footer-left').innerHTML = 'P'; });
+		Reveal.addEventListener('tobias', function () { document.querySelector('#footer-left').innerHTML = 'T'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		Reveal.addEventListener('uebungsPause', function () { document.querySelector('#footer-left').innerHTML = 'Ü.'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });			
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c/t', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
