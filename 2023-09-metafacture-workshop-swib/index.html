@@ -6,7 +6,7 @@
 
 	<title>Creating LOUD with Metafacture</title>
 
-	<meta name="description" content="Hands-on Lab at SWIB23 in Berlin">
+	<meta name="description" content="Workshop at SWIB23 in Berlin">
 	<meta name="author" content="Pascal Christoph">
 	<meta name="author" content="Tobias Bülte">
 
@@ -55,7 +55,7 @@
 						"id": "https://lobid.org/project/metafacture-playground"
 					}
 				],
-				"datePublished": "2023-09-08",
+				"datePublished": "2023-09-11",
 				"inLanguage": [
 					"de"
 				],
@@ -111,7 +111,7 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section data-state="tobias">
+			<section data-state="pascal">
 				<a target="_blank" href="http://metafacture.org"><img src="img/metafacture.png"
 						style="border: none; padding: 5px; background-color: white" width="500px" /></a>
 				<h3>Creating LOUD with Metafacture</h3>
@@ -123,9 +123,9 @@
 						<br /> <a target="_blank" href="https://www.hbz-nrw.de/produkte/linked-open-data">Metadateninfrastruktur,
 							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
 					<small><br />
-						Hands-on Lab<br />
+						Workshop<br />
 					<br />
-					SWIB 23<br />
+					<a href="https://swib.org/swib23/">SWIB 23</a><br />
 					Berlin, 11. September 2023
 					</small>
 				</p>
@@ -142,14 +142,14 @@
 				</p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="alle">
 				<h1>Who are we ?</h1>
 				<p><span class="fragment">We are Pascal and Tobias.</p>
 				<p><span class="fragment">Pascal is a software engineer. Tobias is a librarian.</p>
 				<p><span class="fragment">We are both part of the Metadateninfrastruktur-Team at hbz. fka. lobid, offene Infrastruktur.</p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 				<h1>Who are we 2/2 ?</h1>
 				<p><span class="fragment">Metadateninfrastruktur is a mixed team of librarians and developers.</p>
 				<p><span class="fragment">We engage in everything open:</p>
@@ -187,7 +187,7 @@ Part IV: LOUD (2h)
 			</section>
 
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 			<h2>Part I: What is Metafacture?</h2>
 			<p><span class="fragment">
 Metafacture is a toolkit for processing semi-structured data with a focus on library metadata.
@@ -209,7 +209,7 @@ It is also an open framework. (You can use modules on their own. It's Open Sourc
 				<br /><small>Autoren: Tobias &amp; Pascal (2021-2023)</small>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 			<h3>The Workshop: Why are we doing what we are doing?</h3>
 			<p><span class="fragment">
 Metafacture helps us to transform e.g. MARC21-XML, CSV and PICA to JSON-LD to index that into elasticsearch (JSON search engine based on lucene) for lobid to publish it as LOUD via our web API, properly documented.
@@ -218,15 +218,19 @@ Metafacture helps us to transform e.g. MARC21-XML, CSV and PICA to JSON-LD to in
 			<p><span class="fragment">
 The tools are very flexible so that we can easily and continuiously develope our API and our LOUD in conversation with our consumers/customers.
 </p></span>
+			<p><span class="fragment">
+Metafacture is an open framework. (You can use modules on their own. It's Open Source so you can develope your own modules.)
+</p></span>
+	
 			</section>
 
-<section data-state="tobias">
+<section data-state="pascal">
 We presume you are here because you want to expose your data in a useful way. Like we at lobid:
 <span class="fragment">
 <img src="img/lobid-data.png" />·
 </span></br>
 <span class="fragment">
-So we build web APIs!
+LOUD Web APIs!
 </span>
 </section>
 
@@ -234,15 +238,12 @@ So we build web APIs!
 			<section data-state="tobias">
 			<h3>The Workshop: Why are we doing what we are doing? 2/2</h3>
 			<p><span class="fragment">
-In our Workshop today, we want to introduce you to the tool Metafacture and show how you can transform MARC-XML to JSON-LD.
+In our Workshop we want to introduce you to the tool Metafacture and show how you can transform MARC-XML to JSON-LD.
 </p></span>
 			<p><span class="fragment">
 We are using the new Metafacture Playground and rely on Live Coding.
 </p></span>
-			<p><span class="fragment">
-Metafacture is an open framework. (You can use modules on their own. It's Open Source so you can develope your own modules.)
-</p></span>
-			<p><span class="fragment">
+		<p><span class="fragment">
 Especially the DSL FLUX and FIX do not need any special Java knowledge, so that open-minded librarians can be included in the developement and maintainance of an ETL process.
 </p></span>
 			</section>
@@ -257,19 +258,19 @@ Especially the DSL FLUX and FIX do not need any special Java knowledge, so that 
 			</section>
 
 			<section data-state="tobias">
-				<p>Exercise 1: <a href="https://metafacture.org/playground/?flux=%22Hello%2C+friend.+I%27am+Metafacture%21%22%0A%7Cprint%0A%3B">first steps: how to use the Playground</a></p>
+				<p>Exercise 1: <a target="_blank" href="https://metafacture.org/playground/?flux=%22Hello%2C+friend.+I%27am+Metafacture%21%22%0A%7Cprint%0A%3B">first steps: how to use the Playground</a></p>
 			</section>
 
 
 			<section data-state="tobias">
-				<p>Exercise 2: <a href="https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+print%0A%3B&data=%22Hello%2C+friend.+I%27am+Metafacture%21%22">how to open a file and read the data from it</a></p>
+				<p>Exercise 2: <a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+print%0A%3B&data=%22Hello%2C+friend.+I%27am+Metafacture%21%22">how to open a file and read the data from it</a></p>
 			</section>
 
 			<section data-state="tobias">
-				<p>Exercise 3: <a href="https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/metafacture/metafacture-core/master/metafacture-runner/src/main/dist/examples/read/marc21/10.marc21%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-marc21%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B">interpret a process</a></p>
+				<p>Exercise 3: <a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//raw.githubusercontent.com/metafacture/metafacture-core/master/metafacture-runner/src/main/dist/examples/read/marc21/10.marc21%22%0A%7C+open-http%0A%7C+as-lines%0A%7C+decode-marc21%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B">interpret a process</a></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 				<h2>How does MF work?</h2>
 				<p><span class="fragment">Data runs through multiple modules</span></p>
 				<p><span class="fragment">roughly like this:</br>
@@ -294,15 +295,22 @@ Especially the DSL FLUX and FIX do not need any special Java knowledge, so that 
 				</span>
 			</section>
 
-			<section data-state="tobias">
+<section data-state="pascal">
+<h2>Metafacture-Module</h2>
+<img src="img/metafacture-etl-module.png" />
+<br /><small>Modules can be combined - given that their signature matches</small>
+</section>
+
+
+			<section data-state="pascal">
 				<h2>MF workflows</h2>
 				<p>Workflows can be configured by using:</p>
 				<span class="fragment">
 				<ol>
-					<li><a href="
+					<li><a target="_blank" href="
 https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#flow-definitions
 ">FLUX</a>(the scripting language we already used in the Playground)</li>
-					<li><a href="
+					<li><a target="_blank"href="
 https://github.com/metafacture/metafacture-documentation/blob/master/Framework-User-Guide.md#building-a-flow
 ">
 Java by building a Flow</a>(typesafe as Java Generics)</li>
@@ -311,13 +319,13 @@ Java by building a Flow</a>(typesafe as Java Generics)</li>
 				<span class="fragment">
 				<p>Workflows can be executed:</p>
 				<ol>
-					<li><a href="
+					<li><a target="_blank"href="
 https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#stand-alone-application-without-java-code
 ">with the CLI</a></li>
-					<li><a href="
+					<li><a target="_blank"href="
 https://github.com/metafacture/metafacture-documentation/blob/master/Flux-User-Guide.md#working-with-the-java-source-code
 ">invoking the FLUX from source code</a></li>
-					<li><a href="
+					<li><a target="_blank"href="
 https://github.com/metafacture/metafacture-documentation/blob/master/Framework-User-Guide.md#building-a-flow
 ">starting the Flow</a></li>
 				</ol>
@@ -360,7 +368,7 @@ https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-
 
 
 			<section data-state="tobias">
-					<h1>Part III: More practice and FIX</h1>
+					<h2>Part III: More practice and FIX</h2>
 					<p><span class="fragment">Transforming Metadata from one format to another is not enough</span>
 					<p><span class="fragment">Moving MARC to JSON and keeping the structure is NO linked data</span>
 					<p><span class="fragment">We also have to transform elements, structure and values by manipulating the records and elements</span>
@@ -379,7 +387,7 @@ https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-reco
 			</section>
 
 
-			<section data-state="pascal">
+			<section data-state="tobias">
 				<h2>What is FIX</h2>
 				<p><span class="fragment">simple scripting language</span></p>
 				<p><span class="fragment">inspired by Catmandu Fix</span></p>
@@ -391,7 +399,7 @@ https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-reco
 				</ol>
 			</section>
 
-			<section data-state="pascal">
+			<section data-state="tobias">
 				<h1>FIX concepts</h1>
 <pre><code class="json" data-trim>
 # Simple Fix functions
@@ -441,7 +449,7 @@ FIX-Path is a close relative of JSON-Path.
 </p></span>
 			</section>
 
-<section data-state="pascal">
+<section data-state="tobias">
 <h3>Excursion: Metadata structures</h3>
 <span class="fragment">
 <small>Metadata example:</small>
@@ -465,7 +473,7 @@ We see:
 </span></p>
 </section>
 
-<section data-state="pascal">
+<section data-state="tobias">
 <h3>Excursion: Metadata structures</h3>
 <p><span class="fragment">
 The structure is often not just flat "key:value"
@@ -492,7 +500,7 @@ keywords:
 </code></pre></span>
 </section>
 
-<section data-state="pascal">
+<section data-state="tobias">
 <h3>Selecting elements with FIX path</h3>
 <span class="fragment">
 <small>Metadata example:</small>
@@ -521,16 +529,16 @@ repeated elements/arrays: <emg>creator.2.firstName</emg> (using index number)
 
 <section data-state="tobias">
 <h2>FIX Path: selecting specialities</h2>
-<p><span class="fragment">
+<pbigger><span class="fragment">
 JSON arrays have a array marker <emg>[]</emg>, due to the JSON encoder/decoder, e.g. <emg><emg>creator[]</emg>
-</p></span>
+</pbigger></span>
 <p><span class="fragment">
 Path wildcards: <emg>?</emg> and <emg>*</emg> in element names
-</p></span>
+</span></p>
 <p>
-<span class="fragment">
+<p><span class="fragment">
 Array-Wildcards:
-</span></br>
+</span></p>
 <span class="fragment">
 <emg>*</emg> (all instances)
 </span></br>
@@ -620,7 +628,7 @@ retain(title, author)
                                 </span>
                                 <span class="fragment">
                                         <p><small><a
-                                                                href="
+                                                              target="_blank" href="
 https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-lines%0A%7Cdecode-json%0A%7Cfix%28transformationFile%29%0A%7Cencode-xml%28rootTag%3D%22collection%22%29%0A%7Cprint%0A%3B&transformation=move_field%28%22_id%22%2C+%22id%22%29%0Amove_field%28%22a%22%2C+%22title%22%29%0Apaste%28%22creator%22%2C+%22b.v%22%2C+%22b.n%22%2C+%22~from%22%2C+%22c%22%29%0Aretain%28%22id%22%2C+%22title%22%2C+%22creator%22%29&data=%7B%22a%22%3A+%22Faust%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Goethe%22%2C+%22v%22%3A+%22JW%22%7D%2C+%22c%22%3A+%22Weimar%22%7D%0A%7B%22a%22%3A+%22R%C3%A4uber%22%2C+%22b%22%3A+%7B%22n%22%3A+%22Schiller%22%2C+%22v%22%3A+%22F%22%7D%2C+%22c%22%3A+%22Weimar%22%7D
 "
 >example in Playground</a></small></p>
@@ -753,7 +761,7 @@ LOUD introduction
 </section>
 
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 				<h1>What is this LOUD?</h1>
 				<img src="img/loud-tweet.png"
 						style="border: none; padding: 5px; background-color: white" width="500px" />
@@ -767,7 +775,7 @@ LOUD introduction
 			</section>
 
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 				<h1>Not just LOD</h1>
 			<a target="_blank" href="https://5stardata.info/"><img src="img/lod-cup.jpg"
 				style="border: none; padding: 1px; background-color: blue; float: left" width="300px" /></a>
@@ -785,7 +793,7 @@ LOUD introduction
 			</section>
 
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 Graphs - good for triple stores
 			<img src="img/graph.png" />
 			<span class="fragment">
@@ -793,7 +801,7 @@ Graphs - good for triple stores
 	</span>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 			Ah - ok - JSON then! Trees to the rescue:
 			<span class="fragment">
  It could look like this JSON/RDF result:
@@ -819,10 +827,9 @@ Graphs - good for triple stores
 </span>
 		</section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 Turning it LOUDer: What you see is what you can query
-				<pre><code class="json" >
- "contribution": [
+				<pre><small><code class="json" >"contribution": [
     {
       "agent": {
         "gndIdentifier": "135539897",
@@ -845,16 +852,16 @@ Turning it LOUDer: What you see is what you can query
       ]
     }
   ],
-</code></pre>
+				</small></code></pre>
 			<span class="fragment">
-<small>(Query example: <a href="http://lobid.org/resources/search?q=contribution.agent.label%3A%22Elgin%2C+Catherine%22+AND+NOT+contribution.role.id%3A%22http%3A%2F%2Fid.loc.gov%2Fvocabulary%2Frelators%2Faut%22">contribution.agent.label:"Elgin, Catherine" AND NOT contribution.role.id:"http://id.loc.gov/vocabulary/relators/aut")</a></small>
+<small>(Query example: <a target="_blank" href="http://lobid.org/resources/search?q=contribution.agent.label%3A%22Elgin%2C+Catherine%22+AND+NOT+contribution.role.id%3A%22http%3A%2F%2Fid.loc.gov%2Fvocabulary%2Frelators%2Faut%22">contribution.agent.label:"Elgin, Catherine" AND NOT contribution.role.id:"http://id.loc.gov/vocabulary/relators/aut")</a></small>
 	</span>
 			<span class="fragment">
 But wait - this is not LOD !
 	</span>
 </section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 Machine readable semantics are missing! Let's add that with a "context":
 			<span class="fragment">
 				<pre><code class="json" >
@@ -874,7 +881,7 @@ JSON + context =&gt; JSON-LD ("context" here not embedded but as a reference)
 </span>
 </section>
 
-<section data-state="tobias">
+<section data-state="pascal">
 <h2>JSON-LD</h2>
 <p><span class="fragment">
 "designed to be usable directly as JSON, with no knowledge of RDF" — it's real JSON!
@@ -883,12 +890,12 @@ JSON + context =&gt; JSON-LD ("context" here not embedded but as a reference)
 "also designed to be usable as RDF"
 </span></p>
 <p><span class="fragment">
-<a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a>
+<a target="_blank" href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a>
 </span></p>
 </section>
 
-			<section data-state="tobias">
-Let's have a look into the referenced "context" at <a href="http://lobid.org/resources/context.jsonld">http://lobid.org/resources/context.jsonld</a>:
+			<section data-state="pascal">
+Let's have a look into the referenced "context" at <a target="_blank" href="http://lobid.org/resources/context.jsonld">http://lobid.org/resources/context.jsonld</a>:
 			<span class="fragment">
 				<pre><code class="json" >
 {
@@ -908,17 +915,15 @@ Let's have a look into the referenced "context" at <a href="http://lobid.org/res
 </span>
 </section>
 
-			<section data-state="tobias">
+			<section data-state="pascal">
 			<img src="img/sanderson-2018-loud-22.png"
 				style="border: none; padding: 5px; background-color: white" /></br>
 			</section>
 
 			<section data-state="tobias">
-
 So let's do LOUD now!
-
 <span class="fragment"><p>
-Main thing  to learn is there is no the <em>one</em> solution of the transformation. You have to map,you have to transform you have to try and test.
+Main thing  to learn is there is not <em>the one</em> solution of the transformation. You have to map,you have to transform you have to try and test.
 </p></span>
 <span class="fragment"><p>
 Iterate.
@@ -930,7 +935,7 @@ Improve step by step.
 This is true for all work.
 </p></span>
 <span class="fragment"><p>
-Let's go to <a href="
+Let's go to <a target="_blank" href="
 https://pad.lobid.org/g4oXCsn2TbSZb5F4rSm1Nw#
 ">
 https://pad.lobid.org/g4oXCsn2TbSZb5F4rSm1Nw#</a>
