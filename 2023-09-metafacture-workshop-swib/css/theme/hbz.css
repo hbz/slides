@@ -10,7 +10,12 @@
  *********************************************/
 body {
   background: #004678;
-  background-color: #004678; }
+  background-color: #004678; 
+  background-image: url(../../img/hbz.png);
+  background-size: 13%;
+  background-repeat: no-repeat;
+  background-position: 2% 98%;
+}
 
 .reveal {
   font-family: 'Noto Sans', sans-serif;
