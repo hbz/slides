@@ -1,0 +1,1977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim" type="Bibliographic">
+<record>
+  <leader>00900nam#a2200337#c#4500</leader>
+  <controlfield tag="005">20211022111700.0</controlfield>
+  <controlfield tag="007">tu</controlfield>
+  <controlfield tag="008">211014|2020####gw############|||#|#ger#c</controlfield>
+  <controlfield tag="003">DE-605</controlfield>
+  <controlfield tag="001">99371014448006441</controlfield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9783872768865</subfield>
+    <subfield code="c">pbk.</subfield>
+    <subfield code="9">978-3-87276-886-5</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-605)HT021117356</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="c">DE-605</subfield>
+    <subfield code="a">38/459</subfield>
+    <subfield code="b">ger</subfield>
+    <subfield code="d">38/459</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="d">DE-605</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">ger</subfield>
+  </datafield>
+  <datafield tag="044" ind1=" " ind2=" ">
+    <subfield code="c">XA-DE-BW</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Rickmeyer, Jens</subfield>
+    <subfield code="d">1945-</subfield>
+    <subfield code="0">(DE-588)1031275339</subfield>
+    <subfield code="4">aut</subfield>
+    <subfield code="0">https://portal.dnb.de/opac.htm?method=simpleSearch&amp;cqlMode=true&amp;query=idn=1031275339</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/DNB|1031275339</subfield>
+    <subfield code="B">GND-1031275339</subfield>
+  </datafield>
+  <datafield tag="245" ind1="1" ind2="0">
+    <subfield code="a">Japanische Morphosyntax</subfield>
+    <subfield code="c">Jens Rickmeyer</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">3., verbesserte Auflage</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Tübingen</subfield>
+    <subfield code="b">Edition Julius Groos</subfield>
+    <subfield code="c">2020</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">458 Seiten</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="b">n</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="b">nc</subfield>
+  </datafield>
+  <datafield tag="688" ind1=" " ind2=" ">
+    <subfield code="a">Linguistik und Spracherwerb</subfield>
+  </datafield>
+  <datafield tag="688" ind1=" " ind2=" ">
+    <subfield code="a">Gegenwartssprache</subfield>
+  </datafield>
+  <datafield tag="688" ind1=" " ind2=" ">
+    <subfield code="a">Grammatik</subfield>
+  </datafield>
+  <datafield tag="688" ind1=" " ind2=" ">
+    <subfield code="a">Morphologie</subfield>
+  </datafield>
+  <datafield tag="688" ind1=" " ind2=" ">
+    <subfield code="a">Syntax</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">051</subfield>
+    <subfield code="A">m|||||||</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">030</subfield>
+    <subfield code="A">a||dr||||||17</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">050</subfield>
+    <subfield code="A">a|a|||||||||||</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-599)HBZHT021117356</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371014448006441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+    <subfield code="i">99428532607147</subfield>
+    <subfield code="n">Universitäts- und Stadtbibliothek Köln</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9783872768865</subfield>
+    <subfield code="c">pbk.</subfield>
+    <subfield code="9">978-3-87276-886-5</subfield>
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">System</subfield>
+    <subfield code="f">HBZ</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="h">20211022111700.0</subfield>
+    <subfield code="k">01</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2021-10-22 12:01:03 Europe/Berlin</subfield>
+    <subfield code="g">HT021117356</subfield>
+    <subfield code="j">60</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="b">2021-10-14 12:00:57 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">K1144</subfield>
+    <subfield code="c">00009001</subfield>
+    <subfield code="h">JAP/Ls3-7Ric5#a</subfield>
+    <subfield code="8">22182509640007147</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-23 18:52:29</subfield>
+    <subfield code="8">22182509640007147</subfield>
+    <subfield code="b">2023-02-23 18:52:29</subfield>
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="ITM" ind1=" " ind2=" ">
+    <subfield code="H">22182509640007147</subfield>
+    <subfield code="x">00009001</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="v">00009001</subfield>
+    <subfield code="p">04</subfield>
+    <subfield code="X">System</subfield>
+    <subfield code="Y">2022-06-28 02:00:00 Europe/Berlin</subfield>
+    <subfield code="n">JAP/Ls3-7Ric5#a</subfield>
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+    <subfield code="s">1</subfield>
+    <subfield code="d">0</subfield>
+    <subfield code="V">System</subfield>
+    <subfield code="b">JAP/0020015</subfield>
+    <subfield code="a">23182509600007147</subfield>
+    <subfield code="c">JAP/Ls3-7Ric5#a</subfield>
+    <subfield code="W">2023-02-23 19:52:29 Europe/Berlin</subfield>
+    <subfield code="u">K1144</subfield>
+    <subfield code="w">K1144</subfield>
+  </datafield>
+  <datafield tag="GSI" ind1="7" ind2=" ">
+    <subfield code="a">http://d-nb.info/gnd/1031275339</subfield>
+    <subfield code="2">uri</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-1031275339</subfield>
+    <subfield code="C">024</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>02074nam#a2200553#c#4500</leader>
+  <controlfield tag="005">20211220162500.0</controlfield>
+  <controlfield tag="007">tu</controlfield>
+  <controlfield tag="008">211108|2021####gw############|||#|#ger#c</controlfield>
+  <controlfield tag="003">DE-605</controlfield>
+  <controlfield tag="001">99371050452706441</controlfield>
+  <datafield tag="015" ind1=" " ind2=" ">
+    <subfield code="a">21,N41</subfield>
+    <subfield code="2">dnb</subfield>
+  </datafield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">1242883525</subfield>
+    <subfield code="2">DE-101b</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9783754906675</subfield>
+    <subfield code="c">: EUR 6.99 (DE), EUR 6.99 (AT)</subfield>
+    <subfield code="9">978-3-7549-0667-5</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">3754906674</subfield>
+    <subfield code="9">3-7549-0667-4</subfield>
+  </datafield>
+  <datafield tag="024" ind1="3" ind2=" ">
+    <subfield code="a">9783754906675</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-605)HT021137663</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="c">DE-605</subfield>
+    <subfield code="a">6</subfield>
+    <subfield code="b">ger</subfield>
+    <subfield code="d">6</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="d">DE-605</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">ger</subfield>
+  </datafield>
+  <datafield tag="044" ind1=" " ind2=" ">
+    <subfield code="c">XA-DE-BE</subfield>
+  </datafield>
+  <datafield tag="084" ind1=" " ind2=" ">
+    <subfield code="a">340</subfield>
+    <subfield code="q">DE-101</subfield>
+    <subfield code="2">sdnb</subfield>
+  </datafield>
+  <datafield tag="084" ind1=" " ind2=" ">
+    <subfield code="a">Nordrhein-Westfalen</subfield>
+    <subfield code="0">https://nwbib.de/spatial#N01</subfield>
+    <subfield code="2">nwbib</subfield>
+  </datafield>
+  <datafield tag="084" ind1=" " ind2=" ">
+    <subfield code="a">Naturschutz. Landschaftspflege</subfield>
+    <subfield code="0">https://nwbib.de/subjects#N584000</subfield>
+    <subfield code="2">nwbib</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Landesnaturschutzgesetz Nordrhein-Westfalen (LNatSchG NRW)</subfield>
+    <subfield code="b">Gesetz zum Schutz der Natur in Nordrhein-Westfalen</subfield>
+    <subfield code="c">verantwortlich für den Inhalt: Ronny Studier</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Berlin</subfield>
+    <subfield code="b">RS Publishing</subfield>
+    <subfield code="c">2021</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">83 Seiten</subfield>
+    <subfield code="c">19 cm x 12.5 cm, 111 g</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="b">n</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="b">nc</subfield>
+  </datafield>
+  <datafield tag="490" ind1="0" ind2=" ">
+    <subfield code="a">Landesrecht Nordrhein-Westfalen</subfield>
+  </datafield>
+  <datafield tag="490" ind1="0" ind2=" ">
+    <subfield code="a">Gesetzestexte</subfield>
+  </datafield>
+  <datafield tag="689" ind1="0" ind2="0">
+    <subfield code="a">Nordrhein-Westfalen</subfield>
+    <subfield code="t">Landesnaturschutzgesetz</subfield>
+    <subfield code="D">b</subfield>
+    <subfield code="0">(DE-588)1115809466</subfield>
+    <subfield code="0">https://portal.dnb.de/opac.htm?method=simpleSearch&amp;cqlMode=true&amp;query=idn=1115809466</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/DNB|1115809466</subfield>
+    <subfield code="B">GND-1115809466</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="m">X:MVB</subfield>
+    <subfield code="q">text/html</subfield>
+    <subfield code="u">http://deposit.dnb.de/cgi-bin/dokserv?id=5f07f1078247432e99a170fc63aab53d&amp;prov=M&amp;dok_var=1&amp;dok_ext=htm</subfield>
+    <subfield code="3">Inhaltstext</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="m">X:MVB</subfield>
+    <subfield code="q">text/html</subfield>
+    <subfield code="u">http://www.epubli.de/shop/isbn/9783754906675</subfield>
+    <subfield code="3">Inhaltstext</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="m">X:MVB</subfield>
+    <subfield code="u">http://www.epubli.de</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2="2">
+    <subfield code="m">X:MVB</subfield>
+    <subfield code="u">http://www.epubli.de/shop/isbn/9783754906675</subfield>
+  </datafield>
+  <datafield tag="960" ind1="1" ind2=" ">
+    <subfield code="n">NWBib-6</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">051</subfield>
+    <subfield code="A">m|||||||</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">030</subfield>
+    <subfield code="A">a||ur||||||37</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">050</subfield>
+    <subfield code="A">a|a|||||||||||</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-599)DNB1242883525</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Studier, Ronny</subfield>
+    <subfield code="4">edt</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">epubli GmbH</subfield>
+    <subfield code="0">(DE-588)106492235X</subfield>
+    <subfield code="4">pbl</subfield>
+    <subfield code="0">https://portal.dnb.de/opac.htm?method=simpleSearch&amp;cqlMode=true&amp;query=idn=106492235X</subfield>
+    <subfield code="0">http://viaf.org/viaf/sourceID/DNB|106492235X</subfield>
+    <subfield code="B">GND-106492235X</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Naturschutzgesetz NRW</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Landesnaturschutzgesetz NRW</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Naturschutz NRW</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Umweltrecht NRW</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Landesnaturschutzgesetz Nordrhein-Westfalen</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Umweltschutz NRW</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Artenschutz NRW</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Quelle</subfield>
+    <subfield code="0">(DE-588)4135952-5</subfield>
+    <subfield code="2">gnd-content</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371050452706441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_ULM</subfield>
+    <subfield code="i">991033094479706449</subfield>
+    <subfield code="n">Universität Münster</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9783754906675</subfield>
+    <subfield code="c">: EUR 6.99 (DE), EUR 6.99 (AT)</subfield>
+    <subfield code="9">978-3-7549-0667-5</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">3754906674</subfield>
+    <subfield code="9">3-7549-0667-4</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+  </datafield>
+  <datafield tag="980" ind1="1" ind2="2">
+    <subfield code="e">HBZ</subfield>
+    <subfield code="9">LOCAL</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+  </datafield>
+  <datafield tag="981" ind1=" " ind2=" ">
+    <subfield code="a">(DE-6)6463148</subfield>
+    <subfield code="9">LOCAL</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+  </datafield>
+  <datafield tag="983" ind1=" " ind2=" ">
+    <subfield code="b">9</subfield>
+    <subfield code="2">dbs_loc</subfield>
+    <subfield code="9">LOCAL</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">System</subfield>
+    <subfield code="f">HBZ</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="h">20211220162500.0</subfield>
+    <subfield code="k">01</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2022-03-25 04:11:55 Europe/Berlin</subfield>
+    <subfield code="g">HT021137663</subfield>
+    <subfield code="j">60</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="b">2021-11-08 13:01:26 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="8" ind2=" ">
+    <subfield code="b">ZB</subfield>
+    <subfield code="c">ZB_FHM1</subfield>
+    <subfield code="h">3L 28705</subfield>
+    <subfield code="8">22596739040006449</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="b">2022-07-11 12:57:25</subfield>
+    <subfield code="8">22596739040006449</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">import</subfield>
+  </datafield>
+  <datafield tag="ITM" ind1=" " ind2=" ">
+    <subfield code="H">22596739040006449</subfield>
+    <subfield code="x">ZB_FHM1</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="v">ZB_FHM1</subfield>
+    <subfield code="X">AMO_TL2_FIX</subfield>
+    <subfield code="U">2022-07-10 12:59:00 Europe/Berlin</subfield>
+    <subfield code="Y">2022-07-12 13:10:54 Europe/Berlin</subfield>
+    <subfield code="h">false</subfield>
+    <subfield code="Q">SISIS-Ausleihzähler Migrationsjahr: 2 | SISIS-Ausleihzähler Vor-Migrationsjahr: 1 | SISIS-Ausleihzähler vorletztes Migrationsjahr: 0</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+    <subfield code="s">1</subfield>
+    <subfield code="d">8</subfield>
+    <subfield code="V">import</subfield>
+    <subfield code="b">6-00724192-9</subfield>
+    <subfield code="O">Fernleihkonditionen: 0</subfield>
+    <subfield code="a">23596739030006449</subfield>
+    <subfield code="R">DBS-Systematik: 9</subfield>
+    <subfield code="c">3L 28705</subfield>
+    <subfield code="B">2021-7417</subfield>
+    <subfield code="W">2022-07-11 14:57:25 Europe/Berlin</subfield>
+    <subfield code="u">ZB</subfield>
+    <subfield code="w">ZB</subfield>
+  </datafield>
+  <datafield tag="GKT" ind1="1" ind2=" ">
+    <subfield code="a">Nordrhein-Westfalen</subfield>
+    <subfield code="t">Gesetz zum Schutz der Natur in Nordrhein-Westfalen und zur Änderung anderer Vorschriften</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-1115809466</subfield>
+    <subfield code="C">410</subfield>
+  </datafield>
+  <datafield tag="GKT" ind1="1" ind2=" ">
+    <subfield code="a">Nordrhein-Westfalen</subfield>
+    <subfield code="t">LNatSchG NRW</subfield>
+    <subfield code="4">abku</subfield>
+    <subfield code="4">http://d-nb.info/standards/elementset/gnd#abbreviatedNameForTheWork</subfield>
+    <subfield code="w">r</subfield>
+    <subfield code="i">Abkuerzung</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-1115809466</subfield>
+    <subfield code="C">410</subfield>
+  </datafield>
+  <datafield tag="GSI" ind1="7" ind2=" ">
+    <subfield code="a">http://d-nb.info/gnd/1115809466</subfield>
+    <subfield code="2">uri</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-1115809466</subfield>
+    <subfield code="C">024</subfield>
+  </datafield>
+  <datafield tag="GKT" ind1="2" ind2=" ">
+    <subfield code="a">Epubli</subfield>
+    <subfield code="g">Berlin</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-106492235X</subfield>
+    <subfield code="C">410</subfield>
+  </datafield>
+  <datafield tag="GKT" ind1="2" ind2=" ">
+    <subfield code="a">Neopubli GmbH</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-106492235X</subfield>
+    <subfield code="C">410</subfield>
+  </datafield>
+  <datafield tag="GSI" ind1="7" ind2=" ">
+    <subfield code="a">106492235X</subfield>
+    <subfield code="0">http://d-nb.info/gnd/106492235X</subfield>
+    <subfield code="2">gnd</subfield>
+    <subfield code="A">GND</subfield>
+    <subfield code="B">GND-106492235X</subfield>
+    <subfield code="C">024</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>-----nas--2200553-i-4500</leader>
+  <controlfield tag="001">99371107766906441</controlfield>
+  <controlfield tag="005">20220129213021.0</controlfield>
+  <controlfield tag="006">m-----o--d--------</controlfield>
+  <controlfield tag="007">cr-|||||||||||</controlfield>
+  <controlfield tag="008">160325c20169999iluar-p-o-----0---a0eng--</controlfield>
+  <datafield tag="010" ind1=" " ind2=" ">
+    <subfield code="a">  2016201585</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)945571548</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)4100000012157171</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CONSER)--2016201585</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)994100000012157171</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">pcc</subfield>
+    <subfield code="a">nsdp</subfield>
+  </datafield>
+  <datafield tag="050" ind1="0" ind2="0">
+    <subfield code="a">HQ536</subfield>
+  </datafield>
+  <datafield tag="082" ind1="1" ind2="0">
+    <subfield code="a">306.85</subfield>
+    <subfield code="2">23</subfield>
+  </datafield>
+  <datafield tag="222" ind1=" " ind2="4">
+    <subfield code="a">The natural family</subfield>
+    <subfield code="b">(Online)</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="4">
+    <subfield code="a">The natural family.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Rockford, IL :</subfield>
+    <subfield code="b">Howard Center for Family, Religion &amp; Society</subfield>
+  </datafield>
+  <datafield tag="264" ind1="3" ind2="1">
+    <subfield code="3">&lt;2022-&gt; :</subfield>
+    <subfield code="a">Rockford, Illinois :</subfield>
+    <subfield code="b">The International Organization for the Family</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource</subfield>
+  </datafield>
+  <datafield tag="310" ind1=" " ind2=" ">
+    <subfield code="a">Annual,</subfield>
+    <subfield code="b">2019-</subfield>
+  </datafield>
+  <datafield tag="321" ind1=" " ind2=" ">
+    <subfield code="a">Semiannual,</subfield>
+    <subfield code="b">2017-2018</subfield>
+  </datafield>
+  <datafield tag="321" ind1=" " ind2=" ">
+    <subfield code="a">Quarterly,</subfield>
+    <subfield code="b">2016</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="362" ind1="1" ind2=" ">
+    <subfield code="a">Began with volume 30, number 3 (2016).</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">The research and policy journal of the World Congress of Families.</subfield>
+  </datafield>
+  <datafield tag="588" ind1="0" ind2=" ">
+    <subfield code="a">Volume 30, number 4 (Winter 2016); title from journal home page (familyinamerica.org, viewed April 7, 2021)</subfield>
+  </datafield>
+  <datafield tag="588" ind1="1" ind2=" ">
+    <subfield code="a">Volume 34, number 3/4 (Fall/Winter 2020) (naturalfamily.org, viewed Jan. 27, 2022).</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Families</subfield>
+    <subfield code="z">United States</subfield>
+    <subfield code="v">Periodicals.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Conservatism</subfield>
+    <subfield code="z">United States</subfield>
+    <subfield code="v">Periodicals.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Conservatism.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst00875582</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="7">
+    <subfield code="a">Families.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01728849</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="7">
+    <subfield code="a">United States.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01204155</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">fast</subfield>
+    <subfield code="0">(OCoLC)fst01411641</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Periodicals.</subfield>
+    <subfield code="2">lcgft</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Howard Center for Family, Religion, &amp; Society,</subfield>
+    <subfield code="e">issuing body.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">International Organization for the Family,</subfield>
+    <subfield code="e">issuing body.</subfield>
+  </datafield>
+  <datafield tag="711" ind1="2" ind2=" ">
+    <subfield code="a">World Congress of Families.</subfield>
+  </datafield>
+  <datafield tag="776" ind1=" " ind2=" ">
+    <subfield code="x">2471-5506</subfield>
+    <subfield code="0">http://worldcat.org/issn/2471-5506</subfield>
+  </datafield>
+  <datafield tag="906" ind1=" " ind2=" ">
+    <subfield code="a">JOURNAL</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371107766906441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_UBD</subfield>
+    <subfield code="i">991013521007106445</subfield>
+    <subfield code="n">Technische Universität Dortmund</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BIE</subfield>
+    <subfield code="i">991025924501606442</subfield>
+    <subfield code="n">Universität Bielefeld</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_ULM</subfield>
+    <subfield code="i">991044836260306449</subfield>
+    <subfield code="n">Universität Münster</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">system</subfield>
+    <subfield code="f">CKB</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2023-02-21 02:24:19 Europe/Berlin</subfield>
+    <subfield code="g">994100000012157171</subfield>
+    <subfield code="a">CKB</subfield>
+    <subfield code="b">2021-12-20 00:08:25 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">EBSCOhost</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53215099760006445</subfield>
+    <subfield code="M">49HBZ_UBD</subfield>
+    <subfield code="p">61206254580006445</subfield>
+    <subfield code="q">Academic Search Ultimate</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">614340000000000211</subfield>
+    <subfield code="y">2022-09-20 01:40:33 Europe/Berlin</subfield>
+    <subfield code="w">2021-12-20 00:07:48 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53215099760006445&amp;Force_direct=true</subfield>
+    <subfield code="v">electronic inventory creator</subfield>
+    <subfield code="z">2021-12-19 23:07:48</subfield>
+    <subfield code="n"> Available from 01/01/2017 until 30/04/2020.</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">62206254570006445</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991013521007106445</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">JOURNAL</subfield>
+    <subfield code="8">53215099760006445</subfield>
+  </datafield>
+  <datafield tag="POC" ind1=" " ind2=" ">
+    <subfield code="a">53215099760006445</subfield>
+    <subfield code="b">2017</subfield>
+    <subfield code="c">2020</subfield>
+    <subfield code="d">1</subfield>
+    <subfield code="e">4</subfield>
+    <subfield code="f">1</subfield>
+    <subfield code="g">30</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">EBSCOhost</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53342898530006442</subfield>
+    <subfield code="M">49HBZ_BIE</subfield>
+    <subfield code="p">61342588620006442</subfield>
+    <subfield code="q">Academic Search Ultimate</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">614340000000000211</subfield>
+    <subfield code="y">2022-09-20 01:28:17 Europe/Berlin</subfield>
+    <subfield code="w">2022-05-16 16:48:58 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53342898530006442&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-05-16 14:48:58</subfield>
+    <subfield code="n"> Available from 01/01/2017 until 30/04/2020.</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">62342588610006442</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991025924501606442</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">JOURNAL</subfield>
+    <subfield code="8">53342898530006442</subfield>
+  </datafield>
+  <datafield tag="POC" ind1=" " ind2=" ">
+    <subfield code="a">53342898530006442</subfield>
+    <subfield code="b">2017</subfield>
+    <subfield code="c">2020</subfield>
+    <subfield code="d">1</subfield>
+    <subfield code="e">4</subfield>
+    <subfield code="f">1</subfield>
+    <subfield code="g">30</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">EBSCOhost</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53627314570006449</subfield>
+    <subfield code="M">49HBZ_ULM</subfield>
+    <subfield code="p">61626439410006449</subfield>
+    <subfield code="q">EBSCOhost Academic Search Ultimate</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">614340000000000211</subfield>
+    <subfield code="y">2022-09-20 01:09:24 Europe/Berlin</subfield>
+    <subfield code="w">2022-07-19 22:13:36 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53627314570006449&amp;Force_direct=true</subfield>
+    <subfield code="v">NON_SFX_CREATOR</subfield>
+    <subfield code="z">2022-07-19 20:13:36</subfield>
+    <subfield code="n"> Available from 01/01/2017 until 30/04/2020.</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">62626439400006449</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991044836260306449</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">JOURNAL</subfield>
+    <subfield code="8">53627314570006449</subfield>
+  </datafield>
+  <datafield tag="POC" ind1=" " ind2=" ">
+    <subfield code="a">53627314570006449</subfield>
+    <subfield code="b">2017</subfield>
+    <subfield code="c">2020</subfield>
+    <subfield code="d">1</subfield>
+    <subfield code="e">4</subfield>
+    <subfield code="f">1</subfield>
+    <subfield code="g">30</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>02390nam a2200541 i 4500</leader>
+  <controlfield tag="001">99371123630706441</controlfield>
+  <controlfield tag="005">20221206095617.0</controlfield>
+  <controlfield tag="006">m     o  d |      </controlfield>
+  <controlfield tag="007">cr#|n#||||||||</controlfield>
+  <controlfield tag="008">150506t20152015gw      ob    000 0 ger d</controlfield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9783653052404</subfield>
+    <subfield code="q">(ebook)</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="z">9783631660126</subfield>
+    <subfield code="q">(hardback)</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)2670000000609310</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EBL)2011040</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(SSID)ssj0001515545</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBManifestationID)12623507</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBTitleCode)TC0001515545</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKBWorkID)11481781</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PQKB)11659112</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiAaPQ)EBC2011040</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(PPN)229144470</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(oapen)https://directory.doabooks.org/handle/20.500.12854/31778</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)992670000000609310</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">ger</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+    <subfield code="d">UkaJRU</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">ger</subfield>
+  </datafield>
+  <datafield tag="043" ind1=" " ind2=" ">
+    <subfield code="a">en-----</subfield>
+  </datafield>
+  <datafield tag="050" ind1=" " ind2="4">
+    <subfield code="a">BF311</subfield>
+    <subfield code="b">.P477 2015</subfield>
+  </datafield>
+  <datafield tag="082" ind1="0" ind2=" ">
+    <subfield code="a">153</subfield>
+    <subfield code="2">23</subfield>
+  </datafield>
+  <datafield tag="100" ind1="1" ind2=" ">
+    <subfield code="a">Becker, Christine</subfield>
+    <subfield code="4">edt</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Perspektive Nord :</subfield>
+    <subfield code="b">zu theorie und praxis einer modernen didaktik der landeskunde : beiträge zur 2. Konferenz des Netzwerks Landeskunde Nord in Stockholm am 24./25. Januar 2014 /</subfield>
+    <subfield code="c">Christine Becker, Frank Thomas Grub (Hrsg.).</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Bern</subfield>
+    <subfield code="b">Peter Lang International Academic Publishing Group</subfield>
+    <subfield code="c">2015</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Frankfurt am Main, [Germany] :</subfield>
+    <subfield code="b">Peter Lang Edition,</subfield>
+    <subfield code="c">2015.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="4">
+    <subfield code="c">©2015</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (194 pages) :</subfield>
+    <subfield code="b">digital file(s).</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="347" ind1=" " ind2=" ">
+    <subfield code="a">text file</subfield>
+    <subfield code="2">rda</subfield>
+  </datafield>
+  <datafield tag="490" ind1="0" ind2=" ">
+    <subfield code="a">Nordeuropäische Arbeiten zur Literatur, Sprache und Kultur =</subfield>
+    <subfield code="a">Northern European Studie in Literature, Language and Culture ;</subfield>
+    <subfield code="v">Band / Volume 2</subfield>
+  </datafield>
+  <datafield tag="504" ind1=" " ind2=" ">
+    <subfield code="a">Includes bibliographical references at the end of each chapters.</subfield>
+  </datafield>
+  <datafield tag="506" ind1="0" ind2=" ">
+    <subfield code="a">Open Access</subfield>
+    <subfield code="f">Unrestricted online access</subfield>
+    <subfield code="2">star.</subfield>
+  </datafield>
+  <datafield tag="530" ind1=" " ind2=" ">
+    <subfield code="a">Also available in print form.</subfield>
+  </datafield>
+  <datafield tag="587" ind1=" " ind2=" ">
+    <subfield code="a">Description based on print record, CIP data from the publisher, and e-publication e-publication, viewed on March 19, 2021.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">2012 wurde das Netzwerk-Projekt Landeskunde Nord ins Leben gerufen, dessen Ziel es ist, Forschung und Lehre zur Landeskunde des Deutschen als Fremdsprache, insbesondere in den nordischen Ländern, voranzutreiben. Das vorliegende Buch, Perspektive Nord, knüpft an den 2013 erschienenen Band Landeskunde Nord an und bietet Reflexionen wissenschaftstheoretischer, fachdidaktischer und inhaltlicher Aspekte, die für die Gestaltung der Landeskundelehre bzw. des Landeskundeunterrichts relevant sind. In ihrer Vielfalt sind die hier vorgelegten Konzepte und Ideen vor allem modernen kulturwissenschaftlichen Ansätzen verpflichtet, knüpfen an international geführte Diskussionen an und haben auch deshalb über die nordischen Länder hinaus Bedeutung. Dabei setzen die Autorinnen und Autoren auf autonomes und lebenslanges Lernen.</subfield>
+  </datafield>
+  <datafield tag="546" ind1=" " ind2=" ">
+    <subfield code="a">German</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Cognitive science</subfield>
+    <subfield code="x">Philosophy.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Languages, Modern</subfield>
+    <subfield code="x">Study and teaching.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Psychology and literature.</subfield>
+  </datafield>
+  <datafield tag="651" ind1=" " ind2="0">
+    <subfield code="a">Europe, Northern</subfield>
+    <subfield code="x">Study and teaching</subfield>
+    <subfield code="v">Congresses.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="4">
+    <subfield code="b">Electronic books.</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">2014</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Becker</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Beiträge</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Deutsch als Fremdsprache</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Didaktik</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Konferenz</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Kulturwissenschaften</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Landeskunde</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">modernen</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Netzwerks</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Nord</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Perspektive</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Praxis</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">regionale Perspektive</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Stockholm</subfield>
+  </datafield>
+  <datafield tag="653" ind1=" " ind2=" ">
+    <subfield code="a">Theorie</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Becker, Christine,</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Grub, Frank Thomas,</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="776" ind1="0" ind2="8">
+    <subfield code="i">Print version (hardback):</subfield>
+    <subfield code="z">9783631660126</subfield>
+  </datafield>
+  <datafield tag="830" ind1=" " ind2="0">
+    <subfield code="a">Nordeuropäische Arbeiten zur Literatur, Sprache und Kultur =</subfield>
+    <subfield code="a">Northern European Studie in Literature, Language and Culture ;</subfield>
+    <subfield code="v">Band / Volume 2.</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371123630706441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_FSW</subfield>
+    <subfield code="i">9916253893106461</subfield>
+    <subfield code="n">Fachhochschule Südwestfalen</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRS</subfield>
+    <subfield code="i">991005719114506452</subfield>
+    <subfield code="n">Hochschule Bonn-Rhein-Sieg</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BIE</subfield>
+    <subfield code="i">991025886373806442</subfield>
+    <subfield code="n">Universität Bielefeld</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">system</subfield>
+    <subfield code="f">EBC</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2023-02-23 01:22:05 Europe/Berlin</subfield>
+    <subfield code="g">992670000000609310</subfield>
+    <subfield code="j">00</subfield>
+    <subfield code="a">CKB</subfield>
+    <subfield code="b">2022-01-11 10:04:18 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">DOAB Directory of Open Access Books</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">5388892840006461</subfield>
+    <subfield code="h">EZproxy</subfield>
+    <subfield code="M">49HBZ_FSW</subfield>
+    <subfield code="p">6187988260006461</subfield>
+    <subfield code="q">DOAB Directory Open Access Books And Chapters Free</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">615310000000000028</subfield>
+    <subfield code="y">2023-01-16 14:20:14 Europe/Berlin</subfield>
+    <subfield code="w">2023-01-16 14:20:14 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=5388892840006461&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2023-01-16 13:20:14</subfield>
+    <subfield code="i">true</subfield>
+    <subfield code="S">6287988250006461</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=9916253893106461</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="8">5388892840006461</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">DOAB Directory of Open Access Books</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">5359413670006452</subfield>
+    <subfield code="M">49HBZ_BRS</subfield>
+    <subfield code="p">6157705720006452</subfield>
+    <subfield code="q">Directory of Open Access Books DOAB</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">615310000000000028</subfield>
+    <subfield code="y">2022-09-06 08:25:02 Europe/Berlin</subfield>
+    <subfield code="w">2022-09-06 08:25:02 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=5359413670006452&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-09-06 06:25:02</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">6257705710006452</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991005719114506452</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="8">5359413670006452</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">Peter Lang</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53337102680006442</subfield>
+    <subfield code="M">49HBZ_BIE</subfield>
+    <subfield code="p">61324036090006442</subfield>
+    <subfield code="q">Peter Lang ebooks EBS 2023</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">613800000000000517</subfield>
+    <subfield code="y">2022-01-11 09:48:53 Europe/Berlin</subfield>
+    <subfield code="w">2022-01-11 09:48:53 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53337102680006442&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-01-11 08:48:53</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="t">BIE-28210</subfield>
+    <subfield code="S">62324036080006442</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991025886373806442</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="8">53337102680006442</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>01057cam#a2200373#c#4500</leader>
+  <controlfield tag="005">20220715184200.0</controlfield>
+  <controlfield tag="007">cr#|||||||||||</controlfield>
+  <controlfield tag="008">220429|2010####xx######o#####|||#|#eng#c</controlfield>
+  <controlfield tag="003">DE-605</controlfield>
+  <controlfield tag="001">99371314897806441</controlfield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">10.1002/9781444327540</subfield>
+    <subfield code="2">XX-XxUND</subfield>
+  </datafield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9781444327540</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-605)HT021352855</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">EBA-Wiley</subfield>
+    <subfield code="b">ger</subfield>
+    <subfield code="c">EBA-Wiley</subfield>
+    <subfield code="d">DE-605</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="100" ind1="0" ind2=" ">
+    <subfield code="a">Melville</subfield>
+    <subfield code="4">aut</subfield>
+  </datafield>
+  <datafield tag="245" ind1="1" ind2="0">
+    <subfield code="a">Political Atlas of the Modern World</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">1</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="b">John Wiley &amp; Sons, Inc</subfield>
+    <subfield code="c">2010-08-13</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 Online-Ressource</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="b">c</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="b">cr</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="u">https://onlinelibrary.wiley.com/doi/book/10.1002/9781444327540</subfield>
+  </datafield>
+  <datafield tag="912" ind1=" " ind2=" ">
+    <subfield code="a">ZDB-35-Wiley-EBA</subfield>
+  </datafield>
+  <datafield tag="962" ind1=" " ind2=" ">
+    <subfield code="e">ZDB-35-Wiley-EBA</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">051</subfield>
+    <subfield code="A">m|||||||</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="i">
+    <subfield code="I">marc-FMT via MAB2MARC</subfield>
+    <subfield code="F">FMT</subfield>
+    <subfield code="A">BK</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">030</subfield>
+    <subfield code="A">|||u|||||||17</subfield>
+  </datafield>
+  <datafield tag="964" ind1="0" ind2="s">
+    <subfield code="F">050</subfield>
+    <subfield code="A">||||||||g|||||</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(hbzERes_EBA-Wiley)10.1002/9781444327540</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-599)HBZHT021352855</subfield>
+  </datafield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="a">10.1002/9781444327540</subfield>
+    <subfield code="2">doi</subfield>
+  </datafield>
+  <datafield tag="776" ind1="0" ind2=" ">
+    <subfield code="z">9781444335804</subfield>
+  </datafield>
+  <datafield tag="600" ind1="1" ind2="4">
+    <subfield code="a">Political Science</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371314897806441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_FUH</subfield>
+    <subfield code="i">990016111720106464</subfield>
+    <subfield code="n">Fernuniversität Hagen</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_HSN</subfield>
+    <subfield code="i">9963707007916</subfield>
+    <subfield code="n">Hochschulbibliothek der Hochschule Niederrhein in Mönchengladbach/Krefeld</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_THK</subfield>
+    <subfield code="i">9975224207504</subfield>
+    <subfield code="n">Hochschulbibliothek der Technischen Hochschule Köln</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_KHO</subfield>
+    <subfield code="i">9950807407920</subfield>
+    <subfield code="n">Katholische Hochschule Nordrhein-Westfalen, Bibliothekszentrale und Abteilungsbibliotheken</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_UBO</subfield>
+    <subfield code="i">99323398007503</subfield>
+    <subfield code="n">Ruhr-Universität Bochum</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_ULB</subfield>
+    <subfield code="i">99390263207502</subfield>
+    <subfield code="n">Universitäts- und Landesbibliothek Bonn</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+    <subfield code="i">99437289707147</subfield>
+    <subfield code="n">Universitäts- und Stadtbibliothek Köln</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_ZBS</subfield>
+    <subfield code="i">9970050607146</subfield>
+    <subfield code="n">Zentralbibliothek der Sportwissenschaften, Köln</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">System</subfield>
+    <subfield code="f">HBZ</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="h">20220715184200.0</subfield>
+    <subfield code="k">01</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2022-08-02 09:29:25 Europe/Berlin</subfield>
+    <subfield code="g">HT021352855</subfield>
+    <subfield code="j">60</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="b">2022-04-29 14:38:12 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">ebooks.NRW</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53769526120006441</subfield>
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="p">61767497870006441</subfield>
+    <subfield code="q">Wiley eBooks EBA bis 31.12.2023 (ZDB-35-Wiley-EBA)</subfield>
+    <subfield code="c">static</subfield>
+    <subfield code="B">Produktsigel: ZDB-35-Wiley-EBA
+NZ Phase 1 - Wave 2: NZ-P2E
+E-Book-Verfahren: eba-wiley?</subfield>
+    <subfield code="A">49HBZ_HBI</subfield>
+    <subfield code="A">49HBZ_DUE</subfield>
+    <subfield code="A">49HBZ_FHA</subfield>
+    <subfield code="A">49HBZ_UDE</subfield>
+    <subfield code="A">49HBZ_WHS</subfield>
+    <subfield code="A">49HBZ_RUW</subfield>
+    <subfield code="A">49HBZ_FHM</subfield>
+    <subfield code="A">49HBZ_PAD</subfield>
+    <subfield code="A">49HBZ_SIE</subfield>
+    <subfield code="A">49HBZ_WUP</subfield>
+    <subfield code="A">49HBZ_ULM</subfield>
+    <subfield code="A">49HBZ_UBD</subfield>
+    <subfield code="A">49HBZ_BRS</subfield>
+    <subfield code="A">49HBZ_FDO</subfield>
+    <subfield code="A">49HBZ_HBO</subfield>
+    <subfield code="A">49HBZ_BIE</subfield>
+    <subfield code="A">49HBZ_HSD</subfield>
+    <subfield code="A">49HBZ_FSW</subfield>
+    <subfield code="A">49HBZ_UBA</subfield>
+    <subfield code="y">2022-04-29 19:35:15 Europe/Berlin</subfield>
+    <subfield code="w">2022-04-29 19:35:11 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53769526120006441&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-04-29 17:35:11</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">62767497860006441</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=99371314897806441</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="e">https://onlinelibrary.wiley.com/doi/book/10.1002/9781444327540</subfield>
+    <subfield code="8">53769526120006441</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="x">System</subfield>
+    <subfield code="a">53133004370006464</subfield>
+    <subfield code="h">EZProxy</subfield>
+    <subfield code="M">49HBZ_FUH</subfield>
+    <subfield code="c">static</subfield>
+    <subfield code="l">Zugriff nur im Hochschulnetz der FernUniversität Hagen bzw. für autorisierte Benutzer</subfield>
+    <subfield code="y">2022-07-05 07:21:38 Europe/Berlin</subfield>
+    <subfield code="w">2022-07-05 07:21:34 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53133004370006464&amp;Force_direct=true</subfield>
+    <subfield code="v">P2E_JOB</subfield>
+    <subfield code="z">2022-07-05 05:21:34</subfield>
+    <subfield code="i">true</subfield>
+    <subfield code="g">F0001</subfield>
+    <subfield code="S">52133004380006464</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=990016111720106464</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="e">https://ub-proxy.fernuni-hagen.de/login?url=https://onlinelibrary.wiley.com/doi/book/10.1002/9781444327540</subfield>
+    <subfield code="8">53133004370006464</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">N5001</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">2221466720007916</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:36:03</subfield>
+    <subfield code="8">2221466720007916</subfield>
+    <subfield code="b">2023-02-24 02:36:03</subfield>
+    <subfield code="M">49HBZ_BRIDGE_HSN</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">Z9039</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">2216648660007920</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:36:56</subfield>
+    <subfield code="8">2216648660007920</subfield>
+    <subfield code="b">2023-02-24 02:36:56</subfield>
+    <subfield code="M">49HBZ_BRIDGE_KHO</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">B0001</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">22132983340007503</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:36:12</subfield>
+    <subfield code="8">22132983340007503</subfield>
+    <subfield code="b">2023-02-24 02:36:12</subfield>
+    <subfield code="M">49HBZ_BRIDGE_UBO</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">Q0001</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">22165237240007502</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:36:32</subfield>
+    <subfield code="8">22165237240007502</subfield>
+    <subfield code="b">2023-02-24 02:36:32</subfield>
+    <subfield code="M">49HBZ_BRIDGE_ULB</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">K0001</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">22185267420007147</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:35:52</subfield>
+    <subfield code="8">22185267420007147</subfield>
+    <subfield code="b">2023-02-24 02:35:52</subfield>
+    <subfield code="M">49HBZ_BRIDGE_UBK</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="0" ind2=" ">
+    <subfield code="b">KP001</subfield>
+    <subfield code="c">UNASSIGNED</subfield>
+    <subfield code="8">2225159930007146</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-02-24 02:36:45</subfield>
+    <subfield code="8">2225159930007146</subfield>
+    <subfield code="b">2023-02-24 02:36:45</subfield>
+    <subfield code="M">49HBZ_BRIDGE_ZBS</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>03918nam  2200505 i 4500</leader>
+  <controlfield tag="001">99371447897606441</controlfield>
+  <controlfield tag="005">20221216004109.0</controlfield>
+  <controlfield tag="006">m     o  d |      </controlfield>
+  <controlfield tag="007">cr#cnu||||||||</controlfield>
+  <controlfield tag="008">180828t20192020stka|||fo     001 0 eng|d</controlfield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">0-7020-7555-8</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)4100000007877667</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiAaPQ)EBC5742493</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(OCoLC)1091655034</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)994100000007877667</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">YDX</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">YDX</subfield>
+    <subfield code="d">TMC</subfield>
+    <subfield code="d">COU</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">USU</subfield>
+    <subfield code="d">INM</subfield>
+    <subfield code="d">MMU</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">UAB</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">UKMGB</subfield>
+    <subfield code="d">CASUM</subfield>
+    <subfield code="d">OCLCO</subfield>
+    <subfield code="d">UIU</subfield>
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+  </datafield>
+  <datafield tag="049" ind1=" " ind2=" ">
+    <subfield code="a">FQMM</subfield>
+  </datafield>
+  <datafield tag="050" ind1=" " ind2="4">
+    <subfield code="a">QM551</subfield>
+    <subfield code="b">.O36 2020eb (Online)</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Wheater's Pathology :</subfield>
+    <subfield code="b">A Text, Atlas and Review of Histopathology /</subfield>
+    <subfield code="c">Geraldine O'Dowd, Sarah Bell, Sylvia Wright.</subfield>
+  </datafield>
+  <datafield tag="250" ind1=" " ind2=" ">
+    <subfield code="a">Sixth Edition.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Edinburgh :</subfield>
+    <subfield code="b">Elsevier,</subfield>
+    <subfield code="c">[2019]</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="4">
+    <subfield code="c">©2020</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (ix, 357 pages) :</subfield>
+    <subfield code="b">illustrations (chiefly color)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">still image</subfield>
+    <subfield code="b">sti</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="347" ind1=" " ind2=" ">
+    <subfield code="a">text file</subfield>
+    <subfield code="b">html</subfield>
+    <subfield code="2">rda</subfield>
+  </datafield>
+  <datafield tag="347" ind1=" " ind2=" ">
+    <subfield code="a">text file</subfield>
+    <subfield code="b">pdf</subfield>
+  </datafield>
+  <datafield tag="490" ind1="1" ind2=" ">
+    <subfield code="a">ClinicalKey</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Revised edition of: Wheater's basic pathology : a text, atlas, and review of histopathology / [edited by] Barbara Young, William Stewart, and Geraldine O'Dowd. 5th ed. ©2011.</subfield>
+  </datafield>
+  <datafield tag="505" ind1="0" ind2=" ">
+    <subfield code="a">Introduction to pathology -- Cellular responses to injury -- Acute inflammation, healing and repair -- Chronic inflammation -- Infections of histological importance -- Disorders of growth -- Dysplasia and neoplasia -- atherosclerosis -- Thrombosis and embolism -- Infarction -- Cardiovascular system -- Respiratory system -- Gastrointestinal system -- Liver and pancreaticobiliary system -- Urinary system -- Lymphoid and haematopoietic systems -- Female reproductive system -- Breast -- Male reproductive system -- Endocrine system -- Skin -- Bone and soft tissues -- Appendicex. Notes on commonly used staining methods -- Bonus e-book images.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">This concise introduction to pathology covers basic pathological mechanisms and offers a detailed review of systems pathology, making it a complete, effective review for today's readers. Hundreds of high-quality images-many new to this edition-illustrate common entities, and associated captions provide key pathological points. Reader-friendly text clarifies basic and complex information, helping you understand challenging concepts more easily. Wheater's Pathology is an excellent companion resource for users of Wheater's Functional Histology, 6th Edition, offering a comparison of normal histology with the pathological changes in disease. Contains a new chapter, Introduction to Pathology and Techniques, that provides more background information on histology techniques, immunohistochemistry, molecular tests and digital pathology. Contains new, full-color illustrations that depict additional pathological entities and update classifications. Includes quick-reference features such as keys to the lettering in images at the bottom of each page and fully revised clinical boxes with clinical-pathological correlations that explain the relevance of the pathological processes underlying common diseases and their complications. Summarizes key points with chapter reviews at the end of each section. -- Publisher</subfield>
+  </datafield>
+  <datafield tag="588" ind1=" " ind2=" ">
+    <subfield code="a">Online resource; title from electronic title page (ClinicalKey, April 12, 2019).</subfield>
+  </datafield>
+  <datafield tag="590" ind1=" " ind2=" ">
+    <subfield code="a">ClinicalKey</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Histology, Pathological.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Histology, Pathological</subfield>
+    <subfield code="v">Atlases.</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="2">
+    <subfield code="a">Histology.</subfield>
+    <subfield code="0">(DNLM)D006653</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="2">
+    <subfield code="a">Pathology.</subfield>
+    <subfield code="0">(DNLM)D010336</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="2">
+    <subfield code="a">Atlas.</subfield>
+    <subfield code="0">(DNLM)D020466</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">O'Dowd, Geraldine,</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Bell, Sarah</subfield>
+    <subfield code="c">(Pathologist),</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Wright, Sylvia</subfield>
+    <subfield code="c">(Pathologist),</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="776" ind1=" " ind2=" ">
+    <subfield code="z">0-7020-7559-0</subfield>
+  </datafield>
+  <datafield tag="830" ind1=" " ind2="0">
+    <subfield code="a">ClinicalKey.</subfield>
+  </datafield>
+  <datafield tag="906" ind1=" " ind2=" ">
+    <subfield code="a">BOOK</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371447897606441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRS</subfield>
+    <subfield code="i">991005696549806452</subfield>
+    <subfield code="n">Hochschule Bonn-Rhein-Sieg</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">system</subfield>
+    <subfield code="f">EBC</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2023-05-02 00:10:58 Europe/Berlin</subfield>
+    <subfield code="g">994100000007877667</subfield>
+    <subfield code="j">00</subfield>
+    <subfield code="a">CKB</subfield>
+    <subfield code="b">2022-07-18 16:08:22 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">Ebook Central</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">5353633400006452</subfield>
+    <subfield code="M">49HBZ_BRS</subfield>
+    <subfield code="p">6153625730006452</subfield>
+    <subfield code="q">Ebook Central Perpetual, DDA and Subscription Titles</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">614330000000000002</subfield>
+    <subfield code="y">2023-02-06 12:32:05 Europe/Berlin</subfield>
+    <subfield code="w">2022-07-18 16:07:41 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=5353633400006452&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-07-18 14:07:41</subfield>
+    <subfield code="i">false</subfield>
+    <subfield code="S">6253625720006452</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=991005696549806452</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="8">5353633400006452</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>04289nam  2200397 i 4500</leader>
+  <controlfield tag="001">99371449208306441</controlfield>
+  <controlfield tag="005">20210104171702.0</controlfield>
+  <controlfield tag="006">m     o  d |      </controlfield>
+  <controlfield tag="007">cr#cnu||||||||</controlfield>
+  <controlfield tag="008">190119s2018    enk     o     000 0 eng d</controlfield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">1-78471-487-9</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(CKB)4100000007265159</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(MiAaPQ)EBC5614513</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(UtOrBLW)eep9781784714871</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(EXLCZ)994100000007265159</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+    <subfield code="d">CaOWAL</subfield>
+    <subfield code="9">local</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">MiAaPQ</subfield>
+    <subfield code="b">eng</subfield>
+    <subfield code="e">rda</subfield>
+    <subfield code="e">pn</subfield>
+    <subfield code="c">MiAaPQ</subfield>
+    <subfield code="d">MiAaPQ</subfield>
+    <subfield code="d">CaOWAL</subfield>
+    <subfield code="9">local</subfield>
+    <subfield code="M">49HBZ_FUH</subfield>
+  </datafield>
+  <datafield tag="042" ind1=" " ind2=" ">
+    <subfield code="a">pcc</subfield>
+  </datafield>
+  <datafield tag="050" ind1=" " ind2="4">
+    <subfield code="a">H97</subfield>
+    <subfield code="b">.H363 2018</subfield>
+  </datafield>
+  <datafield tag="082" ind1="0" ind2=" ">
+    <subfield code="a">320.6</subfield>
+    <subfield code="2">23</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Handbook on policy, process and governing /</subfield>
+    <subfield code="c">edited by H. K. Colebatch and Robert Hoppe.</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="1">
+    <subfield code="a">Northampton, MA :</subfield>
+    <subfield code="b">Edward Elgar Pub., Inc.,</subfield>
+    <subfield code="c">2018.</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">1 online resource (528 pages)</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="a">text</subfield>
+    <subfield code="b">txt</subfield>
+    <subfield code="2">rdacontent</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="a">computer</subfield>
+    <subfield code="b">c</subfield>
+    <subfield code="2">rdamedia</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="a">online resource</subfield>
+    <subfield code="b">cr</subfield>
+    <subfield code="2">rdacarrier</subfield>
+  </datafield>
+  <datafield tag="588" ind1=" " ind2=" ">
+    <subfield code="a">Description based on print version record.</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Includes index.</subfield>
+  </datafield>
+  <datafield tag="505" ind1="0" ind2=" ">
+    <subfield code="a">Contents: 1. Introduction: policy, process and making sense of governing / H.K. Colebatch and Robert Hoppe -- Part I: Tracing the signature of policy -- 2. 'Whatever governments decide to do or not to do' / Ed Page -- 3. Policy as ordering through documents / Michal Sedlacko -- 4. Policy as (mere) problem-solving / Nick Turnbull -- 5. Policy as practice / Koen Bartels -- 6. Policy as a body of expertise / Holger Strassheim -- Part II: Policy as authoritative choice -- 7 'Stage' theories of the policy process / William Dunn -- 8. Design as a window on the policy process / Hal Colebatch -- 9. Thirty years of research on policy instruments / Michael Howlett, Ishani Mukherjee and J.J. Woo -- 10. Implementation / Peter Hupe -- 11. Evidence and evaluation / Jan-Eric Furubo -- Part III: Policy as structured interaction -- 12. Linkage and the policy process / Hal Colebatch -- 13. The advocacy coalition framework / Keith Dowding -- 14. Multiple streams / Alison Ritter and Kari Lancaster -- 15. Policy work and its significance for public policy / Jan Kohoutek, Martin Nekola and Arnost Vesele. -- Part IV: Policy as sense-making -- 16. Frames and framings in policy-making / Perri 6 -- 17. Agenda formation and change / Peter John -- 18. Narrative in the policy process / Raul Lejano, Mrill Ingram and Helen Ingram -- 19. Policy learning and diffusion / David Dolowitz -- 20. The news media and the policy process / Rod Tiffen -- 21. The role of social media in the policy process / Victor Bekkers and Arthur Edwards -- 22. Problematisation / David Dery -- Part V: The limits of policy -- 23. Choice v. incrementalism / Robert Hoppe -- 24. Stasis and change / John Grin -- 25. Policy and socio-economic characteristics / William Blomquist -- 26. From policy typologies to policy feedback / Aynsley Kellow -- What do we learn from this? -- 27. Policy and the theorising of governing / Robert Hoppe and H.K. Colebatch -- Index.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">This Handbook covers the accounts, by practitioners and observers, of the ways in which policy is formed around problems, how these problems are recognized and understood, and how diverse participants come to be involved in addressing them. H.K. Colebatch and Robert Hoppe draw together a range of original contributions from experts in the field to illuminate the ways in which policies are formed and how they shape the process of governing. The Handbook on Policy, Process and Governing covers not only the activities of government, but also the contributions of other stakeholders, and the ways in which a wide range of participants contribute to the formation of public policy. It explores the tensions involved in the policy process between: innovative choice and stable practice, authoritative decision and negotiated order, and agreed activity and announced goals. The scholar's focus on the analysis of activity and the practitioner's interest in the achievement of outcomes are brought together in this timely book, making it a valuable read for public policy scholars and practitioners alike.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Policy sciences.</subfield>
+  </datafield>
+  <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a">Political planning.</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="4">
+    <subfield code="a">Electronic books.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Colebatch, H. K.</subfield>
+    <subfield code="q">(Hal K.),</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2=" ">
+    <subfield code="a">Hoppe, Robert,</subfield>
+    <subfield code="e">editor.</subfield>
+  </datafield>
+  <datafield tag="710" ind1="2" ind2=" ">
+    <subfield code="a">Edward Elgar Publishing,</subfield>
+    <subfield code="e">publisher.</subfield>
+  </datafield>
+  <datafield tag="776" ind1=" " ind2=" ">
+    <subfield code="z">1-78471-486-0</subfield>
+  </datafield>
+  <datafield tag="906" ind1=" " ind2=" ">
+    <subfield code="a">BOOK</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371449208306441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_FUH</subfield>
+    <subfield code="i">99381851853506464</subfield>
+    <subfield code="n">Fernuniversität Hagen</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">Ex Libris</subfield>
+    <subfield code="f">EE</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2022-07-18 19:51:15 Europe/Berlin</subfield>
+    <subfield code="g">994100000007265159</subfield>
+    <subfield code="j">00</subfield>
+    <subfield code="a">CKB</subfield>
+    <subfield code="b">2022-07-18 19:51:15 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="POR" ind1=" " ind2=" ">
+    <subfield code="j">Ebook Central</subfield>
+    <subfield code="x">System</subfield>
+    <subfield code="a">53145570030006464</subfield>
+    <subfield code="h">EZProxy</subfield>
+    <subfield code="M">49HBZ_FUH</subfield>
+    <subfield code="p">61144752620006464</subfield>
+    <subfield code="q">Ebook Central Perpetual, DDA and Subscription Titles</subfield>
+    <subfield code="c">param</subfield>
+    <subfield code="o">614330000000000002</subfield>
+    <subfield code="y">2023-02-08 12:48:19 Europe/Berlin</subfield>
+    <subfield code="w">2022-07-10 13:59:26 Europe/Berlin</subfield>
+    <subfield code="D">https://eu04.alma.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;portfolio_pid=53145570030006464&amp;Force_direct=true</subfield>
+    <subfield code="v">System</subfield>
+    <subfield code="z">2022-07-10 11:59:26</subfield>
+    <subfield code="i">true</subfield>
+    <subfield code="S">62144752610006464</subfield>
+    <subfield code="d">https://hbz-network.userservices.exlibrisgroup.com/view/uresolver/49HBZ_NETWORK/openurl?u.ignore_date_coverage=true&amp;rft.mms_id=99381851853506464</subfield>
+    <subfield code="b">Available</subfield>
+    <subfield code="f">BOOK</subfield>
+    <subfield code="8">53145570030006464</subfield>
+  </datafield>
+</record>
+<record>
+  <leader>00000nas a2200000#c 4500</leader>
+  <controlfield tag="005">20230403182250.0</controlfield>
+  <controlfield tag="007">cr||||||||||||</controlfield>
+  <controlfield tag="008">230322c20239999si z||p|o ||| 0||||1eng c</controlfield>
+  <controlfield tag="003">DE-605</controlfield>
+  <controlfield tag="001">99371981001306441</controlfield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">3154709-6</subfield>
+    <subfield code="2">DE-600</subfield>
+  </datafield>
+  <datafield tag="016" ind1="7" ind2=" ">
+    <subfield code="a">1284122735</subfield>
+    <subfield code="2">DE-101</subfield>
+  </datafield>
+  <datafield tag="022" ind1=" " ind2=" ">
+    <subfield code="a">2731-8087</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-599)ZDB3154709-6</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-600)3154709-6</subfield>
+  </datafield>
+  <datafield tag="035" ind1=" " ind2=" ">
+    <subfield code="a">(DE-101)1284122735</subfield>
+  </datafield>
+  <datafield tag="040" ind1=" " ind2=" ">
+    <subfield code="a">0025</subfield>
+    <subfield code="b">ger</subfield>
+    <subfield code="c">DE-101</subfield>
+    <subfield code="d">9001</subfield>
+    <subfield code="e">rda</subfield>
+  </datafield>
+  <datafield tag="041" ind1=" " ind2=" ">
+    <subfield code="a">eng</subfield>
+  </datafield>
+  <datafield tag="044" ind1=" " ind2=" ">
+    <subfield code="c">XB-SG</subfield>
+  </datafield>
+  <datafield tag="084" ind1=" " ind2=" ">
+    <subfield code="a">333.7</subfield>
+    <subfield code="a">621.3</subfield>
+    <subfield code="q">DE-600</subfield>
+    <subfield code="2">sdnb</subfield>
+  </datafield>
+  <datafield tag="245" ind1="0" ind2="0">
+    <subfield code="a">Smart grids and sustainable energy</subfield>
+  </datafield>
+  <datafield tag="247" ind1="0" ind2="0">
+    <subfield code="a">Technology and economics of smart grids and sustainable energy</subfield>
+    <subfield code="f">Abweichender Titel in Volume 8, issue 1 (March 2023) teils</subfield>
+  </datafield>
+  <datafield tag="264" ind1="3" ind2="1">
+    <subfield code="a">[Singapore]</subfield>
+    <subfield code="b">Springer Nature Singapore</subfield>
+    <subfield code="c">[2023]-</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">Online-Ressource</subfield>
+  </datafield>
+  <datafield tag="336" ind1=" " ind2=" ">
+    <subfield code="b">txt</subfield>
+  </datafield>
+  <datafield tag="337" ind1=" " ind2=" ">
+    <subfield code="b">c</subfield>
+  </datafield>
+  <datafield tag="338" ind1=" " ind2=" ">
+    <subfield code="b">cr</subfield>
+  </datafield>
+  <datafield tag="362" ind1="0" ind2=" ">
+    <subfield code="a">Volume 8, issue 1 (March 2023)-</subfield>
+  </datafield>
+  <datafield tag="363" ind1="0" ind2="1">
+    <subfield code="8">1.1\x</subfield>
+    <subfield code="a">8</subfield>
+    <subfield code="b">1</subfield>
+    <subfield code="j">3</subfield>
+    <subfield code="i">2023</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="u">http://link.springer.com/journal/40866</subfield>
+    <subfield code="x">Verlag</subfield>
+  </datafield>
+  <datafield tag="856" ind1="4" ind2=" ">
+    <subfield code="u">http://www.bibliothek.uni-regensburg.de/ezeit/?3154709</subfield>
+    <subfield code="x">EZB</subfield>
+  </datafield>
+  <datafield tag="780" ind1="0" ind2="0">
+    <subfield code="i">Fortsetzung von</subfield>
+    <subfield code="t">Technology and economics of smart grids and sustainable energy</subfield>
+    <subfield code="d">Heidelberg : Springer, [2016-2022]</subfield>
+    <subfield code="h">Online-Ressource</subfield>
+    <subfield code="x">2199-4706</subfield>
+    <subfield code="w">(DE-600)2830544-9</subfield>
+  </datafield>
+  <datafield tag="655" ind1=" " ind2="7">
+    <subfield code="a">Zeitschrift</subfield>
+    <subfield code="0">(DE-588)4067488-5</subfield>
+    <subfield code="2">gnd-content</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">Gesehen am 23.03.23</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_NETWORK</subfield>
+    <subfield code="i">99371981001306441</subfield>
+    <subfield code="n">HBZ Network</subfield>
+  </datafield>
+  <datafield tag="MBD" ind1=" " ind2=" ">
+    <subfield code="M">49HBZ_BRIDGE_FIZ</subfield>
+    <subfield code="i">99156409607816</subfield>
+    <subfield code="n">Bibliotheken ohne zentrale Katalogisierung</subfield>
+  </datafield>
+  <datafield tag="MNG" ind1=" " ind2=" ">
+    <subfield code="c">System</subfield>
+    <subfield code="f">ZDB</subfield>
+    <subfield code="i">marc21</subfield>
+    <subfield code="h">20230403182250.0</subfield>
+    <subfield code="k">01</subfield>
+    <subfield code="e">false</subfield>
+    <subfield code="d">2023-04-23 17:23:58 Europe/Berlin</subfield>
+    <subfield code="g">HT021793595</subfield>
+    <subfield code="j">90</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="b">2023-03-22 17:31:10 Europe/Berlin</subfield>
+  </datafield>
+  <datafield tag="H16" ind1="7" ind2=" ">
+    <subfield code="a">3154709-6</subfield>
+    <subfield code="2">DE-600</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H35" ind1=" " ind2=" ">
+    <subfield code="a">(DE-600)875236472</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H92" ind1=" " ind2=" ">
+    <subfield code="a">467040-1</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="8" ind2="1">
+    <subfield code="t">2</subfield>
+    <subfield code="c">kA</subfield>
+    <subfield code="a">DE-60</subfield>
+    <subfield code="b">Z9030</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H56" ind1="4" ind2=" ">
+    <subfield code="u">http://www.bibliothek.uni-regensburg.de/ezeit/?3154709&amp;bibid=STLB</subfield>
+    <subfield code="x">EZB</subfield>
+    <subfield code="u">http://ezb.ur.de/ReadMe?bibid=STLB&amp;owner=DESPR&amp;anchor=deal_springer_current&amp;lang=de&amp;lang=de#deal_springer_current</subfield>
+    <subfield code="x">Read me</subfield>
+    <subfield code="u">https://link.springer.com/journal/volumesAndIssues/40866</subfield>
+    <subfield code="x">Volltext</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1="1" ind2="0">
+    <subfield code="8">1.2\x</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1="0" ind2="0">
+    <subfield code="8">1.1\x</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1=" " ind2=" ">
+    <subfield code="a">8</subfield>
+    <subfield code="i">2023</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="H66" ind1="3" ind2="0">
+    <subfield code="a">8.2023 -</subfield>
+    <subfield code="8">2253474520007816</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-04-18 13:27:41</subfield>
+    <subfield code="8">2253474520007816</subfield>
+    <subfield code="b">2023-04-18 13:27:41</subfield>
+    <subfield code="M">49HBZ_BRIDGE_FIZ</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+  <datafield tag="H16" ind1="7" ind2=" ">
+    <subfield code="a">3154709-6</subfield>
+    <subfield code="2">DE-600</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H35" ind1=" " ind2=" ">
+    <subfield code="a">(DE-600)875236464</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H92" ind1=" " ind2=" ">
+    <subfield code="a">467040-1</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H52" ind1="8" ind2="1">
+    <subfield code="t">1</subfield>
+    <subfield code="c">kA</subfield>
+    <subfield code="a">DE-60</subfield>
+    <subfield code="b">Z9030</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H56" ind1="4" ind2=" ">
+    <subfield code="u">http://www.bibliothek.uni-regensburg.de/ezeit/?3154709&amp;bibid=STLB</subfield>
+    <subfield code="x">EZB</subfield>
+    <subfield code="u">http://ezb.ur.de/ReadMe?bibid=STLB&amp;owner=DESPR&amp;anchor=deal_springer&amp;lang=de&amp;lang=de#deal_springer</subfield>
+    <subfield code="x">Read me</subfield>
+    <subfield code="u">https://link.springer.com/journal/volumesAndIssues/40866</subfield>
+    <subfield code="x">Volltext</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1="1" ind2="0">
+    <subfield code="8">1.2\x</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1="0" ind2="0">
+    <subfield code="8">1.1\x</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H59" ind1=" " ind2=" ">
+    <subfield code="a">8</subfield>
+    <subfield code="i">2023</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="H66" ind1="3" ind2="0">
+    <subfield code="a">8.2023 -</subfield>
+    <subfield code="8">2253474540007816</subfield>
+  </datafield>
+  <datafield tag="HOL" ind1=" " ind2=" ">
+    <subfield code="d">2023-04-18 13:27:40</subfield>
+    <subfield code="8">2253474540007816</subfield>
+    <subfield code="b">2023-04-18 13:27:40</subfield>
+    <subfield code="M">49HBZ_BRIDGE_FIZ</subfield>
+    <subfield code="g">false</subfield>
+    <subfield code="a">System</subfield>
+    <subfield code="c">System</subfield>
+  </datafield>
+</record>
+</collection>
