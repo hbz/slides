@@ -380,7 +380,7 @@ https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-
 
 			<section data-state="tobias">
 				<h2>How to FIX</h2>
-			<p><span class="fragment">Before we start creating real LOUD metadata lets play around FIX</span></p>
+			<p><span class="fragment">Before we start creating real LOUD metadata lets play around with FIX</span></p>
 <p><span class="fragment">
 			Exercise 6: <a target="_blank" href="
 https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-records%0A%7C+decode-json%0A//+This+uses+a+variable+to+refrence+the+content+of+the+box+transformationFile%0A%7C+fix%28transformationFile%29%0A%7C+encode-yaml%0A%7C+print%0A%3B&transformation=replace_all%28%22Hello%22%2C%22orld%22%2C%22eirdos%22%29%0Aupcase%28%22Hello%22%29%0Aadd_field%28%22Great%22%2C%22Success%21%22%29%0Aprepend%28%22Great%22%2C%22Real+Great+%22%29&data=%7B%0A++++%22Hello%22%3A+%22World%22%0A%7D
@@ -391,7 +391,7 @@ https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-reco
 			<section data-state="tobias">
 				<h2>What is FIX</h2>
 				<p><span class="fragment">simple scripting language</span></p>
-				<p><span class="fragment">inspired by Catmandu Fix</span></p>
+				<p><span class="fragment">inspired by <a target="_blank" href="https://github.com/LibreCat/Catmandu">Catmandu</a> Fix</span></p>
 				<p><span class="fragment">it allows you to to manipulate records and metadata elements, e.g.: </span></p>
 				<ol>
 					<span class="fragment"><li>fields can be changed, removed, filterd, separated or added</li></span>
@@ -401,7 +401,7 @@ https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-reco
 			</section>
 
 			<section data-state="tobias">
-				<h1>FIX concepts</h1>
+				<h3>FIX concepts</h3>
 <pre><code class="json" data-trim>
 # Simple Fix functions
 add_field("hello", "world")
