@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>lobid als lesende Schnittstelle zur GND</title>
+
+	<meta name="description"
+		content="Offene Infrastruktur für bibliothekarische Daten: Linked Open Data, JSON & OpenRefine in der Praxis">
+	<meta name="author" content="Adrian Pohl">
+	<meta name="author" content="Fabian Steeg">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"type": [
+				"PresentationDigitalDocument"
+			],
+			"name": {
+				"de": "lobid als lesende Schnittstelle zur GND"
+			},
+			"creator": [
+				{
+					"id": "http://lobid.org/team/ap#!",
+					"type": "Person",
+					"name": "Adrian Pohl"
+				}
+			],
+			"keywords": [
+				"lobid",
+				"JSON-LD",
+				"Linked Open Data",
+				"libraries",
+				"Gemeinsame Normdatei"
+			],
+			"id": "https://slides.lobid.org/2023-10-12-gnd-workshop/",
+			"about": [
+				{
+					"id": "https://lobid.org/product/lobid-gnd"
+				}
+			],
+			"datePublished": "2023-10-12",
+			"inLanguage": [
+				"de"
+			],
+			"audience": [
+				"librarians",
+				"developers"
+			],
+			"isBasedOn": [
+				{
+					"id": "https://slides.lobid.org/2023-zbiw/"
+				}
+			],
+			"license": "https://creativecommons.org/licenses/by/4.0/"
+		}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section>
+				<h2>lobid als lesende Schnittstelle zur GND</h2>
+				<p>
+					<small>
+						<a href="https://lobid.org/team/ap#!">Adrian Pohl</a> &amp;
+						<br /> <br /> Metadateninfrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz) </small> <br />
+					<a href="https://lobid.org"><img src="img/lobid.png"
+							style="border: none; padding: 5px; background-color: white" width="125px" /></a><br />
+					<small>DNB, Frankfurt/Main, 2023-10-12</small>
+					<br />
+					<small>Workshop zur verbesserten Integration der GND in der Erschließung</small>
+				</p>
+				<p>
+					Diese Präsentation: <br /> <a
+						href="https://slides.lobid.org/2023-10-12-gnd-workshop/">https://slides.lobid.org/2023-10-12-gnd-workshop/</a> (<a href="https://slides.lobid.org/2023-10-12-gnd-workshop/2023-10-12-lobid-gnd.pdf">PDF</a>)
+					<br />
+					<a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img
+							alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+							title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+				</p>
+			</section>
+
+			<section>
+				<h2>Was ist lobid?</h2>
+				<p><span class="fragment">lobid führt zentrale bibliothekarische Datensets aus verschiedenen Quellen zusammen,</span></p>
+				<p><span class="fragment">macht sie web-konform,</span></p>
+				<p><span class="fragment">und stellt sie zur freien Nutzung zur Verfügung (CC0).</span></p>
+			</section>
+
+			<section>
+				<h3>lobid-Datenquellen und -Anwendungen</h3>
+				<img src="img/lobid-data.png" style="border: none; box-shadow: none;" />
+				<p><span class="fragment">Programmierschnittstellen (APIs) entkoppeln Anwendungen von Datenquellen, Formaten & Systemen</span></p>
+				<p><span class="fragment">APIs ermöglichen Integration in Drittanbieter-Software</span></p>
+			</section>
+
+			<section>
+				<h1>lobid-gnd</h1>
+			</section> 
+
+			<section>
+				<h3>Der beliebteste lobid-Dienst</h3>
+				<p><span class="fragment">Mehr als 120 Millionen Abfragen im Jahr (<a href="https://service-wiki.hbz-nrw.de/display/SEM/lobid-Nutzung">Quelle</a>)</span></p>
+				<p><span class="fragment">Findet in verschiedensten Bereichen Anwendung: Bibliotheken, Archiven, Digital Humanities...</span></p>
+				<p><span class="fragment">Zufriedene Nutzer:innen</span></p>
+			</section>
+
+			<section>
+				<h3>Lob it!</h3>
+				<a href="https://de.wikipedia.org/w/index.php?title=Vorlage_Diskussion:Normdaten&oldid=234366298"><img src="img/lob-it.png" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h3>a. Die Daten</h3>
+				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
+			</section>
+
+			<section>
+				<h3>JSON-LD-Link</h3>
+				<a href="https://lobid.org/gnd/11850391X"><img src="img/focus-json-ld.png"
+						style="border: none; box-shadow: none;" /></a>
+				<a href="http://lobid.org/gnd/11850391X">
+					<h1>&nbsp;<br />&nbsp;<br />&nbsp;</h1>
+				</a>
+			</section>
+
+			<section>
+				<h3>JSON-LD-Daten</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/browser-json.png"
+						style="border: none; box-shadow: none;" /></a>
+				<p>Browser-Plugin z.B. JSON Lite</p>
+			</section>
+
+			<section>
+				<h3>JSON-LD-Daten</h3>
+				<a href="https://lobid.org/gnd/11850391X.json"><img src="img/get-json.png" /></a>
+				<p>Hier mit curl und jq für Formatierung und Farbe</p>
+			</section>
+
+			<section >
+				<h3>b. Web-API</h3>
+				<a href="https://lobid.org/gnd/api"><img src="img/lobid-gnd-api.png" width="500" /></a>
+			</section>
+
+			<section>
+				<h2>Abfragemöglichkeiten</h2>
+				<p><span class="fragment">JSON-LD-Daten in Elasticsearch-Index</span></p>
+				<p><span class="fragment"><a
+							href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch-</a>
+						/ <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Lucene-Suchsyntax</a>
+						</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#content_types">Für Einzeltreffer: RDF per Content Negotiation</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#auto-complete">API für Auto
+							Suggest</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/api#bulk_downloads">API für Bulk
+							Downloads</a></span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd/reconcile/">Reconciliation Service API</a></span></p>
+			</section>
+
+			<section>
+				<h2>Suchsyntax</h2>
+				<table style="border: 1px solid white; table-layout:fixed; width: 100%">
+					<col width="25%" />
+					<col width="75%" />
+					<tbody>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=abbreviatedNameForTheCorporateBody%3Azbiw">Feldsuche</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+abbreviatedNameForTheCorporateBody:zbiw
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=Kunst+AND+%28Kultur+OR+Wissenschaft%29">Boolsche Suche</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+Kunst AND (Kultur OR Wissenschaft)
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=professionOrOccupation.label%3APolitiker*">Trunkierung</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+professionOrOccupation.label:Politiker*
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=dateOfBirth%3A%5B*+TO+1500%5D">Intervalle</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+dateOfBirth:[* TO 1500]
+								</code></pre>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="https://lobid.org/gnd/search?q=_exists_%3AdateOfBirth">Existenz</a></td>
+							<td>
+								<pre><code class="bash" data-trim>
+_exists_:dateOfBirth
+								</code></pre>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p><font size="5"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Elasticsearch 'query string' Dokumentation</a></font></p>
+			</section>
+
+
+			<section>
+				<h1>Kombinierbarkeit für komplexe Abfragen</h1>
+			</section>
+
+			<section>
+				<h3><a
+						href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29">Personen,
+						die während der NS-Zeit in Köln geboren wurden</a></h3>
+				<a
+					href="https://lobid.org/gnd/search?q=placeOfBirth.id%3A%22https%3A%2F%2Fd-nb.info%2Fgnd%2F4031483-2%22+AND+dateOfBirth%3A%5B1933+TO+1945%5D+&filter=%2B%28type%3APerson%29"><img
+						src="img/koelsche-ns-geburten.png" width="800" /></a>
+			</section>
+
+			<section>
+				<h2>Sehr beliebt: Autovervollständigung</h2>
+				<a href="https://lobid.org/gnd/api#auto-complete"><img src="img/lobid-gnd-autosuggest-doc.png" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section>
+				<h2>Beispiel lobid</h2>
+				<img src="img/lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+			</section>
+
+			<section>
+				<h2>Was ist Reconciliation?</h2>
+				<p><span class="fragment">Abgleichen / Matchen eigener Daten (z.B. Namen von Personen) auf GND-Einträge</span></p>
+				<p><span class="fragment">Anreicherung durch Übernahme von spezifischen Feldern der gematchten GND-Einträge</a></span></p>
+			</section>
+
+			<section>
+				<h3>Mappen großer Mengen von Personendaten auf die GND</h3>
+				<a href="https://twitter.com/j4lib/status/1126429060433874944"><img src="img/j4lib-tweet.png" width=600 style="border: none; box-shadow: none;" /></a>
+			</section>
+	
+			<section>
+				<h3>Abgleich & Anreicherung von Bauhaus-Archivdaten</h3>
+				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
+				<span class="fragment"><small>Unter Nutzung von <a href="http://openrefine.org/">OpenRefine</a> und der entsprechenden <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a></small></span>
+			</section>
+
+			<section>
+				<h3>Annotation/Named Entity Linking in digitalen Editionen</h3>
+				<img src="img/tei-publisher-gnd-annotation.png" width=750 style="border: none; box-shadow: none;" />
+				<small>Quelle: <a href="https://teipublisher.com/exist/apps/tei-publisher/documentation?odd=docbook.odd&root=3.40.21.20">Dokumentation des TEI Publisher</a></small>
+			</section>
+
+			<section data-state="alle">
+				<h2>Standardisierung &amp; W3C Community Group</h2>
+				<span class="fragment"><p>W3C Entity Reconciliation Community Group</p></span>
+				<span class="fragment"><p><a href="https://www.w3.org/community/reconciliation/">https://www.w3.org/community/reconciliation/</a></p></span>
+				<span class="fragment"><p><a href="https://github.com/reconciliation-api">https://github.com/reconciliation-api</a></p></span>
+			</section>
+			
+			<section data-state="alle">
+				<h1>Ziele</h1>
+				<p><span class="fragment">Dokumentation und Verbesserung des Protokolls der OpenRefine Reconciliation API</span></p>
+				<p><span class="fragment">Protokoll als Standard für den Datenabgleich im Web vorantreiben</span></p>
+				<p><span class="fragment">Werkzeuge rund um das Protokoll bereitstellen</span></p>
+			</section>
+			
+			<section data-state="alle" data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+			
+			<section data-state="alle">
+				<h1>Testbench</h1>
+				<p><span class="fragment">Ein Werkzeug zum Testen von Reconciliation-Services</span></p>
+				<p><span class="fragment">Ein zentrales Verzeichnis verfügbarer Reconciliation-Services (aktuell 38)</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
+			</section>
+
+			<section data-state="uebung" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+
+			<section data-state="alle">
+				<h1>Census</h1>
+				<p><span class="fragment">Überblick über das Reconciliation-Ökosystem</span></p>
+				<p><span class="fragment">Verfügbare Services, Clients, Software-Bibliotheken</span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
+			</section>
+
+			<section data-state="alle">
+				<h1>Andere Clients als OpenRefine</h1>
+			</section>
+
+			<section data-state="alle">
+				<h1>Alma Refine</h1>
+				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h1>Cocoda</h1>
+				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
+			</section>
+
+			<section data-state="alle">
+				<h1>Specs</h1>
+				<p><span class="fragment">Spezifikation des Protokolls für Datenabgleich und -anreicherung</span></p>
+				<p><span class="fragment"><a href="https://www.degruyter.com/document/doi/10.1515/9783110691597-013/html">Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND)</a></span></p>
+				<p><span class="fragment"><a href="https://reconciliation-api.github.io/specs/latest/">https://reconciliation-api.github.io/specs/latest/</a></span></p>
+			</section>
+
+			<section>
+				<h3><span>Weiterführende Informationen</span></h3>
+				<ul style=font-size:25px;>
+					<li>Stefan Dumont (2018): correspSearch: Neue Tools, neue Daten – und eine Auszeichnung <a href="https://dhd-blog.org/?p=10632">https://dhd-blog.org/?p=10632</a></li>
+					<li>Pascal Becker (2021): Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid (<a href="https://www.slideshare.net/pascalbecker/integration-der-gemeinsamen-normdatei-in-dspace-auf-basis-von-lobid">Vortragsfolien</a>)</li>
+					<li>Blogbeiträge mit lobid-gnd-Bezug des FDMLab am Landesarchiv Baden-Württemberg (2021 ff) <a href="https://fdmlab.landesarchiv-bw.de/tag/lobid/">https://fdmlab.landesarchiv-bw.de/tag/lobid/</a></li>
+					<li>Michael Markert (2023): Abgleich 'unsauberer' Ortsnamen mit der GND in OpenRefine (Videotutorial), inklusive Clustering und unscharfer Suche mit alten Schreibweisen <a href="https://www.youtube.com/watch?v=tCdluPq5GkA">https://www.youtube.com/watch?v=tCdluPq5GkA</a></li>
+					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur
+						Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a
+							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
+					</li>
+					<li>Steeg, Fabian / Pohl, Adrian (2021): Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND).
+						In: Qualität in der Inhaltserschließung. <a
+							href="https://doi.org/10.1515/9783110691597-013">https://doi.org/10.1515/9783110691597-013</a>
+					</li>
+				</ul>
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('adrian', function () { document.querySelector('#footer-left').innerHTML = 'A'; });
+		Reveal.addEventListener('fabian', function () { document.querySelector('#footer-left').innerHTML = 'F'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
