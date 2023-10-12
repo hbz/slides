@@ -107,7 +107,7 @@
 				<h2>lobid als lesende Schnittstelle zur GND</h2>
 				<p>
 					<small>
-						<a href="https://lobid.org/team/ap#!">Adrian Pohl</a> &amp;
+						<a href="https://lobid.org/team/ap#!">Adrian Pohl</a>
 						<br /> <br /> Metadateninfrastruktur,
 							Hochschulbibliothekszentrum NRW (hbz) </small> <br />
 					<a href="https://lobid.org"><img src="img/lobid.png"
@@ -131,6 +131,15 @@
 				<p><span class="fragment">lobid führt zentrale bibliothekarische Datensets aus verschiedenen Quellen zusammen,</span></p>
 				<p><span class="fragment">macht sie web-konform,</span></p>
 				<p><span class="fragment">und stellt sie zur freien Nutzung zur Verfügung (CC0).</span></p>
+			</section>
+
+			<section>
+				<h2>lobid-Dienste</h2>
+				<p><span class="fragment"><a href="https://lobid.org/resources">lobid-resources</a>: Daten des
+						hbz-Verbundkatalogs</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/organisations">lobid-organisations</a>: Daten des
+						deutschsprachigen Sigelverzeichnisses und DBS-Stammdaten</span></p>
+				<p><span class="fragment"><a href="https://lobid.org/gnd">lobid-gnd</a>: Gemeinsame Normdatei</span></p>
 			</section>
 
 			<section>
@@ -160,6 +169,16 @@
 				<h3>a. Die Daten</h3>
 				<a href="https://www.w3.org/TR/json-ld/"><img src="img/json-ld.png" width="350px" /></a>
 			</section>
+
+			<section>
+				<h3>Datenherkunft & -generierung</h3>
+				<p><span class="fragment">Tägl. Bezug der <a href="http://www.dnb.de/DE/Service/DigitaleDienste/LinkedData/linkeddata_node.html">GND-RDF-Daten von der DNB</a> via OAI-PMH (<a href="https://github.com/hbz/lobid-gnd/issues/350">wahrscheinlich bald häufiger</a>)</span></p>
+				<p><span class="fragment">Konversion nach JSON-LD mittels <a href="https://lobid.org/gnd/context.jsonld"><code>@context</code></a>, <a href="https://json-ld.org/spec/latest/json-ld-framing/">Framing</a> etc.</span></p>
+				<p><span class="fragment">Homogenisierung von Typen und Label-Properties</p>
+				<p><span class="fragment">Labels für verlinkte Ressourcen ergänzen</span></p>
+				<p><span class="fragment">Anreicherung mit <a href"https://www.dnb.de/DE/Service/DigitaleDienste/EntityFacts/entityfacts_node.html">EntityFacts</a>-Links und -Bildern</span></p>
+				<p><span class="fragment">Et voilà: Linked Open Usable Data (LOUD)</small></span></p>
+      </section>
 
 			<section>
 				<h3>JSON-LD-Link</h3>
@@ -274,8 +293,23 @@ _exists_:dateOfBirth
 			</section>
 
 			<section>
-				<h2>Beispiel lobid</h2>
-				<img src="img/lobid-gnd-autosuggest.png" style="border: none; box-shadow: none;" />
+				<h2>Bekannte Implementierungen</h2>
+				<p><span class="fragment"><a href="https://correspsearch.net/">CorrespSearch</a></span></p>
+				<p><span class="fragment"><a href="https://www.slideshare.net/pascalbecker/integration-der-gemeinsamen-normdatei-in-dspace-auf-basis-von-lobid">DSpace</a></span></p>
+				<p><span class="fragment">OJS-Plugins der WLB Stuttgart (<a href="https://doi.org/10.5282/o-bib/5863">Kontext</a>; Code: <a href="https://github.com/WLB-IT/gndKeywords">gndKeywords</a>, <a href="https://github.com/WLB-IT/gndAuthors">gndAuthors)</a></span></p>
+				<p><span class="fragment"><a href="https://addons.mozilla.org/de/firefox/addon/tu-lama/">lAma Firefox Add-On der TU Wien für Alma</a></span></p>
+
+			</section>
+
+			<section>
+				<h1>GND Reconciliation-Service</h1>
+				<h3><span class="fragment">zum Datenabgleich in OpenRefine und anderswo</span></h3>
+				<p><span class="fragment">(<a href="">angeboten seit 2018</a>)</span></p>
+			</section>
+
+			<section>
+				<h3>Mappen großer Mengen von Personendaten auf die GND</h3>
+				<a href="https://twitter.com/j4lib/status/1126429060433874944"><img src="img/j4lib-tweet.png" width=600 style="border: none; box-shadow: none;" /></a>
 			</section>
 
 			<section>
@@ -285,14 +319,17 @@ _exists_:dateOfBirth
 			</section>
 
 			<section>
-				<h3>Mappen großer Mengen von Personendaten auf die GND</h3>
-				<a href="https://twitter.com/j4lib/status/1126429060433874944"><img src="img/j4lib-tweet.png" width=600 style="border: none; box-shadow: none;" /></a>
+				<h1>Reconciliation Use Cases</h1>
 			</section>
-	
+
+			<section>
+				<h3>Abgleich 'unsauberer' Ortsnamen</h3>
+				<a href="https://www.youtube.com/watch?v=tCdluPq5GkA"><img src="img/reconciliation-video-tutorial.png" width=750 style="border: none; box-shadow: none;" /></a>
+			</section>
+
 			<section>
 				<h3>Abgleich & Anreicherung von Bauhaus-Archivdaten</h3>
 				<img src="img/refine-screenshot.png" width=750 style="border: none; box-shadow: none;" />
-				<span class="fragment"><small>Unter Nutzung von <a href="http://openrefine.org/">OpenRefine</a> und der entsprechenden <a href="http://lobid.org/gnd/api#openrefine">lobid Reconciliation API</a></small></span>
 			</section>
 
 			<section>
@@ -301,53 +338,53 @@ _exists_:dateOfBirth
 				<small>Quelle: <a href="https://teipublisher.com/exist/apps/tei-publisher/documentation?odd=docbook.odd&root=3.40.21.20">Dokumentation des TEI Publisher</a></small>
 			</section>
 
-			<section data-state="alle">
+			<section>
 				<h2>Standardisierung &amp; W3C Community Group</h2>
 				<span class="fragment"><p>W3C Entity Reconciliation Community Group</p></span>
 				<span class="fragment"><p><a href="https://www.w3.org/community/reconciliation/">https://www.w3.org/community/reconciliation/</a></p></span>
 				<span class="fragment"><p><a href="https://github.com/reconciliation-api">https://github.com/reconciliation-api</a></p></span>
 			</section>
 			
-			<section data-state="alle">
+			<section>
 				<h1>Ziele</h1>
 				<p><span class="fragment">Dokumentation und Verbesserung des Protokolls der OpenRefine Reconciliation API</span></p>
 				<p><span class="fragment">Protokoll als Standard für den Datenabgleich im Web vorantreiben</span></p>
 				<p><span class="fragment">Werkzeuge rund um das Protokoll bereitstellen</span></p>
 			</section>
 			
-			<section data-state="alle" data-background="img/reconciliation-github.png" data-background-size="contain"></section>
+			<section data-background="img/reconciliation-github.png" data-background-size="contain"></section>
 			
-			<section data-state="alle">
+			<section>
 				<h1>Testbench</h1>
 				<p><span class="fragment">Ein Werkzeug zum Testen von Reconciliation-Services</span></p>
-				<p><span class="fragment">Ein zentrales Verzeichnis verfügbarer Reconciliation-Services (aktuell 38)</span></p>
+				<p><span class="fragment">Ein zentrales Verzeichnis verfügbarer Reconciliation-Services (aktuell 78)</span></p>
 				<p><span class="fragment"><a href="https://reconciliation-api.github.io/testbench/">https://reconciliation-api.github.io/testbench/</a></span></p>
 			</section>
 
-			<section data-state="uebung" data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
+			<section data-background="img/reconciliation-testbench.png" data-background-size="contain"></section>
 
-			<section data-state="alle">
+			<section>
 				<h1>Census</h1>
 				<p><span class="fragment">Überblick über das Reconciliation-Ökosystem</span></p>
 				<p><span class="fragment">Verfügbare Services, Clients, Software-Bibliotheken</span></p>
 				<p><span class="fragment"><a href="https://reconciliation-api.github.io/census/">https://reconciliation-api.github.io/census/</a></span></p>
 			</section>
 
-			<section data-state="alle">
-				<h1>Andere Clients als OpenRefine</h1>
+			<section>
+				<h1>Weitere Clients</h1>
 			</section>
 
-			<section data-state="alle">
+			<section>
 				<h1>Alma Refine</h1>
 				<a href="https://github.com/jweisman/alma-refine/wiki/Help"><img src="img/reconciliation-alma-refine.png" width="100%" style="border: none; box-shadow: none;" /></a>
 			</section>
 
-			<section data-state="alle">
+			<section>
 				<h1>Cocoda</h1>
 				<a href="https://coli-conc.gbv.de/cocoda/"><img src="img/reconciliation-cocoda.png" width="80%" style="border: none; box-shadow: none;" /></a>
 			</section>
 
-			<section data-state="alle">
+			<section>
 				<h1>Specs</h1>
 				<p><span class="fragment">Spezifikation des Protokolls für Datenabgleich und -anreicherung</span></p>
 				<p><span class="fragment"><a href="https://www.degruyter.com/document/doi/10.1515/9783110691597-013/html">Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND)</a></span></p>
@@ -355,20 +392,30 @@ _exists_:dateOfBirth
 			</section>
 
 			<section>
+				<h2>Offene Standards für Interoperabilität und Effizienz</h2>
+				<p><span class="fragment">Sie arbeiten mit kontrollierten Vokabularen? – Nutzen Sie <a href="https://dini-ag-kim.github.io/skos-einfuehrung/">SKOS</a>, wenn Sie es nicht bereits tun.</span></p>
+				<p><span class="fragment">Reconciliation API for the win: SkoHub-Modul (Alpha) zum einfachen Aufsetzen eines Reconciliation-Dienstes für ein SKOS-Vokabular</span></p>
+				<p><span class="fragment">Testen Sie unter <a href="https://reconcile-publish.skohub.io/">https://reconcile-publish.skohub.io</a></span></p>
+				<p><span class="fragment">Testen Sie unter <a href="https://reconcile-publish.skohub.io/">https://reconcile-publish.skohub.io</a></span></p>
+				<p><span class="fragment">Feedback auf <a href="">GitHub</a> oder per E-Mail an skohub@hbz-nrw.de</a></span></p>
+			</section>
+
+			<section>
 				<h3><span>Weiterführende Informationen</span></h3>
 				<ul style=font-size:25px;>
-					<li>Stefan Dumont (2018): correspSearch: Neue Tools, neue Daten – und eine Auszeichnung <a href="https://dhd-blog.org/?p=10632">https://dhd-blog.org/?p=10632</a></li>
-					<li>Pascal Becker (2021): Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid (<a href="https://www.slideshare.net/pascalbecker/integration-der-gemeinsamen-normdatei-in-dspace-auf-basis-von-lobid">Vortragsfolien</a>)</li>
+					<li><a href="https://blog.lobid.org/tags/lobid-gnd">GND-Beiträge im lobid-Blog</a></li>
 					<li>Blogbeiträge mit lobid-gnd-Bezug des FDMLab am Landesarchiv Baden-Württemberg (2021 ff) <a href="https://fdmlab.landesarchiv-bw.de/tag/lobid/">https://fdmlab.landesarchiv-bw.de/tag/lobid/</a></li>
 					<li>Michael Markert (2023): Abgleich 'unsauberer' Ortsnamen mit der GND in OpenRefine (Videotutorial), inklusive Clustering und unscharfer Suche mit alten Schreibweisen <a href="https://www.youtube.com/watch?v=tCdluPq5GkA">https://www.youtube.com/watch?v=tCdluPq5GkA</a></li>
-					<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur
-						Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a
-							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
-					</li>
+					<li>Pascal Becker (2021): Integration der gemeinsamen Normdatei in DSpace auf Basis von lobid (<a href="https://www.slideshare.net/pascalbecker/integration-der-gemeinsamen-normdatei-in-dspace-auf-basis-von-lobid">Vortragsfolien</a>)</li>
 					<li>Steeg, Fabian / Pohl, Adrian (2021): Ein Protokoll für den Datenabgleich im Web am Beispiel von OpenRefine und der Gemeinsamen Normdatei (GND).
 						In: Qualität in der Inhaltserschließung. <a
-							href="https://doi.org/10.1515/9783110691597-013">https://doi.org/10.1515/9783110691597-013</a>
+						href="https://doi.org/10.1515/9783110691597-013">https://doi.org/10.1515/9783110691597-013</a>
 					</li>
+						<li>Steeg, Fabian / Pohl, Adrian / Christoph, Pascal (2019): lobid-gnd – Eine Schnittstelle zur
+							Gemeinsamen Normdatei für Mensch und Maschine. In: Informationspraxis 5(1). <a
+							href="https://doi.org/10.11588/ip.2019.1.52673">https://doi.org/10.11588/ip.2019.1.52673</a>
+						</li>
+						<li>Stefan Dumont (2018): correspSearch: Neue Tools, neue Daten – und eine Auszeichnung <a href="https://dhd-blog.org/?p=10632">https://dhd-blog.org/?p=10632</a></li>
 				</ul>
 			</section>
 
