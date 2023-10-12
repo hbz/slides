@@ -1,0 +1,63 @@
+digraph data {
+	compound=true
+	node[shape=box color=white fontcolor=white fontname=helvetica]
+	graph [bgcolor="#004678" color=white fontcolor=white fontname=helvetica]
+	edge[color=white fontcolor=white fontname=helvetica]
+	edge[arrowhead=empty arrowtail=empty]
+	rankdir=TD
+	splines=false
+
+	subgraph cluster_1{
+	style=invis
+
+	/*
+	subgraph cluster_libs{
+		style=invis
+		libs [label="Libraries"]
+	}
+	*/
+
+	subgraph cluster_title{
+		style=solid
+		label="Titeldaten"
+		union [label="hbz-VK (Aleph->Alma)"]
+	}
+
+	subgraph cluster_geo{
+		style=solid
+		label="Geodaten"
+		wikidata[label="Wikidata\n(JSON)"]
+	}
+
+	subgraph cluster_auth{
+		style=solid
+		label="Normdaten"
+		gnd[label="GND\n(RDF)"]
+		sigel[label="Sigel\n(Pica)"]
+		dbs[label="DBS\n(CSV)"]
+	}
+
+
+
+	api[label="lobid"]
+
+	//libs->union[lhead=cluster_title]
+	//libs->sigel[lhead=cluster_auth]
+
+	wikidata->api[ltail=cluster_geo dir=back]
+	sigel->api[ltail=cluster_auth dir=back]
+	union->api[ltail=cluster_title dir=back]
+
+	app1[label="NWBib"]
+	app3[label="DSPACE"]
+	app4[label="OpenRefine"]
+	app5[label="TEI Publisher"]
+	app6[label="..."]
+
+	api->app1[dir=back]
+	api->app3[dir=back]
+	api->app4[dir=back]
+	api->app5[dir=back]
+	api->app6[dir=back]
+	}
+}
