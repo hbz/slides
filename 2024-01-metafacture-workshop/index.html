@@ -118,7 +118,7 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section data-state="tobias">
+			<section data-state="petra">
 				<a href="https://metafacture.org"><img src="img/metafacture.png"
 						style="border: none; padding: 5px; background-color: white" width="500px" /></a>
 				<h3>Metadatenworkflows mit Metafacture erstellen und verwalten</h3>
@@ -152,7 +152,7 @@
 				</p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h1>Agenda</h1>
 				<ol>
 					<li>Einführung &amp; Kontext</li>
@@ -164,18 +164,18 @@
 				</ol>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>1. Kontext: Datentransformation</h2>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>ETL: Extract, Transform, Load </h2>
 				<img src="img/ETL-overview.png" />
 				-<p><small>Aus: culturegraph, <a href=
 				"https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc#%C3%BCberblick">https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc</a></small>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Anwendungsszenarien</h2>
 				<p><span class="fragment"><em>Datenanalyse</em>, z.B. Feldabdeckung im Katalog</span></p>
 				<p><span class="fragment"><em>Datenaufbereitung</em>, z.B. zur Visualisierung mit Kibana</span></p>
@@ -185,14 +185,14 @@
 				<p><span class="fragment"><em>Systemmigration</em>, z.B. nach Alma oder Folio</span>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Wo wir Metafacture nutzen</h2>
 				<p><span class="fragment">Transformation der Daten des Verbundkatalogs für die Indexierung (<a href="https://lobid.org">lobid.org</a>)</span></p>
 				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex aggregieren (<a href="https://oersi.de">OERSI</a>)</span></p>
 				<p><span class="fragment">Transformation der Daten der Rheinland-Pfälzischen Bibliographie</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Nur ein kleiner Teil</h2>
 				<p><span class="fragment">Sehr vielseitiges Tool mit vielen Anwendungsmöglichkeiten, Formaten, Modulen</span></p>
 				<p><span class="fragment">Wir nutzen davon nur einen kleinen Teil, eben für unsere Formate und Anwendungsfälle</span></p>
@@ -200,7 +200,7 @@
 				<p><span class="fragment">Quasi ein Teaser was grundsätzlich geht, das würde man je nach Anwendungsfall ganz unterschiedlich vertiefen</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Annahmen</h2>
 				<p><span class="fragment">Transformationen von Metadaten gehören zum täglichen Geschäft
 						wissenschaftlicher Bibliotheken.</span>
@@ -212,13 +212,13 @@
 						nur bedingt entdeckt und nachgenutzt werden.</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Das heißt:</h2>
 				<p><span class="fragment">Es gibt großes Potential, eine immer wiederkehrende Arbeit zugänglicher,
 						kollaborativer und effizienter zu gestalten.</span>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Übergeordnete Ziele</h2>
 				<p><span class="fragment">Ermächtigung der Fachebene zur Konfiguration von Datentransformationen</span>
 				</p>
@@ -522,16 +522,16 @@ PG_DATA
 				</p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h1>3. Transformieren</h1>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>ETL: Transformation</h2>
 				<img src="img/ETL-overview-FokusTransformation.png" />
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Transformieren</h2>
 				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, trennen, normalisieren
 						etc.</span></p>
@@ -541,13 +541,13 @@ PG_DATA
 						kontrollierte Vokabulare)</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Transformationsmodul</h2>
 				<p><span class="fragment">Morph: XML-basiert, Feld- / Metadaten-Event-Ebene</span></p>
 				<p><span class="fragment">Fix: eigene, Catmandu-Fix-artige Sprache, Record-basiert</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Metafacture Fix: Ziele</h2>
 				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
 				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a
@@ -557,7 +557,7 @@ PG_DATA
 						Metadatenfachleute (bei uns z.B. in OERSI, erster Anwendungsfall und Entwicklungsbegleitung zu Fix)</span></p>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Felder anwählen: Pfade</h2>
 				<p><span class="fragment">Um die verschiedenen Elemente und Felder für die Transformation anzuwählen, muss man ihre Pfade angeben</span></p>
 				<p><span class="fragment">Einfache Elemente der obersten Ebene / Felder: `id`</span></p>
@@ -578,7 +578,7 @@ PG_DATA
 				<small><a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%28%22nothing%28%29%22%2C+repeatedFieldsToEntities+%3D+%22true%22%29%0A%7C+flatten%0A%7C+encode-literals%0A%7C+print%0A%3B&data=001@+%1Fa5%1F01-2%1E001A+%1F01100%3A15-10-94%1E001B+%1F09999%3A12-06-06%1Ft16%3A10%3A17.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aag%1E003@+%1F0482147350%1E006U+%1F094%2CP05%1E007E+%1F0U+70.16407%1E007I+%1FSo%1F074057548%1E011@+%1Fa1970%1E017A+%1Farh%1E021A+%1FaDie+@Berufsfreiheit+der+Arbeitnehmer+und+ihre+Ausgestaltung+in+vo%CC%88lkerrechtlichen+Vertra%CC%88gen%1FdEine+Grundrechtsbetrachtg%1E028A+%1F9106884905%1F7Tn3%1FAgnd%1F0106884905%1FaProjahn%1FdHorst+D.%1E033A+%1FpWu%CC%88rzburg%1E034D+%1FaXXXVIII%2C+165+S.%1E034I+%1Fa8%1E037C+%1FaWu%CC%88rzburg%2C+Jur.+F.%2C+Diss.+v.+7.+Aug.+1970%1E%0A001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1Fa5%1F01-3%1E001A+%1F01240%3A01-08-95%1E001B+%1F09999%3A24-09-10%1Ft17%3A42%3A20.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F0945184085%1E004A+%1F03-89007-044-2%1FfGewebe+%3A+DM+198.00%2C+sfr+198.00%2C+S+1386.00%1E006T+%1F095%2CN35%2C0856%1E006U+%1F095%2CA48%2C1186%1E006U+%1F010%2CP01%1E007I+%1FSo%1F061975997%1E011@+%1Fa1995%1E017A+%1Fara%1E021A+%1Fx213%1F9550711899%1FYNeues+Handbuch+der+Musikwissenschaft%1Fhhrsg.+von+Carl+Dahlhaus.+Fortgef.+von+Hermann+Danuser%1FpLaaber%1FJLaaber-Verl.%1FS48%1F03-89007-030-2%1FgAc%1E021B+%1FlBd.+13.%1FaRegister%1Fhzsgest.+von+Hans-Joachim+Hinrichsen%1E028C+%1F9121445453%1F7Tp3%1FVpiz%1FAgnd%1F0121445453%1FE1952%1FaHinrichsen%1FdHans-Joachim%1E034D+%1FaVIII%2C+408+S.%1E045V+%1F9090001001%1E047A+%1FSFE%1Fagb/fm%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01239%3A18-08-11%1E001B+%1F09999%3A05-09-11%1Ft23%3A31%3A44.000%1E001D+%1F01240%3A30-08-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F01014417392%1E004A+%1Ffkart.%1E006U+%1F011%2CA37%1E007G+%1FaDNB%1F01014417392%1E007I+%1FSo%1F0752937239%1E010@+%1Fager%1E011@+%1Fa2011%1E017A+%1Fara%1Fasf%1E021A+%1Fxtr%1F91014809657%1F7Tp3%1FVpiz%1FAgnd%1F01034622773%1FE1958%1FaLu%CC%88beck%1FdMonika%1FYPersonalwirtschaft+mit+DATEV%1FhMonika+Lu%CC%88beck+%3B+Helmut+Lu%CC%88beck%1FpBodenheim%1FpWien%1FJHerdt%1FRXA-DE%1FS650%1FgAc%1E021B+%1FlTrainerbd.%1E032@+%1Fg11%1Fa1.+Ausg.%1E034D+%1Fa129+S.%1E034M+%1FaIll.%1E047A+%1FSFE%1Famar%1E047A+%1FSERW%1Fasal%1E047I+%1Fu%24%1Fc04%1FdDNB%1Fe1%1E&active-editor=fix">(für die korrekte Unterstützung wiederholter Felder ist es etwas komplizierter)</a> sample3_PICA_REPEATED-FIELDS_FLATTEN_LITERALS</small>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>Feld auswählen</h2>
 				<p><span class="fragment">Auf Basis dieser Übersicht ein Feld auswählen, z.B. 021A (Titel)</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">alles andere weglassen: retain, s. Dokumentation</a></span></p>
@@ -593,7 +593,7 @@ PG_DATA
 				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%3B&transformation=retain%28%27021A%27%29&data=001@+%1Fa5%1F01-2%1E001A+%1F01100%3A15-10-94%1E001B+%1F09999%3A12-06-06%1Ft16%3A10%3A17.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aag%1E003@+%1F0482147350%1E006U+%1F094%2CP05%1E007E+%1F0U+70.16407%1E007I+%1FSo%1F074057548%1E011@+%1Fa1970%1E017A+%1Farh%1E021A+%1FaDie+@Berufsfreiheit+der+Arbeitnehmer+und+ihre+Ausgestaltung+in+vo%CC%88lkerrechtlichen+Vertra%CC%88gen%1FdEine+Grundrechtsbetrachtg%1E028A+%1F9106884905%1F7Tn3%1FAgnd%1F0106884905%1FaProjahn%1FdHorst+D.%1E033A+%1FpWu%CC%88rzburg%1E034D+%1FaXXXVIII%2C+165+S.%1E034I+%1Fa8%1E037C+%1FaWu%CC%88rzburg%2C+Jur.+F.%2C+Diss.+v.+7.+Aug.+1970%1E%0A001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1Fa5%1F01-3%1E001A+%1F01240%3A01-08-95%1E001B+%1F09999%3A24-09-10%1Ft17%3A42%3A20.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F0945184085%1E004A+%1F03-89007-044-2%1FfGewebe+%3A+DM+198.00%2C+sfr+198.00%2C+S+1386.00%1E006T+%1F095%2CN35%2C0856%1E006U+%1F095%2CA48%2C1186%1E006U+%1F010%2CP01%1E007I+%1FSo%1F061975997%1E011@+%1Fa1995%1E017A+%1Fara%1E021A+%1Fx213%1F9550711899%1FYNeues+Handbuch+der+Musikwissenschaft%1Fhhrsg.+von+Carl+Dahlhaus.+Fortgef.+von+Hermann+Danuser%1FpLaaber%1FJLaaber-Verl.%1FS48%1F03-89007-030-2%1FgAc%1E021B+%1FlBd.+13.%1FaRegister%1Fhzsgest.+von+Hans-Joachim+Hinrichsen%1E028C+%1F9121445453%1F7Tp3%1FVpiz%1FAgnd%1F0121445453%1FE1952%1FaHinrichsen%1FdHans-Joachim%1E034D+%1FaVIII%2C+408+S.%1E045V+%1F9090001001%1E047A+%1FSFE%1Fagb/fm%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01239%3A18-08-11%1E001B+%1F09999%3A05-09-11%1Ft23%3A31%3A44.000%1E001D+%1F01240%3A30-08-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F01014417392%1E004A+%1Ffkart.%1E006U+%1F011%2CA37%1E007G+%1FaDNB%1F01014417392%1E007I+%1FSo%1F0752937239%1E010@+%1Fager%1E011@+%1Fa2011%1E017A+%1Fara%1Fasf%1E021A+%1Fxtr%1F91014809657%1F7Tp3%1FVpiz%1FAgnd%1F01034622773%1FE1958%1FaLu%CC%88beck%1FdMonika%1FYPersonalwirtschaft+mit+DATEV%1FhMonika+Lu%CC%88beck+%3B+Helmut+Lu%CC%88beck%1FpBodenheim%1FpWien%1FJHerdt%1FRXA-DE%1FS650%1FgAc%1E021B+%1FlTrainerbd.%1E032@+%1Fg11%1Fa1.+Ausg.%1E034D+%1Fa129+S.%1E034M+%1FaIll.%1E047A+%1FSFE%1Famar%1E047A+%1FSERW%1Fasal%1E047I+%1Fu%24%1Fc04%1FdDNB%1Fe1%1E&active-editor=fix"><img src="img/playground-4.png" /></a>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h2>move_field, paste, retain</h2>
 				<span class="fragment">
 					<pre><code class="nohighlight" data-trim>
@@ -640,7 +640,7 @@ retain(title, author)
 				<small>sample5-PICA-MOVE-title-year-publisher-JSON</small>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h1>Lookup</h1>
 				<p><span class="fragment">"Feldwerte aus Lookup-Tabellen in externen Dateien (z.B. Freitextfelder ->
 					kontrollierte Vokabulare)"</span></p>
@@ -658,7 +658,7 @@ retain(title, author)
 				<small>sample3x_Lookup_fields</small>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h1>Export &amp; Import</h1>
 				<p><span class="fragment">Workflow kann zur lokalen Ausführung aus dem Playground exportiert werden (Dateien-Download)</span></p>
 				<p><span class="fragment">Flux-, Fix- und Daten-Datei können lokal bearbeitet und per Kommandozeile ausgeführt werden</span></p>
@@ -670,7 +670,7 @@ retain(title, author)
 				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%3B&transformation=copy_field%28%27002@.0%27%2C+%27dcterms%3Aformat%27%29%0Asubstring%28%27dcterms%3Aformat%27%2C+%270%27%2C+%271%27%29%0Alookup%28%27dcterms%3Aformat%27%2C+A%3A+print%2C+B%3A+audiovisual%2C+O%3A+online%29%0Aretain%28%27002@%27%2C+%27dcterms%3Aformat%27%29&data=001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1F02%1Fa5%1E001A+%1F01200%3A24-11-77%1E001B+%1F09999%3A16-01-08%1Ft01%3A01%3A54.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aan%1E003@+%1F0780510143%1E006U+%1F078%2CB02%2C0205%1E007I+%1FSo%1F0312819221%1E011@+%1Fa1977%1E017A+%1Fava%1E021A+%1FaChrista+Dichgans%2C+%22Unsere+Welt%22%1FdBilder+1973+-+1977+%3B+6.+August+-+24.+September+1977%2C+Galerie+Springer+Berlin%1FhEinf.+von+P.+H.+Go%CC%88pfert+u.+J.+Gutelius%1E028C+%1F9133822869%1F7Tp3%1FVpiz%1FAgnd%1F0133822869%1FaGo%CC%88pfert%1FdPeter+Hans%1FBBearb.%1E033A+%1FpBerlin%1FnGalerie+Springer%1E034D+%1Fa%5B34%5D+S.%1E034I+%1Fa21+cm%1E034M+%1FaIll.%1E045E+%1Fb12a%1Fm700%1Fm710%1Fm720%1Fm730%1Fm740%1Fm750%1Fm760%1Fm900%1Fm930%1E047A+%1FSFE%1Fa%5Bzi%1E%0A001@+%1Fa5%1F01-2%1E001A+%1F01140%3A28-06-99%1E001B+%1F09999%3A17-04-11%1Ft14%3A40%3A50.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0956745954%1E004A+%1F03-930425-11-4%1Ffkart.%1E006U+%1F099%2CB32%2C0466%1E007I+%1FSo%1F075995772%1E011@+%1Fa1995%1E017A+%1Farb%1Fali%1Fasi%1E021A+%1FaArbeit%2C+Ausbildung+und+Qualifikation+fu%CC%88r+Drogengebraucher+in+Substitutionsbehandlung%1Fh%5BDeutsche+AIDS-Hilfe+e.V.%5D.+Heino+Sto%CC%88ver+%28Hrsg.%29%1E028C+%1F9111736757%1F7Tp1%1FVpiz%1FAgnd%1F0111736757%1FE1956%1FaSto%CC%88ver%1FdHeino%1FBHrsg.%1E033A+%1FpBerlin%1FnDt.+AIDS-Hilfe%1E034D+%1Fa176+S.%1E034I+%1Fa21+cm%1E036F+%1Fx219%1F9019026145%1FgAdvz%1Fi1407838-7%1F7Tb1%1FVkiz%1FAgnd%1F045747-4%1FaDeutsche+AIDS-Hilfe+e.V.%1FYAids-Forum+DAH%1FhDeutsche+AIDS-Hilfe+e.V.%1FpBerlin%1FJDAH%1FlBd.+19%1E037A+%1FaLiteraturangaben%1E045E+%1Fa33%1Fd11%1Fd14%1Fd18%1Fm610%1E047A+%1FSFE%1FaSo%1E047I+%1Fu%24%1Fc04%1FdHBZ%1Fe1%1E%0A001@+%1F01%1Fa5%1E001A+%1F09999%3A08-03-02%1E001B+%1F09999%3A12-03-04%1Ft11%3A47%3A27.000%1E001D+%1F09999%3A08-03-02%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0576121444%1E004A+%1Ff-.10%1E006U+%1F000%2CL01%1E007I+%1FSo%1F072116970%1E007M+%1F03828/0713%1E011@+%1Fa1939%1Fn%5B1939%5D%1E021A+%1FaDie+@Nathanaelfrage+unserer+Tage%1Fd%22Kann+denn+aus+Pala%CC%88stina+etwas+Gutes+kommen%3F%22%1FhKarl+Schwarzmann%1E028A+%1F9126797811%1F7Tn6%1FAgnd%1F0126797811%1FaSchwarzmann%1FdKarl%1E033A+%1FpKo%CC%88ln%1FnSchwarzmann%1E034D+%1Fa31+S.%1E034I+%1Fakl.+8%1E&active-editor=fix"><img src="img/playground-import-export.png" /></a>
 			</section>
 
-			<section data-state="tobias">
+			<section data-state="petra">
 				<h1>Rückschau</h1>
 				<p><span class="fragment">Workflows mit Flux</span></p>
 				<p><span class="fragment">Transformationen mit Fix</span></p>
@@ -1035,8 +1035,9 @@ PG_DATA
 	<script src="js/reveal.js"></script>
 
 	<script>
-		Reveal.addEventListener('pascal', function () { document.querySelector('#footer-left').innerHTML = 'P'; });
-		Reveal.addEventListener('tobias', function () { document.querySelector('#footer-left').innerHTML = 'T'; });
+		Reveal.addEventListener('pascal', function () { document.querySelector('#footer-left').innerHTML = 'PC'; });
+		Reveal.addEventListener('petra', function () { document.querySelector('#footer-left').innerHTML = 'PM'; });
+		Reveal.addEventListener('katinka', function () { document.querySelector('#footer-left').innerHTML = 'KT'; });
 		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
 		Reveal.addEventListener('uebungsPause', function () { document.querySelector('#footer-left').innerHTML = 'Ü.'; });
 		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });			
