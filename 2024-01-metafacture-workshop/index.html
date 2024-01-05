@@ -321,6 +321,8 @@
 				<p><span class="fragment">Erste Schritte im Playground: Übung 1</span></p>
 				<p><span class="fragment"><a
 					href="https://metafacture.org/playground">https://metafacture.org/playground</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22Hello%2C+friend.+I%27am+Metafacture%21%22%0A%7Cprint%0A%3B">wie man den Playground nutzt</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7C+open-file%0A%7C+as-lines%0A%7C+print%0A%3B&data=%22Hello%2C+friend.+I%27am+Metafacture%21%22">wie man eine Datei öffnet und die Daten ausliest</a></span></p>
 			</section>
 
 			<section data-state="uebung">
@@ -329,8 +331,8 @@
 				<p>wir brauchen den Link zum MARC-XML dieses Records</p>
 				<p>&rarr; Link kopieren</p>
 				<p>&rarr; zurück in den Playground wechseln</p>
-				<p>&rarr; in die "FluxFile"-Box den kopierten Link in "" einfügen</p>
-				<p><span style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+				<p>&rarr; in "FluxFile" den kopierten Link in "" einfügen</p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 				</div>
 			</section>
 			
@@ -438,10 +440,11 @@
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#conditionals">Conditionals</a></span></p>
 				<p><span class="fragment">Einbinden der FIX in die FLUX im Playground: entweder mit <i>fix(transformationFile)</i> &rarr; FIX in das entsprechende Feld ODER direkt in das FLUX-Command <i>fix("...")</i></span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#path-wildcards">Path wildcards</a>:<br/> <span style="color:#17ff2e">*</span> &rarr;1 &amp; mehr Zeichen ; <span style="color:#17ff2e">?</span>&rarr; genau 1 Zeichen</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Recap MARC21-Felder</h1>
+				<h1>Kurzes Recap MARC21-Felder</h1>
 				<p><span class="fragment"><a href="https://www.loc.gov/marc/bibliographic/">Gesamtübersicht bei der LoC</a></span></p>
 				<p><span class="fragment"><b>020 - ISBN (R):</b> Ind1; Ind2; $a ISBN</span></p>
 				<p><span class="fragment"><b>245 - Title Statement (NR):</b> Ind1 (NE); Ind2 (Nichtsortierzeichen); Unterfelder: $a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</span></p>
@@ -457,21 +460,68 @@
 			</section>
 
 			<section data-state="uebungsPause">
-				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
-				<p><span class="fragment">&#128161;Zur Erinnerung: wiederholte Felder werden als "arrays/Listen" gelesen</span></p>
-
+				<h3>Übung 2 - Metafacture FIX: Pfade</h3>
+				<p>&#128161;Wiederholte Felder werden als "arrays/Listen" gelesen - was heißt das in der Praxis?</p>
+				<table>
+					<tr>
+						<th>Feldname einfach</th>
+						<th>Feldname wiederholt</th>
+					</tr>
+					<tr>
+						<td>
+							<small><code>
+							inputFile <br/>
+							---<br/>
+							name1: Zeng, Marcia Lei<br/>
+							name2: Coyle, Karen<br/>
+							name3: Avram, Henriette<br/>
+							<br/>
+							Flux<br/>
+							inputFile<br/>
+							|open-file<br/>
+							|as-records<br/>
+							|decode-yaml<br/>
+							|fix("copy_field('name1', 'creator') retain('creator')")<br/>
+							|encode-json(prettyPrinting="true")<br/>
+							|print<br/>
+							;
+							</code></small>
+						</td>
+						<td><small><code>
+							inputFile <br/>
+							---<br/>
+							name: Zeng, Marcia Lei<br/>
+							name: Coyle, Karen<br/>
+							name: Avram, Henriette<br/>
+							<br/>
+							Flux<br/>
+							inputFile<br/>
+							|open-file<br/>
+							|as-records<br/>
+							|decode-yaml<br/>
+							|fix("copy_field('name.1', 'creator') retain('creator')")<br/>
+							|encode-json(prettyPrinting="true")<br/>
+							|print<br/>
+							;<br/>
+						</code></small>
+						</td>
+					</tr>
+				</table>
 			</section>
 
 			<section data-state="uebung">
 				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
-				<p><span class="fragment">Vorgehen: Titel auslesen</span></p>
-				<p><span class="fragment">Pfad bestimmen &rarr; Feldinhalt in ein neues Feld "title" <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a> &rarr; mit <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen</span></p>
+				<p><span class="fragment">Basis ist der <a href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1: </span></p>
+
+				<p><span class="fragment">Vorgehen "Titel auslesen": Pfad bestimmen &rarr; Feldinhalt in ein neues Feld "title" <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a> &rarr; mit <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen</span></p>
+				<p><span class="fragment">&#128161;Hilfestellungen:<br/> </span><ol class="fragment"><li>retain &rarr; "At the moment this only works with top-level elements", daher erst copy_field nutzen.</li><li>Feld 245 hat 2 Indikatoren</li></ol></p>
 				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 			</section>
 
 			<section data-state="uebung">
 				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
-<!-- Ab hier noch ToDo-->
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Aretain%28%22title%22%29">Lösung für die Übung: Nur Titel ausgeben</a></span></p>
 			</section>
 
 			<section data-state="uebung">
