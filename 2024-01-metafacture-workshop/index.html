@@ -156,8 +156,11 @@
 				<h1>Agenda</h1>
 				<ol>
 					<li>Einführung &amp; Kontext</li>
-					<li>Workflows</li>
+					<li>Workflows </br>
+						10m Pause  ☕
+					</li>
 					<li>Transformieren</li>
+						10m Pause  ☕
 					<li>Analysieren</li>
 					<li>Zusammenführen</li>
 					<li>Ausblick, Fragen &amp; Diskussion</li>
@@ -615,7 +618,7 @@ end
 						diesen Stand haben</a>
 					</span></p>
 				<p><span class="fragment">die Felder 700$a, 020$a und 650$a müssen etwas anders abgearbeitet werden</span></p>
-				<p><span class="fragment">die ISBN(s) und auch die wiederholten Felder werden in einem array ausgegeben - auch wenn es nur 1 gibt</span></p>
+				<p><span class="fragment">die ISBN(s) und auch die wiederholten Felder werden in einem Array ausgegeben - auch wenn es nur 1 gibt</span></p>
 				<p><span class="fragment">dazu verwendet man set-array und "$append" - probiert es aus (und schaut ggf. in die Doku)</span></p>
 				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%29">
