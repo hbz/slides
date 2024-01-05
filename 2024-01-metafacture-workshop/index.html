@@ -83,6 +83,7 @@
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
+
 	<!-- Printing and PDF exports -->
 	<script>
 		var link = document.createElement('link');
@@ -434,20 +435,23 @@
 			<section data-state="petra">
 				<p>Bevor wir mit der zweiten Übung starten...</p>
 				<p><span class="fragment">die wichtigsten FIX-Funktionen für heute:</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">copy_field</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">copy_field</a> / 
+					<a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#move_field">move_field</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a></span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#conditionals">Conditionals</a></span></p>
 				<p><span class="fragment">Einbinden der FIX in die FLUX im Playground: entweder mit <i>fix(transformationFile)</i> &rarr; FIX in das entsprechende Feld ODER direkt in das FLUX-Command <i>fix("...")</i></span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#path-wildcards">Path wildcards</a>:<br/> <span style="color:#17ff2e">*</span> &rarr;1 &amp; mehr Zeichen ; <span style="color:#17ff2e">?</span>&rarr; genau 1 Zeichen</span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#path-wildcards">Path wildcards</a>:<br/>
+					 <span style="color:#17ff2e">*</span> &rarr;1 &amp; mehr Zeichen ; <span style="color:#17ff2e">?</span>&rarr; genau 1 Zeichen</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Kurzes Recap MARC21-Felder</h1>
-				<p><span class="fragment"><a href="https://www.loc.gov/marc/bibliographic/">Gesamtübersicht bei der LoC</a></span></p>
-				<p><span class="fragment"><b>020 - ISBN (R):</b> Ind1; Ind2; $a ISBN</span></p>
-				<p><span class="fragment"><b>245 - Title Statement (NR):</b> Ind1 (NE); Ind2 (Nichtsortierzeichen); Unterfelder: $a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</span></p>
-				<p><span class="fragment"><b>700 - Added Entry - Personal Name (R):</b> Ind1; Ind2; $a Personenname; $d Datumsangaben; $e Funktionsbezeichnung; $4 Code der Funktionsbezeichnung</span></p>
+				<h3>Kurzes Recap MARC21-Felder</h3>
+				<p><small><span class="fragment"><a href="https://www.loc.gov/marc/bibliographic/">Gesamtübersicht bei der LoC</a></span></small></p>
+				<p><small><span class="fragment"><b>LEADER 06 - Type of record (NR):</b><br/> a - Language material ; m - Computer file ...</span></small></p>
+				<p><small><span class="fragment"><b>020 - ISBN (R):</b> <br/> Ind1; Ind2; $a ISBN</span></small></p>
+				<p><small><span class="fragment"><b>245 - Title Statement (NR):</b> <br/>Ind1 (NE); Ind2 (Nichtsortierzeichen); <br/>$a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</span></small></p>
+				<p><small><span class="fragment"><b>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R): <br/></b> Ind1; Ind2 <br/>$a Entsehungsort ; $b Verlagsname ; $c Entstehungsjahr</span></small></p>
+				<p><small><span class="fragment"><b>650 - Subject Added Entry - Topical Term (R):</b><br/> Ind1; Ind2<br/>$a Sachbegriff</span></small></p>
+				<p><small><span class="fragment"><b>700 - Added Entry - Personal Name (R):</b> <br/>Ind1; Ind2<br/> $a Personenname; $d Datumsangaben; $e Funktionsbezeichnung; $4 Code der Funktionsbezeichnung</span></small></p>
 			</section>
 
 			<section data-state="petra">
@@ -500,7 +504,7 @@
 							|decode-yaml<br/>
 							|fix("copy_field('name.1', 'creator') retain('creator')")<br/>
 							|encode-json(prettyPrinting="true")<br/>
-							|print<br/>
+							|print<br/>type
 							;<br/>
 						</code></small>
 						</td>
@@ -519,84 +523,147 @@
 
 			<section data-state="uebung">
 				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
-				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
-				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Aretain%28%22title%22%29">Lösung für die Übung: Nur Titel ausgeben</a></span></p>
-			</section>
-
-			<section data-state="uebung">
-				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%3B&transformation=retain%28%27021A%27%29&data=001@+%1Fa5%1F01-2%1E001A+%1F01100%3A15-10-94%1E001B+%1F09999%3A12-06-06%1Ft16%3A10%3A17.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aag%1E003@+%1F0482147350%1E006U+%1F094%2CP05%1E007E+%1F0U+70.16407%1E007I+%1FSo%1F074057548%1E011@+%1Fa1970%1E017A+%1Farh%1E021A+%1FaDie+@Berufsfreiheit+der+Arbeitnehmer+und+ihre+Ausgestaltung+in+vo%CC%88lkerrechtlichen+Vertra%CC%88gen%1FdEine+Grundrechtsbetrachtg%1E028A+%1F9106884905%1F7Tn3%1FAgnd%1F0106884905%1FaProjahn%1FdHorst+D.%1E033A+%1FpWu%CC%88rzburg%1E034D+%1FaXXXVIII%2C+165+S.%1E034I+%1Fa8%1E037C+%1FaWu%CC%88rzburg%2C+Jur.+F.%2C+Diss.+v.+7.+Aug.+1970%1E%0A001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1Fa5%1F01-3%1E001A+%1F01240%3A01-08-95%1E001B+%1F09999%3A24-09-10%1Ft17%3A42%3A20.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F0945184085%1E004A+%1F03-89007-044-2%1FfGewebe+%3A+DM+198.00%2C+sfr+198.00%2C+S+1386.00%1E006T+%1F095%2CN35%2C0856%1E006U+%1F095%2CA48%2C1186%1E006U+%1F010%2CP01%1E007I+%1FSo%1F061975997%1E011@+%1Fa1995%1E017A+%1Fara%1E021A+%1Fx213%1F9550711899%1FYNeues+Handbuch+der+Musikwissenschaft%1Fhhrsg.+von+Carl+Dahlhaus.+Fortgef.+von+Hermann+Danuser%1FpLaaber%1FJLaaber-Verl.%1FS48%1F03-89007-030-2%1FgAc%1E021B+%1FlBd.+13.%1FaRegister%1Fhzsgest.+von+Hans-Joachim+Hinrichsen%1E028C+%1F9121445453%1F7Tp3%1FVpiz%1FAgnd%1F0121445453%1FE1952%1FaHinrichsen%1FdHans-Joachim%1E034D+%1FaVIII%2C+408+S.%1E045V+%1F9090001001%1E047A+%1FSFE%1Fagb/fm%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01239%3A18-08-11%1E001B+%1F09999%3A05-09-11%1Ft23%3A31%3A44.000%1E001D+%1F01240%3A30-08-11%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F01014417392%1E004A+%1Ffkart.%1E006U+%1F011%2CA37%1E007G+%1FaDNB%1F01014417392%1E007I+%1FSo%1F0752937239%1E010@+%1Fager%1E011@+%1Fa2011%1E017A+%1Fara%1Fasf%1E021A+%1Fxtr%1F91014809657%1F7Tp3%1FVpiz%1FAgnd%1F01034622773%1FE1958%1FaLu%CC%88beck%1FdMonika%1FYPersonalwirtschaft+mit+DATEV%1FhMonika+Lu%CC%88beck+%3B+Helmut+Lu%CC%88beck%1FpBodenheim%1FpWien%1FJHerdt%1FRXA-DE%1FS650%1FgAc%1E021B+%1FlTrainerbd.%1E032@+%1Fg11%1Fa1.+Ausg.%1E034D+%1Fa129+S.%1E034M+%1FaIll.%1E047A+%1FSFE%1Famar%1E047A+%1FSERW%1Fasal%1E047I+%1Fu%24%1Fc04%1FdDNB%1Fe1%1E&active-editor=fix"><img src="img/playground-4.png" /></a>
-			</section>
-
-			<section data-state="petra">
-				<h2>move_field, paste, retain</h2>
-				<span class="fragment">
-					<pre><code class="nohighlight" data-trim>
-1{a: Faust, b {n: Goethe, v: JW}, c: Weimar}
-2{a: Räuber, b {n: Schiller, v: F}, c: Weimar}
-					</code></pre>
-				</span>
-				<span class="fragment">
-					<pre><code class="nohighlight" data-trim>
-move_field(a, title)
-					</code></pre>
-				</span>
-				<span class="fragment">
-					<pre><code class="nohighlight" data-trim>
-paste(author, b.v, b.n, '~aus', c)
-					</code></pre>
-				</span>
-				<span class="fragment">
-					<pre><code class="nohighlight" data-trim>
-retain(title, author)
-					</code></pre>
-				</span>
-				<span class="fragment">
-					<pre><code class="json" data-trim>
-{"title":"Faust", "author":"JW Goethe aus Weimar"}
-{"title":"Räuber", "author":"F Schiller aus Weimar"}
-					</code></pre>
-					<p><small><a
-								href="https://metafacture.org/playground/?data=1%7Ba%3A+Faust%2C+b+%7Bn%3A+Goethe%2C+v%3A+JW%7D%2C+c%3A+Weimar%7D%0A2%7Ba%3A+R%C3%A4uber%2C+b+%7Bn%3A+Schiller%2C+v%3A+F%7D%2C+c%3A+Weimar%7D&flux=inputFile%0A%7Copen-file%0A%7Cas-lines%0A%7Cdecode-formeta%0A%7Cfix(transformationFile)%0A%7Cencode-json%0A%7Cprint%0A%3B&transformation=move_field%28_id%2C+id%29%0Amove_field%28a%2C+title%29%0Apaste%28author%2C+b.v%2C+b.n%2C+%27~aus%27%2C+c%29%0Aretain%28id%2C+title%2C+author%29&">Beispiel
-								im Playground</a></small></p>
-				</span>
-			</section>
-
-			<section data-state="uebungsPause">
-				<h1>Übung</h1>
-				<p><span class="fragment">z.B. Titel, Verlag, Erscheinungsort und -jahr aus den PICA-Feldern 021A.a, 033A.n, 033A.p, 011@.a verwenden</span></p>
-				<p><span class="fragment">Verlag und Erscheinungsort sollen in einem neuen Feld kombiniert werden</span></p>
-				<p><span class="fragment">Als Feldnamen wollen wir sprechende, nicht-numerische Bezeichnungen haben</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">z.B. mit move_field, paste, retain, s. Dokumentation</a></span></p>
-			</section>
-
-			<section data-state="uebung">
-				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%0A%3B&transformation=move_field%28%27021A.a%27%2C+%27Title%27%29%0Amove_field%28%27011@.a%27%2C+Year%29%0Apaste%28%27Publisher%27%2C+%27033A.n%27%2C+%27~%3A+%27%2C+%27033A.p%27%29%0Aretain%28Title%2C+Year%2C+Publisher%29&data=001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1F02%1Fa5%1E001A+%1F01200%3A24-11-77%1E001B+%1F09999%3A16-01-08%1Ft01%3A01%3A54.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aan%1E003@+%1F0780510143%1E006U+%1F078%2CB02%2C0205%1E007I+%1FSo%1F0312819221%1E011@+%1Fa1977%1E017A+%1Fava%1E021A+%1FaChrista+Dichgans%2C+%22Unsere+Welt%22%1FdBilder+1973+-+1977+%3B+6.+August+-+24.+September+1977%2C+Galerie+Springer+Berlin%1FhEinf.+von+P.+H.+Go%CC%88pfert+u.+J.+Gutelius%1E028C+%1F9133822869%1F7Tp3%1FVpiz%1FAgnd%1F0133822869%1FaGo%CC%88pfert%1FdPeter+Hans%1FBBearb.%1E033A+%1FpBerlin%1FnGalerie+Springer%1E034D+%1Fa%5B34%5D+S.%1E034I+%1Fa21+cm%1E034M+%1FaIll.%1E045E+%1Fb12a%1Fm700%1Fm710%1Fm720%1Fm730%1Fm740%1Fm750%1Fm760%1Fm900%1Fm930%1E047A+%1FSFE%1Fa%5Bzi%1E%0A001@+%1Fa5%1F01-2%1E001A+%1F01140%3A28-06-99%1E001B+%1F09999%3A17-04-11%1Ft14%3A40%3A50.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0956745954%1E004A+%1F03-930425-11-4%1Ffkart.%1E006U+%1F099%2CB32%2C0466%1E007I+%1FSo%1F075995772%1E011@+%1Fa1995%1E017A+%1Farb%1Fali%1Fasi%1E021A+%1FaArbeit%2C+Ausbildung+und+Qualifikation+fu%CC%88r+Drogengebraucher+in+Substitutionsbehandlung%1Fh%5BDeutsche+AIDS-Hilfe+e.V.%5D.+Heino+Sto%CC%88ver+%28Hrsg.%29%1E028C+%1F9111736757%1F7Tp1%1FVpiz%1FAgnd%1F0111736757%1FE1956%1FaSto%CC%88ver%1FdHeino%1FBHrsg.%1E033A+%1FpBerlin%1FnDt.+AIDS-Hilfe%1E034D+%1Fa176+S.%1E034I+%1Fa21+cm%1E036F+%1Fx219%1F9019026145%1FgAdvz%1Fi1407838-7%1F7Tb1%1FVkiz%1FAgnd%1F045747-4%1FaDeutsche+AIDS-Hilfe+e.V.%1FYAids-Forum+DAH%1FhDeutsche+AIDS-Hilfe+e.V.%1FpBerlin%1FJDAH%1FlBd.+19%1E037A+%1FaLiteraturangaben%1E045E+%1Fa33%1Fd11%1Fd14%1Fd18%1Fm610%1E047A+%1FSFE%1FaSo%1E047I+%1Fu%24%1Fc04%1FdHBZ%1Fe1%1E%0A001@+%1F01%1Fa5%1E001A+%1F09999%3A08-03-02%1E001B+%1F09999%3A12-03-04%1Ft11%3A47%3A27.000%1E001D+%1F09999%3A08-03-02%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0576121444%1E004A+%1Ff-.10%1E006U+%1F000%2CL01%1E007I+%1FSo%1F072116970%1E007M+%1F03828/0713%1E011@+%1Fa1939%1Fn%5B1939%5D%1E021A+%1FaDie+@Nathanaelfrage+unserer+Tage%1Fd%22Kann+denn+aus+Pala%CC%88stina+etwas+Gutes+kommen%3F%22%1FhKarl+Schwarzmann%1E028A+%1F9126797811%1F7Tn6%1FAgnd%1F0126797811%1FaSchwarzmann%1FdKarl%1E033A+%1FpKo%CC%88ln%1FnSchwarzmann%1E034D+%1Fa31+S.%1E034I+%1Fakl.+8%1E&active-editor=fix"><img src="img/playground-5.png" /></a>
-				<small>sample5-PICA-MOVE-title-year-publisher-JSON</small>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Aretain%28%22title%22%29">Lösung für die Übung: Nur Titel ausgeben</a></span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Lookup</h1>
-				<p><span class="fragment">"Feldwerte aus Lookup-Tabellen in externen Dateien (z.B. Freitextfelder ->
-					kontrollierte Vokabulare)"</span></p>
-			</section>
-
-			<section data-state="uebungsPause">
-				<h1>Übung</h1>
-				<p><span class="fragment">Feld 002@.0 &rarr; dcterms:format</span></p>
-				<p><span class="fragment">In 002@.0, Position 1,  A: print, B: audiovisual, O: online</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">z.B. mit copy_field, substring, lookup, retain, s. Dokumentation</a></span></p>
-			</section>
-
-			<section data-state="uebung">
-				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+encode-json%28prettyPrinting+%3D+%22true%22%29%0A%7C+print%3B&transformation=copy_field%28%27002@.0%27%2C+%27dcterms%3Aformat%27%29%0Asubstring%28%27dcterms%3Aformat%27%2C+%270%27%2C+%271%27%29%0Alookup%28%27dcterms%3Aformat%27%2C+A%3A+print%2C+B%3A+audiovisual%2C+O%3A+online%29%0Aretain%28%27002@%27%2C+%27dcterms%3Aformat%27%29&data=001@+%1F01%1Fa5%1E001A+%1F01140%3A08-12-99%1E001B+%1F09999%3A05-01-08%1Ft22%3A57%3A29.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0958090564%1E004A+%1Ffkart.+%3A+DM+9.70%2C+EUR+4.94%2C+sfr+8.00%2C+S+68.00%1E006U+%1F000%2CB05%2C0285%1E007I+%1FSo%1F076088278%1E011@+%1Fa1999%1E017A+%1Farb%1Fasi%1E019@+%1FaXA-AT%1E021A+%1FaZukunft+Bildung%1FhPolitische+Akademie.+%5BHrsg.+von+Gu%CC%88nther+R.+Burkert-Dottolo+und+Bernhard+Moser%5D%1E028C+%1F9130681849%1F7Tp1%1FVpiz%1FAgnd%1F0130681849%1FE1952%1FaBurkert%1FdGu%CC%88nther+R.%1FBHrsg.%1E033A+%1FpWien%1FnPolit.+Akad.%1E034D+%1Fa79+S.%1E034I+%1Fa24+cm%1E036F+%1Fx299+12%1F9551720077%1FgAdn%1F7Tb1%1FAgnd%1F01040469-7%1FaPolitische+Akademie%1FgWien%1FYPA-Information%1FhPolitische+Akademie%2C+WB%1FpWien%1FJPolitische+Akad.%2C+WB%1Fl99%2C2%1E036F/01+%1Fx12%1F9025841467%1FgAdvz%1Fi2142105-5%1FYAktuelle+Fragen+der+Politik%1FhPolitische+Akademie%1FpWien%1FJPolitische+Akad.+der+O%CC%88VP%1FlBd.+2%1E045E+%1Fa22%1Fd18%1Fm370%1E047A+%1FSFE%1Fata%1E%0A001@+%1Fa5%1F01%1E001A+%1F01140%3A19-02-03%1E001B+%1F09999%3A19-06-11%1Ft01%3A20%3A13.000%1E001D+%1F09999%3A26-04-03%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0361809549%1E004A+%1FfHlw.%1E006U+%1F000%2CL01%1E006U+%1F004%2CP01-s-41%1E006U+%1F004%2CP01-f-21%1E007G+%1FaDNB%1F0361809549%1E007I+%1FSo%1F072658383%1E007M+%1F04413/0275%1E011@+%1Fa1925%1E019@+%1FaXA-DXDE%1FaXA-DE%1E021A+%1FaHundert+Jahre+Buchdrucker-Innung+Hamburg%1FdWesen+u.+Werden+d.+Vereinigungen+Hamburger+Buchdruckereibesitzer+1825-1925+%3B+Gedenkschrift+zur+100.+Wiederkehr+d.+Gru%CC%88ndungstages%2C+verf.+im+Auftr.+d.+Vorstandes+d.+Buchdrucker-Innung+%28Freie+Innung%29+zu+Hamburg%1FhFriedrich+Voeltzer%1E028A+%1F9101386281%1F7Tp1%1FVpiz%1FAgnd%1F0101386281%1FE1895%1FaVo%CC%88ltzer%1FdFriedrich%1E033A+%1FpHamburg%1FnBuchdrucker-Innung+%28Freie+Innung%29%1E033A+%1FpHamburg%1Fn%5BVerlagsbuchh.+Broschek+%26+Co.%5D%1E034D+%1Fa44+S.%1E034I+%1Fa4%1E%0A001@+%1F02%1Fa5%1E001A+%1F01200%3A24-11-77%1E001B+%1F09999%3A16-01-08%1Ft01%3A01%3A54.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aan%1E003@+%1F0780510143%1E006U+%1F078%2CB02%2C0205%1E007I+%1FSo%1F0312819221%1E011@+%1Fa1977%1E017A+%1Fava%1E021A+%1FaChrista+Dichgans%2C+%22Unsere+Welt%22%1FdBilder+1973+-+1977+%3B+6.+August+-+24.+September+1977%2C+Galerie+Springer+Berlin%1FhEinf.+von+P.+H.+Go%CC%88pfert+u.+J.+Gutelius%1E028C+%1F9133822869%1F7Tp3%1FVpiz%1FAgnd%1F0133822869%1FaGo%CC%88pfert%1FdPeter+Hans%1FBBearb.%1E033A+%1FpBerlin%1FnGalerie+Springer%1E034D+%1Fa%5B34%5D+S.%1E034I+%1Fa21+cm%1E034M+%1FaIll.%1E045E+%1Fb12a%1Fm700%1Fm710%1Fm720%1Fm730%1Fm740%1Fm750%1Fm760%1Fm900%1Fm930%1E047A+%1FSFE%1Fa%5Bzi%1E%0A001@+%1Fa5%1F01-2%1E001A+%1F01140%3A28-06-99%1E001B+%1F09999%3A17-04-11%1Ft14%3A40%3A50.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aa%1E003@+%1F0956745954%1E004A+%1F03-930425-11-4%1Ffkart.%1E006U+%1F099%2CB32%2C0466%1E007I+%1FSo%1F075995772%1E011@+%1Fa1995%1E017A+%1Farb%1Fali%1Fasi%1E021A+%1FaArbeit%2C+Ausbildung+und+Qualifikation+fu%CC%88r+Drogengebraucher+in+Substitutionsbehandlung%1Fh%5BDeutsche+AIDS-Hilfe+e.V.%5D.+Heino+Sto%CC%88ver+%28Hrsg.%29%1E028C+%1F9111736757%1F7Tp1%1FVpiz%1FAgnd%1F0111736757%1FE1956%1FaSto%CC%88ver%1FdHeino%1FBHrsg.%1E033A+%1FpBerlin%1FnDt.+AIDS-Hilfe%1E034D+%1Fa176+S.%1E034I+%1Fa21+cm%1E036F+%1Fx219%1F9019026145%1FgAdvz%1Fi1407838-7%1F7Tb1%1FVkiz%1FAgnd%1F045747-4%1FaDeutsche+AIDS-Hilfe+e.V.%1FYAids-Forum+DAH%1FhDeutsche+AIDS-Hilfe+e.V.%1FpBerlin%1FJDAH%1FlBd.+19%1E037A+%1FaLiteraturangaben%1E045E+%1Fa33%1Fd11%1Fd14%1Fd18%1Fm610%1E047A+%1FSFE%1FaSo%1E047I+%1Fu%24%1Fc04%1FdHBZ%1Fe1%1E%0A001@+%1F01%1Fa5%1E001A+%1F09999%3A08-03-02%1E001B+%1F09999%3A12-03-04%1Ft11%3A47%3A27.000%1E001D+%1F09999%3A08-03-02%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0576121444%1E004A+%1Ff-.10%1E006U+%1F000%2CL01%1E007I+%1FSo%1F072116970%1E007M+%1F03828/0713%1E011@+%1Fa1939%1Fn%5B1939%5D%1E021A+%1FaDie+@Nathanaelfrage+unserer+Tage%1Fd%22Kann+denn+aus+Pala%CC%88stina+etwas+Gutes+kommen%3F%22%1FhKarl+Schwarzmann%1E028A+%1F9126797811%1F7Tn6%1FAgnd%1F0126797811%1FaSchwarzmann%1FdKarl%1E033A+%1FpKo%CC%88ln%1FnSchwarzmann%1E034D+%1Fa31+S.%1E034I+%1Fakl.+8%1E&active-editor=fix"><img src="img/playground-6.png" /></a>
+				<h2>weitere FIX-Funktionen</h2>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#set_array">set_array</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Export &amp; Import</h1>
+				<h3><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></h3>
+				<p><span class="fragment">Iteriert über eine Liste (zur Erinnerung: wiederholte Felder werden als Listen interpretiert!)</span></p>
+				<p><span class="fragment">Durch das Setzen eines Variablennamens für das Wurzelelement können die zugehörenden untergeordneten Elemente angesprochen werden.</span></p>
+				<p><span class="fragment">wird mit "end" geschlossen</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></h3>
+				<p><small><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-json%0A%7Cfix%28transformationFile%29%0A%7Cencode-yaml%0A%7Cprint%0A%3B&transformation=do+list%28path%3A%22author%5B%5D%22%2C+%22var%22%3A%22%24i%22%29%0Amove_field%28%22%24i.@type%22%2C%22%24i.type%22%29%0Aend&data=%09%09%09%09%0A%7B%22author%22%3A+%5B+%0A%09%09%7B%22name%22%3A+%22British+Library%22%2C+%0A%09%09%22@type%22%3A+%22Organization%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Ada+Lovelace%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Alan+Turing%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D+%0A%09%5D+%0A%7D+">im Playground</a></span></small></p>
+				<pre><small><code class="fragment" class="nohighlight" data-trim>	
+inputFile-Content					
+{"author": [ 
+		{"name": "British Library", 
+		"@type": "Organization"}, 
+		{"name": "Ada Lovelace", 
+		"@type": "Person"}, 
+		{"name": "Alan Turing", 
+		"@type": "Person"} 
+	] 
+} 
+			</code></small></pre>
+			<pre><small><code class="fragment" class="nohighlight" data-trim>	
+Flux File
+inputFile
+|open-file
+|as-records
+|decode-json
+|fix(transformationFile)
+|encode-yaml
+|print
+;
+			</code></small></pre>
+			<pre><small><code class="fragment" class="nohighlight" data-trim>	
+TransformationFile-Content
+do list(path:"author[]", "var":"$i")
+  move_field("$i.@type","$i.type")
+end
+							</code></small>
+			</pre>
+	
+			</section>
+			<section data-state="petra">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Vorarbeiten: wie sollen die Felder gemapped werden?</span></p>
+				<p><span class="fragment">MARC21 und DC sind verbreitete Standards; es gibt bereits sog. Crosswalks (z.B. <a href="https://www.loc.gov/marc/marc2dc.html">LoC</a>), die zur Orientierung herangezogen werden können</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">wir mappen</span></p>
+				<p>
+					<table class="fragment">
+						<tr><th>MARC21</th><th>DC</th></tr>
+						<tr><td>020 $a</td><td>dc:identifier</td></tr>
+						<tr><td>245 $a $b</td><td>dc:title</td></tr>
+						<tr><td>700 $a</td><td>dc:creator</td></tr>
+						<tr><td>264 $c</td><td>dc:date</td></tr>
+						<tr><td>264 $b</td><td>dc:publisher</td></tr>
+						<tr><td>LDR Pos. 7</td><td>dc:type</td></tr>
+						<tr><td>650 $a</td><td>dc:subject</td></tr>
+					</table>
+				</p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Nehmen wir wieder den <a href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1</span></p>
+				<p><span class="fragment">Wie in Übung 2 könnt Ihr das Entstehungsjahr und den Verlag in ein Feld "date" bzw. "publisher" kopieren</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">wir sollten nun alle 
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%29">
+						diesen Stand haben</a>
+					</span></p>
+				<p><span class="fragment">die Felder 700$a, 020$a und 650$a müssen etwas anders abgearbeitet werden</span></p>
+				<p><span class="fragment">die ISBN(s) und auch die wiederholten Felder werden in einem array ausgegeben - auch wenn es nur 1 gibt</span></p>
+				<p><span class="fragment">dazu verwendet man set-array und "$append" - probiert es aus (und schaut ggf. in die Doku)</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%29">
+					Lösung bis hierhin im Playground
+				</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">für das Mappen auf Kontrolliertes Vokabular &rarr; <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
+				<p><span class="fragment">Zuerst: map erstellen entweder in der Fix oder in einer separaten Datei.</span></p>
+				<p><span class="fragment">Key-value-pairs für die Werte: a - Language material &rarr; in DC "text"; m - Computer file &rarr; in DC "dataset" </span></p>
+				<pre><code class="fragment">
+put_map("ldr_type", key1:"value1",...)					
+				</code></pre>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen</span></p>
+			</section>
+
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Wie kommt man aber an die 7 Pos. im Leader?</span></p>
+				<p><span class="fragment">Hierfür kann man Reguläre Ausdrücke in Kombination mit der FIX-Funktion <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#replace_all">replace_all</a> nutzen</span></p>
+				<pre><code class="fragment">
+replace_all("type", "^.{6}(.).+$","$1")					
+				</code></pre>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=put_map%28%22ldr_type%22%2C+%22a%22%3A%22text%22%2C+%22m%22%3A%22dataset%22%29%0A%0Acopy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Acopy_field%28%22leader%22%2C%22type%22%29%0Areplace_all%28%22type%22%2C+%22%5E.%7B6%7D%28.%29.%2B%24%22%2C%22%241%22%29%0Alookup%28%22type%22%2C%22ldr_type%22%29%0A%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%2C%22type%22%29">Lösung im Playground</a>
+				</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Von JSON zu JSON-LD</h3>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=put_map%28%22ldr_type%22%2C+%22a%22%3A%22text%22%2C+%22m%22%3A%22dataset%22%29%0A%0Acopy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Acopy_field%28%22leader%22%2C%22type%22%29%0Areplace_all%28%22type%22%2C+%22%5E.%7B6%7D%28.%29.%2B%24%22%2C%22%241%22%29%0Alookup%28%22type%22%2C%22ldr_type%22%29%0A%0Aadd_field%28%22@context.title%22%2C%22http%3A//purl.org/dc/terms/title%22%29%0Aadd_field%28%22@context.creator%22%2C%22http%3A//purl.org/dc/elements/1.1/creator%22%29%0Aadd_field%28%22@context.date%22%2C%22http%3A//purl.org/dc/elements/1.1/date%22%29%0Aadd_field%28%22@context.publisher%22%2C%22http%3A//purl.org/dc/elements/1.1/publisher%22%29%0Aadd_field%28%22@context.subject%22%2C%22http%3A//purl.org/dc/elements/1.1/subject%22%29%0Aadd_field%28%22@context.isbn%22%2C%22http%3A//purl.org/ontology/bibo/isbn%22%29%0Aadd_field%28%22@context.issn%22%2C%22http%3A//purl.org/ontology/bibo/issn%22%29%0A%0A%0Aretain%28%22@context%22%2C+%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%2C%22type%22%29">Ergänzung @context</a>
+				</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h2>Export &amp; Import</h2>
 				<p><span class="fragment">Workflow kann zur lokalen Ausführung aus dem Playground exportiert werden (Dateien-Download)</span></p>
 				<p><span class="fragment">Flux-, Fix- und Daten-Datei können lokal bearbeitet und per Kommandozeile ausgeführt werden</span></p>
 				<p><span class="fragment">Dateien können dann auch wieder in den Playground importiert werden (Dateien-Upload)</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix/releases">https://github.com/metafacture/metafacture-fix/releases</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-fix/releases">https://github.com/metafacture/metafacture-fix/releases</a></span></p>
 			</section>
 
 			<section data-state="uebungsPause">
@@ -604,7 +671,7 @@ retain(title, author)
 			</section>
 
 			<section data-state="petra">
-				<h1>Rückschau</h1>
+				<h1>Recap</h1>
 				<p><span class="fragment">Workflows mit Flux</span></p>
 				<p><span class="fragment">Transformationen mit Fix</span></p>
 				<p><span class="fragment">Playground, Export, Import</span></p>
@@ -658,6 +725,7 @@ PG_DATA
 
 			<section data-state="uebung">
 				<a href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7C+as-lines%0A%7C+decode-pica%0A%7C+fix%0A%7C+stream-to-triples%0A%7C+count-triples%28countBy+%3D+%22object%22%29%0A%7C+template%28%22%24%7Bo%7D+%7C+%24%7Bs%7D%22%29%0A%7C+print%0A%3B&transformation=move_field%28%27032@.a%27%2C+%27Edition%27%29%0Aretain%28%27Edition%27%29&data=001@+%1F01%1Fa5%1E001A+%1F09999%3A07-04-01%1E001B+%1F09999%3A10-03-04%1Ft13%3A31%3A00.000%1E001D+%1F09999%3A07-04-01%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0570346983%1E006U+%1F000%2CL01%1E007I+%1FSo%1F0720834513%1E007M+%1F01602/0263%1E011@+%1Fa1929%1E021A+%1FaDie+@Ehrenstatuen+der+Pa%CC%88pste%1E028A+%1F9118700561%1F7Tp1%1FVpiz%1FAgnd%1F0118700561%1FE1900%1FB1997%1FaHager%1FdWerner%1E033A+%1FpLeipzig%1E034D+%1Fa82+S.%1E034I+%1Fa4%1E037A+%1FaAuch+in+Buchh.+als%3A+Ro%CC%88mische+Forschungen%2C+hrsg.+v.+d.+Bibliotheca+Hertziana+in+Rom.+Bd+7.+1929.%1E037C+%1FaBasel%2C+Phil.-+hist.+Diss.%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01200%3A28-09-87%1E001B+%1F09999%3A29-12-07%1Ft19%3A41%3A36.000%1E001D+%1F09999%3A99-99-99%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aan%1E003@+%1F0871159031%1E004A+%1Ffgeh.+%28Pr.+nicht+mitget.%29%1E006U+%1F087%2CB42%2C0848%1E007I+%1FSo%1F0310869122%1E011@+%1Fa1987%1E021A+%1FaEinfach+klassisch%21%1FdEine+Orestie+mit+glu%CC%88ckl.+Ausgang%1FhWalter+Mehring+%281896+-+1981%29.+Mit+e.+Nachw.+hrsg.+von+Didier+Plassard.+Univ.+-+Gesamthochsch.+Siegen%1E028A+%1F9118579983%1F7Tp1%1FVpip%1FAgnd%1F0118579983%1FE1896%1FB1981%1FaMehring%1FdWalter%1E032@+%1Fg12%1Fa%282.+Aufl.%29%1E033A+%1FpSiegen%1FnUniv.+-+Gesamthochsch.%1E034D+%1Fa28+S.%1E034I+%1Fa21+cm%1E036F+%1Fx216%1F9010243046%1FgAdvz%1Fi19442-6%1FYVergessene+Autoren+der+Moderne%1FpSiegen%1FJUniv.-Gesamthochschule%1Fl16%1E045E+%1Fa59%1Fm810%1Fm820%1Fm830%1Fm839%1Fm840%1Fm850%1Fm860%1Fm870%1Fm880%1Fm890%1FmB%1E047A+%1FSFE%1Fabs%1E%0A001@+%1F01%1Fa5%1E001A+%1F09999%3A31-10-01%1E001B+%1F00101%3A07-08-09%1Ft17%3A28%3A39.000%1E001D+%1F09999%3A31-10-01%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Aal%1E003@+%1F0572736959%1E006U+%1F000%2CL01%1E007I+%1FSo%1F072019536%1E007M+%1F02797/0022%1E010@+%1Fager%1E011@+%1Fa1916%1E021A+%1FaDorfheimat%1FdBilder+aus+der+Knabenzeit%1Fhvon+Franziskus+Nagler%1E028A+%1F9116880430%1F7Tp1%1FVpiz%1FAgnd%1F0116880430%1FE1873%1FB1957%1FaNagler%1FdFranciscus%1E032@+%1Fg13%1Fa3.+Aufl.%1E033A+%1FpMeissen%1FnBuchheim%1E034D+%1Fa208+S.%1E034I+%1Fa8%1E037A+%1FaIn+Fraktur%1E047E+%1Faagi-809Haerig%1E%0A001@+%1Fa5%1E001A+%1F01145%3A29-03-04%1E001B+%1F01145%3A27-04-05%1Ft18%3A02%3A05.000%1E001D+%1F09999%3A10-05-08%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Acl%1E003@+%1F0560568487%1E007I+%1FSo%1F073290854%1E007M+%1F01769/0218%1E017A+%1Fagw%1E021A+%1FaMein+Hermannsland%1E033A+%1FpBielefeld%1FpLeipzig%1FnVelhagen+%26+Klasing%1E034I+%1Fa8%1E036G+%1FaVelhagen+%26+Klasings+Erga%CC%88nzungshefte+zu+deutschen+Lesebu%CC%88chern%1E042@+%1F0NN%1Fc34p3_vk.dat%1Fd1337%1Fe2004-03-29%1E%0A001@+%1F01-2%1Fa5%1E001A+%1F01130%3A27-10-05%1E001B+%1F09999%3A23-11-05%1Ft10%3A44%3A17.000%1E001D+%1F01140%3A03-11-05%1E001U+%1F0utf8%1E001X+%1F00%1E002@+%1F0Af%1E003@+%1F0976858223%1E004A+%1Ffkart.%1E006U+%1F005%2CB49%2C0021%1E007I+%1FSo%1F0723555963%1E011@+%1Fa2005%1Fn%5B2005%5D%1E017A+%1Farb%1E021A+%1Fx13%1F9957878923%1FYSoftware-Architektur%1FhFernuniversita%CC%88t+in+Hagen%1FpHagen%1FJFernuniv.%1FS004%1FgAc%1E021B+%1FlKurseinheit+3.%1FaGenerische+Architekturen+und+Komponentensysteme%1FhAutor%3A+A.+Poetzsch-Heffter.+Mitarb.%3A+N.+Rauch%1E032@+%1Fg16%1Fa%5B6.+Aufl.%5D%1E034D+%1FaS.+66+-+102%1E034I+%1FaIll.%1E047A+%1FSFE%1Fa%5BADH%1E047A+%1FSERW%1Farm%1E&active-editor=fix"><img src="img/playground-7.png" /></a>
+				<small>sample7_Count_values</small>
 			</section>
 
 			<section data-state="uebungsPause">
