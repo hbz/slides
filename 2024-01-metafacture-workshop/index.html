@@ -309,7 +309,7 @@
 			<section data-state="petra">
 				<p>Bevor wir mit der ersten Übung starten...</p>
 				<p><span class="fragment">... ein paar Hinweise/Tipps/Hilfestellungen:</span></p>
-				<p><span class="fragment">die wichtigsten <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">FLUX-commands</a> für heute:</span></p>
+				<p><span class="fragment">die wichtigsten <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-commands</a> für heute:</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#open-file">open-file</a> / <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#open-http">open-http</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#as-lines">as-lines</a> / <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#as-records">as-records</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-xml">decode-xml</a> / <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-json">decode-json</a></span></p>
@@ -358,7 +358,7 @@
 				<h2>Übung 1 - Daten einlesen &amp; ausgeben</h2>
 				<p><span class="fragment">ändert die Ausgabe der Daten in JSON ab</span></p>
 				<p><span class="fragment">wie kann man das JSON leichter lesbar ("schöner") ausgeben?</span></p>
-				<p><span class="fragment">&#128161;Blick in die Doku der FLUX-Commands hilft</span></p>
+				<p><span class="fragment">&#128161;Blick in die Doku der Flux-Commands hilft</span></p>
 				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 			</section>
 
@@ -386,7 +386,7 @@
 
 			<section data-state="petra">
 				<h2>"Vorarbeiten" der Datentransformation</h2>
-				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hierzu ist das FLUX-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
+				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hierzu ist das Flux-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
 				<pre><span class="fragment"><code class="nohighlight" data-trim>
 "https://d-nb.info/1251888070/about/marcxml"
 | open-http(accept="application/xml")
@@ -401,7 +401,7 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Transformationsmodul FIX</h2>
+				<h2>Transformationsmodul Fix</h2>
 				<p><span class="fragment">eigene Entwicklung</span></p>
 				<p><span class="fragment"><a href="https://librecat.org/Catmandu/#fix-language">Catmandu-Fix</a>-artig </span></p>
 				<p><span class="fragment">Record-basiert</span></p>
@@ -417,19 +417,19 @@
 
 			<section data-state="petra">
 				<h2>Metafacture Fix: Dokumentation</h2>
-				<p><span class="fragment">Eine Einführung in Metafacture FIX bietet der <a
-					href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-User-Guide.md">FIX User Guide</a></span></p>
+				<p><span class="fragment">Eine Einführung in Metafacture Fix bietet der <a
+					href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-User-Guide.md">Fix User Guide</a></span></p>
 					<p><span class="fragment">Darüber hinaus lohnt ein Blick ins <a
 						href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md">"Kochbuch"</a></span></p>
 			</section>
 
 			<section data-state="petra">
 				<p>Bevor wir mit der zweiten Übung starten...</p>
-				<p><span class="fragment">die wichtigsten FIX-Funktionen für heute:</span></p>
+				<p><span class="fragment">die wichtigsten Fix-Funktionen für heute:</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">copy_field</a> / 
 					<a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#move_field">move_field</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a></span></p>
-				<p><span class="fragment">Einbinden der FIX in die FLUX im Playground: entweder mit <i>fix(transformationFile)</i> &rarr; FIX in das entsprechende Feld ODER direkt in das FLUX-Command <i>fix("...")</i></span></p>
+				<p><span class="fragment">Einbinden der Fix in die Flux im Playground: entweder mit <i>fix(transformationFile)</i> &rarr; Fix in das entsprechende Feld ODER direkt in das Flux-Command <i>fix("...")</i></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#path-wildcards">Path wildcards</a>:<br/>
 					 <span style="color:#17ff2e">*</span> &rarr;1 &amp; mehr Zeichen ; <span style="color:#17ff2e">?</span>&rarr; genau 1 Zeichen</span></p>
 			</section>
@@ -446,7 +446,7 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
+				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
 				<p><span class="fragment">Um die verschiedenen Elemente und Felder für die Transformation anzusteuern, benötigt man die Pfade</span></p>
 				<p><span class="fragment">Oberste Ebene: z.B. <i>id</i></span></p>
 				<p><span class="fragment">Unterfelder: z.B. <i>title.subtitle</i></span></p>
@@ -454,7 +454,7 @@
 			</section>
 
 			<section data-state="uebungsPause">
-				<h3>Übung 2 - Metafacture FIX: Pfade</h3>
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
 				<p>&#128161;Wiederholte Felder werden als "arrays/Listen" gelesen - was heißt das in der Praxis?</p>
 				<table>
 					<tr>
@@ -504,7 +504,7 @@
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
+				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
 				<p><span class="fragment">Basis ist der <a href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1: </span></p>
 
 				<p><span class="fragment">Vorgehen "Titel auslesen": Pfad bestimmen &rarr; Feldinhalt in ein neues Feld "title" <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a> &rarr; mit <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen</span></p>
@@ -513,7 +513,7 @@
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 2 - Metafacture FIX: Pfade</h2>
+				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
 				<p><span class="fragment">
 					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
 				<p><span class="fragment">
@@ -521,7 +521,7 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>weitere FIX-Funktionen</h2>
+				<h2>weitere Fix-Funktionen</h2>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#set_array">set_array</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
@@ -630,7 +630,7 @@ put_map("ldr_type", key1:"value1",...)
 			<section data-state="uebung">
 				<h3>Übung 3 - MARC-XML to DC</h3>
 				<p><span class="fragment">Wie kommt man aber an die 7 Pos. im Leader?</span></p>
-				<p><span class="fragment">Hierfür kann man Reguläre Ausdrücke in Kombination mit der FIX-Funktion <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#replace_all">replace_all</a> nutzen</span></p>
+				<p><span class="fragment">Hierfür kann man Reguläre Ausdrücke in Kombination mit der Fix-Funktion <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#replace_all">replace_all</a> nutzen</span></p>
 				<pre><code class="fragment">
 replace_all("type", "^.{6}(.).+$","$1")
 				</code></pre>
