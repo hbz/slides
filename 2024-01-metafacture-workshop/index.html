@@ -153,7 +153,7 @@
 			</section>
 
 			<section data-state="katinka">
-				<h1>Agenda</h1>
+				<h2>Agenda</h2>
 				<ol>
 					<li>Einführung &amp; Kontext</li>
 					<li>Workflows </br>
@@ -167,7 +167,7 @@
 			</section>
 
 			<section data-state="katinka">
-				<h2>Code of Conduct</h2>
+				<h3>Code of Conduct</h3>
 				<p><span class="fragment">Falls alle einverstanden sind, duzen wir uns.</span></p>
 				<p><span class="fragment">Wir möchten für alle gleichermaßen ein einladendes und unterstützendes Umfeld schaffen. Dazu gehört ein höflicher und respektvoller Umgangston.</span></p>
 				<p><span class="fragment">Bei Fragen, Schwierigkeiten oder sonstigen Wortmeldungen nutzt den Chat oder die Handhebefunktion. </br>Es ist ein Workshop: Wortmeldungen und aktive Beteiligung sind willkommen. </span></p>
@@ -180,14 +180,14 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Workflow: Extract, Transform, Load (ETL)</h2>
+				<h3>Workflow: Extract, Transform, Load (ETL)</h3>
 				<img src="img/ETL-overview.png" width="700" height="auto"/>
 				<p><small>Quelle: <a href=
 				"https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc#%C3%BCberblick">https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc</a></small>
 			</section>
 
 			<section data-state="petra">
-				<h2>Transformationsprozesse in der Praxis</h2>
+				<h3>Transformationsprozesse in der Praxis</h3>
 				<p><span class="fragment">Transformationen von Metadaten gehören zu Routineaufgaben wissenschaftlicher Bibliotheken.</span>
 				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnisse voraussetzen.</span></p>
 				<p><span class="fragment">Datentransformationen werden meist im Zusammenspiel von Fachabteilungen &amp; IT umgesetzt, verbunden mit größerem Kommunikationsaufwand.</span></p>
@@ -195,12 +195,12 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Das heißt:</h2>
+				<h3>Das heißt:</h3>
 				<p><span class="fragment">Es gibt großes Potenzial, wiederkehrende Aufgaben kollaborativer und effizienter zu gestalten.</span>
 			</section>
 
 			<section data-state="petra">
-				<h2>ETL: Anwendungsbeispiele</h2>
+				<h3>ETL: Anwendungsbeispiele</h3>
 				<p><span class="fragment"><b>Datenaggregation</b>z.B. aus unterschiedlichen Quellen</span></p>
 				<p><span class="fragment"><b>Systemmigration</b>, z.B. nach Alma oder Folio</span></p>
 				<p><span class="fragment"><b>Datenaufbereitung</b>, z.B. zur Visualisierung mit <a href="https://www.elastic.co/de/kibana">Kibana</a></span></p>
@@ -209,16 +209,16 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Metadatenanalyse/-transformation</h2>
+				<h3>Metadatenanalyse/-transformation</h3>
 				<h4>Tools (Auswahl)</h4>
-				<p><span class="fragment"><span style="color:#17ff2e">MarcEdit </span><b>OpenRefine</b> </span></p>
-				<p><span class="fragment">Regular Expressions <emg> Python</emg> XSLT</span></p>
-				<p><span class="fragment"><b>   Catmandu</b> <span class="fragment highlight-red visible">Metafacture</span> </span></p>
+				<p><span style="color:#17ff2e">MarcEdit </span><b>OpenRefine</b></p>
+				<p>Regular Expressions <emg> Python</emg> XSLT </p>
+				<p><span style="color: rgb(4, 251, 222) ">Perl</span><b>   Catmandu  </b> <span style="color: red">Metafacture</span> </p>
 				<p><span class="fragment">&rarr; je nach Ausgangslage (Datenformat, Quelle etc.), Verfügbarkeit von Software, Vorhandensein etablierter/existierender Workflows, Kenntnis und persönlicher Vorliebe</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h2>Wo wir Metafacture nutzen</h2>
+				<h3>Wo wir Metafacture nutzen</h3>
 				<p><span class="fragment">Transformation der Alma MARC-XML Daten des Verbundkatalogs zu JSON-LD (<a href="https://lobid.org">lobid.org</a>)</span></p>
 				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex (OERSI) aggregieren (<a href="https://oersi.de">oersi.de</a>)</span></p>
 				<p><span class="fragment">Transformation der Daten der Rheinland-Pfälzischen Bibliographie (<a href="https://rpb.lobid.org/">rpb.lobid.org</a>)</span></p>
@@ -226,7 +226,7 @@
 			</section>
 
 			<section data-state="pascal">
-				<h2>Was ist Metafacture?</h2>
+				<h3>Was ist Metafacture?</h3>
 				<p><span class="fragment">Ein vielseitiges ETL-Werkzeug zur Verarbeitung von semi-strukturierten Daten mit dem Fokus auf
 						Bibliotheksdaten</span>
 				<p><span class="fragment">nutzbar als Kommandozeilentool, als Java/JVM
@@ -237,7 +237,7 @@
 			</section>
 
 			<section data-state="pascal">
-				<h2>Metafacture-Historie</h2>
+				<h3>Metafacture-Historie</h3>
 				<p><span class="fragment">2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch mit dem hbz</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-core/graphs/contributors">2013: Umzug auf GitHub, Open-Source-Projekt geworden</a></span></p>
 				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird
@@ -247,14 +247,14 @@
 			</section>
 
 			<section data-state="pascal">
-				<h2>ETL</h2>
+				<h3>ETL</h3>
 				<img src="img/ETL-overview.png" />
 				-<p><small>Aus: culturegraph, <a href=
 				"https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc#%C3%BCberblick">https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc</a></small>
 			</section>
 
 			<section data-state="pascal">
-				<h2>Wie Metafacture funktioniert</h2>
+				<h3>Wie Metafacture funktioniert</h3>
 				<p><span class="fragment">Grundidee: Daten fließen durch mehrere Module: <br />&rarr; read &rarr; decode
 						&rarr; transform &rarr; encode &rarr; write &rarr;</span></p>
 				<p><span class="fragment">Jedes Modul erwartet Input eines bestimmten Typs und erzeugt Output eines
@@ -265,17 +265,17 @@
 			</section>
 
 			<section data-state="pascal">
-				<h2>Metafacture-Module</h2>
+				<h3>Metafacture-Module</h3>
 				<img src="img/metafacture-module.png" />
 				<br /><small>Autor: Tobias &amp; Pascal (2021-2023)</small>
 			</section>
 
 			<section data-state="pascal">
-				<h1>2. Metafacture-Workflows</h1>
+				<h2>2. Metafacture-Workflows</h2>
 			</section>
 
 			<section data-state="pascal">
-				<h1>Ein Workflow</h1>
+				<h3>Ein Workflow</h3>
 				<p><span class="fragment">
 				<img src="img/flow.png" />
 				<small>Aus: Christoph Böhme, <a
@@ -290,7 +290,7 @@
 			</section>
 
 			<section data-state="pascal">
-				<h2>Workflows konfigurieren und ausführen</h2>
+				<h3>Workflows konfigurieren und ausführen</h3>
 				<p><span class="fragment">Workflows können in <span style="color:#17ff2e">Flux</span> (einer speziellen Konfigurationssprache) oder mit
 						Java (typsicher über Java Generics) bearbeitet werden</span></p>
 				<p><span class="fragment"><span style="color:#17ff2e">Flux</span>-Workflows können in einem Texteditor editiert und auf der Kommandozeile
@@ -299,7 +299,7 @@
 			</section>
 
 			<section data-state="katinka">
-				<h2>Metafacture Playground</h2>
+				<h3>Metafacture Playground</h3>
 				<p><span class="fragment">Webbasierte Oberfläche zum Ausprobieren und Austauschen von Metafacture-Workflows</span></p>
 				<p><span class="fragment">Ziel: Einstiegshürde für Metafacture senken, keine Installation o.Ä. notwendig</span></p>
 				<p><span class="fragment">Für Entwicklung, Dokumentation, Tutorials, Workshops</span></p>
@@ -328,22 +328,25 @@
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 1 - Daten einlesen &amp; ausgeben</h2>
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
 				<div>Beispieldatensatz: <a href="https://d-nb.info/1251888070">https://d-nb.info/1251888070</a>
-				<p>wir brauchen den Link zum MARC-XML dieses Records</p>
-				<p>&rarr; Link kopieren</p>
-				<p>&rarr; zurück in den Playground wechseln</p>
-				<p>&rarr; in "FluxFile" den kopierten Link in "" einfügen</p>
-				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+				<p>wir brauchen den Link zum MARC-XML dieses Records<a target="_blank" href="https://d-nb.info/1251888070/about/marcxml">https://d-nb.info/1251888070/about/marcxml</a></p>
+				<p>&rarr; dieser URL wird in der Flux-File als Pfad zu den Daten angegeben <br/>
+				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22"><pre><code class="nohighlight">"https://d-nb.info/1251888070/about/marcxml"</code></pre>
+				</a></p>
 				</div>
 			</section>
 			
 			<section data-state="uebung">
-				<h2>Übung 1 - Daten einlesen &amp; ausgeben</h2>
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
 				<p><span class="fragment">wir möchten Daten direkt von einer http Ressource öffnen und benötigen daher...?</span></p>
 				<p><span class="fragment">parsing der xml-Daten und lesen der Daten erfolgt in 2 Schritten ...</span></p>
+				<p><span class="fragment">ein Blick in die Doku: 
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-xml">"Parsing" der XML-Datei</a> und 
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#handle-marcxml">"Lesen" des MARC-XML</a></span></p>
 				<p><span class="fragment">probiert im Playground folgenden Ablauf selbst aus </span></p>
-				<pre><span class="fragment"><code class="nohighlight" data-trim>
+				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+encode-marcxml%0A%7C+print%0A%3B">
+					<pre><span class="fragment"><code class="nohighlight" data-trim>
 "https://d-nb.info/1251888070/about/marcxml"
 | open-http(accept="application/xml")
 | decode-xml
@@ -351,43 +354,44 @@
 | encode-marcxml
 | print
 ;
-				</code></pre></span>
+				</code></pre></a></span>
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 1 - Daten einlesen &amp; ausgeben</h2>
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
 				<p><span class="fragment">ändert die Ausgabe der Daten in JSON ab</span></p>
 				<p><span class="fragment">wie kann man das JSON leichter lesbar ("schöner") ausgeben?</span></p>
-				<p><span class="fragment">&#128161;Blick in die Doku der Flux-Commands hilft</span></p>
+				<p><span class="fragment">&#128161;Blick in die Doku der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-commands</a>  hilft</span></p>
 				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Pause ☕</h1>
+				<h2>Pause ☕</h2>
 			</section>
 
 			<section data-state="petra">
-				<h1>3. Transformieren</h1>
+				<h2>3. Transformieren</h2>
 			</section>
 
 			<section data-state="petra">
-				<h2>ETL: Transformation</h2>
+				<h3>ETL: Transformation</h3>
 				<img src="img/ETL-overview-FokusTransformation.png" />
 			</section>
 
 			<section data-state="petra">
-				<h2>Transformieren</h2>
+				<h3>Transformieren</h3>
 				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, trennen, normalisieren, anreichern
 						etc.</span></p>
 				<p><span class="fragment">Änderung des Datenformats, der Hierarchie</span></p>
-				<p><span class="fragment">Feldwerte aus sog. Lookup-Tabellen (Crosswalks z.B. Ortsname als Freitext &rarr;
+				<p><span class="fragment">Normalisierung bspw. durch Feldwerte aus sog. Lookup-Tabellen (Crosswalks z.B. Ortsname als Freitext &rarr;
 						kontrollierte Vokabulare)</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h2>"Vorarbeiten" der Datentransformation</h2>
-				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hierzu ist das Flux-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
-				<pre><span class="fragment"><code class="nohighlight" data-trim>
+				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
+				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hiefür ist bspw. das Flux-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
+				<span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-paths%28count%3D%22true%22%29%0A%7C+print%0A%3B">
+					<pre><code class="nohighlight" data-trim>
 "https://d-nb.info/1251888070/about/marcxml"
 | open-http(accept="application/xml")
 | decode-xml
@@ -395,20 +399,38 @@
 | list-fix-paths(count="false")
 | print
 ;
-									</code></pre></span>
+									</code></pre></a></span>
 				<p><span class="fragment">Ggf. Metadatenstandard vorab anschauen (Pflichtfelder, Wiederholbarkeit, Struktur)</span></p>
 				<p><span class="fragment">Feldinhalte (in Stichproben) anschauen</span></p>
 			</section>
 
+			<section data-state="Übung">
+				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
+				<p><span class="fragment">Überblick über vorhandene Feld<b>inhalte</b> verschaffen</span></p>
+				<p><span class="fragment">&rarr; schaut in der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-Commands-Übersicht</a> ,womit und wie man die Inhalte analsieren kann. (2 min)</span></p>
+				<span class="fragment">Ausgeben eines bestimmten Feldinhalts: <a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-values%28%22650+7.%2A.a%22%29%0A%7C+print%0A%3B">
+					<pre><code class="nohighlight" data-trim>
+"https://d-nb.info/1251888070/about/marcxml"
+| open-http(accept="application/xml")
+| decode-xml
+| handle-marcxml
+| list-fix-values("650 7.*.a")
+| print
+;
+			</code></pre></a></span>
+				<p><span class="fragment">oder auch die Inhalte aller Felder mit <pre><code class="fragment" class="nohighlight" data-trim> list-fix-values("*")</code></pre></span></p>
+
+			</section>
+
 			<section data-state="petra">
-				<h2>Transformationsmodul Fix</h2>
+				<h3>Transformationsmodul Fix</h3>
 				<p><span class="fragment">eigene Entwicklung</span></p>
 				<p><span class="fragment"><a href="https://librecat.org/Catmandu/#fix-language">Catmandu-Fix</a>-artig </span></p>
 				<p><span class="fragment">Record-basiert</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h2>Metafacture Fix: Ziele</h2>
+				<h3>Metafacture Fix: Ziele</h3>
 				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
 				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a
 							href="https://github.com/LibreCat/Catmandu">Catmandu</a></span></p>
@@ -416,7 +438,7 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>Metafacture Fix: Dokumentation</h2>
+				<h3>Metafacture Fix: Dokumentation</h3>
 				<p><span class="fragment">Eine Einführung in Metafacture Fix bietet der <a
 					href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-User-Guide.md">Fix User Guide</a></span></p>
 					<p><span class="fragment">Darüber hinaus lohnt ein Blick ins <a
@@ -437,16 +459,36 @@
 			<section data-state="petra">
 				<h3>Kurzes Recap MARC21-Felder</h3>
 				<p><small><span class="fragment"><a href="https://www.loc.gov/marc/bibliographic/">Gesamtübersicht bei der LoC</a></span></small></p>
-				<p><small><span class="fragment"><b>LEADER 06 - Type of record (NR):</b><br/> a - Language material ; m - Computer file ...</span></small></p>
-				<p><small><span class="fragment"><b>020 - ISBN (R):</b> <br/> Ind1; Ind2; $a ISBN</span></small></p>
-				<p><small><span class="fragment"><b>245 - Title Statement (NR):</b> <br/>Ind1 (NE); Ind2 (Nichtsortierzeichen); <br/>$a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</span></small></p>
-				<p><small><span class="fragment"><b>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R): <br/></b> Ind1; Ind2 <br/>$a Entsehungsort ; $b Verlagsname ; $c Entstehungsjahr</span></small></p>
-				<p><small><span class="fragment"><b>650 - Subject Added Entry - Topical Term (R):</b><br/> Ind1; Ind2<br/>$a Sachbegriff</span></small></p>
-				<p><small><span class="fragment"><b>700 - Added Entry - Personal Name (R):</b> <br/>Ind1; Ind2<br/> $a Personenname; $d Datumsangaben; $e Funktionsbezeichnung; $4 Code der Funktionsbezeichnung</span></small></p>
+				<p><table class="fragment" style="font-size: medium">
+					<tr>
+						<td>LEADER 06 - Type of record (NR)</td>
+						<td>a - Language material <br/> m - Computer file ...</td>
+					</tr>
+					<tr>
+						<td>020 - ISBN (R)</td>
+						<td>Ind1; Ind2<br/> $a ISBN</td>
+					</tr>
+					<tr>
+						<td>245 - Title Statement (NR)</td>
+						<td>Ind1 (NE); Ind2 (Nichtsortierzeichen); <br/>$a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</td>
+					</tr>
+					<tr>
+						<td>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)</td>		
+						<td>Ind1; Ind2 <br/>$a Entsehungsort ; $b Verlagsname ; $c Entstehungsjahr</td>			
+					</tr>
+					<tr>
+						<td>650 - Subject Added Entry - Topical Term (R)</td>		
+						<td>Ind1; Ind2<br/>$a Sachbegriff</td>			
+					</tr>
+					<tr>
+						<td>700 - Added Entry - Personal Name (R)</td>		
+						<td>Ind1; Ind2<br/> $a Personenname; $d Datumsangaben; $e Funktionsbezeichnung; $4 Code der Funktionsbezeichnung</td>			
+					</tr>
+				</table></p>
 			</section>
 
 			<section data-state="petra">
-				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
 				<p><span class="fragment">Um die verschiedenen Elemente und Felder für die Transformation anzusteuern, benötigt man die Pfade</span></p>
 				<p><span class="fragment">Oberste Ebene: z.B. <i>id</i></span></p>
 				<p><span class="fragment">Unterfelder: z.B. <i>title.subtitle</i></span></p>
@@ -458,8 +500,8 @@
 				<p>&#128161;Wiederholte Felder werden als "arrays/Listen" gelesen - was heißt das in der Praxis?</p>
 				<table>
 					<tr>
-						<th>Feldname einfach</th>
-						<th>Feldname wiederholt</th>
+						<th><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-yaml%0A%7Cfix%28%22copy_field%28%27name1%27%2C+%27creator%27%29+retain%28%27creator%27%29%22%29%0A%7Cencode-json%28prettyPrinting%3D%22true%22%29%0A%7Cprint%0A%3B+&data=---%0Aname1%3A+Zeng%2C+Marcia+Lei%0Aname2%3A+Coyle%2C+Karen%0Aname3%3A+Avram%2C+Henriette">Feldname einfach</a></th>
+						<th><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-yaml%0A%7Cfix%28%22copy_field%28%27name.1%27%2C+%27creator%27%29+retain%28%27creator%27%29%22%29%0A%7Cencode-json%28prettyPrinting%3D%22true%22%29%0A%7Cprint%0A%3B+&data=---%0Aname%3A+Zeng%2C+Marcia+Lei%0Aname%3A+Coyle%2C+Karen%0Aname%3A+Avram%2C+Henriette">Feldname wiederholt</a></th>
 					</tr>
 					<tr>
 						<td>
@@ -475,7 +517,7 @@
 							|open-file<br/>
 							|as-records<br/>
 							|decode-yaml<br/>
-							|fix("copy_field('name1', 'creator') retain('creator')")<br/>
+							|fix("copy_field<emg>('name1', 'creator')</emg> retain('creator')")<br/>
 							|encode-json(prettyPrinting="true")<br/>
 							|print<br/>
 							;
@@ -493,9 +535,9 @@
 							|open-file<br/>
 							|as-records<br/>
 							|decode-yaml<br/>
-							|fix("copy_field('name.1', 'creator') retain('creator')")<br/>
+							|fix("copy_field<emg>('name.1', 'creator')</emg> retain('creator')")<br/>
 							|encode-json(prettyPrinting="true")<br/>
-							|print<br/>type
+							|print<br/>
 							;<br/>
 						</code></small>
 						</td>
@@ -504,16 +546,15 @@
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
-				<p><span class="fragment">Basis ist der <a href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1: </span></p>
-
-				<p><span class="fragment">Vorgehen "Titel auslesen": Pfad bestimmen &rarr; Feldinhalt in ein neues Feld "title" <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a> &rarr; mit <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen</span></p>
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
+				<p><span class="fragment">Basis ist der <a href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1 (<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+encode-marcxml%0A%7C+print%0A%3B">im Playground</a>)</span></p>
+				<p><span class="fragment">Vorgehen "Titel auslesen":<br/> &rarr; Pfad bestimmen <br/>&rarr; Feldinhalt in ein neues Feld "title" <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a><br/> &rarr; mit <a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen</span></p>
 				<p><span class="fragment">&#128161;Hilfestellungen:<br/> </span><ol class="fragment"><li>retain &rarr; "At the moment this only works with top-level elements", daher erst copy_field nutzen.</li><li>Feld 245 hat 2 Indikatoren</li></ol></p>
 				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
 			</section>
 
 			<section data-state="uebung">
-				<h2>Übung 2 - Metafacture Fix: Pfade</h2>
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
 				<p><span class="fragment">
 					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
 				<p><span class="fragment">
@@ -521,7 +562,7 @@
 			</section>
 
 			<section data-state="petra">
-				<h2>weitere Fix-Funktionen</h2>
+				<h3>weitere Fix-Funktionen</h3>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#set_array">set_array</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
@@ -651,7 +692,7 @@ replace_all("type", "^.{6}(.).+$","$1")
 			</section>
 
 			<section data-state="petra">
-				<h2>Export &amp; Import</h2>
+				<h3>Export &amp; Import</h3>
 				<p><span class="fragment">Workflow kann zur lokalen Ausführung aus dem Playground exportiert werden (Dateien-Download)</span></p>
 				<p><span class="fragment">Flux-, Fix- und Daten-Datei können lokal bearbeitet und per Kommandozeile ausgeführt werden</span></p>
 				<p><span class="fragment">Dateien können dann auch wieder in den Playground importiert werden (Dateien-Upload)</span></p>
@@ -663,18 +704,18 @@ replace_all("type", "^.{6}(.).+$","$1")
 			</section>
 
 			<section data-state="petra">
-				<h1>Recap</h1>
+				<h3>Recap</h3>
 				<p><span class="fragment">Workflows mit Flux</span></p>
 				<p><span class="fragment">Transformationen mit Fix</span></p>
 				<p><span class="fragment">Playground, Export, Import</span></p>
 			</section>
 
 			<section data-state="petra">
-				<h1>Pause ☕</h1>
+				<h2>Pause ☕</h2>
 			</section>
 
 			<section data-state="pascal">
-				<h2>4. Exkurs: Anreichern</h1>
+				<h2>4. Exkurs: Anreichern</h2>
 			</section>
 
 <section data-state="tobias">
@@ -717,7 +758,7 @@ Anreicherungsbeispiel im lobid-Frontend
 </section>
 
 			<section data-state="pascal">
-				<h1>Fix: Beispiele & Dokumentation</h1>
+				<h3>Fix: Beispiele & Dokumentation</h3>
 				<p><span class="fragment">Beispiele: produktiv in <a href="https://gitlab.com/oersi/oersi-etl/-/tree/master/data/production">OERSI</a> (diverse Web-Quellen &rarr; JSON), für ALMA <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/">hbz-Verbundkatalog</a> (ALMA MARC &rarr; JSON) und <a href="https://github.com/hbz/rpb/tree/main/conf">Rheinland-Pfälzische Bibliographie</a> (Allegro &rarr; JSON)</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/resources/org/metafacture/metafix/integration">Integration-Tests:</a> Input, Flux, Fix, Output als Dateien wie bei Real-World-Setup</span></p>
 				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">Aktuelle Dokumentation</a>, <a href="https://github.com/metafacture/metafacture-fix">GitHub-Repo</a>, <a href="https://metafacture.org/playground">Playground</a></span></p>
@@ -728,17 +769,17 @@ Anreicherungsbeispiel im lobid-Frontend
 			</section>
 
 			<section data-state="pascal">
-				<h1>Ausblick</h1>
+				<h2>Ausblick</h2>
 			</section>
 
 			<section data-state="pascal">
-				<h2>Fix &amp; Playground weiterentwickeln</h2>
+				<h3>Fix &amp; Playground weiterentwickeln</h3>
 				<p><span class="fragment">Fix-Funktionalität erweitern, Fehler beheben, Catmandu-Kompatibilität erhöhen</span></p>
 				<p><span class="fragment">Playground weiter verbessern, z.B. mehr Hinweise im Editor, integrierte Dokumentation (was gibt es für Module, wie kann ich sie kombinieren)</span></p>
 			</section>
 
 			<section data-state="pascal">
-				<h2>Standards nutzen und aufbauen</h2>
+				<h3>Standards nutzen und aufbauen</h3>
 				<p><span class="fragment">SKOS Lookups (zum Andocken an <a
 							href="https://github.com/skohub-io/skohub-vocabs">SkoHub Vocabs</a>)</span>
       <span class="fragment"> ✓</span></p>
@@ -747,7 +788,7 @@ Anreicherungsbeispiel im lobid-Frontend
 			</section>
 
 			<section data-state="pascal">
-				<h1>ETL Hub</h1>
+				<h3>ETL Hub</h3>
 				<p>ETL: Extract, Transform, Load</p>
 				<p><span class="fragment">mehr Kollaboration, Teilen & Auffinden von Workflows ermöglichen (nicht nur
 						für Metafacture)</span></p>
@@ -766,7 +807,7 @@ Großes Interesse bekundet auf der SWIB 23
 			</section>
 
 			<section data-state="pascal">
-				<h1>Fragen und Diskussion</h1>
+				<h2>Fragen und Diskussion</h2>
 			</section>
 
 			<section data-state="pascal">
@@ -778,15 +819,7 @@ Auf der discourse Plattform unter metadaten.community
 			</section>
 
 			<section data-state="pascal">
-				<h1>Feedbackrunde</h1>
-
-
-				<p>Immer im Wechsel: etwas Positives, etwas Negatives</p>
-				<p>Wir starten mit...</p>
-			</section>
-
-			<section data-state="pascal">
-				<h1>Feedbackrunde</h1>
+				<h3>Feedbackrunde</h3>
 				<p>Immer im Wechsel: etwas Positives, etwas Negatives</p>
 				<p>Wir starten mit...</p>
 			</section>
