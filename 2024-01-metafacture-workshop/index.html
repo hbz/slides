@@ -389,7 +389,7 @@
 
 			<section data-state="petra">
 				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
-				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hiefür ist bspw. das Flux-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
+				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hierfür ist bspw. das Flux-Command <a href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
 				<span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-paths%28count%3D%22true%22%29%0A%7C+print%0A%3B">
 					<pre><code class="nohighlight" data-trim>
 "https://d-nb.info/1251888070/about/marcxml"
@@ -407,7 +407,7 @@
 			<section data-state="Übung">
 				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
 				<p><span class="fragment">Überblick über vorhandene Feld<b>inhalte</b> verschaffen</span></p>
-				<p><span class="fragment">&rarr; schaut in der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-Commands-Übersicht</a> ,womit und wie man die Inhalte analsieren kann. (2 min)</span></p>
+				<p><span class="fragment">&rarr; schaut in der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-Commands-Übersicht</a>, womit und wie man die Inhalte analsieren kann. (2 min)</span></p>
 				<span class="fragment">Ausgeben eines bestimmten Feldinhalts: <a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-values%28%22650+7.%2A.a%22%29%0A%7C+print%0A%3B">
 					<pre><code class="nohighlight" data-trim>
 "https://d-nb.info/1251888070/about/marcxml"
