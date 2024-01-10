@@ -156,12 +156,12 @@
 				<h2>Agenda</h2>
 				<ol>
 					<li>Einführung &amp; Kontext</li>
-					<li>Workflows </br>
-						10m Pause  ☕
+					<li>Metafacture-Workflows </br>
+						10 min Pause  ☕
 					</li>
 					<li>Transformieren</li>
-						10m Pause  ☕
-					<li>Anreichern</li>
+						10 min Pause  ☕
+					<li>Exkurs: Anreicherung / Exkurs: Conditionals</li>
 					<li>Ausblick, Fragen &amp; Diskussion</li>
 				</ol>
 			</section>
@@ -214,15 +214,21 @@
 				<p><span style="color:#17ff2e">MarcEdit </span><b>OpenRefine</b></p>
 				<p>Regular Expressions <emg> Python</emg> XSLT </p>
 				<p><span style="color: rgb(4, 251, 222) ">Perl</span><b>   Catmandu  </b> <span style="color: red">Metafacture</span> </p>
-				<p><span class="fragment">&rarr; je nach Ausgangslage (Datenformat, Quelle etc.), Verfügbarkeit von Software, Vorhandensein etablierter/existierender Workflows, Kenntnis und persönlicher Vorliebe</span></p>
+				<p><span class="fragment">&rarr; je nach Ausgangslage (Datenformat, Quelle, Datenmenge etc.), Verfügbarkeit von Software, Vorhandensein etablierter/existierender Workflows, Kenntnis und persönlicher Vorliebe</span></p>
 			</section>
 
-			<section data-state="petra">
+			<section data-state="pascal">
 				<h3>Wo wir Metafacture nutzen</h3>
 				<p><span class="fragment">Transformation der Alma MARC-XML Daten des Verbundkatalogs zu JSON-LD (<a target="_blank" href="https://lobid.org">lobid.org</a>)</span></p>
 				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex (OERSI) aggregieren (<a target="_blank" href="https://oersi.de">oersi.de</a>)</span></p>
 				<p><span class="fragment">Transformation der Daten der Rheinland-Pfälzischen Bibliographie (<a target="_blank" href="https://rpb.lobid.org/">rpb.lobid.org</a>)</span></p>
 				<p><span class="fragment">Transformation der ZDB (PICA), DBS (CSV) und Wikidata (CSV) Daten (<a target="_blank" href="https://lobid.org/organisations/">lobid-organisations</a>)</span></p>
+			</section>
+			<section data-state="pascal">
+				<h3>Dokumentation</h3>
+				<p><span class="fragment">Beispiele: produktiv in <a href="https://gitlab.com/oersi/oersi-etl/-/tree/master/data/production">OERSI</a> (diverse Web-Quellen &rarr; JSON), für ALMA <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/">hbz-Verbundkatalog</a> (ALMA MARC &rarr; JSON) und <a href="https://github.com/hbz/rpb/tree/main/conf">Rheinland-Pfälzische Bibliographie</a> (Allegro &rarr; JSON)</span></p>
+				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/resources/org/metafacture/metafix/integration">Integration-Tests:</a> Input, Flux, Fix, Output als Dateien wie bei Real-World-Setup</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/tree/master">Metafacture</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-playground">Playground</a></span></p>
 			</section>
 
 			<section data-state="pascal">
@@ -691,7 +697,7 @@ Vorgehen "Titel auslesen":
 				<h3><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></h3>
 				<p><small><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-json%0A%7Cfix%28transformationFile%29%0A%7Cencode-yaml%0A%7Cprint%0A%3B&transformation=do+list%28path%3A%22author%5B%5D%22%2C+%22var%22%3A%22%24i%22%29%0Amove_field%28%22%24i.@type%22%2C%22%24i.type%22%29%0Aend&data=%09%09%09%09%0A%7B%22author%22%3A+%5B+%0A%09%09%7B%22name%22%3A+%22British+Library%22%2C+%0A%09%09%22@type%22%3A+%22Organization%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Ada+Lovelace%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Alan+Turing%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D+%0A%09%5D+%0A%7D+">im Playground</a></span></small></p>
 				<p><span class="fragment"><small>inputFile-Content</small></span></p>
-				<pre><small><code class="fragment" class="nohighlight" data-trim>	
+				<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
 					
 {"author": [ 
 		{"name": "British Library", 								
@@ -702,9 +708,9 @@ Vorgehen "Titel auslesen":
 		"@type": "Person"} 
 	] 
 } 
-			</code></small></pre>
+			</code></pre>
 			<p><span class="fragment"><small>Flux File</small></span></p>
-			<pre><small><code class="fragment" class="nohighlight" data-trim>	
+			<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
 inputFile												
 |open-file
 |as-records
@@ -713,13 +719,13 @@ inputFile
 |encode-yaml
 |print
 ;
-			</code></small></pre>
+			</code></pre>
 			<p><span class="fragment"><small>TransformationFile-Content</small></span></p>
-			<pre><small><code class="fragment" class="nohighlight" data-trim>	
+			<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
 
 do list(path:"author[]", "var":"$i")									
   move_field("$i.@type","$i.type")
-end						</code></small>
+end						</code>
 			</pre>
 			</section>
 
@@ -809,13 +815,6 @@ replace_all("type", "^.{6}(.).+$","$1")
 			</section>
 
 			<section data-state="petra">
-				<h3>Recap</h3>
-				<p><span class="fragment">Workflows mit Flux</span></p>
-				<p><span class="fragment">Transformationen mit Fix</span></p>
-				<p><span class="fragment">Playground, Export, Import</span></p>
-			</section>
-
-			<section data-state="petra">
 				<h2>Pause ☕</h2>
 			</section>
 
@@ -862,12 +861,42 @@ Anreicherungsbeispiel im lobid-Frontend
 </span>
 </section>
 
-			<section data-state="pascal">
-				<h3>Fix: Beispiele & Dokumentation</h3>
-				<p><span class="fragment">Beispiele: produktiv in <a href="https://gitlab.com/oersi/oersi-etl/-/tree/master/data/production">OERSI</a> (diverse Web-Quellen &rarr; JSON), für ALMA <a href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/">hbz-Verbundkatalog</a> (ALMA MARC &rarr; JSON) und <a href="https://github.com/hbz/rpb/tree/main/conf">Rheinland-Pfälzische Bibliographie</a> (Allegro &rarr; JSON)</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/resources/org/metafacture/metafix/integration">Integration-Tests:</a> Input, Flux, Fix, Output als Dateien wie bei Real-World-Setup</span></p>
-				<p><span class="fragment"><a href="https://github.com/metafacture/metafacture-fix#functions-and-cookbook">Aktuelle Dokumentation</a>, <a href="https://github.com/metafacture/metafacture-fix">GitHub-Repo</a>, <a href="https://metafacture.org/playground">Playground</a></span></p>
-			</section>
+<section data-state="petra">
+	<h2>4. Exkurs: Conditionals</h2>
+</section>
+
+<section data-state="petra">
+	<p><span class="fragment">Bedingte Anweisungen werden häufig benötigt bei der Transformation</span></p>
+	<p><span class="fragment">in Fix eingeleitet mit <span style="color:#17ff2e">if</span> oder <span style="color:#17ff2e">unless</span> und geschlossen mit einem <span style="color:#17ff2e">end</span></p>
+	<p><span class="fragment">Das Abarbeiten mehrerer Bedingungen wird durch ggf. <span style="color:#17ff2e">elsif</span> / <span style="color:#17ff2e">else</span> realisiert</span></p>
+	<p><span class="fragment">
+		bspw. "if 
+		<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#exists">exists</a>" / "if 
+		<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#any_match">any_match</a>"
+	</span></p>
+	<a target="_blank" href="https://test.metafacture.org/playground/?flux=%22https%3A//d-nb.info/1293296678/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=set_array%28%22contribution%5B%5D%22%29%0A%0Ado+list%28path%3A%22100%3F%3F%22%2C+%22var%22%3A%22%24i%22%29%0A++set_hash%28%22contribution%5B%5D.%24append.agent%22%29%0A++copy_field%28%22%24i.a%22%2C+%22contribution%5B%5D.%24last.agent.label%22%29%0A++do+list%28path%3A%22%24i.0%22%2C%22var%22%3A%22%24auth%22%29%0A++++if+any_match%28%22%24auth%22%2C%22%5Ehttp.%2B%24%22%29%0A++++++copy_field%28%22%24auth%22%2C%22contribution%5B%5D.%24last.agent.id%22%29%0A++++elsif+any_match%28%22%24auth%22%2C%22%5E\\%28DE-588\\%29.%2B%24%22%29%0A++++++copy_field%28%22%24auth%22%2C%22contribution%5B%5D.%24last.agent.gndIdentifier%22%29%0A++++++replace_all%28%22contribution%5B%5D.%24last.agent.gndIdentifier%22%2C+%22\\%28DE-588\\%29%22%2C%22%22%29%0A++++else%0A++++++add_field%28%22contribution%5B%5D.%24last.agent.gndIdentifier%22%2C%22keine+GND-ID%22%29%0A++++end%0A++end%0Aend%0Aretain%28%22contribution%5B%5D%22%29%0A">
+		<pre style="font-size: 16px;"><code class="fragment">
+...
+if any_match("$auth","^http.+$")
+  copy_field("$auth","contribution[].$last.agent.id")
+elsif any_match("$auth","^\\(DE-588\\).+$")
+  copy_field("$auth","contribution[].$last.agent.gndIdentifier")
+  replace_all("contribution[].$last.agent.gndIdentifier", "\\(DE-588\\)","")
+else
+  add_field("contribution[].$last.agent.gndIdentifier","keine GND-ID")
+end...
+	</code></pre></a>
+</section>
+
+<section data-state="pascal">
+	<h2>Ausblick</h2>
+</section>
+
+<section data-state="pascal">
+	<h3>Fix &amp; Playground weiterentwickeln</h3>
+	<p><span class="fragment">Fix-Funktionalität erweitern, Fehler beheben, Catmandu-Kompatibilität erhöhen</span></p>
+	<p><span class="fragment">Playground weiter verbessern, z.B. mehr Hinweise im Editor, integrierte Dokumentation (was gibt es für Module, wie kann ich sie kombinieren)</span></p>
+</section>
 
 			<section data-state="pascal">
 				<h2>5. Ausblick, Fragen &amp; Diskussion</h2>
