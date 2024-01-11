@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Metadatenworkflows mit Metafacture erstellen und verwalten</title>
+
+	<meta name="description" content="Hands-on Lab für den Studiengang Bibliotheks- und Informationswissenschaft an der HTWK Leipzig im Modul „Metadaten und Metadatenmanagement“">
+	<meta name="author" content="Pascal Christoph">
+	<meta name="author" content="Petra Maier">
+	<meta name="author" content="Katinka Tauber">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"type": [
+					"PresentationDigitalDocument"
+				],
+				"id": "https://slides.lobid.org/2024-01-metafacture-workshop/",
+				"name": {
+					"de": "Metadatenworkflows mit Metafacture erstellen und verwalten"
+				},
+				"creator": [
+				{
+					"id": "http://lobid.org/team/pc#!",
+					"type": "Person",
+					"name": "Pascal Christoph"
+				},
+				{
+					"id": "http://lobid.org/team/kt#!",
+					"type": "Person",
+					"name": "Katinka Tauber"
+				}
+				{
+					"id": "http://lobid.org/team/pm#!",
+					"type": "Person",
+					"name": "Petra Maier"
+				}
+				],
+				"description": {
+					"de": "Hands-on Lab für den Studiengang Bibliotheks- und Informationswissenschaft an der HTWK Leipzig im Modul „Metadaten und Metadatenmanagement“"
+				},
+				"keywords": [
+					"Metafacture"
+				],
+				"about": [
+					{
+						"id": "https://lobid.org/product/metafacture"
+					},
+					{
+						"id": "https://lobid.org/project/metafacture-fix"
+					},
+					{
+						"id": "https://lobid.org/project/metafacture-playground"
+					}
+				],
+				"datePublished": "2024-01-10",
+				"dateModified": "2023-12-21",
+				"inLanguage": [
+					"de"
+				],
+				"isBasedOn": [
+					"https://slides.lobid.org/2022-12-metafacture-workshop/",
+					"https://slides.lobid.org/2023-09-metafacture-workshop-swib/"
+				],
+				"audience": [
+					"management",
+					"librarians"
+				],
+				"license": "https://creativecommons.org/licenses/by/4.0/"
+			}
+		</script>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/hbz.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	
+	<style>
+		pre {
+			white-space: pre-wrap;
+		}
+
+		#footer-left {
+			position: absolute;
+			bottom: 1%;
+			left: 0.5%;
+			color: lightgray;
+			font-family: sans-serif;
+		}
+	</style>
+</head>
+<div id="footer-left"></div>
+
+<body>
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section data-state="katinka">
+				<a target="_blank" href="https://metafacture.org"><img src="img/metafacture.png"
+						style="border: none; padding: 5px; background-color: white" width="500px" /></a>
+				<h3>Metadatenworkflows mit Metafacture erstellen und verwalten</h3>
+				<p>
+					<small>
+						<a target="_blank" href="https://lobid.org/team/pc#!">Pascal Christoph</a>
+						&amp;
+						<a target="_blank" href="https://lobid.org/team/pm#!">Petra Maier</a>
+						&amp;
+						<a target="_blank" href="https://lobid.org/team/kt#!">Katinka Tauber</a>					
+						<br /> <a target="_blank" href="https://www.hbz-nrw.de/produkte/linked-open-data">Offene Infrastruktur,
+							Hochschulbibliothekszentrum NRW (hbz)</a> </small> <br />
+					<small><br />
+						Hands-on Lab<br />
+					Studiengang Bibliotheks- und Informationswissenschaft an der HTWK Leipzig<br />
+					im Modul „Metadaten und Metadatenmanagement“<br />
+					bei Prof. Dr. Manuel Bärwald</br />
+					Leipzig, 11. Januar 2024
+					</small>
+				</p>
+				<p>
+					<small>
+						<a
+							href="https://slides.lobid.org/2024-01-metafacture-workshop/">https://slides.lobid.org/2024-01-metafacture-workshop/</a> :
+						(<a href="2024-01-metafacture-workshop.pdf">PDF</a>)
+						<br />
+						<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+								alt="Creative Commons License" style="border-width:0" src="img/cc-by.png"
+								title="Licensed under a Creative Commons Attribution 4.0 International License"></a>
+					</small>
+				</p>
+			</section>
+
+			<section data-state="katinka">
+				<h2>Agenda</h2>
+				<ol>
+					<li>Einführung &amp; Kontext</li>
+					<li>Metafacture-Workflows </br>
+						10 min Pause  ☕
+					</li>
+					<li>Transformieren</li>
+						10 min Pause  ☕
+					<li>Exkurs: Anreicherung / Exkurs: Conditionals</li>
+					<li>Ausblick, Fragen &amp; Diskussion</li>
+				</ol>
+			</section>
+
+			<section data-state="katinka">
+				<h3>Code of Conduct</h3>
+				<p><span class="fragment">Falls alle einverstanden sind, duzen wir uns.</span></p>
+				<p><span class="fragment">Wir möchten für alle gleichermaßen ein einladendes und unterstützendes Umfeld schaffen. Dazu gehört ein höflicher und respektvoller Umgangston.</span></p>
+				<p><span class="fragment">Bei Fragen, Schwierigkeiten oder sonstigen Wortmeldungen nutzt den Chat oder die Handhebefunktion. </br>Es ist ein Workshop: Wortmeldungen und aktive Beteiligung sind willkommen. </span></p>
+				<p><span class="fragment">Falls etwas nicht funktioniert: bitte melden - meist lernen dadurch alle etwas!</span></p>
+				<p><span class="fragment">Ansonsten: am besten das Mikro stumm schalten, um überflüssige Geräusche zu vermeiden.</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h2>1. Einführung &amp; Kontext</h2>
+			</section>
+
+			<section data-state="petra">
+				<h3>Workflow: Extract, Transform, Load (ETL)</h3>
+				<img src="img/ETL-overview_compact.png" width="700" height="auto"/>
+				<p><small>Quelle: <a target="_blank" href=
+				"https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc#%C3%BCberblick">https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc</a></small>
+			</section>
+
+			<section data-state="petra">
+				<h3>Transformationsprozesse in der Praxis</h3>
+				<p><span class="fragment">Transformationen von Metadaten gehören zu Routineaufgaben wissenschaftlicher Bibliotheken.</span>
+				<p><span class="fragment">Es gibt viele unterschiedliche Methoden, die meist Programmierkenntnisse voraussetzen.</span></p>
+				<p><span class="fragment">Datentransformationen werden oft im Zusammenspiel von Fachabteilungen &amp; IT umgesetzt, verbunden mit größerem Kommunikationsaufwand.</span></p>
+				<p><span class="fragment">Existierende Transformationsprozesse sind meist nicht öffentlich und somit nicht nachnutzbar.</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Das heißt:</h3>
+				<p><span class="fragment">Es gibt großes Potenzial, wiederkehrende Aufgaben kollaborativer und effizienter zu gestalten.</span>
+			</section>
+
+			<section data-state="petra">
+				<h3>ETL: Anwendungsbeispiele</h3>
+				<p><span class="fragment"><b>Datenaggregation</b>z.B. aus unterschiedlichen Quellen</span></p>
+				<p><span class="fragment"><b>Systemmigration</b>, z.B. nach Alma oder Folio</span></p>
+				<p><span class="fragment"><b>Datenaufbereitung</b>, z.B. zur Visualisierung mit <a target="_blank" href="https://www.elastic.co/de/kibana">Kibana</a></span></p>
+				<p><span class="fragment"><b>Datenanreicherung</b>, z.B. Ergänzung von Daten aus <a target="_blank" href="https://wikidata.org">Wikidata</a></span></p>
+				<p><span class="fragment"><b>Datenanalyse</b>, z.B. Feldabdeckung im Katalog</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Metadatenanalyse/-transformation</h3>
+				<h4>Tools (Auswahl)</h4>
+				<p><span style="color:#17ff2e">MarcEdit </span><b>OpenRefine</b></p>
+				<p>Regular Expressions <emg> Python</emg> XSLT </p>
+				<p><span style="color: rgb(4, 251, 222) ">Perl</span><b>   Catmandu  </b> <span style="color: red">Metafacture</span> </p>
+				<p><span class="fragment">&rarr; je nach Ausgangslage (Datenformat, Quelle, Datenmenge etc.), Verfügbarkeit von Software, Vorhandensein etablierter/existierender Workflows, Kenntnis und persönlicher Vorliebe</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Wo wir Metafacture nutzen</h3>
+				<p><span class="fragment">Transformation der Alma MARC-XML Daten des Verbundkatalogs zu JSON-LD (<a target="_blank" href="https://lobid.org">lobid.org</a>)</span></p>
+				<p><span class="fragment">Metadaten aus verschiedenen Quellen im OER Suchindex (OERSI) aggregieren (<a target="_blank" href="https://oersi.de">oersi.de</a>)</span></p>
+				<p><span class="fragment">Transformation der Daten der Rheinland-Pfälzischen Bibliographie (<a target="_blank" href="https://rpb.lobid.org/">rpb.lobid.org</a>)</span></p>
+				<p><span class="fragment">Transformation der ZDB (PICA), DBS (CSV) und Wikidata (CSV) Daten (<a target="_blank" href="https://lobid.org/organisations/">lobid-organisations</a>)</span></p>
+			</section>
+			<section data-state="pascal">
+				<h3>Dokumentation</h3>
+				<p><span class="fragment">Beispiele: produktiv in <a target="_blank" href="https://gitlab.com/oersi/oersi-etl/-/tree/master/data/production">OERSI</a> (diverse Web-Quellen &rarr; JSON), für ALMA <a target="_blank" href="https://github.com/hbz/lobid-resources/tree/master/src/main/resources/alma/">hbz-Verbundkatalog</a> (ALMA MARC &rarr; JSON) und <a target="_blank" href="https://github.com/hbz/rpb/tree/main/conf">Rheinland-Pfälzische Bibliographie</a> (Allegro &rarr; JSON)</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-fix/tree/master/metafix/src/test/resources/org/metafacture/metafix/integration">Integration-Tests:</a> Input, Flux, Fix, Output als Dateien wie bei Real-World-Setup</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/tree/master">Metafacture</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-playground">Playground</a></span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Was ist Metafacture?</h3>
+				<p><span class="fragment">Ein vielseitiges ETL-Werkzeug zur Verarbeitung von semi-strukturierten Daten mit dem Fokus auf
+						Bibliotheksdaten</span>
+				<p><span class="fragment">nutzbar als Kommandozeilentool, als Java/JVM
+						library, </span></p>
+				<p><span class="fragment">für Batch-Verarbeitung oder on-the-fly</span></p>
+				<p><span class="fragment">offenes Framework: Weiterentwicklung, Wiederverwendung und Austausch (von einzelnen Modulen
+						und ganzen Workflows)</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Warum Metafacture?</h3>
+				<p><span class="fragment">Metafacture ist performant &#128640;
+				</span></p>
+				<p><span class="fragment">Beispiel ETL bei 50 GB MARC-XML Input nach lobid JSON-LD (28 M Dokumente):</span></p>
+				<ul style="margin:0;padding:0;">
+						<li class="fragment">14h mit Fix (7h mit Morph)</li>
+						<span class="fragment"><li>auf einem 10 Jahre alten Server</li></span>
+						<span class="fragment"><li>u.a. dank Multithreading</li></span>
+				</ul>
+				</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Metafacture-Historie</h3>
+				<p><span class="fragment">2011: Start der Entwicklung durch DNB im Rahmen von Culturegraph; damals schon Austausch mit dem hbz</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-core/graphs/contributors">2013: Umzug auf GitHub, Open-Source-Projekt geworden</a></span></p>
+				<p><span class="fragment">2019: Mit der Zeit immer weniger DNB-Ressourcen für Metafacture, hbz wird
+						Maintainer</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-fix/graphs/contributors">2019: Start von Metafacture Fix</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-playground/graphs/contributors">2021: Start von Metafacture Playground</a></span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>ETL</h3>
+				<img src="img/ETL-overview.png" />
+				-<p><small>Aus: culturegraph, <a target="_blank" href=
+				"https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc#%C3%BCberblick">https://github.com/culturegraph/culturegraph-workflow/blob/master/docs/src/docs/asciidoc/manual.adoc</a></small>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Wie Metafacture funktioniert</h3>
+				<p><span class="fragment">Grundidee: Daten fließen durch mehrere Module: <br />&rarr; read &rarr; decode
+						&rarr; transform &rarr; encode &rarr; write &rarr;</span></p>
+				<p><span class="fragment">Jedes Modul erwartet Input eines bestimmten Typs und erzeugt Output eines
+						bestimmten Typs</span></p>
+				<p><span class="fragment">Verschiedene Formate werden unterstützt (z.B. METS/MODS, MARC), erweiterbares
+						Framework für eigene Formate</span></p>
+				<p><span class="fragment">Mittels Kombination einzelner Module bauen wir einen Workflow</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Metafacture-Module</h3>
+				<img src="img/metafacture-module.png" />
+				<br /><small>Autoren: Tobias Bülte &amp; Pascal Christoph (2021-2023)</small>
+			</section>
+
+			<section data-state="pascal">
+				<h2>2. Metafacture-Workflows</h2>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Ein Workflow</h3>
+				<p><span class="fragment">
+				<img src="img/flow.png" />
+				<small>Aus: Christoph Böhme, <a
+							href="http://swib.org/swib13/slides/boehme_swib13_131.pdf">nach http://swib.org/swib13/slides/boehme_swib13_131.pdf</a></small>
+				</span></p>
+				<span class="fragment">
+				<prebigger><code class="nohighlight" data-trim>
+"dateiName"|open-file|as-lines|decode-marc21|encode-json|write("stdout");
+</code></prebigger>
+				<p><small>(Beispiel-Inhalt einer "flux" Datei)</p></small>
+				</span>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Workflows konfigurieren und ausführen</h3>
+				<p><span class="fragment">Workflows können in <span style="color:#17ff2e">Flux</span> (einer speziellen Konfigurationssprache) oder mit
+						Java (typsicher über Java Generics) bearbeitet werden</span></p>
+				<p><span class="fragment"><span style="color:#17ff2e">Flux</span>-Workflows können in einem Texteditor editiert und auf der Kommandozeile
+						ausgeführt werden; Java-Workflows funktionieren wie andere Java-Komponenten</span></p>
+				<p><span class="fragment">Der Workshop führt in die Nutzung der  <span style="color:#17ff2e">Flux</span>-Workflows ein, zum Ausführen verwenden wir den Metafacture Playground</span></p>
+			</section>
+
+			<section data-state="katinka">
+				<h3>Metafacture Playground</h3>
+				<p><span class="fragment">Webbasierte Oberfläche zum Ausprobieren und Austauschen von Metafacture-Workflows</span></p>
+				<p><span class="fragment">Ziel: Einstiegshürde für Metafacture senken, keine Installation o.Ä. notwendig</span></p>
+				<p><span class="fragment">Für Entwicklung, Dokumentation, Tutorials, Workshops</span></p>
+				<p><span class="fragment">Mitarbeit erwünscht: <a target="_blank" href="https://github.com/metafacture/metafacture-playground" target="_blank">Metafacture Playground auf Github</a></span></p>
+			</section>
+
+			<section data-state="katinka">
+				<h2>Funktionen des Playgrounds</h2>
+				<p><a href="https://metafacture.org/playground" target="_blank">https://metafacture.org/playground</a></p>
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds I</h3>
+				<p>Load Examples</p>
+				<img src="img/playground_loadexamples1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds I</h3>
+				<p>Load Examples</p>
+				<img src="img/playground_loadexamples2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds I</h3>
+				<p>Load Examples</p>
+				<img src="img/playground_loadexamples3.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds II</h3>
+				<p>Clear</p>
+				<img src="img/playground_clear1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds II</h3>
+				<p>Clear</p>
+				<img src="img/playground_clear2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds III</h3>
+				<p>Process</p>
+				<img src="img/playground_process1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds III</h3>
+				<p>Process</p>
+				<img src="img/playground_process2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds III</h3>
+				<p>Process</p>
+				<img src="img/playground_process3.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds IV</h3>
+				<p>Share</p>
+				<img src="img/playground_share1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds IV</h3>
+				<p>Share</p>
+				<img src="img/playground_share2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds IV</h3>
+				<p>Share</p>
+				<img src="img/playground_share3.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds IV</h3>
+				<p>Share</p>
+				<img src="img/playground_share4.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds V</h3>
+				<p>Export Worflow</p>
+				<img src="img/playground_export1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds V</h3>
+				<p>Export Worflow</p>
+				<img src="img/playground_export2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds V</h3>
+				<p>Import Workflow</p>
+				<img src="img/playground_import1.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="katinka">
+				<h3>Funktionen des Playgrounds V</h3>
+				<p>Import Workflow</p>
+				<img src="img/playground_import2.png" width="650" height="auto" />
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 1</h3>
+				<p>Erste Schritte im Playground</p>
+			</section>
+
+			<section data-state="petra">
+				<p>Bevor wir mit der ersten Übung starten...</p>
+				<p><span class="fragment">... ein paar Hinweise/Tipps/Hilfestellungen:</span></p>
+				<p><span class="fragment">die wichtigsten <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-commands</a> für heute:</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#open-file">open-file</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#open-http">open-http</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#as-lines">as-lines</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#as-records">as-records</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-xml">decode-xml</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-json">decode-json</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#handle-marcxml">handle-marcxml</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#fix">fix</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#encode-marcxml">encode-marcxml</a> / <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#encode-json">encode-json</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#print">print</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
+				<div>Beispieldatensatz: <a target="_blank" href="https://d-nb.info/1251888070">https://d-nb.info/1251888070</a>
+				<p>wir brauchen den Link zum MARC-XML dieses Records: <a target="_blank" href="https://d-nb.info/1251888070/about/marcxml">https://d-nb.info/1251888070/about/marcxml</a></p>
+				<p>&rarr; dieser URL wird in der Flux-File als Pfad zu den Daten angegeben <br/>
+				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22"><pre><code class="nohighlight">"https://d-nb.info/1251888070/about/marcxml"</code></pre>
+				</a></p>
+				</div>
+			</section>
+			
+			<section data-state="uebung">
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
+				<p><span class="fragment">wir möchten Daten direkt von einer http Ressource öffnen und benötigen daher...?</span></p>
+				<p><span class="fragment">parsing der xml-Daten und lesen der Daten erfolgt in 2 Schritten ...</span></p>
+				<p><span class="fragment">ein Blick in die Doku: 
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#decode-xml">"Parsing" der XML-Datei</a> und 
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#handle-marcxml">"Lesen" des MARC-XML</a></span></p>
+				<p><span class="fragment">probiert im Playground folgenden Ablauf selbst aus </span></p>
+				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+encode-marcxml%0A%7C+print%0A%3B">
+					<pre><span class="fragment"><code class="nohighlight" data-trim>
+"https://d-nb.info/1251888070/about/marcxml"
+| open-http(accept="application/xml")
+| decode-xml
+| handle-marcxml
+| encode-marcxml
+| print
+;
+				</code></pre></a></span>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 1 - Daten einlesen &amp; ausgeben</h3>
+				<p><span class="fragment">ändert die Ausgabe der Daten in JSON ab</span></p>
+				<p><span class="fragment">wie kann man das JSON leichter lesbar ("schöner") ausgeben?</span></p>
+				<p><span class="fragment">&#128161;Blick in die Doku der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-commands</a>  hilft</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+			</section>
+
+			<section data-state="petra">
+				<h2>Pause ☕</h2>
+			</section>
+
+			<section data-state="petra">
+				<h2>3. Transformieren</h2>
+			</section>
+
+			<section data-state="petra">
+				<h3>ETL: Transformation</h3>
+				<img src="img/ETL-overview-FokusTransformation.png" />
+			</section>
+
+			<section data-state="petra">
+				<h3>Transformieren</h3>
+				<p><span class="fragment">Manipulation von Feldnamen und -werten; filtern, kombinieren, trennen, normalisieren, anreichern
+						etc.</span></p>
+				<p><span class="fragment">Änderung des Datenformats, der Hierarchie</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
+				<p><span class="fragment">Überblick über vorhandene Felder verschaffen (hierfür ist bspw. das Flux-Command <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md#list-fix-paths">"list-fix-paths"</a> hilfreich)</span></p>
+				<span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-paths%28count%3D%22true%22%29%0A%7C+print%0A%3B">
+					<pre><code class="nohighlight" data-trim>
+"https://d-nb.info/1251888070/about/marcxml"
+| open-http(accept="application/xml")
+| decode-xml
+| handle-marcxml
+| list-fix-paths(count="false")
+| print
+;
+									</code></pre></a></span>
+				<p><span class="fragment">Ggf. Metadatenstandard vorab anschauen (Pflichtfelder, Wiederholbarkeit, Struktur)</span></p>
+				<p><span class="fragment">Feldinhalte (in Stichproben) anschauen</span></p>
+			</section>
+
+			<section data-state="Übung">
+				<h3>"Vorarbeiten" der Datentransformation: Analyse</h3>
+				<p><span class="fragment">Überblick über vorhandene Feld<b>inhalte</b> verschaffen</span></p>
+				<p><span class="fragment">&rarr; schaut in der <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/flux-commands.md">Flux-Commands-Übersicht</a>, womit und wie man die Inhalte analsieren kann. (2 min)</span></p>
+				<span class="fragment">Ausgeben eines bestimmten Feldinhalts: <a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+list-fix-values%28%22650+7.%2A.a%22%29%0A%7C+print%0A%3B">
+					<pre><code class="nohighlight" data-trim>
+"https://d-nb.info/1251888070/about/marcxml"
+| open-http(accept="application/xml")
+| decode-xml
+| handle-marcxml
+| list-fix-values("650 7.*.a")
+| print
+;
+			</code></pre></a></span>
+				<p><span class="fragment">oder auch die Inhalte aller Felder mit <pre><code class="fragment" class="nohighlight" data-trim> list-fix-values("*")</code></pre></span></p>
+
+			</section>
+
+			<section data-state="petra">
+				<h3>Transformationsmodul Fix</h3>
+				<p><span class="fragment">eigene Entwicklung</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://librecat.org/Catmandu/#fix-language">Catmandu-Fix</a>-artig </span></p>
+				<p><span class="fragment">Record-basiert</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Metafacture Fix: Ziele</h3>
+				<p><span class="fragment">Erleichterung der Transformationskonfiguration</span></p>
+				<p><span class="fragment">Anknüpfung an existierende Konfigurationssprache aus <a target="_blank" 
+							href="https://github.com/LibreCat/Catmandu">Catmandu</a></span></p>
+				<p><span class="fragment">Vergrößerung der Zielgruppe um Bibliothekar:innen und andere Metadatenfachleute</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Metafacture Fix: Dokumentation</h3>
+				<p><span class="fragment">Eine Einführung in Metafacture Fix bietet der <a target="_blank" 
+					href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-User-Guide.md">Fix User Guide</a></span></p>
+					<p><span class="fragment">Darüber hinaus lohnt ein Blick ins <a target="_blank" 
+						href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md">"Kochbuch"</a></span></p>
+			</section>
+
+			<section data-state="petra">
+				<p>Bevor wir mit der zweiten Übung starten...</p>
+				<p><span class="fragment">die wichtigsten Fix-Funktionen für heute:</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">copy_field</a> / 
+					<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#move_field">move_field</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a></span></p>
+				<p><span class="fragment">Einbinden der Fix in die Flux im Playground: entweder mit <i>fix(transformationFile)</i> &rarr; Fix in das entsprechende Feld ODER direkt in das Flux-Command <i>fix("...")</i></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#path-wildcards">Path wildcards</a>:<br/>
+					 <span style="color:#17ff2e">*</span> &rarr;1 &amp; mehr Zeichen ; <span style="color:#17ff2e">?</span>&rarr; genau 1 Zeichen</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Kurzes Recap MARC21-Felder</h3>
+				<p><small><span class="fragment"><a target="_blank" href="https://www.loc.gov/marc/bibliographic/">Gesamtübersicht bei der LoC</a></span></small></p>
+				<p><table class="fragment" style="font-size: medium">
+					<tr>
+						<td>LEADER 06 - Type of record (NR)</td>
+						<td>a - Language material <br/> m - Computer file ...</td>
+					</tr>
+					<tr>
+						<td>020 - ISBN (R)</td>
+						<td>Ind1; Ind2<br/> $a ISBN</td>
+					</tr>
+					<tr>
+						<td>245 - Title Statement (NR)</td>
+						<td>Ind1 (NE); Ind2 (Nichtsortierzeichen); <br/>$a Titel ; $b Zusatz ; $c Verantwortlichkeitsangabe</td>
+					</tr>
+					<tr>
+						<td>264 - Production, Publication, Distribution, Manufacture, and Copyright Notice (R)</td>		
+						<td>Ind1; Ind2 <br/>$a Entsehungsort ; $b Verlagsname ; $c Entstehungsjahr</td>			
+					</tr>
+					<tr>
+						<td>650 - Subject Added Entry - Topical Term (R)</td>		
+						<td>Ind1; Ind2<br/>$a Sachbegriff</td>			
+					</tr>
+					<tr>
+						<td>700 - Added Entry - Personal Name (R)</td>		
+						<td>Ind1; Ind2<br/> $a Personenname; $d Datumsangaben; $e Funktionsbezeichnung; $4 Code der Funktionsbezeichnung</td>			
+					</tr>
+				</table></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
+				<p><span class="fragment">Um die verschiedenen Elemente und Felder für die Transformation anzusteuern, benötigt man die Pfade</span></p>
+				<p><span class="fragment">Oberste Ebene: z.B. <i>id</i></span></p>
+				<p><span class="fragment">Unterfelder: z.B. <i>title.subtitle</i></span></p>
+				<p><span class="fragment">Wiederholte Felder werden als Listen (arrays) mit Index-Nummer angegeben: z.B. <i>creator.1.name.firstName</i></span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
+				<p>&#128161;Wiederholte Felder werden als "arrays/Listen" gelesen - was heißt das in der Praxis?</p>
+				<table>
+					<tr>
+						<th><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-yaml%0A%7Cfix%28%22copy_field%28%27name1%27%2C+%27creator%27%29+retain%28%27creator%27%29%22%29%0A%7Cencode-json%28prettyPrinting%3D%22true%22%29%0A%7Cprint%0A%3B+&data=---%0Aname1%3A+Zeng%2C+Marcia+Lei%0Aname2%3A+Coyle%2C+Karen%0Aname3%3A+Avram%2C+Henriette">Feldname einfach</a></th>
+						<th><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-yaml%0A%7Cfix%28%22copy_field%28%27name.1%27%2C+%27creator%27%29+retain%28%27creator%27%29%22%29%0A%7Cencode-json%28prettyPrinting%3D%22true%22%29%0A%7Cprint%0A%3B+&data=---%0Aname%3A+Zeng%2C+Marcia+Lei%0Aname%3A+Coyle%2C+Karen%0Aname%3A+Avram%2C+Henriette">Feldname wiederholt</a></th>
+					</tr>
+					<tr>
+						<td>
+							<small><code>
+							inputFile <br/>
+							---<br/>
+							name1: Zeng, Marcia Lei<br/>
+							name2: Coyle, Karen<br/>
+							name3: Avram, Henriette<br/>
+							<br/>
+							Flux<br/>
+							inputFile<br/>
+							|open-file<br/>
+							|as-records<br/>
+							|decode-yaml<br/>
+							|fix("copy_field<emg>('name1', 'creator')</emg> retain('creator')")<br/>
+							|encode-json(prettyPrinting="true")<br/>
+							|print<br/>
+							;
+							</code></small>
+						</td>
+						<td><small><code>
+							inputFile <br/>
+							---<br/>
+							name: Zeng, Marcia Lei<br/>
+							name: Coyle, Karen<br/>
+							name: Avram, Henriette<br/>
+							<br/>
+							Flux<br/>
+							inputFile<br/>
+							|open-file<br/>
+							|as-records<br/>
+							|decode-yaml<br/>
+							|fix("copy_field<emg>('name.1', 'creator')</emg> retain('creator')")<br/>
+							|encode-json(prettyPrinting="true")<br/>
+							|print<br/>
+							;<br/>
+						</code></small>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
+				<p><span class="fragment">Basis ist der <a target="_blank" href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1 (<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+encode-marcxml%0A%7C+print%0A%3B">im Playground</a>)</span></p>
+				<p><pre class="fragment">
+Vorgehen "Titel auslesen":
+&rarr; Pfad bestimmen
+&rarr; Feldinhalt in ein neues Feld "title" <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#copy_field">kopieren</a>
+&rarr; mit <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#retain">retain</a> nur diesen Feldinhalt ausgeben lassen
+				</pre>
+				</p>
+				<p><span class="fragment">&#128161;Hilfestellung: Feld 245 hat 2 Indikatoren</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 2 - Metafacture Fix: Pfade</h3>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F%22%2C%22title%22%29%0Aretain%28%22title%22%29">Ausgeben des gesamten Title statement</a></span></p>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Aretain%28%22title%22%29">Lösung für die Übung: Nur Titel ausgeben</a></span></p>
+				<p><span class="fragment">Sieht es bei jemandem anders aus?</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>weitere Fix-Funktionen</h3>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#set_array">set_array</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
+				<p><span class="fragment"><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#put_map">put_map</a></span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></h3>
+				<p><span class="fragment">Iteriert über eine Liste (zur Erinnerung: wiederholte Felder werden als Listen interpretiert!)</span></p>
+				<p><span class="fragment">Durch das Setzen eines Variablennamens für das Wurzelelement können die zugehörenden untergeordneten Elemente angesprochen werden.</span></p>
+				<p><span class="fragment">wird mit <span style="color:#17ff2e">end</span> geschlossen</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3><a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#do-list">do list</a></h3>
+				<p><small><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=inputFile%0A%7Copen-file%0A%7Cas-records%0A%7Cdecode-json%0A%7Cfix%28transformationFile%29%0A%7Cencode-yaml%0A%7Cprint%0A%3B&transformation=do+list%28path%3A%22author%5B%5D%22%2C+%22var%22%3A%22%24i%22%29%0Amove_field%28%22%24i.@type%22%2C%22%24i.type%22%29%0Aend&data=%09%09%09%09%0A%7B%22author%22%3A+%5B+%0A%09%09%7B%22name%22%3A+%22British+Library%22%2C+%0A%09%09%22@type%22%3A+%22Organization%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Ada+Lovelace%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D%2C+%0A%09%09%7B%22name%22%3A+%22Alan+Turing%22%2C+%0A%09%09%22@type%22%3A+%22Person%22%7D+%0A%09%5D+%0A%7D+">im Playground</a></span></small></p>
+				<p><span class="fragment"><small>inputFile-Content</small></span></p>
+				<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
+					
+{"author": [ 
+		{"name": "British Library", 								
+		"@type": "Organization"}, 
+		{"name": "Ada Lovelace", 
+		"@type": "Person"}, 
+		{"name": "Alan Turing", 
+		"@type": "Person"} 
+	] 
+} 
+			</code></pre>
+			<p><span class="fragment"><small>Flux File</small></span></p>
+			<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
+inputFile												
+|open-file
+|as-records
+|decode-json
+|fix(transformationFile)
+|encode-yaml
+|print
+;
+			</code></pre>
+			<p><span class="fragment"><small>TransformationFile-Content</small></span></p>
+			<pre style="font-size: 12px;"><code class="fragment" class="nohighlight" data-trim>	
+
+do list(path:"author[]", "var":"$i")									
+  move_field("$i.@type","$i.type")
+end						</code>
+			</pre>
+			</section>
+
+			<section data-state="petra">
+				<h2>Pause ☕</h2>
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Vorarbeiten: wie sollen die Felder gemapped werden?</span></p>
+				<p><span class="fragment">MARC21 und DC sind verbreitete Standards; es gibt bereits sog. Crosswalks (z.B. <a target="_blank" href="https://www.loc.gov/marc/marc2dc.html">LoC</a>), die zur Orientierung herangezogen werden können</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">wir mappen</span></p>
+				<p>
+					<table class="fragment">
+						<tr><th>MARC21</th><th>DC</th></tr>
+						<tr><td>020 $a</td><td>dc:identifier</td></tr>
+						<tr><td>245 $a $b</td><td>dc:title</td></tr>
+						<tr><td>700 $a</td><td>dc:creator</td></tr>
+						<tr><td>264 $c</td><td>dc:date</td></tr>
+						<tr><td>264 $b</td><td>dc:publisher</td></tr>
+						<tr><td>LDR Pos. 7</td><td>dc:type [*]</td></tr>
+						<tr><td>650 $a</td><td>dc:subject</td></tr>
+					</table>
+				</p>
+				<p><small><span class="fragment">[*] empfohlen wird die Verwendung v. kontrolliertem Vokabular wie bspw. <a target="_blank" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7">DCMI TYPE Vocabulary</a></span></small></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Nehmen wir wieder den <a target="_blank" href="https://d-nb.info/1251888070/about/marcxml">Beispieldatensatz</a> aus Übung 1</span></p>
+				<p><span class="fragment">Wie in Übung 2 könnt Ihr das Entstehungsjahr und den Verlag in ein Feld "date" bzw. "publisher" kopieren</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">wir sollten nun alle 
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%29">
+						diesen Stand haben</a>
+					</span></p>
+				<p><span class="fragment">die Felder 700$a, 020$a und 650$a müssen etwas anders abgearbeitet werden</span></p>
+				<p><span class="fragment">die ISBN(s) und auch die wiederholten Felder werden in einem Array ausgegeben - auch wenn es nur 1 gibt</span></p>
+				<p><span class="fragment">benutzt <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#set_array">set-array</a> und array-Wildcard <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#array-wildcards">$append</a> - probiert es aus (und schaut ggf. in die Doku)</span></p>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen </span></p>
+				<p><span class="fragment"><a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=copy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%29">
+					Lösung bis hierhin im Playground
+				</a></span></p>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">für das Mappen des Leader Pos. 7 auf Kontrolliertes Vokabular &rarr; <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#lookup">lookup</a></span></p>
+				<p><span class="fragment">Zuerst: map erstellen entweder in der Fix oder in einer separaten Datei.</span></p>
+				<p><span class="fragment">Key-value-pairs für die Werte: a - Language material &rarr; in DC "text"; m - Computer file &rarr; in DC "dataset" </span></p>
+				<pre style="font-size: 16px;"><code class="fragment">
+put_map("ldr_type", key1:"value1",...)
+				</code></pre>
+				<p><span class="fragment" style="color:#17ff2e">Wer fertig ist: bitte im Status "Daumen hoch" setzen</span></p>
+				<p><span class="fragment">Es sollte so aussehen:</span></p>
+				<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=put_map%28%22ldr_type%22%2C+%22a%22%3A%22text%22%2C+%22m%22%3A%22dataset%22%29%0A%0Acopy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Acopy_field%28%22leader%22%2C%22type%22%29%0A%23+ToDo%3A+leader+Pos.+7+nochauslesen%0Alookup%28%22type%22%2C%22ldr_type%22%29%0A%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%2C%22type%22%29">
+				
+				<pre style="font-size: 16px;" ><code class="fragment">
+put_map("ldr_type", "a":"text", "m":"dataset")
+				</code></pre></a>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">Wie kommt man aber an die Pos. 7 im Leader?</span></p>
+				<p><span class="fragment">Hierfür kann man Reguläre Ausdrücke in Kombination mit der Fix-Funktion <a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#replace_all">replace_all</a> nutzen</span></p>
+				<pre><code class="fragment">
+replace_all("type", "^.{6}(.).+$","$1")
+				</code></pre>
+			</section>
+
+			<section data-state="uebung">
+				<h3>Übung 3 - MARC-XML to DC</h3>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=put_map%28%22ldr_type%22%2C+%22a%22%3A%22text%22%2C+%22m%22%3A%22dataset%22%29%0A%0Acopy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Acopy_field%28%22leader%22%2C%22type%22%29%0Areplace_all%28%22type%22%2C+%22%5E.%7B6%7D%28.%29.%2B%24%22%2C%22%241%22%29%0Alookup%28%22type%22%2C%22ldr_type%22%29%0A%0Aretain%28%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%2C%22type%22%29">Lösung im Playground</a>
+				</span></p>
+			</section>
+
+			<section data-state="petra">
+				<h3>Von JSON zu JSON-LD</h3>
+				<p><span class="fragment">
+					<a target="_blank" href="https://metafacture.org/playground/?flux=%22https%3A//d-nb.info/1251888070/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyprinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=put_map%28%22ldr_type%22%2C+%22a%22%3A%22text%22%2C+%22m%22%3A%22dataset%22%29%0A%0Acopy_field%28%22245%3F%3F.a%22%2C%22title%22%29%0Acopy_field%28%22264%3F%3F.b%22%2C%22publisher%22%29%0Acopy_field%28%22264%3F%3F.c%22%2C%22date%22%29%0Aset_array%28%22creator%5B%5D%22%29%0Acopy_field%28%22100%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Acopy_field%28%22700%3F%3F.a%22%2C%22creator%5B%5D.%24append%22%29%0Aset_array%28%22identifier%5B%5D%22%29%0Acopy_field%28%22020%3F%3F.a%22%2C%22identifier%5B%5D.%24append%22%29%0Aset_array%28%22subject%5B%5D%22%29%0Ado+list%28path%3A%22650%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++copy_field%28%22%24i.a%22%2C%22subject%5B%5D.%24append%22%29%0Aend%0Acopy_field%28%22leader%22%2C%22type%22%29%0Areplace_all%28%22type%22%2C+%22%5E.%7B6%7D%28.%29.%2B%24%22%2C%22%241%22%29%0Alookup%28%22type%22%2C%22ldr_type%22%29%0A%0Aadd_field%28%22@context.type%22%2C%22http%3A//purl.org/dc/elements/1.1/type%22%29%0Aadd_field%28%22@context.title%22%2C%22http%3A//purl.org/dc/terms/title%22%29%0Aadd_field%28%22@context.creator%22%2C%22http%3A//purl.org/dc/elements/1.1/creator%22%29%0Aadd_field%28%22@context.date%22%2C%22http%3A//purl.org/dc/elements/1.1/date%22%29%0Aadd_field%28%22@context.publisher%22%2C%22http%3A//purl.org/dc/elements/1.1/publisher%22%29%0Aadd_field%28%22@context.subject%22%2C%22http%3A//purl.org/dc/elements/1.1/subject%22%29%0A%0Aretain%28%22@context%22%2C+%22title%22%2C%22publisher%22%2C%22date%22%2C+%22creator%5B%5D%22%2C%22identifier%5B%5D%22%2C+%22subject%5B%5D%22%2C%22type%22%29">Ergänzung @context</a>
+				</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h2>4. Exkurs: Anreichern</h2>
+			</section>
+
+<section data-state="pascal">
+<h3>Lookups auf Tabellen</h3>
+<a target="_blank" href="
+https://metafacture.org/playground/?example=put_filemap
+">
+Einfacher Lookup auf eine zweispaltige tsv Tabelle, die im Web liegt
+</a>
+</span>
+</section>
+
+<section data-state="pascal">
+<h3>RDF web lookups</h3>
+<span class="fragment">
+In Alma Marc XML haben wir nur die IDs der "DNB Sachgruppen":
+<pre>
+<code class="xml">
+  &lt;datafield tag="084" ind1=" " ind2=" "&gt;
+    &lt;subfield code="a"&gt;333.7&lt;/subfield&gt;
+    &lt;subfield code="a"&gt;621.3&lt;/subfield&gt;
+    &lt;subfield code="q"&gt;DE-600&lt;/subfield&gt;
+    &lt;subfield code="2"&gt;sdnb&lt;/subfield&gt;
+  &lt;/datafield&gt;
+</code></pre>
+<a target="_blank" href="
+https://metafacture.org/playground/?flux=%22http%3A//lobid.org/download/marcXml-8-records.xml%22%0A%7C+open-http%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=do+once%28%22maps%22%29%0A++++put_rdfmap%28%22https%3A//raw.githubusercontent.com/acka47/dnb-sg-skos/main/sg_skos_2020.ttl%22%2C+%22idLookup%22%2Ctarget%3A%22skos%3Anotation%22%29%0A++++put_rdfmap%28%22https%3A//raw.githubusercontent.com/acka47/dnb-sg-skos/main/sg_skos_2020.ttl%22%2C+%22labelLookup%22+%2C+target%3A+%22skos%3AprefLabel%22%2C+select_language%3A%22de%22%29%0Aend%0A%0Aset_array%28%22dnb_sg%5B%5D%22%29%0A%0Ado+list%28path%3A%22084%3F%3F%22%2C%22var%22%3A%22%24i%22%29%0A++++if+any_match%28%22%24i.2%22%2C+%22sdnb%7Czdbs%22%29%0A++++++++do+list%28path%3A%22%24i.a%22%2C%22var%22%3A%22%24j%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24append.notation%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24last.id%22%29%0A++++++++++++copy_field%28%22%24j%22%2C%22dnb_sg%5B%5D.%24last.label%22%29%0A++++++++end%0A++++end%0Aend%0A%0Alookup%28%22dnb_sg%5B%5D.%2A.id%22%2C%22idLookup%22%29%0Alookup%28%22dnb_sg%5B%5D.%2A.label%22%2C%22idLookup%22%29%0Alookup%28%22dnb_sg%5B%5D.%2A.label%22%2C%22labelLookup%22%29%0A%0Aretain%28%22dnb_sg%5B%5D%22%29
+">
+Lookup auf "DNB Sachgruppen" um mit skos:notation und skos:prefLabel anzureichern
+</a>
+</span>
+   <p><span class="fragment">
+(<a target="_blank" href="
+https://lobid.org/resources/99371981001306441
+">
+Anreicherungsbeispiel im lobid-Frontend
+</a>
+)
+</span>
+</section>
+
+<section data-state="petra">
+	<h2>4. Exkurs: Conditionals</h2>
+</section>
+
+<section data-state="petra">
+	<p><span class="fragment">Bedingte Anweisungen werden häufig benötigt bei der Transformation</span></p>
+	<p><span class="fragment">in Fix eingeleitet mit <span style="color:#17ff2e">if</span> oder <span style="color:#17ff2e">unless</span> und geschlossen mit einem <span style="color:#17ff2e">end</span></p>
+	<p><span class="fragment">Das Abarbeiten mehrerer Bedingungen wird durch ggf. <span style="color:#17ff2e">elsif</span> / <span style="color:#17ff2e">else</span> realisiert</span></p>
+	<p><span class="fragment">
+		bspw. "if 
+		<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#exists">exists</a>" / "if 
+		<a target="_blank" href="https://github.com/metafacture/metafacture-documentation/blob/master/Fix-function-and-Cookbook.md#any_match">any_match</a>"
+	</span></p>
+	<a target="_blank" href="https://test.metafacture.org/playground/?flux=%22https%3A//d-nb.info/1293296678/about/marcxml%22%0A%7C+open-http%28accept%3D%22application/xml%22%29%0A%7C+decode-xml%0A%7C+handle-marcxml%0A%7C+fix%28transformationFile%29%0A%7C+encode-json%28prettyPrinting%3D%22true%22%29%0A%7C+print%0A%3B&transformation=set_array%28%22contribution%5B%5D%22%29%0A%0Ado+list%28path%3A%22100%3F%3F%22%2C+%22var%22%3A%22%24i%22%29%0A++set_hash%28%22contribution%5B%5D.%24append.agent%22%29%0A++copy_field%28%22%24i.a%22%2C+%22contribution%5B%5D.%24last.agent.label%22%29%0A++do+list%28path%3A%22%24i.0%22%2C%22var%22%3A%22%24auth%22%29%0A++++if+any_match%28%22%24auth%22%2C%22%5Ehttp.%2B%24%22%29%0A++++++copy_field%28%22%24auth%22%2C%22contribution%5B%5D.%24last.agent.id%22%29%0A++++elsif+any_match%28%22%24auth%22%2C%22%5E\\%28DE-588\\%29.%2B%24%22%29%0A++++++copy_field%28%22%24auth%22%2C%22contribution%5B%5D.%24last.agent.gndIdentifier%22%29%0A++++++replace_all%28%22contribution%5B%5D.%24last.agent.gndIdentifier%22%2C+%22\\%28DE-588\\%29%22%2C%22%22%29%0A++++else%0A++++++add_field%28%22contribution%5B%5D.%24last.agent.gndIdentifier%22%2C%22keine+GND-ID%22%29%0A++++end%0A++end%0Aend%0Aretain%28%22contribution%5B%5D%22%29%0A">
+		<pre style="font-size: 16px;"><code class="fragment">
+...
+if any_match("$auth","^http.+$")
+  copy_field("$auth","contribution[].$last.agent.id")
+elsif any_match("$auth","^\\(DE-588\\).+$")
+  copy_field("$auth","contribution[].$last.agent.gndIdentifier")
+  replace_all("contribution[].$last.agent.gndIdentifier", "\\(DE-588\\)","")
+else
+  add_field("contribution[].$last.agent.gndIdentifier","keine GND-ID")
+end...
+	</code></pre></a>
+</section>
+
+<section data-state="pascal">
+				<h2>5. Ausblick, Fragen &amp; Diskussion</h2>
+			</section>
+
+			<section data-state="pascal">
+				<h2>Ausblick</h2>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Fix &amp; Playground weiterentwickeln</h3>
+				<p><span class="fragment">Fix-Funktionalität erweitern, Fehler beheben, Catmandu-Kompatibilität erhöhen</span></p>
+				<p><span class="fragment">Playground weiter verbessern, z.B. mehr Hinweise im Editor, integrierte Dokumentation (was gibt es für Module, wie kann ich sie kombinieren)</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>Standards nutzen und aufbauen</h3>
+				<p><span class="fragment">SKOS Lookups (zum Andocken an <a
+							href="https://github.com/skohub-io/skohub-vocabs">SkoHub Vocabs</a>)</span>
+      <span class="fragment"> ✓</span></p>
+				<p><span class="fragment"><a target="_blank" href="https://www.w3.org/community/reconciliation/">Entity Reconciliation</a> mit <a target="_blank" href="https://docs.openrefine.org/manual/reconciling">OpenRefine-kompatiblen Diensten</a></span></p>
+				<p><span class="fragment">Fix-Standardisierung, s. <a target="_blank" href="https://github.com/elag/FIG">https://github.com/elag/FIG</a></span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h3>ETL Hub</h3>
+				<p>ETL: Extract, Transform, Load</p>
+				<p><span class="fragment">mehr Kollaboration, Teilen & Auffinden von Workflows ermöglichen (nicht nur
+						für Metafacture)</span></p>
+				<p><span class="fragment">Entwicklung von Best Practices zur Paketierung und Beschreibung von
+						ETL-Konfigurationen</span></p>
+				<p><span class="fragment">Aufbau eines ETL Hubs zum Entdecken existierender ETL-Prozesse für die
+						einfache Nachnutzung und Anpassung</span></p>
+
+				<p><span class="fragment">
+					<a target="_blank" href="
+https://swib.org/swib23/programme.html
+">
+Großes Interesse bekundet auf der SWIB 23
+					</a>
+				</span></p>
+			</section>
+
+			<section data-state="pascal">
+				<h2>Fragen und Diskussion</h2>
+			</section>
+
+			<section data-state="pascal">
+					<a target="_blank" href="
+https://metadaten.community/c/software-und-tools/metafacture/8
+">
+Auf der Discourse-Plattform unter metadaten.community
+					</a>
+					<img src="img/discourse_metadaten.community.png" />
+			</section>
+
+			<section data-state="pascal">
+				<h3>Feedbackrunde</h3>
+				<p>Immer im Wechsel: etwas Positives, etwas Negatives</p>
+				<p>Wir starten mit...</p>
+			</section>
+
+			<section data-state="alle">
+				<img src="img/metafacture.png" />
+				<p><a target="_blank" href="https://metafacture.org">https://metafacture.org</a></p>
+			</section>
+
+		</div>
+
+	</div>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		Reveal.addEventListener('pascal', function () { document.querySelector('#footer-left').innerHTML = 'PC'; });
+		Reveal.addEventListener('petra', function () { document.querySelector('#footer-left').innerHTML = 'PM'; });
+		Reveal.addEventListener('katinka', function () { document.querySelector('#footer-left').innerHTML = 'KT'; });
+		Reveal.addEventListener('uebung', function () { document.querySelector('#footer-left').innerHTML = 'Ü'; });
+		Reveal.addEventListener('uebungsPause', function () { document.querySelector('#footer-left').innerHTML = 'Ü.'; });
+		Reveal.addEventListener('alle', function () { document.querySelector('#footer-left').innerHTML = '*'; });			
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'none', // none/fade/slide/convex/concave/zoom
+			backgroundTransition: 'none',
+			slideNumber: 'c/t', // 'c/t'
+			hashOneBasedIndex: true,
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
