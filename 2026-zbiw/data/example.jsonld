@@ -1,0 +1,35 @@
+{
+  "@context": "http://labs.lobid.org/htw-chur-2019-context.jsonld",
+  "id": "https://slides.lobid.org/htw-chur-2019/",
+  "type": "Document",
+  "creator": [
+    {
+      "id": "http://lobid.org/team/pc#!",
+      "type": "Person",
+      "name": "Pascal Christoph"
+    },
+    {
+      "id": "http://lobid.org/team/ap#!",
+      "type": "Person",
+      "name": "Adrian Pohl"
+    }
+  ],
+  "license": {
+    "id": "https://creativecommons.org/licenses/by/4.0/",
+		"type": "License",
+		"name": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+  },
+  "subject": [
+    {
+      "id": "http://d-nb.info/gnd/7863462-3",
+			"type": "SubjectHeading"
+			"name": "Linked Data"
+    },
+    {
+      "id": "http://d-nb.info/gnd/1064023886",
+			"type": "SubjectHeading"
+			"name": "Open Data"
+    }
+  ],
+  "title": "Von LOD zu LOUD – Erfahrungen aus zehn Jahren Linked-Open-Data-Entwicklung am hbz"
+}
